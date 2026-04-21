@@ -1,0 +1,59 @@
+name: Overleaf Backup
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Set to your preferred safe interval
+  workflow_dispatch:
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync Multiple Overleaf Projects
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Define your Overleaf projects here. 
+          # Format: "PROJECT_ID FOLDER_NAME"
+          PROJECTS=(
+            "69e618b4816cad2a1aae230a project_plan"
+            "69e729087b819a8573d53578 baseline_report"
+          )
+          
+          for entry in "${PROJECTS[@]}"; do
+            # Split the array string into the ID and target folder name
+            set -- $entry
+            pid=$1
+            folder_name=$2
+            
+            echo "Processing Overleaf project: $folder_name..."
+            
+            # Clone the Overleaf project into a temporary directory
+            git clone https://${{ secrets.OVERLEAF_EMAIL }}:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/$pid temp_dir
+            
+            # Ensure the target folder exists in your GitHub repo
+            mkdir -p $folder_name
+            
+            # Use rsync to perfectly mirror the files.
+            # --delete ensures files removed in Overleaf are also removed in GitHub.
+            # --exclude='.git/' strips Overleaf's git tracking so GitHub doesn't get confused.
+            rsync -a --delete --exclude='.git/' temp_dir/ $folder_name/
+            
+            # Remove the temporary directory
+            rm -rf temp_dir
+          done
+          
+          # Stage all updated folders and files
+          git add .
+          
+          # Only create a commit if there are actual changes
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Automated sync of multiple Overleaf projects"
+            git push origin main
+          else
+            echo "No new changes detected across any projects."
+          fi
