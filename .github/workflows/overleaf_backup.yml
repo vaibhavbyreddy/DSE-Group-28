@@ -25,10 +25,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # FIX 3: Safely encode the '@' symbol in your email to '%40' so the URL doesn't break
-          EMAIL="${{ secrets.OVERLEAF_EMAIL }}"
-          ENCODED_EMAIL="${EMAIL//@/%40}"
-          
           # Define your Overleaf projects here
           PROJECTS=(
             "69e618b4816cad2a1aae230a project_plan"
@@ -41,9 +37,9 @@ jobs:
             folder_name=$2
             
             echo "Processing Overleaf project: $folder_name..."
-            
-            # Use the encoded email to clone safely
-            git clone "https://${ENCODED_EMAIL}:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/$pid" temp_dir
+
+            # Use the universal 'git' username with your token
+            git clone "https://git:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/$pid" temp_dir
             
             mkdir -p "$folder_name"
             rsync -a --delete --exclude='.git/' temp_dir/ "$folder_name/"
