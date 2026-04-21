@@ -1,0 +1,95 @@
+
+
+\chapter{Overview}
+Due to the tendency of aviation towards reaching net-zero climate effects in the coming decades, as well as towards performance improvements, airplane designs are becoming lighter. That is achieved both through making the structures more lightweight, but also through certain aerodynamic features, such as increasing the wing aspect ratio. As a consequence, new challenges are arising in the form of aeroservoelastic interactions between airflow, structures, rigid-body motions, and control systems. 
+
+The aforementioned phenomena can be static or dynamic, some of the former being torsional divergence and control reversal, and some of the latter being flutter. Such effects can occur on any part of the airplane, such as the main wing, the empennage or the control surfaces. In general, they can lead to catastrophic failure and have to be avoided within the operational flight envelope. That objective is often achieved by aeroelastic tailoring, a passive approach where the structural elements, such as composite panels, are stiffened in a specific direction, or mass balances are attached to the wing to modify the inertial properties. While these passive approaches do mitigate the problem to a specific extent, they optimize the airplane for a specific flight condition, and often at the cost of weight increase.
+
+An alternative, emerging approach, is to design active control systems, that prevent the oscillations (active flutter suppression) and actively alleviate loads (manoeuvre and gust load alleviation) based on sensor measurements. This approach is not only more efficient in terms of performance and increase in safety, but also in terms of extending the operational flight envelope. Despite these advantages, the certification of these flight control systems remains a challenge. Computational simulation is difficult due to a specific feature of high-aspect-ratio wings: their behaviour is inherently nonlinear. Similarly, in the wind tunnel the real behaviour of these aircraft cannot be simulated accurately due to the model being constrained, effectively eliminating rigid-body motions, crucial for phenomena such as the body freedom flutter. Also, wind tunnel testing of such flexible models is both expensive and dangerous, as the tunnel could get damaged.
+
+The remaining approach is flight testing, providing realistic data, but notorious for its cost and pilot safety. Hence, the aim of this design project is the design of cheap and modular flying testbed that can carry multiple types of payload. This will involve design and analysis of modular structural and aerodynamic features, design of adaptive and robust flight control laws to be tested on this aircraft, the integration of a provided jet engine for reaching transonic speeds, performance analysis, ground operation analysis, manufacturing procedure, as well as the analysis of environmental impact.
+
+
+
+In some cases, this interaction can even lead  
+
+\section{User requirements}
+The goals of the project are highly dependent on the user needs. Therefore, it is necessary to define user requirements which come from the user's needs. These requirements also influence some boundaries for the mission and performance aspects of the aircraft. The requirements have been composed according to the VALID criteria and are presented in \autoref{tab:user_requirements}.
+
+\begin{table}[H]
+    \centering
+    \caption{User requirements grouped by category}
+    \begin{tabular}{|c|p{13cm}|}
+        \hline
+        \textbf{Requirement Code} & \textbf{Description} \\
+        \hline
+
+        % Mission (MIS)
+        \multicolumn{2}{|c|}{\textbf{Mission (MIS)}} \\
+        \hline
+        \textbf{TBD-Usr-MIS-1} & The aircraft shall serve as an experimental unmanned flying laboratory for conducting real-life experiments.\\
+        \hline
+        \textbf{TBD-Usr-MIS-2} & The aircraft shall be able to perform a mission of at least 30 min endurance.\\
+        \hline
+        \textbf{TBD-Usr-MIS-3} & The aircraft shall have a minimum operational life of 15 years.\\
+        \hline
+
+        % Structures (STR)
+        \multicolumn{2}{|c|}{\textbf{Structures (STR)}} \\
+        \hline
+        \textbf{TBD-Usr-STR-1} & The aircraft shall be modular by means of adding, removing or swapping its sections.\\
+        \hline
+        \textbf{TBD-Usr-STR-2} & The aircraft shall be able to accommodate additional, dedicated electronics.\\
+        \hline
+        \textbf{TBD-Usr-STR-3} & The aircraft shall weigh 50 kg or less.\\
+        \hline
+
+        % Aerodynamics (AER)
+        \multicolumn{2}{|c|}{\textbf{Aerodynamics (AER)}} \\
+        \hline
+        \textbf{TBD-Usr-AER-1} & The user shall be able to configure the aircraft for stable flight condition.\\
+        \hline
+        \textbf{TBD-Usr-AER-2} & The critical Mach number of the aircraft's wing shall be higher than Mach 0.75.\\
+        \hline
+
+        % Control (CTL)
+        \multicolumn{2}{|c|}{\textbf{Control (CTL)}} \\
+        \hline
+        \textbf{TBD-Usr-CTL-1} & The aircraft shall be controllable remotely from ground.\\
+        \hline
+
+        % Propulsion (PROP)
+        \multicolumn{2}{|c|}{\textbf{Propulsion (PROP)}} \\
+        \hline
+        \textbf{TBD-Usr-PROP-1} & The aircraft shall operate at an airspeed of Mach 0.4 to 0.75.\\
+        \hline
+
+        % Sustainability (SUS)
+        \multicolumn{2}{|c|}{\textbf{Sustainability (SUS)}} \\
+        \hline
+        \textbf{TBD-Usr-SUS-1} & The aircraft shall use sustainable aviation fuel (SAF).\\
+        \hline
+
+        % Certification (CER)
+        \multicolumn{2}{|c|}{\textbf{Certification (CER)}} \\
+        \hline
+        \textbf{TBD-Usr-CER-1} & The user shall be able to validate highly flexible aircraft technologies safely.\\
+        \hline
+        \textbf{TBD-Usr-CER-2} & The user shall be able to support regulatory classification using SORA/SAIL.\\
+        \hline
+
+        % Operations (OPS)
+        \multicolumn{2}{|c|}{\textbf{Operations (OPS)}} \\
+        \hline
+        \textbf{TBD-Usr-OPS-1} & The user shall be able to transport the aircraft in a van-sized vehicle.\\
+        \hline
+
+        % Financial (FIN)
+        \multicolumn{2}{|c|}{\textbf{Financial (FIN)}} \\
+        \hline
+        \textbf{TBD-Usr-FIN-1} & The total cost of a single configuration shall not exceed 45k€. \\
+        \hline
+
+    \end{tabular}
+    \label{tab:user_requirements}
+\end{table}

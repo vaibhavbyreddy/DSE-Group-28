@@ -1,0 +1,170 @@
+\documentclass{tudelft-report}
+
+%% Set up the bibliography
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{pgfgantt}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    breaklinks=true
+}
+
+\usepackage{varioref}
+\usepackage{cleveref}
+\usepackage{amsmath}                                % Math packages
+\usepackage{amssymb}
+\usepackage{calc}
+\usepackage{gensymb}
+\usepackage{siunitx}
+\usepackage{adjustbox}                              % Figure packages
+\usepackage[labelfont={bf}, 
+            textfont={it}, 
+            tableposition=top,
+            justification=centering]{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{array}                                  % Table packages
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{enumitem}                               % Listing packages
+\usepackage{easylist}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{changes}                                % Text packages
+\usepackage{comment}
+\usepackage{fancyvrb}
+\usepackage{lipsum}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{geometry}                               % Miscellaneous packages
+\usepackage{nomencl}
+\usepackage{pdfpages}
+\setlength{\parindent}{0pt}
+\usepackage{datetime}
+\usepackage{tabularx}
+%added this below to get rid of the gigantic numbers wasting space
+\usepackage{titlesec}
+\usepackage{booktabs} % For nicer rules
+\usepackage{pgfgantt}
+\usepackage{tikz-qtree}
+\usepackage{todonotes}
+\usepackage[table,xcdraw]{xcolor}
+
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}  % font format
+  {\thechapter.}{0.5em}{}        % number + spacing
+
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\chapter}{\clearpage}{}{}{}
+\patchcmd{\chapter}{\cleardoublepage}{}{}{}
+\makeatother
+%% Additional packages and commands
+\usepackage{parskip}
+%\setlist{itemsep=-2pt} % Reducing white space in lists slightly
+%\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
+
+\yyyymmdddate
+
+%% ----------------------------------------------------------------------
+%%    Begin of document + Frontmatter (Roman page numbering)
+%% ----------------------------------------------------------------------
+
+\begin{document}
+
+\frontmatter
+
+%% Define the main parameters
+
+\title{Baseline Report}
+\subtitle{}
+\author{
+\Large{DSE Group 28} \texorpdfstring{\\}{}[1em]
+\Large{Tutore: Dr.ir. S. (Saullo) Giovani Pereira Castro}\\
+\Large{Coaches: Jenna Iori \& Marco Radaelli }
+\texorpdfstring{\\}{}[1em]
+\texorpdfstring{\newline}{} 
+\large{
+\texorpdfstring{
+\begin{tabular}{@{}llp{0mm}ll@{}}
+Adam Janeček (5925959) \\
+Alexandru Gheorghiu (5769132)\\
+Arturo Arends Martinez (5338247)\\
+Carl Vistisen (5700590)\\
+Guilherme Castro Lima da Silva (5697123)\\
+Hanna Skrobanek (5908663)\\
+Marek Gryszka (5909880)\\
+Plamena Dimitrova(5923565)\\
+Teo Čokonaj (5954886)\\
+Vaibhav Byreddy (5237254)\\
+ \end{tabular}\\\\
+ }{}
+ }}
+%\subject{AE3212-II Simulation, Verification \& Validation} % Cover only
+\affiliation{Delft University of Technology} % Cover only
+
+\coverimage{tank.jpg}
+\definecolor{title}{HTML}{6bafff} % Color for cover title
+
+\makecover
+
+%% Generate the nomenclature
+\makenomenclature
+\renewcommand{\nomname}{List of Symbols}            % Rename to "List of Symbols"
+
+\printnomenclature                                  % Include to actually display
+
+\tableofcontents
+
+%\todo{This section is too big, will be compressed in the table for each role its attributes}
+%For each role, the team member who presented the most potential was chosen by the team. Their attributes are as follows:
+
+%\textbf{Team Leader}: He will be in charge of project overview, assigning tasks and overseeing the structure of the report. He has a deep understanding on the subject and can offer information to the rest of the team.
+%
+%\textbf{Discussion Moderator}: He will ensure that the discussions follow a logical order and that the interlocutors will not deviate from the subject debated.
+
+%\textbf{Documentation Collector}: This is a filed that requires more than one person, as such 2 people are assigned to this position. They will collect the data required to construct a trade-off table, a requirements list and perform research to collect propulsion systems that will later be assessed.
+
+%\textbf{Repoert Writing}: Everyone will contribute to the content of this report.
+
+%\textbf{Task Supervisor}: He will ensure throught the project that the tasks set by the Team Leader are being performed on time.
+
+
+%% ----------------------------------------------------------------------
+%%    Mainmatter (Arabic page numbering)
+%% ----------------------------------------------------------------------
+
+\mainmatter
+\input{Main Sections/Introduction}
+\include{Mainmatter/Market analysis}
+\include{Main Sections/Conlcusion}
+%\input{Mainmatter/4. Team Organisation Reflection}
+
+%% Add bibliography
+%\newpage
+\bibliography{references.bib}
+\appendix
+
+%% ----------------------------------------------------------------------
+%%    Appendix (Letters for chapters)
+%% ----------------------------------------------------------------------
+
+\end{document}
