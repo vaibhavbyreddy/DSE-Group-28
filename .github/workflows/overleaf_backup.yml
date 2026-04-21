@@ -5,6 +5,14 @@ on:
     - cron: '*/5 * * * *' # Set to your preferred safe interval
   workflow_dispatch:
 
+# FIX 1: Explicitly grant the script permission to push files to your repository
+permissions:
+  contents: write 
+
+# FIX 2: Force Node 24 to silence the deprecation warning
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
+
 jobs:
   backup:
     runs-on: ubuntu-latest
@@ -17,40 +25,33 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Define your Overleaf projects here. 
-          # Format: "PROJECT_ID FOLDER_NAME"
+          # FIX 3: Safely encode the '@' symbol in your email to '%40' so the URL doesn't break
+          EMAIL="${{ secrets.OVERLEAF_EMAIL }}"
+          ENCODED_EMAIL="${EMAIL//@/%40}"
+          
+          # Define your Overleaf projects here
           PROJECTS=(
             "69e618b4816cad2a1aae230a project_plan"
             "69e729087b819a8573d53578 baseline_report"
           )
           
           for entry in "${PROJECTS[@]}"; do
-            # Split the array string into the ID and target folder name
             set -- $entry
             pid=$1
             folder_name=$2
             
             echo "Processing Overleaf project: $folder_name..."
             
-            # Clone the Overleaf project into a temporary directory
-            git clone https://${{ secrets.OVERLEAF_EMAIL }}:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/$pid temp_dir
+            # Use the encoded email to clone safely
+            git clone "https://${ENCODED_EMAIL}:${{ secrets.OVERLEAF_TOKEN }}@git.overleaf.com/$pid" temp_dir
             
-            # Ensure the target folder exists in your GitHub repo
-            mkdir -p $folder_name
-            
-            # Use rsync to perfectly mirror the files.
-            # --delete ensures files removed in Overleaf are also removed in GitHub.
-            # --exclude='.git/' strips Overleaf's git tracking so GitHub doesn't get confused.
-            rsync -a --delete --exclude='.git/' temp_dir/ $folder_name/
-            
-            # Remove the temporary directory
+            mkdir -p "$folder_name"
+            rsync -a --delete --exclude='.git/' temp_dir/ "$folder_name/"
             rm -rf temp_dir
           done
           
-          # Stage all updated folders and files
           git add .
           
-          # Only create a commit if there are actual changes
           if ! git diff-index --quiet HEAD; then
             git commit -m "Automated sync of multiple Overleaf projects"
             git push origin main
