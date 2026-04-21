@@ -1,4 +1,152 @@
 \chapter*{Market analysis}
 The main goal of a market analysis is to research and establish the state of the competition by several criteria, including cost, production capacity or logistics and reach. 
 \section*{Market segmentation}
+Market segmentation is a process of dividing a broad and spread market into smaller and concrete groups. It is crucial for defining a solid business marketing strategy. The helps to understand and meet current market requirements as well as distinguishing from the competition. Additionally, beachhead market was identified. The beachhead market is the initial and most promising market aimed for the product to enter first. 
+\subsubsection{Universities and academic laboratories}
+Universities are the most accessible market segment. These organizations typically conduct research in aeroelasticity, flight dynamics, active control and other related topics, but often lack access to large wind tunnels or manned flying laboratories. Therefore, a fleet of testbed UAVs at a fraction of the cost of a wind tunnel could be utilized in research instead.
+
+\subsubsection{Research centres}
+A second key segment consists of national aerospace research centres and applied research institutes, such as NLR or DLR. These institutions conduct cutting-edge research in multiple related fields, including aeroelasticity or flutter suppression. Compared with universities, they usually have stronger technical resources and larger budgets. Their main interest is generating high-quality and accurate experimental data. Robustness and predictability of the modular platform is of high importance for these customers.
+
+\subsubsection{Aerospace companies}
+Companies developing new aircraft and subsystems for aircraft follow as another potential customers. These stakeholders may make use of the platform to test new aerospace components in real-life conditions prior to certification. Since the testing often involves many design iteration and testing loops, the costs of the process can grow quickly. At the same time, the use of external facilities for testing can slow down the process further. Therefore, shortening development cycles allowing components to enter market earlier would save costs and resources for the aerospace manufacturers. These companies usually allocate a budget for research and development (R\&D) activities, which can help to make this project strongly profitable.
+
+
+\subsubsection{Defense sector}
+Recently, governments started focusing more on defense and security. Defense companies and governmental departments need to test new technologies to be used in the rapidly evolving sector of unmanned aerial vehicles (UAVs) 
+
+\begin{table}[h]
+\centering
+\caption{Simple market segmentation for the flying testbed aircraft}
+\begin{tabular}{p{3.4cm} p{4.2cm} p{4.6cm} p{2.6cm}}
+\hline
+\textbf{Segment} & \textbf{Typical users} & \textbf{Main need} & \textbf{Attractiveness} \\
+\hline
+Universities & TU Delft, other aerospace faculties, academic UAV labs & Affordable modular platform for research, teaching, and student projects & High \\
+Research centres & NLR, DLR, ONERA, national labs & High-fidelity validation of aeroelastic and flight-control technologies & High \\
+Aircraft developers / OEMs & Airframers, UAV developers, AAM startups & De-risking new configurations and control concepts before larger prototypes & Medium--High \\
+Subsystem suppliers & Sensor, actuator, avionics, and control-system companies & Real flight environment for subsystem demonstration and validation & Medium--High \\
+Flight-test service providers & Test consultancies, certification support firms & Airborne platform for outsourced experiments and data collection & Medium \\
+Public / defence users & Government labs, defence research agencies & Flexible demonstrator for advanced or high-risk technology programmes & Medium \\
+\hline
+\end{tabular}
+\end{table}
+
 \section*{SWOT analysis}
+
+Internal factors
+
+\begin{longtable}{|p{0.48\textwidth}|p{0.48\textwidth}|}
+\caption{Strengths and Weaknesses of the Unmanned Flying Laboratory}
+\label{tab:SW} \\
+
+\hline
+\rowcolor[HTML]{ABE7F3}
+\textbf{Strengths} & \textbf{Weaknesses} \\ \hline
+\endfirsthead
+
+\hline
+\rowcolor[HTML]{ABE7F3}
+\textbf{Strengths} & \textbf{Weaknesses} \\ \hline
+\endhead
+
+Enables data collection in unconstrained flow, avoiding wind tunnel artefacts such as wall effects and mounting interference.
+&
+Unmanned flying laboratories are not yet widely standardized, leading to higher development risk and fewer established methodologies.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+Eliminates or reduces scaling issues (e.g.\ Reynolds number mismatch), improving fidelity of aerodynamic and aeroelastic data.
+&
+The modularity of the test bed increases overall system complexity.
+\\ \hline
+
+Allows testing to failure, including structural limits, flutter, and failure modes that are impractical or unsafe to investigate in traditional wind tunnel facilities.
+&
+Each new test article introduces uncertainty in mass distribution, aerodynamics, and control response.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+The modular payload configuration enables testing of multiple concepts more time-effectively compared to building dedicated prototypes.
+&
+Atmospheric variability reduces repeatability compared to controlled wind tunnel conditions.
+\\ \hline
+
+Advanced active control systems (e.g.\ AFS, GLA) expand the safe flight envelope and allow operation of flexible or unconventional configurations.
+&
+In-flight measurements are noisier and harder to calibrate than controlled laboratory measurements.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+High-aspect-ratio (HAR) wings reduce induced drag, improving fuel efficiency and increasing available test endurance.
+&
+High upfront costs encompassing development, operations, and the use of sustainable aviation fuel (SAF).
+\\ \hline
+
+Use of sustainable aviation fuel (SAF) reduces environmental impact and aligns with future regulatory and industry trends.
+&
+Unmanned and experimental flight testing can face significant certification and operational restrictions.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+Reduced reliance on expensive wind tunnel facilities increases flexibility and offers potential long-term cost efficiency.
+&
+\\ \hline
+
+\end{longtable}
+
+External factors
+
+\begin{longtable}{|p{0.48\textwidth}|p{0.48\textwidth}|}
+\caption{Opportunities and Threats of the Unmanned Flying Laboratory}
+\label{tab:OT} \\
+\hline
+\rowcolor[HTML]{ABE7F3}
+\textbf{Opportunities} & \textbf{Threats} \\ \hline
+\endfirsthead
+
+\hline
+\rowcolor[HTML]{ABE7F3}
+\textbf{Opportunities} & \textbf{Threats} \\ \hline
+\endhead
+
+The growing demand for high-fidelity aerodynamic data requires testing beyond traditional wind tunnel capabilities (e.g., testing to failure, flutter testing). 
+&
+Advancement of high-fidelity CFD may reduce the need for physical testing.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+Limitations of wind tunnel testing, such as wall interference, scaling issues, and cost create a gap that the modular flying test bed can fill.
+&
+Airspace restrictions, certification requirements, and safety regulations may limit operation or increase cost.
+\\ \hline
+
+The modular testing system enables rapid prototyping and iterative design.
+&
+Wind tunnels and traditional flight testing are already well understood, trusted, and integrated into certification processes.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+The development of unconventional modular aircraft configurations requires real-flight validation.
+&
+Increased risk of vehicle loss during testing could increase cost and reduce the reliability of the project.
+\\ \hline
+
+An increased focus on aeroelasticity and lightweight structures through the use of HAR wings and active control systems.
+&
+Operational constraints such as weather dependency, limited test windows, and airspace access disrupt the testing schedule and frequency.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+Recent growth in autonomous and unmanned systems supports wider adoption of UAV-based testing platforms.
+&
+Combining modular payloads, advanced controls, and measurement systems may lead to unforeseen system-level issues.
+\\ \hline
+
+%\rowcolor[HTML]{ECF4FF}
+Increased accessibility to aerodynamic testing, lowering barriers for universities, researchers, and developers who lack access to high-end wind tunnel facilities.
+&
+
+\\ \hline
+
+\end{longtable}
