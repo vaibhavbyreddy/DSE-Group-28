@@ -58,17 +58,15 @@
 \usepackage{etoolbox}
 \usepackage{parskip}
 
-\setlength{\parindent}{0pt}
+\usepackage{titlesec}
 
+\titleclass{\chapter}{straight}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
 \titleformat{\chapter}[hang]
   {\normalfont\huge\bfseries}
   {\thechapter.}{0.5em}{}
 
-\makeatletter
-\patchcmd{\chapter}{\clearpage}{}{}{}
-\patchcmd{\chapter}{\cleardoublepage}{}{}{}
-\makeatother
-
+\titlespacing*{\chapter}{0pt}{0pt}{0.5\baselineskip}
 \yyyymmdddate
 
 \begin{document}
