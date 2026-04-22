@@ -1,43 +1,50 @@
 \chapter{Requirements}
 
-\begin{longtable}{|p{4cm}|p{10cm}|}
+\begin{longtable}{|p{3cm}|p{11cm}|}
+\caption{Top-level aircraft requirements}
+\label{tab:system_requirements} \\
 \hline
-\textbf{Category} & \textbf{Requirements} \\
+\textbf{Requirement ID} & \textbf{Requirement} \\
 \hline
 \endfirsthead
 
 \hline
-\textbf{Category} & \textbf{Requirements} \\
+\textbf{Requirement ID} & \textbf{Requirement} \\
 \hline
 \endhead
-General & The total mass shall be larher\\
-\hline
 
-Performance &
- payload capacity $\sim$50 kg; modular payload configurations (e.g., 5 kg units); payload integration capability \\ \hline
+GEN-001 & The total mass shall not be larger than 50 kg. \\ \hline
+GEN-002 & The total cost of a single configuration shall not exceed 45k€. \\ \hline
+GEN-003 & The available payload mass shall be larger than 5 kg. \\ \hline
+GEN-004 & The VULCAN engine shall be used by all aircraft configurations. \\ \hline
 
-&The range shall be longer than TBD.\\
-\hline 
+PER-001 & The range at maximum payload shall be longer than TBD. \\ \hline
+PER-002 & The endurance at maximum payload shall be longer than 30 minutes. \\ \hline
+PER-003 & The aircraft shall be able to reach Mach 0.75. \\ \hline
+PER-004 & The shall be able to sustain the speed faster than Mach 0.4 during the main flight stage. \\ \hline
 
-&The endurance shall be longer than 30 minutes. \\
-\hline
+AER-001 & The critical Mach number shall be higher than 0.75. \\ \hline
 
-Operations &
-Launch procedures defined; flight operations timeline; airspace integration; ATC coordination; defined operational volume; onboard sensors and warning systems; ground control interface; real-time monitoring and control \\ \hline
+OPS-001 & The lifetime of a single configuration shall be longer than 15 years. \\ \hline
+OPS-002 & All regular service, required parts, and tools shall fit within a van-sized vehicle. \\ \hline
+OPS-003 & It shall be possible to maintain the aircraft on a regular basis. \\ \hline
 
-Lifetime &
-Minimum operational lifetime of 15 years; maintenance strategy for long-term operation; durability of components and systems over lifecycle \\ \hline
+CER-001 & The aircraft shall not exceed an altitude of TBD. \\ \hline
+CER-002 & It shall be possible to safely recover the aircraft in all flight scenarios. \\ \hline
 
-Certification &
-Airworthiness compliance; certification basis determination; safety classification; compliance with aviation authorities; recovery system; safe termination capability \\ \hline
+SUS-001 & The aircraft shall use sustainable aviation fuel (SAF). \\ \hline
+SUS-002 & The aircraft shall be recyclable. \\ \hline
 
-Sustainability &
-Material lifecycle considerations; environmental impact minimization; sustainable material selection; end-of-life (EOL) disposal or reuse strategy \\ \hline
+CON-001 & The aircraft shall be capable of autonomous flight. \\ \hline
+CON-002 & The aircraft shall be fully controllable remotely. \\ \hline
 
-Stability &
-Stable flight characteristics; controllability; optional variable stability modes; disturbance rejection capability; aerodynamic handling qualities \\ \hline
+STA-001 & The aircraft shall be capable of stable, neutral, and unstable flight conditions. \\ \hline
 
-Structure &
-Structural integrity under payload loads; resistance to transonic loads; internal structural integration (e.g., systems like VULCAN); mass and load distribution constraints \\ \hline
+STR-001 & The structure shall withstand transonic loads. \\ \hline
+STR-002 & The structure shall allow integration of the VULCAN engine. \\ \hline
+STR-003 & The structure shall accommodate a payload bay of at least 5 litres. \\ \hline
+STR-004 & The structure shall accommodate space for a secondary flight computer. \\ \hline
+STR-005 & The wing, tail, and payload bay shall be modular. \\ \hline
+STR-006 & The aircraft shall provide interfaces for mounting sensors and actuators. \\ \hline
 
 \end{longtable}

@@ -7,22 +7,22 @@ The aforementioned phenomena can be static or dynamic, some of the former being 
 
 An alternative, emerging approach, is to design active control systems, that prevent the oscillations (active flutter suppression) and actively alleviates loads (manoeuvre and gust load alleviation) based on sensor measurements. This approach is not only more efficient in terms of performance and increase in safety, but also in terms of extending the operational flight envelope. Despite these advantages, the certification of these flight control systems remains a challenge. Computational simulation is difficult due to a specific feature of high-aspect-ratio wings: their behaviour is inherently nonlinear. Similarly, in the wind tunnel the real behaviour of these aircraft cannot be simulated accurately due to the model being constrained, effectively eliminating rigid-body motions, crucial for phenomena such as the body freedom flutter. Also, wind tunnel testing of such flexible models is both expensive and dangerous, as the tunnel could get damaged.
 
-The remaining approach is flight testing, providing realistic data, but notoriously precarious for its cost and pilot safety. Hence, the aim of this design project is to design a cheap and modular flying test-bed that can carry multiple types of payload. The idea is to create a modular design where the test-bed itself can be modified to be able to carry the payload. This will involve the design and analysis of modular structural and aerodynamic features, design of adaptive and robust flight control to be tested on the aircraft, the integration of a provided jet engine for reaching transonic speeds, performance analysis, ground operation analysis, manufacturing procedure and an analysis of environmental impact.
+The remaining approach is flight testing, providing realistic data, but notoriously precarious for its cost and pilot safety. Hence, the aim of this design project is to design a cheap and modular flying test-bed that can carry multiple types of payload. The idea is to create a modular design where the test-bed itself can be modified to be able to carry the payload. This will involve the design and analysis of modular structural and aerodynamic features, design of adaptive and robust flight control to be tested on the aircraft \todo{this sounds a bit like we are designing the control system to be tested}, the integration of a provided jet engine for reaching transonic speeds, performance analysis, ground operation analysis, manufacturing procedure and an analysis of environmental impact.
 
 
 
 % In some cases, this interaction can even lead  
 
 \section{User requirements}
-The goals of the project are highly dependent on the user needs. Therefore, it is necessary to define user requirements which originates from the needs of the user. These requirements also influences some boundaries for the mission and performance aspects of the aircraft. The requirements have been composed according to the VALID (Verifiable, Achievable, Logical, Integral and Definitive) criteria and are presented in \autoref{tab:user_requirements}.
+The goals of the project are highly dependent on the user needs. Therefore, it is necessary to define user requirements which originates from the needs of the user. These requirements also influences some boundaries for the mission and performance aspects of the aircraft. The requirements have been composed according to the VALID (Verifiable, Achievable, Logical, Integral and Definitive) criteria and are presented in \autoref{tab:user_requirements}. \todo{unstable and neutral flight condition as well}
 
 \begin{table}[H]
     \centering
     \caption{User requirements grouped by category}
     \begin{tabular}{|c|p{13cm}|}
-        \hline
+        \hline 
         \textbf{Requirement Code} & \textbf{Description} \\
-        \hline
+        \hline \hline
         % Mission (MIS)
         \multicolumn{2}{|c|}{\textbf{Mission (MIS)}} \\
         \hline
@@ -46,7 +46,7 @@ The goals of the project are highly dependent on the user needs. Therefore, it i
         % Aerodynamics (AER)
         \multicolumn{2}{|c|}{\textbf{Aerodynamics (AER)}} \\
         \hline
-        \textbf{TBD-Usr-AER-1} & The user shall be able to configure the aircraft for stable flight condition.\\
+        \textbf{TBD-Usr-AER-1} & The user shall be able to configure the aircraft for stable flight condition. \\\ 
         \hline
         \textbf{TBD-Usr-AER-2} & The critical Mach number of the aircraft's wing shall be higher than Mach 0.75.\\
         \hline
