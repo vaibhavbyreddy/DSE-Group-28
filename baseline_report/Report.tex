@@ -73,10 +73,14 @@
 
 
 \usepackage{etoolbox}
-\makeatletter
-\patchcmd{\chapter}{\clearpage}{}{}{}
-\patchcmd{\chapter}{\cleardoublepage}{}{}{}
-\makeatother
+\usepackage{titlesec}
+
+\titleclass{\chapter}{straight}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter.}{0.5em}{}
+
 %% Additional packages and commands
 \usepackage{parskip}
 %\setlist{itemsep=-2pt} % Reducing white space in lists slightly
@@ -153,11 +157,16 @@ Vaibhav Byreddy (5237254)\\
 %% ----------------------------------------------------------------------
 
 \mainmatter
-\input{Main Sections/Introduction}
-\include{Mainmatter/Market analysis}
-\include{Mainmatter/Requirements}
-\include{Mainmatter/Sustainability analysis}
-\include{Main Sections/Conlcusion}
+% \input{Main Sections/Introduction}
+\input{Mainmatter/Executive overview}
+\input{Mainmatter/Market analysis}
+\input{Mainmatter/Requirements}
+\input{Mainmatter/Resource Allocation}
+\input{Mainmatter/Sustainability analysis}
+\input{Mainmatter/Profitability and return analysis}
+\input{Mainmatter/Technical_Risk}
+\input{Mainmatter/Project Objectives}
+\input{Main Sections/Conlcusion}
 %\input{Mainmatter/4. Team Organisation Reflection}
 
 %% Add bibliography
