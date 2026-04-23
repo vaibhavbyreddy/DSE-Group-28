@@ -4,15 +4,123 @@ Resource allocation translates the project objectives into a practical plan for 
 
 \section{Identifying The Available Budget}
 In this section, the general resources are identified and categorised, as such, a structure of the available budget can be made so that tracking of each resource is possible. The budget originates from the restrictions set by the requirements, technical limitations and human disponibility. 
-The critical area that were identified as a finite resources are as followes:
+The critical area that were identified as a finite resources are as follows:
 
-\subsection*{Weight}
+\subsection{Centre of Gravity (CG) Location}
+The CG range of an aircraft is crucial for defining its stability and controllability limits. An unbalanced vehicle cannot guarantee safety or functionality during operations. The specific margins of stability and controllability shall be subject to change based on the payload and desired test conditions, and the specific CG range can be evaluated based on the following:
+
+\begin{enumerate}
+    \item Longitudinal position of the wing w. r. t. the fuselage,
+    \item Tail size and position,
+    \item Distribution and location of on-board systems,
+    \item Distribution and location of payload,
+    \item Location of fuel tanks and batteries,
+    \item Location and configuration of landing gears,
+    \item Implementation of a control system for the fuel flow.
+\end{enumerate}
+
+Verifying the CG position against the allowable limits can be done with the use of a scissor plot combining the stability and controllability curves, which in turn defines the required tail size and longitudinal wing position. If necessary, the process can be iterated until a balanced design is achieved that can operate within the desired stability and controllability limits.
+
+\subsection{Communication Link}
+An analysis of the link budget is required to ensure that communication with the UAV can be performed successfully during all operations. The main design considerations stem from mission range and endurance, as well as the operating conditions of the UAV. In particular, the following parameters are used to define the communication link budget:
+
+
+\begin{itemize}
+    \item Power available (obtained from batteries),
+    \item Transmitter/Receiver power,
+    \item Maximum UAV range during operations,
+    \item Maximum UAV velocity,
+    \item Available volume and internal component arrangement.
+\end{itemize}
+
+
+\todo[inline]{Write somewhere earlier that we want to perform Mach 0.75 flight for 5 mins max during the flight, and keep the rest at 0.4 or smth}
+
+
+
+
+
+\subsection{Weight}
 Weight is a valuable resource that needs to be kept in check throughout the development process. It is derived from the stakeholder requirement, limiting the drone to a mass of 50 kg. This mass takes into account the imposed minimum 5 kg limit for the internal pyload, as well as the fuel onboard. 
-This limit can be considered as MDW (maximum design weight).
+This limit can be considered as MDW (maximum design weight). From the requirements specifications, it is known that one engine weighs 2.1 kg, and in the case that the plane requires 2 such power plants,  adding the weights of the cables and hoes needed, it would result in a combined mass of 5 kg.\\
+The rest of the mass is allocated towards the rest of the components that complete the drone, and the pomponents that contribut to the remaining of 40 kg is:
+
+\begin{itemize}
+    \item Fuel 
+    \item Wings assembly
+    \item Fuselage assembly
+    \item Tail assembly
+    \item Internal battery assembly
+\end{itemize}
+
+Although the power plant is located inside the fuselage, its mass is considered as a separate element from the fuselage assembly. The fuselage mass buget will include the mass of the fuel tanks, but not the mass of the fuel itself. Cables and connectors used to transsfer power from the battery to the payload are considered in the battery assembly. 
+
+The general idea of modularity will permit customers to modify the alocation of mass, to comply with the user test case. Mass is coupled with the location of center of mass, as such, both resources have to be closely monitored toghether. 
+
+
+\subsection{Aircraft dimensions} 
+There is a set restriction for the outer dimensions of the aircraft set by the requirement that it and all necessary equipment to operate it should fit inside a van. This is something that should be taken into consideration while designing the plane. 
+
+To ensure a more sustainable transport of the aircraft the electric Renault master e-tech L3H2 variant was chosen as reference van. 
+
+\begin{table}[H]
+    \centering
+    \caption{Renault Master E-Tech L3H2 Loading Specifications}
+    \begin{tabular}{lc}
+        \toprule
+        \textbf{Specification} & \textbf{Value (mm)} \\
+        \midrule
+        \multicolumn{2}{l}{\textbf{Loading Area — Panel Van L3H2}} \\
+        \midrule
+        Usable length & 3733 \\
+        Usable length at 1.1 m & 3680 \\
+        Usable width & 1765 \\
+        Usable height & 1894 \\
+        \midrule
+        \multicolumn{2}{l}{\textbf{Sliding Side Door(s)}} \\
+        \midrule
+        Width of sliding side door(s) & 1270 \\
+        Height of sliding side door(s) & 1780 \\
+        \midrule
+        \multicolumn{2}{l}{\textbf{Rear Door}} \\
+        \midrule
+        Width (169 mm from floor) & 1580 \\
+        Entrance height & 1820 \\
+        Cargo threshold (min/max) & 543/557 \\
+        \midrule
+        Loading volume & 13 m$^3$ \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:renault_master_specs}
+\end{table}
+An optimization of the packing of the disassembled aircraft might becomes necessary on later stages in the design process.
+
+
+\subsection*{Internal dimensions}
+For the aircraft to function as intended several components needs to be present within the aircraft: 
+\begin{enumerate}
+    \item Fuel tanks and fuel system
+    \item Engine system
+    \item  Communication system 
+    \item Onboard computer
+    \item Payload
+    \item Power system
+\end{enumerate}
+Not only does the aircraft need to accommodate all of these systems but some  of the components will be highly location dependent (for example the engine system). This is all something that must be taken into account when designing the aircraft.   
+
+\subsection*{Thrust}
+NO, WE WILL USE FLUTTERING WINGS
+
+
+\subsection*{Fuel Budget}
+The amount of fuel onboard the plane has to be enough to sustain the 30-minute flight requirement (25 min cruise and 5 min testing), along with facilitating the take-off and landing procedures. On top of the mission parts segments that the drone has to complete, it shall have a reserve of fuel to allow loitering for a period of 5 minutes, accounting for unforeseen circumstances. 
+
+As stated in \autoref{tab:system_requirements}, requirement \textbf{SUS-001}, the drone will use SAF as a fuel source. During the design process of the propulsion and fuel systems, a choice on the type of fuel has to be made. In terms of challenges, implementing a sustainable fuel would be the logistics implied as there is not yet a 
+\todo{continue this shit and deffently revise this as I a}
 
 \section{Strategic Resource Planing}
 
-\section{Usage Traking}
+\section{Usage Tracking}
 
 \section{Resource levelling and prioritization}
 

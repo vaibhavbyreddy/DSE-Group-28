@@ -7,6 +7,7 @@ EU\footnote{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX\%3A32020R1
 \section{Specific Operation Risk Assessment (SORA)}
 % SORA Classification guide
 \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Main-Body-Release-JAR\_doc\_25.pdf, to be added in the ref list!}
+The SORA is a classification method used by JARUS to determine the risk posed by an UAV during operations. Its main purpose is to determine whether the operations can be performed in a safe manner. 
 
 \todo[inline]{Introduction about SORA, the assumptions we made, and a brief overview of the mission}
 
@@ -224,10 +225,8 @@ Below is a list of possible risks which might occur during operation of the airc
     \item Exceeding the flight limit area 
     \item Air-collisions
     \item Fuel-fire
-    \item Mechanical failure (e. g. LG not deploying)
-    \item Attacked by large bird of prey
+    \item Mechanical failure (e. g. LG not deploying
     \item Rapid deterioration of weather conditions during flight
-    \item Loss 
 \end{itemize}
 
 \textbf{Preventive Measures for Contingency Scenarios}
@@ -240,5 +239,8 @@ For the critical scenarios that could happen during the mission, we can run prep
     \item For problems during flight that include breaking of parts or components, the drone will immediately decelerate to a safe speed (tbd) and then recovery of the vehicle will be attempted. If recovery is deemed impossible in the timespan of 10s, the first step will be applied. (contingency)
     \item Monitoring the condition of critical components (preventive) 
     \item Short service cycles on critical components (preventive)
+    \item If the test area is exceeded, the drone will be ordered to immediately return to the testing location (contingency)
+    \item In the case of a mechanical error onboard the drone during the test flight is detected, an analysis of the level of FUCKERY  will be assessed, and one of the 2 scenarios will be implemented: 1. The drone will be ordered to immediately return. 2. The first option will be implemented, and the drone will be lost (contingency)
+    \item In case of deteriorating weather conditions, the drone will be ordered to return
     
 \end{itemize}

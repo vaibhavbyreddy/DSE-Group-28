@@ -6,39 +6,80 @@
 
 The Design Option Tree (DOT) is a method used to help generate and evaluate different design options. The first step in building the DOT was defining the top-level system, which is the complete aircraft. This was then decomposed into its primary subsystems: fuselage, empennage, wing, propulsion, and undercarriage. These subsystems represent the main functional divisions of the aircraft and form the first level of branching. Each subsystem was further broken down into key design aspects that significantly influence performance and feasibility. The selection of branches at each level was guided by design impact and the need to compare meaningful alternatives. All options that could lead to distinct design configurations were included in the tree.
 
-The next step was rejecting the unfeasible options or marking them as straw-man concepts. 
+The next step was rejecting the unfeasible options (in red) or marking them as straw-man concepts (in orange), while justifying the remaining acceptable concepts (in green). 
 
 \todo{writing down notes, not final justification}
-Need to describe Rejected concepts
+
+\subsection{Rejected Design Concepts}
+
+As part of the preliminary design process, several configuration options were evaluated using the Design Option Tree. Concepts that were found to be infeasible, incompatible with the design requirements, or overly complex were discarded at an early stage. The main reasons for rejection are summarized below.
+
 \begin{itemize}
-    \item \textbf{internal material}: polymer structures are discarded due to their limited strength and stiffness
-    
-    \item \textbf{manual control only}: requires continuous pilot (or remote) input
-    
-    \item \textbf{twin boom wing}: increased drag, added structural weight and complexity, flutter issues
-    
-    \item \textbf{delta wing}: complicates modularity; testing of HAR wings is unfeasible
-    
-    \item \textbf{Prandtl infinite wing}: ineffective yaw control, flutter issues, reduced lift generation, just no
-    
-    \item \textbf{wing-mounted only fuel tanks}: in case of quick-swappable wings, it complicates the modularity; HAR might be very slender-limited space; fuel sloshing
-    \item \textbf{VULCAN+auxiliary}: the VULCAN engine can't be integrated with an auxiliary power unit
+    \item \textbf{Internal structure material (polymer structures):} Discarded due to insufficient strength and stiffness for primary load-bearing applications.
 
-    \item \textbf{JET-A1 and Diesel}: the VULCAN engine was designed specifically for SAF
+    \item \textbf{Manual control only:} Requires continuous pilot or remote input across all flight phases, leading to increased workload and reduced operational robustness.
 
-    \item \textbf{fixed undercarriage}: drastic increase in drag during 0.75 Mach flight
+    \item \textbf{Twin-boom wing configuration:} Rejected due to increased drag, higher structural weight, added complexity, and potential flutter concerns.
+
+    \item \textbf{Delta wing configuration:} Limits modularity and makes testing of high-aspect-ratio (HAR) wings impractical.
+
+    \item \textbf{Prandtl infinite wing:} Discarded due to challenges in yaw control, sensitivity to flutter, and reduced effective lift generation.
+
+    \item \textbf{Wing-mounted fuel tanks only:} Limited compatibility with modular wing concepts; introduces integration challenges, limited available volume in slender HAR wings, and fuel sloshing concerns.
+
+    \item \textbf{VULCAN engine with auxiliary unit:} Not feasible due to integration constraints preventing the addition of an auxiliary power unit.
+
+    \item \textbf{Alternative fuels (Jet-A1 and Diesel):} Not considered, as the VULCAN engine is specifically designed to operate on sustainable aviation fuel (SAF).
+
+    \item \textbf{Fixed undercarriage:} Rejected due to the significant drag penalty, particularly at higher testing speeds (up to Mach 0.75).
     
 \end{itemize}
 
 
-Need to describe straw-man concepts
+\subsection{Straw-Man Design Concepts}
+
+In addition to the rejected concepts, several design options were identified as straw-man concepts. These options are not immediately discarded but are considered less favorable due to performance limitations, integration challenges, or misalignment with key design objectives. They may still be feasible under certain conditions but are not prioritized in the current design phase.
+
 \begin{itemize}
-    \item \textbf{skin}: polymer material is a straw man concept due to extreme temperature from the engines, especially fuselage-mounted; also poor fatigue performance?
+    \item \textbf{Skin material (polymer):} Considered a straw-man due to potential thermal limitations, particularly in regions exposed to elevated temperatures (e.g., near fuselage-mounted engines), and possible fatigue concerns. However, it remains attractive in terms of manufacturability and rapid production.
+
+    \item \textbf{Autopilot only:} A fully autonomous control system lacks flexibility, as external input is required to modify flight regimes (e.g., varying Mach numbers during testing). While feasible, it is not preferred as a standalone solution.
+
+    \item \textbf{Engine-driven power generator:} Feasibility is uncertain due to potential integration challenges with the VULCAN engine, and therefore requires further investigation.
+
+    \item \textbf{V-tail configuration:} Offers no significant performance advantage while introducing increased control complexity, susceptibility to flutter, and possible adverse roll effects. However, it may provide integration benefits, such as enabling fuselage-mounted engine placement.
+
+    \item \textbf{Non-quick-swappable wings:} Strongly limits modularity, making the testing of multiple wing configurations impractical. However, it simplifies integration by allowing permanent incorporation of fuel tanks, engines, and landing gear within the wings.
+
+    \item \textbf{Wing-mounted engines:} Complicates modular wing concepts and introduces risks in scenarios such as belly landings. However, it may be required for specific test cases involving engine-induced loads, vibrations, and structural interactions.
+    
 \end{itemize}
 
-Need to describe accepted concepts
+\subsection{Accepted Design Concepts}
 
-v tail gains nothing
+The following design concepts were accepted for further consideration in the preliminary design phase. These options were retained as they are feasible, align with aerospace design practice, or provide sufficient flexibility for later optimisation.
+
+\begin{itemize}
+    \item \textbf{Internal structure material (composites and sheet metal):} Widely used in the aerospace industry, with established certification and operational reliability. These materials provide excellent load-bearing capability and structural performance.
+
+    \item \textbf{Skin material (composites and sheet metal):} Selected based on the same justification as the internal structure materials, offering a good balance between strength, weight, and manufacturability.
+
+    \item \textbf{Autopilot and manual control:} Combines the operational robustness and stability of autopilot systems with the flexibility of manual or remote input for adjusting flight regimes during testing.
+
+    \item \textbf{Battery-powered subsystems:} Preferred due to their simplicity, ease of integration, and reduced system complexity compared to onboard power generation solutions.
+
+    \item \textbf{Tail configurations:} All remaining tail configuration options are retained, as no early-stage constraints justify excluding any specific layout.
+
+    \item \textbf{Wing configuration:} All viable wing configurations are retained, as no early-stage constraints justify excluding any specific layout.
+
+    \item \textbf{Fuel tanks (fuselage-mounted and combined):} Enables modular wing design by removing the requirement for fuel storage within the wings. This enables quick-swappable wings, improves aerodynamic optimisation potential, and simplifies refuelling and maintenance through centralized fuel storage.
+
+    \item \textbf{Number of engines (1 or 2):} Both single and twin-engine configurations remain feasible, depending on final VULCAN engine specifications and performance requirements.
+
+    \item \textbf{Undercarriage mounting points:} All potential mounting locations are currently considered feasible and remain open for further evaluation.
+
+    \item \textbf{Undercarriage structure (retractable and skids):} Both configurations are retained. Retractable landing gear reduces drag at higher test speeds (up to Mach 0.75), while skid-based systems enable belly landings and reduce system weight by eliminating the need for landing gear.
+\end{itemize}
 
 \section{Preliminary configurations}
 For the preliminary configuration selection, the Design Option Tree was deliberately simplified to focus on the most influential architectural choices: wing configuration, empennage configuration, propulsion mounting, and undercarriage mounting. This reduction was made because, at the preliminary design stage, the objective is to explore a manageable set of fundamentally different aircraft layouts rather than exhaustively analyze every subsystem detail. These four categories were selected as they have the greatest impact on the overall aircraft configuration and feasibility. By narrowing the scope of the DOT, the number of possible design combinations is significantly reduced, allowing for a more efficient comparison of configurations. More detailed aspects, such as material selection or control system design, are deferred to later stages once a baseline configuration has been identified.
