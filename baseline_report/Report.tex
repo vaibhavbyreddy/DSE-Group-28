@@ -2,6 +2,7 @@
 
 %% Set up the bibliography
 \usepackage{booktabs}
+%\usepackage{showframe}
 \usepackage{tabularx}
 \usepackage{float}
 \usepackage{longtable}
@@ -45,6 +46,7 @@
 \usepackage{enumitem}                               % Listing packages
 \usepackage{easylist}
 \usepackage{listings}
+\usepackage{footnote}
 \usepackage{color}
 \usepackage{changes}                                % Text packages
 \usepackage{comment}
@@ -75,14 +77,11 @@
 \usepackage{etoolbox}
 \usepackage{titlesec}
 
-\titleclass{\chapter}{straight}
-\titlespacing*{\chapter}{0pt}{0pt}{0pt}
-\titleformat{\chapter}[hang]
-  {\normalfont\huge\bfseries}
-  {\thechapter.}{0.5em}{}
 
 %% Additional packages and commands
 \usepackage{parskip}
+
+
 %\setlist{itemsep=-2pt} % Reducing white space in lists slightly
 %\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
@@ -158,15 +157,16 @@ Vaibhav Byreddy (5237254)\\
 
 \mainmatter
 % \input{Main Sections/Introduction}
-\input{Mainmatter/Executive overview}
-\input{Mainmatter/Market analysis}
-\input{Mainmatter/Requirements}
-\input{Mainmatter/Resource Allocation}
-\input{Mainmatter/Sustainability analysis}
-\input{Mainmatter/Profitability and return analysis}
-\input{Mainmatter/Technical_Risk}
-\input{Mainmatter/Project Objectives}
-\input{Main Sections/Conlcusion}
+\include{Mainmatter/Executive overview}
+\include{Mainmatter/Market analysis}
+\include{Mainmatter/Requirements}
+\include{Mainmatter/Design Option Tree}
+\include{Mainmatter/Resource Allocation}
+\include{Mainmatter/Sustainability analysis}
+\include{Mainmatter/Profitability and return analysis}
+\include{Mainmatter/Technical_Risk}
+\include{Mainmatter/Project Objectives}
+\include{Mainmatter/Conclusion}
 %\input{Mainmatter/4. Team Organisation Reflection}
 
 %% Add bibliography

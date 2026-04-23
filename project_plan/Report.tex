@@ -44,6 +44,7 @@
 \usepackage{changes}
 \usepackage{comment}
 \usepackage{fancyvrb}
+\usepackage{footnote}
 \usepackage{lipsum}
 \usepackage{textcomp}
 \usepackage{url}
@@ -112,13 +113,13 @@ Vaibhav Byreddy (5237254)\\
 \tableofcontents
 
 \mainmatter
-\input{Mainmatter/Requirements}
-\input{Mainmatter/Global picture}
-\input{Mainmatter/Technical Design Development}
-\input{Mainmatter/Logistic Diagram}
-\input{Mainmatter/Rules of the Project}
-\input{Mainmatter/Organizational Risk Assessment}
-\input{Mainmatter/Sustainability}
+\include{Mainmatter/Requirements}
+\include{Mainmatter/Global picture}
+\include{Mainmatter/Technical Design Development}
+\include{Mainmatter/Logistic Diagram}
+\include{Mainmatter/Rules of the Project}
+\include{Mainmatter/Organizational Risk Assessment}
+\include{Mainmatter/Sustainability}
 
 %% Add bibliography
 \nocite{*} % remove this later if you only want cited references

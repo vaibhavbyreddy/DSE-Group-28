@@ -16,7 +16,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
-\LoadClass[10pt,oneside]{book}
+\LoadClass[12pt,oneside]{book}
 
 %% Main packages in the document --- Some are imported later in the class file
 \RequirePackage{mathtools}  % Mathematical tools to use with amsmath
@@ -60,7 +60,16 @@
 \newcommand*{\covertable}[1]{\def\@covertable{#1}}
 
 %% Scale the margins to be slightly smaller than default (.7)
-\geometry{a4paper,hscale=0.75,vscale=0.87}
+\geometry{
+    a4paper,
+    left=20mm,
+    right=20mm,
+    top=25mm,
+    bottom=25mm,
+    headheight=15pt,
+    includehead,
+    includefoot
+}
 
 %% ----------------------------------------------------------------------
 %%    Setting up the fonts
