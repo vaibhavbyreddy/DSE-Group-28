@@ -1,12 +1,50 @@
 \chapter{Design Option Tree}
 
-Need to describe Rejected concepts
+\todo{update design tree}
 
-Need to describe strawman concepts
+\section{Constructing the Design Tree}
+
+The Design Option Tree (DOT) is a method used to help generate and evaluate different design options. The first step in building the DOT was defining the top-level system, which is the complete aircraft. This was then decomposed into its primary subsystems: fuselage, empennage, wing, propulsion, and undercarriage. These subsystems represent the main functional divisions of the aircraft and form the first level of branching. Each subsystem was further broken down into key design aspects that significantly influence performance and feasibility. The selection of branches at each level was guided by design impact and the need to compare meaningful alternatives. All options that could lead to distinct design configurations were included in the tree.
+
+The next step was rejecting the unfeasible options or marking them as straw-man concepts. 
+
+\todo{writing down notes, not final justification}
+Need to describe Rejected concepts
+\begin{itemize}
+    \item \textbf{internal material}: polymer structures are discarded due to their limited strength and stiffness
+    
+    \item \textbf{manual control only}: requires continuous pilot (or remote) input
+    
+    \item \textbf{twin boom wing}: increased drag, added structural weight and complexity, flutter issues
+    
+    \item \textbf{delta wing}: complicates modularity; testing of HAR wings is unfeasible
+    
+    \item \textbf{Prandtl infinite wing}: ineffective yaw control, flutter issues, reduced lift generation, just no
+    
+    \item \textbf{wing-mounted only fuel tanks}: in case of quick-swappable wings, it complicates the modularity; HAR might be very slender-limited space; fuel sloshing
+    \item \textbf{VULCAN+auxiliary}: the VULCAN engine can't be integrated with an auxiliary power unit
+
+    \item \textbf{JET-A1 and Diesel}: the VULCAN engine was designed specifically for SAF
+
+    \item \textbf{fixed undercarriage}: drastic increase in drag during 0.75 Mach flight
+    
+\end{itemize}
+
+
+Need to describe straw-man concepts
+\begin{itemize}
+    \item \textbf{skin}: polymer material is a straw man concept due to extreme temperature from the engines, especially fuselage-mounted; also poor fatigue performance?
+\end{itemize}
 
 Need to describe accepted concepts
 
 v tail gains nothing
+
+\section{Preliminary configurations}
+For the preliminary configuration selection, the Design Option Tree was deliberately simplified to focus on the most influential architectural choices: wing configuration, empennage configuration, propulsion mounting, and undercarriage mounting. This reduction was made because, at the preliminary design stage, the objective is to explore a manageable set of fundamentally different aircraft layouts rather than exhaustively analyze every subsystem detail. These four categories were selected as they have the greatest impact on the overall aircraft configuration and feasibility. By narrowing the scope of the DOT, the number of possible design combinations is significantly reduced, allowing for a more efficient comparison of configurations. More detailed aspects, such as material selection or control system design, are deferred to later stages once a baseline configuration has been identified.
+
+Below are listed the 20 preliminary design configurations.
+
 
 \clearpage
 \pdfpagewidth=420mm
@@ -20,4 +58,5 @@ v tail gains nothing
 \pdfpageheight=297mm
 \paperwidth=210mm
 \paperheight=297mm
+
 

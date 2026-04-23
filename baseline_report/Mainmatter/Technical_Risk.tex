@@ -8,7 +8,10 @@ EU\footnote{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX\%3A32020R1
 % SORA Classification guide
 \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Main-Body-Release-JAR\_doc\_25.pdf, to be added in the ref list!}
 
+\todo[inline]{Introduction about SORA, the assumptions we made, and a brief overview of the mission}
+
 \subsection{Documentation of Proposed Operations}
+\todo[inline]{Describe the test background}
 Compile operational, technical, and organisational information. This may include:
 \begin{itemize}
  \item Various maps, figures, diagrams and other information detailing the operational volume, ground risk buffers, adjacent area, and adjacent airspace.
@@ -36,13 +39,14 @@ Resultant iGRC: between 3 and 4 (estimate - 3 for drones flying up to 200m/s).
 
 
 \subsection{Final Ground Risk Class (GRC) (optional)}
-Only if our iGRC is too high.
+Only if our iGRC is too high. It is not, so we don't have to do it.
 
 \subsection{Determination of the initial Air Risk Class (ARC)}
 reserved or restricted airspaces - atypical airspaces
 Atypical airspace: ARC-a
 
 \subsection{Application of strategic mitigations to determine residual ARC (optional)}
+Only if our ARC is too high. For now, it is not, so we don't have to do it.
 
 \subsection{Tactical Mitigation Performance Requirement (TMPR) and Robustness Levels}
 No TMPR requirement for ARC-a
@@ -59,6 +63,7 @@ Flying over military area only gives us ARC-a and GRC of 3 or 4, which gives us 
 Size of adjacent area: 35km
 Containment Requirements: Medium/High
 
+Criteria based on Integrity:
 Criterion 1 (Operational Volume Containment): (Qualitative) No probable1 single failure of the UAS or any external system supporting the operation shall lead to operation outside of the operation volume. OR (Quantitative) The probability of the failure condition “UA leaving the operational volume” shall be less than 10-3/Flight Hour (FH).
 
 Criterion 2 (End of Flight upon exit of the operational volume): When the UA leaves the operational volume, an immediate end of the flight must be initiated through a combination of procedures/processes and/or available technical means.
@@ -71,36 +76,169 @@ Criterion 3 (Definition of the final ground risk buffer): Ground risk buffer mus
     \item UA behaviour when activating a technical containment measure, UA performance.
 \end{itemize}
 
-Criterion 4 (Ground risk buffer containment): No single failure of the UAS or any external system supporting the operation shall lead to operation outside of he ground risk buffer. Software (SW) and Airborne Electronic Hardware (AEH) whose development error(s) could directly lead to operations outside of the ground risk buffer shall be developed to an industry standard or methodology recognized as adequate by the competent authority.
+Criterion 4 (Ground risk buffer containment): 
+\begin{itemize}
+    \item No single failure of the UAS or any external system supporting the operation shall lead to operation outside of he ground risk buffer.
+    \item Software (SW) and Airborne Electronic Hardware (AEH) whose development error(s) could directly lead to operations outside of the ground risk buffer shall be developed to an industry standard or methodology recognized as adequate by the competent authority.
+\end{itemize}
+ 
 
-Criterion 5: 
-
-
-
-
-Criterion 19: The applicant declares1
-that the
-required level of integrity has been
-achieved.
-
-Criterion 20: The applicant conducts a human factors
-evaluation of the UAS to determine if
-the HMI is appropriate for the mission.
-The HMI evaluation is based on
-inspection or analyses. The adequacy of
-the result of the HMI evaluation is
-declared.
-
-Criterion 23: Environmental conditions for safe operations are defined and reflected in the flight manual or equivalent document.1
+Demonstrating level of assurance:
+The applicant has supporting evidence that the required level of integrity is achieved. This is typically done by testing, analysis,
+simulation, inspection, design review or through operational experience.
+Among the supporting evidences:
 
 
+1. For criterion #1 and criterion #4: a design and installation appraisal including at minimum:
+\begin{itemize}
+    \item design and installation features (e.g., independence, separation
+or redundancy claims);
+    \item any relevant particular risk (e.g., hail, ice, snow, electro-magnetic interference…) associated with the operation and how they are
+being addressed.
+\end{itemize}
+2. For criterion #2: Adequacy of the Emergency Procedures to terminate flight are proven through:
+\begin{itemize}
+    \item dedicated flight tests, or
+    \item simulation provided the simulation is proven valid for
+the intended purpose with positive results.
+\end{itemize}
 
-criterion 24: The UAS is designed to perform as
-intended in the environmental
-conditions defined and reflected in the
-flight manual or equivalent document.
 
 
 \subsection{Identification of Operational Safety Objectives (OSO)}
 
+Criterion 1: The elements delineated in the level of integrity are available. A competent third party performs an audit of the organization
+
+Criterion 2: The declared manufacturing procedures are developed to a standard considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority. 
+
+Criterion 3: 
+\begin{itemize}
+    \item The UAS Operator maintenance instructions are documented.
+    \item The maintenance conducted on the UAS is recorded in a maintenance log system.
+    \item A list of maintenance staff authorized to carry out maintenance is established and kept up to date.
+    \item The UAS Operator maintenance programme layout is in accordance with standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority
+    \item A list of maintenance staff with authorization to release to service is established and kept up to date.
+\end{itemize}
+
+Criterion 5: A Functional Hazard Assessment and a design and installation appraisal that shows hazards are minimized are available.
+
+Criterion 6: The applicant declares that the required level of integrity has been achieved.
+
+Criterion 7: The UAS conformity check procedures are documented and accounts for the UAS designer’s recommendations if available. In addition, the UAS conformity checks are documented using checklists.
+
+
+Criterion 8: 
+\begin{itemize}
+    \item Operational procedures and ERP are developed to standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority
+    \item Adequacy of the Contingency and Emergency procedures is proven through:
+    \begin{itemize}
+        \item Dedicated flight tests, or
+        \item Simulation provided the simulation is proven valid for the intended purpose with positive results
+    \end{itemize}
+    \item Flight tests performed to validate
+the procedures and checklists cover
+the complete flight envelope or are
+    \item The procedures, checklists, flight
+tests and simulations are validated
+by a competent third party.
+\item The representativeness of the
+tabletop exercise of the ERP is
+validated by a competent third
+party.
+\end{enumerate}
+
+\\
+Criterion 9:
+\begin{enumerate}
+    \item Training syllabus is available.
+   \item Evidence of theoretical and practical
+training is available
+\end{enumerate}
+
+
+Criterion 13:
+The applicant has supporting evidence that the required level of performance for any externally provided service required for the safety of the flight can be achieved for the full duration of the mission.
+
+
+Criterion 16: Procedures are validated against standards considered adequate by the competent authority and/or in accordance with means of compliance acceptable to that authority\footnote{}.
+\begin{itemize}
+    \item Adequacy of the procedures is proven through:
+    \begin{itemize}
+        \item Dedicated flight tests, or
+        \item Simulation, provided the simulation is proven valid for the intended purpose with positive results
+    \end{itemize}
+\end{itemize}
+
+Criterion 17: 
+The policy defining the criteria and the means for the remote crew to declare themselves fit before starting their duty and report themselves unfit, if required during their shift is documented. 
+Remote crew duty, flight duty and the resting times policy is documented.
+\begin{enumerate}
+    \item  Remote crew duty cycles are logged
+    \begin{enumerate}
+        \item  when the remote crew member’s duty day commences,
+        \item when the remote crew members are free from duties,
+        \item resting times within the duty cycle.
+    \end{enumerate}
+\end{enumerate}
+
+
+Criterion 18: The UAS incorporates automatic protection of the flight envelope to prevent the remote pilot from making any single input under normal operating conditions that would cause the UA to exceed its flight envelope or prevent it from recovering in a timely fashion.
+
+Criterion 19: Systems detecting and/or recovering from human errors are developed to industry best practices.
+
+Criterion 20: The applicant conducts a human factors evaluation of the UAS to determine if the Human-Machine Interface (HMI) is appropriate for the mission. The HMI evaluation is based on inspection or analyses. The adequacy of the result of the HMI evaluation is declared.
+
+Criterion 23: Environmental conditions for safe operations are defined and reflected in the flight manual or equivalent document.
+
+criterion 24: The UAS is designed to perform as intended in the environmental conditions defined and reflected in the flight manual or equivalent document.
+
+
 \subsection{Comprehensive Safety Portfolio (CSP)}
+Not applicable at the current design phase.
+
+\section{Contingency Management}
+
+Step 1: Propose adequate operational safety objectives;
+Step 2: Identify the risks of the operation on the ground and in the air considering all of the below:
+\begin{itemize}
+    \item the extent to which third parties or property on the ground could be endangered by the activity;
+    \item the complexity, performance and operational characteristics of the unmanned aircraft involved;
+    \item the purpose of the flight, the type of UAS, the probability of collision with other aircraft and class of airspace used;
+    \item the type, scale, and complexity of the UAS operation or activity, including, where relevant, the size and type of the traffic handled by the responsible organisation or person;
+    \item the extent to which the persons affected by the risks involved in the UAS operation are able to assess and exercise control over those risks.
+\end{itemize}
+
+Step 3: identify a range of possible risk mitigating measures;
+Step 4: determine the necessary level of robustness of the selected mitigating measures in such a way that the operation can be conducted safely.
+\newline
+\newline
+\textbf{Risk Scenarios}
+\newline
+Below is a list of possible risks which might occur during operation of the aircraft:
+\begin{itemize}
+    \item Loss of control during flight while connection with the drone is maintained
+    \item Loss of communication with the drone during the test phase
+    \item Human Error
+    \item Unscheduled sudden disassembly during flight
+    \item Exceeding the flight envelope
+    \item Exceeding the flight limit area 
+    \item Air-collisions
+    \item Fuel-fire
+    \item Mechanical failure (e. g. LG not deploying)
+    \item Attacked by large bird of prey
+    \item Rapid deterioration of weather conditions during flight
+    \item Loss 
+\end{itemize}
+
+\textbf{Preventive Measures for Contingency Scenarios}
+
+For the critical scenarios that could happen during the mission, we can run preplanned scenarios to mitigate the damage. These measures can be found in the following.
+\begin{itemize}
+    \item For any loss of connection or control that happens for a duration longer then 10 s, a safety mechanism will be triggered automatically or manually that will turn off the engine and crash land the drone. (contingency) 
+    \item Human Error (preventive)
+    \item 
+    \item For problems during flight that include breaking of parts or components, the drone will immediately decelerate to a safe speed (tbd) and then recovery of the vehicle will be attempted. If recovery is deemed impossible in the timespan of 10s, the first step will be applied. (contingency)
+    \item Monitoring the condition of critical components (preventive) 
+    \item Short service cycles on critical components (preventive)
+    
+\end{itemize}
