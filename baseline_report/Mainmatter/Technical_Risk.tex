@@ -32,21 +32,75 @@ iGRC footprint: Identify the flight geography, Calculate the contingency volume,
 
 Maximum population density: Controlled Ground Area
 
-Resultant iGRC: 
+Resultant iGRC: between 3 and 4 (estimate - 3 for drones flying up to 200m/s).
 
 
-% Step 3: Final Ground Risk Class (GRC) determination
+\subsection{Final Ground Risk Class (GRC) (optional)}
+Only if our iGRC is too high.
 
-% Step 4: Determination of the initial Air Risk Class (ARC)
+\subsection{Determination of the initial Air Risk Class (ARC)}
+reserved or restricted airspaces - atypical airspaces
+Atypical airspace: ARC-a
 
-% Step 5: Application of strategic mitigations to determine residual ARC (optional)
+\subsection{Application of strategic mitigations to determine residual ARC (optional)}
 
-% Step 6: Tactical Mitigation Performance Requirement (TMPR) and robustness levels
+\subsection{Tactical Mitigation Performance Requirement (TMPR) and Robustness Levels}
+No TMPR requirement for ARC-a
 
-% Step 7: Specific Assurance and Integrity Levels (SAIL) determination
+From Annex D \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-Annex-D-v1.0.pdf}, section 5: "No System Risk Ratio guidance; although operator/applicant may still need to show some form of mitigation as deemed necessary by the CAA"
 
-% Step 8: Determination of Containment requirements
+Utilise Annex A \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Annex-A-Release.JAR\_doc\_26-pdf.pdf}, Section A.3 for further guidance on presenting the data supplementing the risk assessment to the authority.
 
-% Step 9: Identification of Operational Safety Objectives (OSO)
+\subsection{Specific Assurance and Integrity Levels (SAIL) determination}
+Flying over military area only gives us ARC-a and GRC of 3 or 4, which gives us SAIL II or SAIL III - most likely SAIL III.
 
-% Step 10: Comprehensive Safety Portfolio (CSP)
+
+\subsection{Determination of Containment Requirements}
+Size of adjacent area: 35km
+Containment Requirements: Medium/High
+
+Criterion 1 (Operational Volume Containment): (Qualitative) No probable1 single failure of the UAS or any external system supporting the operation shall lead to operation outside of the operation volume. OR (Quantitative) The probability of the failure condition “UA leaving the operational volume” shall be less than 10-3/Flight Hour (FH).
+
+Criterion 2 (End of Flight upon exit of the operational volume): When the UA leaves the operational volume, an immediate end of the flight must be initiated through a combination of procedures/processes and/or available technical means.
+
+Criterion 3 (Definition of the final ground risk buffer): Ground risk buffer must consider the following points below:
+\begin{itemize}
+    \item Probable single failures (including the projection of high energy parts such as rotors and propellers) which would lead to an operation outside of the operational volume,
+    \item Meteorological conditions (e.g., maximum sustained wind),
+    \item UAS latencies (e.g., latencies that affect the timely manoeuvrability of the UA),
+    \item UA behaviour when activating a technical containment measure, UA performance.
+\end{itemize}
+
+Criterion 4 (Ground risk buffer containment): No single failure of the UAS or any external system supporting the operation shall lead to operation outside of he ground risk buffer. Software (SW) and Airborne Electronic Hardware (AEH) whose development error(s) could directly lead to operations outside of the ground risk buffer shall be developed to an industry standard or methodology recognized as adequate by the competent authority.
+
+Criterion 5: 
+
+
+
+
+Criterion 19: The applicant declares1
+that the
+required level of integrity has been
+achieved.
+
+Criterion 20: The applicant conducts a human factors
+evaluation of the UAS to determine if
+the HMI is appropriate for the mission.
+The HMI evaluation is based on
+inspection or analyses. The adequacy of
+the result of the HMI evaluation is
+declared.
+
+Criterion 23: Environmental conditions for safe operations are defined and reflected in the flight manual or equivalent document.1
+
+
+
+criterion 24: The UAS is designed to perform as
+intended in the environmental
+conditions defined and reflected in the
+flight manual or equivalent document.
+
+
+\subsection{Identification of Operational Safety Objectives (OSO)}
+
+\subsection{Comprehensive Safety Portfolio (CSP)}
