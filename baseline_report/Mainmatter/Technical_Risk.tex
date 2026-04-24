@@ -8,9 +8,9 @@ For any engineering project it is vital to identify the risks that exists relate
 \subsection*{Identification of development risks} Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identification everything that might prevent the final designed system to meet these requirement. These risk can be defined by their severity (the risk they poses for the the product to meet the requirements) and the probability for this to occur. The following risks were identified:
 \begin{itemize}
     \item \textbf{DEV-RISK01} : Discrepancies between the values used for the dimensions, weight and performance of components and the actual values. This is something the invariably happen with a high probability. The consequences will depend on the specific components. 
-    \item \textbf{DEV-RISK02} : Exceeding the time-budget. 
-    \item \textbf{DEV-RISK03} : Errors in the models used. 
-    \item \textbf{DEV-RISK04} : Loss of important material
+    \item \textbf{DEV-RISK02} : Exceeding the time-budget.  
+    \item \textbf{DEV-RISK03} : Errors in the models used. If the models used for designing the aircraft are wrong it might lead to the aircraft not meeting the requirements. 
+    \item \textbf{DEV-RISK04} : Loss of important material. If 
     \item \textbf{DEV-RISK05}: Supply chain issues leading to missing components  
     
 
@@ -22,11 +22,11 @@ For any engineering project it is vital to identify the risks that exists relate
     \begin{tabular}{|c|c|c|}
         \toprule
         \textbf{Risk} & \textbf{Probability} & \textbf{Severity} \\
-        \hline
         \midrule
+        \hline
         DEV-RISK01 & 4& 4\\ \hline
         DEV-RISK02 & 2& 3\\ \hline
-        DEV-RISK03 & 3& 4\\ \hline
+        DEV-RISK03 & 3& 5\\ \hline
         DEV-RISK04 & 2& 4\\
         \bottomrule
         DEV-RISK05 & 2& 4\\
@@ -48,6 +48,8 @@ Having identified the risk posed to the development of the system it is possible
         DEV-RISK02 & 1& 3\\ \hline
         DEV-RISK03 & 3& 3\\ \hline
         DEV-RISK04 & 1& 2\\ 
+        \hline
+        DEV-RISK05 & 2& 4\\
         \bottomrule
     \end{tabular}
     \label{tab:dev_risk_assessment}
@@ -194,6 +196,8 @@ being addressed.
 
 
 \subsection{Identification of Operational Safety Objectives (OSO)}
+In this step of the SORA methodology, the SAIL score of the UAS can be used to determine the required level of robustness for each of the Operational Safety Objectives defined in the JARUS SORA Guide \cite{} \todo{cite JARUS main}. \autoref{tab:OSOs_the_table_tm} lists the Recommended OSOs for HUGO based on the corresponding OSO integrity level. The steps to be taken to demonstrate the required level of assurance for each of the OSOs can be found in Annex E of JARUS SORA Guide \cite{} \todo{cite JARUS Annex E}.
+
 
 
 \todo{cite JARUS main + Annex E}
@@ -283,7 +287,47 @@ The UAS remote pilot has the means to continuously monitor the C3 performance an
 \end{enumerate}
 \\ \hline
 
+13 & External services supporting UAS operations are adequate to the operation & The applicant ensures that the level of performance for any externally provided service critical for the safety of the flight is adequate for the intended operation.
+
+If the externally provided service requires communication between the Operator and the Service Provider, the applicant ensures there is effective communication to support the service provisions. 
+
+Roles and responsibilities between the applicant and the external Service Provider are defined. \\ \hline
+
+16 & Multi crew coordination & Procedure(s) to ensure coordination between the crew members and robust and effective communication channels is (are) available and at a minimum cover:
+\begin{itemize}
+\item assignment of tasks to the crew, and
+\item establishment of step-by-step communications, including a proper phraseology between the remote crew members involved in the aerial part of the operation.
+\end{itemize}
+
+Remote Crew training covers multi crew coordination. In addition, the Remote
+Crew receives Crew Resource Management (CRM)3 training. \\ \hline
+
+17 & Remote crew is fit to operate & The applicant has a policy defining the
+criteria and the means for the remote crew to declare themselves fit before
+starting their duty and report themselves unfit, if required, during their shift. In addition:
+\begin{itemize}
+\item Duty, flight duty and resting times for the remote crew are defined by
+the applicant and adequate for the operation.
+\item The Operator defines requirements appropriate for the remote crew to
+operate the UAS.
+\end{itemize}   \\ \hline
+
+18 & Automatic protection of the flight envelope from human errors & The UAS incorporates automatic protection of the flight envelope to prevent the remote pilot from making any single input under normal operating conditions that would cause the UA to exceed its flight envelope or prevent it from recovering in a timely fashion. \\ \hline
+
+19 & Safe recovery from human error & Systems detecting and/or recovering
+from human errors are developed to industry best practices. \\ \hline
+
+20 & A Human Factors evaluation has been performed and the HMI found appropriate for the mission.  & The UAS information and control interfaces are clearly and succinctly presented and do not confuse, cause unreasonable fatigue, or contribute to remote crew error that could adversely affect the safety of the operation. \\ \hline
+
+23 & Environmental conditions for safe operations defined,
+measurable and adhered to & Environmental conditions for safe operations are defined and reflected in the flight manual or equivalent document. \\ \hline
+
+24 & UAS designed and qualified for adverse environmental
+conditions & The UAS is designed to perform as intended in the environmental
+conditions defined and reflected in the flight manual or equivalent document. \\ \hline
+
 \end{longtable}
+
 
 \begin{comment}
 Criterion 3: 
@@ -303,7 +347,7 @@ Criterion 7: The UAS conformity check procedures are documented and accounts for
 
 
 Criterion 8: 
-\begin{itemize}
+\begin{enumerate}
     \item Operational procedures and ERP are developed to standards considered adequate by the competent authority and/or in accordance with a means of compliance acceptable to that authority
     \item Adequacy of the Contingency and Emergency procedures is proven through:
     \begin{itemize}
@@ -369,7 +413,9 @@ criterion 24: The UAS is designed to perform as intended in the environmental co
 \end{comment}
 
 \subsection{Comprehensive Safety Portfolio (CSP)}
-Not applicable at the current design phase.
+The Comprehensive Safety Portfolio (CSP) compiles all elements of the SORA which shall be presented to the competent authority for the application of authorisation for UAS operations \cite{} \todo{cite JARUS main}. Typically, it includes the finalized detailed operational description, all safety claims and their robustness (iGRC and final GRC, initial and residual ARC, TMPR, the OSOs associated with the SAIL, and the containment requirements), compliance evidence, necessary linkages and references between documents, and a  finalised compliance matrix.
+
+At the current development stage of HUGO, it is not yet possible to compile a complete version of the CSP.
 
 
 

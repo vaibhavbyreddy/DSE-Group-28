@@ -27,27 +27,35 @@ During its operational life, the UAV will need regular maintenance to remain ope
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{|c|c|c|}
+    \caption{Overview of costs by type}
+    \begin{tabular}{|l|l|l|r|}
         \hline
-        \textbf{Expense} & \textbf{Cost in €} & \textbf{Type of cost} \\
-        \hline
-        Certification & 5~000 & One-time \\
-        \hline
-        Production & 62~000 & One-time \\
-        \hline
-        Fuel and energy & 50 & Per test flight \\
-        \hline
-        Transport & 250 & Per test day\\
-        \hline
-        Insurance & 500 & Annual \\
-        \hline
-        Engine Maintenance & 250 & Every 50 op. hours \\
-        \hline
-        Airframe Maintenance & 500 & Every 100 op. hours \\
-        \hline
-        Operator labour & 400 & Per test day \\
-        \hline
+        \textbf{Category} & \textbf{Subcategory} & \textbf{Description} & \textbf{Cost (€)} \\ \hline
+        
+        \multicolumn{4}{|c|}{\textbf{Certification Costs (One-time / Administrative)}} \\ \hline
+        Certification & RDW Registration & Operator registration (NL) & 50 \\ \hline
+        Certification & ILT Permit & Specific category flight authorization & 5\,000 \\ \hline
+        
+        \multicolumn{4}{|c|}{\textbf{Production Costs (Per UAV Unit)}} \\ \hline
+        Production & Material Cap & Maximum production cost per unit & 45\,000 \\ \hline
+        Production & Labour & 300 hours at 50 €/h & 15\,000 \\ \hline
+        Production & Facility Use & 10 days at 200 €/day & 2\,000 \\ \hline
+        
+        \multicolumn{4}{|c|}{\textbf{Operational Costs (Per Flight Test)}} \\ \hline
+        Operations & Fuel (SAF) & 11.5 L at 2.2 €/L & 30 \\ \hline
+        Operations & Electricity & Batteries, computers, systems & 20 \\ \hline
+        Operations & Transport & Vehicle + logistics per test & 250 \\ \hline
+        
+        \multicolumn{4}{|c|}{\textbf{Maintenance Costs (Usage-based)}} \\ \hline
+        Maintenance & Engine & Every 50 hours of operation & 250 \\ \hline
+        Maintenance & Airframe & Every 100 hours of operation & 500 \\ \hline
+        
+        \multicolumn{4}{|c|}{\textbf{Recurring Fixed Costs (Annual)}} \\ \hline
+        Operations & Insurance & Third-party UAV insurance & 500 \\ \hline
+        
+        \multicolumn{4}{|c|}{\textbf{Derived Cost Metrics}} \\ \hline
+        Market Model & Operational Cost/Day & Consumables + operations & 462 \\ \hline
+        Market Model & Cost Recovery/Day & Production and certification fraction & 138 \\ \hline
+    
     \end{tabular}
-    \caption{Initial cost estimation table}
-    \label{tab:placeholder}
 \end{table}
