@@ -1,4 +1,144 @@
 \chapter{Design Option Tree}
+\todo{update design tree}
+
+\section{Introduction}
+A Design Option Tree (DOT) is constructed to systematically consider and organize various options for different systems and sub-systems that could constitute valid configurations for the final aircraft. The methodology section below details the structural framework of the design tree, including how the various options were generated, categorized, and filtered. Subsequently, the sub-system options and screening sections break down the specific choices made within each architectural group, detailing the rationales for their acceptance, preliminary selection, or outright rejection. 
+
+\section{Methodology}
+The generation of the Design Option Tree began with an unconstrained, divergent brainstorming session where all potential ideas were mapped out without immediate filtering. The resulting diagram is structured strictly as an ``OR'' tree; within any given sub-system branch, only one option can ultimately be selected for a specific aircraft configuration. 
+
+To systematically navigate this large design space, the team established a visual taxonomy (defined in the chart legend) and conducted a collaborative, consensus-based screening process to categorize every option:
+
+\begin{itemize}
+    \item \textbf{Accepted Concepts (Green):} Options deemed highly feasible and directly applicable to fulfilling the top-level project requirements.
+    \item \textbf{Strawman Concepts (Orange):} Options that the team could not immediately disregard due to baseline physical feasibility, but which are unlikely to be optimal or warrant heavy focus in the detailed design phase. These were retained to avoid prematurely closing the design space.
+    \item \textbf{Rejected Concepts (Red):} Options eliminated by unanimous group consensus. Rejections were strictly based on obvious technical infeasibility or direct conflicts with the top-level project requirements.
+\end{itemize}
+
+During this evaluation, it became evident that many of the sub-system options (such as internal materials or autopilot types) are entirely agnostic to the macro-architecture of the aircraft. For instance, a composite structure offers similar fundamental pros and cons regardless of whether it is applied to a high-wing or a low-wing aircraft. Therefore, to maintain clarity and avoid muddying the trade space, these agnostic sub-systems were decoupled from the overall layout. The synthesis of the final candidate configurations focuses exclusively on the macro-architectural combinations of wing type, propulsion mounting, empennage, and landing gear type.
+
+\section{Sub-System Options and Initial Screening}
+
+\subsection{Fuselage Group}
+
+\paragraph{Internal Materials}
+\begin{itemize}
+    \item \textbf{Composite Structure (Accepted):} Offers the high strength-to-weight ratio necessary to survive Mach 0.75 transonic loads while staying under the strict 50kg mass limit.
+    \item \textbf{Sheet Metal Structure (Accepted):} Traditional aerospace manufacturing method; provides predictable structural dynamics and ease of modular manufacturing, though potentially heavier.
+    \item \textbf{Polymer Structure (Rejected):} Lacks the required structural stiffness and yield strength to act as the primary load-bearing core for a transonic aircraft, guaranteeing structural failure or severe aeroelastic deformation.
+\end{itemize}
+
+\paragraph{Skin Material}
+\begin{itemize}
+    \item \textbf{Composite Skin (Accepted):} Provides an aerodynamically smooth surface finish necessary for transonic flight and high skin stiffness.
+    \item \textbf{Sheet Metal Skin (Accepted):} Highly durable and relatively simple to integrate, though harder to form into complex aerodynamic curves.
+    \item \textbf{Polymer Skin (Strawman):} Feasible for non-load-bearing fairings and lightweight sections, but highly susceptible to flutter and buckling under high dynamic pressures.
+\end{itemize}
+
+\paragraph{Automatic Control Subgroup}
+\begin{itemize}
+    \item \textbf{Both [Manual \& Autopilot] (Accepted):} Satisfies the requirement for a remotely controlled, autonomous testbed, allowing a pilot to intervene during critical test points or emergencies.
+    \item \textbf{Autopilot Only (Strawman):} Feasible for pure drone operations, but presents severe safety and recovery risks during the high-risk aeroelastic and flutter testing required by the project.
+    \item \textbf{Manual Only (Rejected):} Directly violates the core project requirement of designing an autonomous flying laboratory, and human reaction times are insufficient to manually suppress flutter.
+\end{itemize}
+
+\paragraph{Electrical Subgroup}
+\begin{itemize}
+    \item \textbf{Battery (Accepted):} A proven, reliable, and decoupled energy source for high-bandwidth actuators and avionics, easily sized for a 30-minute endurance.
+    \item \textbf{Power Generator (Strawman):} Bleeding power from the micro-turbine is physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time.
+\end{itemize}
+
+\subsubsection{Empennage Group}
+
+\paragraph{Tail Configuration}
+\begin{itemize}
+    \item \textbf{Conventional Tail (Accepted):} Provides well-understood, decoupled pitch and yaw dynamics, simplifying the flight control laws and providing a solid baseline for structural testing.
+    \item \textbf{T-Tail (Accepted):} Keeps the horizontal stabilizer clear of the wing wake and jet exhaust, which is highly beneficial for a testbed, though it introduces deep-stall risks and structural weight at the fin tip.
+    \item \textbf{V-Tail (Accepted):} Reduces drag and radar cross-section, but couples pitch and yaw control, adding complexity to the active control system laws which may already be heavily burdened by flutter suppression.
+\end{itemize}
+
+\subsection{Wing Group}
+
+\paragraph{Configuration}
+\begin{itemize}
+    \item \textbf{Low Wing (Accepted):} Standard configuration offering simple undercarriage integration and favorable ground effect characteristics.
+    \item \textbf{Mid Wing (Accepted):} Aerodynamically clean with minimal interference drag, though the carry-through structure complicates the internal fuselage payload volume.
+    \item \textbf{High Wing (Accepted):} Provides excellent ground clearance for the payload bay and underslung engines, facilitating modular wing replacements.
+    \item \textbf{Flying Wing (Accepted):} Highly efficient aerodynamically, naturally suited to studying body-freedom flutter (BFF) as mentioned in the project guide.
+    \item \textbf{Delta Wing (Accepted):} Excellent for transonic flight (Mach 0.75) due to high sweep, though inherently stiff, which may conflict with the "highly flexible" wing testing requirement.
+    \item \textbf{Canard (Accepted):} Prevents main wing stall and allows for complex aeroelastic control schemes, making it highly relevant for an Active Aeroelastic Wing (AAW) testbed.
+    \item \textbf{Two-axis decoupable wings (Strawman):} An intriguing concept for modularity and aeroelastic testing, but structurally highly complex and likely to exceed the 50kg weight budget.
+    \item \textbf{Prandtl Wing (Rejected):} Bell-shaped lift distribution introduces aeroelastic behaviors that are too complex and esoteric for a baseline modular testbed aiming to validate standard AAW control laws.
+\end{itemize}
+
+\paragraph{Fuel Tanks}
+\begin{itemize}
+    \item \textbf{Fuselage Mounted Only (Accepted):} Keeps the center of gravity (CG) stable, protects the fuel, and allows the wings to be extremely slender, flexible, and easily swappable.
+    \item \textbf{Both (Accepted):} Maximizes fuel capacity to ensure the 30-minute endurance requirement is easily met, though plumbing to flexible wings is complex.
+    \item \textbf{Wing Mounted Only (Rejected):} The requirement to test "highly flexible, High-Aspect-Ratio (HAR) wings" dictates slender wing profiles lacking the internal volume to house the required SAF fuel while leaving room for complex AAW actuators.
+\end{itemize}
+
+\subsubsection{Propulsion Group}
+
+\paragraph{Mounting Location}
+\begin{itemize}
+    \item \textbf{Fuselage Mounted (Accepted):} Keeps the thrust line near the centerline, reduces yaw asymmetry during gusts, and simplifies structural load paths.
+    \item \textbf{Buried Engine (Accepted):} Extremely clean aerodynamically, minimizing drag for transonic speeds, but complicates modularity, cooling, and maintenance access.
+    \item \textbf{Wing Mounted (Strawman):} Feasible, but mounting a turbine on a wing deliberately designed to be highly flexible and prone to flutter introduces severe inertial and structural coupling challenges.
+\end{itemize}
+
+\paragraph{Number of Engines}
+\begin{itemize}
+    \item \textbf{1 Engine (Accepted):} Perfectly aligns with the project brief, which specifies power by "a micro turbine" (singular), keeping mass and complexity within budget.
+    \item \textbf{2 Engine (Rejected):} Adding a second engine vastly exceeds the cost budget (\texteuro 45k), heavily penalizes the 50kg mass constraint, and violates the single Vulcan engine specification.
+    \item \textbf{Vulcan + Auxiliary (Rejected):} Adds unnecessary weight and system complexity that directly detracts from the 5kg payload capacity without offering proportional benefits.
+\end{itemize}
+
+\paragraph{Fuel Compatibility}
+\begin{itemize}
+    \item \textbf{SAF-only (Accepted):} Strictly complies with the project requirement that the micro turbine must run on Sustainable Aviation Fuel (SAF).
+    \item \textbf{JET-A (Rejected):} Directly violates the explicit sustainability requirement to utilize SAF.
+    \item \textbf{Both (Rejected):} While physically possible, designing dual-fuel certification parameters adds unnecessary scope to a project focused on aeroelasticity, not fuel chemistry.
+\end{itemize}
+
+\subsection{Undercarriage Group}
+
+\paragraph{Mounting Points}
+\begin{itemize}
+    \item \textbf{Fuselage (Accepted):} Provides a sturdy, rigid mounting point that does not interfere with the modularity or the intentional flexibility of the test wings.
+    \item \textbf{On Wings (Strawman):} Complicates the wing-swap modularity requirement and adds rigid points to wings that are meant to twist and bend dynamically.
+\end{itemize}
+
+\paragraph{Structure}
+\begin{itemize}
+    \item \textbf{Retractable (Accepted):} Essential for reducing parasitic drag to achieve the required Mach 0.75 dash speed and 30-minute endurance.
+    \item \textbf{Fixed (Rejected):} The drag penalty of exposed landing gear at transonic speeds (Mach 0.75) is overwhelmingly high, making the endurance and speed requirements virtually impossible to meet simultaneously.
+\end{itemize}
+
+
+\clearpage
+\pdfpagewidth=420mm
+\pdfpageheight=297mm
+\paperwidth=420mm
+\paperheight=297mm
+
+\includepdf[pages=-,fitpaper=false, width=420mm, keepaspectratio]{figures/Design Option Tree.pdf}
+\clearpage
+\pdfpagewidth=210mm
+\pdfpageheight=297mm
+\paperwidth=210mm
+\paperheight=297mm
+
+
+
+
+
+
+
+
+
+\begin{comment}
+\chapter{Design Option Tree}
 
 \todo{update design tree}
 
@@ -130,7 +270,6 @@ Several configuration combinations were also deemed unfeasible and excluded from
 
 For reasons stated above concerning the integration and space limitation of the mid-wing, the combinations including a mid-wing will not be considered further. This stems from the strict requirement on the mass and volume of the payload that needs to be taken on board the aircraft. Thus, Configuration 14 and Configuration 15 are not considered further.
 
-
 \clearpage
 \pdfpagewidth=420mm
 \pdfpageheight=297mm
@@ -144,4 +283,4 @@ For reasons stated above concerning the integration and space limitation of the 
 \paperwidth=210mm
 \paperheight=297mm
 
-
+\end{comment}

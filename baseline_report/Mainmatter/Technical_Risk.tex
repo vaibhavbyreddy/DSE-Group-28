@@ -7,11 +7,11 @@ Risks are one of the most important elements in any decision making. It is there
 For any engineering project it is vital to identify the risks that exists related to the development process. 
 \subsection*{Identification of development risks} Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identification everything that might prevent the final designed system to meet these requirement. These risk can be defined by their severity (the risk they poses for the the product to meet the requirements) and the probability for this to occur. The following risks were identified:
 \begin{itemize}
-    \item \textbf{DEV-RISK01} : Discrepancies between the values used for the dimensions, weight and performance of components and the actual values. This is something the invariably happen with a high probability. The consequences will depend on the specific components. 
-    \item \textbf{DEV-RISK02} : Exceeding the time-budget.  
-    \item \textbf{DEV-RISK03} : Errors in the models used. If the models used for designing the aircraft are wrong it might lead to the aircraft not meeting the requirements. 
-    \item \textbf{DEV-RISK04} : Loss of important material. If 
-    \item \textbf{DEV-RISK05}: Supply chain issues leading to missing components  
+    \item \textbf{DEV-RISK01}: Discrepancies between the values used for the dimensions, weight and performance of components and the actual values. This is something the invariably happen with a high probability. The consequences will depend on the specific components. 
+    \item \textbf{DEV-RISK02}: Exceeding the time-budget.  
+    \item \textbf{DEV-RISK03}: Errors in the models used. If the models used for designing the aircraft are wrong it might lead to the aircraft not meeting the requirements. 
+    \item \textbf{DEV-RISK04}: Loss of important material. If important documents or calculations are lost this might lead to a slipping of the time-plane.
+    \item \textbf{DEV-RISK05}: Supply chain issues leading to missing components. For the final part of manufacture the time management might slip since certain components might act as bottlenecks in the production.    
     
 
 \end{itemize}
@@ -21,7 +21,7 @@ For any engineering project it is vital to identify the risks that exists relate
     \caption{Development Risk Assessment}
     \begin{tabular}{|c|c|c|}
         \toprule
-        \textbf{Risk} & \textbf{Probability} & \textbf{Severity} \\
+        \textbf{Risk} & \textbf{Probability} & \textbf{Impact} \\
         \midrule
         \hline
         DEV-RISK01 & 4& 4\\ \hline
@@ -35,14 +35,14 @@ For any engineering project it is vital to identify the risks that exists relate
     \label{tab:dev_risk_assessment}
 \end{table}
 \subsection*{Mitigation of development risks}
-Having identified the risk posed to the development of the system it is possible to find strategies to mitigate these risks. For  \textbf{DEV-RISK01} engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. The probability of this occurring does not change but severity decreases from 4 to 2 as this has been taken into account in the design. 
+Having identified the risk posed to the development of the system it is possible to find strategies to mitigate these risks. For  \textbf{DEV-RISK01} engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. The probability of this occurring does not change but severity decreases from 4 to 2 as this has been taken into account in the design. For \textbf{DEV-RISK03} the risk can be mitigated be thoroughly employing verification and validation meaning the probability of model-errors can be decreased. For \textbf{DEV-RISK04} can mostly be alleviated by ensure continuously backup and synchronisations across platforms. To handle \textbf{DEV-RISK05} it is important to formulate a detailed manufacture and production plan of the aircraft. For vital components the production-chain should be described in detail and possible backup manufactures should be found.       
 
 \begin{table}[H]
     \centering
     \caption{The mitigated development Risk Assessment}
     \begin{tabular}{|c|c|c|}
         \toprule
-        \textbf{Risk} & \textbf{Probability} & \textbf{Severity} \\ \hline
+        \textbf{Risk} & \textbf{Probability} & \textbf{Impact} \\ \hline
         \midrule
         DEV-RISK01 & 2& 4\\ \hline
         DEV-RISK02 & 1& 3\\ \hline
@@ -55,30 +55,12 @@ Having identified the risk posed to the development of the system it is possible
     \label{tab:dev_risk_assessment}
 \end{table}
 
-\section{Operation risks}
-According to EASA risk-based classification rules\footnote{https://www.easa.europa.eu/en/domains/drones-air-mobility/operating-drone/specific-category-civil-drones, accessed 23.04.2026, accessed 23.04.2026}, the developed UAV falls under the "specific" category. This classification follows from the design MTOM exceeding 25kg, maximum operational velocity of Mach 0.75, maximum altitude exceeding 120m, and BVLOS. To ensure operationa safety, a preliminary Specific Operation Risk Assessment (SORA) has to be performed. As a result, a Specific Assurance Integrity Level (SAIL) and associated containment requirements can be determined. This chapter focuses on a preliminary estimation of SORA and SAIL, as well as a risk assessment and management plans for the UAV operations.
-
-\textbf{SOURCES:}
-% SORA Classification guide
-JARUS main body: \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Main-Body-Release-JAR\_doc\_25.pdf}
-
-Annex A: \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Annex-A-Release.JAR\_doc\_26-pdf.pdf}
-
-Annex D: \footnote{http://jarus-rpas.org/wp-content/uploads/2023/07/jar\_doc\_6\_sora\_sts\_01\_edition1.1.pdf}
-
-Annex E: \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Annex-E-Release.JAR\_doc\_28pdf.pdf}
-
-Annex F: \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Annex-F-Release.JAR\_doc\_29pdf.pdf}
-
-EASA Design Guide: \footnote{https://share.google/5Ytei0rcFMNEuqLmv}
-
-
-
-
 \section{Preliminary Specific Operation Risk Assessment (SORA)}
+According to EASA risk-based classification rules\footnote{https://www.easa.europa.eu/en/domains/drones-air-mobility/operating-drone/specific-category-civil-drones, accessed 23.04.2026, accessed 23.04.2026}, the developed UAV falls under the "specific" category. This classification follows from the design MTOM exceeding 25kg, maximum operational velocity of Mach 0.75, maximum altitude exceeding 120m, and BVLOS. To ensure operationa safety, a preliminary Specific Operation Risk Assessment (SORA) has to be performed.
+
 The SORA is a classification method used by JARUS to determine the risk posed by a UAV during operations \cite{} \todo{cite JARUS main}. Its main purpose is to determine whether the operations can be performed in a safe manner. The nominal SORA method is typically comprised of 10 steps encompassing the ground risk, air risk, mitigation performance requirements, assurance and integrity level estimation, and determination of containment requirements.
 
-In this Section, a preliminary SORA classification will be performed for the UAV based on currently available data. It is expected that the final results of this methodology may change as as more information will be known about the UAV configuration and the mission area.
+In this Section, a preliminary SORA classification will be performed for HUGO based on currently available data. It is expected that the final results of this methodology may change as as more information will be known about the UAV configuration and the mission area.
 
 \subsection{Documentation of Proposed Operations}
 The first step in the SORA methodology focuses on compiling operational, technical, and organisational information regarding UAV operations. This entails detailing the operational volume, ground risk buffers, adjacent area, and adjacent airspace \cite{}\cite{} \todo{cite JARUS main + Annex A}.
@@ -456,7 +438,7 @@ Below is a list of possible risks which might occur during operation of the airc
     \caption{Operation Risk Assessment}
     \begin{tabular}{|c|c|c|}
         \toprule
-        \textbf{Risk} & \textbf{Probability} & \textbf{Severity} \\
+        \textbf{Risk} & \textbf{Probability} & \textbf{Impact} \\
         \hline
         \midrule
         OP-RISK01 & 2&4 \\ \hline
@@ -486,15 +468,14 @@ Below is a list of possible risks which might occur during operation of the airc
 
 For the critical scenarios that could happen during the mission, we can run preplanned scenarios to mitigate the damage. These measures can be found in the following.
 \begin{itemize}
-    \item For any loss of connection or control that happens for a duration longer then 10 s, a safety mechanism will be triggered automatically or manually that will turn off the engine and crash land the drone. (contingency) 
-    \item Human Error (preventive)
-    \item 
-    \item For problems during flight that include breaking of parts or components, the drone will immediately decelerate to a safe speed (tbd) and then recovery of the vehicle will be attempted. If recovery is deemed impossible in the timespan of 10s, the first step will be applied. (contingency)
-    \item Monitoring the condition of critical components (preventive) 
-    \item Short service cycles on critical components (preventive)
-    \item If the test area is exceeded, the drone will be ordered to immediately return to the testing location (contingency)
-    \item In the case of a mechanical error onboard the drone during the test flight is detected, an analysis of the level of FUCKERY  will be assessed, and one of the 2 scenarios will be implemented: 1. The drone will be ordered to immediately return. 2. The first option will be implemented, and the drone will be lost (contingency)
-    \item In case of deteriorating weather conditions, the drone will be ordered to return
+    \item For any loss of connection or control that happens for a duration longer then 10 s, a safety mechanism will be triggered automatically or manually that will turn off the engine and crash land the drone. This decreases the severity of \textbf{OP-RISK01} and \textbf{OP-RISK02} (contingency).  
+    \item Human Error (preventive). The probability of \textbf{OP-RISK03} can be decreased with the introduction of training of relevant personnel.   
+    \item For problems during flight that include breaking of parts or components, the drone will immediately decelerate to a safe speed (tbd) and then recovery of the vehicle will be attempted. If recovery is deemed impossible in the timespan of 10s, the first step will be applied. This would decrease the impact of \textbf{OP-RISK04}    (contingency).
+    \item Monitoring the condition of critical components. This decrease the probability of \textbf{OP-RISK04} and \textbf{OP-RISK09}     (preventive) 
+    \item Short service cycles on critical components This decrease the probability of \textbf{OP-RISK04} and \textbf{OP-RISK09} (preventive)
+    \item If the test area is exceeded, the drone will be ordered to immediately return to the testing location \textbf{OP-RISK06} (contingency).
+    \item In the case of a mechanical error onboard the drone during the test flight is detected, an analysis of the level of FUCKERY  will be assessed, and one of the 2 scenarios will be implemented: 1. The drone will be ordered to immediately return. 2. The first option will be implemented, and the drone will be lost. This decreases the impact \textbf{OP-RISK09} (contingency).
+    \item In case of deteriorating weather conditions, the drone will be ordered to return. This decreases the impact \textbf{OP-RISK10} (contengency).
     
 \end{itemize}
 
@@ -503,7 +484,7 @@ For the critical scenarios that could happen during the mission, we can run prep
     \caption{The mitigated Operation Risk Assessment}
     \begin{tabular}{|c|c|c|}
         \toprule
-        \textbf{Risk} & \textbf{Probability} & \textbf{Severity} \\
+        \textbf{Risk} & \textbf{Probability} & \textbf{Impact} \\
         \hline
         \midrule
         OP-RISK01 & 2&4 \\ \hline

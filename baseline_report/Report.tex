@@ -9,7 +9,24 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{geometry}
-\usepackage[numbers,sort&compress]{natbib}
+%\usepackage[numbers,sort&compress]{natbib}
+%
+%--------------------------------------------------------------------
+%
+\usepackage[
+    backend=biber,
+    style=aiaa,
+    citestyle=aiaa,
+    sorting=none,
+    natbib=true
+]{biblatex}
+
+\addbibresource{references.bib}
+
+%
+%--------------------------------------------------------------------
+%
+
 \usepackage{csquotes}
 \usepackage{hyperref}
 \usepackage{pgfgantt}
@@ -172,8 +189,9 @@ Vaibhav Byreddy (5237254)\\
 %% Add bibliography
 %\newpage
 \nocite{*} % remove this later if you only want cited references
-\bibliographystyle{new-aiaa}
-\bibliography{references}
+%\bibliographystyle{new-aiaa}
+%\bibliography{references}
+\printbibliography
 \appendix
 
 %% ----------------------------------------------------------------------

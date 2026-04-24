@@ -1115,6 +1115,7 @@ FUNCTION {article}
   format.note output
   fin.entry
 }
+
 FUNCTION {book}
 { output.bibitem
   author empty$

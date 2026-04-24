@@ -1,61 +1,61 @@
 \chapter{Profitability and return analysis}
-To estimate the profitability and return of the UAV testbed, it is necessary to determine how often is the aircraft going to be utilized. The duration of one flight test is expected to be 30 minutes and multiple flight tests can be conducted on one test day. A reference test day was determined to include four test flights. It is assumed that the UAV will be utilized and actively operational 166 days a year. This reflects an 80\% occupancy over all working days, out of which 80\% of the time is used for test flights and 20\% is used for maintenance.
+To estimate the profitability and return of the UAV testbed, it is necessary to determine how often is the aircraft going to be utilized. The duration of one flight test is expected to be 30 minutes and multiple flight tests can be conducted during a test day. A reference test day was determined to include four test flights. It is assumed that the UAV will be utilized and actively operational 100 days a year. This is determined from all working days in a year with a 20\% downtime due to maintenance, 60\% of days available with favourable weather conditions, and 80\% usage of remaining days.
 \section{Market price}
-It has been decided that the UAV will be made available to customers by leasing. A customer will pay a fee determined by the number of flight days and flight tests, analogous to a typical wind tunnel financial model. In the price of a typical flight day, all consumables, operations and maintenance costs are included. These costs can be estimated at 462 € per typical flight day. Additionally, a fraction of the UAV production, insurance and certification price is included to return the one-time and per aircraft expenses in the period of 3 years, which totals in 498 flight days. This adds 138 € to every flight day.
-\section{Market share and volume}
+It has been decided that the UAV will be made available to customers by leasing. A customer will pay a fee determined by the number of flight days, analogous to a typical wind tunnel financial model. In the price of a typical flight day, all consumables and operations costs are included. These costs can be estimated at 450 € per typical flight day. Additionally, a fraction of the UAV production, insurance, certification and total 15-year maintenance price is included to return the one-time and per aircraft expenses in the period of 3 years, i.e. 300 flight days. Maintenance cost fractions are based on the expected usage over 15 years, i.e. 1500 flight days. Based on the derived costs, 692 € of net profit is needed in the first 3 years of operations to cover all the costs for the entire lifetime of the UAV.
+\section{Market share and volume} 
+To calculate the market share and volume, three main markets were considered; Total Addressable Marker (TAM), Serviceable Addressable Market (SAM), Serviceable Obtainable Market (SOM). The total global market for aeronautical testing is reported at \$6.94B in 2026, with a compounded annual growth rate of 7.28\% until 2035, representing the TAM. A more accessible early market is the European aerospace wind tunnel testing market, reported at \$ 1B. 
+
+The Netherlands was chosen as the beachhead market, representing the SAM. Public data for the aerospace component testing market was not available. Consequently, two approaches were used to estimate the total relevant Dutch market size. First, a top-down approach starting with the entire Dutch economy, and narrowing to aviation, and aerospace engineering R\&D, and finally wind tunnel testing. However, this methodology could not provide reasonable estimates relative to the TAM. The bottom-up approach proved much more successful. First, by finding the largest players in the Aerospace component testing industry in the Netherlands, and approximating their total budget for testing on wind tunnels and aircraft like the PH-LAB. The NLR, TU Delft, and NDW were identified as the major players, resulting in a SAM of approximately \texteuro{71M} \autoref{APPENDIX TBD}. 
+
+Realistically, not all experiments can be performed on the HUGO platform. Estimating 20\% of the SAM can be replaced by HUGO, the SOM is thus \texteuro{14.2M} in 2026.
+
+As explained in \autoref{APPENDIX TBD}, several assumptions were made regarding the operational costs and total aerospace testing budgets used in the SAM. However, estimates such as using the operational costs instead of client test costs, the final SAM and SOM represent a conservative estimate, and are likely to be larger than reported.
 
 \section{Development costs}
+All development costs used for the profit and market price calculations are shown in \autoref{}
 \subsection{Labour costs}
 This aircraft is actively developed by TU Delft students. Therefore, the human labour costs associated with the project development, such as tasks associated with design, testing and manufacturing, are not included.
 
 \subsection{Certification costs}
-The UAV will be subject to several airworthiness certification procedures. First, the operator of the aircraft has to be registered in The Netherlands under the RDW authority to get authorized for operating UAVs. The cost of this administrative action is approximately 50 € \cite{RDW}. Flying a UAV in the specific category under EASA regulation requires permit from the ILT. The fee for this procedure usually lies below 10 000 € \cite{DronesRotterdam} . A cost of 5 000 € is estimated here. 
+The UAV will be subject to several airworthiness certification procedures. First, the operator of the aircraft has to be registered in The Netherlands under the RDW authority to get authorized for operating UAVs. The cost of this administrative action is approximately 50 € \footnote{\url{}}. Flying a UAV in the specific category under EASA regulation requires permit from the ILT. The fee for this procedure usually lies below 10 000 € \cite{DronesRotterdam} . A cost of 5 000 € is estimated here. 
 
 \section{Production costs}
-The total production cost of the aircraft is heavily dependent on the materials and resources used. The cap of 45~000 € as a maximum total cost for one unit is the biggest factor reflected in the production cost. Among the direct costs of one UAV unit, production expenses should also include costs of facility use and direct labour costs. An initial estimate of 300 man-hours at a wage of 50 € per hour is used. The UAV production process is estimated to last two working weeks (e.g. 10 working days) with a total facility use expense of 2000 € (i.e. 200 € per day).
+The total production cost of the aircraft is heavily dependent on the materials and resources used. The maxium cost per unit is capped at 45~000 €. Among the direct costs of the materials used, production expenses should also include costs of facility use and direct labour costs. An initial estimate of 300 man-hours at a wage of 50 € per hour is used. The UAV production process is estimated to last two working weeks (e.g. 10 working days) with a total facility use expense of 2000 € (i.e. 200 € per day).
 
 \section{Direct operational costs}
 Operations of the UAV include several categories of expenses, including fuel and energy costs, transport costs, insurance costs and labour costs.
 \subsection{Fuel and energy costs}
-In order to perform a 30-minute test flight, around 11.5 liters of SAF needs to be used. This is based on the average consumption of one VULCAN engine. Considering a SAF price of €2768 per ton \cite{EASA}, at a density of 800 $kg \cdot m^{-3}$, the price per liter of SAF lies at 2.2 € per liter. Therefore, the fuel cost per one test can be estimated at 30 €. Other energy involved in the process includes electricity used for charging the UAV batteries and powering computers and hardware needed to conduct the test. In general, these costs will be low. An extra margin of 20 € is added to the total energy cost which accounts for a sufficient margin.
+In order to perform a 30-minute test flight, around 11.5 liters of SAF needs to be used. This is based on the average consumption of one VULCAN engine. Considering a SAF price of €2768 per ton \cite{EASA}, at a density of 800 $kg \cdot m^{-3}$, the price per liter of SAF lies at 2.2 € per liter. Therefore, the fuel cost per one test flight can be estimated at 30 €. Other energy involved in the process includes electricity used for charging the UAV batteries and powering computers and hardware needed to conduct the test. In general, these costs will be low. An extra margin of 20 € per test flight is added to the total energy cost which accounts for a sufficient margin.
 \subsection{Transport costs}
 Transport costs represent expenses associated with transporting the aircraft to the test site. This includes fuel or energy used by the transport vehicle and potential cost of leasing a vehicle or hiring an external driver. Assuming that the aircraft is mostly going to be used for testing within The Netherlands, these costs can be estimated at 250 € per test.
 \subsection{Insurance costs}
 Since the aircraft will have a maximum take-off mass larger than 20 kg, legislation requires arranging a third-party insurance. The annual price of insurance for a similar-sized UAV usually ranges from lower to higher hundreds of Euros \cite{DroneLand}. Therefore, an estimate of an annual price of 500 € has been used.
 \subsection{Maintenance costs}
-During its operational life, the UAV will need regular maintenance to remain operational. First, the VULCAN engine should be regularly maintained. For turbines of similar size, such as the Hybl H20PRO, the maintenance interval is around 50 hours \cite{H20PRO}. This includes inspection and occasional part replacement (e.g. bearings or spark plugs). Therefore, 250 € for every 50 operational hours of the VULCAN engine are included for maintenance costs. The maintenance of the airframe is heavily dependent of the usecase. It is assumed that the airframe will not require maintenance over its whole operational lifetime. A fixed expense of 500 € for every 100 hours is accounted for to allow for inspection, battery replacement and minor repairs.
+During its operational life, the UAV will need regular maintenance to remain operational. First, the VULCAN engine should be regularly maintained. For turbines of similar size, such as the Hybl H20PRO, the maintenance interval is around 50 hours \cite{H20PRO}. This includes inspection and occasional part replacement (e.g. bearings or spark plugs). Therefore, 250 € for every 50 operational hours of the VULCAN engine are included for maintenance costs. The maintenance of the airframe is heavily dependent of the usecase. It is assumed that the airframe will not require serious maintenance over its whole operational lifetime. A fixed expense of 500 € for every 100 hours is accounted for to allow for inspection, battery replacement and minor repairs.
 
 \begin{table}[H]
-    \centering
-    \caption{Overview of costs by type}
-    \begin{tabular}{|l|l|l|r|}
-        \hline
-        \textbf{Category} & \textbf{Subcategory} & \textbf{Description} & \textbf{Cost (€)} \\ \hline
-        
-        \multicolumn{4}{|c|}{\textbf{Certification Costs (One-time / Administrative)}} \\ \hline
-        Certification & RDW Registration & Operator registration (NL) & 50 \\ \hline
-        Certification & ILT Permit & Specific category flight authorization & 5\,000 \\ \hline
-        
-        \multicolumn{4}{|c|}{\textbf{Production Costs (Per UAV Unit)}} \\ \hline
-        Production & Material Cap & Maximum production cost per unit & 45\,000 \\ \hline
-        Production & Labour & 300 hours at 50 €/h & 15\,000 \\ \hline
-        Production & Facility Use & 10 days at 200 €/day & 2\,000 \\ \hline
-        
-        \multicolumn{4}{|c|}{\textbf{Operational Costs (Per Flight Test)}} \\ \hline
-        Operations & Fuel (SAF) & 11.5 L at 2.2 €/L & 30 \\ \hline
-        Operations & Electricity & Batteries, computers, systems & 20 \\ \hline
-        Operations & Transport & Vehicle + logistics per test & 250 \\ \hline
-        
-        \multicolumn{4}{|c|}{\textbf{Maintenance Costs (Usage-based)}} \\ \hline
-        Maintenance & Engine & Every 50 hours of operation & 250 \\ \hline
-        Maintenance & Airframe & Every 100 hours of operation & 500 \\ \hline
-        
-        \multicolumn{4}{|c|}{\textbf{Recurring Fixed Costs (Annual)}} \\ \hline
-        Operations & Insurance & Third-party UAV insurance & 500 \\ \hline
-        
-        \multicolumn{4}{|c|}{\textbf{Derived Cost Metrics}} \\ \hline
-        Market Model & Operational Cost/Day & Consumables + operations & 462 \\ \hline
-        Market Model & Cost Recovery/Day & Production and certification fraction & 138 \\ \hline
-    
-    \end{tabular}
+\centering
+\caption{Overview of UAV costs and their contribution to flight day pricing}
+\begin{tabular}{|l|l|l|c|r|}
+\hline
+\textbf{Type} & \textbf{Subcategory} & \textbf{Description} & \textbf{Pricing Role} & \textbf{Cost (€)} \\ \hline
+
+\multicolumn{5}{|c|}{\textbf{Direct costs, reference flight day}} \\ \hline
+Operations & Turbine fuel & 11.5 L of SAF, 4 test flights & Direct & 120 \\ \hline
+Operations & Electricity & Batteries, computers, systems & Direct & 80 \\ \hline
+Operations & Transport & Vehicle + logistics & Direct & 250 \\ \hline
+
+\multicolumn{5}{|c|}{\textbf{Fractional costs, full return in 300 flight days}} \\ \hline
+Certification & RDW + ILT & Registration and flight permits & Fraction & 5\,000 \\ \hline
+
+Production & Materials & UAV structural and system components & Fraction & 28\,000 \\ \hline
+Production & Labour & 300 h at 50 €/h & Fraction & 15\,000 \\ \hline
+Production & Facility & 10 days at 200 €/day & Fraction & 2\,000 \\ \hline
+
+Operations & Insurance & 500 € annually, 15 years total & Fraction & 7500 \\ \hline
+
+Maintenance & Engine & 250 € per 50 h, 3000 h total & Fraction & 15000 \\ \hline
+Maintenance & Airframe & 500 € per 100 h, 3000 h total & Fraction & 7500 \\ \hline
+
+\end{tabular}
 \end{table}
