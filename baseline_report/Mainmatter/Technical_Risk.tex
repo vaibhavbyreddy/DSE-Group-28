@@ -1,58 +1,86 @@
 \chapter{Technical Risk Assessment}
+Risks are one of the most important elements in any decision making. 
+\section{Evaluation of Risk }
 
-EASA\footnote{https://www.easa.europa.eu/en/domains/drones-air-mobility/operating-drone/specific-category-civil-drones, accessed 23.04.2026, accessed 23.04.2026} category: Specific
+\section{Development risks} 
+For any engineering project it is vital to identify the risks that exists related to the development process. 
+\subsection*{Identification of development risks} Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identification everything that might prevent the final designed system to meet these requirement. These risk can be defined by their severity (the risk they poses for the the product to meet the requirements) and the probability for this to occur. The following risks were identified:
+\begin{itemize}
+    \item \textbf{DEV-RISK01 : Discrepancies between the values used for the dimensions, weight and performance of components and the actually values.} This is something the invariably happen with a high probability. The consequences will depend on the specific component. 
+    \item \textbf{DEV-RISK02 : Exceeding the time-budget.} 
+    \item \textbf{DEV-RISK03 : Exceeding the monetary budget} 
+\end{itemize}
+\subsection*{Mitigation of development risks}
 
-EU\footnote{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX\%3A32020R1058, accessed 23.04.2026}
 
-\section{Specific Operation Risk Assessment (SORA)}
+
+\section{Operation risks}
+According to EASA risk-based classification rules\footnote{https://www.easa.europa.eu/en/domains/drones-air-mobility/operating-drone/specific-category-civil-drones, accessed 23.04.2026, accessed 23.04.2026}, the developed UAV falls under the "specific" category. This classification follows from the design MTOM exceeding 25kg, maximum operational velocity of Mach 0.75, maximum altitude exceeding 120m, and BVLOS. To ensure operationa safety, a preliminary Specific Operation Risk Assessment (SORA) has to be performed. As a result, a Specific Assurance Integrity Level (SAIL) and associated containment requirements can be determined. This chapter focuses on a preliminary estimation of SORA and SAIL, as well as a risk assessment and management plans for the UAV operations.
+
+\textbf{SOURCES:}
 % SORA Classification guide
-\footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Main-Body-Release-JAR\_doc\_25.pdf, to be added in the ref list!}
-The SORA is a classification method used by JARUS to determine the risk posed by an UAV during operations. Its main purpose is to determine whether the operations can be performed in a safe manner. 
+JARUS main body: \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Main-Body-Release-JAR\_doc\_25.pdf}
 
-\todo[inline]{Introduction about SORA, the assumptions we made, and a brief overview of the mission}
+Annex A: \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Annex-A-Release.JAR\_doc\_26-pdf.pdf}
+
+Annex D: \footnote{http://jarus-rpas.org/wp-content/uploads/2023/07/jar\_doc\_6\_sora\_sts\_01\_edition1.1.pdf}
+
+Annex F: \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Annex-F-Release.JAR\_doc\_29pdf.pdf}
+
+
+
+
+\section{Preliminary Specific Operation Risk Assessment (SORA)}
+The SORA is a classification method used by JARUS to determine the risk posed by a UAV during operations \cite{} \todo{cite JARUS main}. Its main purpose is to determine whether the operations can be performed in a safe manner. The nominal SORA method is typically comprised of 10 steps encompassing the ground risk, air risk, mitigation performance requirements, assurance and integrity level estimation, and determination of containment requirements.
+
+In this Section, a preliminary SORA classification will be performed for the UAV based on currently available data. It is expected that the final results of this methodology may change as as more information will be known about the UAV configuration and the mission area.
 
 \subsection{Documentation of Proposed Operations}
-\todo[inline]{Describe the test background}
-Compile operational, technical, and organisational information. This may include:
-\begin{itemize}
- \item Various maps, figures, diagrams and other information detailing the operational volume, ground risk buffers, adjacent area, and adjacent airspace.
- \item Information on the operational, technical, and organisational elements of: A. The operation and functions during flight, including intended flight profiles, states, and modes that provide safety throughout the nominal, contingency, and emergency phases of flight, B. Any ground and air risk mitigations (strategic and tactical) used to reduce the intrinsic ground risk or initial air risk.
- \item A description of the contingency volume and ground risk buffers, and how they were determined. 
- \item The applicant may use Annex A, Section A.3 to assist in understanding the type of data that needs to be presented and any other information that supports the risk assessment to the authority.
-\end{itemize}
+The first step in the SORA methodology focuses on compiling operational, technical, and organisational information regarding UAV operations. This entails detailing the operational volume, ground risk buffers, adjacent area, and adjacent airspace \cite{}\cite{} \todo{cite JARUS main + Annex A}.
+
+At this point of the design phase, a specific operations area has not yet been determined. However, a candidate test site has been identified. In 2025, a landmark cooperation agreement was signed by the Province of South Holland, the Ministry of Infrastructure and Water Management, and the Ministry of Defence, with the aim of developing a permanent BVLOS test site for both civil and military applications \footnote{https://www.keyregionleiden.nl/en/cooperation-drone-test-area-over-north-sea-signed, accessed 24.04.2026}
+\footnote{https://aviationnews.eu/news/2025/10/netherlands-establishes-north-sea-drone-test-zone-to-boost-defence-and-industry, accessed 24.04.2026}. According to the available information, first test flights for the area are expected to launch in late 2026.
+
+\todo[inline]{Write the necessary assumptions/implications of having this test field later.}
 
 
 \subsection{Intrinsic Ground Risk Class (iGRC)}
-JARUS Annex F \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Annex-F-Release.JAR\_doc\_29pdf.pdf}
+The intrinsic Ground Risk Class is determined by the characteristics of the UAV based on its maximum characteristic dimension (wing span), maximum speed, as well as the population density in the operational volume and risk buffer areas \cite{}. \todo{cite JARUS main}
 
-JARUS other source \footnote{http://jarus-rpas.org/wp-content/uploads/2023/07/jar\_doc\_6\_sora\_sts\_01\_edition1.1.pdf}
+The maximum speed of HUGO exceeds the limit of 200 m/s specified in Annex F or the JARUS guidelines on SORA \cite{}\todo{cite Annex F}. This implies that the iGRC has to be estimated manually.
 
-Maximum characteristic dimension:
+\todo[inline]{Describe how the iGRC was obtained}
 
-Maximum velocity: 200+ m/s
-
-iGRC footprint: Identify the flight geography, Calculate the contingency volume, Calculate the initial ground risk buffer (1 to 1 principle from other source). \textcolor{red}{Need an FL estimation!}
+The resulting value of iGRC is TBD.
 
 
-Maximum population density: Controlled Ground Area
-
-Resultant iGRC: between 3 and 4 (estimate - 3 for drones flying up to 200m/s).
-
+%Maximum characteristic dimension:
+%Maximum velocity: 200+ m/s
+%iGRC footprint: Identify the flight geography, Calculate the contingency volume, Calculate the initial ground risk buffer (1 to 1 principle from other source). \textcolor{red}{Need an FL estimation!}
+%Maximum population density: Controlled Ground Area
 
 \subsection{Final Ground Risk Class (GRC) (optional)}
-Only if our iGRC is too high. It is not, so we don't have to do it.
+\todo[inline]{Only if our iGRC is too high. If it is not, so we don't have to do it and merge the two subsections into one.}
 
-\subsection{Determination of the initial Air Risk Class (ARC)}
-reserved or restricted airspaces - atypical airspaces
-Atypical airspace: ARC-a
+\subsection{Determination of the Air Risk Class (ARC) and Tactical Mitigation Performance Requirement (TMPR)}
+The SORA methodology uses the operational airspace of the UAV to determine an intrinsic risk of collision with (manned) aircraft, which is expressed by the ARC \cite{}\todo{cite JARUS main}. For UAVs operating in atypical airspaces (such as reserved/restricted airspaces or defined drone testing areas), such as HUGO, an ARC-a score is automatically attributed.
 
-\subsection{Application of strategic mitigations to determine residual ARC (optional)}
-Only if our ARC is too high. For now, it is not, so we don't have to do it.
+The ARC can be lowered or modified via strategic and tactical mitigation means \cite{} \todo{cite JARUS main}. However, since ARC-a represents the lowest possible ARC score, such steps are not deemed as necessary for HUGO.
+
+The TMPR refers to operational requirements which shall be applied to mitigate residual risks of air collisions with (manned) aircraft and achieve an acceptable level of safety during UAV operations \cite{}\todo{cite JARUS main}. For ARC-a operations, the risk of encounter of manned aircraft is deemed as "extremely low", and therefore no TMPR shall be applied (although it is possible for the CAA to require a demonstration of mitigation procedures for HUGO id deemed necessary)\cite{}\todo{cite JARUS Annex D}.
+
+
+
+met without any tactical mitigation.
+(e) Annex D provides information on how to satisfy the TMPR based on the available tactical
+mitigations and the TMPR Level of Robustness
+
+From Annex D \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-Annex-D-v1.0.pdf}, section 5: "No System Risk Ratio guidance; although operator/applicant may still need to show some form of mitigation as deemed necessary by the CAA"
 
 \subsection{Tactical Mitigation Performance Requirement (TMPR) and Robustness Levels}
 No TMPR requirement for ARC-a
 
-From Annex D \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-Annex-D-v1.0.pdf}, section 5: "No System Risk Ratio guidance; although operator/applicant may still need to show some form of mitigation as deemed necessary by the CAA"
+
 
 Utilise Annex A \footnote{http://jarus-rpas.org/wp-content/uploads/2024/06/SORA-v2.5-Annex-A-Release.JAR\_doc\_26-pdf.pdf}, Section A.3 for further guidance on presenting the data supplementing the risk assessment to the authority.
 
@@ -197,6 +225,9 @@ criterion 24: The UAS is designed to perform as intended in the environmental co
 \subsection{Comprehensive Safety Portfolio (CSP)}
 Not applicable at the current design phase.
 
+
+
+
 \section{Contingency Management}
 
 Step 1: Propose adequate operational safety objectives;
@@ -211,23 +242,29 @@ Step 2: Identify the risks of the operation on the ground and in the air conside
 
 Step 3: identify a range of possible risk mitigating measures;
 Step 4: determine the necessary level of robustness of the selected mitigating measures in such a way that the operation can be conducted safely.
-\newline
-\newline
+
 \textbf{Risk Scenarios}
 \newline
 Below is a list of possible risks which might occur during operation of the aircraft:
 \begin{itemize}
-    \item Loss of control during flight while connection with the drone is maintained
-    \item Loss of communication with the drone during the test phase
-    \item Human Error
-    \item Unscheduled sudden disassembly during flight
-    \item Exceeding the flight envelope
-    \item Exceeding the flight limit area 
-    \item Air-collisions
-    \item Fuel-fire
-    \item Mechanical failure (e. g. LG not deploying
-    \item Rapid deterioration of weather conditions during flight
+    \item OP-RISK01: Loss of control during flight while connection with the drone is maintained
+    \item OP-RISK02: Loss of communication with the drone during the test phase
+    \item OP-RISK03: Human Error
+    \item OP-RISK04 Unscheduled sudden disassembly during flight
+    \item OP-RISK05: Exceeding the flight envelope
+    \item OP-RISK06: Exceeding the flight limit area 
+    \item OP-RISK07: Air-collisions
+    \item OP-RISK08: Fuel-fire
+    \item OP-RISK09: Mechanical failure (e. g. LG not deploying
+    \item OP-RISK10: Rapid deterioration of weather conditions during flight
 \end{itemize}
+
+
+
+
+
+
+
 
 \textbf{Preventive Measures for Contingency Scenarios}
 
@@ -244,3 +281,110 @@ For the critical scenarios that could happen during the mission, we can run prep
     \item In case of deteriorating weather conditions, the drone will be ordered to return
     
 \end{itemize}
+
+\section{Risk map}
+
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+    % Define colors
+    \definecolor{riskgreen}{RGB}{84,186,84}
+    \definecolor{riskyellow}{RGB}{255,200,0}
+    \definecolor{riskred}{RGB}{220,50,50}
+
+    % Cell size
+    \def\cs{2.2}
+
+    % Color matrix (row 1 = probability 1, col 1 = impact 1)
+    % Green=0, Yellow=1, Red=2
+    \def\colormatrix{%
+        {0,0,0,1,1},%  prob=1
+        {0,0,1,1,1},%  prob=2
+        {0,1,1,1,2},%  prob=3
+        {0,1,1,2,2},%  prob=4
+        {1,1,2,2,2}%   prob=5
+    }
+
+    % Draw colored cells
+    \foreach \row/\colors in {
+        1/{0,0,0,1,1},
+        2/{0,0,1,1,1},
+        3/{0,1,1,1,2},
+        4/{0,1,1,2,2},
+        5/{1,1,2,2,2}
+    }{
+        \foreach \col/\c in {1/0,2/0,3/0,4/0,5/0}{
+        }
+    }
+
+    % Draw all cells manually
+    % Row prob=1
+    \fill[riskgreen]  (0*\cs,0*\cs) rectangle (1*\cs,1*\cs);
+    \fill[riskgreen]  (1*\cs,0*\cs) rectangle (2*\cs,1*\cs);
+    \fill[riskgreen] (2*\cs,0*\cs) rectangle (3*\cs,1*\cs);
+    \fill[riskyellow]  (3*\cs,0*\cs) rectangle (4*\cs,1*\cs);
+    \fill[riskyellow] (4*\cs,0*\cs) rectangle (5*\cs,1*\cs);
+    % Row prob=2
+    \fill[riskgreen]  (0*\cs,1*\cs) rectangle (1*\cs,2*\cs);
+    \fill[riskgreen]  (1*\cs,1*\cs) rectangle (2*\cs,2*\cs);
+    \fill[riskyellow] (2*\cs,1*\cs) rectangle (3*\cs,2*\cs);
+    \fill[riskyellow] (3*\cs,1*\cs) rectangle (4*\cs,2*\cs);
+    \fill[riskyellow] (4*\cs,1*\cs) rectangle (5*\cs,2*\cs);
+    % Row prob=3
+    \fill[riskgreen]  (0*\cs,2*\cs) rectangle (1*\cs,3*\cs);
+    \fill[riskyellow] (1*\cs,2*\cs) rectangle (2*\cs,3*\cs);
+    \fill[riskyellow] (2*\cs,2*\cs) rectangle (3*\cs,3*\cs);
+    \fill[riskyellow] (3*\cs,2*\cs) rectangle (4*\cs,3*\cs);
+    \fill[riskred]    (4*\cs,2*\cs) rectangle (5*\cs,3*\cs);
+    % Row prob=4
+    \fill[riskgreen]  (0*\cs,3*\cs) rectangle (1*\cs,4*\cs);
+    \fill[riskyellow] (1*\cs,3*\cs) rectangle (2*\cs,4*\cs);
+    \fill[riskyellow] (2*\cs,3*\cs) rectangle (3*\cs,4*\cs);
+    \fill[riskred]    (3*\cs,3*\cs) rectangle (4*\cs,4*\cs);
+    \fill[riskred]    (4*\cs,3*\cs) rectangle (5*\cs,4*\cs);
+    % Row prob=5
+    \fill[riskyellow] (0*\cs,4*\cs) rectangle (1*\cs,5*\cs);
+    \fill[riskyellow] (1*\cs,4*\cs) rectangle (2*\cs,5*\cs);
+    \fill[riskred]    (2*\cs,4*\cs) rectangle (3*\cs,5*\cs);
+    \fill[riskred]    (3*\cs,4*\cs) rectangle (4*\cs,5*\cs);
+    \fill[riskred]    (4*\cs,4*\cs) rectangle (5*\cs,5*\cs);
+
+    % Draw grid lines
+    \draw[white, line width=1.5pt] (0,0) grid[step=\cs] (5*\cs,5*\cs);
+
+    % Risk labels
+    \node[font=\small\bfseries,align=center] at (2*\cs+\cs/2, 4*\cs+\cs/2) {RISK-02\\RISK-11};
+    \node[font=\small\bfseries] at (1*\cs+\cs/2, 3*\cs+\cs/2) {RISK-09};
+    \node[font=\small\bfseries] at (2*\cs+\cs/2, 3*\cs+\cs/2) {RISK-06
+    };
+    \node[font=\small\bfseries] at (3*\cs+\cs/2, 3*\cs+\cs/2) {RISK-03};
+    \node[font=\small\bfseries] at (0*\cs+\cs/2, 2*\cs+\cs/2) {RISK-14};
+    \node[font=\small\bfseries] at (1*\cs+\cs/2, 2*\cs+\cs/2) {RISK-13};
+    \node[font=\small\bfseries, align=center] at (2*\cs+\cs/2, 2*\cs+\cs/2) {RISK-04\\RISK-01\\RISK-15};
+    \node[font=\small\bfseries] at (4*\cs+\cs/2, 2*\cs+\cs/2) {RISK-08};
+    \node[font=\small\bfseries, align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2) {RISK-10\\RISK-12};
+    \node[font=\small\bfseries] at (3*\cs+\cs/2, 1*\cs+\cs/2) {RISK-05};
+    \node[font=\small\bfseries] at (4*\cs+\cs/2, 1*\cs+\cs/2) {RISK-07};
+    \node[font=\small\bfseries,align=center] at (2*\cs+\cs/2, 0*\cs+\cs/2) {RISK-16\\RISK-17};
+
+    % X-axis labels (Impact)
+    \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
+        \node[below] at (\x*\cs-\cs/2, -0.2) {\label};
+    }
+    \node[below] at (2.5*\cs, -0.8) {\textbf{Impact}};
+
+    % Y-axis labels (Probability)
+    \foreach \y/\label in {1/1,2/2,3/3,4/4,5/5}{
+        \node[left] at (-0.2, \y*\cs-\cs/2) {\label};
+    }
+    \node[rotate=90, above] at (-0.8, 2.5*\cs) {\textbf{Probability}};
+
+    % Arrows
+    \draw[->, thick, darkgray] (-0.1, 0) -- (-0.1, 5*\cs+0.4);
+    \draw[->, thick, darkgray] (0, -0.1) -- (5*\cs+0.4, -0.1);
+
+\end{tikzpicture}
+\caption{Risk Assessment Matrix (before risk mitigation strategies)}
+\label{fig:risk_matrix}
+\end{figure}

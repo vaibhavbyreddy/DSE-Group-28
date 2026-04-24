@@ -16,7 +16,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
-\LoadClass[10pt,oneside]{book}
+\LoadClass[11pt,oneside]{book}
 
 %% Main packages in the document --- Some are imported later in the class file
 \RequirePackage{mathtools}  % Mathematical tools to use with amsmath
@@ -48,6 +48,8 @@
 \RequirePackage{etoolbox}   % Toolbox of programming facilities
 \RequirePackage{iftex}      % Adds if-else statements to support multiple compilers
 \RequirePackage{datetime}   % Change format of \today
+\RequirePackage{setspace} % Spacing 1.1
+\setstretch{1.1}
 
 \bibliographystyle{new-aiaa}
 
@@ -60,7 +62,7 @@
 \newcommand*{\covertable}[1]{\def\@covertable{#1}}
 
 %% Scale the margins to be slightly smaller than default (.7)
-\geometry{a4paper,hscale=0.75,vscale=0.87}
+\geometry{a4paper,hscale=0.8095,vscale=0.8653}
 
 %% ----------------------------------------------------------------------
 %%    Setting up the fonts

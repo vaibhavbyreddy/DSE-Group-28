@@ -3,13 +3,26 @@
 Resource allocation translates the project objectives into a practical plan for execution by assigning the available time, personnel, budget and technical means to the activities required for the baseline phase. Its purpose is to ensure that the effort of the team is distributed in a structured and realistic manner, such that all major deliverables can be completed within the constraints of the project requirements. This chapter identifies the key resources available to the team, explains how these resources are divided across the main work packages, and highlights the rationale behind this distribution in view of project priorities, dependencies and expected workload.
 
 \section{Identifying The Available Budget}
-In this section, the general resources are identified and categorised, as such, a structure of the available budget can be made so that tracking of each resource is possible. The budget originates from the restrictions set by the requirements, technical limitations and human disponibility. 
-The critical area that were identified as a finite resources are as follows:
+In this section, the general resources are identified and categorised, as such, a structure of the available budget can be made so that tracking of each resource is possible. The budget originates from the restrictions set by the requirements, technical limitations and human availability. 
+The critical areas that were identified as having a finite budget are:
+
+\begin{itemize}
+    \item Centre of gravity location (CG location)
+    \item Communication link budget
+    \item Mass
+    \item Aircraft dimensions
+    \item Internal dimensions
+    %\item Thrust 
+    \item Fuel budget
+    \item Power from the battery
+\end{itemize}
+
+
 
 \subsection{Centre of Gravity (CG) Location}
 The CG range of an aircraft is crucial for defining its stability and controllability limits. An unbalanced vehicle cannot guarantee safety or functionality during operations. The specific margins of stability and controllability shall be subject to change based on the payload and desired test conditions, and the specific CG range can be evaluated based on the following:
 
-\begin{enumerate}
+\begin{itemize}
     \item Longitudinal position of the wing w. r. t. the fuselage,
     \item Tail size and position,
     \item Distribution and location of on-board systems,
@@ -17,7 +30,7 @@ The CG range of an aircraft is crucial for defining its stability and controllab
     \item Location of fuel tanks and batteries,
     \item Location and configuration of landing gears,
     \item Implementation of a control system for the fuel flow.
-\end{enumerate}
+\end{itemize}
 
 Verifying the CG position against the allowable limits can be done with the use of a scissor plot combining the stability and controllability curves, which in turn defines the required tail size and longitudinal wing position. If necessary, the process can be iterated until a balanced design is achieved that can operate within the desired stability and controllability limits.
 
@@ -33,17 +46,20 @@ An analysis of the link budget is required to ensure that communication with the
     \item Available volume and internal component arrangement.
 \end{itemize}
 
-
-\todo[inline]{Write somewhere earlier that we want to perform Mach 0.75 flight for 5 mins max during the flight, and keep the rest at 0.4 or smth}
-
+The nominal mission will last for a duration of 30 minutes, the test phase only accounting for 5 minutes of the total time, at a speed of 0.75 mach. For this speed keeping, a clear and low-latency communication link will be the main requirement that will drive the development of the communication system.
 
 
 
 
-\subsection{Weight}
-Weight is a valuable resource that needs to be kept in check throughout the development process. It is derived from the stakeholder requirement, limiting the drone to a mass of 50 kg. This mass takes into account the imposed minimum 5 kg limit for the internal pyload, as well as the fuel onboard. 
-This limit can be considered as MDW (maximum design weight). From the requirements specifications, it is known that one engine weighs 2.1 kg, and in the case that the plane requires 2 such power plants,  adding the weights of the cables and hoes needed, it would result in a combined mass of 5 kg.\\
-The rest of the mass is allocated towards the rest of the components that complete the drone, and the pomponents that contribut to the remaining of 40 kg is:
+\subsection{Mass}
+Mass is a constrained resource that must be monitored throughout the development process. This constrain is derived from the stakeholder requirement (\textbf{GEN-001), limiting the drone to a mass of 50 kg. This maximum design mass takes into account the imposed minimum internal load capacity of 5 kg (\textbf{GEN-003}), the onboard fuel, and all aircraft subsystems.
+The mass is further constrained by the propulsion system. From the requirements specifications, it is known that one engine weighs 2.1 kg, and if the design requires 2 such power plants, a total of 4.2 kg is allocated to this system. Accounting for the mass of cables and hoses needed, it would result in a combined mass of 5 kg.\\
+The rest of the mass is allocated towards the rest of the components that complete the drone. The remaining 40kg are allocated towards:
+
+% Mass is a constrained resource that must be monitored throughout the development process. This constraint is derived from the stakeholder requirement limiting the UAV to a maximum mass of \SI{50}{kg}. This maximum design mass includes the imposed minimum internal payload capacity of \SI{5}{kg}, the onboard fuel, and all aircraft subsystems.
+
+% The mass budget is further constrained by the propulsion system. According to the requirement specifications, one engine has a mass of \SI{2.1}{kg}. If the aircraft requires two such power plants, the engines alone would account for \SI{4.2}{kg}. Including the additional mass of cables, hoses, mounts and auxiliary components, the total propulsion-system mass is expected to be approximately \SI{5}{kg}.
+
 
 \begin{itemize}
     \item Fuel 
@@ -53,9 +69,11 @@ The rest of the mass is allocated towards the rest of the components that comple
     \item Internal battery assembly
 \end{itemize}
 
-Although the power plant is located inside the fuselage, its mass is considered as a separate element from the fuselage assembly. The fuselage mass buget will include the mass of the fuel tanks, but not the mass of the fuel itself. Cables and connectors used to transsfer power from the battery to the payload are considered in the battery assembly. 
+Although the power plant is installed within the fuselage, its mass is treated as a separate contribution from the fuselage assembly. The fuselage mass budget therefore, includes the structural shell, internal supports, and fuel tanks, but excludes both the propulsion-system mass and the fuel mass itself. Cables and connectors used to transfer power from the battery to the payload are considered in the battery assembly. 
 
-The general idea of modularity will permit customers to modify the alocation of mass, to comply with the user test case. Mass is coupled with the location of center of mass, as such, both resources have to be closely monitored toghether. 
+% Although the power plant is installed within the fuselage, its mass is treated as a separate contribution from the fuselage assembly. The fuselage mass budget therefore includes the structural shell, internal supports, and fuel tanks, but excludes both the propulsion-system mass and the fuel mass itself. Similarly, the cables and connectors required to transfer electrical power from the battery to the payload are allocated to the battery assembly rather than to the payload or fuselage mass budgets.
+
+The general idea of modularity will permit customers to modify the allocation of mass to comply with the user test case. Mass is coupled with the location of the centre of mass, as such, both resources have to be closely monitored together. 
 
 
 \subsection{Aircraft dimensions} 
@@ -108,15 +126,20 @@ For the aircraft to function as intended several components needs to be present 
 \end{enumerate}
 Not only does the aircraft need to accommodate all of these systems but some  of the components will be highly location dependent (for example the engine system). This is all something that must be taken into account when designing the aircraft.   
 
-\subsection*{Thrust}
-NO, WE WILL USE FLUTTERING WINGS
 
 
-\subsection*{Fuel Budget}
-The amount of fuel onboard the plane has to be enough to sustain the 30-minute flight requirement (25 min cruise and 5 min testing), along with facilitating the take-off and landing procedures. On top of the mission parts segments that the drone has to complete, it shall have a reserve of fuel to allow loitering for a period of 5 minutes, accounting for unforeseen circumstances. 
 
-As stated in \autoref{tab:system_requirements}, requirement \textbf{SUS-001}, the drone will use SAF as a fuel source. During the design process of the propulsion and fuel systems, a choice on the type of fuel has to be made. In terms of challenges, implementing a sustainable fuel would be the logistics implied as there is not yet
-\todo{continue this shit and definitely revise this as I have degenerated a little }
+\subsection{Fuel Budget}
+The amount of fuel onboard the plane has to be enough to sustain the 30-minute flight requirement (25 min cruise and 5 min testing), along with facilitating the take-off and landing procedures. In addition to the mandatory mission segments, the drone requires a reserve of fuel to allow loitering for a period of 5 minutes, as stated by \textbf{OPS-004}.
+
+As stated in \autoref{tab:system_requirements}, requirement \textbf{SUS-001}, the drone will use SAF as a fuel source. During the design process of the propulsion and fuel systems, a choice on the type of fuel has to be made.
+The primary factors that influence the fuel consumption, and as such the fuel required are:
+\begin{itemize}
+    \item Mass of the drone
+    \item Consumption of the engine
+    \item Altitude at which the drone fly
+\end{itemize}
+
 
 \section{Strategic Resource Planing}
 
