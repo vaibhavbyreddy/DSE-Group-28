@@ -64,8 +64,8 @@
     a4paper,
     left=20mm,
     right=20mm,
-    top=25mm,
-    bottom=25mm,
+    top=20mm,
+    bottom=20mm,
     headheight=15pt,
     includehead,
     includefoot

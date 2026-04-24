@@ -15,19 +15,19 @@ The next step was rejecting the unfeasible options (in red) or marking them as s
 As part of the preliminary design process, several configuration options were evaluated using the Design Option Tree. Concepts that were found to be infeasible, incompatible with the design requirements, or overly complex were discarded at an early stage. The main reasons for rejection are summarized below.
 
 \begin{itemize}
-    \item \textbf{Internal structure material (polymer structures):} Discarded due to insufficient strength and stiffness for primary load-bearing applications.
+    \item \textbf{Internal structure material (polymer structures):} Discarded due to insufficient strength and stiffness to weight ratio for primary load-bearing applications.
 
-    \item \textbf{Manual control only:} Requires continuous pilot or remote input across all flight phases, leading to increased workload and reduced operational robustness.
+    \item \textbf{Manual control only:} Requires continuous pilot or remote input across all flight phases, leading to increased workload and reduced operational robustness. Since basic autopilot, loitering and return to home are now standard in most flight control softwares, it makes no sense to exclude some level of autopilot capabilities in the design.
 
-    \item \textbf{Twin-boom wing configuration:} Rejected due to increased drag, higher structural weight, added complexity, and potential flutter concerns.
+    \item \textbf{Twin-boom wing configuration:} Rejected due to increased drag, higher structural weight and added complexity.
 
     \item \textbf{Delta wing configuration:} Limits modularity and makes testing of high-aspect-ratio (HAR) wings impractical.
 
     \item \textbf{Prandtl infinite wing:} Discarded due to challenges in yaw control, sensitivity to flutter, and reduced effective lift generation.
 
-    \item \textbf{Wing-mounted fuel tanks only:} Limited compatibility with modular wing concepts; introduces integration challenges, limited available volume in slender HAR wings, and fuel sloshing concerns.
+    \item \textbf{Wing-mounted fuel tanks only:} Limits modularity by adding unnecessary constraints to wing designs; introduces integration challenges, limited available volume in slender HAR wings.
 
-    \item \textbf{Jet engine with auxiliary unit:} Not feasible due to integration constraints that prevent adding an auxiliary power unit \textcolor{red}{(still valid?)}.
+    \item \textbf{Jet engine with auxiliary power unit:} An auxiliary power unit was considered to cover the electrical power requirements. However a preliminary power and energy requirement budget was calculated, and a battery was found to satisfy our requirements while taking significantly less volume, and at a lower weight than any other power generation idea.\textcolor{red}{(still valid?)}.
 
     \item \textbf{Alternative fuels (Jet-A1 and Diesel):} Not considered, as the engine is specifically designed to operate on sustainable aviation fuel (SAF) \textcolor{red}{(still valid?)}.
 
@@ -122,11 +122,13 @@ Several configuration combinations were also deemed unfeasible and excluded from
     Config 14 & Mid wing & Fuselage mounted & H-tail & Retractable gear \\
     Config 15 & Mid wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
     Config 16 & High wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
-    Config 17 & High wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
+    Config 17 & High wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
     Config 18 & High wing & Wing Mounted & T-tail & Retractable gear \\
     Config 19 & High wing & Fuselage mounted & Inverted V-tail & Skids (Belly landing / Rail launched) \\
     Config 20 & High wing & Wing Mounted & Conventional tail & Retractable \\
 \end{longtable}
+
+For reasons stated above concerning the integration and space limitation of the mid-wing, the combinations including a mid-wing will not be considered further. This stems from the strict requirement on the mass and volume of the payload that needs to be taken on board the aircraft. Thus, Configuration 14 and Configuration 15 are not considered further.
 
 
 \clearpage

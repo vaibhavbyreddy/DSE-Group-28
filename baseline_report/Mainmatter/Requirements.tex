@@ -21,10 +21,10 @@ The constraints are split into complying with budgets (mass, payload volume, ele
 \end{figure}
 
 \section{Final list of system requirements}
-The system requirements are divided into several categories: general (GEN), performance (PER), aerodynamics (AER), operations (OPS), certifications (CER), sustainability (SUS), control (CON), stability (STA), and structures (STR).
+The system requirements are divided into several categories: general (GEN), power (POW), communications (COM), control (CTL), propulsion (PRP), operations (OPS), certification (CER), financial (FIN) aerodynamics (AER), operations (OPS), certifications (CER), sustainability (SUS), control (CON), stability (STA), and structures (STR). Driving requirements are marked in red, and key requirements in italic.
 
 \begin{longtable}{|p{3cm}|p{11cm}|}
-\caption{Top-level aircraft requirements}
+\caption{Lidt of system requirements}
 \label{tab:system_requirements} \\
 \hline
 \textbf{Requirement ID} & \textbf{Requirement} \\
@@ -36,118 +36,105 @@ The system requirements are divided into several categories: general (GEN), perf
 \hline
 \endhead
 
+HUG-GEN-001& The mass of the aircraft shall be less than 50kg including payload. \\ \hline
+
+HUG-GEN-002 & The available payload mass shall be larger than 5 kg. \\ \hline
+
 HUG-POW-001& The aircraft shall provide more than TBD of electrical energy on board.\\ \hline 
 
-HUG-POW-001& The peak power provided by the aircraft shall be higher than TBD Watts.\\ \hline 
+HUG-POW-002& The peak power provided by the aircraft shall be higher than TBD Watts.\\ \hline 
+
+HUG-COM-001 & The aircraft shall transmit more than TBD amount of data in TBD time at TBD frequency from TBD distance.\\ \hline
+
+HUG-COM-002& The aircraft shall receive more than TBD amount of data in TBD time at TBD frequency from TBD distance.\\ \hline
+
+HUG-CTL-001& The aircraft shall have autonomous stabilization systems.\\ \hline
+
+HUG-CTL-002& The aircraft shall be able to perform turns, climb and descent autonomously.\\ \hline
+
+HUG-CTL-003& The aircraft shall be able conduct experiments autonomously\\ \hline
+
+HUG-CTL-004& The aircraft shall be remotely controllable. \\ \hline
+
+\textit{HUG-CTL-005} & The c.g. excursion of the aircraft shall allow for both statically and dynamically stable, unstable and neutrally stable flight conditions. \\ \hline
+
+HUG-PRP-001 & The aircraft shall provide maximum thrust higher than TBD at TBD altitude.\\ \hline
+
+HUG-PRP-002 & The aircraft shall provide continuous thrust larger than TBD at TBD altitude.\\ \hline
+
+\textit{HUG-OPS-001} & All equipment for performing the flight test shall fit within a van of TBD cargo dimensions.\\ \hline
+
+HUG-OPS-002 & The aircraft shall be fully manufacturable using only TRL10 manufacturing techniques.\\ \hline
+
+\textcolor{red}{HUG-OPS-003} & The aircraft shall be recyclable to a TBD degree. \\ \hline
+
+HUG-OPS-004 & The endurance of the aircraft at maximum payload shall be longer than 30 minutes. \\ \hline
+
+\textcolor{red}{HUG-OPS-005} & The aircraft shall be able to sustain Mach 0.75 for TBD min. \\ \hline
+
+HUG-OPS-006 & The aircraft shall be able to sustain flight at Mach 0.4 during the entire duration of the main flight stage. \\ \hline
+
+HUG-OPS-007 & The aircraft shall be able to loiter for a duration of TBD minutes. \\ \hline
+
+HUG-OPS-008 & The time of aircraft assembly including payload integration and fueling shall be less than TBD. \\ \hline
+
+HUG-CER-001 & The aircraft shall comply with airworthiness requirements for SORA3 category of aircraft.\\ \hline
+
+HUG-CER-002 & The aircraft shall not fly at altitudes higher than TBD. \\ \hline
+
+HUG-CER-003 & It shall be possible to terminate the mission in a controlled manner at any point in time. \\ \hline
+
+HUG-CER-003 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\ \hline
+
+\textcolor{red}{HUG-FIN-001} & The cost of a single aircraft configuration shall be less than 45k euro.\\ \hline
+
+HUG-FIN-002 & The cost of all services and equipment associated with the flight test shall be less than TBD.\\ \hline
+
+\textcolor{red}{HUG-AER-001}& The critical Mach number of the all aerodynamic surfaces shall be higher than Mach 0.75 with a TBD margin.\\ \hline 
+
+\textcolor{red}{\textit{HUG-AER-002}}& The aircraft shall house test planforms of horizontal projected area up to TBD, of vertical projected area up to TBD.\\ \hline 
+
+HUG-AER-003& The aircraft equipped with test planforms shall have the lift-to-drag ratio higher than TBD.\\ \hline 
 
 HUG-STR-001& The aircraft structure shall provide a volume for the payload larger than TBD $m^3$ with a margin of TBD. \\ \hline
 
 HUG-STR-002 & The aircraft structure shall provide the internal volume larger than TBD with a margin of TBD.\\ \hline
 
-HUG-COM-001 & The aircraft structure shall have a link budget larger than TBD.\\ \hline
+\textcolor{red}{HUG-STR-003}& The aircraft structure shall withstand stresses due to transonic loads at Mach 0.75.\\ \hline 
 
-HUG-COM-002& The aircraft shall provide a transmission rate larger than TBD with a margin of TBD.\\ \hline
+HUG-STR-004& The aircraft structure shall not buckle due to transonic loads at Mach 0.75.\\ \hline 
 
-HUG-OPS-001 & All equipment for performing the flight test shall  \\ \hline
-HUG-PRP-001 & The aircraft shall provide thrust higher than TBD.\\ \hline
+\textit{HUG-STR-005}& The flutter speed of the baseline aircraft structure shall be higher than TBD m/s.\\ \hline 
 
-HUG-FIN-001 & The cost of a single aircraft configuration shall be less than 45k euro.\\ \hline
+\textit{\textcolor{red}{HUG-STR-006}}& The VULCAN engine(s) shall be integrated within the aircraft structure. \\ \hline
 
-HUG-GEN-001& The mass of the aircraft shall be less than 50kg including payload. \\ \hline
+HUG-STR-007& The VULCAN engine shall be replaceable. \\ \hline
 
-HUG-GEN-002 & The c.g. excursion of the aircraft shall be from TBD to TBD from the aircraft nose. \\ \hline
+HUG-STR-008& The structure shall provide space and mounting for auxiliary systems for the VULCAN engine. \\ \hline
 
-HUG-GEN-002-002& The aircraft shall satisfy the lifetime constraints.\\ \hline 
+HUG-STR-009& The structure shall include fuel tanks for housing SAF volume required for the entire mission, including missed approach and loiter time. \\ \hline
 
-HUG-GEN-002-003 & The aircraft shall be unmanned.\\ \hline
+HUG-STR-010 & Every subsystem inside the aircraft wing and fuselage shall have an access hole, allowing for subsystem inspection. \\ \hline  
 
-HUG-SUS-001 & The aircraft shall be sustainable. \\ \hline
+HUG-STR-011 & The inspection shall allow for identifying cracks in all primary load-bearing components. \\ \hline  
 
-HUG-MAN-001& The aircraft shall be manufacturable.\\ \hline 
+\textcolor{red}{HUG-STR-012}&  The aircraft shall retain structural integrity after 15 years of usage with TBD intensity. \\ \hline
 
-HUG-MAN-001-001& The aircraft shall be manufacturable by using TRL10 techniques.\\ \hline 
+HUG-STR-013&  Isolated single-point failures shall not cause catastrophic failures. \\ \hline
 
-HUG-CER-001& The aircraft shall comply with airworthiness requirements.\\ \hline 
+HUG-STR-014& The natural frequencies of the structure shall be further from the frequency of the engine by TBD Hz. \\ \hline
 
-HUG-GEN-003& The aircraft shall withstand transonic loads.\\ \hline 
+HUG-STR-015 & The aircraft shall provide interfaces for mounting sensors and actuators. \\ \hline
 
-HUG-STR-001-001& The aircraft structure shall withstand stresses due to transonic loads.\\ \hline 
+HUG-STR-016 & The structure shall accommodate space for a secondary flight computer. \\ \hline
 
-HUG-STR-001-002& The aircraft structure shall not buckle below Mach 0.75 under TBD load.\\ \hline 
+HUG-STR-017 & The structure shall accommodate a payload bay of at least 5 litres. \\ \hline
 
-HUG-AER-001& The critical Mach number of the aircraft shall be higher than Mach 0.75 with a TBD margin.\\ \hline 
-
-HUG-STR-001-003& The flutter speed of the baseline aircraft structure shall be higher than TBD m/s.\\ \hline 
-
-& The aircraft shall withstand transonic loads.\\ \hline
-
-& The aircraft shall have a critical Mach number larger than 0.75, with a margin of TBD.\\ \hline
-
-& The aircraft structure shall withstand stresses at Mach 0.75 with a margin of TBD. \\\hline
-
-
-& The aircraft shall be manufacturable \\ \hline
-
-& It shall be possible to manufacture the aircraft using TRL 10 techniques. \\ \hline
-
-
-& The lifetime of the aircraft shall be longer than 15 years. \\ \hline
-
-& The aircraft shall be damage-tolerant. \\ \hline
-
-& The aircraft shall be fail-safe. \\ \hline
-
-& The aircraft shall retain structural integrity after TBD loading cycles, including a margin of TBD. \\ \hline
-
-& The aircraft shall comply with budgets. \\ \hline
-
-& The aircraft shall comply with budgets. \\ \hline
-
-
-HUG-GEN-001 & The total mass shall not be larger than 50 kg. \\ \hline
-HUG-GEN-002 & The total cost of a single configuration shall not exceed 45k€. \\ \hline
-HUG-GEN-003 & The available payload mass shall be larger than 5 kg. \\ \hline
-HUG-GEN-004 & The VULCAN engine shall be used by all aircraft configurations. \\ \hline
-
-HUG-PER-001 & The endurance at maximum payload shall be longer than 30 minutes. \\ \hline
-HUG-PER-002 & The aircraft shall be able to sustain Mach 0.75 for TBD min. \\ \hline
-HUG-PER-003 & The aircraft shall be able to sustain the speed faster than Mach 0.4 during the main flight stage. \\ \hline
-
-HUG-PER-004 & The aircraft shall be have loiter time longer than TBD. \\ \hline
-
-HUG-AER-001 & The critical Mach number shall be higher than 0.75. \\ \hline
-
-HUG-OPS-001 & The lifetime of a single configuration shall be longer than 15 years. \\ \hline
-HUG-OPS-002 & All regular service, required parts, and tools shall fit within a van-sized vehicle of TBD exact dimensions. \\ \hline
-HUG-OPS-003 & It shall be possible to maintain the aircraft on a regular basis. \\ \hline
-HUG-OPS-004 & The aircraft shall be able to sustain a loiter time of at least 5 minutes.  \\ \hline
-HUG-OPS-005& The aircraft shall be maintainable. \\ \hline
-HUG-MAI-001& The VULCAN engine shall be replaceable. \\ \hline
-HUG-MAI-002 & Every subsystem inside the aircraft wing and fuselage shall have an access hole, allowing for subsystem inspection. \\ \hline  
-
-CER-001 & The aircraft shall not exceed an altitude of TBD. \\ \hline
-CER-002 & It shall be possible to safely recover the aircraft in all flight scenarios. \\ \hline
-
-SUS-001 & The aircraft shall use sustainable aviation fuel (SAF). \\ \hline
-SUS-002 & The aircraft shall be recyclable. \\ \hline
-
-CON-001 & The aircraft shall be capable of autonomous flight. \\ \hline
-CON-002 & The aircraft shall be fully controllable remotely. \\ \hline
-
-STA-001 & The aircraft shall be capable of stable, neutral, and unstable flight conditions. \\ \hline
-
-STR-001 & The structure shall withstand transonic loads. \\ \hline
-STR-002 & The structure shall allow integration of the VULCAN engine. \\ \hline
-STR-003 & The structure shall accommodate a payload bay of at least 5 litres. \\ \hline
-STR-004 & The structure shall accommodate space for a secondary flight computer. \\ \hline
-STR-005 & The wing, tail, and payload bay shall be modular. \\ \hline
-STR-006 & The aircraft shall provide interfaces for mounting sensors and actuators. \\ \hline
 
 \end{longtable}
 
-\textcolor{red}{Drive and killer requirements, etc.}
+\textcolor{red}{Identify driver and killer requirements, etc.}
 
-\textcolor{red}{Deriving more detailed requirements}
 
 \subsection{Mission Profile}
 Based on the requirements stated in \autoref{tab:system_requirements}, it was decided that the mission profile will consist of the general phases that are stated in \todo{put in the ADSEE 1 book as a refferance for the mission profile}. A diagram of the mission profile can be found in:

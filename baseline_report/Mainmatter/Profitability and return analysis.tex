@@ -1,7 +1,7 @@
 \chapter{Profitability and return analysis}
-
+To estimate the profitability and return of the UAV testbed, it is necessary to determine how often is the aircraft going to be utilized. The duration of one flight test is expected to be 30 minutes and multiple flight tests can be conducted on one test day. A reference test day was determined to include four test flights. It is assumed that the UAV will be utilized and actively operational 166 days a year. This reflects an 80\% occupancy over all working days, out of which 80\% of the time is used for test flights and 20\% is used for maintenance.
 \section{Market price}
-The market price of the UAV should cover all the costs associated with manufacturing and certified that are further investigated below. Furthermore, to generate profit, margin is added to all the associated costs to determine the market price of the aircraft.
+It has been decided that the UAV will be made available to customers by leasing. A customer will pay a fee determined by the number of flight days and flight tests, analogous to a typical wind tunnel financial model. In the price of a typical flight day, all consumables, operations and maintenance costs are included. These costs can be estimated at 462 € per typical flight day. Additionally, a fraction of the UAV production, insurance and certification price is included to return the one-time and per aircraft expenses in the period of 3 years, which totals in 498 flight days. This adds 138 € to every flight day.
 \section{Market share and volume}
 
 \section{Development costs}
@@ -23,7 +23,7 @@ Transport costs represent expenses associated with transporting the aircraft to 
 \subsection{Insurance costs}
 Since the aircraft will have a maximum take-off mass larger than 20 kg, legislation requires arranging a third-party insurance. The annual price of insurance for a similar-sized UAV usually ranges from lower to higher hundreds of Euros \cite{DroneLand}. Therefore, an estimate of an annual price of 500 € has been used.
 \subsection{Maintenance costs}
-During its operational life, the UAV will need regular maintenance to remain operational. First, the VULCAN engine needs to be regularly maintained. For similarly sized turbines, like the Hybl H20PRO, the maintenance interval is around 50 hours \cite{H20PRO}. This includes inspection an
+During its operational life, the UAV will need regular maintenance to remain operational. First, the VULCAN engine should be regularly maintained. For turbines of similar size, such as the Hybl H20PRO, the maintenance interval is around 50 hours \cite{H20PRO}. This includes inspection and occasional part replacement (e.g. bearings or spark plugs). Therefore, 250 € for every 50 operational hours of the VULCAN engine are included for maintenance costs. The maintenance of the airframe is heavily dependent of the usecase. It is assumed that the airframe will not require maintenance over its whole operational lifetime. A fixed expense of 500 € for every 100 hours is accounted for to allow for inspection, battery replacement and minor repairs.
 
 \begin{table}[H]
     \centering
@@ -33,13 +33,19 @@ During its operational life, the UAV will need regular maintenance to remain ope
         \hline
         Certification & 5~000 & One-time \\
         \hline
-        Production & 62~000 & Per Aircraft \\
+        Production & 62~000 & One-time \\
         \hline
-        Fuel and energy & 50 & Per test day \\
+        Fuel and energy & 50 & Per test flight \\
         \hline
-        Transport & 250 & Per test \\
+        Transport & 250 & Per test day\\
         \hline
         Insurance & 500 & Annual \\
+        \hline
+        Engine Maintenance & 250 & Every 50 op. hours \\
+        \hline
+        Airframe Maintenance & 500 & Every 100 op. hours \\
+        \hline
+        Operator labour & 400 & Per test day \\
         \hline
     \end{tabular}
     \caption{Initial cost estimation table}
