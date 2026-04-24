@@ -1,10 +1,10 @@
 \chapter{Technical Risk Assessment}
-According to EASA risk-based classification rules\footnote{\href{https://www.easa.europa.eu/en/domains/drones-air-mobility/operating-drone/specific-category-civil-drones}{EASA Specific Category — Civil Drones} (accessed on 23.04.2026)}, the developed UAV falls under the "specific" category. This classification follows from the design MTOM exceeding 25kg, maximum operational velocity of Mach 0.75, maximum altitude exceeding 120m, and BVLOS. To ensure operational safety, a preliminary risk assessment has to be performed for both development and operational risks. A qualitative assessment of risks is performed in \autoref{sec:risk_assessment}. Mitigation measures are identified and quantified in \autoref{sec:risk_mitigation}. Lastly, a preliminary Specific Operation Risk Assessment (SORA) methodology is followed in \autoref{sec:SORA} to determine the necessary measures required to ensure safe operations of HUGO.
+According to EASA risk-based classification rules\footnote{\href{https://www.easa.europa.eu/en/domains/drones-air-mobility/operating-drone/specific-category-civil-drones}{EASA Specific Category — Civil Drones} (accessed on 23.04.2026)}, the developed UAV falls under the "specific" category. This classification follows from the design MTOM exceeding 25kg, maximum operational velocity of Mach 0.75, maximum altitude exceeding 120m, and BVLOS. To ensure operational safety, a preliminary risk assessment has to be performed for both development and operational risks. A qualitative assessment of risks is performed in \autoref{sec:risk_assessment}. Mitigation measures are identified and quantified in \autoref{sec:contingency_management}. Lastly, a preliminary Specific Operation Risk Assessment (SORA) methodology is followed in \autoref{sec:SORA} to determine the necessary measures required to ensure safe operations of HUGO.
 
 \section{Initial Risk Assessment}
 \label{sec:risk_assessment}
 
-In risk assessment, key risks are identified by evaluating the likelihood of occurrence $p$ and severity of impact. For the purpose of this analysis, both of these criteria are evaluated on a scale from 1 to 5, with 1 being the lowest score, and 5 being the highest. Details regarding the allocation of both scores are explained in \autoref{tab:risk_map_scores}.
+In risk assessment, key risks are identified by evaluating the likelihood of occurrence $p$ and severity of impact. For the purpose of this analysis, both of these criteria are evaluated on a scale from 1 to 5, with 1 being the lowest score, and 5 being the highest. Details regarding the allocation of both scores are explained in \autoref{tab:risk_map_scores}. 
 
 \begin{table}[H]
     \centering
@@ -12,27 +12,43 @@ In risk assessment, key risks are identified by evaluating the likelihood of occ
     \begin{tabular}{|p{1cm}|p{3.5cm}|p{10.5cm}|}
     \hline
         \textbf{Score} & \textbf{Likelihood} & \textbf{Impact} \\ \hline\hline
-         1 & $0\%< p<1\%$ & Negligible () \\   \hline
+         1 & $0\%< p<1\%$ & Negligible \\   \hline
          2 & $1\%<p<30\%$ & Marginal (insignificant impact, can be managed by applying standard procedures) \\   \hline
          3 & $30\%<p<50\%$& Considerable (significant impact, can be managed by additional/contingency procedures) \\   \hline
-         4 & $50\%<p<70\%$& Critical () \\   \hline
-         5 & $70\%<p<100\%$& Catastrophic () \\   \hline
+         4 & $50\%<p<70\%$& Critical (possible injury or minor damage to property or HUGO, has to be addressed by contingency/emergency procedures) \\   \hline
+         5 & $70\%<p<100\%$& Catastrophic (possible death or serious injury, severe damage to property, loss of HUGO, has to be addressed by contingency/emergency procedures) \\   \hline
     \end{tabular}
     \label{tab:risk_map_scores}
 \end{table}
 
-\subsection{Development risks}
-For any engineering project it is vital to identify the risks that exists related to the development process. 
-\subsection*{Identification of development risks} Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identification everything that might prevent the final designed system to meet these requirement. These risk can be defined by their severity (the risk they poses for the the product to meet the requirements) and the probability for this to occur. The following risks were identified:
+\subsection{Development Risks}
+For any engineering project it is vital to identify the risks that exists related to the development process. Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identification everything that might prevent the final designed system to meet these requirement. These risk can be defined by their severity (the risk they poses for the the product to meet the requirements) and the probability for this to occur. The development risks identified for HUGO, along with their assigned likelihood and severity scores, are listed in \autoref{tab:development_risks}.
+
+\begin{table}[H]
+    \centering
+      \caption{Initial Development Risk Assessment}
+    \begin{tabular}{|p{3cm}|p{8cm}|p{2cm}|p{1.5cm}|}
+    \hline
+       \textbf{Risk ID}  & \textbf{Risk Description} & \textbf{Likelihood} & \textbf{Severity} \\ \hline
+        HUG-DEV-01 & Discrepancies between the values used for the dimensions, weight and performance of components and the actual values. & 4 & 4 \\ \hline
+        HUG-DEV-02 & Exceeding the time budget. & 2 & 3 \\ \hline
+        HUG-DEV-03 & System Model Errors (inadequate Validation \& Verification).       & 3 & 5 \\ \hline
+        HUG-DEV-04 & Inconsistent documentation (errors in keeping of records, documents and calculations) & 2 & 4 \\ \hline
+        HUG-DEV-05 & Supply Chain issues (component shipping delay) & 2 & 4 \\ \hline
+        
+    \end{tabular}
+    \label{tab:development_risks}
+\end{table}
+
+\begin{comment}
 \begin{itemize}
     \item \textbf{HUG-DEV-01}: Discrepancies between the values used for the dimensions, weight and performance of components and the actual values. This is something the invariably happen with a high probability. The consequences will depend on the specific components. 
     \item \textbf{HUG-DEV-02}: Exceeding the time-budget.  
     \item \textbf{HUG-DEV-03}: Errors in the models used. If the models used for designing the aircraft are wrong it might lead to the aircraft not meeting the requirements. 
     \item \textbf{HUG-DEV-04}: Loss of important material. If important documents or calculations are lost this might lead to a slipping of the plan.
-    \item \textbf{HUG-DEV-05}: Supply chain issues leading to missing components. For the final part of manufacture the time management might slip since certain components might act as bottlenecks in the production.    
-    
+    \item \textbf{HUG-DEV-05}: Supply chain issues leading to missing components. For the final part of manufacture the time management might slip since certain components might act as bottlenecks in the production.
+    \end{itemize}
 
-\end{itemize}
 
 \begin{table}[H]
     \centering
@@ -52,46 +68,42 @@ For any engineering project it is vital to identify the risks that exists relate
     \end{tabular}
     \label{tab:dev_risk_assessment}
 \end{table}
-\subsection*{Mitigation of development risks}
-Having identified the risk posed to the development of the system it is possible to find strategies to mitigate these risks. For  \textbf{HUG-DEV-01} engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. The probability of this occurring does not change but severity decreases from 4 to 2 as this has been taken into account in the design. For \textbf{HUG-DEV-03} the risk can be mitigated be thoroughly employing verification and validation meaning the probability of model-errors can be decreased. For \textbf{HUG-DEV-04} can mostly be alleviated by ensure continuously backup and synchronisations across platforms. To handle \textbf{HUG-DEV-05} it is important to formulate a detailed manufacture and production plan of the aircraft. For vital components the production-chain should be described in detail and possible backup manufactures should be found.       
 
-\begin{table}[H]
-    \centering
-    \caption{The mitigated development Risk Assessment}
-    \begin{tabular}{|c|c|c|}
-        \toprule
-        \textbf{Risk-ID} & \textbf{Probability} & \textbf{Impact} \\ \hline
-        \midrule
-        HUG-DEV-01 & 2& 4\\ \hline
-        HUG-DEV-02 & 1& 3\\ \hline
-        HUG-DEV-03 & 3& 3\\ \hline
-        HUG-DEV-04 & 1& 2\\ 
-        \hline
-        HUG-DEV-05 & 2& 4\\
-        \bottomrule
-    \end{tabular}
-    \label{tab:dev_risk_assessment}
-\end{table}
-
+\end{comment}
 
 \subsection{Operation risks}
-
-Step 1: Propose adequate operational safety objectives;
-Step 2: Identify the risks of the operation on the ground and in the air considering all of the below:
+Operation risks refer to hazardous scenarios which can occur both on the ground and in the air. They are identified and classified based on the following criteria \cite{Jarus_main}:
 \begin{itemize}
     \item the extent to which third parties or property on the ground could be endangered by the activity;
     \item the complexity, performance and operational characteristics of the unmanned aircraft involved;
-    \item the purpose of the flight, the type of UAS, the probability of collision with other aircraft and class of airspace used;
+    \item the purpose of the flight, UAS type, probability of collision with other aircraft, class of airspace;
     \item the type, scale, and complexity of the UAS operation or activity, including, where relevant, the size and type of the traffic handled by the responsible organisation or person;
     \item the extent to which the persons affected by the risks involved in the UAS operation are able to assess and exercise control over those risks.
 \end{itemize}
 
-Step 3: identify a range of possible risk mitigating measures;
-Step 4: determine the necessary level of robustness of the selected mitigating measures in such a way that the operation can be conducted safely.
+\autoref{tab:operation_risks} lists the operation risks identified for HUGO, along with their respective assigned likelihood and severity scores.
 
-\textbf{Risk Scenarios}
-\newline
-Below is a list of possible risks which might occur during operation of the aircraft:
+\begin{table}[H]
+    \centering
+    \caption{Initial Operation Risk Assessment}
+    \begin{tabular}{|p{3cm}|p{8cm}|p{2cm}|p{1.5cm}|}
+    \hline
+       \textbf{Risk ID}  & \textbf{Risk Description} & \textbf{Likelihood} & \textbf{Severity} \\ \hline
+        HUG-OP-01 & Loss of control during flight while connection with the drone is maintained & 2 & 4 \\ \hline
+        HUG-OP-02 & Loss of communication with the drone during the test phase & 2 & 4 \\ \hline
+        HUG-OP-03 & Human Error & 3 & 3 \\ \hline
+        HUG-OP-04 & Unscheduled sudden disassembly during flight & 2 & 5 \\ \hline
+        HUG-OP-05 & Exceeding the flight envelope & 2 & 3 \\ \hline
+        HUG-OP-06 & Exceeding the flight limit area & 2 & 5 \\ \hline
+        HUG-OP-07 & Air-collisions & 1 & 5 \\ \hline
+        HUG-OP-08 & Fuel-fire & 2 & 4 \\ \hline
+        HUG-OP-09 & Mechanical failure of components & 3 & 4 \\ \hline
+        HUG-OP-10 & Rapid deterioration of weather conditions during flight & 2 & 3 \\ \hline
+    \end{tabular}
+    \label{tab:operation_risks}
+\end{table}
+
+\begin{comment}
 \begin{itemize}
     \item \textbf{HUG-OP-01}: Loss of control during flight while connection with the drone is maintained
     \item \textbf{HUG-OP-02}: Loss of communication with the drone during the test phase
@@ -127,56 +139,13 @@ Below is a list of possible risks which might occur during operation of the airc
     \end{tabular}
     \label{tab:dev_risk_assessment}
 \end{table}
-
-
-
-
-
-
-
-
-
-\textbf{Preventive Measures for Contingency Scenarios}
-
-For the critical scenarios that could happen during the mission, we can run preplanned scenarios to mitigate the damage. These measures can be found in the following.
-\begin{itemize}
-    \item For any loss of connection or control that happens for a duration longer then 10 s, a safety mechanism will be triggered automatically or manually that will turn off the engine and crash land the drone. This decreases the severity of \textbf{HUG-OP-01} and \textbf{HUG-OP-02} (contingency).  
-    \item Human Error. The probability of \textbf{HUG-OP-03} can be decreased with the introduction of training of relevant personnel (preventive).   
-    \item For problems during flight that include breaking of parts or components, the drone will immediately decelerate to a safe speed (tbd) and then recovery of the vehicle will be attempted. If recovery is deemed impossible in the timespan of 10s, the first step will be applied. This would decrease the impact of \textbf{HUG-OP-04}    (contingency).
-    \item Monitoring the condition of critical components. This decrease the probability of \textbf{HUG-OP-04} and \textbf{HUG-OP-09}     (preventive). 
-    \item Short service cycles on critical components This decrease the probability of \textbf{HUG-OP-04} and \textbf{HUG-OP-09} (preventive).
-    \item If the test area is exceeded, the drone will be ordered to immediately return to the testing location \textbf{HUG-OP-06} (contingency).
-    \item In the case of a mechanical error onboard the drone during the test flight is detected, an analysis of the level of FUCKERY  will be assessed, and one of the 2 scenarios will be implemented: 1. The drone will be ordered to immediately return. 2. The first option will be implemented, and the drone will be lost. This decreases the impact \textbf{HUG-OP-09} (contingency).
-    \item In case of deteriorating weather conditions, the drone will be ordered to return. This decreases the impact \textbf{HUG-OP-10} (contengency).
-    
-\end{itemize}
-
-\begin{table}[H]
-    \centering
-    \caption{The mitigated Operation Risk Assessment}
-    \begin{tabular}{|c|c|c|}
-        \toprule
-        \textbf{Risk-ID} & \textbf{Probability} & \textbf{Impact} \\
-        \hline
-        \midrule
-        HUG-OP-01 & 2&3 \\ \hline
-        HUG-OP-02 & 2& 3\\ \hline
-        HUG-OP-03 & 1& 3\\ \hline
-        HUG-OP-04 & 1& 4\\ \hline
-        HUG-OP-05 & 2& 2\\ \hline
-        HUG-OP-06 & 2& 4\\ \hline
-        HUG-OP-07 & 1&5 \\ \hline
-        HUG-OP-08 & 1& 4\\ \hline
-        HUG-OP-09 & 2&3\\ \hline
-        HUG-OP-10 & 2& 2\\
-        \bottomrule
-    \end{tabular}
-    \label{tab:dev_risk_assessment}
-\end{table}
-
+\end{comment}
 
 \subsection{Initial Risk Map}
-All of previous described and defined risks can then visually represented in a risk map. Ideally most risks should be around the green areas as this area where the impact and probability of the risk is sufficiently low. The red area is especially critical as this is where the impact and probability is both high.  
+The development and operation risks identified earlier in this Section can 
+be visually represented by means of a risk map (see:\autoref{fig:risk_matrix}). Ideally, most risks shall be located in the green zone of the map, which represents a sufficiently low likelihood of occurrence and severity of impact for safe operations. However, this is not the case for the initial risk assessment.
+
+Risks located in the yellow zone of the map present significant hazards which can be addressed by means of additional/contingency procedures. The risks located in the red zone of the map are deemed as critical and shall become the main focus of the contingency management plans and emergency procedure development.
 
 \begin{figure}[H]
 \centering
@@ -233,7 +202,7 @@ All of previous described and defined risks can then visually represented in a r
     \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
         \node[font=\small, below] at (\x*\cs-\cs/2, -0.2) {\label};
     }
-    \node[font=\small, below] at (2.5*\cs, -0.7) {\textbf{Impact}};
+    \node[font=\small, below] at (2.5*\cs, -0.7) {\textbf{Severity}};
     % Y-axis labels (Probability)
     \foreach \y/\label in {1/1,2/2,3/3,4/4,5/5}{
         \node[font=\small, left] at (-0.2, \y*\cs-\cs/2) {\label};
@@ -243,12 +212,118 @@ All of previous described and defined risks can then visually represented in a r
     \draw[->, thick, darkgray] (-0.1, 0) -- (-0.1, 5*\cs+0.4);
     \draw[->, thick, darkgray] (0, -0.1) -- (5*\cs+0.4, -0.1);
 \end{tikzpicture}
-\caption{Risk Assessment Matrix (before risk mitigation strategies)}
+\caption{Initial Risk Assessment Matrix}
 \label{fig:risk_matrix}
 \end{figure}
 
+
+
+\section{Contingency Management}
+\label{sec:contingency_management}
+
+%Step 3: identify a range of possible risk mitigating measures;
+%Step 4: determine the necessary level of robustness of the selected mitigating measures in such a way that the operation can be conducted safely.
+
+Having identified the risks posed to the development of the system, it is possible to develop adequate preventive measures and mitigation strategies.
+\todo[inline]{Note on changing the score for HUG-DEV-03 - the probability should drop significantly, while severity remains the same. This appears to be swapped. Also, bump up the likelihood of HUGO-DEV-05. Decrease the final likelihood score for HUGO-DEV-02}
+\begin{table}[H]
+   \caption{Risk Preventive Measures}
+    \centering
+    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|p{0.75cm}|}
+    \hline
+        \textbf{ Risk ID} & \textbf{Preventive Measure(s)} & $\Delta L$ & $\Delta S$ \\ \hline\hline
+         HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. & 0 & -2 \\ \hline
+         HUG-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1 & 0 \\ \hline
+         HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2 & 0 \\ \hline
+         HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1 & 0 \\ \hline
+         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO. Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 & 0 \\ \hline
+         HUG-OP-03 & \textcolor{red}{yap about HF stuff} & -1 & 0 \\ \hline
+         HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 & 0 \\ \hline
+         HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 & 0 \\ \hline
+
+
+         
+         
+    \end{tabular}
+    \label{tab:risk_preventive_measures}
+\end{table}
+
+\begin{table}[H]
+   \caption{Risk Mitigation Strategies}
+    \centering
+    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|p{0.75cm}|}
+    \hline
+        \textbf{Risk ID} & \textbf{Mitigation Strategy} & $\Delta L$ & $\Delta S$ \\ \hline\hline
+         HUG-OP-01 & \multirow{4}{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a safety mechanism shall be triggered automatically or manually that will turn off the engine and crash land the drone.} & 0 & -1 \\ \cline{1-1}\cline{3-4}
+         HUG-OP-02 & & 0 & -1 \\ \hline
+    \end{tabular}
+    \label{tab:risk_mitigation_scenarios}
+\end{table}
+
+%For \textbf{HUG-DEV-01} engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. The probability of this occurring does not change but severity decreases from 4 to 2 as this has been taken into account in the design. For \textbf{HUG-DEV-03} the risk can be mitigated be thoroughly employing verification and validation meaning the probability of model-errors can be decreased. For \textbf{HUG-DEV-04} it can mostly be alleviated by ensure continuously backup and synchronisations across platforms. To handle \textbf{HUG-DEV-05} it is important to formulate a detailed manufacture and production plan of the aircraft. For vital components the production-chain should be described in detail and possible backup manufactures should be found.       
+
+\begin{table}[H]
+    \centering
+    \caption{The mitigated development Risk Assessment}
+    \begin{tabular}{|c|c|c|}
+        \toprule
+        \textbf{Risk-ID} & \textbf{Probability} & \textbf{Impact} \\ \hline
+        \midrule
+        HUG-DEV-01 & 2& 4\\ \hline
+        HUG-DEV-02 & 1& 3\\ \hline
+        HUG-DEV-03 & 3& 3\\ \hline
+        HUG-DEV-04 & 1& 2\\ 
+        \hline
+        HUG-DEV-05 & 2& 4\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:dev_risk_assessment}
+\end{table}
+
+\subsection*{Mitigation of operation risks}
+%\textbf{Preventive Measures for Contingency Scenarios}
+
+For the critical scenarios that could happen during the mission, we can run preplanned scenarios to mitigate the damage. These measures can be found in the following.
+\begin{itemize}
+    \item For any loss of connection or control that happens for a duration longer then 10 s, a safety mechanism will be triggered automatically or manually that will turn off the engine and crash land the drone. This decreases the severity of \textbf{HUG-OP-01} and \textbf{HUG-OP-02} (contingency).  
+    \item Human Error. The probability of \textbf{HUG-OP-03} can be decreased with the introduction of training of relevant personnel (preventive).   
+    \item For problems during flight that include breaking of parts or components, the drone will immediately decelerate to a safe speed (tbd) and then recovery of the vehicle will be attempted. If recovery is deemed impossible in the timespan of 10s, the first step will be applied. This would decrease the impact of \textbf{HUG-OP-04}    (contingency).
+    \item Monitoring the condition of critical components. This decrease the probability of \textbf{HUG-OP-04} and \textbf{HUG-OP-09}     (preventive). 
+    \item Short service cycles on critical components. This decrease the probability of \textbf{HUG-OP-04} and \textbf{HUG-OP-09} (preventive).
+    \item If the test area is exceeded, the drone will be ordered to immediately return to the testing location \textbf{HUG-OP-06} (contingency).
+    \item In the case of a mechanical error onboard the drone during the test flight is detected, an analysis of the level of FUCKERY  will be assessed, and one of the 2 scenarios will be implemented: 1. The drone will be ordered to immediately return. 2. The first option will be implemented, and the drone will be lost. This decreases the impact \textbf{HUG-OP-09} (contingency).
+    \item In case of deteriorating weather conditions, the drone will be ordered to return. This decreases the impact \textbf{HUG-OP-10} (contengency).
+    
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{The mitigated Operation Risk Assessment}
+    \begin{tabular}{|c|c|c|}
+        \toprule
+        \textbf{Risk-ID} & \textbf{Probability} & \textbf{Impact} \\
+        \hline
+        \midrule
+        HUG-OP-01 & 2&3 \\ \hline
+        HUG-OP-02 & 2& 3\\ \hline
+        HUG-OP-03 & 1& 3\\ \hline
+        HUG-OP-04 & 1& 4\\ \hline
+        HUG-OP-05 & 2& 2\\ \hline
+        HUG-OP-06 & 2& 4\\ \hline
+        HUG-OP-07 & 1&5 \\ \hline
+        HUG-OP-08 & 1& 4\\ \hline
+        HUG-OP-09 & 2&3\\ \hline
+        HUG-OP-10 & 2& 2\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:dev_risk_assessment}
+\end{table}
+
+
+
+
 \subsection*{Mitigated Risk Map}
-After mitigating the risks the new risks can be plotted into a new risk map.  
+After mitigating the risks the new risks can be plotted into a new risk map. Here it can be seen that the risks are moving downwards and to the left. Meaning the overall impact and probability of risks are decreases. Some risks remain in the yellow areas but no risks are located in the red area.   
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
@@ -304,7 +379,7 @@ After mitigating the risks the new risks can be plotted into a new risk map.
     \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
         \node[font=\small, below] at (\x*\cs-\cs/2, -0.2) {\label};
     }
-    \node[font=\small, below] at (2.5*\cs, -0.7) {\textbf{Impact}};
+    \node[font=\small, below] at (2.5*\cs, -0.7) {\textbf{Severity}};
     % Y-axis labels (Probability)
     \foreach \y/\label in {1/1,2/2,3/3,4/4,5/5}{
         \node[font=\small, left] at (-0.2, \y*\cs-\cs/2) {\label};
@@ -315,7 +390,7 @@ After mitigating the risks the new risks can be plotted into a new risk map.
     \draw[->, thick, darkgray] (0, -0.1) -- (5*\cs+0.4, -0.1);
 \end{tikzpicture}
 \caption{Risk Assessment Matrix (after risk mitigation strategies)}
-\label{fig:risk_matrix}
+\label{fig:risk_matrix_mitigated}
 \end{figure}
 
 

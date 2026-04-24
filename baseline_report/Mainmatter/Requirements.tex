@@ -1,11 +1,9 @@
 \chapter{Requirements and constraints}
-
-\section{Functional Analysis}
-The first step in determining the requirements for the aircraft is looking at its function in detail. This can be done using a functional flow diagram (FFD), which analyses a typical mission of the aircraft. From that, key functions can be identified and later formatted as a functional breakdown structure (FBS). The two diagrams are available as  A3 PDF pages at the end of this chapter.
-
+Having evaluated the system functions and scarce resources, the requirements of the product can be fully specified. To that end, a requirement discovery tree is created in \autoref{sec: discovery tree}.
 
 
 \section{Requirement Discovery Tree}
+\label{sec: discovery tree}
 In order to identify the system requirements based on the user requirements and project objectives, a requirement discovery tree has been generated (\autoref{fig:req_discovery_tree}). The tree starts with the requirement for designing a flying test bed for testing flexible wings, which is split into the requirement to perform the flight test and the requirement to satisfy the constraints. Since the functional requirements stem directly from the functions that the design has to be able to do, the Functional Breakdown is referenced.
 
 The constraints are split into complying with budgets (mass, payload volume, electricity, internal volume, link, thrust, van volume, cost, payload aerodynamic, c.g.), airworthiness requirements, manufacturability, lifetime, sustainability, being unmanned, and withstanding ogf transonic loads.
@@ -40,13 +38,14 @@ HUG-GEN-001& The mass of the aircraft shall be less than 50kg including payload.
 
 HUG-GEN-002 & The available payload mass shall be larger than 5 kg. \\ \hline
 
-HUG-POW-001& The aircraft shall provide more than TBD of electrical energy on board.\\ \hline 
+HUG-POW-001& The aircraft shall provide electrical energy on board necessary to power the payload, actuators, control subsystem, fuel subsystem ad communication subsystem for the mission duration.\\ \hline 
 
-HUG-POW-002& The peak power provided by the aircraft shall be higher than TBD Watts.\\ \hline 
+HUG-POW-002& The peak power provided by the aircraft shall be sufficient to provide full power to aircraft actuators, control subsystem, fuel subsystem and communication subsystem t the same time.\\ \hline 
 
-HUG-COM-001 & The aircraft shall transmit more than TBD amount of data in TBD time at TBD frequency from TBD distance.\\ \hline
+HUG-COM-001 & The aircraft shall transmit the measurement data as well as telemetry from control, propulsion and fuel subsystems in real time from the maximum aircraft-ground station distance.\\ \hline
 
-HUG-COM-002& The aircraft shall receive more than TBD amount of data in TBD time at TBD frequency from TBD distance.\\ \hline
+HUG-COM-002 & The communication system shall allow for contact with the ground station for a distance equal to 1.5 of the longer dimension of the testing area. \\ \hline
+
 
 HUG-CTL-001& The aircraft shall have autonomous stabilization systems.\\ \hline
 
@@ -58,23 +57,23 @@ HUG-CTL-004& The aircraft shall be remotely controllable. \\ \hline
 
 \textit{HUG-CTL-005} & The c.g. excursion of the aircraft shall allow for both statically and dynamically stable, unstable and neutrally stable flight conditions. \\ \hline
 
-\textit{HUG-OPS-001} & All equipment for performing the flight test shall fit within a van of TBD cargo dimensions.\\ \hline
+\textit{HUG-OPS-001} & All equipment for performing the flight test shall fit within a van of 3680 x 1767 x 1894 mm (\autoref{tab:renault_master_specs}) cargo dimensions.\\ \hline
 
 HUG-OPS-002 & The aircraft shall be fully manufacturable using only TRL10 manufacturing techniques.\\ \hline
 
-\textcolor{red}{HUG-OPS-003} & The aircraft shall be recyclable to a TBD degree. \\ \hline
+\textcolor{red}{HUG-OPS-003} & The aircraft shall be recyclable to at least an 80\% degree by weight. \footnote{\href{https://repository.tudelft.nl/file/File_da3d1309-243d-4c5b-be21-ead3504f4c99?preview=1}{https://repository.tudelft.nl/file/File\_da3d1309-243d-4c5b-be21-ead3504f4c99?preview=1}}{accessed 24 April 2026}. \\ \hline
 
 HUG-OPS-004 & The endurance of the aircraft at maximum payload shall be longer than 30 minutes. \\ \hline
 
-\textcolor{red}{HUG-OPS-005} & The aircraft shall be able to sustain Mach 0.75 for TBD min. \\ \hline
+\textcolor{red}{HUG-OPS-005} & The aircraft shall be able to sustain Mach 0.75 for TBD min.\textbf{Talk with Malcom} \\ \hline
 
 HUG-OPS-006 & The aircraft shall be able to sustain flight at Mach 0.4 during the entire duration of the main flight stage. \\ \hline
 
-HUG-OPS-007 & The aircraft shall be able to loiter for a duration of TBD minutes. \\ \hline
+HUG-OPS-007 & The aircraft shall be able to loiter for a duration of 5 minutes. \\ \hline
 
-HUG-OPS-008 & The time of aircraft assembly including payload integration and fueling shall be less than TBD \todo{prune or deduce from wind tunnel operations ratio}. \\ \hline
+HUG-OPS-008 & The time of aircraft assembly including payload integration and fueling shall be less than TBD \textbf{prune or deduce from wind tunnel operations ratio}. \\ \hline
 
-HUG-CER-001 & The aircraft shall comply with airworthiness requirements for SORA3 category of aircraft.\\ \hline
+HUG-CER-001 & The aircraft shall comply with airworthiness SORA requirements for SAIL2 category of aircraft.\\ \hline
 
 HUG-CER-002 & The aircraft shall not fly at altitudes higher than TBD. \\ \hline
 
@@ -84,7 +83,7 @@ HUG-CER-004 & In case of communication loss, the aircraft shall autonomously ret
 
 \textcolor{red}{HUG-FIN-001} & The cost of a single aircraft configuration shall be less than 45k euro.\\ \hline
 
-\textcolor{red}{HUG-AER-001}& The critical Mach number of the all aerodynamic surfaces shall be higher than Mach 0.75 with a Mach 0.02 margin.\\ \hline 
+\textcolor{red}{HUG-AER-001}& The critical Mach number of the all aerodynamic surfaces shall be higher than Mach 0.75.\\ \hline 
 
 \textcolor{red}{\textit{HUG-AER-002}}& The aircraft shall house test planforms of 19 to 27 range of effective aspect ratios \cite{Aerodynamic_Analysis}.\\ \hline
 
@@ -94,7 +93,7 @@ HUG-AER-004& The overall test planform shall see clear airflow during flight.\\ 
 
 HUG-STR-002 & The aircraft structure shall provide the internal volume for the fuel, propulsion, electrical, communications, and command subsystems.\\ \hline
 
-\textcolor{red}{HUG-STR-003}& The aircraft structure shall withstand stresses due to transonic loads at Mach 0.75.\\ \hline 
+\textcolor{red}{HUG-STR-003}& The aircraft structure shall withstand stresses due to transonic loads at Mach 0.75, without yielding and with a safety factor of 1.5 for fracture.\\ \hline 
 
 HUG-STR-004& The aircraft structure shall not buckle due to transonic loads at Mach 0.75.\\ \hline 
 
@@ -130,16 +129,5 @@ HUG-STR-017 & The structure shall accommodate a payload bay of at least 5 litres
 
 
 
-\subsection{Mission Profile}
-Based on the requirements stated in \autoref{tab:system_requirements}, it was decided that the mission profile will consist of the general phases that are stated in \todo{put in the ADSEE 1 book as a refferance for the mission profile}. A diagram of the mission profile can be found in:
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\linewidth]{figures/Mission Profil.png}
-    \caption{General Mission Profile}
-    \label{mission_lrofile}
-\end{figure}
 
-\includepdf[pages=-,fitpaper=true, width=420mm, keepaspectratio]{figures/Functional Flow Diagram.pdf}
-
-\includepdf[pages=-,fitpaper=true, width=420mm, keepaspectratio]{figures/Functional Breakdown Structure.pdf}

@@ -26,6 +26,8 @@
 \addbibresource{references.bib}
 
 \usepackage{hyperref}
+\usepackage{chngcntr}
+\counterwithout{footnote}{chapter}
 
 % Make footnote numbers larger
 \makeatletter
@@ -159,7 +161,7 @@ Vaibhav Byreddy (5237254)\\
 %\subject{AE3212-II Simulation, Verification \& Validation} % Cover only
 \affiliation{Delft University of Technology} % Cover only
 
-\coverimage{tank.jpg}
+\coverimage{plane.png}
 \definecolor{title}{HTML}{6bafff} % Color for cover title
 
 \makecover
@@ -195,8 +197,9 @@ Vaibhav Byreddy (5237254)\\
 \include{Mainmatter/Executive overview}
 \include{Mainmatter/Project Objectives}
 \include{Mainmatter/Market analysis}
-\include{Mainmatter/Requirements}
+\include{Mainmatter/FunctionalAnalysis}
 \include{Mainmatter/Resource Allocation}
+\include{Mainmatter/Requirements}
 \include{Mainmatter/Design Option Tree}
 \include{Mainmatter/Sustainability analysis}
 \include{Mainmatter/Profitability and return analysis}

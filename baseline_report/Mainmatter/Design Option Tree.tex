@@ -57,9 +57,9 @@ During this evaluation, it became evident that many of the sub-system options (s
     \item \textbf{No tail (Accepted):} A structural prerequisite for pure flying wing configurations.
     \item \textbf{Conventional tail (Accepted):} Provides well-understood, decoupled pitch and yaw dynamics, simplifying flight control laws and providing a solid baseline for structural testing.
     \item \textbf{V-tail (Strawman):} Reduces parasitic drag, but tightly couples pitch and yaw control, adding unnecessary complexity to the active control system laws needed for flutter suppression.
-    \item \textbf{Inverted V-Tail (Accepted):} Offers favourable roll-yaw coupling and avoids the high angle-of-attack wake of the main wing, presenting a viable baseline for active control experiments.
+    \item \textbf{Inverted V-Tail (Accepted):} Has the same downsides as the V-Tail, however, it would allow for a clean top surface which will allow us to mount a test airfoil above the drone, allowing us to test unproven airfoil designs to failure.
     \item \textbf{Twin Boom (Rejected):} Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing the 50kg mass budget without proportional benefits.
-    \item \textbf{Canard (Accepted):} Places pitch control ahead of the main wing, preventing main wing stall interference and allowing for highly responsive active aeroelastic control schemes.
+    \item \textbf{Canard (Accepted):} Places pitch control ahead of the main wing, preventing main wing stall interference and allowing for highly responsive active aeroelastic control schemes. However, it does interfear with the wing being tested on the drone, as well as being unconventional to control.
 \end{itemize}
 
 \subsection{Wing Group}
@@ -67,20 +67,18 @@ During this evaluation, it became evident that many of the sub-system options (s
 \paragraph{Configuration}
 \begin{itemize}
     \item \textbf{Low Wing (Accepted):} Standard configuration offering simple undercarriage integration and favorable ground effect characteristics.
-    \item \textbf{Mid Wing (Accepted):} Aerodynamically clean with minimal interference drag, though the carry-through structure complicates the internal fuselage payload volume.
-    \item \textbf{High Wing (Accepted):} Provides excellent ground clearance for the payload bay and underslung engines, facilitating modular wing replacements.
-    \item \textbf{Flying Wing (Accepted):} Highly efficient aerodynamically, naturally suited to studying body-freedom flutter (BFF) as mentioned in the project guide.
-    \item \textbf{Delta Wing (Accepted):} Excellent for transonic flight (Mach 0.75) due to high sweep, though inherently stiff, which may conflict with the "highly flexible" wing testing requirement.
-    \item \textbf{Canard (Accepted):} Prevents main wing stall and allows for complex aeroelastic control schemes, making it highly relevant for an Active Aeroelastic Wing (AAW) testbed.
-    \item \textbf{Two-axis decoupable wings (Strawman):} An intriguing concept for modularity and aeroelastic testing, but structurally highly complex and likely to exceed the 50kg weight budget.
-    \item \textbf{Prandtl Wing (Rejected):} Bell-shaped lift distribution introduces aeroelastic behaviors that are too complex and esoteric for a baseline modular testbed aiming to validate standard AAW control laws.
+    \item \textbf{Mid Wing (Accepted):} Aerodynamically valid, however, the carry-through structure complicates the internal fuselage payload volume.
+    \item \textbf{High Wing (Accepted):} Widely used and understood configuration. However, may interfere with a
+    \item \textbf{Flying Wing (Accepted):} Highly efficient aerodynamically, allowing for easier testing at high mach numbers.
+    \item \textbf{Delta Wing (Rejected):} Inherently stiff and characterized by a low aspect ratio, this planform directly conflicts with the project's core objective to act as a flying laboratory specifically for testing highly flexible, High-Aspect-Ratio (HAR) wings and their associated aeroelastic phenomena.
+    \item \textbf{Prandtl Wing (Rejected):} Bell-shaped lift distribution introduces aeroelastic behaviors that are too complex and esoteric for a baseline modular testbed aiming to validate standard control systems and phenomena.
 \end{itemize}
 
 \paragraph{Fuel Tanks}
 \begin{itemize}
     \item \textbf{Fuselage Mounted Only (Accepted):} Keeps the center of gravity (CG) stable, protects the fuel, and allows the wings to be extremely slender, flexible, and easily swappable.
-    \item \textbf{Both (Accepted):} Maximizes fuel capacity to ensure the 30-minute endurance requirement is easily met, though plumbing to flexible wings is complex.
-    \item \textbf{Wing Mounted Only (Rejected):} The requirement to test "highly flexible, High-Aspect-Ratio (HAR) wings" dictates slender wing profiles lacking the internal volume to house the required SAF fuel while leaving room for complex AAW actuators.
+    \item \textbf{Both (Accepted):} Maximizes fuel capacity to ensure the 30-minute endurance requirement is easily met or exceeded in certain configurations, though plumbing to flexible wings is complex.
+    \item \textbf{Wing Mounted Only (Rejected):} The requirement to test "highly flexible, High-Aspect-Ratio (HAR) wings" dictates slender wing profiles lacking the internal volume to house the required fuel while leaving room for actuators.
 \end{itemize}
 
 \subsection{Propulsion Group}
