@@ -1,6 +1,6 @@
 \chapter{Market analysis}
 The main goal of a market analysis is to research and establish the state of the competition by several criteria, including cost, production capacity or logistics and reach. 
-\section*{Market segmentation}
+\section{Market segmentation}
 Market segmentation is a process of dividing a broad market into smaller and concrete groups. It is crucial for defining a strong business marketing strategy. This helps to understand and meet current market requirements as well as distinguishing from the competition. Additionally, beachhead market was identified. The beachhead market is the initial and most promising market aimed for the product to enter first. An overview of the main identified market segments is shown in \autoref{tab:market_seg}.
 \subsubsection{Universities and academic laboratories}
 Universities are the most accessible market segment and therefore the beachhead market. Universities typically conduct research in aeroelasticity, flight dynamics, active control and other related topics, but often lack access to large wind tunnels or manned flying laboratories. Therefore, a fleet of testbed UAVs at a fraction of the cost of a wind tunnel could be utilized in their research instead.
@@ -34,69 +34,69 @@ Recently, governments started focusing more on defense and security. Defense com
     \label{tab:market_seg}
 \end{table}
 
-\section*{SWOT analysis}
+\section{SWOT analysis}
 
 A SWOT analysis evaluates a project or organisation by examining its strengths, weaknesses, opportunities, and threats, helping to inform strategic decision-making, highlight key risks, and guide future planning. An organisation can use a SWOT analysis to assess both internal and external factors, enabling it to develop strategies that leverage strengths, mitigate weaknesses, and take advantage of emerging opportunities. It also provides a structured framework for evaluating competitive advantage and informing future strategic direction.
 
-Although SWOT analysis typically distinguishes between internal and external factors, the nature of an unmanned flying laboratory introduces overlap between these categories. For example, aspects such as cost efficiency or data fidelity depend both on system design and on external comparisons to existing testing methods.
+%Although SWOT analysis typically distinguishes between internal and external factors, the nature of an unmanned flying laboratory introduces overlap between these categories. For example, aspects such as cost efficiency or data fidelity depend both on system design and on external comparisons to existing testing methods.
 
-As a result, the classification used here groups factors according to whether they represent inherent characteristics of the system (strengths/weaknesses) or contextual conditions affecting its adoption and use (opportunities/threats).
+The classification organizes factors strengths and opportunities, and weaknesses and threats.
 
 \begin{longtable}{|p{0.48\textwidth}|p{0.48\textwidth}|}
-\caption{Strengths and Weaknesses of the Unmanned Flying Laboratory}
-\label{tab:SW} \\
+\caption{Strengths and Opportunities of the Unmanned Flying Laboratory}
+\label{tab:SO} \\
 
 \hline
 \rowcolor[HTML]{ABE7F3}
-\textbf{Strengths} & \textbf{Weaknesses} \\ \hline
+\textbf{Strengths} & \textbf{Opportunities} \\ \hline
 \endfirsthead
 
 \hline
 \rowcolor[HTML]{ABE7F3}
-\textbf{Strengths} & \textbf{Weaknesses} \\ \hline
+\textbf{Strengths} & \textbf{Opportunities} \\ \hline
 \endhead
 
 Enables data collection in unconstrained flow, avoiding wind tunnel artefacts such as wall effects and mounting interference.
 &
-Unmanned flying laboratories are not yet widely standardized, leading to higher development risk and fewer established methodologies.
+The growing demand for high-fidelity aerodynamic data requires testing beyond traditional wind tunnel capabilities (e.g., testing to failure, flutter testing).
 \\ \hline
 
 \rowcolor[HTML]{ECF4FF}
 Eliminates or reduces scaling issues (e.g.\ Reynolds number mismatch), improving fidelity of aerodynamic and aeroelastic data.
 &
-The modularity of the test bed increases overall system complexity.
+Limitations of wind tunnel testing, such as wall interference, scaling issues, and cost create a gap that the modular flying test bed can fill.
 \\ \hline
 
 Allows testing to failure, including structural limits, flutter, and failure modes that are impractical or unsafe to investigate in traditional wind tunnel facilities.
 &
-Each new test article introduces uncertainty in mass distribution, aerodynamics, and control response.
+The modular testing system enables rapid prototyping and iterative design.
 \\ \hline
 
 \rowcolor[HTML]{ECF4FF}
 The modular payload configuration enables testing of multiple concepts more time-effectively compared to building dedicated prototypes.
 &
-Atmospheric variability reduces repeatability compared to controlled wind tunnel conditions.
+The development of unconventional modular aircraft configurations enables real-flight validation.
 \\ \hline
 
 Advanced active control systems (e.g.\ AFS, GLA) expand the safe flight envelope and allow operation of flexible or unconventional configurations.
 &
-In-flight measurements are noisier and harder to calibrate than controlled laboratory measurements.
+An increased focus on aeroelasticity and lightweight structures through the use of HAR wings and active control systems.
 \\ \hline
 
 \rowcolor[HTML]{ECF4FF}
 High-aspect-ratio (HAR) wings reduce induced drag, improving fuel efficiency and increasing available test endurance.
 &
-High upfront costs encompassing development, operations, and the use of sustainable aviation fuel (SAF). \textcolor{red}{Why is SAF mentioned as a direct consequence of HAR wings?}
+Recent growth in autonomous and unmanned systems supports wider adoption of UAV-based testing platforms.
 \\ \hline
 
 Use of sustainable aviation fuel (SAF) reduces environmental impact and aligns with future regulatory and industry trends.
 &
-Unmanned and experimental flight testing can face significant certification and operational restrictions.
+Increased accessibility to aerodynamic testing, lowering barriers for universities, researchers, and developers who lack access to high-end wind tunnel facilities.
 \\ \hline
 
 \rowcolor[HTML]{ECF4FF}
 Reduced reliance on expensive wind tunnel facilities increases flexibility and offers potential long-term cost efficiency.
-& The development of a modular flying test bed can be costly, as well as certification.
+&
 \\ \hline
 
 \end{longtable}
@@ -104,55 +104,59 @@ Reduced reliance on expensive wind tunnel facilities increases flexibility and o
 
 
 \begin{longtable}{|p{0.48\textwidth}|p{0.48\textwidth}|}
-\caption{Opportunities and Threats of the Unmanned Flying Laboratory}
-\label{tab:OT} \\
+\caption{Weaknesses and Threats of the Unmanned Flying Laboratory}
+\label{tab:WT} \\
+
 \hline
 \rowcolor[HTML]{ABE7F3}
-\textbf{Opportunities} & \textbf{Threats} \\ \hline
+\textbf{Weaknesses} & \textbf{Threats} \\ \hline
 \endfirsthead
 
 \hline
 \rowcolor[HTML]{ABE7F3}
-\textbf{Opportunities} & \textbf{Threats} \\ \hline
+\textbf{Weaknesses} & \textbf{Threats} \\ \hline
 \endhead
 
-The growing demand for high-fidelity aerodynamic data requires testing beyond traditional wind tunnel capabilities (e.g., testing to failure, flutter testing). 
+Unmanned flying laboratories are not yet widely standardized, leading to higher development risk and fewer established methodologies.
 &
 Advancement of high-fidelity CFD may reduce the need for physical testing.
 \\ \hline
 
 \rowcolor[HTML]{ECF4FF}
-Limitations of wind tunnel testing, such as wall interference, scaling issues, and cost create a gap that the modular flying test bed can fill.
+The modularity of the test bed increases overall system complexity.
 &
 Airspace restrictions, certification requirements, and safety regulations may limit operation or increase cost.
 \\ \hline
 
-The modular testing system enables rapid prototyping and iterative design.
-& Unlike wind tunnels and traditional flight testing, modular flying test beds introduce not only uncertainties in the way data is gathered, but also obstacles in terms of certification.
-% Wind tunnels and traditional flight testing are already well understood, trusted, and integrated into certification processes.
+Each new test article introduces uncertainty in mass distribution, aerodynamics, and control response.
+&
+Unlike wind tunnels and traditional flight testing, modular flying test beds introduce uncertainties in data acquisition and certification challenges.
 \\ \hline
 
 \rowcolor[HTML]{ECF4FF}
-The development of unconventional modular aircraft configurations enables real-flight validation.
+Atmospheric variability reduces repeatability compared to controlled wind tunnel conditions.
 &
 Risk of vehicle loss during testing could increase cost, reduce project reliability, and pose a safety threat.
 \\ \hline
 
-An increased focus on aeroelasticity and lightweight structures through the use of HAR wings and active control systems.
+In-flight measurements are noisier and harder to calibrate than controlled laboratory measurements.
 &
 Operational constraints such as weather dependency, limited test windows, and airspace access disrupt the testing schedule and frequency.
 \\ \hline
 
 \rowcolor[HTML]{ECF4FF}
-Recent growth in autonomous and unmanned systems supports wider adoption of UAV-based testing platforms.
+High upfront costs encompassing development, operations, and the use of sustainable aviation fuel (SAF).
 &
 Combining modular payloads, advanced controls, and measurement systems may lead to unforeseen system-level issues.
 \\ \hline
 
-%\rowcolor[HTML]{ECF4FF}
-Increased accessibility to aerodynamic testing, lowering barriers for universities, researchers, and developers who lack access to high-end wind tunnel facilities.
+Unmanned and experimental flight testing can face significant certification and operational restrictions.
 &
+\\ \hline
 
+\rowcolor[HTML]{ECF4FF}
+The development of a modular flying test bed can be costly, as well as certification.
+&
 \\ \hline
 
 \end{longtable}

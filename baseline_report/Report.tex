@@ -13,16 +13,34 @@
 %
 %--------------------------------------------------------------------
 %
+%ALEX FUCKERY DO NOT TOUCH
 \usepackage[
     backend=biber,
     style=aiaa,
     citestyle=aiaa,
     sorting=none,
     natbib=true
+    dashed=false
 ]{biblatex}
 
 \addbibresource{references.bib}
 
+\usepackage{hyperref}
+
+% Make footnote numbers larger
+\makeatletter
+
+% Footnote number in the main text
+\renewcommand\@makefnmark{%
+  \hbox{\@textsuperscript{\normalfont\normalsize\@thefnmark}}%
+}
+
+% Footnote number at the bottom of the page
+\renewcommand\@makefntext[1]{%
+  \noindent
+  \makebox[1.8em][r]{\@textsuperscript{\normalfont\normalsize\@thefnmark}}%
+  #1%
+}
 %
 %--------------------------------------------------------------------
 %

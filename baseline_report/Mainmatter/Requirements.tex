@@ -58,10 +58,6 @@ HUG-CTL-004& The aircraft shall be remotely controllable. \\ \hline
 
 \textit{HUG-CTL-005} & The c.g. excursion of the aircraft shall allow for both statically and dynamically stable, unstable and neutrally stable flight conditions. \\ \hline
 
-HUG-PRP-001 & The aircraft shall provide maximum thrust higher than TBD at TBD altitude.\\ \hline
-
-HUG-PRP-002 & The aircraft shall provide continuous thrust larger than TBD at TBD altitude.\\ \hline
-
 \textit{HUG-OPS-001} & All equipment for performing the flight test shall fit within a van of TBD cargo dimensions.\\ \hline
 
 HUG-OPS-002 & The aircraft shall be fully manufacturable using only TRL10 manufacturing techniques.\\ \hline
@@ -76,7 +72,7 @@ HUG-OPS-006 & The aircraft shall be able to sustain flight at Mach 0.4 during th
 
 HUG-OPS-007 & The aircraft shall be able to loiter for a duration of TBD minutes. \\ \hline
 
-HUG-OPS-008 & The time of aircraft assembly including payload integration and fueling shall be less than TBD. \\ \hline
+HUG-OPS-008 & The time of aircraft assembly including payload integration and fueling shall be less than TBD \todo{prune or deduce from wind tunnel operations ratio}. \\ \hline
 
 HUG-CER-001 & The aircraft shall comply with airworthiness requirements for SORA3 category of aircraft.\\ \hline
 
@@ -84,29 +80,25 @@ HUG-CER-002 & The aircraft shall not fly at altitudes higher than TBD. \\ \hline
 
 HUG-CER-003 & It shall be possible to terminate the mission in a controlled manner at any point in time. \\ \hline
 
-HUG-CER-003 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\ \hline
+HUG-CER-004 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\ \hline
 
 \textcolor{red}{HUG-FIN-001} & The cost of a single aircraft configuration shall be less than 45k euro.\\ \hline
 
-HUG-FIN-002 & The cost of all services and equipment associated with the flight test shall be less than TBD.\\ \hline
+\textcolor{red}{HUG-AER-001}& The critical Mach number of the all aerodynamic surfaces shall be higher than Mach 0.75 with a Mach 0.02 margin.\\ \hline 
 
-\textcolor{red}{HUG-AER-001}& The critical Mach number of the all aerodynamic surfaces shall be higher than Mach 0.75 with a TBD margin.\\ \hline 
+\textcolor{red}{\textit{HUG-AER-002}}& The aircraft shall house test planforms of 19 to 27 range of effective aspect ratios \cite{Aerodynamic_Analysis}.\\ \hline
 
-\textcolor{red}{\textit{HUG-AER-002}}& The aircraft shall house test planforms of horizontal projected area up to TBD, of vertical projected area up to TBD.\\ \hline 
-
-HUG-AER-003& The aircraft equipped with test planforms shall have the lift-to-drag ratio higher than TBD.\\ \hline 
+HUG-AER-003& The aircraft shall house test planforms of 0.1 to 0.5 range of taper ratios.\\ \hline 
 
 HUG-AER-004& The overall test planform shall see clear airflow during flight.\\ \hline 
 
-HUG-STR-001& The aircraft structure shall provide a volume for the payload larger than TBD $m^3$ with a margin of TBD. \\ \hline
-
-HUG-STR-002 & The aircraft structure shall provide the internal volume larger than TBD with a margin of TBD.\\ \hline
+HUG-STR-002 & The aircraft structure shall provide the internal volume for the fuel, propulsion, electrical, communications, and command subsystems.\\ \hline
 
 \textcolor{red}{HUG-STR-003}& The aircraft structure shall withstand stresses due to transonic loads at Mach 0.75.\\ \hline 
 
 HUG-STR-004& The aircraft structure shall not buckle due to transonic loads at Mach 0.75.\\ \hline 
 
-\textit{HUG-STR-005}& The flutter speed of the baseline aircraft structure shall be higher than TBD m/s.\\ \hline 
+\textit{HUG-STR-005}& There shall be no wing-independent flutter or aeroelastic divergence of the baseline structure up to critical Mach number at the lowest operating altitude of the aircraft.\\ \hline 
 
 \textit{\textcolor{red}{HUG-STR-006}}& The VULCAN engine(s) shall be integrated within the aircraft structure. \\ \hline
 
@@ -120,11 +112,11 @@ HUG-STR-010 & Every subsystem inside the aircraft wing and fuselage shall have a
 
 HUG-STR-011 & The inspection shall allow for identifying cracks in all primary load-bearing components. \\ \hline  
 
-\textcolor{red}{HUG-STR-012}&  The aircraft shall retain structural integrity after 15 years of usage with TBD intensity. \\ \hline
+\textcolor{red}{HUG-STR-012}&  The aircraft shall retain structural integrity after 15 years of usage with TBD \todo{will be addressed @ the Malcom meeting} intensity. \\ \hline
 
 \textcolor{red}{HUG-STR-013}&  Isolated single-point failures shall not cause catastrophic failures. \\ \hline
 
-HUG-STR-014& The natural frequencies of the structure shall be further from the frequency of the engine by TBD Hz. \\ \hline
+HUG-STR-014& The natural frequencies of the structure shall be further from the frequency of the engine by TBD Hz. \todo{addressed, will need to compute engine blade pass frequency} \\ \hline
 
 % \textit{HUG-STR-015} & The aircraft shall provide interfaces for mounting sensors and actuators. \\ \hline
 

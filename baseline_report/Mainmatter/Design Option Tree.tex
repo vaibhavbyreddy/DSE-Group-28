@@ -7,7 +7,7 @@ A Design Option Tree (DOT) is constructed to systematically consider and organiz
 \section{Methodology}
 The generation of the Design Option Tree began with an unconstrained, divergent brainstorming session where all potential ideas were mapped out without immediate filtering. The resulting diagram is structured strictly as an ``OR'' tree; within any given sub-system branch, only one option can ultimately be selected for a specific aircraft configuration. 
 
-To systematically navigate this large design space, the team established a visual taxonomy (defined in the chart legend) and conducted a collaborative, consensus-based screening process to categorize every option:
+To systematically navigate this large design space, the team established a colour code (defined in the chart legend) and conducted a collaborative, consensus-based screening process to categorize every option:
 
 \begin{itemize}
     \item \textbf{Accepted Concepts (Green):} Options deemed highly feasible and directly applicable to fulfilling the top-level project requirements.
@@ -21,9 +21,9 @@ During this evaluation, it became evident that many of the sub-system options (s
 
 \subsection{Fuselage Group}
 
-\paragraph{Internal Materials}
+\paragraph{Internal Construction Material}
 \begin{itemize}
-    \item \textbf{Composite Structure (Accepted):} Offers the high strength-to-weight ratio necessary to survive Mach 0.75 transonic loads while staying under the strict 50kg mass limit.
+    \item \textbf{Composite Structure (Accepted):} Offers the high strength-to-weight ratio necessary to survive Mach 0.75 transonic loads while staying under the strict 50kg mass requirement.
     \item \textbf{Sheet Metal Structure (Accepted):} Traditional aerospace manufacturing method; provides predictable structural dynamics and ease of modular manufacturing, though potentially heavier.
     \item \textbf{Polymer Structure (Rejected):} Lacks the required structural stiffness and yield strength to act as the primary load-bearing core for a transonic aircraft, guaranteeing structural failure or severe aeroelastic deformation.
 \end{itemize}
@@ -45,16 +45,21 @@ During this evaluation, it became evident that many of the sub-system options (s
 \paragraph{Electrical Subgroup}
 \begin{itemize}
     \item \textbf{Battery (Accepted):} A proven, reliable, and decoupled energy source for high-bandwidth actuators and avionics, easily sized for a 30-minute endurance.
-    \item \textbf{Power Generator (Strawman):} Bleeding power from the micro-turbine is physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time.
+    \item \textbf{Power Generator (Strawman):} Bleeding power from the micro-turbine or using a seperate generator is physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time.
 \end{itemize}
 
-\subsubsection{Empennage Group}
+\subsection{Empennage Group}
 
 \paragraph{Tail Configuration}
 \begin{itemize}
-    \item \textbf{Conventional Tail (Accepted):} Provides well-understood, decoupled pitch and yaw dynamics, simplifying the flight control laws and providing a solid baseline for structural testing.
-    \item \textbf{T-Tail (Accepted):} Keeps the horizontal stabilizer clear of the wing wake and jet exhaust, which is highly beneficial for a testbed, though it introduces deep-stall risks and structural weight at the fin tip.
-    \item \textbf{V-Tail (Accepted):} Reduces drag and radar cross-section, but couples pitch and yaw control, adding complexity to the active control system laws which may already be heavily burdened by flutter suppression.
+    \item \textbf{T-Tail (Accepted):} Keeps the horizontal stabilizer clear of the wing wake and jet exhaust, which is highly beneficial for a testbed, though it introduces poor deep stall characteristics.
+    \item \textbf{H-Tail (Accepted):} Places vertical stabilizers in undisturbed air and provides end-plate effects to the horizontal tail, useful for redundancy in complex aeroelastic testing.
+    \item \textbf{No tail (Accepted):} A structural prerequisite for pure flying wing configurations.
+    \item \textbf{Conventional tail (Accepted):} Provides well-understood, decoupled pitch and yaw dynamics, simplifying flight control laws and providing a solid baseline for structural testing.
+    \item \textbf{V-tail (Strawman):} Reduces parasitic drag, but tightly couples pitch and yaw control, adding unnecessary complexity to the active control system laws needed for flutter suppression.
+    \item \textbf{Inverted V-Tail (Accepted):} Offers favourable roll-yaw coupling and avoids the high angle-of-attack wake of the main wing, presenting a viable baseline for active control experiments.
+    \item \textbf{Twin Boom (Rejected):} Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing the 50kg mass budget without proportional benefits.
+    \item \textbf{Canard (Accepted):} Places pitch control ahead of the main wing, preventing main wing stall interference and allowing for highly responsive active aeroelastic control schemes.
 \end{itemize}
 
 \subsection{Wing Group}
@@ -78,7 +83,7 @@ During this evaluation, it became evident that many of the sub-system options (s
     \item \textbf{Wing Mounted Only (Rejected):} The requirement to test "highly flexible, High-Aspect-Ratio (HAR) wings" dictates slender wing profiles lacking the internal volume to house the required SAF fuel while leaving room for complex AAW actuators.
 \end{itemize}
 
-\subsubsection{Propulsion Group}
+\subsection{Propulsion Group}
 
 \paragraph{Mounting Location}
 \begin{itemize}
@@ -97,7 +102,7 @@ During this evaluation, it became evident that many of the sub-system options (s
 \paragraph{Fuel Compatibility}
 \begin{itemize}
     \item \textbf{SAF-only (Accepted):} Strictly complies with the project requirement that the micro turbine must run on Sustainable Aviation Fuel (SAF).
-    \item \textbf{JET-A (Rejected):} Directly violates the explicit sustainability requirement to utilize SAF.
+    \item \textbf{JET-A1 (Rejected):} Directly violates the explicit sustainability requirement to utilize SAF.
     \item \textbf{Both (Rejected):} While physically possible, designing dual-fuel certification parameters adds unnecessary scope to a project focused on aeroelasticity, not fuel chemistry.
 \end{itemize}
 
