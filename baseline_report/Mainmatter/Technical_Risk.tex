@@ -143,7 +143,7 @@ Operation risks refer to hazardous scenarios which can occur both on the ground 
 
 \subsection{Initial Risk Map}
 The development and operation risks identified earlier in this Section can 
-be visually represented by means of a risk map (see:\autoref{fig:risk_matrix}). Ideally, most risks shall be located in the green zone of the map, which represents a sufficiently low likelihood of occurrence and severity of impact for safe operations. However, this is not the case for the initial risk assessment.
+be visually represented by means of a risk map in \autoref{fig:risk_matrix}. Ideally, most risks shall be located in the green zone of the map, which represents a sufficiently low likelihood of occurrence and severity of impact for safe operations. However, this is not the case for the initial risk assessment.
 
 Risks located in the yellow zone of the map present significant hazards which can be addressed by means of additional/contingency procedures. The risks located in the red zone of the map are deemed as critical and shall become the main focus of the contingency management plans and emergency procedure development.
 
@@ -195,8 +195,8 @@ Risks located in the yellow zone of the map present significant hazards which ca
     \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 3*\cs+\cs/2) {HUG-DEV-01};
     \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 2*\cs+\cs/2) {HUG-OP-03};
     \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 1*\cs+\cs/2) {HUG-OP-04\\HUG-OP-06};
-    \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 2*\cs+\cs/2) {HUG-DEV-03};
-    \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2) {HUG-OP-07};
+    \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 2*\cs+\cs/2) {};
+    \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2) {HUG-DEV-03\\HUG-OP-07};
     \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 2*\cs+\cs/2) {HUG-OP-09};
     % X-axis labels (Impact)
     \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
@@ -207,12 +207,12 @@ Risks located in the yellow zone of the map present significant hazards which ca
     \foreach \y/\label in {1/1,2/2,3/3,4/4,5/5}{
         \node[font=\small, left] at (-0.2, \y*\cs-\cs/2) {\label};
     }
-    \node[font=\small, rotate=90, above] at (-0.7, 2.5*\cs) {\textbf{Probability}};
+    \node[font=\small, rotate=90, above] at (-0.7, 2.5*\cs) {\textbf{Likelihood}};
     % Arrows
     \draw[->, thick, darkgray] (-0.1, 0) -- (-0.1, 5*\cs+0.4);
     \draw[->, thick, darkgray] (0, -0.1) -- (5*\cs+0.4, -0.1);
 \end{tikzpicture}
-\caption{Initial Risk Assessment Matrix}
+\caption{Initial Risk Matrix}
 \label{fig:risk_matrix}
 \end{figure}
 
@@ -228,8 +228,6 @@ Having identified the risks posed to the development of the system, it is possib
 
 \autoref{tab:risk_preventive_measures} lists the envisioned preventive measures addressing both development and operational risks, as well as their expected effect on the likelihood score, $\Delta L$. \autoref{tab:containment_requirements_integrity} lists the envisioned contingency scenarios, along with the expected effect on the severity score, $\Delta S$.
 
-
-\todo[inline]{Note on changing the score for HUG-DEV-03 - the probability should drop significantly, while severity remains the same. This appears to be swapped. Also, bump up the likelihood of HUGO-DEV-05. Decrease the final likelihood score for HUGO-DEV-02}
 \begin{table}[H]
    \caption{Risk Preventive Measures}
     \centering
@@ -241,7 +239,7 @@ Having identified the risks posed to the development of the system, it is possib
          HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2  \\ \hline
          HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1  \\ \hline
          HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO. Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 \\ \hline
-         HUG-OP-03 & \textcolor{red}{yap about HF stuff} & -1 \\ \hline
+         HUG-OP-03 & Adequate training and communication amongst ground crew can decrease the likelihood of human error.  & -1 \\ \hline
          HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
          HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
 
@@ -281,27 +279,117 @@ Having identified the risks posed to the development of the system, it is possib
 
 %For \textbf{HUG-DEV-01} engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. The probability of this occurring does not change but severity decreases from 4 to 2 as this has been taken into account in the design. For \textbf{HUG-DEV-03} the risk can be mitigated be thoroughly employing verification and validation meaning the probability of model-errors can be decreased. For \textbf{HUG-DEV-04} it can mostly be alleviated by ensure continuously backup and synchronisations across platforms. To handle \textbf{HUG-DEV-05} it is important to formulate a detailed manufacture and production plan of the aircraft. For vital components the production-chain should be described in detail and possible backup manufactures should be found.       
 
-The final, revised likelihood and severity scores for both development and operational risks are presented in \autoref{tab:}. 
-\begin{table}[H]
-    \centering
-    \caption{The mitigated development Risk Assessment}
-    \begin{tabular}{|c|c|c|}
-        \toprule
-        \textbf{Risk-ID} & \textbf{Probability} & \textbf{Impact} \\ \hline
-        \midrule
-        HUG-DEV-01 & 2& 4\\ \hline
-        HUG-DEV-02 & 1& 3\\ \hline
-        HUG-DEV-03 & 3& 3\\ \hline
-        HUG-DEV-04 & 1& 2\\ 
-        \hline
-        HUG-DEV-05 & 2& 4\\
-        \bottomrule
-    \end{tabular}
-    \label{tab:dev_risk_assessment}
-\end{table}
+The final, revised likelihood and severity scores for both development and operational risks are presented in \autoref{tab:risk_assessment_mitigated}. The risk matrix of mitigated risks is shown in \autoref{fig:risk_matrix_mitigated}.
 
-\subsection*{Mitigation of operation risks}
-%\textbf{Preventive Measures for Contingency Scenarios}
+
+\begin{figure}[H]
+\centering
+
+% -------- LEFT: TABLE --------
+\begin{minipage}[t]{0.42\textwidth}
+    \vspace{0pt}
+    \centering
+    \captionof{table}{Final Development and Operational Risk Assessment}
+    \label{tab:risk_assessment_mitigated}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Risk-ID} & \textbf{Likelihood} & \textbf{Severity} \\ \hline
+        HUG-DEV-01 & 2 & 4\\ \hline
+        HUG-DEV-02 & 1 & 3\\ \hline
+        HUG-DEV-03 & 1 & 5\\ \hline
+        HUG-DEV-04 & 1 & 2\\ \hline
+        HUG-DEV-05 & 1 & 4\\ \hline
+        HUG-OP-01 & 2 & 1 \\ \hline
+        HUG-OP-02 & 2 & 3 \\ \hline
+        HUG-OP-03 & 2 & 3 \\ \hline
+        HUG-OP-04 & 1 & 4 \\ \hline
+        HUG-OP-05 & 2 & 3 \\ \hline
+        HUG-OP-06 & 2 & 3 \\ \hline
+        HUG-OP-07 & 1 & 5 \\ \hline
+        HUG-OP-08 & 2 & 4 \\ \hline
+        HUG-OP-09 & 2 & 1 \\ \hline
+        HUG-OP-10 & 2 & 2 \\ \hline
+    \end{tabular}
+\end{minipage}
+\hfill
+% -------- RIGHT: TIKZ --------
+\begin{minipage}[t]{0.55\textwidth}
+    \vspace{0pt}
+    \centering
+    \scalebox{0.8}{
+    \begin{tikzpicture}
+        % Define colors
+        \definecolor{riskgreen}{RGB}{84,186,84}
+        \definecolor{riskyellow}{RGB}{255,200,0}
+        \definecolor{riskred}{RGB}{220,50,50}
+
+        \def\cs{1.43}
+
+        % Cells
+        \fill[riskgreen]  (0*\cs,0*\cs) rectangle (1*\cs,1*\cs);
+        \fill[riskgreen]  (1*\cs,0*\cs) rectangle (2*\cs,1*\cs);
+        \fill[riskgreen]  (2*\cs,0*\cs) rectangle (3*\cs,1*\cs);
+        \fill[riskyellow] (3*\cs,0*\cs) rectangle (4*\cs,1*\cs);
+        \fill[riskyellow] (4*\cs,0*\cs) rectangle (5*\cs,1*\cs);
+
+        \fill[riskgreen]  (0*\cs,1*\cs) rectangle (1*\cs,2*\cs);
+        \fill[riskgreen]  (1*\cs,1*\cs) rectangle (2*\cs,2*\cs);
+        \fill[riskyellow] (2*\cs,1*\cs) rectangle (3*\cs,2*\cs);
+        \fill[riskyellow] (3*\cs,1*\cs) rectangle (4*\cs,2*\cs);
+        \fill[riskyellow] (4*\cs,1*\cs) rectangle (5*\cs,2*\cs);
+
+        \fill[riskgreen]  (0*\cs,2*\cs) rectangle (1*\cs,3*\cs);
+        \fill[riskyellow] (1*\cs,2*\cs) rectangle (2*\cs,3*\cs);
+        \fill[riskyellow] (2*\cs,2*\cs) rectangle (3*\cs,3*\cs);
+        \fill[riskyellow] (3*\cs,2*\cs) rectangle (4*\cs,3*\cs);
+        \fill[riskred]    (4*\cs,2*\cs) rectangle (5*\cs,3*\cs);
+
+        \fill[riskgreen]  (0*\cs,3*\cs) rectangle (1*\cs,4*\cs);
+        \fill[riskyellow] (1*\cs,3*\cs) rectangle (2*\cs,4*\cs);
+        \fill[riskyellow] (2*\cs,3*\cs) rectangle (3*\cs,4*\cs);
+        \fill[riskred]    (3*\cs,3*\cs) rectangle (4*\cs,4*\cs);
+        \fill[riskred]    (4*\cs,3*\cs) rectangle (5*\cs,4*\cs);
+
+        \fill[riskyellow] (0*\cs,4*\cs) rectangle (1*\cs,5*\cs);
+        \fill[riskyellow] (1*\cs,4*\cs) rectangle (2*\cs,5*\cs);
+        \fill[riskred]    (2*\cs,4*\cs) rectangle (3*\cs,5*\cs);
+        \fill[riskred]    (3*\cs,4*\cs) rectangle (4*\cs,5*\cs);
+        \fill[riskred]    (4*\cs,4*\cs) rectangle (5*\cs,5*\cs);
+
+        % Grid
+        \draw[white, line width=1.5pt] (0,0) grid[step=\cs] (5*\cs,5*\cs);
+
+        % Labels
+        \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2) {HUG-DEV-01\\HUG-DEV-01\\HUG-OP-06};
+        \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 0*\cs+\cs/2) {HUG-DEV-02\\HUG-OP-03};
+        \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 2*\cs+\cs/2) {HUG-DEV-03};
+        \node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 0*\cs+\cs/2) {HUG-DEV-04};
+        \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2) {HUG-OP-01\\HUG-OP-02};
+        \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 0*\cs+\cs/2) {HUG-OP-04\\HUG-OP-08};
+        \node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 1*\cs+\cs/2) {HUG-OP-05\\HUG-OP-10};
+        \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2) {HUG-OP-07};
+
+        % Axes
+        \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
+            \node[font=\small, below] at (\x*\cs-\cs/2, -0.2) {\label};
+        }
+        \node[font=\small, below] at (2.5*\cs, -0.7) {\textbf{Severity}};
+
+        \foreach \y/\label in {1/1,2/2,3/3,4/4,5/5}{
+            \node[font=\small, left] at (-0.2, \y*\cs-\cs/2) {\label};
+        }
+        \node[font=\small, rotate=90] at (-0.7, 2.5*\cs) {\textbf{Likelihood}};
+
+        \draw[->, thick, darkgray] (-0.1, 0) -- (-0.1, 5*\cs+0.4);
+        \draw[->, thick, darkgray] (0, -0.1) -- (5*\cs+0.4, -0.1);
+    \end{tikzpicture}
+    }
+    \caption{Final Risk Matrix}
+    \label{fig:risk_matrix_mitigated}
+\end{minipage}
+
+\end{figure}
 
 \begin{comment}
 For the critical scenarios that could happen during the mission, we can run preplanned scenarios to mitigate the damage. These measures can be found in the following.
@@ -316,7 +404,6 @@ For the critical scenarios that could happen during the mission, we can run prep
     \item In case of deteriorating weather conditions, the drone will be ordered to return. This decreases the impact \textbf{HUG-OP-10} (contengency).
     
 \end{itemize}
-\end{comment}
 
 \begin{table}[H]
     \centering
@@ -342,10 +429,6 @@ For the critical scenarios that could happen during the mission, we can run prep
 \end{table}
 
 
-
-
-\subsection*{Mitigated Risk Map}
-After mitigating the risks the new risks can be plotted into a new risk map. Here it can be seen that the risks are moving downwards and to the left. Meaning the overall impact and probability of risks are decreases. Some risks remain in the yellow areas but no risks are located in the red area.   
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
@@ -414,6 +497,11 @@ After mitigating the risks the new risks can be plotted into a new risk map. Her
 \caption{Risk Assessment Matrix (after risk mitigation strategies)}
 \label{fig:risk_matrix_mitigated}
 \end{figure}
+\end{comment}
+As can be seen in \autoref{fig:risk_matrix_mitigated} there are no development or operational risk in the red zone of the risk matrix. Furthermore several risks would used to be located in the yellow zone has moved into the green zone. This is a result of the preventive measures and the mitigation strategies.   
+
+
+\todo[inline]{Comment on the new risk map}
 
 
 \section{Preliminary Specific Operation Risk Assessment (SORA)}

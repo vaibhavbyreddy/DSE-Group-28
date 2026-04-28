@@ -23,14 +23,14 @@ During this evaluation, it became evident that many of the sub-system options (s
 
 \paragraph{Internal Construction Material}
 \begin{itemize}
-    \item \textbf{Composite Structure (Accepted):} Offers the high strength-to-weight ratio necessary to survive Mach 0.75 transonic loads while staying under the strict 50kg mass requirement.
+    \item \textbf{Composite Structure (Accepted):} Offers the high strength-to-weight ratio necessary to survive Mach 0.75 high subsonic loads while staying under the strict 50kg mass requirement.
     \item \textbf{Sheet Metal Structure (Accepted):} Traditional aerospace manufacturing method; provides predictable structural dynamics and ease of modular manufacturing, though potentially heavier.
-    \item \textbf{Polymer Structure (Rejected):} Lacks the required structural stiffness and yield strength to act as the primary load-bearing core for a transonic aircraft, guaranteeing structural failure or severe aeroelastic deformation.
+    \item \textbf{Polymer Structure (Rejected):} Lacks the required structural stiffness and yield strength to act as the primary load-bearing core for a high subsonic aircraft, guaranteeing structural failure or severe aeroelastic deformation.
 \end{itemize}
 
 \paragraph{Skin Material}
 \begin{itemize}
-    \item \textbf{Composite Skin (Accepted):} Provides an aerodynamically smooth surface finish necessary for transonic flight and high skin stiffness.
+    \item \textbf{Composite Skin (Accepted):} Provides an aerodynamically smooth surface finish necessary for high subsonic flight and high skin stiffness.
     \item \textbf{Sheet Metal Skin (Accepted):} Highly durable and relatively simple to integrate, though harder to form into complex aerodynamic curves.
     \item \textbf{Polymer Skin (Strawman):} Feasible for non-load-bearing fairings and lightweight sections, but highly susceptible to flutter and buckling under high dynamic pressures.
 \end{itemize}
@@ -57,7 +57,7 @@ During this evaluation, it became evident that many of the sub-system options (s
     \item \textbf{No tail (Accepted):} A structural prerequisite for pure flying wing configurations.
     \item \textbf{Conventional tail (Accepted):} Provides well-understood, decoupled pitch and yaw dynamics, simplifying flight control laws and providing a solid baseline for structural testing.
     \item \textbf{V-tail (Strawman):} Reduces parasitic drag, but tightly couples pitch and yaw control, adding unnecessary complexity to the active control system laws needed for flutter suppression.
-    \item \textbf{Inverted V-Tail (Accepted):} Has the same downsides as the V-Tail, however, it would allow for a clean top surface which will allow us to mount a test airfoil above the drone, allowing us to test unproven airfoil designs to failure.
+    \item \textbf{Inverted V-Tail (Accepted):} Has the same downsides as the V-Tail; however, it would provide a clean top surface, enabling the mounting of a test airfoil above the drone and allowing the testing of unproven airfoil designs to failure.
     \item \textbf{Twin Boom (Rejected):} Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing the 50kg mass budget without proportional benefits.
     \item \textbf{Canard (Accepted):} Places pitch control ahead of the main wing, preventing main wing stall interference and allowing for highly responsive active aeroelastic control schemes. However, it does interfear with the wing being tested on the drone, as well as being unconventional to control.
 \end{itemize}
@@ -68,7 +68,7 @@ During this evaluation, it became evident that many of the sub-system options (s
 \begin{itemize}
     \item \textbf{Low Wing (Accepted):} Standard configuration offering simple undercarriage integration and favorable ground effect characteristics.
     \item \textbf{Mid Wing (Accepted):} Aerodynamically valid, however, the carry-through structure complicates the internal fuselage payload volume.
-    \item \textbf{High Wing (Accepted):} Widely used and understood configuration. However, may interfere with a
+    \item \textbf{High Wing (Accepted):} Widely used and understood configuration. However, may interfere with the integration of the main landing gear in the wing and engine maintenance.
     \item \textbf{Flying Wing (Accepted):} Highly efficient aerodynamically, allowing for easier testing at high mach numbers.
     \item \textbf{Delta Wing (Rejected):} Inherently stiff and characterized by a low aspect ratio, this planform directly conflicts with the project's core objective to act as a flying laboratory specifically for testing highly flexible, High-Aspect-Ratio (HAR) wings and their associated aeroelastic phenomena.
     \item \textbf{Prandtl Wing (Rejected):} Bell-shaped lift distribution introduces aeroelastic behaviors that are too complex and esoteric for a baseline modular testbed aiming to validate standard control systems and phenomena.
@@ -86,7 +86,7 @@ During this evaluation, it became evident that many of the sub-system options (s
 \paragraph{Mounting Location}
 \begin{itemize}
     \item \textbf{Fuselage Mounted (Accepted):} Keeps the thrust line near the centerline, reduces yaw asymmetry during gusts, and simplifies structural load paths.
-    \item \textbf{Buried Engine (Accepted):} Extremely clean aerodynamically, minimizing drag for transonic speeds, but complicates modularity, cooling, and maintenance access.
+    \item \textbf{Buried Engine (Accepted):} Extremely clean aerodynamically, minimizing drag for high subsonic speeds, but complicates modularity, cooling, and maintenance access.
     \item \textbf{Wing Mounted (Strawman):} Feasible, but mounting a turbine on a wing deliberately designed to be highly flexible and prone to flutter introduces severe inertial and structural coupling challenges.
 \end{itemize}
 
@@ -115,7 +115,8 @@ During this evaluation, it became evident that many of the sub-system options (s
 \paragraph{Structure}
 \begin{itemize}
     \item \textbf{Retractable (Accepted):} Essential for reducing parasitic drag to achieve the required Mach 0.75 dash speed and 30-minute endurance.
-    \item \textbf{Fixed (Rejected):} The drag penalty of exposed landing gear at transonic speeds (Mach 0.75) is overwhelmingly high, making the endurance and speed requirements virtually impossible to meet simultaneously.
+    \item \textbf{Fixed (Rejected):} The drag penalty of exposed landing gear at high subsonic speeds (Mach 0.75) is overwhelmingly high, making the endurance and speed requirements virtually impossible to meet simultaneously.
+    \item \textbf{Skids}
 \end{itemize}
 
 
@@ -125,7 +126,7 @@ During this evaluation, it became evident that many of the sub-system options (s
 \paperwidth=420mm
 \paperheight=297mm
 
-\includepdf[pages=-,fitpaper=false, width=420mm, keepaspectratio]{figures/Design Option Tree.pdf}
+\includepdf[pages=-,fitpaper=false, width=420mm, keepaspectratio]{figures/DOT Final.pdf}
 \clearpage
 \pdfpagewidth=210mm
 \pdfpageheight=297mm

@@ -1,28 +1,47 @@
 \chapter{Configuration Generation}
 
-With the initial screening of the Design Option Tree complete, the next phase of the conceptual design process involved synthesizing the surviving (Accepted and Strawman) sub-system options into complete aircraft architectures. 
+Now that the design option tree has been screened to only allow for plausible sub-system options, some possible configurations can be generated, to be evaluated wholistically. However, if every accepted option in the DOT were mathematically combined, it would result in thousands of potential aircraft layouts, which would be impractical to evaluate. In order to narrow down the sub systems being evaluating, the configurations were built without the architecture agnostic features.
 
-If every accepted option in the DOT were mathematically combined, it would result in hundreds of potential aircraft layouts---creating an unmanageable combinatorial explosion. However, as established in the methodology, many sub-systems are entirely ``architecture-agnostic.'' For example, a composite skin, a battery-powered electrical system, and an autonomous flight controller are required and applicable regardless of whether the aircraft is a flying wing or a conventional high-wing monoplane. 
+Sub systems such as the avionics, construction material and fuel compatibility were ommitted from the configuration generation, since any of the configurations could be made to work with most of the sub system types. 
 
-Therefore, to generate a focused and meaningful set of aircraft configurations, the team isolated the primary aerodynamic and structural layout drivers. The configurations were generated strictly by combining options from the following macro-architectural groups:
+Therefore, to generate a focused and meaningful set of aircraft configurations, the team isolated the primary aerodynamic and structural layout drivers, using the following sub systems:
 \begin{itemize}
-    \item \textbf{Wing Configuration} (Low, Mid, High, Flying Wing, Canard, Two-axis decoupable)
-    \item \textbf{Empennage Configuration} (T-tail, H-Tail, Conventional, Inverted V-Tail, Canard, No tail)
+    \item \textbf{Wing Configuration} (Low, Mid, High, Flying Wing)
+    \item \textbf{Empennage Configuration} (T-tail, H-Tail, Conventional, V-Tail, Inverted V-Tail, Canard, No tail)
     \item \textbf{Propulsion Mounting} (Fuselage Mounted, Buried, Wing Mounted)
-    \item \textbf{Landing Gear Mounting} (Fuselage, On Wings)
+    \item \textbf{Undercarriage} (Skids, Retractable gear)
 \end{itemize}
 
-By systematically iterating through a morphological matrix of these specific parameters, the team generated an initial set of \textbf{20 distinct aircraft configurations}. 
+By systematically iterating through a morphological matrix of these specific parameters, the team generated an initial set of 20 distinct aircraft configurations. During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the configurations realistic. For example, a Flying Wing configuration inherently dictates a No tail empennage selection. The 20 configurations have been tabulated in \autoref{Aircraft_Configurations_Table}
 
-During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the number of configurations realistic. For example, a ``Flying Wing'' configuration inherently dictates a ``No tail'' empennage selection; similarly, a ``Buried Engine'' places strict volumetric constraints that generally preclude a ``Mid Wing'' carry-through box without severe aerodynamic penalties. 
+\section{Shortlisting Configurations}
+Many of the 20 initial configurations share fundamental aerodynamic and structural characteristics, allowing them to be grouped into distinct architectural families. To avoid redundant analysis during the detailed trade-off phase, these families were evaluated to identify a few, optimal representative configurations for each. This down-selection process effectively narrowed the field from 20 permutations to the following highly distinct candidate architectures:
 
-\section{Transition to Detailed Trade-Off}
-While 20 configurations represent a thorough exploration of the design space, it is too large a number for detailed quantitative analysis. In accordance with the project requirements, a minimum of three distinct configurations must be evaluated in a rigorous mid-term trade-off study. 
+\begin{itemize}
+    \item \textbf{Configuration 1 (Low Wing, T-Tail, Retractable Gear):} Selected to serve as a traditional baseline model. Because this configuration closely mirrors standard transport aircraft architectures, the aeroelastic and flutter data collected will be highly relevant and easily scalable to the commercial airplanes the testbed is designed to emulate. 
+    
+    \item \textbf{Configuration 3 (Low Wing, H-Tail, Retractable Gear):} Similar to Configuration 1, this serves as a highly relevant baseline model. Retaining the H-tail variant alongside the T-tail allows for further trade-off analysis regarding engine placement and tail-wake interference during the detailed design phase.
+    
+    \item \textbf{Configuration 8 (Low Wing, Inverted V-Tail, Retractable Gear):} This architecture was selected primarily for its clean upper aerodynamic surface. The inverted V-tail keeps the empennage clear of the upper fuselage, providing an unobstructed region to mount a test airfoil. This allows the experimental wings to be safely tested to structural failure without their wake interfering with the aircraft's pitch and yaw control.
+    
+    \item \textbf{Configurations 10 \& 11 (Flying Wing, Buried Engine):} Selected for their exceptionally low parasitic drag profile. This high aerodynamic efficiency ensures the aircraft can easily and reliably reach the high mach numbers necessary to trigger aeroelastic phenomena during flight testing. Both landing gear variants (retractable gear in Config 10 and skids in Config 11) are retained for further evaluation in the mid-term trade-off.
+\end{itemize}
 
-Therefore, these 20 initial configurations will undergo a secondary, qualitative feasibility screening (evaluating factors such as ease of modularity, HAR wing flutter susceptibility, and payload integration) to down-select the most promising candidate architectures. These finalists will form the basis of the detailed design phase and the quantitative trade-off analysis presented in the Mid-Term Technical Design Report.
+To arrive at the final baseline candidates, several architectural branches were systematically eliminated due to inherent conflicts with the testbed's primary mission:
+
+\begin{itemize}
+    \item \textbf{Mid-Wing Configurations (Configs 14, 15):} Eliminated primarily due to internal packaging constraints. The structural carry-through box of a mid-wing design heavily obstructs the continuous internal volume required for the !!!! 5-litre payload bay and complex AAW avionics (Add requirement codes here)!!!!! \todo. Furthermore, it offers no distinct aerodynamic advantages over high or low-wing alternatives to justify the harder structural integration and the necessary reinforcements.
+    
+    \item \textbf{Canard Configurations (Configs 7, 15):} Discarded due to aerodynamic interference. A forward canard generates downwash and a turbulent wake that affects the main wing. Because the core objective of this flying laboratory is to capture clean aeroelastic and flutter data from the main wing, upstream flow disturbances are unacceptable. Additionally, canards are less representative of the future commercial transport architectures this project aims to emulate.
+    
+    \item \textbf{High-Wing with Fuselage-Mounted Engines (e.g., Configs 16, 17, 19):} Placing a fuselage-mounted micro-turbine behind a high mounted wing, or above the fuselage results in 
+    
+    \item \textbf{Wing-Mounted Propulsion (e.g., Configs 9, 18, 20):} Eliminated due to strict modularity and aeroelastic constraints. The project mandates the testing of highly flexible, swappable HAR wings. Hard-mounting a jet engine directly to these flexible test articles introduces massive inertial and torsional coupling that would corrupt the baseline flutter data, while simultaneously violating the requirement for rapid wing modularity and strict drag minimums.
+\end{itemize}
 
 
 \begin{longtable}{llllp{4.5cm}}
+    \label{Aircraft_Configurations_Table}
     \caption{Preliminary Aircraft Design Configurations} \\
     \toprule
     \textbf{Config} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\

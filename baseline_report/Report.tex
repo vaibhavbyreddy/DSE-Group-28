@@ -43,9 +43,8 @@
   \makebox[1.8em][r]{\@textsuperscript{\normalfont\normalsize\@thefnmark}}%
   #1%
 }
-\newcommand{\todocell}[1]{%
-    \todo[inline, size=\scriptsize, caption={}]{#1}%
-}
+\usepackage{todonotes}
+
 %
 %--------------------------------------------------------------------
 %
@@ -106,7 +105,7 @@
 \usepackage{booktabs} % For nicer rules
 \usepackage{pgfgantt}
 \usepackage{tikz-qtree}
-\usepackage{todonotes}
+
 \usepackage[table,xcdraw]{xcolor}
 
 \titleformat{\chapter}[hang]
