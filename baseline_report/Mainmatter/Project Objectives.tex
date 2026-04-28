@@ -1,18 +1,16 @@
 \chapter{Project Objectives}
 
-Project objectives are specific, measurable, actionable, relevant, and time-bound (SMART) outcomes that a project intends to deliver. This project aims at designing, testing and marketing an unmanned aero vehicle specialised in testing aeroelastic phenomena, providing the scientific community with a cheaper and more accurate alternative to modern subsonic wind tunnels.
+Project objectives should be specific, measurable, actionable, relevant, and time-bound (SMART) outcomes that a project intends to deliver. This project aims at designing, testing and marketing an unmanned aero vehicle specialised in testing aeroelastic phenomena, providing the scientific community with a cheaper and more accurate alternative to modern subsonic wind tunnels.
 
 \section{Financial}
 The financial objectives focus on the budget management and profitability of the project. 
 
 \begin{enumerate}
-    \item The total manufacturing cost per aircraft configuration shall not exceed 45k€, including materials, propulsion system, avionics, and any other aircraft components.
+    \item The total manufacturing cost per aircraft configuration shall not exceed 45000€, including materials, propulsion system, avionics, and all other aircraft components.
 
     \item The aircraft shall have a maximum operational cost of 2000€ per flight day, including all consumables, operations, and maintenance.
-    
-    \todo{check once profitability analysis is done}
 
-    \item The aircraft shall have a maximum engine maintenance interval of 50 hours (\cref{subsec: Maintennace}) to ensure cost-effective lifecycle performance.
+    \item The aircraft shall have an engine maintenance interval of maximum 50 hours (\autoref{subsec: Maintenance}) to ensure cost-effective lifecycle performance.
 
     \item Components shall be replaced instead of repaired when the repair cost exceeds 30\% of the replacement cost, ensuring economically viable maintenance \footnote{\url{https://repair.eu/wp-content/uploads/2025/01/Towards-a-threshold-for-_reasonable-price_-of-spare-parts.pdf}(accessed: 28 April 2026).}.
     
@@ -30,7 +28,7 @@ The quality objectives are used to define standards for the deliverables.
 
     \item Repeated measurements under identical atmospheric conditions shall not deviate by more than $\pm$ 5\%.
 
-    \item The aircraft shall achieve a minimum of 1000 flight hours between critical failures (MTBF). 
+    \item The aircraft shall achieve a minimum of 1000 flight hours between critical failures (MTBF) \cite{Reliability_Unmanned_Aerial_Vehicles}. 
 
     \item Data shall be stored in a standardized format compatible with analysis tools.
 
@@ -47,29 +45,29 @@ The performance objectives focus on the results and effectiveness of the project
 
 \begin{enumerate}
 
-    \item The aircraft shall enable the collection of valid flight test data at 0.75 Mach for at least TBD minutes at an altitude of TBD km per mission \textit{(will be based on existing experimental UAVs during work on the Baseline Report)}.
+    \item The aircraft shall enable the collection of valid flight test data at 0.75 Mach for at least 5 minutes at an altitude of TBD km per mission \textit{(the altitude will be determined from certification requirements and the flight regime)}.
 
-    \item The aircraft shall enable the collection of valid flight tests at an airspeed $\ge$ 0.4 Mach for at least TBD minutes at an altitude of TBD km per mission \textit{(will be based on existing experimental UAVs during work on the Baseline Report)}.
+    %\item The aircraft shall enable the collection of valid flight tests at an airspeed $\ge$ 0.4 Mach for at least TBD minutes at an altitude of TBD km per mission \textit{(will be based on existing experimental UAVs during work on the Baseline Report)}.
 
     \item The aircraft shall enable the integration and operation of payloads of at least 5 kg and 5 L to support its intended flight test and data acquisition missions.
 
-    \item The aircraft configuration shall allow execution of at least TBD repeatable flight tests per mission.
+    \item The aircraft configuration shall allow execution of at least 4 repeatable flight tests per test day (\autoref{ch: Profitability}).
 
-    \item The UAV shall demonstrate a minimum operational range of TBD km using a constrained flight test profile (out-and-back) within regulated airspace.
+    \item The UAV shall demonstrate a minimum operational range of TBD km using a constrained flight test profile (out-and-back) within regulated airspace (\textit{depends on the airspace where the tests will be performed}).
 
 \end{enumerate}
 
 \section{Business}
 The business objectives align with strategic goals like increased revenue or market share.
 
-\todo{write up once profitability analysis is done}
+%\todo{write up once profitability analysis is done}
 
 \begin{enumerate}
     \item The project shall achieve a cumulative net financial profit of approximately \texteuro{64K} per HUGO, per year after initial operational deployment, based on total development, costs of goods sold, and operational costs relative to generated revenue, as verified through financial reporting.
 
     \item The project shall achieve a yearly market share of 4.5\% within the Dutch target market of universities, research centres, and aircraft companies after initial operational deployment, measured based on the deployment of 10 HUGO, each with 100 contracted testing days per year representing a total net profit of \texteuro{636K} after tax \footnote{\url{https://www.government.nl/topics/taxation-and-businesses/corporation-tax}(accessed: 24 April 2026).}.
 
-    \item HUGO shall be ready for initial operational deployment within TBD months from project start.
+    \item HUGO shall be ready for initial operational deployment within 10 working days from the production process start (\autoref{sec: ProdCosts}).
 
     %\item The project shall achieve adoption by at least TBD external research groups, institutions, or industry partners within TBD months after initial operational deployment (ig important for adoption, but sounds kinda over the top).
     
@@ -77,7 +75,7 @@ The business objectives align with strategic goals like increased revenue or mar
 
 \section{Compliance}
 The compliance objectives ensure adherence to regulations and standards.
-\todo{maybe research what is applicable for our aircraft?}
+%\todo{maybe research what is applicable for our aircraft?}
 
 \begin{enumerate}
     \item The UAV system shall demonstrate compliance with applicable airworthiness and safety requirements for unmanned aircraft, including fail-safe and emergency procedures, prior to deployment.

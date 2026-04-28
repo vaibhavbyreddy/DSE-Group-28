@@ -1,10 +1,10 @@
 \chapter{Technical Risk Assessment}
-According to EASA risk-based classification rules\footnote{\href{https://www.easa.europa.eu/en/domains/drones-air-mobility/operating-drone/specific-category-civil-drones}{EASA Specific Category — Civil Drones} (accessed on 23.04.2026)}, the developed UAV falls under the "specific" category. This classification follows from the design MTOM exceeding 25kg, maximum operational velocity of Mach 0.75, maximum altitude exceeding 120m, and BVLOS. To ensure operational safety, a preliminary risk assessment has to be performed for both development and operational risks. A qualitative assessment of risks is performed in \autoref{sec:risk_assessment}. Mitigation measures are identified and quantified in \autoref{sec:contingency_management}. Lastly, a preliminary Specific Operation Risk Assessment (SORA) methodology is followed in \autoref{sec:SORA} to determine the necessary measures required to ensure safe operations of HUGO.
+According to EASA risk-based classification rules\footnote{\href{https://www.easa.europa.eu/en/domains/drones-air-mobility/operating-drone/specific-category-civil-drones}{EASA Specific Category — Civil Drones} (accessed on 23.04.2026)}, the HUGO falls under the "specific" category of UAS (Unmanned Aircraft Systems). This classification follows from the design MTOM exceeding 25kg, maximum operational velocity of Mach 0.75, maximum altitude exceeding 120m, and BVLOS (Beyond Visual Line of Sight). To ensure operational safety, a preliminary risk assessment has to be performed for both development and operational risks. A qualitative assessment of risks is performed in \autoref{sec:risk_assessment}. Mitigation measures are identified and quantified in \autoref{sec:contingency_management}. Lastly, a preliminary Specific Operation Risk Assessment (SORA) methodology is followed in \autoref{sec:SORA} to determine the necessary measures required to ensure safe operations of HUGO.
 
 \section{Initial Risk Assessment}
 \label{sec:risk_assessment}
 
-In risk assessment, key risks are identified by evaluating the likelihood of occurrence $p$ and severity of impact. For the purpose of this analysis, both of these criteria are evaluated on a scale from 1 to 5, with 1 being the lowest score, and 5 being the highest. Details regarding the allocation of both scores are explained in \autoref{tab:risk_map_scores}. 
+In risk assessment, key risks are identified by evaluating the likelihood of occurrence $p$ and severity of impact. For the purpose of this analysis, both of these criteria are evaluated on a scale from 1 to 5, with 1 being the lowest score and 5 being the highest. Details regarding the allocation of both scores are explained in \autoref{tab:risk_map_scores}. 
 
 \begin{table}[H]
     \centering
@@ -22,7 +22,7 @@ In risk assessment, key risks are identified by evaluating the likelihood of occ
 \end{table}
 
 \subsection{Development Risks}
-For any engineering project it is vital to identify the risks that exists related to the development process. Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identification everything that might prevent the final designed system to meet these requirement. These risk can be defined by their severity (the risk they poses for the the product to meet the requirements) and the probability for this to occur. The development risks identified for HUGO, along with their assigned likelihood and severity scores, are listed in \autoref{tab:development_risks}.
+For any engineering project it is vital to identify the risks that exist related to the development process. Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identify everything that might prevent the final designed system from meeting these requirements. These risks can be defined by their severity (the risk they pose for the product to meet the requirements) and the probability of this occurring. The development risks identified for HUGO, along with their assigned likelihood and severity scores, are listed in \autoref{tab:development_risks}.
 
 \begin{table}[H]
     \centering
@@ -74,11 +74,11 @@ For any engineering project it is vital to identify the risks that exists relate
 \subsection{Operation risks}
 Operation risks refer to hazardous scenarios which can occur both on the ground and in the air. They are identified and classified based on the following criteria \cite{Jarus_main}:
 \begin{itemize}
-    \item the extent to which third parties or property on the ground could be endangered by the activity;
-    \item the complexity, performance and operational characteristics of the unmanned aircraft involved;
-    \item the purpose of the flight, UAS type, probability of collision with other aircraft, class of airspace;
-    \item the type, scale, and complexity of the UAS operation or activity, including, where relevant, the size and type of the traffic handled by the responsible organisation or person;
-    \item the extent to which the persons affected by the risks involved in the UAS operation are able to assess and exercise control over those risks.
+    \item The extent to which third parties or property on the ground could be endangered by the activity;
+    \item The complexity, performance and operational characteristics of the unmanned aircraft involved;
+    \item The purpose of the flight, UAS type, probability of collision with other aircraft, class of airspace;
+    \item The type, scale, and complexity of the UAS operation or activity, including, where relevant, the size and type of the traffic handled by the responsible organisation or person;
+    \item The extent to which the persons affected by the risks involved in the UAS operation are able to assess and exercise control over those risks.
 \end{itemize}
 
 \autoref{tab:operation_risks} lists the operation risks identified for HUGO, along with their respective assigned likelihood and severity scores.
@@ -190,14 +190,37 @@ Risks located in the yellow zone of the map present significant hazards which ca
     % Draw grid lines
     \draw[white, line width=1.5pt] (0,0) grid[step=\cs] (5*\cs,5*\cs);
     % Risk labels
-    \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2) {HUG-DEV-04\\HUG-DEV-05\\HUG-OP-01\\HUG-OP-08};
-    \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2) {HUG-DEV-02\\HUG-OP-05};
-    \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 3*\cs+\cs/2) {HUG-DEV-01};
-    \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 2*\cs+\cs/2) {HUG-OP-03};
-    \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 1*\cs+\cs/2) {HUG-OP-04\\HUG-OP-06};
-    \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 2*\cs+\cs/2) {};
-    \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2) {HUG-DEV-03\\HUG-OP-07};
-    \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 2*\cs+\cs/2) {HUG-OP-09};
+    % (1,5)
+\node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-OP-07};
+
+% (2,3)
+\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-DEV-02\\HUG-OP-05\\HUG-OP-10};
+
+% (2,4)
+\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-DEV-04\\HUG-DEV-05\\HUG-OP-01\\HUG-OP-02\\HUG-OP-08};
+
+% (2,5)
+\node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-OP-04\\HUG-OP-06};
+
+% (3,3)
+\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 2*\cs+\cs/2)
+{HUG-OP-03};
+
+% (3,4)
+\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 2*\cs+\cs/2)
+{HUG-OP-09};
+
+% (3,5)
+\node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 2*\cs+\cs/2)
+{HUG-DEV-03};
+
+% (4,4)
+\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 3*\cs+\cs/2)
+{HUG-DEV-01};
     % X-axis labels (Impact)
     \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
         \node[font=\small, below] at (\x*\cs-\cs/2, -0.2) {\label};
@@ -224,7 +247,7 @@ Risks located in the yellow zone of the map present significant hazards which ca
 %Step 3: identify a range of possible risk mitigating measures;
 %Step 4: determine the necessary level of robustness of the selected mitigating measures in such a way that the operation can be conducted safely.
 
-Having identified the risks posed to the development of the system, it is possible to develop adequate preventive measures and mitigation strategies. Preventive measures are identified as processed which decrease the likelihood of a risk occurring in the first place, while mitigation strategies are expected to lower the severity of consequences in case a risk manifests itself during development or operations. 
+Having identified the risks posed to the development of the system, it is possible to develop adequate preventive measures and mitigation strategies. Preventive measures are identified as process which decrease the likelihood of a risk occurring in the first place, while mitigation strategies are expected to lower the severity of consequences in case a risk manifests during development or operations. 
 
 \autoref{tab:risk_preventive_measures} lists the envisioned preventive measures addressing both development and operational risks, as well as their expected effect on the likelihood score, $\Delta L$. \autoref{tab:containment_requirements_integrity} lists the envisioned contingency scenarios, along with the expected effect on the severity score, $\Delta S$.
 
@@ -233,13 +256,17 @@ Having identified the risks posed to the development of the system, it is possib
     \centering
     \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|}
     \hline
-        \textbf{ Risk ID} & \textbf{Preventive Measure(s)} & $\Delta L$  \\ \hline\hline
-         HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. & -2  \\ \hline
+        \textbf{ Risk ID} & \textbf{Preventive Measure(s)} & \textbf{$\Delta L$}  \\ \hline\hline
+         HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is in line with the predictions made for the theoretical. & -2  \\ \hline
          HUG-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1  \\ \hline
          HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2  \\ \hline
          HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1  \\ \hline
-         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO. Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 \\ \hline
-         HUG-OP-03 & Adequate training and communication amongst ground crew can decrease the likelihood of human error.  & -1 \\ \hline
+         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO.
+         
+         Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 \\ \hline
+         HUG-OP-03 & Adequate theoretical and practical training of crew.
+         
+         Development of procedures, checklists, flight tests and simulations validated by a competent third party. & -1 \\ \hline
          HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
          HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
 
@@ -257,11 +284,11 @@ Having identified the risks posed to the development of the system, it is possib
     \hline
         \textbf{Risk ID} & \textbf{Mitigation Strategy} & $\Delta S$ \\ 
         \hline\hline
-        HUG-OP-01 & \multirow{2}{*}{\parbox{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a flight termination system shall be triggered.}} & -1 \\ 
-        \cline{1-1}\cline{3-3}
-        HUG-OP-02 & & 0 \\ 
+        HUG-OP-01 & \multirow{2}{*}{\parbox{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a flight termination system shall be triggered.}} & \multirow{2}{*}{-1} \\ 
+        \cline{1-1}
+        HUG-OP-02 & & \\ 
         \hline
-        HUG-OP-04 & For problems during flight that include breaking of parts or components, HUGO shall immediately decelerate to a safe speed (TBD). Subsequently, a recovery of the vehicle shall be attempted. If recovery is deemed impossible in the timespan of 10 s, the first step will be applied; the same procedures will be applied as for HUG-OP-01 and HUG-OP-02. & -1 \\ 
+        HUG-OP-04 & For problems during flight that include breaking of parts or components, HUGO shall immediately decelerate to a safe speed (TBD). Subsequently, a recovery of the vehicle shall be attempted, with the same procedures applicable as for HUG-OP-01. & -1 \\ 
         \hline
         HUG-OP-06 & If the test area is exceeded, the drone will be ordered to immediately return to the testing location. & -2 \\ \hline
         HUG-OP-09 & In the case of a mechanical error onboard the drone during the test flight is detected, an assessment of the extent of the issue shall be performed. Depending on the root cause of the error and the severity of potential consequences, one of the following shall be implemented:
@@ -315,7 +342,7 @@ The final, revised likelihood and severity scores for both development and opera
 \hfill
 % -------- RIGHT: TIKZ --------
 \begin{minipage}[t]{0.55\textwidth}
-    \vspace{0pt}
+    \vspace{25pt}
     \centering
     \scalebox{0.8}{
     \begin{tikzpicture}
@@ -360,15 +387,39 @@ The final, revised likelihood and severity scores for both development and opera
         % Grid
         \draw[white, line width=1.5pt] (0,0) grid[step=\cs] (5*\cs,5*\cs);
 
-        % Labels
-        \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2) {HUG-DEV-01\\HUG-DEV-01\\HUG-OP-06};
-        \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 0*\cs+\cs/2) {HUG-DEV-02\\HUG-OP-03};
-        \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 2*\cs+\cs/2) {HUG-DEV-03};
-        \node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 0*\cs+\cs/2) {HUG-DEV-04};
-        \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2) {HUG-OP-01\\HUG-OP-02};
-        \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 0*\cs+\cs/2) {HUG-OP-04\\HUG-OP-08};
-        \node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 1*\cs+\cs/2) {HUG-OP-05\\HUG-OP-10};
-        \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2) {HUG-OP-07};
+        % Labels (corrected to match table)
+
+% (Likelihood 2, Severity 4)
+\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-DEV-01\\HUG-OP-08};
+
+% (1,3)
+\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-DEV-02};
+
+% (1,5)
+\node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-DEV-03\\HUG-OP-07};
+
+% (1,2)
+\node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-DEV-04};
+
+% (1,4)
+\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-DEV-05\\HUG-OP-04};
+
+% (2,1)
+\node[font=\tiny\bfseries,align=center] at (0*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-OP-01\\HUG-OP-09};
+
+% (2,2)
+\node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-OP-10};
+
+% (2,3)
+\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-OP-02\\HUG-OP-03\\HUG-OP-05\\HUG-OP-06};
 
         % Axes
         \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
@@ -498,30 +549,28 @@ For the critical scenarios that could happen during the mission, we can run prep
 \label{fig:risk_matrix_mitigated}
 \end{figure}
 \end{comment}
-As can be seen in \autoref{fig:risk_matrix_mitigated} there are no development or operational risk in the red zone of the risk matrix. Furthermore several risks would used to be located in the yellow zone has moved into the green zone. This is a result of the preventive measures and the mitigation strategies.   
-
-
-\todo[inline]{Comment on the new risk map}
+As can be seen in \autoref{fig:risk_matrix_mitigated}, applying preventive measures and contingency scenarios to the design and operations allows for a significant decrease in risk severity for all cases considered. Notably, none of the risks remain in the red area of the matrix, and numerous options have transitioned into the green zone. Although some options still remain in the yellow due to their high severity, it should be noted that likelihood values were minimised.
 
 
 \section{Preliminary Specific Operation Risk Assessment (SORA)}
 \label{sec:SORA}
 
-The SORA is a classification method used by JARUS to determine the risk posed by a UAV during operations \cite{Jarus_main}. Its main purpose is to determine whether the operations can be performed in a safe manner. The nominal SORA method is typically comprised of 10 steps encompassing the ground risk, air risk, mitigation performance requirements, assurance and integrity level estimation, and determination of containment requirements.
+The SORA is a classification method used by JARUS (Joint Authorities for Rulemaking on Unmanned Systems) to determine the risk posed by a UAS during operations \cite{Jarus_main}. Its main purpose is to determine whether the operations can be performed in a safe manner. The nominal SORA method is typically comprised of 10 steps encompassing the ground risk, air risk, mitigation performance requirements, assurance and integrity level estimation, and determination of containment requirements.
 
-In this Section, a preliminary SORA classification will be performed for HUGO based on currently available data. It is expected that the final results of this methodology may change as as more information will be known about the UAV configuration and the mission area.
+In this Section, a preliminary SORA classification will be performed for HUGO based on currently available data. It is expected that the final results of this methodology may change as more information becomes known about the UAS configuration and the mission area.
 
 \subsection{Documentation of Proposed Operations}
-The first step in the SORA methodology focuses on compiling operational, technical, and organisational information regarding UAV operations. This entails detailing the operational volume, ground risk buffers, adjacent area, and adjacent airspace \cite{Jarus_main}\cite{Jarus_Annex_A}.
+The first step in the SORA methodology focuses on compiling operational, technical, and organisational information regarding UAS operations. This entails detailing the operational volume, ground risk buffers, adjacent area, and adjacent airspace \cite{Jarus_main}\cite{Jarus_Annex_A}.
 
-At this point of the design phase, a specific operations area has not yet been determined. However, a candidate test site has been identified. In 2025, a landmark cooperation agreement was signed by the Province of South Holland, the Ministry of Infrastructure and Water Management, and the Ministry of Defence, with the aim of developing a permanent BVLOS test site for both civil and military applications \footnote{\href{https://www.keyregionleiden.nl/en/cooperation-drone-test-area-over-north-sea-signed}{Cooperation drone test area over North Sea signed} (accessed on 24.04.2026)}
+\todo[inline]{Once we decide on a location, we can change this section}
+At this point in the design phase, a specific operations area has not yet been determined. However, a candidate test site has been identified. In 2025, a landmark cooperation agreement was signed by the Province of South Holland, the Ministry of Infrastructure and Water Management, and the Ministry of Defence, with the aim of developing a permanent BVLOS test site for both civil and military applications \footnote{\href{https://www.keyregionleiden.nl/en/cooperation-drone-test-area-over-north-sea-signed}{Cooperation drone test area over North Sea signed} (accessed on 24.04.2026)}
 \footnote{\href{https://aviationnews.eu/news/2025/10/netherlands-establishes-north-sea-drone-test-zone-to-boost-defence-and-industry}{Netherlands Establishes North Sea Drone Test Zone to Boost Defence and Industry} (accessed on 24.04.2026)}. According to the available information, first test flights for the area are expected to launch in late 2026.
 
 For the remaining steps of the SORA, it is assumed that HUGO will operate in controlled areas only. This assumption will impact the determination of ground risk, assurance and integrity levels, and operational objectives.
 
 
 \subsection{Intrinsic Ground Risk Class (iGRC)}
-The intrinsic Ground Risk Class is determined by the characteristics of the UAV based on its maximum characteristic dimension (wing span), maximum speed, as well as the population density in the operational volume and risk buffer areas \cite{Jarus_main}. It is expressed by a number from 1 to 10, with higher values corresponding to higher ground risks.
+The intrinsic Ground Risk Class is determined by the characteristics of the UAS based on its maximum characteristic dimension (wing span), maximum speed, as well as the population density in the operational volume and risk buffer areas \cite{Jarus_main}. It is expressed by a number from 1 to 10, with higher values corresponding to higher ground risks.
 
 The maximum speed of HUGO exceeds the limit of 200 m/s specified in the JARUS SORA Guide \cite{Jarus_main}. This implies that the iGRC has to be estimated according to alternative estimation methods defined in Annex F \cite{Jarus_Annex_F}. One of the available trade-offs allows for an increase in maximum velocity by 40\%, provided that the maximum size is reduced by 50\%. As the expected wingspan for HUGO falls below 20 m, this trade-off is applicable and can be used to estimate the iGRC. Table \autoref{tab:alternative_igrc_that_makes_us_legal} presents an alternative iGRC classification method applicable for the trade-offs.
 
@@ -553,16 +602,16 @@ If the iGRC value is too high, it can be modified or lowered based on risk mitig
 
 
 
-\subsection{Determination of the Air Risk Class (ARC) and Tactical Mitigation Performance Requirement (TMPR)}
-The SORA methodology uses the operational airspace of the UAV to determine an intrinsic risk of collision with (manned) aircraft, which is expressed by the ARC \cite{Jarus_main}. For UAVs operating in atypical airspaces (such as reserved/restricted airspaces or defined drone testing areas), such as HUGO, an ARC-a score is automatically attributed.
+\subsection{Air Risk Class (ARC) and Tactical Mitigation Performance Requirement (TMPR)}
+The SORA methodology uses the operational airspace of the UAS to determine an intrinsic risk of collision with (manned) aircraft, which is expressed by the ARC \cite{Jarus_main}. For a UAS operating in atypical airspaces (such as reserved/restricted airspaces or defined drone testing areas), such as HUGO, an ARC-a score is automatically attributed.
 
-The ARC can be lowered or modified via strategic and tactical mitigation means \cite{Jarus_Annex_F}. However, since ARC-a represents the lowest possible ARC score, such steps are not deemed as necessary for HUGO.
+The ARC can be lowered or modified via strategic and tactical mitigation means \cite{Jarus_Annex_F}. However, since ARC-a represents the lowest possible ARC score, such steps are not deemed necessary for HUGO.
 
-The TMPR refers to operational requirements which shall be applied to mitigate residual risks of air collisions with (manned) aircraft and achieve an acceptable level of safety during UAV operations \cite{Jarus_main}. For ARC-a operations, the risk of encounter of manned aircraft is deemed as "extremely low", and therefore no TMPR shall be applied (although it is possible for the CAA to require a demonstration of mitigation procedures for HUGO id deemed necessary)\cite{Jarus_Annex_A}\cite{Jarus_Annex_D}.
+The TMPR refers to operational requirements which shall be applied to mitigate residual risks of air collisions with (manned) aircraft and achieve an acceptable level of safety during UAS operations \cite{Jarus_main}. For ARC-a operations, the risk of encounter of manned aircraft is deemed as "extremely low", and therefore no TMPR shall be applied (although it is possible for the CAA to require a demonstration of mitigation procedures for HUGO if deemed necessary)\cite{Jarus_Annex_A}\cite{Jarus_Annex_D}.
 
 
 \subsection{Specific Assurance and Integrity Levels (SAIL)}
-The SAIL is a value ranging from I to VI used for the identification of Operational Safety Objectives (OSOs) related to the robustness (integrity and assurance) level of the UAV \cite{Jarus_main}. Qualitatively, this metric represents the confidence in the safety of operations, and can be determined according to \autoref{tab:SAIL_determination_table}. Based on the final GRC and residual ARC values derived for HUGO, it can be assigned a SAIL II.
+The SAIL is a value ranging from I to VI used for the identification of Operational Safety Objectives (OSOs) related to the robustness (integrity and assurance) level of the UAS \cite{Jarus_main}. Qualitatively, this metric represents the confidence in the safety of operations, and can be determined according to \autoref{tab:SAIL_determination_table}. Based on the final GRC and residual ARC values derived for HUGO, it can be assigned a SAIL II.
 
 \begin{table}[h]
 \centering
@@ -586,7 +635,7 @@ $> 7$     & \multicolumn{4}{c|}{Category C (Certified) operation} \\ \hline
 
 
 \subsection{Determination of Containment Requirements}
-Containment Requirements are compiled to ensure that both ground and air risk falls within the required safety levels in the adjacent area \cite{Jarus_main}. Based on the SAIL value and UAV characteristic dimensions and maximum speed, a level of robustness can be estimated, along with a set of corresponding safety requirements. A SAIL TBD UAV flying at maximum speed above 200 m/s in a controlled airspace with population density in the adjacent area not exceeding 50 ppl/km$^2$ corresponds to a Medium robustness (integrity and assurance) level \cite{Jarus_main}. The Containment Requirements based on a Medium level of integrity are listed in \autoref{tab:containment_requirements_integrity}.
+Containment Requirements are compiled to ensure that both ground and air risk fall within the required safety levels in the adjacent area \cite{Jarus_main}. Based on the SAIL value and UAS characteristic dimensions and maximum speed, a level of robustness can be estimated, along with a set of corresponding safety requirements. A SAIL TBD UAS flying at maximum speed above 200 m/s in a controlled airspace with population density in the adjacent area not exceeding 50 ppl/km$^2$ corresponds to a Medium robustness (integrity and assurance) level \cite{Jarus_main}. The Containment Requirements based on a Medium level of integrity are listed in \autoref{tab:containment_requirements_integrity}.
 
 \begin{table}[H]
     \centering
@@ -596,7 +645,7 @@ Containment Requirements are compiled to ensure that both ground and air risk fa
          \textbf{No.} & \textbf{Title} &  \textbf{Criterion} \\ \hline\hline
          1 & Operational Volume Containment & No probable single failure of the UAS or any external system supporting the operation shall lead to operation outside of the operation volume OR The probability of the failure condition “UA leaving the operational volume” shall be less than 10-3/Flight Hour (FH). \\ \hline
          2 & End of Flight upon exit of the operational volume & When the UA leaves the operational volume, an immediate end of the flight must be initiated through a combination of procedures/processes and/or available technical means. \\ \hline
-         3 & Definition of the final ground risk buffer & Ground risk buffer must consider the following points below: 
+         3 & Definition of the final ground risk buffer & Ground risk buffer must consider the following points: 
          \begin{itemize}
          \item Probable single failures (including the projection of high energy parts such as rotors and propellers) which would lead to an operation outside of the operational volume,
          \item Meteorological conditions (e.g., maximum sustained wind),
@@ -606,8 +655,8 @@ Containment Requirements are compiled to ensure that both ground and air risk fa
          \\ \hline
          4 & Ground risk buffer containment &
          \begin{itemize}
-         \item No single failure of the UAS or any external system supporting the operation shall lead to operation outside of he ground risk buffer.
-         \item Software (SW) and Airborne Electronic Hardware (AEH) whose development error(s) could directly lead to operations outside of the ground risk buffer shall be developed to an industry standard or methodology recognized as adequate by the competent authority.
+         \item No single failure of the UAS or any external system supporting the operation shall lead to operation outside of the ground risk buffer.
+         \item Software (SW) and Airborne Electronic Hardware (AEH) whose development error(s) could directly lead to operations outside of the ground risk buffer shall be developed to an industry standard or methodology recognised as adequate by the competent authority.
          \end{itemize}
          \\ \hline
          
@@ -670,22 +719,22 @@ The applicant has an organization appropriate for the intended operation, with a
 \end{itemize}
 \\ \hline
 
-2 & UAV manufactured by competent and/or proven entity 
+2 & UAS manufactured by competent and/or proven entity 
 & As a minimum, manufacturing procedures cover: specification of materials, suitability and durability of materials used, processes necessary to allow for repeatability in manufacturing and conformity within acceptable tolerances, configuration control.
 \\ \hline
 
 3 & UAS maintained by competent and/or proven entity 
-& The UAV Operator maintenance instructions and requirements are defined, cover, when applicable, the UAV designer instructions and requirements, and are adhered to.
+& The UAS Operator maintenance instructions and requirements are defined, cover, when applicable, the UAS designer instructions and requirements, and are adhered to.
 
-The maintenance staff is competent and has received an authorization to carry out UAV maintenance.
+The maintenance staff is competent and has received authorisation to carry out UAS maintenance.
 
 Preventive/scheduled maintenance and inspection of each UAS is organized and in accordance with the UAS Operator maintenance programme on the basis of the UAS designer scheduled maintenance requirements, and adapted to the specificities of UAS operations.
 
-Upon completion, the maintenance log system is used to record all maintenance conducted on the UAS, including releases. A release to service can only be accomplished by a staff member who has received an authorization to release to service for that particular UAV model/family.
+Upon completion, the maintenance log system is used to record all maintenance conducted on the UAS, including releases. A release to service can only be accomplished by a staff member who has received authorisation to release to service for that particular UAS model/family.
 \\ \hline
 
 5 & UAS is designed considering system safety and reliability 
-& The equipment, systems, and installations are designed to minimize hazards in the event of a probable failure of the UAV or of any external system supporting the operation.
+& The equipment, systems, and installations are designed to minimize hazards in the event of a probable failure of the UAS or of any external system supporting the operation.
 \\ \hline
 
 6 & C3 link characteristics are appropriate for the operation 
@@ -695,7 +744,7 @@ The UAS remote pilot has the means to continuously monitor the C3 performance an
 \\ \hline
 
 7 & Conformity check of the UAS configuration 
-& The Operator has UAV conformity check procedures ensuring periodically that:
+& The Operator has UAS conformity check procedures ensuring periodically that:
 \begin{itemize}
     \item the UAS intended to be used for the operation is in a condition for safe operation,
     \item the UAS configuration conforms to the UAS design data, including any design limitations, e.g. maximum payload weight, considered under the approved concept of operation.
@@ -738,7 +787,7 @@ Roles and responsibilities between the applicant and the external Service Provid
 \item establishment of step-by-step communications, including a proper phraseology between the remote crew members involved in the aerial part of the operation.
 \end{itemize}
 
-Remote Crew training covers multi crew coordination. In addition, the Remote
+Remote Crew training covers multi-crew coordination. In addition, the Remote
 Crew receives Crew Resource Management (CRM)3 training. \\ \hline
 
 17 & Remote crew is fit to operate & The applicant has a policy defining the
@@ -852,7 +901,7 @@ criterion 24: The UAS is designed to perform as intended in the environmental co
 \end{comment}
 
 \subsection{Comprehensive Safety Portfolio (CSP)}
-The Comprehensive Safety Portfolio (CSP) compiles all elements of the SORA which shall be presented to the competent authority for the application of authorisation for UAS operations \cite{Jarus_Annex_F}. Typically, it includes the finalized detailed operational description, all safety claims and their robustness (iGRC and final GRC, initial and residual ARC, TMPR, the OSOs associated with the SAIL, and the containment requirements), compliance evidence, necessary linkages and references between documents, and a  finalised compliance matrix.
+The Comprehensive Safety Portfolio (CSP) compiles all elements of the SORA which shall be presented to the competent authority for the application of authorisation for UAS operations \cite{Jarus_Annex_F}. Typically, it includes the finalized detailed operational description, all safety claims and their robustness (iGRC and final GRC, initial and residual ARC, TMPR, the OSOs associated with the SAIL, and the containment requirements), compliance evidence, necessary linkages and references between documents, and a finalised compliance matrix.
 
 At the current development stage of HUGO, it is not yet possible to compile a complete version of the CSP.
 
