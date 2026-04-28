@@ -85,30 +85,30 @@ During this evaluation, it became evident that many of the sub-system options (s
 
 \paragraph{Mounting Location}
 \begin{itemize}
-    \item \textbf{Fuselage Mounted (Accepted):} Keeps the thrust line near the centerline, reduces yaw asymmetry during gusts, and simplifies structural load paths.
-    \item \textbf{Buried Engine (Accepted):} Extremely clean aerodynamically, minimizing drag for high subsonic speeds, but complicates modularity, cooling, and maintenance access.
-    \item \textbf{Wing Mounted (Strawman):} Feasible, but mounting a turbine on a wing deliberately designed to be highly flexible and prone to flutter introduces severe inertial and structural coupling challenges.
+    \item \textbf{Fuselage Mounted (Accepted):} Simplifies structure, centralises mass and allows for wing modularity.
+    \item \textbf{Buried Engine (Accepted):} Aerodynamically efficient, minimizing drag for high subsonic speeds, but complicates modularity, cooling, and maintenance access.
+    \item \textbf{Wing Mounted (Strawman):} Feasible, but mounting a turbine on a wing designed to be highly flexible and prone to flutter introduces severe inertial and structural coupling challenges. Additionally, it complicates the modularity requirement of the drone, since swapping the wing would also require swapping the engines.
 \end{itemize}
 
 \paragraph{Number of Engines}
 \begin{itemize}
-    \item \textbf{1 Engine (Accepted):} Perfectly aligns with the project brief, which specifies power by "a micro turbine" (singular), keeping mass and complexity within budget.
-    \item \textbf{2 Engine (Rejected):} Adding a second engine vastly exceeds the cost budget (\texteuro 45k), heavily penalizes the 50kg mass constraint, and violates the single Vulcan engine specification.
-    \item \textbf{Vulcan + Auxiliary (Rejected):} Adds unnecessary weight and system complexity that directly detracts from the 5kg payload capacity without offering proportional benefits.
+    \item \textbf{1 Engine (Accepted):} Low weight, drag, and usually more fuel efficient than multiple engines that add up to the same thrust. However, has low redundancy in case of failure.
+    \item \textbf{2 Engines} Allows for using differential thrust steering and adds redundancy in case of an engine failure.
+    \item \textbf{Jet engine + Auxiliary (Rejected):} Adds unnecessary weight and system complexity that directly detracts from the 5kg payload capacity without offering proportional benefits.
 \end{itemize}
 
 \paragraph{Fuel Compatibility}
 \begin{itemize}
     \item \textbf{SAF-only (Accepted):} Strictly complies with the project requirement that the micro turbine must run on Sustainable Aviation Fuel (SAF).
-    \item \textbf{JET-A1 (Rejected):} Directly violates the explicit sustainability requirement to utilize SAF.
-    \item \textbf{Both (Rejected):} While physically possible, designing dual-fuel certification parameters adds unnecessary scope to a project focused on aeroelasticity, not fuel chemistry.
+    \item \textbf{JET-A1:} \todo
+    \item \textbf{Both:} \todo
 \end{itemize}
 
 \subsection{Undercarriage Group}
 
 \paragraph{Mounting Points}
 \begin{itemize}
-    \item \textbf{Fuselage (Accepted):} Provides a sturdy, rigid mounting point that does not interfere with the modularity or the intentional flexibility of the test wings.
+    \item \textbf{Fuselage (Accepted):} Provides a feasible, rigid mounting point that does not interfere with the modularity or the intentional flexibility of the test wings.
     \item \textbf{On Wings (Strawman):} Complicates the wing-swap modularity requirement and adds rigid points to wings that are meant to twist and bend dynamically.
 \end{itemize}
 
