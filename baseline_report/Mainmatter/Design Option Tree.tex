@@ -17,6 +17,152 @@ To systematically navigate this large design space, the team established a colou
 
 During this evaluation, it became evident that many of the sub-system options (such as internal materials or autopilot types) are entirely agnostic to the macro-architecture of the aircraft. For instance, a composite structure offers similar fundamental pros and cons regardless of whether it is applied to a high-wing or a low-wing aircraft. Therefore, to maintain clarity and avoid muddying the trade space, these agnostic sub-systems were decoupled from the overall layout. The synthesis of the final candidate configurations focuses exclusively on the macro-architectural combinations of wing type, propulsion mounting, empennage, and landing gear type.
 
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{6cm}}
+\caption{Sub-System Options and Initial Screening} \label{tab:subsystem_screening} \\
+\toprule
+\textbf{Subgroup} & \textbf{Option} & \textbf{Status} & \textbf{Justification} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Subgroup} & \textbf{Option} & \textbf{Status} & \textbf{Justification} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+% --- FUSELAGE GROUP ---
+\multicolumn{4}{c}{\textbf{Fuselage Group}} \\
+\midrule
+Internal Construction Material 
+& Composite Structure & Accepted & Offers the high strength-to-weight ratio necessary to survive Mach 0.75 high subsonic loads while staying under the strict 50kg mass requirement. \\
+\addlinespace
+& Sheet Metal Structure & Accepted & Traditional aerospace manufacturing method; provides predictable structural dynamics and ease of modular manufacturing, though potentially heavier. \\
+\addlinespace
+& Polymer Structure & Rejected & Lacks the required structural stiffness and yield strength to act as the primary load-bearing core for a high subsonic aircraft, guaranteeing structural failure or severe aeroelastic deformation. \\
+\midrule
+
+Skin Material 
+& Composite Skin & Accepted & Provides an aerodynamically smooth surface finish necessary for high subsonic flight and high skin stiffness. \\
+\addlinespace
+& Sheet Metal Skin & Accepted & Highly durable and relatively simple to integrate, though harder to form into complex aerodynamic curves. \\
+\addlinespace
+& Polymer Skin & Strawman & Feasible for non-load-bearing fairings and lightweight sections, but highly susceptible to flutter and buckling under high dynamic pressures. \\
+\midrule
+
+Avionics 
+& Both [Manual \& Autopilot] & Accepted & Satisfies the requirement for a remotely controlled, autonomous testbed, allowing a pilot to intervene during critical test points or emergencies. \\
+\addlinespace
+& Autopilot Only & Strawman & Feasible for pure drone operations, but presents severe safety and recovery risks during the high-risk aeroelastic and flutter testing required by the project. \\
+\addlinespace
+& Manual Only & Rejected & Directly violates the core project requirement of designing an autonomous flying laboratory, and human reaction times are insufficient to manually suppress flutter. \\
+\midrule
+
+Electrical Subgroup 
+& Battery & Accepted & A proven, reliable, and decoupled energy source for high-bandwidth actuators and avionics, easily sized for a 30-minute endurance. \\
+\addlinespace
+& Power Generator & Strawman & Bleeding power from the micro-turbine or using a seperate generator is physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time. \\
+\midrule
+
+% --- EMPENNAGE GROUP ---
+\multicolumn{4}{c}{\textbf{Empennage Group}} \\
+\midrule
+Tail Configuration 
+& T-Tail & Accepted & Keeps the horizontal stabilizer clear of the wing wake and jet exhaust, which is highly beneficial for a testbed, though it introduces poor deep stall characteristics. \\
+\addlinespace
+& H-Tail & Accepted & Places vertical stabilizers in undisturbed air and provides end-plate effects to the horizontal tail, useful for redundancy in complex aeroelastic testing. \\
+\addlinespace
+& No tail & Accepted & A structural prerequisite for pure flying wing configurations. \\
+\addlinespace
+& Conventional tail & Accepted & Provides well-understood, decoupled pitch and yaw dynamics, simplifying flight control laws and providing a solid baseline for structural testing. \\
+\addlinespace
+& V-tail & Strawman & Reduces parasitic drag, but tightly couples pitch and yaw control, adding unnecessary complexity to the active control system laws needed for flutter suppression. \\
+\addlinespace
+& Inverted V-Tail & Accepted & Has the same downsides as the V-Tail; however, it would provide a clean top surface, enabling the mounting of a test airfoil above the drone and allowing the testing of unproven airfoil designs to failure. \\
+\addlinespace
+& Twin Boom & Rejected & Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing the 50kg mass budget without proportional benefits. \\
+\addlinespace
+& Canard & Accepted & Places pitch control ahead of the main wing, preventing main wing stall interference and allowing for highly responsive active aeroelastic control schemes. However, it does interfear with the wing being tested on the drone, as well as being unconventional to control. \\
+\midrule
+
+% --- WING GROUP ---
+\multicolumn{4}{c}{\textbf{Wing Group}} \\
+\midrule
+Configuration 
+& Low Wing & Accepted & Standard configuration offering simple undercarriage integration and favorable ground effect characteristics. \\
+\addlinespace
+& Mid Wing & Accepted & Aerodynamically valid, however, the carry-through structure complicates the internal fuselage payload volume. \\
+\addlinespace
+& High Wing & Accepted & Widely used and understood configuration. However, may interfere with the integration of the main landing gear in the wing and engine maintenance. \\
+\addlinespace
+& Flying Wing & Accepted & Highly efficient aerodynamically, allowing for easier testing at high mach numbers. \\
+\addlinespace
+& Delta Wing & Rejected & Inherently stiff and characterized by a low aspect ratio, this planform directly conflicts with the project's core objective to act as a flying laboratory specifically for testing highly flexible, High-Aspect-Ratio (HAR) wings and their associated aeroelastic phenomena. \\
+\addlinespace
+& Prandtl Wing & Rejected & Bell-shaped lift distribution introduces aeroelastic behaviors that are too complex and esoteric for a baseline modular testbed aiming to validate standard control systems and phenomena. \\
+\midrule
+
+Fuel Tanks 
+& Fuselage Mounted Only & Accepted & Keeps the center of gravity (CG) stable, protects the fuel, and allows the wings to be extremely slender, flexible, and easily swappable. \\
+\addlinespace
+& Both & Accepted & Maximizes fuel capacity to ensure the 30-minute endurance requirement is easily met or exceeded in certain configurations, though plumbing to flexible wings is complex. \\
+\addlinespace
+& Wing Mounted Only & Rejected & The requirement to test ``highly flexible, High-Aspect-Ratio (HAR) wings'' dictates slender wing profiles lacking the internal volume to house the required fuel while leaving room for actuators. \\
+\midrule
+
+% --- PROPULSION GROUP ---
+\multicolumn{4}{c}{\textbf{Propulsion Group}} \\
+\midrule
+Mounting Location 
+& Fuselage Mounted & Accepted & Simplifies structure, centralises mass and allows for wing modularity. \\
+\addlinespace
+& Buried Engine & Accepted & Aerodynamically efficient, minimizing drag for high subsonic speeds, but complicates modularity, cooling, and maintenance access. \\
+\addlinespace
+& Wing Mounted & Strawman & Feasible, but mounting a turbine on a wing designed to be highly flexible and prone to flutter introduces severe inertial and structural coupling challenges. Additionally, it complicates the modularity requirement of the drone, since swapping the wing would also require swapping the engines. \\
+\midrule
+
+Number of Engines 
+& 1 Engine & Accepted & Low weight, drag, and usually more fuel efficient than multiple engines that add up to the same thrust. However, has low redundancy in case of failure. \\
+\addlinespace
+& 2 Engines & & Allows for using differential thrust steering and adds redundancy in case of an engine failure. \\
+\addlinespace
+& Jet engine + Auxiliary & Rejected & Adds unnecessary weight and system complexity that directly detracts from the 5kg payload capacity without offering proportional benefits. \\
+\midrule
+
+Fuel Compatibility 
+& SAF-only & Accepted & Strictly complies with the project requirement that the micro turbine must run on Sustainable Aviation Fuel (SAF). \\
+\addlinespace
+& JET-A1 & & \\ %\todo
+\addlinespace
+& Both & & \\ %\todo
+\midrule
+
+% --- UNDERCARRIAGE GROUP ---
+\multicolumn{4}{c}{\textbf{Undercarriage Group}} \\
+\midrule
+Mounting Points 
+& Fuselage & Accepted & Provides a feasible, rigid mounting point that does not interfere with the modularity or the intentional flexibility of the test wings. \\
+\addlinespace
+& On Wings & Strawman & Complicates the wing-swap modularity requirement and adds rigid points to wings that are meant to twist and bend dynamically. \\
+\midrule
+
+Structure 
+& Retractable & Accepted & Essential for reducing parasitic drag to achieve the required Mach 0.75 dash speed and 30-minute endurance. \\
+\addlinespace
+& Fixed & Rejected & The drag penalty of exposed landing gear at high subsonic speeds (Mach 0.75) is overwhelmingly high, making the endurance and speed requirements virtually impossible to meet simultaneously. \\
+\addlinespace
+& Skids & Strawman & Reduce parasitic drag and weight compared to fixed landing gear, but limit versatility due to the need for dedicated mounting points on the fuselage or wings. \\
+
+\end{longtable}
+
+
+
+
+
+\begin{comment}
+    
+
 \section{Sub-System Options and Initial Screening}
 
 \subsection{Fuselage Group}
@@ -118,6 +264,10 @@ During this evaluation, it became evident that many of the sub-system options (s
     \item \textbf{Fixed (Rejected):} The drag penalty of exposed landing gear at high subsonic speeds (Mach 0.75) is overwhelmingly high, making the endurance and speed requirements virtually impossible to meet simultaneously.
     \item \textbf{Skids (Strawman):}Reduce parasitic drag and weight compared to fixed landing gear, but limit versatility due to the need for dedicated mounting points on the fuselage or wings.
 \end{itemize}
+
+\end{comment}
+
+
 
 
 \clearpage

@@ -1,24 +1,38 @@
 \chapter{Configuration Generation}
 
-Now that the design option tree has been screened to only allow for plausible sub-system options, some possible configurations can be generated, to be evaluated holistically. If every accepted option in the DOT were mathematically combined, it would result in thousands of potential aircraft layouts, which would be impractical to evaluate. In order to narrow down the subsystems being evaluated, the configurations were built without the architecture-agnostic features.
+Now that the design option tree has been screened to only allow for plausible subsystem options, some possible configurations can be generated, to be evaluated holistically. If every accepted option in the DOT were mathematically combined, it would result in thousands of potential aircraft layouts, which would be impractical to evaluate. In order to narrow down the subsystems being evaluated, the configurations were built without the architecture-independent features.
 
-Sub-systems such as the avionics, construction material, and fuel compatibility were omitted from the configuration generation, since any of the configurations could be made to work with most of the sub-system types. 
+Subsystems such as avionics, construction materials, and fuel compatibility were omitted from the configuration generation, as these choices are largely independent of the main system architecture and can be integrated within most configurations.
 
-Therefore, to generate a focused and meaningful set of aircraft configurations, the team isolated the primary aerodynamic and structural layout drivers, using the following sub-systems:
-\begin{itemize}
-    \item \textbf{Wing Configuration} (Low, Mid, High, Flying Wing)
-    \item \textbf{Empennage Configuration} (T-tail, H-Tail, Conventional, V-Tail, Inverted V-Tail, Canard, No tail)
-    \item \textbf{Propulsion Mounting} (Fuselage Mounted, Buried, Wing Mounted)
-    \item \textbf{Undercarriage} (Skids, Retractable gear)
-\end{itemize}
+Therefore, to generate a focused and meaningful set of aircraft configurations, the primary aerodynamic and structural layout drivers were isolated, using the subsystems presented in \autoref{tab:configuration_design_options} 
 
-By systematically iterating through a morphological matrix of these specific parameters, the team generated an initial set of 20 distinct aircraft configurations. During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the configurations realistic. For example, a Flying Wing configuration inherently dictates a No tail empennage selection. The 20 configurations have been tabulated in \autoref{Aircraft_Configurations_Table}
+% \begin{itemize}
+%     \item \textbf{Wing Configuration} (Low, Mid, High, Flying Wing)
+%     \item \textbf{Empennage Configuration} (T-tail, H-Tail, Conventional, V-Tail, Inverted V-Tail, Canard, No tail)
+%     \item \textbf{Propulsion Mounting} (Fuselage Mounted, Buried, Wing Mounted)
+%     \item \textbf{Undercarriage} (Skids, Retractable gear)
+% \end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Configuration design options}
+    \label{tab:configuration_design_options}
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Design category} & \textbf{Options} \\ \hline \hline
+        Wing configuration & Low, Mid, High, Flying Wing \\ \hline
+        Empennage configuration & T-tail, H-tail, Conventional, V-tail, Inverted V-tail, Canard, No tail \\ \hline
+        Propulsion mounting & Fuselage Mounted, Buried, Wing Mounted \\ \hline
+        Undercarriage & Skids, Retractable gear \\ \hline
+    \end{tabular}
+\end{table}
+By systematically iterating through a morphological matrix of these specific parameters, an initial set of 20 distinct aircraft configurations was generated. During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the configurations realistic. For example, a Flying Wing configuration inherently dictates a No Tail criterion. The 20 configurations have been tabulated in \autoref{Aircraft_Configurations_Table}
 
 \section{Shortlisting Configurations}
 In order to narrow down the 20 configurations to a shortlist, first, several architectural branches were systematically eliminated due to inherent conflicts with the testbed's primary mission:
 
 \begin{itemize}
-    \item \textbf{Mid-Wing Configurations (Configs 14, 15):} Eliminated primarily due to internal packaging constraints. The structural carry-through box of a mid-wing design heavily obstructs the continuous internal volume required for the !!!! 5-litre payload bay and complex AAW avionics (Add requirement codes here)!!!!! \todo. Furthermore, it does not offer distinct aerodynamic advantages over a high or low-wing configuration to justify the harder structural integration and the necessary reinforcements.
+    \item \textbf{Mid-Wing Configurations (Configs 14, 15):} Eliminated primarily due to internal packaging constraints. The structural carry-through box of a mid-wing design heavily obstructs the continuous internal volume required for the payload, as stated in  \textbf{HUG-STR-017}. Furthermore, it does not offer distinct aerodynamic advantages over a high or low-wing configuration to justify the harder structural integration and the necessary reinforcements.
     
     \item \textbf{Canard Configurations (Configs 7, 15):} Discarded due to aerodynamic interference. A forward canard generates downwash and a turbulent wake that affects the main wing. Because the core objective of this flying laboratory is to capture clean aeroelastic and flutter data from the main wing, upstream flow disturbances are unacceptable. Additionally, canards are less representative of the future commercial transport architectures this project aims to emulate.
     
@@ -43,64 +57,65 @@ Many of the remaining configurations share fundamental aerodynamic and structura
 
 
 
-\begin{longtable}{|l|l|l|l|p{4.5cm}|}
+\begin{longtable}{|c|c|c|p{2.5cm}|p{4.5cm}|}
     \caption{Preliminary Aircraft Design Configurations} \label{Aircraft_Configurations_Table} \\
     
     \hline
-    \textbf{Config} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
     \hline\hline
     \endfirsthead
 
     \hline
-    \textbf{Config} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
     \hline\hline
     \endhead
 
     \hline
+    \multicolumn{5}{r}{\textit{Continued on next page}} \\
     \endfoot
 
     \hline
     \endlastfoot
 
-    Config 1 & Low wing & Fuselage mounted & T-tail & Retractable gear \\
+    HUG-CFG-01 & Low wing & Fuselage mounted & T-tail & Retractable gear \\
     \hline
-    Config 2 & Low wing & Fuselage mounted & T-tail & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-02 & Low wing & Fuselage mounted & T-tail & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 3 & Low wing & Fuselage mounted & H-tail & Retractable gear \\
+    HUG-CFG-03 & Low wing & Fuselage mounted & H-tail & Retractable gear \\
     \hline
-    Config 4 & Low wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-04 & Low wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 5 & Low wing & Fuselage mounted & V-tail & Retractable gear \\
+    HUG-CFG-05 & Low wing & Fuselage mounted & V-tail & Retractable gear \\
     \hline
-    Config 6 & Low wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-06 & Low wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 7 & Low wing & Fuselage mounted & Canard & Retractable gear \\
+    HUG-CFG-07 & Low wing & Fuselage mounted & Canard & Retractable gear \\
     \hline
-    Config 8 & Low wing & Fuselage mounted & Inverted V-tail & Retractable gear \\
+    HUG-CFG-08 & Low wing & Fuselage mounted & Inverted V-tail & Retractable gear \\
     \hline
-    Config 9 & Low wing & Wing Mounted & Conventional tail & Retractable gear \\
+    HUG-CFG-09 & Low wing & Wing Mounted & Conventional tail & Retractable gear \\
     \hline
-    Config 10 & Flying wing & Buried engine & No tail & Retractable gear \\
+    HUG-CFG-10 & Flying wing & Buried engine & No tail & Retractable gear \\
     \hline
-    Config 11 & Flying wing & Buried engine & No tail & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-11 & Flying wing & Buried engine & No tail & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 12 & Flying wing & Fuselage mounted & No tail & Retractable gear \\
+    HUG-CFG-12 & Flying wing & Fuselage mounted & No tail & Retractable gear \\
     \hline
-    Config 13 & Flying wing & Fuselage mounted & No tail & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-13 & Flying wing & Fuselage mounted & No tail & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 14 & Mid wing & Fuselage mounted & H-tail & Retractable gear \\
+    HUG-CFG-14 & Mid wing & Fuselage mounted & H-tail & Retractable gear \\
     \hline
-    Config 15 & Mid wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-15 & Mid wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 16 & High wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-16 & High wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 17 & High wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-17 & High wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 18 & High wing & Wing Mounted & T-tail & Retractable gear \\
+    HUG-CFG-18 & High wing & Wing Mounted & T-tail & Retractable gear \\
     \hline
-    Config 19 & High wing & Fuselage mounted & Inverted V-tail & Skids (Belly landing / Rail launched) \\
+    HUG-CFG-19 & High wing & Fuselage mounted & Inverted V-tail & Skids (Belly landing / Rail launched) \\
     \hline
-    Config 20 & High wing & Wing Mounted & Conventional tail & Retractable \\
+    HUG-CFG-20 & High wing & Wing Mounted & Conventional tail & Retractable \\
     \hline
 
 \end{longtable}
