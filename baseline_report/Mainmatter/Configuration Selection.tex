@@ -1,0 +1,60 @@
+\chapter{Configuration Generation}
+
+With the initial screening of the Design Option Tree complete, the next phase of the conceptual design process involved synthesizing the surviving (Accepted and Strawman) sub-system options into complete aircraft architectures. 
+
+If every accepted option in the DOT were mathematically combined, it would result in hundreds of potential aircraft layouts---creating an unmanageable combinatorial explosion. However, as established in the methodology, many sub-systems are entirely ``architecture-agnostic.'' For example, a composite skin, a battery-powered electrical system, and an autonomous flight controller are required and applicable regardless of whether the aircraft is a flying wing or a conventional high-wing monoplane. 
+
+Therefore, to generate a focused and meaningful set of aircraft configurations, the team isolated the primary aerodynamic and structural layout drivers. The configurations were generated strictly by combining options from the following macro-architectural groups:
+\begin{itemize}
+    \item \textbf{Wing Configuration} (Low, Mid, High, Flying Wing, Canard, Two-axis decoupable)
+    \item \textbf{Empennage Configuration} (T-tail, H-Tail, Conventional, Inverted V-Tail, Canard, No tail)
+    \item \textbf{Propulsion Mounting} (Fuselage Mounted, Buried, Wing Mounted)
+    \item \textbf{Landing Gear Mounting} (Fuselage, On Wings)
+\end{itemize}
+
+By systematically iterating through a morphological matrix of these specific parameters, the team generated an initial set of \textbf{20 distinct aircraft configurations}. 
+
+During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the number of configurations realistic. For example, a ``Flying Wing'' configuration inherently dictates a ``No tail'' empennage selection; similarly, a ``Buried Engine'' places strict volumetric constraints that generally preclude a ``Mid Wing'' carry-through box without severe aerodynamic penalties. 
+
+\section{Transition to Detailed Trade-Off}
+While 20 configurations represent a thorough exploration of the design space, it is too large a number for detailed quantitative analysis. In accordance with the project requirements, a minimum of three distinct configurations must be evaluated in a rigorous mid-term trade-off study. 
+
+Therefore, these 20 initial configurations will undergo a secondary, qualitative feasibility screening (evaluating factors such as ease of modularity, HAR wing flutter susceptibility, and payload integration) to down-select the most promising candidate architectures. These finalists will form the basis of the detailed design phase and the quantitative trade-off analysis presented in the Mid-Term Technical Design Report.
+
+
+\begin{longtable}{llllp{4.5cm}}
+    \caption{Preliminary Aircraft Design Configurations} \\
+    \toprule
+    \textbf{Config} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \midrule
+    \endfirsthead
+
+    \toprule
+    \textbf{Config} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \midrule
+    \endhead
+
+    \bottomrule
+    \endfoot
+
+    Config 1 & Low wing & Fuselage mounted & T-tail & Retractable gear \\
+    Config 2 & Low wing & Fuselage mounted & T-tail & Skids (Belly landing / Rail launched) \\
+    Config 3 & Low wing & Fuselage mounted & H-tail & Retractable gear \\
+    Config 4 & Low wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
+    Config 5 & Low wing & Fuselage mounted & V-tail & Retractable gear \\
+    Config 6 & Low wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    Config 7 & Low wing & Fuselage mounted & Canard & Retractable gear \\
+    Config 8 & Low wing & Fuselage mounted & Inverted V-tail & Retractable gear \\
+    Config 9 & Low wing & Wing Mounted & Conventional tail & Retractable gear \\
+    Config 10 & Flying wing & Buried engine & No tail & Retractable gear \\
+    Config 11 & Flying wing & Buried engine & No tail & Skids (Belly landing / Rail launched) \\
+    Config 12 & Flying wing & Fuselage mounted & No tail & Retractable gear \\
+    Config 13 & Flying wing & Fuselage mounted & No tail & Skids (Belly landing / Rail launched) \\
+    Config 14 & Mid wing & Fuselage mounted & H-tail & Retractable gear \\
+    Config 15 & Mid wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
+    Config 16 & High wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    Config 17 & High wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
+    Config 18 & High wing & Wing Mounted & T-tail & Retractable gear \\
+    Config 19 & High wing & Fuselage mounted & Inverted V-tail & Skids (Belly landing / Rail launched) \\
+    Config 20 & High wing & Wing Mounted & Conventional tail & Retractable \\
+\end{longtable}

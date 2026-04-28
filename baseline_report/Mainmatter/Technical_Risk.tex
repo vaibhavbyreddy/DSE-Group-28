@@ -11,7 +11,7 @@ In risk assessment, key risks are identified by evaluating the likelihood of occ
         \caption{Likelihood/Severity Scores used in Risk Evaluation}
     \begin{tabular}{|p{1cm}|p{3.5cm}|p{10.5cm}|}
     \hline
-        \textbf{Score} & \textbf{Likelihood} & \textbf{Impact} \\ \hline\hline
+        \textbf{Score} & \textbf{Likelihood} & \textbf{Severity} \\ \hline\hline
          1 & $0\%< p<1\%$ & Negligible \\   \hline
          2 & $1\%<p<30\%$ & Marginal (insignificant impact, can be managed by applying standard procedures) \\   \hline
          3 & $30\%<p<50\%$& Considerable (significant impact, can be managed by additional/contingency procedures) \\   \hline
@@ -224,22 +224,26 @@ Risks located in the yellow zone of the map present significant hazards which ca
 %Step 3: identify a range of possible risk mitigating measures;
 %Step 4: determine the necessary level of robustness of the selected mitigating measures in such a way that the operation can be conducted safely.
 
-Having identified the risks posed to the development of the system, it is possible to develop adequate preventive measures and mitigation strategies.
+Having identified the risks posed to the development of the system, it is possible to develop adequate preventive measures and mitigation strategies. Preventive measures are identified as processed which decrease the likelihood of a risk occurring in the first place, while mitigation strategies are expected to lower the severity of consequences in case a risk manifests itself during development or operations. 
+
+\autoref{tab:risk_preventive_measures} lists the envisioned preventive measures addressing both development and operational risks, as well as their expected effect on the likelihood score, $\Delta L$. \autoref{tab:containment_requirements_integrity} lists the envisioned contingency scenarios, along with the expected effect on the severity score, $\Delta S$.
+
+
 \todo[inline]{Note on changing the score for HUG-DEV-03 - the probability should drop significantly, while severity remains the same. This appears to be swapped. Also, bump up the likelihood of HUGO-DEV-05. Decrease the final likelihood score for HUGO-DEV-02}
 \begin{table}[H]
    \caption{Risk Preventive Measures}
     \centering
-    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|p{0.75cm}|}
+    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|}
     \hline
-        \textbf{ Risk ID} & \textbf{Preventive Measure(s)} & $\Delta L$ & $\Delta S$ \\ \hline\hline
-         HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. & 0 & -2 \\ \hline
-         HUG-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1 & 0 \\ \hline
-         HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2 & 0 \\ \hline
-         HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1 & 0 \\ \hline
-         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO. Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 & 0 \\ \hline
-         HUG-OP-03 & \textcolor{red}{yap about HF stuff} & -1 & 0 \\ \hline
-         HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 & 0 \\ \hline
-         HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 & 0 \\ \hline
+        \textbf{ Risk ID} & \textbf{Preventive Measure(s)} & $\Delta L$  \\ \hline\hline
+         HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. & -2  \\ \hline
+         HUG-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1  \\ \hline
+         HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2  \\ \hline
+         HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1  \\ \hline
+         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO. Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 \\ \hline
+         HUG-OP-03 & \textcolor{red}{yap about HF stuff} & -1 \\ \hline
+         HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
+         HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
 
 
          
@@ -251,17 +255,33 @@ Having identified the risks posed to the development of the system, it is possib
 \begin{table}[H]
    \caption{Risk Mitigation Strategies}
     \centering
-    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|p{0.75cm}|}
+    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|}
     \hline
-        \textbf{Risk ID} & \textbf{Mitigation Strategy} & $\Delta L$ & $\Delta S$ \\ \hline\hline
-         HUG-OP-01 & \multirow{4}{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a safety mechanism shall be triggered automatically or manually that will turn off the engine and crash land the drone.} & 0 & -1 \\ \cline{1-1}\cline{3-4}
-         HUG-OP-02 & & 0 & -1 \\ \hline
+        \textbf{Risk ID} & \textbf{Mitigation Strategy} & $\Delta S$ \\ 
+        \hline\hline
+        HUG-OP-01 & \multirow{2}{*}{\parbox{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a flight termination system shall be triggered.}} & -1 \\ 
+        \cline{1-1}\cline{3-3}
+        HUG-OP-02 & & 0 \\ 
+        \hline
+        HUG-OP-04 & For problems during flight that include breaking of parts or components, HUGO shall immediately decelerate to a safe speed (TBD). Subsequently, a recovery of the vehicle shall be attempted. If recovery is deemed impossible in the timespan of 10 s, the first step will be applied; the same procedures will be applied as for HUG-OP-01 and HUG-OP-02. & -1 \\ 
+        \hline
+        HUG-OP-06 & If the test area is exceeded, the drone will be ordered to immediately return to the testing location. & -2 \\ \hline
+        HUG-OP-09 & In the case of a mechanical error onboard the drone during the test flight is detected, an assessment of the extent of the issue shall be performed. Depending on the root cause of the error and the severity of potential consequences, one of the following shall be implemented:
+        \begin{enumerate}
+        \item The drone will be ordered to immediately return. 
+        \item The flight termination system shall be triggered. 
+        \end{enumerate} 
+        & -1 \\ \hline
+        HUG-OP-10 & In case of deteriorating weather conditions, the drone will be ordered to return and land as soon as possible. & -1 \\ \hline
+        
     \end{tabular}
     \label{tab:risk_mitigation_scenarios}
 \end{table}
 
+
 %For \textbf{HUG-DEV-01} engineering margins can be used to ensure the behaviour of the physical system is inline with the predictions made for the theoretical. The probability of this occurring does not change but severity decreases from 4 to 2 as this has been taken into account in the design. For \textbf{HUG-DEV-03} the risk can be mitigated be thoroughly employing verification and validation meaning the probability of model-errors can be decreased. For \textbf{HUG-DEV-04} it can mostly be alleviated by ensure continuously backup and synchronisations across platforms. To handle \textbf{HUG-DEV-05} it is important to formulate a detailed manufacture and production plan of the aircraft. For vital components the production-chain should be described in detail and possible backup manufactures should be found.       
 
+The final, revised likelihood and severity scores for both development and operational risks are presented in \autoref{tab:}. 
 \begin{table}[H]
     \centering
     \caption{The mitigated development Risk Assessment}
@@ -283,6 +303,7 @@ Having identified the risks posed to the development of the system, it is possib
 \subsection*{Mitigation of operation risks}
 %\textbf{Preventive Measures for Contingency Scenarios}
 
+\begin{comment}
 For the critical scenarios that could happen during the mission, we can run preplanned scenarios to mitigate the damage. These measures can be found in the following.
 \begin{itemize}
     \item For any loss of connection or control that happens for a duration longer then 10 s, a safety mechanism will be triggered automatically or manually that will turn off the engine and crash land the drone. This decreases the severity of \textbf{HUG-OP-01} and \textbf{HUG-OP-02} (contingency).  
@@ -295,6 +316,7 @@ For the critical scenarios that could happen during the mission, we can run prep
     \item In case of deteriorating weather conditions, the drone will be ordered to return. This decreases the impact \textbf{HUG-OP-10} (contengency).
     
 \end{itemize}
+\end{comment}
 
 \begin{table}[H]
     \centering

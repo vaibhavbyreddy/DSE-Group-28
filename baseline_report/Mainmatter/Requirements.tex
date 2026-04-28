@@ -1,12 +1,12 @@
 \chapter{Requirements and constraints}
-Having evaluated the system functions and scarce resources, the requirements of the product can be fully specified. To that end, a requirement discovery tree is created in \autoref{sec: discovery tree}.
+Having evaluated the system functions and resources, the requirements of the product can be fully specified. To that end, a requirement discovery tree is created in \autoref{sec: discovery tree}.
 
 
 \section{Requirement Discovery Tree}
 \label{sec: discovery tree}
-In order to identify the system requirements based on the user requirements and project objectives, a requirement discovery tree has been generated (\autoref{fig:req_discovery_tree}). The tree starts with the requirement for designing a flying test bed for testing flexible wings, which is split into the requirement to perform the flight test and the requirement to satisfy the constraints. Since the functional requirements stem directly from the functions that the design has to be able to do, the Functional Breakdown is referenced.
+In order to identify the system requirements based on the user needs and project objectives, a requirement discovery tree has been generated (\autoref{fig:req_discovery_tree}). The tree starts with the requirement for designing a flying model for testing flexible wings, which is split into the requirement to perform the flight test and the requirement to satisfy the constraints. The functional requirements stem directly from the functions that the design has to be able to accomplish, as stated in the Functional Breakdown.
 
-The constraints are split into complying with budgets (mass, payload volume, electricity, internal volume, link, thrust, van volume, cost, payload aerodynamic, c.g.), airworthiness requirements, manufacturability, lifetime, sustainability, being unmanned, and withstanding ogf transonic loads.
+The constraints are split into complying with budgets (mass, payload volume, power, internal volume, communication link budget, van volume, cost, payload aerodynamic, c.g.), airworthiness requirements, manufacturability, lifetime, sustainability and UAV capabilities, and withstanding the aerodynamic loads.
 
 
 
@@ -38,22 +38,22 @@ HUG-GEN-001& The mass of the aircraft shall be less than 50kg including payload.
 
 HUG-GEN-002 & The available payload mass shall be larger than 5 kg. \\ \hline
 
-HUG-POW-001& The aircraft shall provide electrical energy on board necessary to power the payload, actuators, control subsystem, fuel subsystem ad communication subsystem for the mission duration.\\ \hline 
+HUG-POW-001& The aircraft shall provide electrical energy necessary to power the payload, actuators, control subsystem, fuel subsystem and communication subsystem for the mission duration.\\ \hline 
 
-HUG-POW-002& The peak power provided by the aircraft shall be sufficient to provide full power to aircraft actuators, control subsystem, fuel subsystem and communication subsystem t the same time.\\ \hline 
+HUG-POW-002& The peak power provided by the aircraft shall be sufficient to provide full power to aircraft actuators, control subsystem, fuel subsystem and communication subsystem at the same time.\\ \hline 
 
-HUG-COM-001 & The aircraft shall transmit the measurement data as well as telemetry from control, propulsion and fuel subsystems in real time from the maximum aircraft-ground station distance.\\ \hline
+HUG-COM-001 & The aircraft shall transmit the measured data as well as telemetry from control, propulsion and fuel subsystems in real time from the maximum aircraft-ground station distance.\\ \hline
 
-HUG-COM-002 & The communication system shall allow for contact with the ground station for a distance equal to 1.5 of the longer dimension of the testing area. \\ \hline
+HUG-COM-002 & The communication system shall allow for contact with the ground station for a distance equal to 1.5 up to the longer dimension of the testing area. \\ \hline
 
 
-HUG-CTL-001& The aircraft shall have autonomous stabilization systems.\\ \hline
+HUG-CTL-001& The aircraft shall have autonomous stabilisation systems.\\ \hline
 
 HUG-CTL-002& The aircraft shall be able to perform turns, climb and descent autonomously.\\ \hline
 
-HUG-CTL-003& The aircraft shall be able conduct experiments autonomously\\ \hline
+HUG-CTL-003& The aircraft shall be able to conduct experiments autonomously.\\ \hline
 
-HUG-CTL-004& The aircraft shall be remotely controllable. \\ \hline
+HUG-CTL-004& The aircraft shall have remote controllability capabilities. \\ \hline
 
 \textit{HUG-CTL-005} & The c.g. excursion of the aircraft shall allow for both statically and dynamically stable, unstable and neutrally stable flight conditions. \\ \hline
 
@@ -95,7 +95,7 @@ HUG-STR-002 & The aircraft structure shall provide the internal volume for the f
 
 \textcolor{red}{HUG-STR-003}& The aircraft structure shall withstand stresses due to transonic loads at Mach 0.75, without yielding and with a safety factor of 1.5 for fracture.\\ \hline 
 
-HUG-STR-004& The aircraft structure shall not buckle due to transonic loads at Mach 0.75.\\ \hline 
+HUG-STR-004& The aircraft structure shall not buckle due to the aerodynamic loads at Mach 0.75.\\ \hline 
 
 \textit{HUG-STR-005}& There shall be no wing-independent flutter or aeroelastic divergence of the baseline structure up to critical Mach number at the lowest operating altitude of the aircraft.\\ \hline 
 
