@@ -1,24 +1,29 @@
 \chapter{Executive Overview}
 
-Because of the aviation industry´s move towards net-zero global emissions in the coming decades, optimisation of aircraft configurations and performance improvements have been the focus of aircraft design in recent years. These improvements can be achieved through implementing more lightweight structures of lower stiffness, but also through certain aerodynamic features, such as increasing the wing aspect ratio, the use of winglets, or folding wing-tips. As a consequence, new challenges arise in the form of aeroservoelastic interactions between airflow, structures, rigid-body motions, and control systems. 
+Because of the aviation industry´s move towards net-zero global emissions in the coming decades, optimisation of aircraft configurations and performance improvements have been the focus of aircraft designers in recent years. These improvements can be achieved through implementing more lightweight structures of lower stiffness, but also through certain aerodynamic features, such as increasing the wing´s aspect ratio, the use of winglets and folding wing-tips. As a consequence, new challenges arise in the form of aeroelastic interactions between airflow, structures, rigid-body motions, and control systems. 
 
-The aforementioned phenomena can be static or dynamic, some of the former being torsional divergence and control reversal, and some of the latter being flutter. Such effects can occur on any part of the airplane, such as the main wing, the empennage or the control surfaces. In general, they can lead to catastrophic failure and have to be avoided within the operational flight envelope. This is often achieved with the use of aeroelastic tailoring; a passive approach where the structural elements (such as composite panels) are stiffened in a specific direction, or mass balances which are attached to the wing to modify the inertial properties. While these passive approaches do mitigate the problems to a certain extent, they optimize the airplane for a specific flight condition, and often come at the cost of additional weight.
+The aforementioned phenomena can be static or dynamic, some of the former being torsional divergence and control reversal, and some of the latter being flutter. Such effects can occur on any part of the airplane, such as the main wing, the empennage or the control surfaces. In general, they can lead to catastrophic failure and have to be avoided within the operational flight envelope. This is often achieved with the use of aeroelastic tailoring; a passive approach where the structural elements (such as composite panels) are stiffened in a specific direction, or mass-balances which are attached to the wing to modify the inertial properties. While these passive approaches do mitigate the problems to a certain extent, they optimize the airplane for a specific flight condition, and often come at the cost of additional weight.
 
-An alternative, emerging approach, is to design active control systems which prevent the onset of possibly catastrophic oscillations (active flutter suppression systems), actively alleviate loads (manoeuvre and gust load alleviation systems) and improve passenger ride comfort \cite{livne}. These systems rely on robust and adaptive control algorithms, the feedback and feedforward information from sensors, as well as control surfaces powered by high-bandwidth actuators that physically apply the corrective control inputs. The benefit of these active approaches is not only higher efficiency in terms of better performance, handling characteristics, and increase in safety, but also in terms of expanding the operational flight envelope.
+An alternative, emerging approach, is to design active control systems which prevent the onset of possibly catastrophic oscillations (active flutter suppression systems), actively alleviate loads (manoeuvre and gust load alleviation systems) and improve passenger-comfort \cite{livne}. These systems rely on robust and adaptive control algorithms, the feedback and feed-forward information from sensors, as well as control surfaces powered by high-bandwidth actuators that physically apply the corrective control inputs. The benefit of these active approaches is not only higher efficiency in terms of better performance, handling characteristics, and increase in safety, but also in terms of expanding the operational flight envelope.
 
-Nevertheless, despite these advantages, the testing and certification of these flight control systems remains a challenge. Accurate computational simulation is difficult due to the inherent nonlinearity of high-aspect-ratio wings. On the other hand, wind tunnel tests cannot accurately model the real behaviour of such aircraft both due to scaling and because the model is constrained in the wind tunnel. This is important as rigid-body motions are a crucial component for the excitation of phenomena such as body freedom flutter. Lastly, wind tunnel testing of flexible aircraft models is not only extremely expensive, but it is sometimes also prohibited in specific situations due to the risk of damaging the wind tunnel. For instance, in case of testing the post-flutter behaviour \cite{Castro2026}. The remaining approach is flight testing, an approach that provides realistic data, but notoriously precarious for its cost and pilot safety. 
+Nevertheless, despite these advantages, the testing and certification of these flight control systems remain a challenge. Accurate computational simulation is difficult due to the inherent nonlinearity of high-aspect-ratio wings. On the other hand, windtunnel tests cannot accurately model the real behaviour of such aircraft both due to scale and because the model is constrained in the wind tunnel. This is important as rigid-body motions are a crucial component for the excitation of phenomena such as body freedom flutter. Lastly, wind tunnel testing of flexible aircraft models is not only extremely expensive, but it is sometimes also prohibited in specific situations due to the risk of damaging the wind tunnel. For instance, in case of testing the post-flutter behaviour \cite{Castro2026}. The remaining approach is flight testing, an approach that provides realistic data, but notoriously precarious for its cost and pilot safety. 
 
-Therefore, the aim of the High-speed Unmanned General-purpose Observatory (HUGO), is to design a high-aspect-ratio turbine-powered flying test-bed which is low-cost, low-weight, and versatile. It must assist researchers in testing aeroservoelastic control systems, by having the ability to carry multiple types of scientific payloads. Consequently, the idea is to create a versatile design where the test-bed itself can be modified to be able to carry the payload. This will involve the design and analysis of modular structural and aerodynamic features, the integration of the provided VULCAN engine for reaching near-transonic speeds, performance analysis, ground operation analysis, manufacturing procedure and an analysis of environmental impact.
+Therefore, the aim of the High-speed Unmanned General-purpose Observatory (HUGO) project, is to design a high-aspect-ratio turbine-powered flying test-bed which is low-cost, low-weight, and versatile. It must assist researchers in testing aeroservoelastic control systems, by having the ability to carry multiple types of scientific payloads. Consequently, the idea is to create a versatile design where the test-bed itself can be modified to be able to carry the payload. This will involve the design and analysis of modular structural and aerodynamic features, the integration of the provided VULCAN engine for reaching near-transonic speeds, performance analysis, ground operation analysis, manufacturing procedure and an analysis of environmental impact.
 
-Similar scaled aircraft for testing aeroelastic effects and control laws have been developed before. For example, in 2005, Lockheed Martin's Skunkworks began the body freedom flutter research program, leading to the development of the X-56A, with the goal of investigating active flutter suppression, and gust load alleviation of high aspect ratio wings \footnote{\href{https://www.lockheedmartin.com/en-us/products/X-56A.html}{Lockheed Martin X-56A}(accessed on 29.04.2026))}. The NLR has also developed the scaled flight demonstrator (SFD); a scale model of the A320, aiming to supplement numerical simulations, wind tunnels, and other experimental testing means, by investigating aircraft dynamic behaviour, and then pivoting to distributed electric propulsion \footnote{\label{ref:NLR SFD},\href{https://www.nlr.org/newsroom/nieuws/maiden-flight-of-clean-sky-2s-scaled-flight-demonstrator/}{NLR Scaled Flight Demonstrator Maiden Flight}(accessed on 29.04.2026))}. Although similar to HUGO, the X-56A, and SFD are both highly specific in their implementation. Although the X-56A also includes a modular wing, it's main purpose is not to serve as a primary test bed for versatile experimentation. Additionally, neither aircraft flies above 150kts, staying well within the incompressible flow regime \footref{ref:NLR SFD} \footnote{\href{https://www.militaryfactory.com/aircraft/detail.php?aircraft_id=1115}{Military Factory Lockheed Martin X-56A}(accessed on 29.04.2026))}. HUGO provides a significant advantage as it goes faster (in the transonic regime), and would allow for testing a much wider range of experiments, aiming to replace wind tunnel and flight testing within it's niche.
+Similar scaled aircraft for testing aeroelastic effects and control laws have been developed before. For example, in 2005, Lockheed Martin's Skunkworks began the body freedom flutter research program, leading to the development of the X-56A, with the goal of investigating active flutter suppression, and gust load alleviation of high aspect ratio wings \footnote{\href{https://www.lockheedmartin.com/en-us/products/X-56A.html}{Lockheed Martin X-56A}(accessed on 29.04.2026))}. The NLR has also developed the scaled flight demonstrator (SFD); a scale model of the A320, aiming to supplement numerical simulations, wind tunnels, and other experimental testing means, by investigating aircraft dynamic behaviour, and then pivoting to distributed electric propulsion \footnote{\label{ref:NLR SFD},\href{https://www.nlr.org/newsroom/nieuws/maiden-flight-of-clean-sky-2s-scaled-flight-demonstrator/}{NLR Scaled Flight Demonstrator Maiden Flight}(accessed on 29.04.2026))}. Although similar to HUGO, the X-56A, and SFD are both highly specialised in their implementation. Even though the X-56A includes a modular wing, its main purpose is not to serve as a test bed for versatile experimentation. Additionally, neither aircraft flies above 150kts (277.8 km/h), staying well within the incompressible flow regime \footref{ref:NLR SFD} \footnote{\href{https://www.militaryfactory.com/aircraft/detail.php?aircraft_id=1115}{Military Factory Lockheed Martin X-56A}(accessed on 29.04.2026))}. HUGO provides a significant advantage as it goes faster (in the transonic regime), and would allow for testing a much wider range of experiments, aiming to replace wind tunnel and flight testing within its niche.
 
-Based on the user requirements and the existing configurations, the project objectives are defined. Financial objectives relate to the maximum manufacturing cost per configuration of $45000\texteuro{}$ and the maximum operating cost of $2000\texteuro{}$. Quality objectives ensure that the scientific measurements can be collected with satisfactory standards. Performance objectives relate to maximum speed, endurance and payload capacity. Business objectives specify the required profit and market share margins. Finally, compliance objectives relate to compliance with airworthiness requirements.
+Based on the user requirements and the existing configurations, the project objectives have been defined, comprising financial, quality, performance, business, and compliance objectives. Financial objectives relate to the maximum manufacturing cost per configuration of $45000\texteuro{}$ and the maximum operating cost of $2000\texteuro{}$. Quality objectives ensure that the scientific measurements can be collected with satisfactory standards. Performance objectives relate to maximum speed, endurance and payload capacity. Business objectives specify the required profit and market share margins. Finally, compliance objectives relate to compliance with airworthiness requirements.
 
-Using the objectives, the market is analysed to obtain a clear overview of the possible customers of such flying laboratories, as well as strengths, weaknesses, opportunities, and threats (SWOT).  Universities and research institutes, as well as aerospace companies and defence agencies have been identified as potentially interesting market segments, with the first two being identified as the most relevant for this project. The most important market opportunities identified for this project are the overcoming of the limitations of wind tunnels, and the most severe market threats relate to flight certification of the flying laboratory.
+Using the objectives, the market has been analysed to obtain a clear overview of the possible customers of such flying laboratories, as well as the strengths, weaknesses, opportunities, and threats (SWOT).  Universities and research institutes, as well as aerospace companies and defence agencies, have been identified as potentially interesting market segments, with the first two having been identified as the most relevant for this project. Additionally, the overcoming of the limitations of wind tunnels, and market threats stemming from flight certification have been identified as the key opportunities and threats, respectively.
 
-Furthermore, the functional analysis has been performed, including the mission profile definition, functional flow diagram and functional breakdown structure. The mission has been subdivided into the launch, flight test and recovery phases. Based on this, the requirement discovery tree has been created and the final list of system requirements has been compiled.
+Furthermore, the functional analysis has been performed based on the project objectives and market analysis. That entailed the mission profile definition, and creation of the functional flow diagram and functional breakdown structure diagrams. Therein, the mission profile has been subdivided into the launch, flight test, and recovery phases. Moreover, the requirement discovery tree has been created and the final list of system requirements has been compiled. In this final list, the key and driving requirements have been indicated as well.
 
-Discarding the unfeasible configurations among the numerous options \autoref{tab:subsystem_screening}, followed by the selection of the most feasible options with respect to project objectives yielded the following four configurations:
+%     - Final list of system requirements
+The design process is constrained by the available technology and by stakeholder requirements. These constraints define limits with witch the system has to be developed. Following an analysis, the most important limitations are brought by the centre of gravity location, mass, communication link capabilities, aircraft dimensions, quantity of fuel, available power and human power. Each of these resources must be quantified and monitored to ensure that HUGO remains feasible throughout the design process. To reduce the risk of resource misallocation and inefficient design decisions, a technical budget was established. This budget provides a structured overview of the main resources and identifies the key factors influencing each allocation.
+At the moment, due to the early stage that the project resides into, a quantitative approach for determining the budget cannot be applied for each resource, and only a preliminary distribution was created.
+Effective tracking of the budgets will take place by centralising all the available information and frequently updating the resource states.
+
+In order to select feasible configurations for further design and analysis, a design option tree has been created, listing all reasonable concepts the design team could think of. Among other, this included different wing and tail configurations, fuel tank architecture, engine mounting locations and number of engines, and undercarriage configurations. These numerous options have been reduced by eliminating the clearly unfeasible options, followed by the selection of the most feasible options among the remaining ones. That yielded the following four configurations:
 
 \begin{enumerate}
     \item Low wing, T-tail, retractable gear: the traditional option, mimicking standard commercial aircraft configurations
@@ -27,59 +32,16 @@ Discarding the unfeasible configurations among the numerous options \autoref{tab
     \item Flying wing with buried engine(s): low parasitic drag, simulation of coupled aeroelastic phenomena such as the Body Freedom Flutter
 \end{enumerate}
 
-In the baseline sustainability assessment, the aspects of construction, operation, end-of-life solutions, lifecycle assessment and environmental benefits have been considered. The conclusions were that manufacturing and material choice, the NOX emissions due to SAF use, recyclability, streamlined lifecycle assessment, and potential environmental benefits should all be considered during the design process.
+In the baseline sustainability assessment, the aspects of construction, operation and end-of-life solutions were considered. The conclusions were that construction and manufacturing should not only be evaluated based on productions emissions but also for the potential reduction in emission arising in a lower weight. For the operational aspects it was noted that the use of SAF as fuel  might mitigate the increase of carbon-emissions in the atmosphere but the production of NOX would still be a factor. The  
+Finally lifecycle assessment and streamlined lifecycle assessment where introduced as tools to formalize the environmental impact of different design configurations.  
 
 
 
 
-
-1. Project Objectives
-    - Financial
-    - Quality
-    - Performance
-    - Business
-    - Compliance
-
-2. Market Analysis
-    - Market Segmentation
-    - SWOT analysis
-3. Functional Analysis
-    - Mission Profile
-    - Functional Breakdown Structure
-    - Functional Flow Diagram
-
-4. Requirements and Constraints
-    - Requirement Discovery Tree
-    - Final list of system requirements
-
-5. Resource Allocation
-    - identifying the available budget
-    - Centre of gravity location
-    - Communication Link
-    - Mass
-    - Aircraft Dimensions
-    - Fuel Budget
-    - Power Available
-    - Human Factor
-    - Strategic Resource Planning
-    - User Tracking
-
-6. Preliminary Configuration Selection
-    - Design Option tree
-    - Generation of preliminary design concepts
-    - Short Listing Configurations
-
-7. Sustainability analysis
-    - Construction
-    - Operation
-    - EOL solutions
-    - LCA
-    - Environmental benefits
-
-The profitability and return analysis determined the size of the markets for aerospace component testing, the total cost of goods sold and the profitability of HUGO, resulting in a total attainable market share in the Netherlands for a target year. The total addressable global market was found to be \$6.94B in 2026, and \$1B in Europe. Data for the serviceable addressable market in the Netherlands was not available, so it was approximated using a bottom-up approach, resulting in \texteuro{71M}, and in a final serviceable obtainable market of \texteuro{14.2M}. As seen in \autoref{Overview-Cost-Table}, the production and direct operational costs; estimated as a an expense per flight day or per 300 flight days, are listed. These were used to calculate the cost of goods sold (COGS) per flight day of \texteuro{1142} at a price of \texteuro{2000}. For a total of 100 flight days per year, this represents a net annual profit of \texteuro{63,664} per HUGO. 
+The profitability and return analysis determined the size of the markets for aerospace component testing, the total cost of goods sold and the profitability of HUGO, resulting in a total attainable market share in the Netherlands for a target year. The total addressable global market was found to be \$6.94B in 2026, and \$1B in Europe. Data for the serviceable addressable market in the Netherlands was not available, so it was approximated using a bottom-up approach, resulting in \texteuro{71M}, and in a final serviceable obtainable market of \texteuro{14.2M}. As seen in \autoref{tab:costs}, the production and direct operational costs; estimated as a an expense per flight day or per 300 flight days, are listed. These were used to calculate the cost of goods sold (COGS) per flight day of \texteuro{1142} at a price of \texteuro{2000}. For a total of 100 flight days per year, this represents a net annual profit of \texteuro{63,664} per HUGO. 
 
 
-\begin{table}[H] \label{Overview-Cost-Table}
+\begin{table}[H]
     \centering
     \caption*{Table 9.1: Overview of UAV costs and their contribution to flight day pricing}
     
@@ -106,33 +68,10 @@ The profitability and return analysis determined the size of the markets for aer
         Maintenance & Airframe & 500 € per 100 h, 3000 h total & Fraction & 15\,000 \\ \hline
         
     \end{tabular}
+    \label{tab:Overview-Cost-Table}
 \end{table}
 
+The technical risk assessment identified several development and operational risks, and ranked them according to likelihood and severity. The most likely and severe development risks were found to be discrepancies in component size and weight specified by the manufacturer vs actual values, system model errors (inadequate V\&V). The most likely and severe operational risks were mechanical failure of components, exceeding flight limit area, and sudden component detachment during normal operations. Subsequently, a preliminary specific operation risk assessment (SORA) was performed. SORA is a 10 step classification methodology used for determining the operation risk of a UAV placing it in a specific assurance and integrity level (SAIL) category. As HUGO has not yet been developed, and a flight location has not been determined, it is not possible to make a SAIL classification at this time. However, if HUGO were to operate within controlled airspace, the preliminary classification was found to be SAIL II. However, for non-controlled airspace with a population density greater than 5 people per square kilometre, the classification was predicted to become SAIL V or SAIL VI, requiring EASA certification, incurring higher development costs.
 
-9. Technical Risk Assessment 
-    - Initial Risk Assessment
-    The first part of this chapter is basically risk assessment done the ADSEE way.
-    
-    Development and operation risks were identified and assessed in terms of likelihood and severity. 
-    The development risks in the red zone were: discrepancies in component size/weight specified by the manufacturer vs actual values, system model errors (inadequate V\&V).
-    From operation risks, the biggest concerns are related to mechanical failure of components, exceeding flight limit area, and components falling off during flight.
-    
-    - Contingency management
-    This section is focused on lowering the likelihood and severity scores from Initial Risk Assessment.
-    Lowering the likelihood was achieved by identifying preventive measures corresponding to all development risks and some operation risks.
-    Lowering the severity was achieved by identifying mitigation strategies for the operational risks.
-    The new risk matrix features no risks in the red zone.
-    
-    - Preliminary Specific Operation Risk Assessment (SORA)
-    SORA is a 10 step classification methodology used for determining the operation risk of a UAV.
-
-    For our analysis, we don't have a location yet, so it is assumed that HUGO will fly only in a controlled airspace, with very low population around. For this (idealised) case, it falls under SAIL II, but if there are any settlements whatsoever, it jumps up to SAIL V or SAIL VI.
-
-    Based on the SAIL value, we have specific containment requirements and operational safety objectives (OSOs) that need to be complied with.
-
-\textcolor{red}{+recommendations}
-
-
-
-\textcolor{red}{+conclusion}
+In conclusion, the limitations of conventional wind tunnels and flying laboratories for performing aeroservoelastic experiments have been identified as the main incentives for the HUGO project. While similar laboratories do exist, such as X-56A and SFD, they are limited in terms of versatility, maximum speed and cost-efficiency. Subsequently, project objectives, market, functional and requirement analyses, and resource allocation have been performed, followed  by the selection of the four best-performing configurations. Those will serve as the starting point for the mid-term phase of the project. Last but not least, the sustainability, profitability and technical risk analyses have been performed.
 
