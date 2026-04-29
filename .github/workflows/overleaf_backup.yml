@@ -29,6 +29,7 @@ jobs:
           PROJECTS=(
             "69e618b4816cad2a1aae230a project_plan"
             "69e729087b819a8573d53578 baseline_report"
+            "69ee398cd816238aa2a591b0 project_plan_revised"
           )
           
           for entry in "${PROJECTS[@]}"; do
