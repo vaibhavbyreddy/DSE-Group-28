@@ -1,161 +1,163 @@
-\chapter{Design Option Tree}
+\chapter{Preliminary Configuration Selection}
 \todo{update design tree}
 
-\section{Introduction}
 A Design Option Tree (DOT) is constructed to systematically consider and organize various options for different systems and sub-systems that could constitute valid configurations for the final aircraft. The methodology section below details the structural framework of the design tree, including how the various options were generated, categorized, and filtered. Subsequently, the sub-system options and screening sections break down the specific choices made within each architectural group, detailing the rationales for their acceptance, preliminary selection, or outright rejection. 
 
-\section{Methodology}
-The generation of the Design Option Tree began with an unconstrained, divergent brainstorming session where all potential ideas were mapped out without immediate filtering. The resulting diagram is structured strictly as an ``OR'' tree; within any given sub-system branch, only one option can ultimately be selected for a specific aircraft configuration. 
+\section{Design Option Tree}
+The generation of the Design Option Tree began with an unconstrained, divergent brainstorming session where all potential ideas were mapped out without immediate filtering. The resulting diagram is structured strictly as an "OR" tree; within any given sub-system branch, only one option can ultimately be selected for a specific aircraft configuration. 
 
 To systematically navigate this large design space, the team established a colour code (defined in the chart legend) and conducted a collaborative, consensus-based screening process to categorize every option:
 
 \begin{itemize}
     \item \textbf{Accepted Concepts (Green):} Options deemed highly feasible and directly applicable to fulfilling the top-level project requirements.
-    \item \textbf{Strawman Concepts (Orange):} Options that the team could not immediately disregard due to baseline physical feasibility, but which are unlikely to be optimal or warrant heavy focus in the detailed design phase. These were retained to avoid prematurely closing the design space.
     \item \textbf{Rejected Concepts (Red):} Options eliminated by unanimous group consensus. Rejections were strictly based on obvious technical infeasibility or direct conflicts with the top-level project requirements.
 \end{itemize}
 
 During this evaluation, it became evident that many of the sub-system options (such as internal materials or autopilot types) are entirely agnostic to the macro-architecture of the aircraft. For instance, a composite structure offers similar fundamental pros and cons regardless of whether it is applied to a high-wing or a low-wing aircraft. Therefore, to maintain clarity and avoid muddying the trade space, these agnostic sub-systems were decoupled from the overall layout. The synthesis of the final candidate configurations focuses exclusively on the macro-architectural combinations of wing type, propulsion mounting, empennage, and landing gear type.
 
-\begin{longtable}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{6cm}}
+\begin{longtable}{|p{2.5cm}|p{2.5cm}|p{2.0cm}|p{8.25cm}|}
 \caption{Sub-System Options and Initial Screening} \label{tab:subsystem_screening} \\
-\toprule
+\hline
 \textbf{Subgroup} & \textbf{Option} & \textbf{Status} & \textbf{Justification} \\
-\midrule
+\hline
 \endfirsthead
 
-\toprule
+\hline
 \textbf{Subgroup} & \textbf{Option} & \textbf{Status} & \textbf{Justification} \\
-\midrule
+\hline
 \endhead
 
-\bottomrule
+\hline
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
 \endfoot
 
+\hline
+\endlastfoot
+
 % --- FUSELAGE GROUP ---
-\multicolumn{4}{c}{\textbf{Fuselage Group}} \\
-\midrule
+\multicolumn{4}{|c|}{\textbf{Fuselage Group}} \\
+\hline
 Internal Construction Material 
 & Composite Structure & Accepted & Offers the high strength-to-weight ratio necessary to survive Mach 0.75 high subsonic loads while staying under the strict 50kg mass requirement. \\
-\addlinespace
-& Sheet Metal Structure & Accepted & Traditional aerospace manufacturing method; provides predictable structural dynamics and ease of modular manufacturing, though potentially heavier. \\
-\addlinespace
-& Polymer Structure & Rejected & Lacks the required structural stiffness and yield strength to act as the primary load-bearing core for a high subsonic aircraft, guaranteeing structural failure or severe aeroelastic deformation. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Sheet Metal Structure & Accepted & Traditional aerospace manufacturing method; provides predictable structural dynamics and ease of modular manufacturing, though potentially heavier. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Polymer Structure & Rejected & Lacks the required structural stiffness and yield strength to act as the primary load-bearing core for a high subsonic aircraft, guaranteeing structural failure or severe aeroelastic deformation. \\
+\hline
 
 Skin Material 
 & Composite Skin & Accepted & Provides an aerodynamically smooth surface finish necessary for high subsonic flight and high skin stiffness. \\
-\addlinespace
-& Sheet Metal Skin & Accepted & Highly durable and relatively simple to integrate, though harder to form into complex aerodynamic curves. \\
-\addlinespace
-& Polymer Skin & Strawman & Feasible for non-load-bearing fairings and lightweight sections, but highly susceptible to flutter and buckling under high dynamic pressures. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Sheet Metal Skin & Accepted & Highly durable and relatively simple to integrate, though harder to form into complex aerodynamic curves. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Polymer Skin & Strawman & Feasible for non-load-bearing fairings and lightweight sections, but highly susceptible to flutter and buckling under high dynamic pressures. \\
+\hline
 
 Avionics 
 & Both [Manual \& Autopilot] & Accepted & Satisfies the requirement for a remotely controlled, autonomous testbed, allowing a pilot to intervene during critical test points or emergencies. \\
-\addlinespace
-& Autopilot Only & Strawman & Feasible for pure drone operations, but presents severe safety and recovery risks during the high-risk aeroelastic and flutter testing required by the project. \\
-\addlinespace
-& Manual Only & Rejected & Directly violates the core project requirement of designing an autonomous flying laboratory, and human reaction times are insufficient to manually suppress flutter. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Autopilot Only & Strawman & Feasible for pure drone operations, but presents severe safety and recovery risks during the high-risk aeroelastic and flutter testing required by the project. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Manual Only & Rejected & Directly violates the core project requirement of designing an autonomous flying laboratory, and human reaction times are insufficient to manually suppress flutter. \\
+\hline
 
 Electrical Subgroup 
 & Battery & Accepted & A proven, reliable, and decoupled energy source for high-bandwidth actuators and avionics, easily sized for a 30-minute endurance. \\
-\addlinespace
-& Power Generator & Strawman & Bleeding power from the micro-turbine or using a seperate generator is physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Power Generator & Strawman & Bleeding power from the micro-turbine or using a separate generator is physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time. \\
+\hline
 
 % --- EMPENNAGE GROUP ---
-\multicolumn{4}{c}{\textbf{Empennage Group}} \\
-\midrule
+\multicolumn{4}{|c|}{\textbf{Empennage Group}} \\
+\hline
 Tail Configuration 
 & T-Tail & Accepted & Keeps the horizontal stabilizer clear of the wing wake and jet exhaust, which is highly beneficial for a testbed, though it introduces poor deep stall characteristics. \\
-\addlinespace
-& H-Tail & Accepted & Places vertical stabilizers in undisturbed air and provides end-plate effects to the horizontal tail, useful for redundancy in complex aeroelastic testing. \\
-\addlinespace
-& No tail & Accepted & A structural prerequisite for pure flying wing configurations. \\
-\addlinespace
-& Conventional tail & Accepted & Provides well-understood, decoupled pitch and yaw dynamics, simplifying flight control laws and providing a solid baseline for structural testing. \\
-\addlinespace
-& V-tail & Strawman & Reduces parasitic drag, but tightly couples pitch and yaw control, adding unnecessary complexity to the active control system laws needed for flutter suppression. \\
-\addlinespace
-& Inverted V-Tail & Accepted & Has the same downsides as the V-Tail; however, it would provide a clean top surface, enabling the mounting of a test airfoil above the drone and allowing the testing of unproven airfoil designs to failure. \\
-\addlinespace
-& Twin Boom & Rejected & Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing the 50kg mass budget without proportional benefits. \\
-\addlinespace
-& Canard & Accepted & Places pitch control ahead of the main wing, preventing main wing stall interference and allowing for highly responsive active aeroelastic control schemes. However, it does interfear with the wing being tested on the drone, as well as being unconventional to control. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & H-Tail & Accepted & Places vertical stabilizers in undisturbed air and provides end-plate effects to the horizontal tail, useful for redundancy in complex aeroelastic testing. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & No tail & Accepted & A structural prerequisite for pure flying wing configurations. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Conventional tail & Accepted & Provides well-understood, decoupled pitch and yaw dynamics, simplifying flight control laws and providing a solid baseline for structural testing. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & V-tail & Strawman & Reduces parasitic drag, but tightly couples pitch and yaw control, adding unnecessary complexity to the active control system laws needed for flutter suppression. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Inverted V-Tail & Accepted & Has the same downsides as the V-Tail; however, it would provide a clean top surface, enabling the mounting of a test airfoil above the drone and allowing the testing of unproven airfoil designs to failure. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Twin Boom & Rejected & Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing the 50kg mass budget without proportional benefits. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Canard & Accepted & Places pitch control ahead of the main wing, preventing main wing stall interference and allowing for highly responsive active aeroelastic control schemes. However, it does interfere with the wing being tested on the drone, as well as being unconventional to control. \\
+\hline
 
 % --- WING GROUP ---
-\multicolumn{4}{c}{\textbf{Wing Group}} \\
-\midrule
+\multicolumn{4}{|c|}{\textbf{Wing Group}} \\
+\hline
 Configuration 
 & Low Wing & Accepted & Standard configuration offering simple undercarriage integration and favorable ground effect characteristics. \\
-\addlinespace
-& Mid Wing & Accepted & Aerodynamically valid, however, the carry-through structure complicates the internal fuselage payload volume. \\
-\addlinespace
-& High Wing & Accepted & Widely used and understood configuration. However, may interfere with the integration of the main landing gear in the wing and engine maintenance. \\
-\addlinespace
-& Flying Wing & Accepted & Highly efficient aerodynamically, allowing for easier testing at high mach numbers. \\
-\addlinespace
-& Delta Wing & Rejected & Inherently stiff and characterized by a low aspect ratio, this planform directly conflicts with the project's core objective to act as a flying laboratory specifically for testing highly flexible, High-Aspect-Ratio (HAR) wings and their associated aeroelastic phenomena. \\
-\addlinespace
-& Prandtl Wing & Rejected & Bell-shaped lift distribution introduces aeroelastic behaviors that are too complex and esoteric for a baseline modular testbed aiming to validate standard control systems and phenomena. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Mid Wing & Accepted & Aerodynamically valid, however, the carry-through structure complicates the internal fuselage payload volume. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & High Wing & Accepted & Widely used and understood configuration. However, may interfere with the integration of the main landing gear in the wing and engine maintenance. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Flying Wing & Accepted & Highly efficient aerodynamically, allowing for easier testing at high Mach numbers. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Delta Wing & Rejected & Inherently stiff and characterized by a low aspect ratio, this planform directly conflicts with the project's core objective to act as a flying laboratory specifically for testing highly flexible, High-Aspect-Ratio (HAR) wings and their associated aeroelastic phenomena. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Prandtl Wing & Rejected & Bell-shaped lift distribution introduces aeroelastic behaviors that are too complex and esoteric for a baseline modular testbed aiming to validate standard control systems and phenomena. \\
+\hline
 
 Fuel Tanks 
 & Fuselage Mounted Only & Accepted & Keeps the center of gravity (CG) stable, protects the fuel, and allows the wings to be extremely slender, flexible, and easily swappable. \\
-\addlinespace
-& Both & Accepted & Maximizes fuel capacity to ensure the 30-minute endurance requirement is easily met or exceeded in certain configurations, though plumbing to flexible wings is complex. \\
-\addlinespace
-& Wing Mounted Only & Rejected & The requirement to test ``highly flexible, High-Aspect-Ratio (HAR) wings'' dictates slender wing profiles lacking the internal volume to house the required fuel while leaving room for actuators. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Both & Accepted & Maximizes fuel capacity to ensure the 30-minute endurance requirement is easily met or exceeded in certain configurations, though plumbing to flexible wings is complex. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Wing Mounted Only & Rejected & The requirement to test highly flexible, high-aspect-ratio wings dictates slender wing profiles lacking the internal volume to house the required fuel while leaving room for actuators. \\
+\hline
 
 % --- PROPULSION GROUP ---
-\multicolumn{4}{c}{\textbf{Propulsion Group}} \\
-\midrule
+\multicolumn{4}{|c|}{\textbf{Propulsion Group}} \\
+\hline
 Mounting Location 
 & Fuselage Mounted & Accepted & Simplifies structure, centralises mass and allows for wing modularity. \\
-\addlinespace
-& Buried Engine & Accepted & Aerodynamically efficient, minimizing drag for high subsonic speeds, but complicates modularity, cooling, and maintenance access. \\
-\addlinespace
-& Wing Mounted & Strawman & Feasible, but mounting a turbine on a wing designed to be highly flexible and prone to flutter introduces severe inertial and structural coupling challenges. Additionally, it complicates the modularity requirement of the drone, since swapping the wing would also require swapping the engines. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Buried Engine & Accepted & Aerodynamically efficient, minimizing drag for high subsonic speeds, but complicates modularity, cooling, and maintenance access. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Wing Mounted & Accepted & Feasible, but mounting a turbine on a wing designed to be highly flexible introduces severe inertial and structural coupling challenges and complicates modularity. \\
+\hline
 
 Number of Engines 
 & 1 Engine & Accepted & Low weight, drag, and usually more fuel efficient than multiple engines that add up to the same thrust. However, has low redundancy in case of failure. \\
-\addlinespace
-& 2 Engines & & Allows for using differential thrust steering and adds redundancy in case of an engine failure. \\
-\addlinespace
-& Jet engine + Auxiliary & Rejected & Adds unnecessary weight and system complexity that directly detracts from the 5kg payload capacity without offering proportional benefits. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & 2 Engines & Accepted & Allows for using differential thrust steering and adds redundancy in case of an engine failure. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Jet engine + Auxiliary & Rejected & Adds unnecessary weight and system complexity that directly detracts from the 5kg payload capacity without offering proportional benefits. \\
+\hline
 
 Fuel Compatibility 
 & SAF-only & Accepted & Strictly complies with the project requirement that the micro turbine must run on Sustainable Aviation Fuel (SAF). \\
-\addlinespace
-& JET-A1 & & \\ %\todo
-\addlinespace
-& Both & & \\ %\todo
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & JET-A1 & Rejected & Fails the core system requirement. !!!!insert requirement here!!!!!\\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Both & Accepted & !!! Compromised middle ground (mixed SAF and Jet A1 !!!! \\
+\hline
 
 % --- UNDERCARRIAGE GROUP ---
-\multicolumn{4}{c}{\textbf{Undercarriage Group}} \\
-\midrule
+\multicolumn{4}{|c|}{\textbf{Undercarriage Group}} \\
+\hline
 Mounting Points 
 & Fuselage & Accepted & Provides a feasible, rigid mounting point that does not interfere with the modularity or the intentional flexibility of the test wings. \\
-\addlinespace
-& On Wings & Strawman & Complicates the wing-swap modularity requirement and adds rigid points to wings that are meant to twist and bend dynamically. \\
-\midrule
+\cline{2-4}
+\multicolumn{1}{|l|}{} & On Wings & Accepted & Complicates the wing-swap modularity requirement and adds rigid points to wings that are meant to twist and bend dynamically. \\
+\hline
 
 Structure 
-& Retractable & Accepted & Essential for reducing parasitic drag to achieve the required Mach 0.75 dash speed and 30-minute endurance. \\
-\addlinespace
-& Fixed & Rejected & The drag penalty of exposed landing gear at high subsonic speeds (Mach 0.75) is overwhelmingly high, making the endurance and speed requirements virtually impossible to meet simultaneously. \\
-\addlinespace
-& Skids & Strawman & Reduce parasitic drag and weight compared to fixed landing gear, but limit versatility due to the need for dedicated mounting points on the fuselage or wings. \\
+& Retractable & Accepted & Essential for reducing parasitic drag to achieve the required Mach 0.75 speed and 30-minute endurance. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Fixed & Rejected & The drag penalty of exposed landing gear at high subsonic speeds is overwhelmingly high, making the endurance and speed requirements virtually impossible to meet simultaneously. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Skids & Accepted & Reduces the weight and volume of the fuselage, however would require a seperate launch system. \\
+\hline
 
 \end{longtable}
-
 
 
 
@@ -178,20 +180,20 @@ Structure
 \begin{itemize}
     \item \textbf{Composite Skin (Accepted):} Provides an aerodynamically smooth surface finish necessary for high subsonic flight and high skin stiffness.
     \item \textbf{Sheet Metal Skin (Accepted):} Highly durable and relatively simple to integrate, though harder to form into complex aerodynamic curves.
-    \item \textbf{Polymer Skin (Strawman):} Feasible for non-load-bearing fairings and lightweight sections, but highly susceptible to flutter and buckling under high dynamic pressures.
+    \item \textbf{Polymer Skin (Accepted):} Feasible for non-load-bearing fairings and lightweight sections, but highly susceptible to flutter and buckling under high dynamic pressures.
 \end{itemize}
 
 \paragraph{Automatic Control Subgroup}
 \begin{itemize}
     \item \textbf{Both [Manual \& Autopilot] (Accepted):} Satisfies the requirement for a remotely controlled, autonomous testbed, allowing a pilot to intervene during critical test points or emergencies.
-    \item \textbf{Autopilot Only (Strawman):} Feasible for pure drone operations, but presents severe safety and recovery risks during the high-risk aeroelastic and flutter testing required by the project.
+    \item \textbf{Autopilot Only (Accepted):} Feasible for pure drone operations, but presents severe safety and recovery risks during the high-risk aeroelastic and flutter testing required by the project.
     \item \textbf{Manual Only (Rejected):} Directly violates the core project requirement of designing an autonomous flying laboratory, and human reaction times are insufficient to manually suppress flutter.
 \end{itemize}
 
 \paragraph{Electrical Subgroup}
 \begin{itemize}
     \item \textbf{Battery (Accepted):} A proven, reliable, and decoupled energy source for high-bandwidth actuators and avionics, easily sized for a 30-minute endurance.
-    \item \textbf{Power Generator (Strawman):} Bleeding power from the micro-turbine or using a seperate generator is physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time.
+    \item \textbf{Power Generator (Accepted):} Bleeding power from the micro-turbine or using a seperate generator is physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time.
 \end{itemize}
 
 \subsection{Empennage Group}
@@ -202,7 +204,7 @@ Structure
     \item \textbf{H-Tail (Accepted):} Places vertical stabilizers in undisturbed air and provides end-plate effects to the horizontal tail, useful for redundancy in complex aeroelastic testing.
     \item \textbf{No tail (Accepted):} A structural prerequisite for pure flying wing configurations.
     \item \textbf{Conventional tail (Accepted):} Provides well-understood, decoupled pitch and yaw dynamics, simplifying flight control laws and providing a solid baseline for structural testing.
-    \item \textbf{V-tail (Strawman):} Reduces parasitic drag, but tightly couples pitch and yaw control, adding unnecessary complexity to the active control system laws needed for flutter suppression.
+    \item \textbf{V-tail (Accepted):} Reduces parasitic drag, but tightly couples pitch and yaw control, adding unnecessary complexity to the active control system laws needed for flutter suppression.
     \item \textbf{Inverted V-Tail (Accepted):} Has the same downsides as the V-Tail; however, it would provide a clean top surface, enabling the mounting of a test airfoil above the drone and allowing the testing of unproven airfoil designs to failure.
     \item \textbf{Twin Boom (Rejected):} Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing the 50kg mass budget without proportional benefits.
     \item \textbf{Canard (Accepted):} Places pitch control ahead of the main wing, preventing main wing stall interference and allowing for highly responsive active aeroelastic control schemes. However, it does interfear with the wing being tested on the drone, as well as being unconventional to control.
@@ -233,7 +235,7 @@ Structure
 \begin{itemize}
     \item \textbf{Fuselage Mounted (Accepted):} Simplifies structure, centralises mass and allows for wing modularity.
     \item \textbf{Buried Engine (Accepted):} Aerodynamically efficient, minimizing drag for high subsonic speeds, but complicates modularity, cooling, and maintenance access.
-    \item \textbf{Wing Mounted (Strawman):} Feasible, but mounting a turbine on a wing designed to be highly flexible and prone to flutter introduces severe inertial and structural coupling challenges. Additionally, it complicates the modularity requirement of the drone, since swapping the wing would also require swapping the engines.
+    \item \textbf{Wing Mounted (Accepted):} Feasible, but mounting a turbine on a wing designed to be highly flexible and prone to flutter introduces severe inertial and structural coupling challenges. Additionally, it complicates the modularity requirement of the drone, since swapping the wing would also require swapping the engines.
 \end{itemize}
 
 \paragraph{Number of Engines}
@@ -255,43 +257,16 @@ Structure
 \paragraph{Mounting Points}
 \begin{itemize}
     \item \textbf{Fuselage (Accepted):} Provides a feasible, rigid mounting point that does not interfere with the modularity or the intentional flexibility of the test wings.
-    \item \textbf{On Wings (Strawman):} Complicates the wing-swap modularity requirement and adds rigid points to wings that are meant to twist and bend dynamically.
+    \item \textbf{On Wings (Accepted):} Complicates the wing-swap modularity requirement and adds rigid points to wings that are meant to twist and bend dynamically.
 \end{itemize}
 
 \paragraph{Structure}
 \begin{itemize}
     \item \textbf{Retractable (Accepted):} Essential for reducing parasitic drag to achieve the required Mach 0.75 dash speed and 30-minute endurance.
     \item \textbf{Fixed (Rejected):} The drag penalty of exposed landing gear at high subsonic speeds (Mach 0.75) is overwhelmingly high, making the endurance and speed requirements virtually impossible to meet simultaneously.
-    \item \textbf{Skids (Strawman):}Reduce parasitic drag and weight compared to fixed landing gear, but limit versatility due to the need for dedicated mounting points on the fuselage or wings.
+    \item \textbf{Skids (Accepted):}Reduce parasitic drag and weight compared to fixed landing gear, but limit versatility due to the need for dedicated mounting points on the fuselage or wings.
 \end{itemize}
 
-\end{comment}
-
-
-
-
-\clearpage
-\pdfpagewidth=420mm
-\pdfpageheight=297mm
-\paperwidth=420mm
-\paperheight=297mm
-
-\includepdf[pages=-,fitpaper=false, width=420mm, keepaspectratio]{figures/DOT Final.pdf}
-\clearpage
-\pdfpagewidth=210mm
-\pdfpageheight=297mm
-\paperwidth=210mm
-\paperheight=297mm
-
-
-
-
-
-
-
-
-
-\begin{comment}
 \chapter{Design Option Tree}
 
 \todo{update design tree}
@@ -389,12 +364,12 @@ Several configuration combinations were also deemed unfeasible and excluded from
     \caption{Preliminary Aircraft Design Configurations} \\
     \toprule
     \textbf{Config} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
-    \midrule
+    \hline
     \endfirsthead
 
     \toprule
     \textbf{Config} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
-    \midrule
+    \hline
     \endhead
 
     \bottomrule
@@ -438,3 +413,138 @@ For reasons stated above concerning the integration and space limitation of the 
 \paperheight=297mm
 
 \end{comment}
+
+\section{Generation of Preliminary Configuration Concepts}
+Now that the design option tree has been screened to only allow for plausible subsystem options, some possible configurations can be generated to be evaluated holistically. If every accepted option in the DOT were combined, it would result in thousands of potential aircraft concepts, which would be impractical to evaluate. In order to narrow down the subsystems being evaluated, the configurations were built without the architecture-independent features.
+
+\subsection{Shortlisting Configurations}
+Subsystems such as avionics, construction materials, and fuel compatibility were omitted from the configuration generation, as these choices are largely independent of the main system architecture and can be integrated within most configurations.
+
+Therefore, to generate a focused and meaningful set of aircraft configurations, the primary aerodynamic and structural layout drivers were isolated, using the subsystems presented in \autoref{tab:configuration_design_options} 
+
+% \begin{itemize}
+%     \item \textbf{Wing Configuration} (Low, Mid, High, Flying Wing)
+%     \item \textbf{Empennage Configuration} (T-tail, H-Tail, Conventional, V-Tail, Inverted V-Tail, Canard, No tail)
+%     \item \textbf{Propulsion Mounting} (Fuselage Mounted, Buried, Wing Mounted)
+%     \item \textbf{Undercarriage} (Skids, Retractable gear)
+% \end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Configuration Design Options}
+    \label{tab:configuration_design_options}
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Design category} & \textbf{Options} \\ \hline \hline
+        Wing configuration & Low, Mid, High, Flying Wing \\ \hline
+        Empennage configuration & T-tail, H-tail, Conventional, V-tail, Inverted V-tail, Canard, No tail \\ \hline
+        Propulsion mounting & Fuselage Mounted, Buried, Wing Mounted \\ \hline
+        Undercarriage & Skids, Retractable gear \\ \hline
+    \end{tabular}
+\end{table}
+By systematically iterating through a morphological matrix of these specific parameters, an initial set of 20 distinct aircraft configurations was generated. During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the configurations realistic. For example, a Flying Wing configuration inherently dictates a No Tail criterion. The 20 configurations have been tabulated in \autoref{Aircraft_Configurations_Table}
+
+\begin{longtable}{|c|c|c|p{2.5cm}|p{4.5cm}|}
+    \caption{Preliminary Aircraft Design Configurations} \label{Aircraft_Configurations_Table} \\
+    
+    \hline
+    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \hline\hline
+    \endfirsthead
+
+    \hline
+    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \hline\hline
+    \endhead
+
+    \hline
+    \multicolumn{5}{r}{\textit{Continued on next page}} \\
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    HUG-CFG-01 & Low wing & Fuselage mounted & T-tail & Retractable gear \\
+    \hline
+    HUG-CFG-02 & Low wing & Fuselage mounted & T-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-03 & Low wing & Fuselage mounted & H-tail & Retractable gear \\
+    \hline
+    HUG-CFG-04 & Low wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-05 & Low wing & Fuselage mounted & V-tail & Retractable gear \\
+    \hline
+    HUG-CFG-06 & Low wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-07 & Low wing & Fuselage mounted & Canard & Retractable gear \\
+    \hline
+    HUG-CFG-08 & Low wing & Fuselage mounted & Inverted V-tail & Retractable gear \\
+    \hline
+    HUG-CFG-09 & Low wing & Wing Mounted & Conventional tail & Retractable gear \\
+    \hline
+    HUG-CFG-10 & Flying wing & Buried engine & No tail & Retractable gear \\
+    \hline
+    HUG-CFG-11 & Flying wing & Buried engine & No tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-12 & Flying wing & Fuselage mounted & No tail & Retractable gear \\
+    \hline
+    HUG-CFG-13 & Flying wing & Fuselage mounted & No tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-14 & Mid wing & Fuselage mounted & H-tail & Retractable gear \\
+    \hline
+    HUG-CFG-15 & Mid wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-16 & High wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-17 & High wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-18 & High wing & Wing Mounted & T-tail & Retractable gear \\
+    \hline
+    HUG-CFG-19 & High wing & Fuselage mounted & Inverted V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-20 & High wing & Wing Mounted & Conventional tail & Retractable \\
+    \hline
+
+\end{longtable}
+
+
+In order to narrow down the 20 configurations to a shortlist, first, several architectural branches were systematically eliminated due to inherent conflicts with the testbed's primary mission:
+
+\begin{itemize}
+    \item \textbf{Mid-Wing Configurations (Configs 14, 15):} Eliminated primarily due to internal packaging constraints. The structural carry-through box of a mid-wing design heavily obstructs the continuous internal volume required for the payload, as stated in  \textbf{HUG-STR-017}. Furthermore, it does not offer distinct aerodynamic advantages over a high or low-wing configuration to justify the harder structural integration and the necessary reinforcements\cite{raymer1992aircraft}.
+    
+    \item \textbf{Canard Configurations (Configs 7, 15):} Discarded due to aerodynamic interference. A forward canard generates downwash and a turbulent wake that affects the main wing. Because the core objective of this flying laboratory is to capture clean aeroelastic and flutter data from the main wing, upstream flow disturbances are unacceptable. Additionally, canards are less representative of the future commercial transport architectures this project aims to emulate.
+    
+    \item \textbf{High-Wing with Fuselage-Mounted Propulsion (Configs 16, 17, 19):} Eliminated due to aerodynamic and structural integration challenges. If the micro-turbine is mounted on the aft fuselage sides, the intakes risk ingesting the turbulent wake generated by the high wing, degrading engine performance. Conversely, a centrally mounted engine placed above the fuselage introduces structural interference with the high wing's carry-through box and modular mounting mechanisms. While physically feasible, these conflicts make the high-wing architecture fundamentally inferior to the low-wing alternatives for this specific propulsion setup.
+    
+    \item \textbf{Wing-Mounted Propulsion (Configs 9, 18, 20):} Eliminated due to strict versatility and aeroelastic constraints. The drone is required to facilitate the testing of highly flexible, swappable HAR wings. Hard-mounting a jet engine directly to these flexible test articles introduces massive inertial and torsional coupling that would corrupt the baseline flutter data, while simultaneously violating the requirement for wing modularity and versatility.
+\end{itemize}
+
+
+\subsection{Identification of Strawman Concepts}
+Many of the remaining configurations share fundamental aerodynamic and structural characteristics, allowing them to be grouped into distinct architectural families. To avoid redundant analysis during the detailed trade-off phase, these families were evaluated to identify a few, optimal representative configurations for each. This down-selection process effectively narrowed the field from 20 permutations to the following highly distinct candidate architectures
+
+\begin{itemize}
+    \item \textbf{Configuration 1 (Low Wing, T-Tail, Retractable Gear):} Selected to serve as a traditional baseline model. Because this configuration closely mirrors standard transport aircraft architectures, the aeroelastic and flutter data collected will be highly relevant and easily scalable to the commercial airplanes the testbed is designed to emulate. 
+    
+    \item \textbf{Configuration 3 (Low Wing, H-Tail, Retractable Gear):} Similar to Configuration 1, this serves as a highly relevant baseline model. Retaining the H-tail variant alongside the T-tail allows for further trade-off analysis regarding engine placement and tail-wake interference during the detailed design phase.
+    
+    \item \textbf{Configuration 8 (Low Wing, Inverted V-Tail, Retractable Gear):} This architecture was selected primarily for its clean upper aerodynamic surface. The inverted V-tail keeps the empennage clear of the upper fuselage, providing an unobstructed region to mount a test airfoil. This allows the experimental wings to be safely tested to structural failure without their wake interfering with the aircraft's pitch and yaw control.
+    
+    \item \textbf{Configurations 10 \& 11 (Flying Wing, Buried Engine):} Selected for their exceptionally low parasitic drag profile. This high aerodynamic efficiency ensures the aircraft can easily and reliably reach the high Mach numbers necessary to trigger aeroelastic phenomena during flight testing. Both landing gear variants (retractable gear in Config 10 and skids in Config 11) are retained for further evaluation in the mid-term trade-off.
+\end{itemize}
+
+
+
+\clearpage
+\pdfpagewidth=420mm
+\pdfpageheight=297mm
+\paperwidth=420mm
+\paperheight=297mm
+
+\includepdf[pages=-,fitpaper=false, width=420mm, keepaspectratio]{figures/DOT Final.pdf}
+\clearpage
+\pdfpagewidth=210mm
+\pdfpageheight=297mm
+\paperwidth=210mm
+\paperheight=297mm

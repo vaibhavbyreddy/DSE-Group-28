@@ -4,11 +4,11 @@ According to EASA risk-based classification rules\footnote{\href{https://www.eas
 \section{Initial Risk Assessment}
 \label{sec:risk_assessment}
 
-In risk assessment, key risks are identified by evaluating the likelihood of occurrence $p$ and severity of impact. For the purpose of this analysis, both of these criteria are evaluated on a scale from 1 to 5, with 1 being the lowest score and 5 being the highest. Details regarding the allocation of both scores are explained in \autoref{tab:risk_map_scores}. 
+In risk assessment, key risks are identified by evaluating the likelihood of occurrence $p$ and severity of impact \cite{}. For the purpose of this analysis, both of these criteria are evaluated on a scale from 1 to 5, with 1 being the lowest score and 5 being the highest. Details regarding the allocation of both scores are explained in \autoref{tab:risk_map_scores}. 
 
 \begin{table}[H]
     \centering
-        \caption{Likelihood/Severity Scores used in Risk Assessment}
+        \caption{Likelihood/Severity Scores used in Risk Assessment \cite{}}
     \begin{tabular}{|p{1cm}|p{3.5cm}|p{10.5cm}|}
     \hline
         \textbf{Score} & \textbf{Likelihood} & \textbf{Severity} \\ \hline\hline
@@ -22,7 +22,7 @@ In risk assessment, key risks are identified by evaluating the likelihood of occ
 \end{table}
 
 \subsection{Development Risks}
-For any engineering project it is vital to identify the risks that exist related to the development process. Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identify everything that might prevent the final designed system from meeting these requirements. These risks can be defined by their severity (the risk they pose for the product to meet the requirements) and the probability of this occurring. The development risks identified for HUGO, along with their assigned likelihood and severity scores, are listed in \autoref{tab:development_risks}.
+For any engineering project it is vital to identify the risks that exist related to the development process. Finding the development risks for a project requires clearly defined requirements that this system must meet. Then identify everything that might prevent the final designed system from meeting these requirements. These risks can be defined by their severity (the risk they pose for the product to meet the requirements) and the probability of this occurring\cite{}. The development risks identified for HUGO, along with their assigned likelihood and severity scores, are listed in \autoref{tab:development_risks}.
 
 \begin{table}[H]
     \centering
@@ -143,7 +143,7 @@ Operation risks refer to hazardous scenarios which can occur both on the ground 
 
 \subsection{Initial Risk Map}
 The development and operation risks identified earlier in this Section can 
-be visually represented by means of a risk map in \autoref{fig:risk_matrix}. Ideally, most risks shall be located in the green zone of the map, which represents a sufficiently low likelihood of occurrence and severity of impact for safe operations. However, this is not the case for the initial risk assessment.
+be visually represented by means of a risk map in \autoref{fig:risk_matrix} \footnote{\href{https://www.techtarget.com/searchsecurity/definition/risk-map-risk-heat-map}{What is a risk map (risk heat map)?} (accessed on 24.04.2026)}. Ideally, most risks shall be located in the green zone of the map, which represents a sufficiently low likelihood of occurrence and severity of impact for safe operations. However, this is not the case for the initial risk assessment.
 
 Risks located in the yellow zone of the map present significant hazards which can be addressed by means of additional/contingency procedures. The risks located in the red zone of the map are deemed as critical and shall become the main focus of the contingency management plans and emergency procedure development.
 
@@ -247,7 +247,7 @@ Risks located in the yellow zone of the map present significant hazards which ca
 %Step 3: identify a range of possible risk mitigating measures;
 %Step 4: determine the necessary level of robustness of the selected mitigating measures in such a way that the operation can be conducted safely.
 
-Having identified the risks posed to the development of the system, it is possible to develop adequate preventive measures and mitigation strategies. Preventive measures are identified as process which decrease the likelihood of a risk occurring in the first place, while mitigation strategies are expected to lower the severity of consequences in case a risk manifests during development or operations. 
+Having identified the risks posed to the development of the system, it is possible to develop adequate preventive measures and mitigation strategies. Preventive measures are identified as process which decrease the likelihood of a risk occurring in the first place, while mitigation strategies are expected to lower the severity of consequences in case a risk manifests during development or operations \cite{}. 
 
 \autoref{tab:risk_preventive_measures} lists the envisioned preventive measures addressing both development and operational risks, as well as their expected effect on the likelihood score, $\Delta L$. \autoref{tab:containment_requirements_integrity} lists the envisioned contingency scenarios, along with the expected effect on the severity score, $\Delta S$.
 

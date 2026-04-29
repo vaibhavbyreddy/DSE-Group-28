@@ -1,0 +1,98 @@
+
+
+\chapter{Overview}
+Due to the tendency of the aviation industry´s move towards net-zero global emissions in the coming decades, as well as towards performance improvements, airplane designs are becoming lighter. That is achieved both through implementing more lightweight structures, but also through certain aerodynamic features, such as increasing the wing aspect ratio. As a consequence, new challenges are arising in the form of aeroservoelastic interactions between airflow, structures, rigid-body motions, and control systems, as noted by the project guide \cite{Castro2026}. 
+
+The aforementioned phenomena can be static or dynamic, some of the former being torsional divergence and control reversal, and some of the latter being flutter. Such effects can occur on any part of the airplane, such as the main wing, the empennage or the control surfaces. In general, they can lead to catastrophic failure and have to be avoided within the operational flight envelope.This is often achieved with the use of aeroelastic tailoring, a passive approach where the structural elements (such as composite panels) are stiffened in a specific direction, or mass balances which are attached to the wing to modify the inertial properties. While these passive approaches do mitigate the problems to a certain extent, they optimize the airplane for a specific flight condition, and often come with the cost of additional weight.
+
+An alternative, emerging approach, is to design active control systems, that prevent the oscillations (active flutter suppression) and actively alleviate loads (manoeuvre and gust load alleviation) based on sensor measurements. This approach is not only more efficient in terms of performance and increase in safety, but also in terms of extending the operational flight envelope. Despite these advantages, the certification of these flight control systems remains a challenge. Computational simulation is difficult due to a specific feature of high-aspect-ratio wings: their behaviour is inherently nonlinear. Similarly, in the wind tunnel the real behaviour of these aircraft cannot be simulated accurately due to the model being constrained, effectively eliminating rigid-body motions, crucial for phenomena such as the body freedom flutter. Also, wind tunnel testing of such flexible models is both expensive and dangerous, as the tunnel could get damaged.
+
+The remaining approach is flight testing, providing realistic data, but notoriously precarious for its cost and pilot safety. Hence, the aim of this design project is to design a cheap and versatile, unmanned flying test-bed that can carry multiple types of payload. This will involve the design and analysis of adjustable structural and aerodynamic features, the design of a control system, the integration of the provided VULCAN jet engine for reaching transonic speeds, performance analysis, ground operation analysis, manufacturing procedure and the analysis of environmental impact.
+
+
+
+% In some cases, this interaction can even lead  
+
+\section{User requirements}
+The goals of the project are highly dependent on the user needs. Therefore, it is necessary to define user requirements which originate from the needs of the user. These requirements also influences some boundaries for the mission and performance aspects of the aircraft. The requirements have been composed according to the VALID (Verifiable, Achievable, Logical, Integral and Definitive) criteria and are presented in \autoref{tab:user_requirements}.
+
+\begin{table}[H]
+    \centering
+    \caption{User requirements grouped by category}
+    \begin{tabular}{|c|p{13cm}|}
+        \hline 
+        \textbf{Requirement Code} & \textbf{Description} \\
+        \hline \hline
+        % Mission (MIS)
+        \multicolumn{2}{|c|}{\textbf{Mission (MIS)}} \\
+        \hline
+        \textbf{HUG-Usr-MIS-1} & The aircraft shall serve as an experimental unmanned flying laboratory for conducting real-life experiments.\\
+        \hline
+        \textbf{HUG-Usr-MIS-2} & The aircraft shall be able to perform a mission of at least 30 min endurance.\\
+        \hline
+        \textbf{HUG-Usr-MIS-3} & The aircraft shall have a minimum operational life of 15 years.\\
+        \hline
+
+        % Structures (STR)
+        \multicolumn{2}{|c|}{\textbf{Structures (STR)}} \\
+        \hline
+        \textbf{HUG-Usr-STR-1} & The aircraft shall accommodate payload experiments of total mass up to 5 kg.\\
+        \hline
+        \textbf{HUG-Usr-STR-2} & The aircraft shall be able to accommodate additional, experiment-dedicated electronics, included in payload mass, with a 5 litre volume.\\
+        \hline
+        \textbf{HUG-Usr-STR-3} & The aircraft shall weigh 50 kg or less.\\
+        \hline
+
+        % Aerodynamics (AER)
+        \multicolumn{2}{|c|}{\textbf{Aerodynamics (AER)}} \\
+        \hline
+        \textbf{HUG-Usr-AER-1} & The user shall be able to configure the aircraft for stable, neutral and unstable flight conditions. \\ 
+        \hline
+        \textbf{HUG-Usr-AER-2} & The critical Mach number of any part of the aircraft shall be higher than Mach 0.75.\\ \hline
+        \textbf{HUG-Usr-AER-3} & The aircraft shall be able to house experimental planforms of main wing aspect ratio between 19 and 27 \cite{Aerodynamic_Analysis}\\
+        \hline
+
+        % Control (CTL)
+        \multicolumn{2}{|c|}{\textbf{Control (CTL)}} \\
+        \hline
+        \textbf{HUG-Usr-CTL-1} & The aircraft shall be controllable remotely from ground.\\ \hline
+        \textbf{HUG-Usr-CTL-2} & The aircraft shall be able to conduct the in-flight experiments fully autonomously.\\
+        \hline
+
+        % Propulsion (PROP)
+        \multicolumn{2}{|c|}{\textbf{Propulsion (PROP)}} \\
+        \hline
+        \textbf{HUG-Usr-PROP-1} & The aircraft shall operate at an airspeed of Mach 0.4 to 0.75.\\
+        \hline
+        \textbf{HUG-Usr-MIS-3} & Within the mission time, for \textbf{TBD < 30min} \textit{(will be based on existing experimental UAVs during work on the Baseline Report)}, the aircraft must be able to sustain the airspeed of Mach 0.75. \\
+        \hline
+
+        % Sustainability (SUS)
+        \multicolumn{2}{|c|}{\textbf{Sustainability (SUS)}} \\
+        \hline
+        \textbf{HUG-Usr-SUS-1} & The aircraft shall use sustainable aviation fuel (SAF).\\
+        \hline
+
+        % Certification (CER)
+        \multicolumn{2}{|c|}{\textbf{Certification (CER)}} \\
+        \hline
+        \textbf{HUG-Usr-CER-1} & The user shall be able to validate highly flexible aircraft technologies safely.\\
+        \hline
+        \textbf{HUG-Usr-CER-2} & The user shall be able to support regulatory classification using SORA/SAIL.\\
+        \hline
+
+        % Operations (OPS)
+        \multicolumn{2}{|c|}{\textbf{Operations (OPS)}} \\
+        \hline
+        \textbf{HUG-Usr-OPS-1} & The user shall be able to transport the aircraft in a van-sized vehicle. Exact dimensions \textbf{TBD} \textit{(Particular vehicle to be selected during work on the Baseline Report)} \\
+        \hline
+
+        % Financial (FIN)
+        \multicolumn{2}{|c|}{\textbf{Financial (FIN)}} \\
+        \hline
+        \textbf{HUG-Usr-FIN-1} & The total cost of a single configuration shall not exceed 45k€. \\
+        \hline
+
+    \end{tabular}
+    \label{tab:user_requirements}
+\end{table}
