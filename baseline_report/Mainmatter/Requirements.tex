@@ -1,4 +1,4 @@
-\chapter{Requirements and constraints}
+\chapter{Requirements and Constraints}
 Having evaluated the system functions, the requirements of the aircraft can be fully specified. To that end, a requirement discovery tree is created in \autoref{sec: discovery tree}.
 
 \section{Requirement Discovery Tree}
@@ -6,11 +6,9 @@ Having evaluated the system functions, the requirements of the aircraft can be f
 In order to identify the system requirements %based on the user needs and project objectives,
 a requirement discovery tree has been generated (\autoref{fig:req_discovery_tree}). The tree starts with the requirement for designing a flying model for testing flexible wings, which is split into the requirement to perform the flight test and the requirement to satisfy the constraints. The functional requirements stem directly from required functions of the design, as stated in the Functional Breakdown.
 
-The constraints are split into (mass, payload volume, power, internal volume, communication link budget, van volume, cost, payload aerodynamic, c.g.), airworthiness requirements, manufacturability, lifetime, sustainability, UAV capabilities and withstanding the aerodynamic loads.
+The constraints are split into (mass, payload volume, power, internal volume, communication link budget, van volume, cost, payload aerodynamic, c.g.), airworthiness requirements, manufacturability, lifetime, sustainability, autonomous flight capabilities and withstanding the aerodynamic loads.
 
 
-
-\todo{fix the transonic loads part in the requirement discovery tree}
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\linewidth]{figures/Flexible Wing Flight Requirements.pdf}
@@ -18,11 +16,11 @@ The constraints are split into (mass, payload volume, power, internal volume, co
     \label{fig:req_discovery_tree}
 \end{figure}
 
-\section{Final list of system requirements}
-The system requirements are divided into several categories: general (GEN), power (POW), communications (COM), control (CTL), propulsion (PRP), operations (OPS), certification (CER), financial (FIN) aerodynamics (AER), operations (OPS), certifications (CER), sustainability (SUS), control (CON), stability (STA), and structures (STR). Driving requirements are marked in red, and key requirements in italic.
+\section{Final List of System Requirements}
+\autoref{tab:system_requirements} lists the final system requirements divided by category: general (GEN), power (POW), communications (COM), control (CTL), propulsion (PRP), operations (OPS), certification (CER), financial (FIN) aerodynamics (AER), operations (OPS), certifications (CER), sustainability (SUS), control (CON), stability (STA), and structures (STR). The driving requirements are written in red, and key requirements in italic.
 
-\begin{longtable}{|p{3cm}|p{11cm}|}
-\caption{List of system requirements}
+\begin{longtable}{|c|p{13cm}|}
+\caption{List of System Requirements}
 \label{tab:system_requirements} \\
 \hline
 \textbf{Requirement ID} & \textbf{Requirement} \\
@@ -64,7 +62,7 @@ HUG-CTL-004& The aircraft shall be remotely controllable. \\ \hline
 \\ \hline
 HUG-OPS-002 & The aircraft shall be fully manufacturable using only TRL10 manufacturing techniques.\\ \hline
 
-\textcolor{red}{HUG-OPS-003} & The aircraft shall be recyclable to at least an 80\% degree by weight. \footnote{\href{https://repository.tudelft.nl/file/File_da3d1309-243d-4c5b-be21-ead3504f4c99?preview=1}{https://repository.tudelft.nl/file/File\_da3d1309-243d-4c5b-be21-ead3504f4c99?preview=1}}{accessed 24 April 2026}. \\ \hline
+\textcolor{red}{HUG-OPS-003} & The aircraft shall be recyclable to at least an 80\% degree by weight \cite{peregrine2021}. \\ \hline
 
 HUG-OPS-004 & The endurance of the aircraft at maximum payload shall be longer than 30 minutes. \\ \hline
 

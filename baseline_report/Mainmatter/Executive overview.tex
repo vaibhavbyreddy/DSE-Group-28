@@ -1,24 +1,86 @@
-\chapter{Executive overview}
+\chapter{Executive Overview}
 
-\todo{State that the name of the project is HUGO and describe the achronic}
 Because of the aviation industry´s move towards net-zero global emissions in the coming decades, optimisation of aircraft configurations and performance improvements have been the focus of aircraft design in recent years. These improvements can be achieved through implementing more lightweight structures of lower stiffness, but also through certain aerodynamic features, such as increasing the wing aspect ratio, the use of winglets, or folding wing-tips. As a consequence, new challenges arise in the form of aeroservoelastic interactions between airflow, structures, rigid-body motions, and control systems. 
 
 The aforementioned phenomena can be static or dynamic, some of the former being torsional divergence and control reversal, and some of the latter being flutter. Such effects can occur on any part of the airplane, such as the main wing, the empennage or the control surfaces. In general, they can lead to catastrophic failure and have to be avoided within the operational flight envelope. This is often achieved with the use of aeroelastic tailoring; a passive approach where the structural elements (such as composite panels) are stiffened in a specific direction, or mass balances which are attached to the wing to modify the inertial properties. While these passive approaches do mitigate the problems to a certain extent, they optimize the airplane for a specific flight condition, and often come at the cost of additional weight.
 
-An alternative, emerging approach, is to design active control systems which: prevent the onset of possibly catastrophic oscillations (active flutter suppression systems), actively alleviate loads (manoeuvre and gust load alleviation systems) and potentially improve passenger ride comfort \cite{livne}. These systems relies on robust and adaptive control algorithms, the feedback and feedforward information from sensors, as well as control surfaces powered by high-bandwidth actuators that physically apply the corrective control inputs. The benefit of these active approaches is not only higher efficiency in terms of better performance, handling characteristics, and increase in safety, but also in terms of expanding the operational flight envelope.
+An alternative, emerging approach, is to design active control systems which prevent the onset of possibly catastrophic oscillations (active flutter suppression systems), actively alleviate loads (manoeuvre and gust load alleviation systems) and improve passenger ride comfort \cite{livne}. These systems rely on robust and adaptive control algorithms, the feedback and feedforward information from sensors, as well as control surfaces powered by high-bandwidth actuators that physically apply the corrective control inputs. The benefit of these active approaches is not only higher efficiency in terms of better performance, handling characteristics, and increase in safety, but also in terms of expanding the operational flight envelope.
 
-Nevertheless, despite these advantages, the testing and certification of these flight control systems remains a challenge. Accurate computational simulation is difficult due to the inherent nonlinearity of high-aspect-ratio wings. On the other hand, wind tunnel tests cannot accurately model the real behaviour of such aircraft both due to scaling and because the model is constrained in the wind tunnel. This is important as rigid-body motions are a crucial component for the excitation of phenomena such as body freedom flutter. Lastly, wind tunnel testing of flexible aircraft models is not only extremely expensive, it is also prohibited due to the risk of damaging the wind tunnel with debris in case of structural failure. The remaining approach is flight testing, an approach that provides realistic data, but notoriously precarious for its cost and pilot safety. 
+Nevertheless, despite these advantages, the testing and certification of these flight control systems remains a challenge. Accurate computational simulation is difficult due to the inherent nonlinearity of high-aspect-ratio wings. On the other hand, wind tunnel tests cannot accurately model the real behaviour of such aircraft both due to scaling and because the model is constrained in the wind tunnel. This is important as rigid-body motions are a crucial component for the excitation of phenomena such as body freedom flutter. Lastly, wind tunnel testing of flexible aircraft models is not only extremely expensive, but it is sometimes also prohibited in specific situations due to the risk of damaging the wind tunnel. For instance, in case of testing the post-flutter behaviour \cite{Castro2026}. The remaining approach is flight testing, an approach that provides realistic data, but notoriously precarious for its cost and pilot safety. 
 
-The aim of the High-speed Unmanned General-purpose Observatory (HUGO), is to design a high-aspect-ratio turbine-powered flying test-bed which is low-cost, low-weight, and versatile. It must assist researchers in testing aeroservoelastic control systems, by having the flexibility of carrying multiple types of scientific payloads. Consequently, the idea is to create a versatile design where the test-bed itself can be modified to be able to carry the payload. This will involve the design and analysis of modular structural and aerodynamic features, the integration of the provided VULCAN jet engine for reaching transonic speeds, performance analysis, ground operation analysis, manufacturing procedure and an analysis of environmental impact.
+Therefore, the aim of the High-speed Unmanned General-purpose Observatory (HUGO), is to design a high-aspect-ratio turbine-powered flying test-bed which is low-cost, low-weight, and versatile. It must assist researchers in testing aeroservoelastic control systems, by having the ability to carry multiple types of scientific payloads. Consequently, the idea is to create a versatile design where the test-bed itself can be modified to be able to carry the payload. This will involve the design and analysis of modular structural and aerodynamic features, the integration of the provided VULCAN engine for reaching near-transonic speeds, performance analysis, ground operation analysis, manufacturing procedure and an analysis of environmental impact.
 
-\textcolor{red}{+similar aircraft and systems}
-
-Simmilar AC:
-
-Lockheed Martin X56
+Scaled aircraft to test aeroelastic effects and control laws have been developed before. For example, in 2005, Lockheed Martin's Skunkworks began the body freedom flutter research program, leading to the development of the X-56A, with the goal of investigating active flutter suppression, and gust load alleviation of high aspect ratio wings \footnote{\href{https://www.lockheedmartin.com/en-us/products/X-56A.html}{Lockheed Martin X-56A}(accessed on 29.04.2026))}. The NLR has also developed the scaled flight demonstrator (SFD); a scale model of the A320, aiming to supplement numerical simulations, wind tunnels, and other experimental testing means, by investigating aircraft dynamic behaviour, and then pivoting to distributed electric propulsion \footnote{\label{ref:NLR SFD},\href{https://www.nlr.org/newsroom/nieuws/maiden-flight-of-clean-sky-2s-scaled-flight-demonstrator/}{NLR Scaled Flight Demonstrator Maiden Flight}(accessed on 29.04.2026))}. Although similar to HUGO, the X-56A, and SFD are both highly specific in their implementation. Although the X-56A also includes a modular wing, it's main purpose is not to serve as a primary test bed for versatile experimentation. Additionally, neither aircraft flies above 150kts, staying well within the incompressible flow regime \footref{ref:NLR SFD} \footnote{\href{https://www.militaryfactory.com/aircraft/detail.php?aircraft_id=1115}{Military Factory Lockheed Martin X-56A}(accessed on 29.04.2026))}. HUGO provides a significant advantage as it goes faster (in the transonic regime), and would allow for testing a much wider range of experiments, aiming to replace wind tunnel and flight testing within it's niche.
 
 
-\textcolor{red}{+key findings}
+
+Since this is a plan for the baseline stage of a design project, the key findings relate to the market analysis and preliminary configuration selection, profitability analysis, and risk assessment. Some of the main customers of such flying laboratories are universities and research institutes, as well as aerospace companies and defence agencies, with the first two being identified as the most relevant for this project. Discarding the unfeasible configurations among the numerous options \autoref{tab:subsystem_screening}, followed by the selection of the most feasible options with respect to project objectives yielded the following four configurations:
+
+\begin{enumerate}
+    \item Low wing, T-tail, retractable gear: the traditional option, mimicking standard commercial aircraft configurations
+    \item Low wing, H-tail, retractable gear: offers additional possibilities for engine placement and tail-wake interference
+    \item Low wing, inverted V-tail, retractable gear: offers additional possibilities for test specimen mounting, and cleaner aerodynamic flow over the top of the aircraft
+    \item Flying wing with buried engine(s): low parasitic drag, simulation of coupled aeroelastic phenomena such as the Body Freedom Flutter
+\end{enumerate}
+
+
+
+
+
+
+1. Project Objectives
+    - Financial
+    - Quality
+    - Performance
+    - Business
+    - Compliance
+
+2. Market Analysis
+    - Market Segmentation
+    - SWOT analysis
+3. Functional Analysis
+    - Mission Profile
+
+4. Requirements and Constraints
+    - Requirement Discovery Tree
+    - Final list of system requirements
+
+5. Resource Allocation
+    - identifying the available budget
+    - Centre of gravity location
+    - Communication Link
+    - Mass
+    - Aircraft Dimensions
+    - Fuel Budget
+    - Power Available
+    - Human Factor
+    - Strategic Resource Planning
+    - User Tracking
+
+6. Preliminary Configuration Selection
+    - Design Option tree
+    - Generation of preliminary design concepts
+    - Short Listing Configurations
+
+7. Sustainability analysis
+    - Construction
+    - Operation
+    - EOL solutions
+    - LCA
+    - Environmental benefits
+
+8. Profitability and return analysis
+    - Market Price
+    - Market Share and volume
+    - Development Costs
+    - Production Costs
+    - Direct Operational Costs
+
+9. Technical Risk Assessment 
+    - Initial Risk Assessment
+    - Contingency management
+    - Perliminary Specific Operation Risk Assessment (SORA)
+    
 
 \textcolor{red}{+recommendations}
 

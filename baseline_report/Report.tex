@@ -34,7 +34,7 @@
 
 % Footnote number in the main text
 \renewcommand\@makefnmark{%
-  \hbox{\@textsuperscript{\normalfont\normalsize\@thefnmark}}%
+  \hbox{\@textsuperscript{(\normalfont\normalsize\@thefnmark)}}%
 }
 
 % Footnote number at the bottom of the page
@@ -121,6 +121,7 @@
 \usepackage{parskip}
 
 
+\setcounter{tocdepth}{1} 
 %\setlist{itemsep=-2pt} % Reducing white space in lists slightly
 %\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
@@ -212,8 +213,8 @@ Vaibhav Byreddy (5237254)\\
 
 %% Add bibliography
 %\newpage
-\nocite{*} % remove this later if you only want cited references
-%\bibliographystyle{new-aiaa}
+%\nocite{*} % remove this later if you only want cited references
+\bibliographystyle{new-aiaa}
 %\bibliography{references}
 \printbibliography
 \appendix
