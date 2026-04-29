@@ -57,6 +57,8 @@ HUG-CTL-004& The aircraft shall be remotely controllable. \\ \hline
 
 \textit{HUG-CTL-005} & The c.g. excursion of the aircraft shall allow for both statically and dynamically stable, unstable and neutrally stable flight conditions. \\ \hline
 
+\textcolor{red}{HUG-CTL-006}&  Isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures. \\ \hline
+
 \textit{HUG-OPS-001} & All equipment for performing the flight test shall fit within a van. 
 %of 3680 x 1767 x 1894 mm (\autoref{tab:renault_master_specs}) cargo dimensions.
 \\ \hline
@@ -72,18 +74,14 @@ HUG-OPS-006 & The aircraft shall be able to sustain flight at Mach 0.4 during th
 
 HUG-OPS-007 & The aircraft shall be able to loiter for 5 minutes. \\ \hline
 
-HUG-OPS-008 & The time of aircraft assembly including payload integration and fuelling shall be less than TBD \textbf{prune or deduce from wind tunnel operations ratio}. \\ \hline
-
-HUG-OPS-09 & The UAV shall use SAF as fuel source.
+HUG-OPS-008 & The UAV shall use SAF as fuel source.\\
 \hline
 
 HUG-CER-001 & The aircraft shall comply with airworthiness SORA requirements.\\ \hline
 
-HUG-CER-002 & The aircraft shall not fly at altitudes higher than \textbf{TBD}. \\ \hline
+HUG-CER-002 & It shall be possible to terminate the mission in a controlled manner at any point in time. \\ \hline
 
-HUG-CER-003 & It shall be possible to terminate the mission in a controlled manner at any point in time. \\ \hline
-
-HUG-CER-004 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\ \hline
+HUG-CER-003 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\ \hline
 
 \textcolor{red}{HUG-FIN-001} & The cost of a single aircraft configuration shall be less than 45000€.\\ \hline
 
@@ -117,16 +115,16 @@ HUG-STR-011 & The inspection shall allow for identifying cracks in all primary l
 
 \textcolor{red}{HUG-STR-012}&  The aircraft shall retain structural integrity after 15 years of usage with TBD \todo{will be addressed @ the Malcom meeting} intensity. \\ \hline
 
-\textcolor{red}{HUG-STR-013}&  Isolated single-point failures shall not cause catastrophic failures. \\ \hline
-
-HUG-STR-014& The natural frequencies of the structure shall be further from the frequency of the engine by TBD Hz. \textbf{addressed, will need to compute engine blade pass frequency} \\ \hline
+HUG-STR-013& The natural frequencies of the structure shall not be within 0.8 and 1.4 \cite{Prakash2016DynamicFoundation} of the blade-pass frequency of the engine \cite{Alhazmi2025CoolingFanVibration}. \textbf{addressed, will need to compute engine blade pass frequency} \\ \hline
 
 % \textit{HUG-STR-015} & The aircraft shall provide interfaces for mounting sensors and actuators. \\ \hline
 
-HUG-STR-016 & The structure shall accommodate space for a secondary flight computer. \\ \hline
+HUG-STR-014 & The structure shall accommodate space for a secondary flight computer. \\ \hline
 
-HUG-STR-017 & The structure shall accommodate a payload bay of at least 5 litres. \\ \hline
+HUG-STR-015 & The structure shall accommodate a payload bay of at least 5 litres. \\ \hline
 
+\textbf{Legend} & \textit{Key requirement}, \textcolor{red}{Driving requirement} \\
+\hline
 
 \end{longtable}
 

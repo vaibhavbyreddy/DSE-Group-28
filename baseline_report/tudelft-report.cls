@@ -16,7 +16,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
-\LoadClass[12pt,oneside]{book}
+\LoadClass[11pt,oneside]{book}
 
 %% Main packages in the document --- Some are imported later in the class file
 \RequirePackage{mathtools}  % Mathematical tools to use with amsmath
@@ -109,7 +109,7 @@
     {\fontsize{96}{96}\selectfont\largetitlestyle\thechapter}
     {0pt}
     {\Huge\titlestyle}
-\titlespacing*{\chapter}{0pt}{0pt}{0.1\baselineskip}
+\titlespacing*{\chapter}{0pt}{-70pt}{0.3\baselineskip}
 
 %% Format the section titles and spacing
 \titleformat{\section}

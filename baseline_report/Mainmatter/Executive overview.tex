@@ -10,11 +10,15 @@ Nevertheless, despite these advantages, the testing and certification of these f
 
 Therefore, the aim of the High-speed Unmanned General-purpose Observatory (HUGO), is to design a high-aspect-ratio turbine-powered flying test-bed which is low-cost, low-weight, and versatile. It must assist researchers in testing aeroservoelastic control systems, by having the ability to carry multiple types of scientific payloads. Consequently, the idea is to create a versatile design where the test-bed itself can be modified to be able to carry the payload. This will involve the design and analysis of modular structural and aerodynamic features, the integration of the provided VULCAN engine for reaching near-transonic speeds, performance analysis, ground operation analysis, manufacturing procedure and an analysis of environmental impact.
 
-Scaled aircraft to test aeroelastic effects and control laws have been developed before. For example, in 2005, Lockheed Martin's Skunkworks began the body freedom flutter research program, leading to the development of the X-56A, with the goal of investigating active flutter suppression, and gust load alleviation of high aspect ratio wings \footnote{\href{https://www.lockheedmartin.com/en-us/products/X-56A.html}{Lockheed Martin X-56A}(accessed on 29.04.2026))}. The NLR has also developed the scaled flight demonstrator (SFD); a scale model of the A320, aiming to supplement numerical simulations, wind tunnels, and other experimental testing means, by investigating aircraft dynamic behaviour, and then pivoting to distributed electric propulsion \footnote{\label{ref:NLR SFD},\href{https://www.nlr.org/newsroom/nieuws/maiden-flight-of-clean-sky-2s-scaled-flight-demonstrator/}{NLR Scaled Flight Demonstrator Maiden Flight}(accessed on 29.04.2026))}. Although similar to HUGO, the X-56A, and SFD are both highly specific in their implementation. Although the X-56A also includes a modular wing, it's main purpose is not to serve as a primary test bed for versatile experimentation. Additionally, neither aircraft flies above 150kts, staying well within the incompressible flow regime \footref{ref:NLR SFD} \footnote{\href{https://www.militaryfactory.com/aircraft/detail.php?aircraft_id=1115}{Military Factory Lockheed Martin X-56A}(accessed on 29.04.2026))}. HUGO provides a significant advantage as it goes faster (in the transonic regime), and would allow for testing a much wider range of experiments, aiming to replace wind tunnel and flight testing within it's niche.
+Similar scaled aircraft for testing aeroelastic effects and control laws have been developed before. For example, in 2005, Lockheed Martin's Skunkworks began the body freedom flutter research program, leading to the development of the X-56A, with the goal of investigating active flutter suppression, and gust load alleviation of high aspect ratio wings \footnote{\href{https://www.lockheedmartin.com/en-us/products/X-56A.html}{Lockheed Martin X-56A}(accessed on 29.04.2026))}. The NLR has also developed the scaled flight demonstrator (SFD); a scale model of the A320, aiming to supplement numerical simulations, wind tunnels, and other experimental testing means, by investigating aircraft dynamic behaviour, and then pivoting to distributed electric propulsion \footnote{\label{ref:NLR SFD},\href{https://www.nlr.org/newsroom/nieuws/maiden-flight-of-clean-sky-2s-scaled-flight-demonstrator/}{NLR Scaled Flight Demonstrator Maiden Flight}(accessed on 29.04.2026))}. Although similar to HUGO, the X-56A, and SFD are both highly specific in their implementation. Although the X-56A also includes a modular wing, it's main purpose is not to serve as a primary test bed for versatile experimentation. Additionally, neither aircraft flies above 150kts, staying well within the incompressible flow regime \footref{ref:NLR SFD} \footnote{\href{https://www.militaryfactory.com/aircraft/detail.php?aircraft_id=1115}{Military Factory Lockheed Martin X-56A}(accessed on 29.04.2026))}. HUGO provides a significant advantage as it goes faster (in the transonic regime), and would allow for testing a much wider range of experiments, aiming to replace wind tunnel and flight testing within it's niche.
 
+Based on the user requirements and the existing configurations, the project objectives are defined. Financial objectives relate to the maximum manufacturing cost per configuration of $45000\texteuro{}$ and the maximum operating cost of $2000\texteuro{}$. Quality objectives ensure that the scientific measurements can be collected with satisfactory standards. Performance objectives relate to maximum speed, endurance and payload capacity. Business objectives specify the required profit and market share margins. Finally, compliance objectives relate to compliance with airworthiness requirements.
 
+Using the objectives, the market is analysed to obtain a clear overview of the possible customers of such flying laboratories, as well as strengths, weaknesses, opportunities, and threats (SWOT).  Universities and research institutes, as well as aerospace companies and defence agencies have been identified as potentially interesting market segments, with the first two being identified as the most relevant for this project. The most important market opportunities identified for this project are the overcoming of the limitations of wind tunnels, and the most severe market threats relate to flight certification of the flying laboratory.
 
-Since this is a plan for the baseline stage of a design project, the key findings relate to the market analysis and preliminary configuration selection, profitability analysis, and risk assessment. Some of the main customers of such flying laboratories are universities and research institutes, as well as aerospace companies and defence agencies, with the first two being identified as the most relevant for this project. Discarding the unfeasible configurations among the numerous options \autoref{tab:subsystem_screening}, followed by the selection of the most feasible options with respect to project objectives yielded the following four configurations:
+Furthermore, the functional analysis has been performed, including the mission profile definition, functional flow diagram and functional breakdown structure. The mission has been subdivided into the launch, flight test and recovery phases. Based on this, the requirement discovery tree has been created and the final list of system requirements has been compiled.
+
+Discarding the unfeasible configurations among the numerous options \autoref{tab:subsystem_screening}, followed by the selection of the most feasible options with respect to project objectives yielded the following four configurations:
 
 \begin{enumerate}
     \item Low wing, T-tail, retractable gear: the traditional option, mimicking standard commercial aircraft configurations
@@ -23,6 +27,7 @@ Since this is a plan for the baseline stage of a design project, the key finding
     \item Flying wing with buried engine(s): low parasitic drag, simulation of coupled aeroelastic phenomena such as the Body Freedom Flutter
 \end{enumerate}
 
+In the baseline sustainability assessment, the aspects of construction, operation, end-of-life solutions, lifecycle assessment and environmental benefits have been considered. The conclusions were that manufacturing and material choice, the NOX emissions due to SAF use, recyclability, streamlined lifecycle assessment, and potential environmental benefits should all be considered during the design process.
 
 
 
@@ -40,6 +45,8 @@ Since this is a plan for the baseline stage of a design project, the key finding
     - SWOT analysis
 3. Functional Analysis
     - Mission Profile
+    - Functional Breakdown Structure
+    - Functional Flow Diagram
 
 4. Requirements and Constraints
     - Requirement Discovery Tree
@@ -69,18 +76,59 @@ Since this is a plan for the baseline stage of a design project, the key finding
     - LCA
     - Environmental benefits
 
-8. Profitability and return analysis
-    - Market Price
-    - Market Share and volume
-    - Development Costs
-    - Production Costs
-    - Direct Operational Costs
+The profitability and return analysis determined the size of the markets for aerospace component testing, the total cost of goods sold and the profitability of HUGO, resulting in a total attainable market share in the Netherlands for a target year. The total addressable global market was found to be \$6.94B in 2026, and \$1B in Europe. Data for the serviceable addressable market in the Netherlands was not available, so it was approximated using a bottom-up approach, resulting in \texteuro{71M}, and in a final serviceable obtainable market of \texteuro{14.2M}. As seen in \autoref{Overview-Cost-Table}, the production and direct operational costs; estimated as a an expense per flight day or per 300 flight days, are listed. These were used to calculate the cost of goods sold (COGS) per flight day of \texteuro{1142} at a price of \texteuro{2000}. For a total of 100 flight days per year, this represents a net annual profit of \texteuro{63,664} per HUGO. 
+
+
+\begin{table}[H] \label{Overview-Cost-Table}
+    \centering
+    \caption*{Table 9.1: Overview of UAV costs and their contribution to flight day pricing}
+    
+    \begin{tabular}{|l|l|l|c|r|}
+        \hline
+        \textbf{Type} & \textbf{Subcategory} & \textbf{Description} & \textbf{Pricing Role} & \textbf{Cost (€)} \\ \hline \hline
+        
+        \multicolumn{5}{|c|}{\textbf{Direct costs, reference flight day}} \\ \hline
+        Operations & Turbine fuel & 11.5 L of SAF, 4 test flights & Direct & 120 \\ \hline
+        Operations & Electricity & Batteries, computers, systems & Direct & 80 \\ \hline
+        Operations & Transport & Vehicle + logistics & Direct & 250 \\ \hline
+        Operations & Mission & UAV pilot/operator & Direct & 400 \\ \hline
+        
+        \multicolumn{5}{|c|}{\textbf{Fractional costs, full return in 300 flight days}} \\ \hline
+        Certification & RDW + ILT & Registration and flight permits & Fraction & 5\,000 \\ \hline
+        
+        Production & Materials & UAV structural and system components & Fraction & 28\,000 \\ \hline
+        Production & Labour & 300 h at 50 €/h & Fraction & 15\,000 \\ \hline
+        Production & Facility & 10 days at 200 €/day & Fraction & 2\,000 \\ \hline
+        
+        Operations & Insurance & 500 € annually, 15 years total & Fraction & 7\,500 \\ \hline
+        
+        Maintenance & Engine & 250 € per 50 h, 3000 h total & Fraction & 15\,000 \\ \hline
+        Maintenance & Airframe & 500 € per 100 h, 3000 h total & Fraction & 15\,000 \\ \hline
+        
+    \end{tabular}
+\end{table}
+
 
 9. Technical Risk Assessment 
     - Initial Risk Assessment
-    - Contingency management
-    - Perliminary Specific Operation Risk Assessment (SORA)
+    The first part of this chapter is basically risk assessment done the ADSEE way.
     
+    Development and operation risks were identified and assessed in terms of likelihood and severity. 
+    The development risks in the red zone were: discrepancies in component size/weight specified by the manufacturer vs actual values, system model errors (inadequate V\&V).
+    From operation risks, the biggest concerns are related to mechanical failure of components, exceeding flight limit area, and components falling off during flight.
+    
+    - Contingency management
+    This section is focused on lowering the likelihood and severity scores from Initial Risk Assessment.
+    Lowering the likelihood was achieved by identifying preventive measures corresponding to all development risks and some operation risks.
+    Lowering the severity was achieved by identifying mitigation strategies for the operational risks.
+    The new risk matrix features no risks in the red zone.
+    
+    - Preliminary Specific Operation Risk Assessment (SORA)
+    SORA is a 10 step classification methodology used for determining the operation risk of a UAV.
+
+    For our analysis, we don't have a location yet, so it is assumed that HUGO will fly only in a controlled airspace, with very low population around. For this (idealised) case, it falls under SAIL II, but if there are any settlements whatsoever, it jumps up to SAIL V or SAIL VI.
+
+    Based on the SAIL value, we have specific containment requirements and operational safety objectives (OSOs) that need to be complied with.
 
 \textcolor{red}{+recommendations}
 
