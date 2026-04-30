@@ -29,7 +29,7 @@ For any engineering project it is vital to identify the risks that exist related
       \caption{Initial Development Risk Assessment}
     \begin{tabular}{|p{3cm}|p{8cm}|p{2cm}|p{1.5cm}|}
     \hline
-       \textbf{Risk ID}  & \textbf{Risk Description} & \textbf{Likelihood} & \textbf{Severity} \\ \hline
+       \textbf{Risk ID}  & \textbf{Risk Description} & \textbf{Likelihood} & \textbf{Severity} \\ \hline \hline
         HUG-DEV-01 & Discrepancies between the values used for the dimensions, weight and performance of components and the actual values. & 4 & 4 \\ \hline
         HUG-DEV-02 & Exceeding the time budget. & 2 & 3 \\ \hline
         HUG-DEV-03 & System Model Errors (inadequate Validation \& Verification).       & 3 & 5 \\ \hline
@@ -143,9 +143,9 @@ Operation risks refer to hazardous scenarios which can occur both on the ground 
 
 \subsection{Initial Risk Map}
 The development and operation risks identified earlier in this Section can 
-be visually represented by means of a risk map in \autoref{fig:risk_matrix} \footnote{\href{https://www.techtarget.com/searchsecurity/definition/risk-map-risk-heat-map}{What is a risk map (risk heat map)?} (accessed on 24.04.2026)}. Ideally, most risks shall be located in the green zone of the map, which represents a sufficiently low likelihood of occurrence and severity of impact for safe operations. However, this is not the case for the initial risk assessment.
+be visually represented by means of a risk map in \autoref{fig:risk_matrix} \footnote{\href{https://www.techtarget.com/searchsecurity/definition/risk-map-risk-heat-map}{What is a risk map (risk heat map)?} (accessed on 24.04.2026)}. Ideally, most risks shall be located in the green zone of the map, which represents a sufficiently low likelihood of occurrence and severity of impact to not warrant significant concern. However, this is not the case for the initial risk assessment.
 
-Risks located in the yellow zone of the map present significant hazards which can be addressed by means of additional/contingency procedures. The risks located in the red zone of the map are deemed as critical and shall become the main focus of the contingency management plans and emergency procedure development.
+Risks located in the yellow zone of the map present significant hazards which can be addressed by means of abnormal/emergency checklists and procedures. The risks located in the red zone of the map are deemed as critical. It is necessary to lower their likelihood and/or severity by developing extensive preventive measures and contingency strategies.
 
 \begin{figure}[H]
 \centering
@@ -247,7 +247,7 @@ Risks located in the yellow zone of the map present significant hazards which ca
 %Step 3: identify a range of possible risk mitigating measures;
 %Step 4: determine the necessary level of robustness of the selected mitigating measures in such a way that the operation can be conducted safely.
 
-Having identified the risks posed to the development of the system, it is possible to develop adequate preventive measures and mitigation strategies. Preventive measures are identified as processes which decreases the likelihood of a risk occurring in the first place, while mitigation strategies are expected to lower the severity of consequences in case a risk manifests during development or operations \cite{MITRECorporation2012}. 
+Having identified the risks posed to the development of the system, it is possible to explore adequate preventive measures and mitigation strategies. Preventive measures are identified as processes that decrease the likelihood of a risk occurring in the first place, while mitigation strategies are expected to lower the severity of consequences in case a risk manifests during development or operations \cite{MITRECorporation2012}. 
 
 \autoref{tab:risk_preventive_measures} lists the envisioned preventive measures addressing both development and operational risks, as well as their expected effect on the likelihood score, $\Delta L$. \autoref{tab:containment_requirements_integrity} lists the envisioned contingency scenarios, along with the expected effect on the severity score, $\Delta S$.
 
@@ -549,7 +549,7 @@ For the critical scenarios that could happen during the mission, we can run prep
 \label{fig:risk_matrix_mitigated}
 \end{figure}
 \end{comment}
-As can be seen in \autoref{fig:risk_matrix_mitigated}, applying preventive measures and contingency scenarios to the design and operations allows for a significant decrease in risk severity for all cases considered. Notably, none of the risks remain in the red area of the matrix, and numerous options have transitioned into the green zone. Although some options still remain in the yellow due to their high severity, it should be noted that likelihood values were minimised.
+As can be seen in \autoref{fig:risk_matrix_mitigated}, applying preventive measures and contingency scenarios to the design and operations allows for a significant decrease in risk severity for all cases considered. Notably, none of the risks remains in the red area of the matrix, and numerous options have transitioned into the green zone. Although some options still remain in the yellow due to their high severity, it should be noted that likelihood values were minimised.
 
 
 \section{Preliminary Specific Operation Risk Assessment (SORA)}
@@ -562,12 +562,9 @@ In this Section, a preliminary SORA classification will be performed for HUGO ba
 \subsection{Documentation of Proposed Operations}
 The first step in the SORA methodology focuses on compiling operational, technical, and organisational information regarding UAS operations. This entails detailing the operational volume, ground risk buffers, adjacent area, and adjacent airspace \cite{Jarus_main}\cite{Jarus_Annex_A}.
 
-\todo[inline]{Once we decide on a location, we can change this section}
-At this point in the design phase, a specific operations area has not yet been determined. However, a candidate test site has been identified. In 2025, a landmark cooperation agreement was signed by the Province of South Holland, the Ministry of Infrastructure and Water Management, and the Ministry of Defence, with the aim of developing a permanent BVLOS test site for both civil and military applications \footnote{\href{https://www.keyregionleiden.nl/en/cooperation-drone-test-area-over-north-sea-signed}{Cooperation drone test area over North Sea signed} (accessed on 24.04.2026)}
-\footnote{\href{https://aviationnews.eu/news/2025/10/netherlands-establishes-north-sea-drone-test-zone-to-boost-defence-and-industry}{Netherlands Establishes North Sea Drone Test Zone to Boost Defence and Industry} (accessed on 24.04.2026)}. According to the available information, first test flights for the area are expected to launch in late 2026.
+At this point in the design phase, a specific operations area has not yet been determined. Based on the available data of HUGO's design (MTOW of 50kg, maximum speed above 200 m/s), a controlled airspace is required with sufficiently low population in the adjacent area \cite{Jarus_main}, which may not be attainable in the Netherlands. For the remaining steps of the SORA, it is assumed that HUGO will operate in controlled areas only. This assumption will impact the determination of ground risk, assurance and integrity levels, and operational objectives, and the results of this analysis should only be considered as a preliminary estimation.
 
-For the remaining steps of the SORA, it is assumed that HUGO will operate in controlled areas only. This assumption will impact the determination of ground risk, assurance and integrity levels, and operational objectives.
-
+%A candidate test site has been identified. In 2025, a landmark cooperation agreement was signed by the Province of South Holland, the Ministry of Infrastructure and Water Management, and the Ministry of Defence, with the aim of developing a permanent BVLOS test site for both civil and military applications \footnote{\href{https://www.keyregionleiden.nl/en/cooperation-drone-test-area-over-north-sea-signed}{Cooperation drone test area over North Sea signed} (accessed on 24.04.2026)} \footnote{\href{https://aviationnews.eu/news/2025/10/netherlands-establishes-north-sea-drone-test-zone-to-boost-defence-and-industry}{Netherlands Establishes North Sea Drone Test Zone to Boost Defence and Industry} (accessed on 24.04.2026)}. According to the available information, first test flights for the area are expected to launch in late 2026.
 
 \subsection{Intrinsic Ground Risk Class (iGRC)}
 The intrinsic Ground Risk Class is determined by the characteristics of the UAS based on its maximum characteristic dimension (wing span), maximum speed, as well as the population density in the operational volume and risk buffer areas \cite{Jarus_main}. It is expressed by a number from 1 to 10, with higher values corresponding to higher ground risks.
@@ -647,7 +644,7 @@ Containment Requirements are compiled to ensure that both ground and air risk fa
          2 & End of Flight upon exit of the operational volume & When the UA leaves the operational volume, an immediate end of the flight must be initiated through a combination of procedures/processes and/or available technical means. \\ \hline
          3 & Definition of the final ground risk buffer & Ground risk buffer must consider the following points: 
          \begin{itemize}
-         \item Probable single failures (including the projection of high energy parts such as rotors and propellers) which would lead to an operation outside of the operational volume,
+         \item Probable single failures (including the projection of high-energy parts such as rotors and propellers) which would lead to an operation outside of the operational volume,
          \item Meteorological conditions (e.g., maximum sustained wind),
          \item UAS latencies (e.g., latencies that affect the timely manoeuvrability of the UA),
          \item UA behaviour when activating a technical containment measure, UA performance.
