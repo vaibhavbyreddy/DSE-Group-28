@@ -1,4 +1,189 @@
 \chapter{Preliminary Configuration Selection}
+\todo{update design tree diagrams with final versions}
+
+In this Chapter, a systematic, top-down approach is employed to identify the preliminary structural and aerodynamic configurations for the High Aspect Ratio (HAR) testing platform. First, a high-level architectural screening is performed in \autoref{sec:platform_selection} to determine the fundamental vehicle category best suited for the project objectives. Following the selection of a conventional fixed-wing baseline, a detailed Design Option Tree (DOT) is generated in \autoref{sec:design_option_tree} to explore subsystem options and perform an initial screening of their viability. Subsequently, preliminary configuration concepts are generated in \autoref{sec:prelim_config_concepts}, yielding a shortlist of viable strawman concepts to be further analysed in the detailed trade-off phase.
+
+\section{High-Level Platform Selection}
+\label{sec:platform_selection}
+Before evaluating specific aircraft subsystems, an initial overarching design option tree was generated to determine the core vehicle architecture. This top-level tree functions as an "OR Tree," where the primary path is selected from distinct, mutually exclusive operational concepts. Three main approaches were evaluated to carry the experimental HAR planform into the testing environment: a replaceable planform on a dedicated drone, a fully custom test-specific design, and mounting the test article onto an existing invariant aircraft. 
+
+For each of these top-level approaches, various vehicle types were considered, including fixed-wing aircraft, copters (both helicopters and multicopters), Vertical Take-Off and Landing (VTOL) fixed-wing aircraft, and towing aircraft.
+\begin{itemize}
+    \item \textbf{Rotary-Wing Platforms (Helicopters \& Multicopters):} Uniformly rejected across all branches. While they offer excellent modularity and payload mounting options, their inherent flight characteristics, specifically high baseline vibration levels and low maximum forward speeds—conflict directly with the requirement to test aeroelastic phenomena in clean, high-subsonic airflow.
+    \item \textbf{VTOL Fixed-Wing:} Rejected due to the mass and complexity penalties. The addition of lift-rotors or complex tilting mechanisms would drastically consume the tight 50kg mass budget (HUG-GEN-001) and disturb the airflow over the experimental wings being tested.
+    \item \textbf{Towing Aircraft:} Rejected as an invariant platform due to the complex aerodynamic interactions between the tow plane's wake and the test article, as well as the severe risk posed during flutter testing if the towed glider becomes uncontrollable.
+    \item \textbf{Conventional Fixed-Wing:} Accepted across all main branches as the only viable architecture capable of achieving Mach 0.75 in clean airflow while maintaining predictable, decoupled flight dynamics necessary for baseline flutter suppression testing.
+\end{itemize}
+Consequently, the project architecture was narrowed down strictly to a conventional fixed-wing design, acting either as a test-specific custom frame or a drone with a highly replaceable planform. 
+
+\section{Subsystem Design Option Tree}
+\label{sec:design_option_tree}
+Having established a conventional fixed-wing approach, a second, detailed DOT was generated[cite: 1]. Unlike the top-level selection, this fixed-wing tree acts as an "AND Tree," where valid configurations are built by combining accepted options from each fundamental subsystem group (Fuselage, Empennage, Wing, Propulsion, and Undercarriage)[cite: 1]. 
+
+\begin{itemize}
+    \item \textbf{Accepted Concepts (Green):} Options deemed highly feasible and directly applicable to fulfilling the top-level project requirements[cite: 1].
+    \item \textbf{Rejected Concepts (Red):} Options eliminated by unanimous group consensus[cite: 1]. Rejections were strictly based on obvious technical infeasibility or direct conflicts with the top-level project requirements.
+\end{itemize}
+
+\begin{longtable}{|p{2cm}|p{2.5cm}|p{1.5cm}|p{9cm}|}
+\caption{Sub-System Options and Initial Screening} \label{tab:subsystem_screening} \\
+\hline
+\textbf{Subgroup} & \textbf{Option} & \textbf{Status} & \textbf{Justification} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Subgroup} & \textbf{Option} & \textbf{Status} & \textbf{Justification} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+% --- FUSELAGE GROUP ---
+\multicolumn{4}{|c|}{\textbf{Fuselage Group[cite: 1]}} \\
+\hline
+Internal Materials & Composite Structure & Accepted & Offers the high strength-to-weight ratio necessary to survive Mach 0.75 high subsonic loads (HUG-STR-003, HUG-OPS-005) while staying under the strict 50kg mass requirement (HUG-GEN-001) \cite{raymer1992aircraft}. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Sheet Metal Structure & Accepted & Traditional aerospace manufacturing method; provides predictable structural dynamics and ease of modular manufacturing using TRL10 techniques (HUG-OPS-002), though potentially heavier.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Polymer Structure & Rejected & Lacks the required structural stiffness and yield strength to act as the primary load-bearing core for a high subsonic aircraft (HUG-STR-003).[cite: 1] \\
+\hline
+Skin Material & Composite Skin & Accepted & Provides an aerodynamically smooth surface finish necessary for high subsonic flight and high skin stiffness to prevent buckling.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Sheet Metal Skin & Accepted & Highly durable and relatively simple to integrate, though harder to form into complex aerodynamic curves.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Polymer Skin & Accepted & Feasible for non-load-bearing fairings and lightweight sections.[cite: 1] \\
+\hline
+Avionics & Both (Auto \& Manual) & Accepted & Satisfies the requirement for an autonomous testbed (HUG-CTL-001) while allowing manual mission termination in emergencies (HUG-CER-003).[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Autopilot Only & Accepted & Feasible for pure drone operations, though it presents higher risks during critical aeroelastic testing without human override.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Manual Only & Rejected & Violates autonomous control requirements (HUG-CTL-001), and human reaction times cannot suppress high-frequency flutter.[cite: 1] \\
+\hline
+Electrical Subgroup & Battery & Accepted & A proven, reliable, and decoupled energy source for high-bandwidth actuators and avionics.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Power Generator & Accepted & Physically possible, but adds significant mechanical complexity, weight, and failure points for a relatively short flight time.[cite: 1] \\
+\hline
+
+% --- EMPENNAGE GROUP ---
+\multicolumn{4}{|c|}{\textbf{Empennage Group[cite: 1]}} \\
+\hline
+Canard Modularity & Static Port & Accepted & A lightweight method to test specific canard configurations without the structural penalty of a moving system.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Variable Port & Accepted & Allows for tuning the aerodynamic center by shifting the canard position, useful for iterative aeroelastic testing.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & No port & Accepted & Essential for baseline tests where forward aerodynamic disturbances must be completely avoided.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Static Canard & Accepted & Permanent integration provides higher structural integrity if a canard is deemed strictly necessary for the baseline architecture.[cite: 1] \\
+\hline
+Tail Modularity & Static Port & Accepted & Allows swapping of empennage geometries without excessive structural weight.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & No port & Accepted & Required for flying wing configurations or specific baseline evaluations.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Static Tail & Accepted & Conventional, highly rigid approach minimizing flutter risks on the tail itself.[cite: 1] \\
+\hline
+Tail Configs. & T, H, V, Inverted V, Conventional, No tail, Canard & Accepted & All represent valid aerodynamic trade-offs between clean airflow, drag, and structural complexity that require further holistic evaluation.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Twin Boom & Rejected & Introduces excessive structural weight and boom flutter modes, heavily penalizing the mass budget without proportional benefits.[cite: 1] \\
+\hline
+
+% --- WING GROUP ---
+\multicolumn{4}{|c|}{\textbf{Wing Group[cite: 1]}} \\
+\hline
+Wing Configs. & Low, Mid, High, Flying Wing & Accepted & Standard configurations offering different balances of payload capacity, ground effect, and internal volume.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Delta & Rejected & Inherently stiff and low-aspect-ratio, conflicting with the mission to test highly flexible HAR wings.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Prandtl Plane & Rejected & Introduces esoteric aeroelastic behaviors ill-suited for a baseline modular testbed.[cite: 1] \\
+\hline
+Modularity & Static Port & Accepted & Lightweight method for swapping test articles at a fixed aerodynamic center.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Variable Port (X) & Accepted & Allowing longitudinal (X-axis) shifting of the wings provides critical flexibility for CG management when testing radically different planforms.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Variable Port (Z) & Rejected & Shifting the primary load-bearing wing vertically introduces severe fuselage reinforcement mass penalties.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Variable Port (X \& Z) & Rejected & The combined complexity guarantees exceeding the 50kg limit while drastically reducing fuselage stiffness.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Replaceable Mid Section & Rejected & Segmenting the fuselage core to replace the wing carry-through weakens the primary structure and complicates avionics routing.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Fixed & Rejected & Completely violates the central "Replaceable Planform" directive of the project.[cite: 1] \\
+\hline
+
+% --- PROPULSION GROUP ---
+\multicolumn{4}{|c|}{\textbf{Propulsion Group[cite: 1]}} \\
+\hline
+Mounting Location & Wing-mounted & Accepted & Feasible, though introducing concentrated masses to highly flexible test wings complicates aeroelastic data.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Buried engine & Accepted & Aerodynamically efficient, minimizing drag for high subsonic speeds.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Fuselage mounted & Accepted & Centralises mass and leaves wings clear for unobstructed testing.[cite: 1] \\
+\hline
+Fuel Compat. & SAF-only & Accepted & Strictly complies with sustainability requirements.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & SAF Blend & Accepted & Provides operational flexibility during early testing phases.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & JET-A1 & Rejected & Fails the core sustainability requirement mandating SAF usage.[cite: 1] \\
+\hline
+Modularity & Fixed & Accepted & Standard, highly reliable integration of the propulsion system.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Quick Swappable & Rejected & The complexity of hot-swappable fuel lines and thrust-bearing mounts adds unnecessary risk and weight.[cite: 1] \\
+\hline
+Fuel Tank Loc. & Wing and Fuselage & Accepted & Maximizes fuel capacity to ensure endurance requirements.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Fuselage Only & Accepted & Keeps CG stable and allows test wings to remain incredibly slender without internal tankage constraints.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Wing Only & Rejected & The flexible, HAR test wings lack the internal volume necessary to store sufficient fuel for a 30-minute endurance.[cite: 1] \\
+\hline
+
+% --- UNDERCARRIAGE GROUP ---
+\multicolumn{4}{|c|}{\textbf{Undercarriage Group[cite: 1]}} \\
+\hline
+Mounting points & On wings & Accepted & Plausible for stiffer wing configurations.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & On fuselage & Accepted & Keeps the test wings entirely unencumbered by gear structures.[cite: 1] \\
+\hline
+Structure & Retractable & Accepted & Essential for reducing parasitic drag to achieve Mach 0.75.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Skids & Accepted & Drastically reduces weight, though requires external launch infrastructure.[cite: 1] \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Fixed & Rejected & The drag penalty makes speed and endurance targets virtually impossible to meet simultaneously.[cite: 1] \\
+\hline
+\end{longtable}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
+
 \todo{update design tree}
 
 In this Chapter, an analysis of possible subsystem design options is performed to identify preliminary structural configurations for HUGO. In \autoref{sec:design_option_tree}, a Design Option Tree (DOT) is generated to explore the possible design options and perform an initial screening of their viability for the design. Subsequently, preliminary configuration concepts are generated in \autoref{sec:prelim_config_concepts}, and five strawman concepts are identified that shall be further analysed in the next design stage.
@@ -7,9 +192,7 @@ In this Chapter, an analysis of possible subsystem design options is performed t
 \label{sec:design_option_tree}
 The DOT was generated during a discussion session between the team members. Numerous possible configuration options were mapped out and evaluated in terms of achievability and suitability for HUGO.
 
-% The generation of the Design Option Tree began with an unconstrained, divergent brainstorming session where all potential ideas were mapped out without immediate filtering. The resulting diagram is structured strictly as an "OR" tree; within any given sub-system branch, only one option can ultimately be selected for a specific aircraft configuration. 
 
-%To systematically navigate this large design space, the team established a colour code (defined in the chart legend) and conducted a collaborative, consensus-based screening process to categorize every option:
 
 \begin{itemize}
     \item \textbf{Accepted Concepts (Green):} Options deemed highly feasible and directly applicable to fulfilling the top-level project requirements.
@@ -140,6 +323,155 @@ Structure & Retractable & Accepted & Essential for reducing parasitic drag to ac
 \multicolumn{1}{|l|}{} & Skids & Accepted & Reduces the weight and volume of the fuselage, however, would require a separate launch system. \\
 \hline
 \end{longtable}
+
+
+
+
+
+
+\section{Generation of Preliminary Configuration Concepts}
+\label{sec:prelim_config_concepts}
+Now that the design option tree has been screened to only allow for plausible subsystem options, some possible configurations can be generated to be evaluated holistically. If every accepted option in the DOT were combined, it would result in thousands of potential aircraft concepts, which would be impractical to evaluate. In order to narrow down the subsystems being evaluated, the configurations were built without the architecture-independent features.
+
+\subsection{Shortlisting Configurations}
+Subsystems such as avionics, construction materials, and fuel compatibility were omitted from the configuration generation, as these choices are largely independent of the main system architecture and can be integrated within most configurations.
+
+Therefore, to generate a focused and meaningful set of aircraft configurations, the primary aerodynamic and structural layout drivers were isolated, using the subsystems presented in \autoref{tab:configuration_design_options} 
+
+
+\begin{table}[H]
+    \centering
+    \caption{Configuration Design Options}
+    \label{tab:configuration_design_options}
+    \begin{tabular}{|l|p{12.5cm}|}
+        \hline
+        \textbf{Design category} & \textbf{Options} \\ \hline \hline
+        Wing & Low, Mid, High, Flying Wing \\ \hline
+        Empennage & T-tail, H-tail, Conventional, V-tail, Inverted V-tail, Canard, No tail, Variable Mounting \\ \hline
+        Propulsion mounting & Fuselage Mounted, Buried, Wing Mounted \\ \hline
+        Undercarriage & Skids, Retractable gear \\ \hline
+    \end{tabular}
+\end{table}
+By systematically iterating through a morphological matrix of these specific parameters, an initial set of 20 distinct aircraft configurations was generated. During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the configurations realistic. For example, a Flying Wing configuration inherently dictates a No Tail criterion. The 20 configurations have been tabulated in \autoref{Aircraft_Configurations_Table}
+
+\begin{longtable}{|c|c|c|p{2.5cm}|p{4cm}|}
+    \caption{Preliminary Aircraft Design Configurations} \label{Aircraft_Configurations_Table} \\
+    
+    \hline
+    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \hline\hline
+    \endfirsthead
+
+    \hline
+    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \hline\hline
+    \endhead
+
+    \hline
+    \multicolumn{5}{r}{\textit{Continued on next page}} \\
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    HUG-CFG-01 & Low wing & Fuselage mounted & Variable Tail Mounting & Retractable gear \\
+    \hline
+    HUG-CFG-02 & Low wing & Fuselage mounted & T-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-03 & Low wing & Fuselage mounted & H-tail & Retractable gear \\
+    \hline
+    HUG-CFG-04 & Low wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-05 & Low wing & Fuselage mounted & V-tail & Retractable gear \\
+    \hline
+    HUG-CFG-06 & Low wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-07 & Low wing & Fuselage mounted & Canard & Retractable gear \\
+    \hline
+    HUG-CFG-08 & Low wing & Fuselage mounted & Inverted V-tail & Retractable gear \\
+    \hline
+    HUG-CFG-09 & Low wing & Wing Mounted & Conventional tail & Retractable gear \\
+    \hline
+    HUG-CFG-10 & Flying wing & Buried engine & No tail & Retractable gear \\
+    \hline
+    HUG-CFG-11 & Flying wing & Buried engine & No tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-12 & Flying wing & Fuselage mounted & No tail & Retractable gear \\
+    \hline
+    HUG-CFG-13 & Flying wing & Fuselage mounted & No tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-14 & Mid wing & Fuselage mounted & H-tail & Retractable gear \\
+    \hline
+    HUG-CFG-15 & Mid wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-16 & High wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-17 & High wing & Fuselage mounted & Variable Tail Mounting & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-18 & High wing & Wing Mounted & T-tail & Retractable gear \\
+    \hline
+    HUG-CFG-19 & High wing & Fuselage mounted & Inverted V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-20 & High wing & Wing Mounted & Conventional tail & Retractable \\
+    \hline
+
+\end{longtable}
+
+
+In order to narrow down the 20 configurations to a shortlist, first, several architectural branches were systematically eliminated due to inherent conflicts with the testbed's primary mission:
+
+\begin{itemize}
+    \item \textbf{Mid-Wing Configurations (HUG-CFG-14, HUG-CFG-15)} Eliminated primarily due to internal packaging constraints. The structural carry-through box of a mid-wing design heavily obstructs the continuous internal volume required for the payload, as stated in  \textbf{HUG-STR-017}. Furthermore, it does not offer distinct aerodynamic advantages over a high or low-wing configuration to justify the harder structural integration and the necessary reinforcements\cite{raymer1992aircraft}.
+    
+    \item \textbf{Canard Configurations (HUG-CFG-07, HUG-CFG-15)} Discarded due to aerodynamic interference (\textbf{HUG-AER-004}).\cite{lopes2005canard} A forward canard generates downwash and a turbulent wake that affects the main wing. Because the core objective of this flying laboratory is to capture clean aeroelastic and flutter data from the main wing, upstream flow disturbances are unacceptable. Additionally, canards are less representative of the future commercial transport architectures this project aims to emulate.
+    
+    \item \textbf{High-Wing with Fuselage-Mounted Propulsion (HUG-CFG-16, HUG-CFG-17, HUG-CFG-19)} Eliminated due to aerodynamic and structural integration challenges. If the turbine is mounted on the aft fuselage sides, the intakes risk ingesting the turbulent wake generated by the high wing, degrading engine performance. Additionally, an engine placed above the fuselage introduces structural interference with the high wing's carry-through box and modular mounting mechanisms\cite{raymer1992aircraft}. While physically feasible, these conflicts make the high-wing architecture fundamentally inferior to the low-wing alternatives for this specific propulsion setup.
+    
+    \item \textbf{Wing-Mounted Propulsion (HUG-CFG-9, HUG-CFG-18, HUG-CFG-20)} Eliminated due to strict versatility and aeroelastic constraints. The drone is required to facilitate the testing of highly flexible, swappable HAR wings. The wings are considered the test structure, as such, mounting engines on them would introduce inertial and torsional coupling that would interfere with the aeroelastic data. This design also contradicts the modularity requirement(\textbf{HUG-AER-003}).
+    
+    %Hard-mounting a jet engine directly to these flexible test articles introduces massive inertial and torsional coupling that would corrupt the baseline flutter data, while simultaneously violating the requirement for wing modularity and versatility.
+\end{itemize}
+
+
+\subsection{Identification of Concepts}
+Many of the remaining configurations share fundamental aerodynamic and structural characteristics, allowing them to be grouped into families based on similarities. To avoid redundant analysis during the detailed trade-off phase, these families were evaluated to identify a few optimal representative configurations for each. This down-selection process effectively narrowed the field from 20 permutations to the following candidate architectures:
+
+\begin{itemize}
+    \item \textbf{HUG-CFG-01 (Low Wing, Variable Tail Mounting, Retractable Gear):} Selected to serve as a versatile baseline model. This configuration can closely mirror standard transport aircraft designs while being adaptable to esoteric designs as well. Therefore, the aeroelastic and flutter data collected will be highly relevant and scalable to the commercial planes the testbed is designed to emulate. This configuration can also allow for the testing of an experimental wing at the canard mounting position while retaining  
+    
+    \item \textbf{HUG-CFG-08 (Low Wing, Inverted V-Tail, Retractable Gear):} This architecture was selected primarily for its clean upper aerodynamic surface. The inverted V-tail keeps the empennage clear of the upper fuselage, providing an unobstructed region to mount a test airfoil. This allows experimental wings to be tested while retaining a stable and optimized wing planform.
+    
+    \item \textbf{HUG-CFG-10 \& HUG-CFG-11 (Flying Wing, Buried Engine):} Selected for their exceptionally low parasitic drag profile \cite[p.~74]{raymer1992aircraft}. This high aerodynamic efficiency ensures the aircraft can easily and reliably reach the high Mach numbers necessary to trigger aeroelastic phenomena during flight testing. Both landing gear variants (retractable gear in Config 10 and skids in Config 11) are retained for further evaluation in the mid-term trade-off.
+\end{itemize}
+
+
+
+\clearpage
+\pdfpagewidth=420mm
+\pdfpageheight=297mm
+\paperwidth=420mm
+\paperheight=297mm
+
+\includepdf[pages=-,fitpaper=false, width=420mm, keepaspectratio]{figures/DOT Final.pdf}
+\clearpage
+\pdfpagewidth=210mm
+\pdfpageheight=297mm
+\paperwidth=210mm
+\paperheight=297mm
+
+\end{comment}
+
+
+
+
+
+% The generation of the Design Option Tree began with an unconstrained, divergent brainstorming session where all potential ideas were mapped out without immediate filtering. The resulting diagram is structured strictly as an "OR" tree; within any given sub-system branch, only one option can ultimately be selected for a specific aircraft configuration. 
+
+%To systematically navigate this large design space, the team established a colour code (defined in the chart legend) and conducted a collaborative, consensus-based screening process to categorize every option:
+
+
+
+
 
 
 
@@ -393,140 +725,5 @@ For reasons stated above concerning the integration and space limitation of the 
 \paperwidth=210mm
 \paperheight=297mm
 
+
 \end{comment}
-
-\section{Generation of Preliminary Configuration Concepts}
-\label{sec:prelim_config_concepts}
-Now that the design option tree has been screened to only allow for plausible subsystem options, some possible configurations can be generated to be evaluated holistically. If every accepted option in the DOT were combined, it would result in thousands of potential aircraft concepts, which would be impractical to evaluate. In order to narrow down the subsystems being evaluated, the configurations were built without the architecture-independent features.
-
-\subsection{Shortlisting Configurations}
-Subsystems such as avionics, construction materials, and fuel compatibility were omitted from the configuration generation, as these choices are largely independent of the main system architecture and can be integrated within most configurations.
-
-Therefore, to generate a focused and meaningful set of aircraft configurations, the primary aerodynamic and structural layout drivers were isolated, using the subsystems presented in \autoref{tab:configuration_design_options} 
-
-% \begin{itemize}
-%     \item \textbf{Wing Configuration} (Low, Mid, High, Flying Wing)
-%     \item \textbf{Empennage Configuration} (T-tail, H-Tail, Conventional, V-Tail, Inverted V-Tail, Canard, No tail)
-%     \item \textbf{Propulsion Mounting} (Fuselage Mounted, Buried, Wing Mounted)
-%     \item \textbf{Undercarriage} (Skids, Retractable gear)
-% \end{itemize}
-
-\begin{table}[H]
-    \centering
-    \caption{Configuration Design Options}
-    \label{tab:configuration_design_options}
-    \begin{tabular}{|l|p{12.5cm}|}
-        \hline
-        \textbf{Design category} & \textbf{Options} \\ \hline \hline
-        Wing & Low, Mid, High, Flying Wing \\ \hline
-        Empennage & T-tail, H-tail, Conventional, V-tail, Inverted V-tail, Canard, No tail, Variable Mounting \\ \hline
-        Propulsion mounting & Fuselage Mounted, Buried, Wing Mounted \\ \hline
-        Undercarriage & Skids, Retractable gear \\ \hline
-    \end{tabular}
-\end{table}
-By systematically iterating through a morphological matrix of these specific parameters, an initial set of 20 distinct aircraft configurations was generated. During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the configurations realistic. For example, a Flying Wing configuration inherently dictates a No Tail criterion. The 20 configurations have been tabulated in \autoref{Aircraft_Configurations_Table}
-
-\begin{longtable}{|c|c|c|p{2.5cm}|p{4cm}|}
-    \caption{Preliminary Aircraft Design Configurations} \label{Aircraft_Configurations_Table} \\
-    
-    \hline
-    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
-    \hline\hline
-    \endfirsthead
-
-    \hline
-    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
-    \hline\hline
-    \endhead
-
-    \hline
-    \multicolumn{5}{r}{\textit{Continued on next page}} \\
-    \endfoot
-
-    \hline
-    \endlastfoot
-
-    HUG-CFG-01 & Low wing & Fuselage mounted & Variable Tail Mounting & Retractable gear \\
-    \hline
-    HUG-CFG-02 & Low wing & Fuselage mounted & T-tail & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-03 & Low wing & Fuselage mounted & H-tail & Retractable gear \\
-    \hline
-    HUG-CFG-04 & Low wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-05 & Low wing & Fuselage mounted & V-tail & Retractable gear \\
-    \hline
-    HUG-CFG-06 & Low wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-07 & Low wing & Fuselage mounted & Canard & Retractable gear \\
-    \hline
-    HUG-CFG-08 & Low wing & Fuselage mounted & Inverted V-tail & Retractable gear \\
-    \hline
-    HUG-CFG-09 & Low wing & Wing Mounted & Conventional tail & Retractable gear \\
-    \hline
-    HUG-CFG-10 & Flying wing & Buried engine & No tail & Retractable gear \\
-    \hline
-    HUG-CFG-11 & Flying wing & Buried engine & No tail & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-12 & Flying wing & Fuselage mounted & No tail & Retractable gear \\
-    \hline
-    HUG-CFG-13 & Flying wing & Fuselage mounted & No tail & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-14 & Mid wing & Fuselage mounted & H-tail & Retractable gear \\
-    \hline
-    HUG-CFG-15 & Mid wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-16 & High wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-17 & High wing & Fuselage mounted & Variable Tail Mounting & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-18 & High wing & Wing Mounted & T-tail & Retractable gear \\
-    \hline
-    HUG-CFG-19 & High wing & Fuselage mounted & Inverted V-tail & Skids (Belly landing / Rail launched) \\
-    \hline
-    HUG-CFG-20 & High wing & Wing Mounted & Conventional tail & Retractable \\
-    \hline
-
-\end{longtable}
-
-
-In order to narrow down the 20 configurations to a shortlist, first, several architectural branches were systematically eliminated due to inherent conflicts with the testbed's primary mission:
-
-\begin{itemize}
-    \item \textbf{Mid-Wing Configurations (HUG-CFG-14, HUG-CFG-15)} Eliminated primarily due to internal packaging constraints. The structural carry-through box of a mid-wing design heavily obstructs the continuous internal volume required for the payload, as stated in  \textbf{HUG-STR-017}. Furthermore, it does not offer distinct aerodynamic advantages over a high or low-wing configuration to justify the harder structural integration and the necessary reinforcements\cite{raymer1992aircraft}.
-    
-    \item \textbf{Canard Configurations (HUG-CFG-07, HUG-CFG-15)} Discarded due to aerodynamic interference (\textbf{HUG-AER-004}).\cite{lopes2005canard} A forward canard generates downwash and a turbulent wake that affects the main wing. Because the core objective of this flying laboratory is to capture clean aeroelastic and flutter data from the main wing, upstream flow disturbances are unacceptable. Additionally, canards are less representative of the future commercial transport architectures this project aims to emulate.
-    
-    \item \textbf{High-Wing with Fuselage-Mounted Propulsion (HUG-CFG-16, HUG-CFG-17, HUG-CFG-19)} Eliminated due to aerodynamic and structural integration challenges. If the turbine is mounted on the aft fuselage sides, the intakes risk ingesting the turbulent wake generated by the high wing, degrading engine performance. Additionally, an engine placed above the fuselage introduces structural interference with the high wing's carry-through box and modular mounting mechanisms\cite{raymer1992aircraft}. While physically feasible, these conflicts make the high-wing architecture fundamentally inferior to the low-wing alternatives for this specific propulsion setup.
-    
-    \item \textbf{Wing-Mounted Propulsion (HUG-CFG-9, HUG-CFG-18, HUG-CFG-20)} Eliminated due to strict versatility and aeroelastic constraints. The drone is required to facilitate the testing of highly flexible, swappable HAR wings. The wings are considered the test structure, as such, mounting engines on them would introduce inertial and torsional coupling that would interfere with the aeroelastic data. This design also contradicts the modularity requirement(\textbf{HUG-AER-003}).
-    
-    %Hard-mounting a jet engine directly to these flexible test articles introduces massive inertial and torsional coupling that would corrupt the baseline flutter data, while simultaneously violating the requirement for wing modularity and versatility.
-\end{itemize}
-
-
-\subsection{Identification of Concepts}
-Many of the remaining configurations share fundamental aerodynamic and structural characteristics, allowing them to be grouped into families based on similarities. To avoid redundant analysis during the detailed trade-off phase, these families were evaluated to identify a few optimal representative configurations for each. This down-selection process effectively narrowed the field from 20 permutations to the following candidate architectures:
-
-\begin{itemize}
-    \item \textbf{HUG-CFG-01 (Low Wing, Variable Tail Mounting, Retractable Gear):} Selected to serve as a versatile baseline model. This configuration can closely mirror standard transport aircraft designs while being adaptable to esoteric designs as well. Therefore, the aeroelastic and flutter data collected will be highly relevant and scalable to the commercial planes the testbed is designed to emulate. This configuration can also allow for the testing of an experimental wing at the canard mounting position while retaining  
-    
-    \item \textbf{HUG-CFG-08 (Low Wing, Inverted V-Tail, Retractable Gear):} This architecture was selected primarily for its clean upper aerodynamic surface. The inverted V-tail keeps the empennage clear of the upper fuselage, providing an unobstructed region to mount a test airfoil. This allows experimental wings to be tested while retaining a stable and optimized wing planform.
-    
-    \item \textbf{HUG-CFG-10 \& HUG-CFG-11 (Flying Wing, Buried Engine):} Selected for their exceptionally low parasitic drag profile \cite[p.~74]{raymer1992aircraft}. This high aerodynamic efficiency ensures the aircraft can easily and reliably reach the high Mach numbers necessary to trigger aeroelastic phenomena during flight testing. Both landing gear variants (retractable gear in Config 10 and skids in Config 11) are retained for further evaluation in the mid-term trade-off.
-\end{itemize}
-
-
-
-\clearpage
-\pdfpagewidth=420mm
-\pdfpageheight=297mm
-\paperwidth=420mm
-\paperheight=297mm
-
-\includepdf[pages=-,fitpaper=false, width=420mm, keepaspectratio]{figures/DOT Final.pdf}
-\clearpage
-\pdfpagewidth=210mm
-\pdfpageheight=297mm
-\paperwidth=210mm
-\paperheight=297mm
