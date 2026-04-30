@@ -7,14 +7,21 @@ This chapter details a systematic, top-down approach employed to develop design 
 \label{sec:platform_selection}
 Before evaluating specific aircraft subsystems, an initial design option tree was generated to determine the overarching vehicle architecture. This top-level tree functions as an "OR Tree," where the primary path is selected from distinct, mutually exclusive operational concepts. Three main approaches were evaluated to perform aeroelastic experiments mid-flight: a replaceable planform on a dedicated drone, a per-test custom-made drone, and designing an invariant aircraft capable of mounting test specimens. 
 
+\begin{itemize}
+    \item \textbf{Replaceable planform:} Accepted for further development due to high versatility. In relation to the alternative platforms, a replaceable planform was selected for further conceptualisation as it was immediately evident that it would allow for the widest variation of experiments.
+    \item \textbf{Test-specific custom design:} Rejected due to existence of preferable alternatives. A test-specific custom design was considered as it would represent less structural complexity in relation to a fully replaceable planform. The concept was not further developed as it was deemed that generating a new design and manufacturing iteration, and possibly re-certifying the aircraft for each experiment, was significant more complex and wasteful than overcoming structural complexities.
+    \item \textbf{Mounting on invariant aircraft:} Rejected due to existence of preferable alternatives. An invariant aircraft with mounting ports was suggested as an option to carry out aeroelastic experiments. Benefits considered included a relative simplicity stemming from the invariant planform, but the concept was ultimately not developed further as it was deemed that it was too restrictive to the range of experiments that could be carried out upon it, in relation to the varying planform alternative.
+\end{itemize}
+
 For each of these top-level approaches, various vehicle types were considered, including fixed-wing aircraft, copters (both helicopters and multicopters), Vertical Take-Off and Landing (VTOL) fixed-wing aircraft, and towing aircraft.
 \begin{itemize}
     \item \textbf{Rotary-Wing Platforms (Helicopters \& Multicopters):} Rejected across all branches due to requirement violations. Rotary wing platforms were proposed due to "tried and true" excellent modularity and payload flexibility, yet their style of flight makes high-speed subsonic flight unfeasible, directly in violation of requirement (HUG-OPS-005) \cite{He2026}.
-    \item \textbf{VTOL Fixed-Wing:} Rejected due to mass and complexity penalties. The addition of lift-rotors or complex tilting mechanisms would drastically consume the tight 50kg mass budget (HUG-GEN-001) and introduce turbulent upstream airflow over the experimental wings being tested, corrupting structural data (HUG-AER-004) \cite{raymer1992aircraft, Bhat2024}.
-    \item \textbf{Towing Aircraft:} Rejected as an invariant platform due to the complex aerodynamic interactions between the tow plane's wake and the test article (HUG-AER-004) \cite{Vos}. Furthermore, this poses a severe risk during flutter testing; if the towed glider suffers divergent flutter and becomes uncontrollable, it threatens the tow plane and violates core Specific Operations Risk Assessment (SORA) range safety limits (HUG-CER-001, HUG-CER-002) \cite{livne, Wyszywacz2022}.
-    \item \textbf{Conventional Fixed-Wing:} Accepted across all main branches as the only viable architecture capable of achieving Mach 0.75 in clean airflow (HUG-OPS-005, HUG-AER-001) while maintaining the predictable, decoupled flight dynamics necessary for baseline flutter suppression testing (HUG-CTL-001, HUG-STR-005) \cite{raymer1992aircraft, Vos, Abramov2014}.
+    \item \textbf{VTOL Fixed-Wing:} Rejected across all branches due to mass and complexity penalties. This concept was proposed to increase operational flexibility by increasing the number of suitable take-off and landing locations. However, in addition to increasing design complexity, the addition of tilting mechanism for the engines would rapidly consume the tight 50kg mass budget (HUG-GEN-001).\cite{raymer1992aircraft, Bhat2024}.
+    \item \textbf{Towing Aircraft:} Rejected as an invariant platform due to requirement violations. This concept aimed to reduce the mass of the flying laboratory by removing its independent thrust components. The concept was initially rejected due to the expected disturbance of the tow plane's wake to the airflow seen by the test article (HUG-AER-004) \cite{Vos}. Furthermore, it was deemed that this concept would risk the tow plane during flutter testing it if became uncontrollable which would violate Specific Operations Risk Assessment (SORA) range safety limits (HUG-CER-001, HUG-CER-002) \cite{livne, Wyszywacz2022}.
+    \item \textbf{Conventional Fixed-Wing:} Accepted across all branches. This concept was deemed as the only viable architecture capable of achieving Mach 0.75, whilst maintaining clean airflow for test specimens (HUG-OPS-005, HUG-AER-001). Furthermore, a conventional fixed-wing drone was most conducive to predictable, decoupled flight dynamics necessary for baseline flutter suppression testing (HUG-CTL-001, HUG-STR-005) \cite{raymer1992aircraft, Vos, Abramov2014}.
 \end{itemize}
-Consequently, the project architecture was narrowed down strictly to a conventional fixed-wing design, acting either as a test-specific custom frame or a drone with a highly replaceable planform. 
+
+From this analysis, the drone architecture was narrowed down to a conventional fixed-wing design. 
 
 \section{Subsystem Design Option Tree}
 \label{sec:design_option_tree}
@@ -68,7 +75,7 @@ Avionics & Manual \& Autopilot & Accepted & Satisfies the requirement for a remo
 \hline
 Electrical Subgroup & Battery & Accepted & A proven, reliable, and decoupled energy source for high-bandwidth actuators and avionics, easily sized for a 30-minute endurance (HUG-OPS-004). \\
 \cline{2-4}
-\multicolumn{1}{|l|}{} & Power Generator & Accepted & Most commercial jet turnbines are able to use their starter motor as an alternator in flight and provide up to 900 Watts of continuous power, which coul support all the subsystems of the aircraft.(HUG-OPS-004) \cite{Reliability_Unmanned_Aerial_Vehicles, raymer1992aircraft}. \\
+\multicolumn{1}{|l|}{} & Power Generator & Accepted & Most commercial jet turbines are able to use their starter motor as an alternator in flight and provide up to 900 Watts of continuous power, which could support all the subsystems of the aircraft (HUG-OPS-004).\footnote{\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/Professionell/P550\%20PRO-S\%20-\%20GH}{JetCat Turbine with Generator} (accessed on 30.04.2026)} \\
 \hline
 
 % --- EMPENNAGE GROUP ---
@@ -82,29 +89,31 @@ Canard Modularity & Static Canard & Outlier & While structurally feasible, a per
 \cline{2-4}
 \multicolumn{1}{|l|}{} & No port & Accepted & Designing a planform which cannot test configurations which include a planform limits the utility of the UAV, however, simplifies design, allows for a lighter structure and increases the overall payload volume, which may be crucial to satisfy the payload requirement, (HUG-STR-015) as well as having low enough drag to satisfy the velocity requirement, (HUG-OPS-005)  \\
 \hline
-Tail Modularity & Static Port & Accepted & Allows swapping of empennage geometries without excessive structural weight or compromising the primary load paths (HUG-STR-003) \cite{Vos}. \\
+Tail Modularity & Static Port & Accepted & Allows swapping of empennage geometries to allow for more varied testing, without excessive structural weight or compromising the primary load paths (HUG-STR-003) \cite{Vos}. \\
 \cline{2-4}
-\multicolumn{1}{|l|}{} & No port & Accepted & Required for flying wing configurations (HUG-STR-017) or specific tailless baseline evaluations \cite{Abramov2014}. \\
+\multicolumn{1}{|l|}{} & No port & Rejected & Required only for flying wing configurations (HUG-STR-017) or specific tailless baseline evaluations, however makes it impossible to test configurations which require a tail. \\
 \cline{2-4}
-\multicolumn{1}{|l|}{} & Static Tail & Accepted & Conventional, highly rigid approach minimizing flutter risks on the tail itself, ensuring clean data collection from the main wing (HUG-STR-005) \cite{livne}. \\
+\multicolumn{1}{|l|}{} & Static Tail & Accepted & Conventional, highly rigid, lightweight approach, ensuring clean data collection from the main wing (HUG-STR-005), but limits versatility of the testing. \cite{livne}. \\
 \hline
 Tail Configs. & T, H, V, Inverted V, Conventional, No tail & Accepted & All represent valid aerodynamic trade-offs between clean airflow (HUG-AER-004), drag limits (HUG-OPS-005), and structural complexity that require configuration based evaluation \cite{Vos, raymer1992aircraft}. \\
 \cline{2-4}
-\multicolumn{1}{|l|}{} & Twin Boom & Rejected & Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing the 50kg budget (HUG-GEN-001) \cite{raymer1992aircraft}. \\
+\multicolumn{1}{|l|}{} & Twin Boom & Rejected & Introduces excessive structural weight and its own complex aeroelastic modes (boom flutter), heavily penalizing versatility. \cite{raymer1992aircraft}. \\
 \hline
 
 % --- WING GROUP ---
 \multicolumn{4}{|c|}{\textbf{Wing Group}} \\
 \hline
-Wing Configs. & Low, Mid, High, Flying Wing & Accepted & Standard configurations offering different balances of payload capacity (HUG-GEN-002, HUG-STR-015), ground effect, and internal volume (HUG-STR-002) \cite{raymer1992aircraft}. \\
+Wing Configs. & Low, Mid, High & Accepted & Standard configurations offering different balances of payload capacity and volume (HUG-GEN-002, HUG-STR-015, HUG-STR-002), and other configuration level trade offs.  \cite{raymer1992aircraft}. \\
+\cline{2-4}
+\multicolumn{1}{|l|}{} & Flying Wing & Outlier & While highly efficient aerodynamically for reaching high subsonic speeds (HUG-OPS-005) \cite{raymer1992aircraft}, its versatility as a testbed is fundamentally limited (HUG-AER-002, HUG-AER-003). The lack of a distinct empennage prevents the testing of many coupled baseline flutter modes (HUG-STR-005) \cite{livne}. Furthermore, mounting an experimental planform on a flying wing requires placing it directly above or below the main body, which introduces severe aerodynamic interference, violating (HUG-AER-004). \\
 \cline{2-4}
 \multicolumn{1}{|l|}{} & Delta & Rejected & Inherently stiff and low-aspect-ratio \cite{raymer1992aircraft}, directly conflicting with the mission to test highly flexible HAR wings (HUG-AER-002) \cite{Ma2024}. \\
 \cline{2-4}
 \multicolumn{1}{|l|}{} & Prandtl Plane & Rejected & The bell-shaped lift distribution introduces aeroelastic behaviors that are too esoteric for a baseline modular testbed aiming to validate standard control systems (HUG-CTL-001) \cite{Bowers2016}. \\
 \hline
-Modularity & Static Port & Accepted & Lightweight method for swapping test articles (HUG-AER-003) at a fixed aerodynamic center, ensuring structural safety factors (HUG-STR-003) \cite{raymer1992aircraft}. \\
+Modularity & Static Port & Accepted & Lightweight and simple method for swapping test articles (HUG-AER-003) at a fixed aerodynamic center. \cite{raymer1992aircraft}. \\
 \cline{2-4}
-\multicolumn{1}{|l|}{} & Variable Port (X) & Accepted & Allowing longitudinal shifting of the wings provides critical flexibility for CG management (HUG-CTL-005) when testing radically different planforms \cite{Vos}. \\
+\multicolumn{1}{|l|}{} & Variable Port (X) & Accepted & Allowing longitudinal shifting of the wings provides flexibility for CG management (HUG-CTL-005) when testing different planforms \cite{Vos}. \\
 \cline{2-4}
 \multicolumn{1}{|l|}{} & Variable Port (Z) & Rejected & Shifting the primary load-bearing wing vertically introduces severe fuselage reinforcement mass penalties (HUG-GEN-001) \cite{raymer1992aircraft}. \\
 \cline{2-4}
@@ -118,13 +127,13 @@ Modularity & Static Port & Accepted & Lightweight method for swapping test artic
 % --- PROPULSION GROUP ---
 \multicolumn{4}{|c|}{\textbf{Propulsion Group}} \\
 \hline
-Mounting Location & Wing-mounted & Accepted & Feasible, though introducing concentrated masses to highly flexible test wings heavily alters specific flutter modes (HUG-STR-005) \cite{livne}. \\
+Mounting Location & Wing-mounted & Accepted & Feasible, though introducing concentrated masses to highly flexible test wings heavily alters specific flutter modes (HUG-STR-005), and complicates the modularity and swapability of the wings (HUG-AER-003). \cite{livne}. \\
 \cline{2-4}
-\multicolumn{1}{|l|}{} & Buried engine & Accepted & Aerodynamically efficient, minimizing drag for high subsonic speeds (HUG-OPS-005), but severely complicates inspection access (HUG-STR-010, HUG-STR-011) \cite{raymer1992aircraft}. \\
+\multicolumn{1}{|l|}{} & Buried engine & Outlier & Aerodynamically efficient, minimizing drag for high subsonic speeds (HUG-OPS-005), however the surface temperatures of jet engines requires having large air gaps around the engine, which complicates the design. \cite{raymer1992aircraft, Shorter2021MicroTurbine}. \\
 \cline{2-4}
 \multicolumn{1}{|l|}{} & Fuselage mounted & Accepted & Centralises mass for stability (HUG-CTL-005) and leaves wings clear for unobstructed HAR testing (HUG-AER-004) \cite{Vos}. \\
 \hline
-Fuel Compat. & SAF-only & Accepted & Strictly complies with the sustainability requirement mandating Sustainable Aviation Fuel usage (HUG-OPS-008) \cite{Wang2024}. \\
+Fuel Compatability. & SAF-only & Accepted & Strictly complies with the sustainability requirement mandating Sustainable Aviation Fuel usage (HUG-OPS-008) \cite{Wang2024}. \\
 \cline{2-4}
 \multicolumn{1}{|l|}{} & SAF Blend & Accepted & Provides operational flexibility during early testing phases while still supporting the transition to sustainability (HUG-OPS-008) \cite{Jarin2024, Kumar2025}. \\
 \cline{2-4}
@@ -132,9 +141,9 @@ Fuel Compat. & SAF-only & Accepted & Strictly complies with the sustainability r
 \hline
 Modularity & Fixed & Accepted & Standard, highly reliable integration (HUG-CTL-006) of the propulsion system, minimizing structural vibration coupling (HUG-STR-013) \cite{Prakash2016DynamicFoundation, Alhazmi2025CoolingFanVibration}. \\
 \cline{2-4}
-\multicolumn{1}{|l|}{} & Quick Swappable & Rejected & The complexity of hot-swappable thrust-bearing mounts adds unacceptable risk and structural weight (HUG-GEN-001) \cite{Reliability_Unmanned_Aerial_Vehicles}. \\
+\multicolumn{1}{|l|}{} & Quick Swappable & Rejected & The complexity of hot-swappable thrust-bearing mounts adds unacceptable risk and structural weight (HUG-GEN-001). This goes agains the recommendation to implement intrinsic reliability in the design of UAVs. \cite{Reliability_Unmanned_Aerial_Vehicles}. \\
 \hline
-Fuel Tank Loc. & Wing and Fuselage & Accepted & Maximizes fuel capacity to ensure the 30-minute endurance requirement (HUG-OPS-004), though plumbing to flexible wings is highly complex \cite{Vos}. \\
+Fuel Tank Loc. & Wing and Fuselage & Outlier & Maximizes fuel capacity to ensure the 30-minute endurance requirement (HUG-OPS-004), though plumbing to flexible wings is highly complex \cite{Vos}. \\
 \cline{2-4}
 \multicolumn{1}{|l|}{} & Fuselage Only & Accepted & Keeps CG stable (HUG-CTL-005) and allows test wings to remain slender without internal tankage constraints, crucial for HAR designs (HUG-AER-002, HUG-STR-009) \cite{Ma2024}. \\
 \cline{2-4}
@@ -158,6 +167,120 @@ Structure & Retractable & Accepted & Essential for reducing parasitic drag to ac
 
 
 
+\section{Generation of Preliminary Configuration Concepts}
+\label{sec:prelim_config_concepts}
+Now that the design option tree has been screened to only allow for plausible subsystem options, some possible configurations can be generated to be evaluated holistically. If every accepted option in the DOT were combined, it would result in thousands of potential aircraft concepts, which would be impractical to evaluate. In order to narrow down the subsystems being evaluated, the configurations were built without the architecture-independent features.
+
+\subsection{Shortlisting Configurations}
+Subsystems such as avionics, construction materials, and fuel compatibility were omitted from the configuration generation, as these choices are largely independent of the main system architecture and can be integrated within most configurations.
+
+Therefore, to generate a focused and meaningful set of aircraft configurations, the primary aerodynamic and structural layout drivers were isolated, using the subsystems presented in \autoref{tab:configuration_design_options} 
+
+
+\begin{table}[H]
+    \centering
+    \caption{Configuration Design Options}
+    \label{tab:configuration_design_options}
+    \begin{tabular}{|l|p{12.5cm}|}
+        \hline
+        \textbf{Design category} & \textbf{Options} \\ \hline \hline
+        Wing & Low, Mid, High, Flying Wing \\ \hline
+        Empennage & T-tail, H-tail, Conventional, V-tail, Inverted V-tail, Canard, No tail, Variable Mounting \\ \hline
+        Propulsion mounting & Fuselage Mounted, Buried, Wing Mounted \\ \hline
+        Undercarriage & Skids, Retractable gear \\ \hline
+    \end{tabular}
+\end{table}
+By systematically iterating through a morphological matrix of these specific parameters, an initial set of 20 distinct aircraft configurations was generated. During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the configurations realistic. For example, a Flying Wing configuration inherently dictates a No Tail criterion. The 20 configurations have been tabulated in \autoref{Aircraft_Configurations_Table}
+
+\begin{longtable}{|c|c|c|p{2.5cm}|p{4cm}|}
+    \caption{Preliminary Aircraft Design Configurations} \label{Aircraft_Configurations_Table} \\
+    
+    \hline
+    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \hline\hline
+    \endfirsthead
+
+    \hline
+    \textbf{Config. ID} & \textbf{Wing} & \textbf{Propulsion} & \textbf{Empennage} & \textbf{Undercarriage} \\
+    \hline\hline
+    \endhead
+
+    \hline
+    \multicolumn{5}{r}{\textit{Continued on next page}} \\
+    \endfoot
+
+    \hline
+    \endlastfoot
+
+    HUG-CFG-01 & Low wing & Fuselage mounted & Variable Tail Mounting & Retractable gear \\
+    \hline
+    HUG-CFG-02 & Low wing & Fuselage mounted & T-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-03 & Low wing & Fuselage mounted & H-tail & Retractable gear \\
+    \hline
+    HUG-CFG-04 & Low wing & Fuselage mounted & H-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-05 & Low wing & Fuselage mounted & V-tail & Retractable gear \\
+    \hline
+    HUG-CFG-06 & Low wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-07 & Low wing & Fuselage mounted & Canard & Retractable gear \\
+    \hline
+    HUG-CFG-08 & Low wing & Fuselage mounted & Inverted V-tail & Retractable gear \\
+    \hline
+    HUG-CFG-09 & Low wing & Wing Mounted & Conventional tail & Retractable gear \\
+    \hline
+    HUG-CFG-10 & Flying wing & Buried engine & No tail & Retractable gear \\
+    \hline
+    HUG-CFG-11 & Flying wing & Buried engine & No tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-12 & Flying wing & Fuselage mounted & No tail & Retractable gear \\
+    \hline
+    HUG-CFG-13 & Flying wing & Fuselage mounted & No tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-14 & Mid wing & Fuselage mounted & H-tail & Retractable gear \\
+    \hline
+    HUG-CFG-15 & Mid wing & Fuselage mounted & Canard & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-16 & High wing & Fuselage mounted & V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-17 & High wing & Fuselage mounted & Variable Tail Mounting & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-18 & High wing & Wing Mounted & T-tail & Retractable gear \\
+    \hline
+    HUG-CFG-19 & High wing & Fuselage mounted & Inverted V-tail & Skids (Belly landing / Rail launched) \\
+    \hline
+    HUG-CFG-20 & High wing & Wing Mounted & Conventional tail & Retractable \\
+    \hline
+
+\end{longtable}
+
+
+In order to narrow down the 20 configurations to a shortlist, first, several architectural branches were systematically eliminated due to inherent conflicts with the testbed's primary mission:
+
+\begin{itemize}
+    \item \textbf{Mid-Wing Configurations (HUG-CFG-14, HUG-CFG-15)} Eliminated primarily due to internal packaging constraints. The structural carry-through box of a mid-wing design heavily obstructs the continuous internal volume required for the payload, as stated in  \textbf{HUG-STR-017}. Furthermore, it does not offer distinct aerodynamic advantages over a high or low-wing configuration to justify the harder structural integration and the necessary reinforcements\cite{raymer1992aircraft}.
+    
+    \item \textbf{Canard Configurations (HUG-CFG-07, HUG-CFG-15)} Discarded due to aerodynamic interference (\textbf{HUG-AER-004}).\cite{lopes2005canard} A forward canard generates downwash and a turbulent wake that affects the main wing. Because the core objective of this flying laboratory is to capture clean aeroelastic and flutter data from the main wing, upstream flow disturbances are unacceptable. Additionally, canards are less representative of the future commercial transport architectures this project aims to emulate.
+    
+    \item \textbf{High-Wing with Fuselage-Mounted Propulsion (HUG-CFG-16, HUG-CFG-17, HUG-CFG-19)} Eliminated due to aerodynamic and structural integration challenges. If the turbine is mounted on the aft fuselage sides, the intakes risk ingesting the turbulent wake generated by the high wing, degrading engine performance. Additionally, an engine placed above the fuselage introduces structural interference with the high wing's carry-through box and modular mounting mechanisms\cite{raymer1992aircraft}. While physically feasible, these conflicts make the high-wing architecture fundamentally inferior to the low-wing alternatives for this specific propulsion setup.
+    
+    \item \textbf{Wing-Mounted Propulsion (HUG-CFG-9, HUG-CFG-18, HUG-CFG-20)} Eliminated due to strict versatility and aeroelastic constraints. The drone is required to facilitate the testing of highly flexible, swappable HAR wings. The wings are considered the test structure, as such, mounting engines on them would introduce inertial and torsional coupling that would interfere with the aeroelastic data. This design also contradicts the modularity requirement(\textbf{HUG-AER-003}).
+    
+    %Hard-mounting a jet engine directly to these flexible test articles introduces massive inertial and torsional coupling that would corrupt the baseline flutter data, while simultaneously violating the requirement for wing modularity and versatility.
+\end{itemize}
+
+
+\subsection{Identification of Concepts}
+Many of the remaining configurations share fundamental aerodynamic and structural characteristics, allowing them to be grouped into families based on similarities. To avoid redundant analysis during the detailed trade-off phase, these families were evaluated to identify a few optimal representative configurations for each. This down-selection process effectively narrowed the field from 20 permutations to the following candidate architectures:
+
+\begin{itemize}
+    \item \textbf{HUG-CFG-01 (Low Wing, Variable Tail Mounting, Retractable Gear):} Selected to serve as a versatile baseline model. This configuration can closely mirror standard transport aircraft designs while being adaptable to esoteric designs as well. Therefore, the aeroelastic and flutter data collected will be highly relevant and scalable to the commercial planes the testbed is designed to emulate. This configuration can also allow for the testing of an experimental wing at the canard mounting position while retaining  
+    
+    \item \textbf{HUG-CFG-08 (Low Wing, Inverted V-Tail, Retractable Gear):} This architecture was selected primarily for its clean upper aerodynamic surface. The inverted V-tail keeps the empennage clear of the upper fuselage, providing an unobstructed region to mount a test airfoil. This allows experimental wings to be tested while retaining a stable and optimized wing planform.
+    
+    \item \textbf{HUG-CFG-10 \& HUG-CFG-11 (Flying Wing, Buried Engine):} Selected for their exceptionally low parasitic drag profile \cite[p.~74]{raymer1992aircraft}. This high aerodynamic efficiency ensures the aircraft can easily and reliably reach the high Mach numbers necessary to trigger aeroelastic phenomena during flight testing. Both landing gear variants (retractable gear in Config 10 and skids in Config 11) are retained for further evaluation in the mid-term trade-off.
+\end{itemize}
 
 
 
