@@ -179,17 +179,20 @@ Therefore, to generate a focused and meaningful set of aircraft configurations, 
 
 \begin{table}[H]
     \centering
-    \caption{Configuration Design Options}
+    \caption{Configuration Design Options (Accepted Concepts)}
     \label{tab:configuration_design_options}
-    \begin{tabular}{|l|p{12.5cm}|}
+    \renewcommand{\arraystretch}{1.2} % Slightly increased spacing for readability
+    \begin{tabular}{|l|p{11.5cm}|}
         \hline
         \textbf{Design category} & \textbf{Options} \\ \hline \hline
-        Wing & Low, Mid, High, Flying Wing \\ \hline
-        Empennage & T-tail, H-tail, Conventional, V-tail, Inverted V-tail, Canard, No tail, Variable Mounting \\ \hline
-        Propulsion mounting & Fuselage Mounted, Buried, Wing Mounted \\ \hline
-        Undercarriage & Skids, Retractable gear \\ \hline
+        Empennage: Tail Modularity & Static Port, Permanent Tail \\ \hline
+        Empennage: Tail Configuration & T-tail, H-tail, Conventional tail, V-tail, Inverted V-tail, Canard \\ \hline
+        Empennage: Canard Modularity & Static Port, Variable Port, No port \\ \hline
+        Wing: Configuration & Low wing, Mid wing, High wing \\ \hline
+        Wing: Modularity & Static Port, Permanent wing, Variable Port (X) \\ \hline
     \end{tabular}
 \end{table}
+
 By systematically iterating through a morphological matrix of these specific parameters, an initial set of 20 distinct aircraft configurations was generated. During this combination process, inherent physical and aerodynamic incompatibilities were immediately filtered out to keep the configurations realistic. For example, a Flying Wing configuration inherently dictates a No Tail criterion. The 20 configurations have been tabulated in \autoref{Aircraft_Configurations_Table}
 
 \begin{longtable}{|c|c|c|p{2.5cm}|p{4cm}|}
