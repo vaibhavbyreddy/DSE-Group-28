@@ -30,6 +30,7 @@ jobs:
             "69e618b4816cad2a1aae230a project_plan"
             "69e729087b819a8573d53578 baseline_report"
             "69ee398cd816238aa2a591b0 project_plan_revised"
+            "69f463e0a70e24818cb590cd midterm_report"
           )
           
           for entry in "${PROJECTS[@]}"; do
