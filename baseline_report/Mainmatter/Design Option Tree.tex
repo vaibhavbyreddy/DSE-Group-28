@@ -126,7 +126,7 @@ Modularity & Static Port & Accepted & Lightweight and simple method for swapping
 % --- PROPULSION GROUP ---
 \multicolumn{4}{|c|}{\textbf{Propulsion Group}} \\
 \hline
-Mounting Location & Wing-mounted & CCF & Introducing concentrated masses to highly flexible test wings heavily alters specific flutter modes (HUG-STR-005), and complicates the modularity and swapability of the wings (HUG-AER-003). \cite{livne}. \\
+Mounting Location & Wing-mounted & CCF & Introducing concentrated masses to highly flexible test wings would heavily alter specific flutter modes (HUG-STR-005), and it would also complicate the modularity and exchangeability of the wings (HUG-AER-003) \cite{livne}. This concept was originally considered as it would be a  representation of what future commercial transportation aircraft are assumed to look like \cite{Aerodynamic_Analysis}. \\
 \cline{2-4}
 \multicolumn{1}{|l|}{} & Buried engine & CCF & Aerodynamically efficient, minimizing drag for high subsonic speeds (HUG-OPS-005), however the surface temperatures of jet engines requires having large air gaps around the engine, which complicates the design. \cite{raymer1992aircraft, Shorter2021MicroTurbine}. \\
 \cline{2-4}
@@ -188,7 +188,7 @@ Stage 1 focuses exclusively on defining the optimal level of modularity for the 
     \end{tabular}
 \end{table}
 
-By systematically combining these accepted modularity parameters, five distinct structural architectures were generated. These configurations range from the bare minimum modularity required to fulfil the mission objectives, to fully swappable architectures that maximize testing versatility. These options are detailed in \autoref{tab:Modularity_Configurations_Table}.
+By systematically combining these accepted modularity parameters, eight distinct structural architectures were generated. These configurations range from the bare minimum modularity required to fulfil the mission objectives, to fully swappable architectures that maximize testing versatility. These options are detailed in \autoref{tab:Modularity_Configurations_Table}.
 
 \begin{table}[H]
     \centering
@@ -203,16 +203,22 @@ By systematically combining these accepted modularity parameters, five distinct 
         \hline
         HUG-CFG-102 & Static Port & No port & Static Port & Accepted \\
         \hline
-        HUG-CFG-103 & Static Port & Static Port & Static Port & Accepted \\
+        HUG-CFG-103 & Static Port & Static Port & Permanent & Rejected \\
         \hline
-        HUG-CFG-104 & Variable Port (X) & Static Port & Static Port & Accepted \\
+        HUG-CFG-104 & Static Port & Static Port & Static Port & Accepted \\
         \hline
-        HUG-CFG-105 & Variable Port (X) & No Port & Static Port & Accepted \\
+        HUG-CFG-105 & Variable Port (X) & Static Port & Permanent & Rejected \\
+        \hline
+        HUG-CFG-106 & Variable Port (X) & Static Port & Static Port & Accepted \\
+        \hline
+        HUG-CFG-107& Variable Port (X) & No Port & Permanent & Rejected \\
+        \hline
+        HUG-CFG-108 & Variable Port (X) & No Port & Static Port & Accepted \\
         \hline
     \end{tabular}
 \end{table}
 
-Of these 5 modularity configurations, HUG-CFG-101 is infeasible due to its lack of any adjustability, besides the planform itself. HUG-CFG-102, HUG-CFG-103, HUG-CFG-104 and HUG-CFG-105 offer varying levels of configurability. Not having the ability to adjust the longitudinal position of the wing would require shifting the CG of the craft using a ballast to maintain stability, which would incur a weight penalty, but might be better than designing a structure capable of moving the wing location, so it must be considered further.
+From these modularity configurations, HUG-CFG-101, HUG-CFG-103, HUG-CFG-105, HUG-CFG-107 are not feasible due to a lack of tail adaptability. Having a permanent tail would significantly limit the flight envelopes, aircraft configurations, and stability conditions that could be analysed by researchers. HUG-CFG-102, HUG-CFG-104, HUG-CFG-106 and HUG-CFG-108 offer varying levels of configurability. Not having the ability to adjust the longitudinal position of the wing would require shifting the CG of the craft using a ballast to maintain stability, which would incur a weight penalty, but might be better than designing a structure capable of moving the wing location, so it must be considered further.
 
 \subsection{Stage 2: Aerodynamic Layout and Integration}
 \label{sec:stage_2_integration}
