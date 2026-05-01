@@ -196,19 +196,19 @@ By systematically combining these accepted modularity parameters, five distinct 
     \caption{Stage 1: Preliminary Modularity Configurations}
     \label{tab:Modularity_Configurations_Table}
     \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{|c|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
+    \begin{tabular}{|c|p{3.2cm}|p{3.2cm}|p{3.2cm}|c|}
         \hline
-        \textbf{Config. ID} & \textbf{Wing Modularity} & \textbf{Canard Modularity} & \textbf{Tail Modularity} \\
+        \textbf{Config. ID} & \textbf{Wing Modularity} & \textbf{Canard Modularity} & \textbf{Tail Modularity} & \textbf{Verdict} \\
         \hline\hline
-        HUG-CFG-101 & Static Port & No port & Permanent \\
+        HUG-CFG-101 & Static Port & No port & Permanent & Rejected \\
         \hline
-        HUG-CFG-102 & Static Port & No port & Static Port \\
+        HUG-CFG-102 & Static Port & No port & Static Port & Accepted \\
         \hline
-        HUG-CFG-103 & Static Port & Static Port & Static Port \\
+        HUG-CFG-103 & Static Port & Static Port & Static Port & Accepted \\
         \hline
-        HUG-CFG-104 & Variable Port (X) & Static Port & Static Port \\
+        HUG-CFG-104 & Variable Port (X) & Static Port & Static Port & Accepted \\
         \hline
-        HUG-CFG-105 & Variable Port (X) & No Port & Static Port \\
+        HUG-CFG-105 & Variable Port (X) & No Port & Static Port & Rejected \\
         \hline
     \end{tabular}
 \end{table}
@@ -235,33 +235,54 @@ As a result of this pre-screening, the driving parameters were successfully isol
     \end{tabular}
 \end{table}
 
-These options were permuted to arrive at 6 options, as detailed in \autoref{tab:Stage2_Configurations_Table}. From these, some options can be pruned out for infeasibility or due to lack of merit. HUG-CFG-202 was rejected since low mounted wings are incompatible with 
+These options were permuted to arrive at 6 options, as detailed in \autoref{tab:Stage2_Aero_Configurations_Table}. From these, some options can be pruned out for infeasibility or due to lack of merit. HUG-CFG-202 was rejected since low mounted wings are incompatible with skid landing, due to the inevitability of wing strikes during landing, especially considering the aircraft could be configured with high aspect ratio, flexible wings. Additionally, mid-wing configurations were eliminated because the required structural carry-through box obstructs the continuous internal fuselage volume needed for the payload, while simultaneously making the integration of a structurally sound, variable-wing mount much more difficult to integrate. Since fuselage mounted propulsion is the only remaining option in the tree, a high wing concept would result in the engines ingesting the wake from the wings, diminishing their performance. This leaves us with only one option from stage 2, namely, HUG-CFG-201.
 
 \begin{table}[H]
     \centering
     \caption{Stage 2: Initial Aerodynamic and Geometric Permutations}
     \label{tab:Stage2_Aero_Configurations_Table}
     \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{|c|p{4cm}|p{4cm}|}
+    \begin{tabular}{|c|p{4cm}|p{4cm}|c|}
         \hline
-        \textbf{Aero Config. ID} & \textbf{Wing Position} & \textbf{Undercarriage} \\
+        \textbf{Aero Config. ID} & \textbf{Wing Position} & \textbf{Undercarriage} & \textbf{Verdict} \\
         \hline\hline
-        HUG-CFG-201 & Low Wing & Retractable Gear \\
+        HUG-CFG-201 & Low Wing & Retractable Gear & Accepted \\
         \hline
-        HUG-CFG-202 & Low Wing & Skids  \\
+        HUG-CFG-202 & Low Wing & Skids & Rejected \\
         \hline
-        HUG-CFG-203 & Mid Wing & Retractable Gear \\
+        HUG-CFG-203 & Mid Wing & Retractable Gear & Rejected \\
         \hline
-        HUG-CFG-204 & Mid Wing & Skids  \\
+        HUG-CFG-204 & Mid Wing & Skids & Rejected \\
         \hline
-        HUG-CFG-205 & High Wing & Retractable Gear \\
+        HUG-CFG-205 & High Wing & Retractable Gear & Rejected \\
         \hline
-        HUG-CFG-206 & High Wing & Skids  \\
+        HUG-CFG-206 & High Wing & Skids & Rejected \\
         \hline
     \end{tabular}
 \end{table}
 
-While this matrix maps out the complete theoretical bounds of the accepted design options, many of these 18 permutations contain inherent physical conflicts or redundant structural penalties. In order to narrow down the configurations to a highly optimized shortlist for the detailed mid-term trade-off, a qualitative coarse filter was applied to eliminate incompatible subsystem pairings.
+Now, we can combine this configuration from stage 2, with all the configurations from stage 1 to arrive at the final set of configurations to analyse further. These configurations are listed in \autoref{tab:Final_Candidate_Architectures}
+
+\begin{table}[H]
+    \centering
+    \caption{Final Integrated Candidate Architectures for Detailed Trade-Off}
+    \label{tab:Final_Candidate_Architectures}
+    \renewcommand{\arraystretch}{1.3}
+    \resizebox{\textwidth}{!}{% Scales table to fit the page width if it gets too wide
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Config. ID} & \textbf{Wing Modularity} & \textbf{Canard Mod.} & \textbf{Tail Mod.} & \textbf{Wing Position} & \textbf{Undercarriage} & \textbf{Propulsion} & \textbf{Fuel Tank} \\
+        \hline\hline
+        HUG-CFG-301 & Static Port & No port & Static Port & Low Wing & Retractable Gear & Fuselage Mounted & Fuselage Only \\
+        \hline
+        HUG-CFG-302 & Static Port & Static Port & Static Port & Low Wing & Retractable Gear & Fuselage Mounted & Fuselage Only \\
+        \hline
+        HUG-CFG-303 & Variable Port (X) & Static Port & Static Port & Low Wing & Retractable Gear & Fuselage Mounted & Fuselage Only \\
+        \hline
+    \end{tabular}
+    }
+\end{table}
+
 
 
 
