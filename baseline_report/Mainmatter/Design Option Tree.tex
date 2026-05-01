@@ -24,7 +24,7 @@ From this analysis, the drone architecture was narrowed down to a conventional f
 
 \section{Subsystem Design Option Tree}
 \label{sec:design_option_tree}
-Having established a conventional fixed-wing approach, a second detailed DOT was generated. Unlike the top-level selection, this fixed-wing tree acts as an "AND Tree," where valid configurations are built by combining accepted options from each fundamental subsystem group (Fuselage, Empennage, Wing, Propulsion, and Undercarriage). 
+Having established a conventional fixed-wing approach, a second detailed DOT was generated. Unlike the top-level selection, this fixed-wing tree acts as an "AND Tree" where valid configurations are built by combining accepted options from each fundamental subsystem group (Fuselage, Empennage, Wing, Propulsion, and Undercarriage). 
 
 \begin{itemize}
     \item \textbf{Rejected Concepts (Red):} Options eliminated by unanimous group consensus. Rejections were strictly based on obvious technical infeasibility or direct conflicts with the top-level project requirements.
@@ -225,7 +225,7 @@ From these modularity configurations, HUG-CFG-101, HUG-CFG-103, HUG-CFG-105, HUG
 
 Stage 2 of the configuration selection focusses on the rest of the options of the tree which drive the design. Since the fuselage and skin materials cannot be decided upon at this stage, and branches such as propulsion mounting, location and undercarriage mounting location have been narrowed down to one option each, they need not be considered here. Additionally the tail configuration no longer needs to be decided, since all the modularity configurations include the ability to swap the tail section to whichever configuration is most suitable for the mission.  
 
-As a result of this pre-screening, the driving parameters were successfully isolated to just two categories: Wing Vertical Position and Undercarriage type.
+As a result of this pre-screening, the driving parameters were successfully isolated to just two categories: Wing Vertical Position and Undercarriage type, as shown in \autoref{tab:stage2_design_options}.
 
 \begin{table}[H]
     \centering
@@ -240,7 +240,7 @@ As a result of this pre-screening, the driving parameters were successfully isol
     \end{tabular}
 \end{table}
 
-These options were permuted to arrive at 6 options, as detailed in \autoref{tab:Stage2_Aero_Configurations_Table}. From these, some options can be pruned out for infeasibility or due to lack of merit. HUG-CFG-202 was rejected since low mounted wings are incompatible with skid landing, due to the inevitability of wing strikes during landing, especially considering the aircraft could be configured with high aspect ratio, flexible wings. Additionally, mid-wing configurations were eliminated because the required structural carry-through box obstructs the continuous internal fuselage volume needed for the payload, while simultaneously making the integration of a structurally sound, variable-wing mount much more difficult to integrate. Since fuselage mounted propulsion is the only remaining option in the tree, a high wing concept would result in the engines ingesting the wake from the wings, diminishing their performance. This leaves us with only one option from stage 2, namely, HUG-CFG-201.
+These options were permuted to arrive at 6 options, as detailed in \autoref{tab:Stage2_Aero_Configurations_Table}. From these, most options can be pruned out for infeasibility or due to lack of merit. HUG-CFG-202 was rejected since low mounted wings are incompatible with skid landing, due to the inevitability of wing strikes during landing, especially considering the aircraft could be configured with high aspect ratio, flexible wings. Additionally, mid-wing configurations HUG-CFG-203 and HUG-CFG-204 were eliminated because a mid-mounted central wingbox would disrupt a continuous internal cavity for possible payload bays, fuel tanks, or internal components. Since fuselage mounted propulsion is the only remaining option in the tree, high wing concepts HUG-CFG-205 and HUG-CFG-206 would result in the engines ingesting the wake from the wings, diminishing their performance. This leaves us with only one option from stage 2, namely, HUG-CFG-201.
 
 \begin{table}[H]
     \centering
@@ -266,28 +266,28 @@ These options were permuted to arrive at 6 options, as detailed in \autoref{tab:
     \end{tabular}
 \end{table}
 
-Now, we can combine this configuration from stage 2, with all the configurations from stage 1 to arrive at the final set of configurations to analyse further. These configurations are listed in \autoref{tab:Final_Candidate_Architectures}
+Now, we can combine this configuration from stage 2, with all the configurations from stage 1 to arrive at the final set of configurations to analyse further, as shown in \autoref{tab:Final_Candidate_Architectures}. Note that all of the configurations feature a low wing, retractable landing gear, fuselage-mounted fuel tanks, and fuselage-mounted engines. The main difference lies in the modularity, which is dependent on the types of ports for the wing, canard, and tail.
 
 \begin{table}[H]
     \centering
     \caption{Final Integrated Candidate Architectures for Detailed Trade-Off}
     \label{tab:Final_Candidate_Architectures}
     \renewcommand{\arraystretch}{1.3}
-    \resizebox{\textwidth}{!}{% Scales table to fit the page width if it gets too wide
-    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+    %\resizebox{\textwidth}{!}{% Scales table to fit the page width if it gets too wide
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        \textbf{Config. ID} & \textbf{Wing Mod.} & \textbf{Canard Mod.} & \textbf{Tail Mod.} & \textbf{Wing Position} & \textbf{Undercarriage} & \textbf{Propulsion} & \textbf{Fuel Tank} \\
+        \textbf{ID} & \textbf{Wing Modularity} & \textbf{Canard Modularity} & \textbf{Tail Modularity}    \\
         \hline\hline
-        HUG-CFG-301 & Static Port & No port & Static Port & Low Wing & Retractable Gear & Fuselage Mounted & Fuselage Only \\
+        HUG-CFG-301 & Static Port & No Port & Static Port   \\
         \hline
-        HUG-CFG-302 & Static Port & Static Port & Static Port & Low Wing & Retractable Gear & Fuselage Mounted & Fuselage Only \\
+        HUG-CFG-302 & Static Port &  Static Port & Static Port  \\
         \hline
-        HUG-CFG-303 & Variable Port (X) & Static Port & Static Port & Low Wing & Retractable Gear & Fuselage Mounted & Fuselage Only \\
+        HUG-CFG-303 & Variable Port (X) & Static Port &  Static Port  \\
         \hline
-        HUG-CFG-304 & Variable Port (X) & No Port & Static Port & Low Wing & Retractable Gear & Fuselage Mounted & Fuselage Only \\
+        HUG-CFG-304 & Variable Port (X) & No Port &  Static Port \\
         \hline
     \end{tabular}
-    }
+    
 \end{table}
 
 \clearpage
