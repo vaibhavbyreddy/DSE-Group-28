@@ -1,0 +1,214 @@
+\chapter{Resource Allocation}
+
+Resource allocation transforms the project objectives into a practical plan for execution by assigning the available time, personnel, budget and technical means to the activities required for the baseline phase. Its purpose is to ensure that the effort of the team is distributed in a structured and realistic manner, such that the major deliverables can be completed within the constraints of the project requirements. This chapter identifies the key resources available to the team, explains how these resources are divided across the main work packages, and highlights the rationale behind this distribution in view of project priorities, dependencies and expected workload.
+
+\section{Identifying The Available Budget}
+In this section, the general resources are identified and categorised, as such, a structure of the available budget can be made so that tracking each resource is possible. The budget originates from the restrictions set by the requirements, technical limitations and human availability. The structure of the resource allocation is based on the flow created by IBM \footnote{\href{https://www.ibm.com/think/topics/resource-allocation}{IBM Resouce Allocation}(accessed on 24.04.2026)}.
+The critical areas with a finite budget are:
+
+\begin{itemize}
+    \item Centre of gravity location (CG location)
+    \item Communication link budget
+    \item Mass
+    \item Aircraft dimensions
+    \item Internal dimensions
+    %\item Thrust 
+    \item Fuel budget
+    \item Power from the battery
+\end{itemize}
+
+
+
+\subsection{Centre of Gravity (CG) Location}
+The CG range of an aircraft is crucial for its stability and controllability limits. An unbalanced vehicle cannot guarantee safety or functionality during operations. The specific margins of stability and controllability will be subject to change based on the payload and desired test conditions. The specific CG range can be evaluated based on the following:
+\begin{itemize}
+    \item Longitudinal position of the wing w. r. t. the fuselage,
+    \item Tail size and position,
+    \item Distribution and location of on-board systems,
+    \item Distribution and location of payload,
+    \item Location of fuel tanks and batteries,
+    \item Location and configuration of landing gears,
+    \item Implementation of a control system for the fuel flow.
+\end{itemize}
+
+Verifying the CG position against the allowable limits can be done with the use of a scissor plot combining the stability and controllability curves, which in turn defines the required tail size and longitudinal wing position. The process can be iterated until a balanced design is achieved that can operate within the desired stability and controllability limits.
+
+\subsection{Communication Link}
+An analysis of the link budget is required to ensure communication with the UAV can be performed successfully during all operations. The main design considerations stem from mission range and endurance, as well as operating conditions of the UAV. In particular, the following parameters are used to define the communication link budget:
+\begin{itemize}
+    \item Power available (supplied by batteries),
+    \item Transmitter/Receiver power,
+    \item Maximum UAV range during operations,
+    \item Maximum UAV velocity,
+    \item Available volume and internal component arrangement.
+\end{itemize}
+
+The nominal mission will last 30 minutes, with the test phase accounting for 5 minutes of the total time. The speed a the test-phase will be 0.75 mach. At this speed, keeping a clear and low-latency communication link will be the main requirement that will drive the design of the communication system.
+
+
+
+
+\subsection{Mass}
+Mass is a restricted resource that must be monitored throughout the development process. This constrain is derived from the stakeholder requirement (\textbf{GEN-001}), limiting the mass of the drone to 50 kg. This maximum design mass includes the imposed minimum internal load capacity of 5 kg (\textbf{GEN-003}), onboard fuel, and all aircraft subsystems.
+The mass is further constrained by the propulsion system. From the requirements, it is known that one engine weighs 2.1 kg, and if the design requires 2 such power plants, a total of 4.2 kg is allocated to this system. Accounting for the mass of cables and hoses needed, it would result in a combined mass of 5 kg.\\
+The rest of the mass is allocated towards the rest of the components that completes the drone. The remaining 40kg are allocated towards:
+
+% Mass is a constrained resource that must be monitored throughout the development process. This constraint is derived from the stakeholder requirement limiting the UAV to a maximum mass of \SI{50}{kg}. This maximum design mass includes the imposed minimum internal payload capacity of \SI{5}{kg}, the onboard fuel, and all aircraft subsystems.
+
+% The mass budget is further constrained by the propulsion system. According to the requirement specifications, one engine has a mass of \SI{2.1}{kg}. If the aircraft requires two such power plants, the engines alone would account for \SI{4.2}{kg}. Including the additional mass of cables, hoses, mounts and auxiliary components, the total propulsion-system mass is expected to be approximately \SI{5}{kg}.
+
+
+\begin{itemize}
+    \item Fuel 
+    \item Wings assembly
+    \item Fuselage assembly
+    \item Tail assembly
+    \item Internal battery assembly
+\end{itemize}
+
+Although the power plant is installed within the fuselage, its mass is treated as a separate contribution from the fuselage assembly. The fuselage mass budget therefore, includes the structural shell, internal supports, and fuel tanks, but excludes both the propulsion-system mass and the fuel mass itself. Cables and connectors used to transfer power from the battery to the payload are considered in the battery assembly. 
+
+% Although the power plant is installed within the fuselage, its mass is treated as a separate contribution from the fuselage assembly. The fuselage mass budget therefore includes the structural shell, internal supports, and fuel tanks, but excludes both the propulsion-system mass and the fuel mass itself. Similarly, the cables and connectors required to transfer electrical power from the battery to the payload are allocated to the battery assembly rather than to the payload or fuselage mass budgets.
+
+The general idea of modularity will permit customers to modify the allocation of mass to comply with the user test case. Mass is coupled with the location of the centre of mass, as such, both resources have to be closely monitored together. 
+
+
+\subsection{Aircraft dimensions} 
+There is a set restriction for the outer dimensions of the aircraft set by the requirement that it and all necessary equipment to operate it should fit inside a van. This is something that should be taken into consideration while designing the plane. 
+
+To ensure a more sustainable transport of the aircraft the electric Renault master E-tech L3H2 variant was chosen as reference van \footnote{\href{https://business.renault.co.uk/master-range/master-panel-van.html}{Renault Master Van}(accessed on 24.04.2026)}. 
+\begin{table}[H]
+    \centering
+    \caption{Renault Master E-Tech L3H2 Loading Specifications}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Specification} & \textbf{Value} \\
+        \hline
+        \multicolumn{2}{|l|}{\textbf{Loading Area — Panel Van L3H2}} \\
+        \hline
+        Usable length & 3733 mm \\
+        \hline
+        Usable length at 1.1 m & 3680 mm \\
+        \hline
+        Usable width & 1765 mm \\
+        \hline
+        Usable height & 1894 mm \\
+        \hline
+        \multicolumn{2}{|l|}{\textbf{Sliding Side Door(s)}} \\
+        \hline
+        Width of sliding side door(s) & 1270 mm \\
+        \hline
+        Height of sliding side door(s) & 1780 mm \\
+        \hline
+        \multicolumn{2}{|l|}{\textbf{Rear Door}} \\
+        \hline
+        Width (169 mm from floor) & 1580 mm \\
+        \hline
+        Entrance height & 1820 mm \\
+        \hline
+        Cargo threshold (min/max) & 543/557 mm \\
+        \hline
+        Loading volume & 13 m$^3$ \\
+        \hline
+    \end{tabular}
+    \label{tab:renault_master_specs}
+\end{table}
+Optimizing the packing of the disassembled aircraft might becomes necessary on later stages in the design process.
+
+
+\subsection*{Internal dimensions}
+For the aircraft to function as intended several components needs to be present within the aircraft: 
+\begin{itemize}
+    \item Fuel tanks and fuel system
+    \item Engine system
+    \item Communication system 
+    \item Onboard computer
+    \item Payload
+    \item Power system
+\end{itemize}
+Not only does the aircraft need to accommodate all of these systems but some of the components will be highly location dependent (for example the engine system). This is all something that must be taken into account when designing the aircraft.   
+
+
+
+
+\subsection{Fuel Budget}
+The amount of fuel onboard the plane has to be enough to sustain the 30-minute flight requirement (25 min cruise and 5 min testing), along with facilitating the take-off and landing procedures. In addition to the mandatory mission segments, the drone requires a reserve of fuel to allow loitering for a period of 5 minutes, as stated by \textbf{OPS-004}.
+
+As stated in \autoref{tab:system_requirements}, requirement \textbf{SUS-001}, the drone will use SAF (sustainable aviation fuel) as a fuel source. During the design process of the propulsion and fuel systems, a choice on the type of fuel has to be made.
+The primary factors that influence the fuel consumption, and as such the fuel required are:
+\begin{itemize}
+    \item Mass of the drone
+    \item Consumption of the engine
+    \item Altitude of operation
+\end{itemize}
+
+\subsection{Power available}
+An analysis of the internal payload and electronic subsystem revealed the necessity of a battery. This raises the need for a power budget, as a bigger battery will take from the mass budget of other subsystems. The battery will be part of the base drone and will not count towards the payload mass. It will have a specific power available that the payload can access.
+The main parts that affect the power of the battery are:
+
+\begin{itemize}
+    \item Communication system
+    \item Power plant system
+    \item Payload
+    \item Internal electric system of the drone
+\end{itemize}
+
+\subsection{Human factor}
+For the completion of the design phase, a team of 10 people is employed. They are further separted into 4 departments that will work alongside each other, promoting concurrent engineering. This method is used by Airbus \cite{Airbus_Concurent}, and has proven to have the highest production rate and outcomes.
+Each one of the departments will make use of the resources available, as explained in this section. The design team are divided into the following departments: Structures, Aerodynamics, Propulsion and Control \& Systems.
+
+
+\section{Strategic Resource Planing}
+Strategic planning involves identifying resource needs across departments, teams and project plans. It requires the clarification of long and short-term project goals and schedule resource allocation according to strategic objectives to prevent resource underusage and overallocation. 
+\\
+This implies usage tracking along with development, collaboration and communication between departments and dynamic reallocation in case of misuse of resources.
+
+The distribution of resources depends on the needs of each department and their specialisation, teams having to share some of them. The table contains the allocation of each team and their associated needed resource: 
+
+\begin{table}[H]
+\centering
+\caption{Departmental responsibility matrix.}
+\label{tab:responsibility_matrix}
+\small
+\begin{tabular}{|p{2.5cm}|p{1.7cm}|p{1.7cm}|p{1.2cm}|p{1.6cm}|p{1.7cm}|p{1.5cm}|p{1.7cm}|}
+\hline 
+\textbf{Department} 
+& \textbf{CG location} 
+& \textbf{Link budget} 
+& \textbf{Mass} 
+& \textbf{Aircraft dimensions} 
+& \textbf{Internal dimensions} 
+& \textbf{Fuel budget} 
+& \textbf{Power from battery} \\
+\hline \hline
+Structures & $\times$ &  & $\times$ & $\times$ & $\times$ &  &  \\
+\hline
+Aerodynamics & $\times$ &  & $\times$ &  &  &  &  \\
+\hline
+Propulsion &  &  & $\times$ &  & $\times$ & $\times$ & $\times$ \\
+\hline
+Control \& Systems & $\times$ & $\times$ &  & $\times$ & $\times$ &  & $\times$ \\
+\hline
+\end{tabular}
+\end{table}
+
+This initial distribution is susceptible to change as the development process advances and unforeseen circumstances appear.
+
+\subsection{Usage Tracking}
+Effective resource allocation requires continuous monitoring of how each resource is used throughout the design process. This is necessary to ensure that no department exceeds its allocated budget and that changes in one subsystem are communicated to all affected departments. Since resources such as mass, internal volume, fuel, battery power and CG location are strongly coupled, they cannot be tracked independently by each department without a common overview.
+
+Resource tracking will therefore be performed using a centralised budget file, accessible to all departments. This file will contain the latest estimated value, allocated limit, remaining margin and responsible department. This ensures that all departments work with the same baseline values and prevents outdated assumptions from propagating through the design.
+
+The mass budget, fuel budget and battery power budget will be updated whenever a subsystem mass, fuel consumption estimate or electrical power requirement changes. The CG location will be recalculated after relevant changes in component placement, fuel tank location, payload position or battery arrangement. Similarly, internal and external dimensions will be updated when changes are made to the fuselage layout, modular wing interface, payload bay or transport configuration.
+
+To support concurrent engineering, resource usage will be discussed during regular team meetings. If a resource exceeds its allocated limit, or if the margin becomes too small, the responsible department must notify the affected departments and propose a corrective action. Possible actions include redesigning the subsystem, reallocating budget from another department, changing the component placement, or revising the configuration layout. Major changes that affect multiple departments shall be documented as design decisions to maintain traceability.
+
+This approach ensures that resource usage remains visible throughout the project and that design changes are evaluated at system level rather than only within individual departments. As a result, the team can identify budget conflicts early and prevent late-stage integration issues.
+
+
+
+%\subsection{Resource levelling and prioritisation}
+
+%\subsection{Collaboration and communication}
+
+%\subsection{Dynamic reallocation}

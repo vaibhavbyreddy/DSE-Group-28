@@ -1,0 +1,137 @@
+\chapter{Requirements and Constraints}
+Having evaluated the system functions, the requirements of the aircraft can be fully specified. To that end, a requirement discovery tree is created in \autoref{sec: discovery tree}.
+
+\section{Requirement Discovery Tree}
+\label{sec: discovery tree}
+In order to identify the system requirements %based on the user needs and project objectives,
+a requirement discovery tree has been generated (\autoref{fig:req_discovery_tree}). The tree starts with the requirement for designing a flying model for testing flexible wings, which is split into the requirement to perform the flight test and the requirement to satisfy the constraints. The functional requirements stem directly from required functions of the design, as stated in the Functional Breakdown.
+
+The constraints are split into (mass, payload volume, power, internal volume, communication link budget, van volume, cost, payload aerodynamic, c.g.), airworthiness requirements, manufacturability, lifetime, sustainability, autonomous flight capabilities and withstanding the aerodynamic loads.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/Flexible Wing Flight Requirements.pdf}
+    \caption{Requirement Discovery Tree}
+    \label{fig:req_discovery_tree}
+\end{figure}
+
+\section{Final List of System Requirements}
+\autoref{tab:system_requirements} lists the final system requirements divided by category: general (GEN), power (POW), communications (COM), control (CTL), propulsion (PRP), operations (OPS), certification (CER), financial (FIN) aerodynamics (AER), operations (OPS), certifications (CER), control (CON), stability (STA), and structures (STR). The driving requirements are written in red, and key requirements in italic. K \todo{cite fuel reserves from malcom when he agrees}
+
+\begin{longtable}{|c|p{13cm}|}
+\caption{List of System Requirements}
+\label{tab:system_requirements} \\
+\hline
+\textbf{Requirement ID} & \textbf{Requirement} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Requirement ID} & \textbf{Requirement} \\
+\hline
+\endhead
+
+HUG-GEN-001& The mass of the aircraft shall be less than 50kg, including payload \cite{Castro2026}. \\ \hline
+
+HUG-GEN-002 & The available payload mass shall be equal to or larger than 5 kg \cite{Castro2026}. \\ \hline
+
+
+
+HUG-POW-001& The aircraft shall provide electrical energy necessary to power the payload, actuators, control subsystem, fuel subsystem and communication subsystem for the mission duration.\\ \hline 
+
+HUG-POW-002& The peak power provided by the aircraft shall be sufficient to provide full power to aircraft actuators, control subsystem, fuel subsystem and communication subsystem at the same time.\\ \hline 
+
+HUG-COM-001 & The aircraft shall transmit the measured data as well as telemetry from control, propulsion and fuel subsystems in real time from the maximum aircraft-ground station distance.\\ \hline
+
+HUG-COM-002 & The communication system shall allow for contact with the ground station for a distance equal to 1.5 up to the longer dimension of the testing area. \\ \hline
+
+
+HUG-CTL-001& The aircraft shall have autonomous stabilisation systems.\\ \hline
+
+HUG-CTL-002& The aircraft shall be able to perform turns, climb and descent autonomously.\\ \hline
+
+HUG-CTL-003& The aircraft shall be able to conduct experiments autonomously.\\ \hline
+
+HUG-CTL-004& The aircraft shall be remotely controllable. \\ \hline
+
+\textit{HUG-CTL-005} & The c.g. excursion of the aircraft shall allow for both statically and dynamically stable, unstable and neutrally stable flight conditions. \\ \hline
+
+\textcolor{red}{HUG-CTL-006}&  Isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures. \\ \hline
+
+\textit{HUG-OPS-001} & All equipment for performing the flight test shall fit within a van. 
+%of 3680 x 1767 x 1894 mm (\autoref{tab:renault_master_specs}) cargo dimensions.
+\\ \hline
+HUG-OPS-002 & The aircraft shall be fully manufacturable using only TRL10 (Technology Readiness Level 10) manufacturing techniques.\\ \hline
+
+\textcolor{red}{HUG-OPS-003} & The aircraft shall be recyclable to at least an 80\% degree by weight \cite{peregrine2021}. \\ \hline
+
+HUG-OPS-004 & The endurance of the aircraft at maximum payload shall be longer than 30 minutes \cite{Castro2026}. \\ \hline
+
+\textcolor{red}{HUG-OPS-005} & The aircraft shall be able to sustain Mach 0.75 continuously for 5 min. in level flight \\ \hline
+
+HUG-OPS-006 & The aircraft shall be able to sustain flight at Mach 0.4 during the entire duration of the main flight stage. \\ \hline
+
+HUG-OPS-007 & The aircraft shall have sufficient fuel reserves to perform four landing attempts on top of the fuel required for maximum endurance.  \\ \hline
+
+HUG-OPS-008 & The UAV shall use SAF as fuel source.\\
+\hline
+
+HUG-CER-001 & The aircraft shall comply with airworthiness SORA requirements.\\ \hline
+
+HUG-CER-002 & It shall be possible to terminate the mission in a controlled manner at any point in time. \\ \hline
+
+HUG-CER-003 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\ \hline
+
+\textcolor{red}{HUG-FIN-001} & The cost of a single aircraft configuration shall be less than 45000€ \cite{Castro2026}.\\ \hline
+
+\textcolor{red}{HUG-AER-001}& The critical Mach number of all aerodynamic surfaces shall be higher than Mach 0.75.\\ \hline 
+
+\textcolor{red}{\textit{HUG-AER-002}}& The aircraft shall house test platforms of effective aspect ratios in the range between 19 to 27 \cite{Aerodynamic_Analysis}.\\ \hline
+
+HUG-AER-003& The aircraft shall house test platforms with taper ratios between 0.1 to 0.5.\\ \hline 
+
+HUG-AER-004& The overall test platform shall see clear airflow during flight.\\ \hline 
+
+HUG-AER-005& The aircraft shall be able to perform the same maneouvres (climb, turns, pull-up/down, dive) as required for CS-25 certification.\\ \hline 
+
+HUG-STR-002 & The aircraft structure shall provide the internal volume for the fuel, propulsion, electrical, communications, and command subsystems.\\ \hline
+
+\textcolor{red}{HUG-STR-003}& The aircraft structure shall withstand stresses due to high subsonic loads at Mach 0.75, without yielding and with a safety factor of 1.5 for fracture.\\ \hline 
+
+HUG-STR-004& The aircraft structure shall not buckle due to the aerodynamic loads at Mach 0.75.\\ \hline 
+
+\textit{HUG-STR-005}& There shall be no wing-independent flutter or aeroelastic divergence of the baseline structure up to critical Mach number at the lowest operating altitude of the aircraft.\\ \hline 
+
+\textit{\textcolor{red}{HUG-STR-006}}& The VULCAN engine(s) shall be integrated within the aircraft structure. \\ \hline
+
+HUG-STR-007& The VULCAN engine shall be replaceable. \\ \hline
+
+HUG-STR-008& The structure shall provide space and mounting for auxiliary systems for the VULCAN engine. \\ \hline
+
+HUG-STR-009& The structure shall include fuel tanks for housing the fuel-volume required for the entire mission, including missed approach and loiter time. \\ \hline
+
+HUG-STR-010 & Every subsystem inside the aircraft wing and fuselage shall have the possibility of access, allowing for subsystem inspection. \\ \hline  
+
+HUG-STR-011 & The inspection shall allow for identifying cracks in all primary load-bearing components. \\ \hline  
+
+\textcolor{red}{HUG-STR-012}&  The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \\ \hline
+
+HUG-STR-013& The natural frequencies of the structure shall not be within 0.8 and 1.4 \cite{Prakash2016DynamicFoundation} of the blade-pass frequency of the engine \cite{Alhazmi2025CoolingFanVibration}. \\ \hline
+
+% \textit{HUG-STR-015} & The aircraft shall provide interfaces for mounting sensors and actuators. \\ \hline
+
+HUG-STR-014 & The structure shall accommodate space for a secondary flight computer. \\ \hline
+
+HUG-STR-015 & The structure shall accommodate a payload bay of at least 5 litres. \\ \hline
+
+\textbf{Legend} & \textit{Key requirement}, \textcolor{red}{Driving requirement} \\
+\hline
+
+\end{longtable}
+
+
+
+
+
+
