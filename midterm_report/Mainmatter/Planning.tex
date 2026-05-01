@@ -1,17 +1,58 @@
 \chapter{Planning}
 
-\section*{Mid-term workflow}
-The workflow for converging towards the mid-term review is shown in \autoref{fig:workflow_midterm}. The main input is the short list of possible design configurations to be considered further. 
+\section{Midterm Workflow Diagram (WFD)}
+\label{sec:planning_WFD}
+
+The workflow for converging towards the midterm review is shown in \autoref{fig:workflow_midterm}. The main input is the short list of possible design configurations to be considered further. 
 
 In the first work package, the preliminary weight of each configuration needs to be set to be able to proceed with future sizing. This, in turn, contributes to the initial definition of the geometry parameters. At the same time, the V-n diagram is created, combining the stall speed, the maximum positive and negative load limits, and gust load requirements. In parallel to defining the initial mass, the airfoil is selected based on the constraints, such as the critical Mach number. Finally, the trade-off criteria, being the degree of versatility, cost, performance margins and sustainability, are to be substantiated and developed to the extent that they can all be unambiguously quantified.
 
-The second work package begins with low-fidelity aerodynamic analyses to determine the parameters such as the maximum lift coefficient, the lift curve slope, and the lift-to-drag-ratio. Then, the parameters such as the thrust-to-weight ratio $\frac{T}{W}$, wing loading $\frac{W}{S}$ have to be estimated. At the same time, the static stability characteristics can be analyzed, such as the c.g. range required for stability. Simultaneously, the endurance performance can be quantified, directly followed by the Class 1 weight estimation. This estimation will be more detailed than the very rough estimation conducted before. Finally, all the tasks from this work package contribute to the preliminary sizing.
+The second work package begins with low-fidelity aerodynamic analyses to determine the parameters such as the maximum lift coefficient, the lift curve slope, and the lift-to-drag-ratio. Then, the parameters such as the thrust-to-weight ratio $\left(\frac{T}{W}\right)$, wing loading $\left(\frac{W}{S}\right)$ have to be estimated. At the same time, the static stability characteristics can be analyzed, such as the c.g. range required for stability. Simultaneously, the endurance performance can be quantified, directly followed by the Class 1 weight estimation. This estimation will be more detailed than the very rough estimation conducted before. Finally, all the tasks from this work package contribute to the preliminary sizing.
 
 In the next work package, the designs featuring configuration change can be quantified, followed by the preliminary life-cycle assessment. At the same time, the trade-off parameters are computed, with the LCA required for full quantification. Then, the trade-off is performed, in a feedback loop with the sensitivity study. This is to ensure that the trade-off procedure remains unambiguous and unbiased, and with minimum overlapping between the criteria. Based on the trade-off, the final configuration is chosen.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.4\linewidth, angle=90]{figures/Mid-term workflow.jpg}
-    \caption{Mid-term workflow diagram}
+    \caption{Midterm Workflow Diagram}
     \label{fig:workflow_midterm}
 \end{figure}
+
+\section{N2 diagram}
+The main purpose of an N2 diagram is to break down a complete system into functional units or subsystems and define the dependencies between them to identify their interactions and help organize the design process later on \cite{Castro2026}. This is done by a square matrix with the functions or subsystems placed on its diagonal. Each function or system component is linked by mapping its output on the horizontal axis and input on the vertical axis, respective to the block of the corresponding function or subsystem. The N2 diagram for the HUGO system is shown in \autoref{}. \todo{Add the N2 diagram}
+
+\section{Midterm Work Breakdown Structure (WBS)}
+\label{sec:planning_WBS}
+
+Following from the workflow diagram, the Work Breakdown Structure (WBS) was derived to provide a more granular decomposition of all project activities. Each task from the workflow diagram is represented in the WBS and further divided into subtasks, ensuring that progress can be tracked and responsibilities clearly assigned at every level.
+The project was divided into four work packages, reflecting the natural progression of the engineering design process.
+
+\begin{enumerate}
+    \item \textbf{Low-Fidelity Design Analysis}, covering the initial aerodynamic characterisation of the candidate configurations, including airfoil selection, V-n diagram construction, endurance estimation, and static stability determination.
+    
+    \item \textbf{Preliminary Sizing}, encompassing the constraint analysis and weight estimation activities that yield the first quantitative geometric and performance parameters of the aircraft.
+
+    \item \textbf{Trade-off Framework \& Parameter Computation}, in which the evaluation criteria are established, trade-off parameters are computed for each configuration, and a preliminary Life Cycle Assessment is performed.
+
+    \item \textbf{Trade-off \& Configuration Selection}, where the weighted scoring matrix is applied, a sensitivity study is conducted on the trade-off results, and the best configuration is formally selected.
+\end{enumerate}
+
+For each task within these work packages, a responsible person or team was assigned, drawing from the available disciplinary roles including Aerodynamics, Structures, Systems Engineering, Operations, and Sustainability. An estimated duration was also attributed to each task, allowing the WBS to feed directly into the project planning documents such as the Gantt chart.
+
+Each task was subsequently decomposed into two or more subtasks. Where a specific method was already identified — such as the ADSEE method for constraint analysis, the Roskam statistical fractions for weight estimation, or XFOIL for airfoil analysis — this was noted explicitly at the subtask level. Where a method has not yet been determined, this was flagged as TBD, highlighting areas that require further investigation before work can begin. This approach ensures the WBS serves not only as a planning tool but also as a live record of methodological decisions and open action items.
+
+A legend is included in the WBS to provide clarity on the colour convention used throughout the diagram. The colour scheme follows the same phase distinction established in the WFD. Lighter coloured cards correspond to tasks belonging to earlier phases of the project, while progressively darker colours indicate tasks that are executed later in the workflow. 
+
+
+\includepdf[pages=-,fitpaper=true, width=420mm, keepaspectratio]{figures/Midterm_WBS.drawio.pdf}
+
+
+
+
+
+
+\section{Team Organogram \& HR Allocation}
+\label{sec:planning_organogram}
+
+\section{Gantt Chart}
+\label{sec:planning_gantt_chart}
