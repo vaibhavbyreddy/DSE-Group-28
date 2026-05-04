@@ -19,7 +19,32 @@ In the next work package, the designs featuring configuration change can be quan
 \end{figure}
 
 \section{N2 diagram}
-The main purpose of an N2 diagram is to break down a complete system into functional units or subsystems and define the dependencies between them to identify their interactions and help organize the design process later on \cite{Castro2026}. This is done by a square matrix with the functions or subsystems placed on its diagonal. Each function or system component is linked by mapping its output on the horizontal axis and input on the vertical axis, respective to the block of the corresponding function or subsystem. The N2 diagram for the HUGO system is shown in \autoref{}. \todo{Add the N2 diagram}
+The main purpose of an N2 diagram is to break down a complete system into functional units or subsystems and define the dependencies between them to identify their interactions and help organize the design process for a later stage \cite{Castro2026}. This is done by a square matrix with the functions or subsystems placed on its diagonal. Each function or system component is linked by mapping its output on the horizontal axis and input on the vertical axis, respective to the block of the corresponding function or subsystem. The N2 diagram for the HUGO system is shown in \autoref{fig: N2}.
+
+
+\clearpage
+\pdfpagewidth=420mm
+\pdfpageheight=297mm
+\paperwidth=420mm
+\paperheight=297mm
+\includepdf[pages=-, fitpaper=true, width=420mm, keepaspectratio, scale=1, pagecommand={
+        \vspace*{\fill} 
+        \thispagestyle{empty} 
+        \noindent\hspace*{0cm} % Adjust this to center the text on the A3 page 
+        \begin{minipage}{400mm} 
+            \captionof{figure}{HUGO platform N2 diagram} 
+            \label{fig: N2}
+        \end{minipage}
+        \vspace*{1.5cm} 
+        \label{fig:N2}
+        % Pushes the caption up from the bottom edge 
+    }]{figures/N2 Diagram.pdf}
+\clearpage
+\pdfpagewidth=210mm
+\pdfpageheight=297mm
+\paperwidth=210mm
+\paperheight=297mm
+
 
 \section{Midterm Work Breakdown Structure (WBS)}
 \label{sec:planning_WBS}
@@ -49,7 +74,30 @@ A legend is included in the WBS to provide clarity on the colour convention used
 
 
 
-
+\section{Project Design \& Development Logic }
+It is important to keep an outlook for the future of the project and the subsequent development of the aircraft. To create a more comprehensible diagram the project design and development was broken down into five different sections each with their own timelines. 
+\begin{enumerate}
+    \item Development phase
+    This takes the preliminary design as input and expand the degree of detail. This new designed is then analyzed in greater depth and after iteration  a detailed CAD model of the aircraft is created. This model is then subjected to CFD and FEM analysis and which can bed used to make design changes. This  
+    \item Prototyping and testing phase 
+    \item Manufacturing and certification phase: This phase is where the finalized, validated design is taken into production. This involves procurement of off the shelf components, and working with 
+    \item Operations phase 
+    \item End-of-life phase 
+\end{enumerate}
+\newpage
+\pdfpagewidth=297mm
+\pdfpageheight=420mm
+\newgeometry{margin=1cm}
+\thispagestyle{empty}
+\begin{figure}
+    \centering
+    \includegraphics[width=1.5\linewidth]{figures/Project design and development logic.jpg}
+    \caption{Diagram of Project Design \& Development Logic }
+    \label{fig:placeholder}
+\end{figure}
+\restoregeometry
+\pdfpagewidth=210mm
+\pdfpageheight=297mm
 
 \section{Team Organogram \& HR Allocation}
 \label{sec:planning_organogram}

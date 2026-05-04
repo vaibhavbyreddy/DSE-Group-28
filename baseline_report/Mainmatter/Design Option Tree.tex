@@ -82,7 +82,7 @@ Electrical Subgroup & Battery & Accepted & A proven, reliable, and independent e
 \hline
 Canard Modularity & Permanent & CCF & While structurally feasible, a permanent canard is an unconventional baseline that severely restricts the platform's versatility, going against the main mission objective. It permanently disrupts upstream airflow (HUG-AER-004), making it difficult to collect clean baseline data for standard, non-canard commercial architectures \cite{raymer1992aircraft, lopes2005canard}. \\
 \cline{2-4}
-\multicolumn{1}{|l|}{} & Static Port & Accepted & A method to test specific canard configurations only when necessary, or to test smaller wing profiles in clean air (HUG-STR-003, HUG-AER-004) \cite{lopes2005canard}. \\
+\multicolumn{1}{|l|}{} & Static Port & Accepted & A method to test specific canard configurations only when necessary, or to test smaller wing profiles in clean air (HUG-STR-003, HUG-AER-004) \cite{lopes2005canard}. \textbf{we actually can't do that (1:1 scale)!} \\
 \cline{2-4}
 \multicolumn{1}{|l|}{} & Variable Port & CCF & The canard is not the primary experimental article for this project. Engineering a variable-position mounting mechanism would introduce significant complexities and possible structural weaknesses, along with mass penalties (HUG-STR-003, HUG-GEN-001) that far outweigh any secondary aerodynamic benefits, detracting from the core mission \cite{raymer1992aircraft}. \\
 \cline{2-4}
@@ -298,7 +298,7 @@ Now, we can combine this configuration from stage 2, with all the configurations
 \includepdf[pages=-, fitpaper=false, width=420mm, keepaspectratio, scale=0.9, pagecommand={
         \vspace*{\fill}
         \thispagestyle{empty}
-        \noindent\hspace*{-2cm} % Adjust this to center the text on the A3 page
+        \noindent\hspace*{0cm} % Adjust this to center the text on the A3 page
         \begin{minipage}{400mm}
             \captionof{figure}{Top level and subsystem level Design Option Tree}
             \label{fig: DOT}
