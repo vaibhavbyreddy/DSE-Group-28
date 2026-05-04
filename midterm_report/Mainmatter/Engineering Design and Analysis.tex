@@ -3,25 +3,27 @@
 \section{Airfoil selection}
 According to \todo{mention reqs}, HUGO is aimed to operate at speeds up to Mach 0.75. This is also the flight condition at which tests are expected to be conducted.
 \subsection{Design lift coefficients}
-The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_{des}}$ and maximum lift coefficient $C_{L_{max}}$ for HUGO. Due to the specified testing conditions, $C_{L_{des}}$ was selected for the Mach 0.75 airspeed condition. For initial estimates, the NASA DAST project is used as a reference. This modified version of the Teledyne-Ryan BQM-34E/F Firebee II drone was used to remotely test new aerodynamic designs to optimize future aircraft designs. This aircraft was convenient for such testing due to its easily replaceable wings and the use of control surfaces only on the tail. The drone was retrofitted with a supercritical wing aimed to achieve a flutter speed of Mach 0.95 at 25,000 feet altitude and used a custom control system to suppress flutter. \footnote{\url{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html} \footnote{\url{https://www.dvidshub.net/image/714554/experiment-configurations-dast} DAST configurations (accessed on 04.05.2026)} Firebee Drone - DAST (accessed on 04.05.2026)}
+The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_{des}}$ and maximum lift coefficient $C_{L_{max}}$ for HUGO. Due to the specified testing conditions, $C_{L_{des}}$ was selected for the Mach 0.75 airspeed condition. For initial estimates, the NASA DAST project is used as a reference. This modified version of the Teledyne-Ryan BQM-34E/F Firebee II drone was used to remotely test new aerodynamic designs to optimize future aircraft designs. This aircraft was convenient for such testing due to its easily replaceable wings and the use of control surfaces only on the tail. The drone was retrofitted with a supercritical wing aimed to achieve a flutter speed of Mach 0.95 at 25,000 feet altitude and used a custom control system to suppress flutter. \footnote{\url{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}}
 $C_{L_{des}}$ is estimated by extracting required lift based on wing area of HUGO. This wing area estimate is determined based on the wing loading of the DAST drone during its cruise condition. The estimation and the DAST drone parameters are shown in \autoref{tab:DAST_HUGO}.
-\begin{table}[]
+\begin{table}[H]
     \centering
+    \label{tab:DAST_HUGO}
     \begin{tabular}{|c|c|c|}
         \hline
          & \textbf{DAST} & \textbf{HUGO}  \\
          \hline
-         Wing span [m] & 5.79 & \\
+         Wing span [m] & 5.79 & 1.94\\
          \hline
-         Aspect ratio [-] & 10.3 & 20\\
+         Aspect ratio [-] & 10.3 & 23\\
          \hline
-         Mass [kg] & 998 & 50 \\
+         Wing area [m$^2$] & 3.25 & 0.1635 \\
          \hline
-         W/S [N/m^2] & 3012 & 3000 \\
+         Mass [kg] & 1060 & 50 \\
+         \hline
+         W/S [N/m$^2$] & 3216 & 3000 \\
          \hline
     \end{tabular}
-    \label{tab:DAST_HUGO}
-    \caption{DAST ARW-2 and HUGO initial parameters}
-    \label{tab:placeholder}
+    \caption{DAST ARW-2 and HUGO initial parameters \cite{perry1982methodology}}
 \end{table}
+Based on the data obtained from DAST, 
 \subsection{}
