@@ -76,6 +76,7 @@ A legend is included in the WBS to provide clarity on the colour convention used
 
 \section{Project Design \& Development Logic }
 It is important to keep an outlook for the future of the project and the subsequent development of the aircraft. To create a more comprehensible diagram the project design and development was broken down into five different sections each with their own timelines. 
+
 \begin{enumerate}
     \item Development phase
     This takes the preliminary design as input and expand the degree of detail. This new designed is then analyzed in greater depth and after iteration  a detailed CAD model of the aircraft is created. This model is then subjected to CFD and FEM analysis and which can bed used to make design changes. These changes are then inputted all to the beginning of the process to ensure compliance with all requirements. When   
@@ -85,34 +86,44 @@ It is important to keep an outlook for the future of the project and the subsequ
     \item End-of-life phase:  
 \end{enumerate}
 \newpage
-\pdfpagewidth=297mm
-\pdfpageheight=420mm
-\newgeometry{margin=1cm}
-\thispagestyle{empty}
-\begin{figure}
+\begin{landscape}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=1.5\linewidth]{figures/Project design and development logic.jpg}
-    \caption{Diagram of Project Design \& Development Logic }
+    \includegraphics[width=1.0\linewidth]{figures/Simpleprojectdesignanddevelopment.jpg}
+    \caption{Caption}
     \label{fig:placeholder}
 \end{figure}
-\restoregeometry
-\pdfpagewidth=210mm
-\pdfpageheight=297mm
+\end{landscape}
 
 \section{Team Organogram \& HR Allocation}
+
+\subsection{Non-technical Roles}
 \label{sec:planning_organogram}
 
-\begin{figure}[htbp]
+To optimise technical development, the team identified and distributed critical organisational responsibilities, as shown in \autoref{fig:organogram}. These roles structure the development process, mitigating internal risks and enhancing the overall quality of the final product. The designated roles and their core functions are as follows:
+
+\begin{itemize}
+    \item \textbf{Chairman:} Guides group meetings and discussions, prepares agendas, and ensures alignment with team goals.
+    \item \textbf{Secretary:} Documents meetings and acts as the primary point of contact for all external stakeholders.
+    \item \textbf{Project Manager:} Maintains oversight of the project schedule, ensuring steady progression toward established deadlines.
+    \item \textbf{Chief Systems Engineer:} Oversees the project's technical architecture, ensuring individual contributions integrate seamlessly into the complex final system.
+    \item \textbf{Documentation Roles:} Documentation Manager, Git Manager, and CAD Manager are responsible for managing all text, code, and CAD files respectively. They enforce relevant standards and implement efficient organisation for their respective file types.
+    \item \textbf{Sustainability Manager:} Guides design choices toward sustainable alternatives, ensuring the team operates with ecological responsibility.
+    \item \textbf{Quality Assurance Manager:} Ensures all work products meet the standards required by external stakeholders and internal protocols.
+\end{itemize}
+
+
+
+\begin{figure}[H]
     \centering
-    % The \makebox tells LaTeX the "box" is text-width, but the [c] lets the 1.2x image spill out symmetrically
     \makebox[\textwidth][c]{\includegraphics[width=1.07\textwidth]{figures/Group 28 Organigram.pdf}}
     \caption{Team 28 Organigram}
-    \label{fig: Organigram}
+    \label{fig:organogram}
 \end{figure}
 
+\subsection{Technical roles}
 
-
-
+According to the aircraft subsystems described in the Design Option Tree of the Baseline Report \todo{cite{baselinereport}}, engineering departments were developed and are presented in \autoref{fig:organogram}. Each team member has been assigned as main responsible for a single technical department. Each department has a backup member to become responsible in the case Risk[Team Member absence] were to occur, with their names marked in bold and italics. Other members expected to make significant contributions are named as "Contributors".
 
 
 \section{Gantt Chart}
