@@ -25,6 +25,8 @@ $C_{L_{des}}$ is estimated by extracting the wing loading $\frac{W}{S}$ from the
     \end{tabular}
     \caption{DAST ARW-2 and HUGO derived parameters \cite{perry1982methodology}}
 \end{table}
+A wing loading $\frac{W}{S} = 3000 \ N \cdot m^{-2}$ is high and will impose structural challenges for the HUGO aircraft. However, the ARW-2 wing proves that a wing with such loading mode can be designed. \cite{} \\
+\subsubsection{Design lift coefficient}
 To estimate $C_{L_{des}}$, \autoref{eq:C_L} was used. It includes the air density at the altitude of 27,000 feet $\rho_{cr}$ and the airspeed $V_{cr}$, for which it holds that $V_{cr} = M \cdot \sqrt{\gamma R T}$ at the ISA altitude of 27,000 ft.
 
 \begin{equation}
@@ -32,4 +34,10 @@ To estimate $C_{L_{des}}$, \autoref{eq:C_L} was used. It includes the air densit
     \label{eq:C_L}
 \end{equation}
 
-\subsection{Supercritical airfoil} Since the aircraft is expected to operate at Mach 0.75 is necessary to take transonic phenomena into account. When flying in this region with a traditional airfoil the airflow might locally approach Mach 1 meaning the onset of strong shock waves on the wing \cite{Whitcomb1974}. This leads to a large increase in drag which is detrimental for the performance of the aircraft. This lead to the development of a airfoil-class known as supercritical. A supercritical airfoil is capable to operate at transonic conditions with only the onset of weak shock waves. The code for NASA´s supercritical airfoils are SC(2)-XXYY. XX is the airfoil design lift coefficient and YY is the maximum thickness in percent \cite{Faber2003}.   
+Using the initial $\frac{W}{S} = 3000 \ N\cdot m^{-2}$, $\rho_{cr} = 0.5112 \ kg \cdot m^{-3}$ and $V_{cr} = 230.2945 \ m \cdot s^{-1}$ a $C_{L_{des}} = 0.2213$ was obtained.\\
+\subsubsection{Maximum lift coefficient}
+The maximum lift coefficient, $C_{L_{max}}$ has to be selected in order to  
+\subsubsection{Stall speed}
+The next step is to identify the preliminary stall speed of HUGO. NASA does not provide the stall speed for the ARW-2 wing, however, it can be estimated based on the wing profiles used in the DAST aircraft.
+
+\subsection{Supercritical airfoil} Since the aircraft is expected to operate at Mach 0.75 is necessary to take transonic phenomena into account. When flying in this region with a traditional airfoil the airflow might locally be supersonic which creates strong shock waves on the wing \cite{Whitcomb1974}. This leads to a large increase in drag which is detrimental for the performance of the aircraft. This lead to the development of a airfoil-class known as supercritical. A supercritical airfoil is capable to operate at transonic conditions with only the onset of weak shock waves. The code for NASA´s supercritical airfoil are SC(2)-XXYY. XX is the airfoil design lift coefficient and YY is the maximum thickness in percent \cite{Harris1990}. The advantage of using this system is the inclusion of the design lift coefficient which makes it possible to narrow down the choices for the different airfoil using the lift coefficients obtained from the previous section.

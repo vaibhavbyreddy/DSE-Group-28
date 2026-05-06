@@ -21,7 +21,9 @@ EASA classifies that a new recertification for the aircraft is required each tim
 
 Modifications made to HUGO for each mission will require EASA recertification, as they fall under the \textbf{Major changes} category. This condition directly conflicts with the modularity requirement of HUGO. By having a modular configuration, HUGO will be susceptible to regular structural changes of the wings, which are considered major modifications by EASA.  To bypass this process, or to the very least to make it shorter, the team behind HUGO can apply for a DOA \footnote{\href{https://www.easa.europa.eu/en/domains/aircraft-products/design-organisations/design-organisations-approvals}{Design Organisations Approvals}(accessed on 05.06.2026)}.
 
-A  DOA is a certification that permits the holder or organisation to perform the certification process internally, bypassing the long waits and costs imposed by EASA, leaving only the approval of the documentation to the discretion of the certification authority, EASA. This will be very useful for HUGO, as the DOA will permit the design team to internally bring and approve of modifications that fall under the \textbf{Minor} category, while changes falling under the \textbf{Major} category still require approval from EASA. With this recognition, EASA only requires the validation proof and data to verify them and give the final decision \footnote{\href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02012R0748-20230825}{EASA DOA Documentation}(accessed on 05.06.2026)}. In terms of operational impediment, it will require users to submit their test beds in advance, with at leat (\todo{serach for how ling it needs for the aproval in terms of timeS}).
+A  DOA is a certification that permits the holder or organisation to perform the certification process internally, bypassing the long waits and costs imposed by EASA, leaving only the approval of the documentation to the discretion of the certification authority, EASA. This will be very useful for HUGO, as the DOA will permit the design team to internally bring and approve of modifications that fall under the \textbf{Minor} category, while changes falling under the \textbf{Major} category still require approval from EASA. With this recognition, EASA only requires the validation proof and data to verify them and give the final decision\footnote{\href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX\%3A02012R0748-20230825}{EASA DOA Documentation} (accessed on 06.05.2026).}. In terms of operational impediment, it will require users to submit their test beds in advance, with at least TBD.
+
+\todo[inline]{serach for how ling it needs for the aproval in terms of timeS}
 
 
 
@@ -33,9 +35,56 @@ A  DOA is a certification that permits the holder or organisation to perform the
 
 %\subsection{Application Procedure and Documentation}
 
+\begin{comment}
 \section{Requirements following from CS-23 Amendment 4}
+This Section describes the requirements for aerobatic aircraft following from Acceptable Means of Compliance (AMCs) detailed in EASA CS-23 Amendment 4 \cite{EASA_CS23_Amendment4}.
 
-\subsection{Proof of Compliance}
+\subsection{Proof of Structure}
+According to the AMCs for CS-23 aircraft, demonstration of compliance shall be achieved predominantly with the use of flight tests. However, analyses including FEM models are also acceptable, so long as their reliability for the certified structure is proven, and they are supplemented by a comparison of other methods regarded as sufficiently accurate and applicable. A strength test programme shall additionally be established for the wing, wing carry through, fuselage and empennage structures (e. g. via ultimate load testing). 
+
+To account for material and production variability, a test correction factor $T_f$ shall be applied to each test based on the coefficient of variation $c_v$ provided by the manufacturer for a given product (see: \autoref{tab:test_factors}). The $c_v$ is defined by \autoref{eq:coefficient_of_variation} for a population with mean $M$ and standard deviation $\sigma$ \cite[p. 2-C-2]{EASA_CS23_Amendment4}.
+
+\begin{equation}
+\label{eq:coefficient_of_variation}
+c_v=100\cdot\frac{\sigma}{M}\hspace{0.1cm}[\%]
+\end{equation}
+
+\begin{table}[H]
+    \centering
+    \caption{Test Factor $T_f$ vs. Coefficient of Variation $c_v$ (adapted from \cite[p. 2-C-2]{EASA_CS23_Amendment4})}
+    \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|}
+    \hline
+         $c_v$ [\%] & 5 & 6 & 7 & 8 & 9 & 10 & 12 & 14 & 15 & 20 \\\hline
+         $T_f$ [-] & 1.00 & 1.03 & 1.06 & 1.10 & 1.12 & 1.15 & 1.22 & 1.30 & 1.33 & 1.55 \\ \hline
+    \end{tabular}
+    \label{tab:test_factors}
+\end{table}
+
+\subsection{Gust Load Factors}
+
+\subsection{Unsymmetrical Flight Conditions}
+The approach towards establishing the loads due to unsymmetric manoeuvres
+
+\subsection{Flight Performance}
+Each performance requirement shall be met at a combination of weight and CG location corresponding to the loading conditions for which HUGO is to be certified \cite{EASA_CS23_Amendment4}. According to EASA, the applicable methods of demonstrating compliance are tests upon an aircraft of HUGO's type or calculations based on, and equal in accuracy to, the results of testing, followed by systematic investigation of possible combinations of weight and CG.
+
+An overview of acceptable general tolerances allowed in flight tests is presented in \autoref{tab:test_tolerances}
+\todo[inline]{Add CG to nomenclature}
+\begin{table}[H]
+    \centering
+    \caption{General Tolerances Allowed in Flight Tests (adapted from \cite{EASA_CS23_Amendment4})}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Item} &  \textbf{Tolerance} \\\hline\hline
+         Weight & $+5\%,-10\%$ \\\hline
+         Critical Items affected by Weight & $+5\%,-1\%$ \\ \hline
+         Total CG travel & $\pm7\%$\\ \hline
+    \end{tabular}
+    \label{tab:test_tolerances}
+\end{table}
+
+\end{comment}
+
 
 
 \section{V-n diagram}
