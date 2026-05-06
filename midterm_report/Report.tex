@@ -55,6 +55,20 @@
 % Set only bibliography entries to 11 pt
 \renewcommand*{\bibfont}{\fontsize{11pt}{13pt}\selectfont}
 
+\usepackage[intoc]{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{Nomenclature}
+
+% Optional grouping of nomenclature entries
+\renewcommand{\nomgroup}[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{A}{Abbreviations}{%
+  \ifstrequal{#1}{R}{Roman Symbols}{%
+  \ifstrequal{#1}{G}{Greek Symbols}{%
+  \ifstrequal{#1}{S}{Subscripts and Superscripts}{}}}}%
+]}
+
+
 
 %
 %--------------------------------------------------------------------
@@ -180,16 +194,16 @@ Vaibhav Byreddy (5237254)\\
 
 \makecover
 
-\footnotetext{The cover image was generated using AI-assisted tools.}
+%\footnotetext{The cover image was generated using AI-assisted tools.}
 
 %% Generate the nomenclature
-\makenomenclature
-\renewcommand{\nomname}{List of Symbols}            % Rename to "List of Symbols"
+          % Rename to "List of Symbols"
 
-\printnomenclature                                  % Include to actually display
+                              % Include to actually display
 
 \tableofcontents
-
+\include{Main Sections/Nomenclature}
+\printnomenclature[3cm]
 %\todo{This section is too big, will be compressed in the table for each role its attributes}
 %For each role, the team member who presented the most potential was chosen by the team. Their attributes are as follows:
 
