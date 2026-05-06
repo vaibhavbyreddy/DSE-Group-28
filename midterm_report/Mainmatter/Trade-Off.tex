@@ -27,7 +27,46 @@
 \subsection{Trade-Off Weight Factors}
 \label{subsec:trade-off_weight_factors}
 
-In order to determine the weight factors, the Analytic Hierarchy Process (AHP) was used. This was done by pairwise comparison of each of the criteria specified before. In the case of n criteria, a total of n(n-1)/2 comparisons contribute to the formation of a pairwise comparison matrix (PCM) of order n. The diagonal entries of the PCM are all 1, and the remaining values are simply the recip  
+To determine the weight factors, the analytic hierarchy process (AHP) was used. This was done by pairwise comparison of the criteria specified earlier. In the case of n criteria, a total of $n(n-1)/2$ comparisons contribute to the formation of a pairwise comparison matrix (PCM) of order n. The diagonal entries of the PCM are all 1, and the remaining values are simply the reciprocals of these $n(n-1)/2$ comparisons \cite{Pant 2022}.
+
+For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty \cite{Saaty 1980}. These scores are defined as follows: 1 - Equal importance; 3 - Moderate importance, 5 - Strong importance; 7 - Very strong importance; 9 - Extreme importance. 
+
+Assigning weights from 1 to 9 to the n criteria, the PCM is constructed such that the rows give the ratios of the score of a criterion with respect to all others \cite{Saaty 1980}. The obtained matrix is shown in \autoref{}.
+
+\textbf{include PCM}
+
+The next step is computing the priority vector, which is the normalized eigenvector of the matrix, as shown by Kardi Teknomo \footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial}}. The column values were summed to obtain the column sums, which will be used for the normalisation of the values in the PCM. The sum of each column should be 1, which can be used as a sanity check. 
+
+\textbf{include PCM with column sums}
+
+\textbf{include normalised matrix}
+
+Once the matrix was normalised, the values of each row were averaged to obtain the normalised principal eigenvector. The sum of its elements should also be 1.
+
+\textbf{include normalised eigenvector}
+
+The priority vector shows relative weights among the things that we compare. The larger the entry, the higher the ranking of the respective criterion. 
+
+The consistency can also be estimated with the use of the principal eigenvalue $\lambda_{max}$. It is obtained from the summation of the products between the elements of the priority vector and the column sums of the PCM. 
+
+
+\textbf{include eigenvalue calculation}
+
+For a consistent matrix $\lambda_{max} = n$ \cite{Saaty 1980}. The degree of consistency of an inconsistent matrix can be estimated by using the consistency index (CI) \cite{Saaty 1980} defined as:
+
+\begin{equation}
+    CI = \frac{\lambda_{max}-n}{n-1}
+\end{equation}
+
+The obtained CI is compared with the random consistency index (RI) (For n=6, RI=1.24). This is done by the consistency ratio (CR) \cite{Saaty 1980}:
+
+\begin{equation}
+    CR = \frac{CI}{CR}
+\end{equation}
+If CR<10\%, then the evaluation is consistent \cite{Saaty 1980}.
+
+
+
 
 \section{Trade-Off Matrix and Analysis}
 \label{subsec:trade-off_matrix}
