@@ -4,16 +4,25 @@
 \section{Development of Trade-Off Criteria}
 \label{sec:trade-off_criteria}
 
-\textbf{Focus on criteria against which one or more options score very bad, as these are the ones that make a difference (identify weaknesses)}
-Costs
-Versatility
-Controllability/Performance
-Reliability
-Sustainability
+\subsection{Trade-Off Criteria Selection}
+
+To establish meaningful criteria that lead to a useful trade-off, different approaches can be applied. Generally, the criteria should cover available technical specifications, key performance metrics, and also more abstract factors. It is not helpful to include criteria where all options perform similarly; instead, it is more valuable to use criteria where some options perform poorly, as this helps reveal and compare weaknesses across designs. In this way, each design’s limitations can be properly assessed. In addition, some of the requirements identified in the baseline review can also serve as a basis for defining the trade-off criteria.
+
+Taking all of the above into consideration, the following criteria were selected: \textbf{Cost, Versatility, Performance (Controllability), Reliability, and Sustainability}. 
+
+\begin{enumerate}
+    \item Versatility was selected since configuration 2 prevents the testing of canard-dependent configurations, and the variable ports in configurations 1, 4, and 5 allow for a wider range of stability conditions to be tested. This means that some of the options will score low in this criterion. 
+    \item Reliability was considered a crucial trade-off criterion since the variable port in configurations 1, 4, and 5 significantly increases the risk of failure, and also the development risk. Additionally, ports and gear bays weaken the primary structure of the aircraft. This was also derived from requirement HUG-STR-003, specifying the required reliability of the structure. 
+    \item Considering also that variable ports and retractable landing gear are significantly more complex and expensive in comparison to no/static port and buried gear, cost was selected as another trade-off criterion. 
+    \item The performance criterion stems from several requirements from the baseline report specifying the required speed (HUG-OPS-005, HUG-OPS-006), and also the insight that more complex configurations like 1, 4, and 5 will lead to a higher mass, and thus affect the performance and fuel burn.
+    \item Sustainability is a crucial part of the project, as specified by HUG-OPS-008. Additionally, variable ports and retractable undercarriage require more material, more complex manufacturing processes, more labour hours in assembly and quality control, and higher maintenance material consumption over the aircraft's life.
+\end{enumerate}
+
+
 
 The no-go values of the criteria were also estimated. They are given in \autoref{tab: no-go} with a short rationale. A more in-depth justification is given below.
 
-\textbf{Versatility :} his is the core mission of the testbed. A configuration that cannot test canard-dependent setups or is limited to a single stability condition is fundamentally failing its purpose. That is why a threshold of 3 was chosen.
+\textbf{Versatility :} this is the core mission of the testbed. A configuration that cannot test canard-dependent setups or is limited to a single stability condition is fundamentally failing its purpose. That is why a threshold of 3 was chosen.
 
 \textbf{Performance:} specifically about reaching the required Mach number. If a configuration can't get close to the test conditions you need, the data is scientifically irrelevant.
 
