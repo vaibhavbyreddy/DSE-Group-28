@@ -3,26 +3,44 @@
 
 \section{Development of Trade-Off Criteria}
 \label{sec:trade-off_criteria}
-\begin{itemize}
-    \item Focus on criteria against which one or more options score very bad, as these are the ones that make a difference (identify weaknesses)
-    
-    Costs
-    Versatility
-    Controllability/Performance
-    Reliability
-    Sustainability
-        
-    
-        
-    \item establish scores for which an option receives a no-go
-    \item Assign sharp definition of qualitative scores (excellent, good, fair, correctable deficiencies, poor, unacceptable)
-\end{itemize}
 
+\textbf{Focus on criteria against which one or more options score very bad, as these are the ones that make a difference (identify weaknesses)}
+Costs
+Versatility
+Controllability/Performance
+Reliability
+Sustainability
 
-\subsection{Analysis of Candidate Configurations}
-\label{subsec:trade-off_analysis_of_candidates}
+The no-go values of the criteria were also estimated. They are given in \autoref{tab: no-go} with a short rationale. A more in-depth justification is given below.
 
+\textbf{Versatility :} his is the core mission of the testbed. A configuration that cannot test canard-dependent setups or is limited to a single stability condition is fundamentally failing its purpose. That is why a threshold of 3 was chosen.
 
+\textbf{Performance:} specifically about reaching the required Mach number. If a configuration can't get close to the test conditions you need, the data is scientifically irrelevant.
+
+\textbf{Reliability:} this covers both mechanical reliability and data quality. An unreliable testbed either produces corrupted data or grounds itself frequently. 
+
+\textbf{Cost:} cost is a constraint, but not a mission-critical one. A configuration that is very expensive is painful, but doesn't make the aircraft scientifically invalid.
+
+\textbf{Sustainability:}  lowest weighted criterion and not mission-critical.
+\begin{table}[h!]
+\centering
+\caption{No-go values and rationale}
+\label{tab: no-go}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|l|l| l|}
+\hline
+\textbf{Criterion} & \textbf{No-go value} & \textbf{Rationale} \\
+\hline\hline
+Versatility    & $< 3$ & Core mission failure \\\hline
+Performance    & $< 2$ & Cannot reach test conditions \\\hline
+Reliability    & $< 2$ & Data validity compromised \\\hline
+Cost           & --    & Constraint, not mission-critical \\\hline
+Sustainability & --    & Not mission-critical \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Criteria should by preference be quantifiable. If that is not possible, a sharp definition of the qualitative scores (excellent, good, fair, correctable deficiencies, poor, unacceptable) must be provided.}
 
 \subsection{Trade-Off Weight Factors}
 \label{subsec:trade-off_weight_factors}
@@ -31,8 +49,9 @@ To determine the weight factors, the analytic hierarchy process (AHP) was used. 
 
 For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty \cite{Saaty 1980}. These scores are defined as follows: 1 - Equal importance; 3 - Moderate importance, 5 - Strong importance; 7 - Very strong importance; 9 - Extreme importance. 
 
-Assigning weights from 1 to 9 to the n criteria, the PCM is constructed such that the rows give the ratios of the score of a criterion with respect to all others \cite{Saaty 1980}. The obtained matrix is shown below.
+Assigning weights from 1 to 9 to the n criteria, the PCM is constructed so that the rows represent the ratios of a criterion's score to those of the others \cite{Saaty 1980}. The obtained matrix is shown below.
 
+\begin{comment}
 \[
 \begin{blockarray}{ccccccc}
 & \text{Cost} & \text{Versatility} & \text{Performance} &
@@ -60,12 +79,34 @@ Assigning weights from 1 to 9 to the n criteria, the PCM is constructed such tha
 \end{block}
 \end{blockarray}
 \]
+\end{comment}
+
+\begin{table}[h!]
+\centering
+\caption{Pairwise comparison matrix}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{l c c c c c c}
+\hline
+ & Cost & Versatility & Performance & Reliability & Sustainability & Mass \\
+\hline
+Cost           & 1 & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3}$ & 3 & 2 \\
+Versatility    & 4 & 1 & 2 & 2 & 6 & 4 \\
+Performance    & 3 & $\tfrac{1}{2}$ & 1 & 1 & 5 & 3 \\
+Reliability    & 3 & $\tfrac{1}{2}$ & 1 & 1 & 5 & 3 \\
+Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{6}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 & $\tfrac{1}{3}$ \\
+Mass           & $\tfrac{1}{2}$ & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3}$ & 3 & 1 \\
+\hline
+\end{tabular}
+\end{table}
 
 
 As an example, element PCM(2, 1) is equal to 4, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element PCM(1, 2) is the reciprocal, equal to $\frac{1}{4}$.
 
+\textbf{go into more depth on how the ratios were defined}
+
 The next step is computing the priority vector, which is the normalized eigenvector of the matrix, as shown by Kardi Teknomo \footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial}}. The column values were summed to obtain the column sums, which will be used for the normalisation of the values in the PCM. The sum of each column should be 1, which can be used as a sanity check. 
 
+\begin{comment}
 \[
 \begin{blockarray}{ccccccc}
 & \text{Cost} & \text{Versatility} & \text{Performance} &
@@ -131,7 +172,47 @@ The next step is computing the priority vector, which is the normalized eigenvec
 \end{block}
 \end{blockarray}
 \]
+\end{comment}
 
+\begin{table}[h!]
+\centering
+\caption{PCM with column sums}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l c c c c c c}
+\hline
+ & Cost & Versatility & Performance & Reliability & Sustainability & Mass \\
+\hline
+Cost           & 1 & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3}$ & 3 & 2 \\
+Versatility    & 4 & 1 & 2 & 2 & 6 & 4 \\
+Performance    & 3 & $\tfrac{1}{2}$ & 1 & 1 & 5 & 3 \\
+Reliability    & 3 & $\tfrac{1}{2}$ & 1 & 1 & 5 & 3 \\
+Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{6}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 & $\tfrac{1}{3}$ \\
+Mass           & $\tfrac{1}{2}$ & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3}$ & 3 & 1 \\
+\hline
+\textbf{Column Sum} & 11.83 & 2.67 & 4.8667 & 4.8667 & 23 & 13.3333 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Normalized PCM}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{l c c c c c c}
+\hline
+ & Cost & Versatility & Performance & Reliability & Sustainability & Mass \\
+\hline
+Cost           & 0.0845 & 0.0938 & 0.0685 & 0.0685 & 0.1304 & 0.1500 \\
+Versatility    & 0.3380 & 0.3750 & 0.4110 & 0.4110 & 0.2609 & 0.3000 \\
+Performance    & 0.2535 & 0.1875 & 0.2055 & 0.2055 & 0.2174 & 0.2250 \\
+Reliability    & 0.2535 & 0.1875 & 0.2055 & 0.2055 & 0.2174 & 0.2250 \\
+Sustainability & 0.0282 & 0.0625 & 0.0411 & 0.0411 & 0.0435 & 0.0250 \\
+Mass           & 0.0423 & 0.0938 & 0.0685 & 0.0685 & 0.1304 & 0.0750 \\
+\hline
+\textbf{Column Sum} & 1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 \\
+\hline
+\end{tabular}
+\end{table}
 
 Once the matrix was normalised, the values of each row were averaged to obtain the normalised principal eigenvector (priority vector). The sum of its elements should also be 1.
 
@@ -160,24 +241,23 @@ The priority vector shows relative weights among the things that we compare. The
 
 The consistency can also be estimated with the use of the principal eigenvalue $\lambda_{max}$. It is obtained from the summation of the products between the elements of the priority vector and the column sums of the PCM. 
 
-\begin{equation}
-    \lambda_{max} = 0.0993 \cdot 11.83 + 0.3493 \cdot 2.67 + 0.2157 \cdot 4.8667 + 0.2157 \cdot 4.8667 + 
-    \\
-    0.0402 \cdot 23 + 0.0797 \cdot 13.3333 = 6.1943
-\end{equation}
+\begin{align*}
+\lambda_{\max} &= 0.0993 \cdot 11.83 + 0.3493 \cdot 2.67 + 0.2157 \cdot 4.8667 \\
+&\quad + 0.2157 \cdot 4.8667 + 0.0402 \cdot 23 + 0.0797 \cdot 13.3333 = 6.1943
+\end{align*}
 
 For a consistent matrix $\lambda_{max} = n$ \cite{Saaty 1980}. The degree of consistency of an inconsistent matrix can be estimated by using the consistency index (CI) \cite{Saaty 1980} defined as:
 
 \begin{equation}
-    CI = \frac{\lambda_{max}-n}{n-1}
+    CI = \frac{\lambda_{max}-n}{n-1} = \frac{6.1943 - 6}{6 - 1} = 0.03887
 \end{equation}
 
-The obtained CI is compared with the random consistency index (RI) (For n=6, RI=1.24). This is done by the consistency ratio (CR) \cite{Saaty 1980}:
+The obtained CI is compared with the random consistency index (RI). For n = 6, RI = 1.24. This is done by the consistency ratio (CR) \cite{Saaty 1980}:
 
 \begin{equation}
-    CR = \frac{CI}{CR}
+    CR = \frac{CI}{CR} = 0.03135
 \end{equation}
-If CR<10\%, then the evaluation is consistent \cite{Saaty 1980}.
+If CR < 10\%, then the evaluation is consistent \cite{Saaty 1980}.
 
 
 
