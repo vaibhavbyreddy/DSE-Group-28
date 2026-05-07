@@ -1,10 +1,11 @@
 \chapter{Engineering Design and Analysis}
 
-\section{Airfoil selection procedure}
-HUGO is required to operate at speeds up to Mach 0.75 according to \textbf{HUG-OPS-005}. This is also the flight condition at which tests are expected to be conducted.
-\subsection{Design lift coefficients}
-The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_{des}}$ and maximum lift coefficient $C_{L_{max}}$ for HUGO. Due to the specified testing conditions, $C_{L_{des}}$ was selected for the Mach 0.75 airspeed condition at FL27, i.e. the altitude of 27,000 ft (8230 m). For initial estimates, the NASA DAST project is used as a reference. This modified version of the Teledyne-Ryan BQM-34E/F Firebee II drone was used to remotely test new aerodynamic designs to optimize future aircraft designs in the 1980's. The aircraft was convenient for such testing due to its easily replaceable wings and the use of control surfaces only on the tail. The drone was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at 25,000 feet altitude and used a custom control system to suppress flutter. The DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission. Therefore, it is considered as the most appropriate reference for the initial wing sizing. \footnote{\url{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}}
-$C_{L_{des}}$ is estimated by extracting the wing loading $\frac{W}{S}$ from the DAST drone with the ARW-2 wing in cruise condition. The estimation and the DAST drone parameters are shown in \autoref{tab:DAST_HUGO}.
+\section{Preliminary Airfoil Selection Procedure}
+According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to Mach 0.75\cite{} \todo{cite baseline report or ref requirements section}. This is the flight condition at which tests are expected to be conducted during operations. In this Section, an estimation of the lift characteristics of HUGO is performed, along with a preliminary airfoil selection suitable for the considered operations.
+
+
+\subsection{Design Lift Coefficients}
+The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project is used as a reference\footnote{\url{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}}. This modified version of the Teledyne-Ryan BQM-34E/F Firebee II drone was used to remotely test new aerodynamic designs to optimize future aircraft designs in the 1980's. The aircraft was convenient for such testing due to its easily replaceable wings and the use of control surfaces only on the tail. The drone was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at 25,000 feet altitude and used a custom control system to suppress flutter. The DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission. Therefore, it is considered as the most appropriate reference for the initial wing sizing. $C_{L_\text{des}}$ is estimated by extracting the wing loading $\frac{W}{S}$ from the DAST drone with the ARW-2 wing in cruise condition. The estimation and the DAST drone parameters are shown in \autoref{tab:DAST_HUGO}.
 \begin{table}[H]
     \centering
     \label{tab:DAST_HUGO}
@@ -28,14 +29,14 @@ $C_{L_{des}}$ is estimated by extracting the wing loading $\frac{W}{S}$ from the
 A wing loading $\frac{W}{S} = 3000 \ N \cdot m^{-2}$ is high and will impose structural challenges for the HUGO aircraft. However, the ARW-2 wing design shows that a wing with such a loading mode can be designed. \cite{Harris1990} \\
 
 \subsubsection*{Design lift coefficient}
-To estimate $C_{L_{des}}$, \autoref{eq:C_L} was used. It includes the air density at the altitude of 27,000 feet $\rho_{cr}$ and the airspeed $V_{cr}$, for which it holds that $V_{cr} = M \cdot \sqrt{\gamma R T}$ at the ISA altitude of 27,000 ft.
+To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} was used. It includes the air density at the altitude of 27,000 feet $\rho_{cr}$ and the airspeed $V_{cr}$, for which it holds that $V_{cr} = M \cdot \sqrt{\gamma R T}$ at the ISA altitude of 27,000 ft.
 
 \begin{equation}
-    C_{L_{des}} = \frac{\frac{W}{S}}{\frac{1}{2} \rho_{cr} V_{cr}^2}
+    C_{L_\text{des}} = \frac{\frac{W}{S}}{\frac{1}{2} \rho_{cr} V_{cr}^2}
     \label{eq:C_L}
 \end{equation}
 
-Using the initial $\frac{W}{S} = 3000 \ N\cdot m^{-2}$, $\rho_{cr} = 0.5112 \ kg \cdot m^{-3}$ and $V_{cr} = 230.2945 \ m \cdot s^{-1}$ a $C_{L_{des}} = 0.2213$ was obtained.\\
+Using the initial $\frac{W}{S} = 3000 \ N\cdot m^{-2}$, $\rho_{cr} = 0.5112 \ kg \cdot m^{-3}$ and $V_{cr} = 230.2945 \ m \cdot s^{-1}$ a $C_{L_\text{des}} = 0.2213$ was obtained.\\
 
 \subsubsection*{Cruise Reynolds number}
 Based on the initial estimates from \autoref{tab:DAST_HUGO}, the Reynolds number for cruise $Re_{cr}$ and stall condition $Re_{stall}$ was calculated using \autoref{eq:Re}.
@@ -48,14 +49,14 @@ $Re_{cr} = 620\ 000$ was found using ISA conditions at the altitude 27,000 ft.
 \subsubsection*{Supercritical airfoil} Since the aircraft is expected to operate at Mach 0.75 is necessary to take transonic phenomena into account. When flying in this region with a traditional airfoil the airflow might locally be supersonic which creates strong shock waves on the wing \cite{Whitcomb1974}. This leads to a large increase in drag which is detrimental for the performance of the aircraft and introduces boundary layer separation. This lead to the development of a airfoil-class known as supercritical. A supercritical airfoil is capable to operate at transonic conditions with only the onset of weak shock waves. An entire family of supercritical airfoil was developed by NASA. The identifications codes are SC(2)-XXYY. XX is the airfoil design lift coefficient and YY is the maximum thickness in percent \cite{Harris1990}. The advantage of using this system is the inclusion of the design lift coefficient which makes it possible to narrow down the choices for the different airfoil using the lift coefficients obtained from the previous section. 
 
 \subsubsection*{Maximum lift coefficient}
-The maximum lift coefficient, $C_{L_{max}}$ has to be selected in order to obtain the stall speed of HUGO, $V_{stall}$. As stated before, the use of a supercritical wing profile is likely inevitable at the flight regime of HUGO. A reasonable estimate for the maximum lift coefficient can therefore be derived by taking the NASA SC(2) airfoil family as a reference airfoil family. \cite{Harris1990} For the Reynolds number $Re = 500 \ 000$, a maximum lift coefficient $C_{L_{max}} \approx 1.55$ was found predicted by the Xfoil software \footnote{\url{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5} (Accessed on 7.5.2026)} and used in later in the stall speed estimation. The data with a reference $N_{crit} = 5$ critical amplification factor were used, which is suitable for the usecase and likely turbulent transition behavior at the considered flight condition. \cite{Koul}
+The maximum lift coefficient, $C_{L_\text{max}}$ has to be selected in order to obtain the stall speed of HUGO, $V_{stall}$. As stated before, the use of a supercritical wing profile is likely inevitable at the flight regime of HUGO. A reasonable estimate for the maximum lift coefficient can therefore be derived by taking the NASA SC(2) airfoil family as a reference airfoil family. \cite{Harris1990} For the Reynolds number $Re = 500 \ 000$, a maximum lift coefficient $C_{L_\text{max}} \approx 1.55$ was found predicted by the Xfoil software \footnote{\url{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5} (Accessed on 7.5.2026)} and used in later in the stall speed estimation. The data with a reference $N_{crit} = 5$ critical amplification factor were used, which is suitable for the usecase and likely turbulent transition behavior at the considered flight condition. \cite{Koul}
 
 \subsubsection*{Stall speed}
 The next step is to identify the preliminary stall speed of HUGO. NASA does not provide the stall speed for the ARW-2 wing, however, it can be estimated based on the NASA SC(2) family of supercritical airfoils. The SC(2)-0412 is taken as a reference here. \\
 
 \subsubsection*{Airfoil selection}
-Based on the data obtained in the previous subsections, an airfoil from the NASA database was selected. The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_{des}} = 0.2213$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} It was decided that the the NASA SC(2)-0414 will be used as the root wing profile, linearly transitioning towards the SC(2)-0412 profile at the wing tip. This means that the $\frac{t}{c}$ ratio is between 12 \% at the wing tip to 14 \% at the wing root.\\
-The primary driver for selecting a relatively high thickness-to-chord ratio is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_dd = 0.8$, which is beyond the conditions HUGO will operate.\cite{Harris1990}
+Based on the data obtained in the previous subsections, an airfoil from the NASA database was selected. The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_\text{des}} = 0.2213$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} It was decided that the the NASA SC(2)-0414 will be used as the root wing profile, linearly transitioning towards the SC(2)-0412 profile at the wing tip. This means that the $\frac{t}{c}$ ratio is between 12 \% at the wing tip to 14 \% at the wing root.\\
+The primary driver for selecting a relatively high thickness-to-chord ratio is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_dd = 0.8$, which is beyond the conditions HUGO will operate.\cite{Harris1990}
 
 \section{Material selection}
 The selection of the material for the aircraft will be based on several considerations: performance, economics, lifespan and sustainability. 
@@ -64,10 +65,15 @@ The selection of the material for the aircraft will be based on several consider
 Below is the list of the different materials that will be considered.
 \begin{itemize}
     \item Wood
-    \item Aluminium 
+    \item \textbf{Aluminium} Different alloys \cite{LI2023944} 
     \item Magnesium 
     \item Titanium 
     \item Superalloys
     \item Composites
 \end{itemize}
+
+\subsubsection*{Life-cycle Assessment}
+
+
+
 

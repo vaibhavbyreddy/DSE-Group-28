@@ -1,14 +1,10 @@
 \chapter{Design Trade-Off}
 
-
-\section{Development of Trade-Off Criteria}
-\label{sec:trade-off_criteria}
-
-\subsection{Trade-Off Criteria Selection}
-
+\section{Trade-Off Criteria Selection}
+\label{sec:trade-off_criteria_selection}
 To establish meaningful criteria that lead to a useful trade-off, different approaches can be applied. Generally, the criteria should cover available technical specifications, key performance metrics, and also more abstract factors. It is not helpful to include criteria where all options perform similarly; instead, it is more valuable to use criteria where some options perform poorly, as this helps reveal and compare weaknesses across designs. In this way, each design’s limitations can be properly assessed. In addition, some of the requirements identified in the baseline review can also serve as a basis for defining the trade-off criteria.
 
-Taking all of the above into consideration, the following criteria were selected: \textbf{Cost, Versatility, Performance (Controllability), Reliability, and Sustainability}. 
+Taking all of the above into consideration, the following criteria were selected: \textbf{Cost, Versatility, Performance, Reliability, and Sustainability}. 
 
 \begin{enumerate}
     \item Versatility was selected since configuration 2 prevents the testing of canard-dependent configurations, and the variable ports in configurations 1, 4, and 5 allow for a wider range of stability conditions to be tested. This means that some of the options will score low in this criterion. 
@@ -20,7 +16,7 @@ Taking all of the above into consideration, the following criteria were selected
 
 
 
-The no-go values of the criteria were also estimated. They are given in \autoref{tab: no-go} with a short rationale. A more in-depth justification is given below.
+The no-go values (ranging from 1 to 5) of the criteria were also estimated. They are given in \autoref{tab: no-go} with a short rationale. A more in-depth justification is given below.
 
 \textbf{Versatility :} this is the core mission of the testbed. A configuration that cannot test canard-dependent setups or is limited to a single stability condition is fundamentally failing its purpose. That is why a threshold of 3 was chosen.
 
@@ -28,10 +24,11 @@ The no-go values of the criteria were also estimated. They are given in \autoref
 
 \textbf{Reliability:} this covers both mechanical reliability and data quality. An unreliable testbed either produces corrupted data or grounds itself frequently. 
 
-\textbf{Cost:} cost is a constraint, but not a mission-critical one. A configuration that is very expensive is painful, but doesn't make the aircraft scientifically invalid.
+\textbf{Cost:} a constraint, but not a mission-critical one. A configuration that is very expensive is painful, but doesn't make the aircraft scientifically invalid.
 
 \textbf{Sustainability:}  lowest weighted criterion and not mission-critical.
-\begin{table}[h!]
+
+\begin{table}[H]
 \centering
 \caption{No-go values and rationale}
 \label{tab: no-go}
@@ -49,16 +46,103 @@ Sustainability & --    & Not mission-critical \\
 \end{tabular}
 \end{table}
 
-\textbf{Criteria should by preference be quantifiable. If that is not possible, a sharp definition of the qualitative scores (excellent, good, fair, correctable deficiencies, poor, unacceptable) must be provided.}
+Now that the criteria have been selected and their no-go values defined, they can be quantified. A scale from 1 to 5 will be used.
 
-\subsection{Trade-Off Weight Factors}
-\label{subsec:trade-off_weight_factors}
+\textbf{Versatility} is quantified as the range of experiments and stability conditions that can be tested with the given configuration. As mentioned above, a configuration that can not test canard configurations or has a static port will score lower.
 
-To determine the weight factors, the analytic hierarchy process (AHP) was used. This was done by pairwise comparison of the criteria specified earlier. In the case of n criteria, a total of $n(n-1)/2$ comparisons contribute to the formation of a pairwise comparison matrix (PCM) of order n. The diagonal entries of the PCM are all 1, and the remaining values are simply the reciprocals of these $n(n-1)/2$ comparisons \cite{Pant 2022}.
+\begin{table}[h!]
+\centering
+\caption{Versatility scoring criteria}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c l}
+\hline
+\textbf{Score} & \textbf{Definition} \\
+\hline
+5 & Full range of configurations testable (variable canard and wing) \\
+4 & Most configurations testable (variable wing and static canard) \\
+3 & Moderate limitations (static canard and wing) \\
+2 & Significant limitations (no canard port) \\
+1 & Only one configuration testable - core mission compromised \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Performance} is evaluated based on how effectively the maximum Mach number at test altitude can be achieved while carrying the full instrumentation payload, with minimal drag and fuel consumption. Configurations that are lighter, less complex, and feature fewer protruding components will receive higher scores.
+
+\begin{table}[h!]
+\centering
+\caption{Performance scoring criteria}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c l}
+\hline
+\textbf{Score} & \textbf{Definition} \\
+\hline
+5 & Low drag, low mass - clean configuration, no protruding components \\
+4 & Slightly elevated drag or mass, minor impact on Mach envelope \\
+3 & Moderate drag or mass penalty, noticeable but manageable impact on performance \\
+2 & Significant drag and mass penalties, meaningful reduction in achievable Mach  \\
+1 & High drag and mass, substantially limit the achievable Mach at test altitude \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{comment}
+The key differentiators under this definition would be:
+\begin{enumerate}
+    \item Buried gear - permanent parasitic drag penalty even when not needed
+    \item Retractable gear - clean when retracted, better for cruise performance
+    \item Variable X port - mass and complexity penalty
+    \item High wing - potential intake interference limiting max thrust
+\end{enumerate}
+\end{comment}
+
+\textbf{Reliability} is evaluated as the likelihood that the testbed will successfully perform its intended function without failure under the specified operating conditions throughout its lifetime. Features such as ports and retractable landing gear introduce additional failure risks; therefore, configurations incorporating these elements will receive lower scores.
+
+\begin{table}[H]
+\centering
+\caption{Reliability scoring criteria}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c l}
+\hline
+\textbf{Score} & \textbf{Definition} \\
+\hline
+5 & No single-point failure modes, fully redundant \\
+4 & One minor failure mode, easily mitigated \\
+3 & Multiple failure modes with mitigation possible \\
+2 & Multiple failure modes, data quality at risk \\
+1 & Critical failure modes, mission safety compromised \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Cost} is quantified as the manufacturing effort, materials, development, and maintenance that have gone into each configuration. More complex and heavier designs will score lower here.
+
+\begin{table}[h!]
+\centering
+\caption{Cost scoring criteria}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c p{11cm}}
+\hline
+\textbf{Score} & \textbf{Definition} \\
+\hline
+5 & Minimal complexity - static ports, fixed gear \\
+4 & Low complexity - retractable mechanism added, limited extra manufacturing effort \\
+3 & Moderate complexity - addition of variable port, notably higher manufacturing and procurement cost \\
+2 & High complexity - variable port mechanism and retractable gear combined, significant cost driver \\
+1 & Maximum complexity - all cost-driving systems present, highest manufacturing and maintenance expenditure \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\section{Trade-Off Weight Factors}
+\label{sec:trade-off_weight_factors}
+
+To determine the weight factors, the analytic hierarchy process (AHP) was used. This was done by pairwise comparison of the criteria specified earlier. For n criteria, a total of $n(n-1)/2$ comparisons are required to form a pairwise comparison matrix (PCM) of order n. The diagonal entries of the PCM are all 1, and the remaining values are simply the reciprocals of these $n(n-1)/2$ comparisons \cite{Pant 2022}.
 
 For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty \cite{Saaty 1980}. These scores are defined as follows: 1 - Equal importance; 3 - Moderate importance, 5 - Strong importance; 7 - Very strong importance; 9 - Extreme importance. 
 
-Assigning weights from 1 to 9 to the n criteria, the PCM is constructed so that the rows represent the ratios of a criterion's score to those of the others \cite{Saaty 1980}. The obtained matrix is shown below.
+Assigning weights from 1 to 9 to the n criteria, the PCM is constructed so that the rows represent the ratios of a criterion's score to the scores of the other criteria \cite{Saaty 1980}. The obtained matrix is shown below.
 
 \begin{comment}
 \[
@@ -90,28 +174,38 @@ Assigning weights from 1 to 9 to the n criteria, the PCM is constructed so that 
 \]
 \end{comment}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
-\caption{Pairwise comparison matrix}
+\caption{Pairwise comparison matrix (PCM)}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{l c c c c c c}
 \hline
- & Cost & Versatility & Performance & Reliability & Sustainability & Mass \\
+ & Cost & Versatility & Performance & Reliability & Sustainability \\
 \hline
-Cost           & 1 & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3}$ & 3 & 2 \\
-Versatility    & 4 & 1 & 2 & 2 & 6 & 4 \\
-Performance    & 3 & $\tfrac{1}{2}$ & 1 & 1 & 5 & 3 \\
-Reliability    & 3 & $\tfrac{1}{2}$ & 1 & 1 & 5 & 3 \\
-Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{6}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 & $\tfrac{1}{3}$ \\
-Mass           & $\tfrac{1}{2}$ & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3}$ & 3 & 1 \\
+Cost           & 1 & $\tfrac{1}{6}$ & $\tfrac{1}{4}$ & $\tfrac{1}{4}$ & 3  \\
+Versatility    & 6 & 1 & 3 & 3 & 7 \\
+Performance    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
+Reliability    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
+Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{7}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 \\
 \hline
 \end{tabular}
 \end{table}
 
 
-As an example, element PCM(2, 1) is equal to 4, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element PCM(1, 2) is the reciprocal, equal to $\frac{1}{4}$.
+As an example, element (2, 1) is equal to 6, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element (1, 2) is the reciprocal, equal to $\frac{1}{4}$.
 
-\textbf{go into more depth on how the ratios were defined}
+Below, the remaining pairwise comparisons are justified: 
+\begin{enumerate}
+    \item \textbf{Cost vs Performance:} The ratio is $\frac{1}{4}$. If the aircraft cannot reach the required Mach and Reynolds number conditions, the test data is physically invalid regardless of how economical the build was. The times 4 rating reflects that performance is strongly more important, but cost still influences overall feasibility of the programme.
+    \item \textbf{Cost vs Reliability:} The ratio is $\frac{1}{4}$. Same ratio as cost vs performance, for analogous reasoning — an unreliable aircraft either produces corrupted data or is grounded, making any cost savings irrelevant. Performance and reliability are rated equally against cost because both are non-negotiable prerequisites for mission success.
+    \item \textbf{Cost vs Sustainability:} The ratio is 3. Cost is moderately more important than sustainability because it directly determines whether the aircraft gets built and operated at all. Sustainability matters but has limited influence on mission outcome for a low-flight-hour research aircraft, particularly since SAF is already being used.
+    \item \textbf{Versatility vs Performance:} The ratio is 3. Versatility is moderately more important because a testbed that performs well but can only test one configuration is fundamentally less valuable than one covering a wide experimental envelope at slightly reduced performance. The times 3 rating acknowledges that performance cannot be completely sacrificed — a versatile aircraft that cannot reach test conditions is equally useless.
+    \item \textbf{Versatility vs Reliability:} The score is 3. Same ratio as versatility vs performance. Versatility limitations are design-dependent and cannot be corrected post-build, whereas reliability issues can be partially mitigated through redundancy, maintenance procedures, and data post-processing. This makes versatility marginally more important.
+    \item \textbf{Versatility vs Sustainability:} The score is 7. The scientific output of the testbed strongly outweighs environmental considerations. A versatile testbed operating on SAF for limited research hours has a negligible environmental footprint compared to its scientific contribution.
+    \item \textbf{Performance vs Reliability:} The score is 1. Both are equal prerequisites for producing valid test data. Performance determines whether you can reach the required test conditions; reliability determines whether you get valid measurements when you do. Neither can compensate for a deficit in the other.
+    \item \textbf{Performance vs Sustainability:} The score is 5. An aircraft that cannot reach test conditions delivers zero scientific value regardless of how sustainably it was built. The times 5 rating reflects that sustainability, while important, is an ancillary concern for a research platform with limited operational hours.
+    \item \textbf{Realiability vs Sustainability:} The score is 5. Same rating and same reasoning as performance vs sustainability — unreliable data collection undermines the entire mission, whereas the sustainability impact remains small given the operational profile.
+\end{enumerate}
 
 The next step is computing the priority vector, which is the normalized eigenvector of the matrix, as shown by Kardi Teknomo \footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial}}. The column values were summed to obtain the column sums, which will be used for the normalisation of the values in the PCM. The sum of each column should be 1, which can be used as a sanity check. 
 
@@ -189,16 +283,17 @@ The next step is computing the priority vector, which is the normalized eigenvec
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{l c c c c c c}
 \hline
- & Cost & Versatility & Performance & Reliability & Sustainability & Mass \\
+ & Cost & Versatility & Performance & Reliability & Sustainability \\
 \hline
-Cost           & 1 & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3}$ & 3 & 2 \\
-Versatility    & 4 & 1 & 2 & 2 & 6 & 4 \\
-Performance    & 3 & $\tfrac{1}{2}$ & 1 & 1 & 5 & 3 \\
-Reliability    & 3 & $\tfrac{1}{2}$ & 1 & 1 & 5 & 3 \\
-Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{6}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 & $\tfrac{1}{3}$ \\
-Mass           & $\tfrac{1}{2}$ & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3}$ & 3 & 1 \\
+ & Cost & Versatility & Performance & Reliability & Sustainability \\
 \hline
-\textbf{Column Sum} & 11.83 & 2.67 & 4.8667 & 4.8667 & 23 & 13.3333 \\
+Cost           & 1 & $\tfrac{1}{6}$ & $\tfrac{1}{4}$ & $\tfrac{1}{4}$ & 3  \\
+Versatility    & 6 & 1 & 3 & 3 & 7 \\
+Performance    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
+Reliability    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
+Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{7}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 \\
+\hline
+\textbf{Column Sum} & 15.33 & 1.98 & 5.45 & 5.45 & 21 \\
 \hline
 \end{tabular}
 \end{table}
@@ -209,16 +304,15 @@ Mass           & $\tfrac{1}{2}$ & $\tfrac{1}{4}$ & $\tfrac{1}{3}$ & $\tfrac{1}{3
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{l c c c c c c}
 \hline
- & Cost & Versatility & Performance & Reliability & Sustainability & Mass \\
+ & Cost & Versatility & Performance & Reliability & Sustainability\\
 \hline
-Cost           & 0.0845 & 0.0938 & 0.0685 & 0.0685 & 0.1304 & 0.1500 \\
-Versatility    & 0.3380 & 0.3750 & 0.4110 & 0.4110 & 0.2609 & 0.3000 \\
-Performance    & 0.2535 & 0.1875 & 0.2055 & 0.2055 & 0.2174 & 0.2250 \\
-Reliability    & 0.2535 & 0.1875 & 0.2055 & 0.2055 & 0.2174 & 0.2250 \\
-Sustainability & 0.0282 & 0.0625 & 0.0411 & 0.0411 & 0.0435 & 0.0250 \\
-Mass           & 0.0423 & 0.0938 & 0.0685 & 0.0685 & 0.1304 & 0.0750 \\
+Cost           & 0.0652 & 0.0843 & 0.0459 & 0.0459 & 0.1429 \\
+Versatility    & 0.3913 & 0.5060 & 0.5505 & 0.5505 & 0.3333 \\
+Performance    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 \\
+Reliability    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 \\
+Sustainability & 0.0217 & 0.0723 & 0.0367 & 0.0367 & 0.0476 \\
 \hline
-\textbf{Column Sum} & 1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 \\
+\textbf{Column Sum} & 1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 \\
 \hline
 \end{tabular}
 \end{table}
@@ -232,17 +326,15 @@ w_{\text{Cost}} \\
 w_{\text{Versatility}} \\
 w_{\text{Performance}} \\
 w_{\text{Reliability}} \\
-w_{\text{Sustainability}} \\
-w_{\text{Mass}}
+w_{\text{Sustainability}}
 \end{bmatrix}
 =
 \begin{bmatrix}
-0.0993 \\
-0.3493 \\
-0.2157 \\
-0.2157 \\
-0.0402 \\
-0.0797
+0.0768 \\
+0.4663 \\
+0.2069 \\
+0.2069 \\
+0.0430 \\
 \end{bmatrix}
 \]
 
@@ -251,20 +343,19 @@ The priority vector shows relative weights among the things that we compare. The
 The consistency can also be estimated with the use of the principal eigenvalue $\lambda_{max}$. It is obtained from the summation of the products between the elements of the priority vector and the column sums of the PCM. 
 
 \begin{align*}
-\lambda_{\max} &= 0.0993 \cdot 11.83 + 0.3493 \cdot 2.67 + 0.2157 \cdot 4.8667 \\
-&\quad + 0.2157 \cdot 4.8667 + 0.0402 \cdot 23 + 0.0797 \cdot 13.3333 = 6.1943
+\lambda_{\max} = 5.2582
 \end{align*}
 
 For a consistent matrix $\lambda_{max} = n$ \cite{Saaty 1980}. The degree of consistency of an inconsistent matrix can be estimated by using the consistency index (CI) \cite{Saaty 1980} defined as:
 
 \begin{equation}
-    CI = \frac{\lambda_{max}-n}{n-1} = \frac{6.1943 - 6}{6 - 1} = 0.03887
+    CI = \frac{\lambda_{max}-n}{n-1}
 \end{equation}
 
-The obtained CI is compared with the random consistency index (RI). For n = 6, RI = 1.24. This is done by the consistency ratio (CR) \cite{Saaty 1980}:
+The obtained CI is compared with the random consistency index (RI). This is done by the consistency ratio (CR) \cite{Saaty 1980}:
 
 \begin{equation}
-    CR = \frac{CI}{CR} = 0.03135
+    CR = \frac{CI}{CR} = 0.0576
 \end{equation}
 If CR < 10\%, then the evaluation is consistent \cite{Saaty 1980}.
 
