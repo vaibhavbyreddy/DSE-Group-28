@@ -1,9 +1,9 @@
 \chapter{Engineering Design and Analysis}
 
 \section{Airfoil selection procedure}
-HUGO is required to operate at speeds up to Mach 0.75 according to HUG-OPS-005. This is also the flight condition at which tests are expected to be conducted.
+HUGO is required to operate at speeds up to Mach 0.75 according to \textbf{HUG-OPS-005}. This is also the flight condition at which tests are expected to be conducted.
 \subsection{Design lift coefficients}
-The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_{des}}$ and maximum lift coefficient $C_{L_{max}}$ for HUGO. Due to the specified testing conditions, $C_{L_{des}}$ was selected for the Mach 0.75 airspeed condition at FL27, i.e. the altitude of 27,000 ft (8230 m). For initial estimates, the NASA DAST project is used as a reference. This modified version of the Teledyne-Ryan BQM-34E/F Firebee II drone was used to remotely test new aerodynamic designs to optimize future aircraft designs. The aircraft was convenient for such testing due to its easily replaceable wings and the use of control surfaces only on the tail. The drone was retrofitted with a supercritical wing aimed to achieve a flutter speed of Mach 0.95 at 25,000 feet altitude and used a custom control system to suppress flutter. \footnote{\url{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}}
+The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_{des}}$ and maximum lift coefficient $C_{L_{max}}$ for HUGO. Due to the specified testing conditions, $C_{L_{des}}$ was selected for the Mach 0.75 airspeed condition at FL27, i.e. the altitude of 27,000 ft (8230 m). For initial estimates, the NASA DAST project is used as a reference. This modified version of the Teledyne-Ryan BQM-34E/F Firebee II drone was used to remotely test new aerodynamic designs to optimize future aircraft designs in the 1980's. The aircraft was convenient for such testing due to its easily replaceable wings and the use of control surfaces only on the tail. The drone was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at 25,000 feet altitude and used a custom control system to suppress flutter. The DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission. Therefore, it is considered as the most appropriate reference for the initial wing sizing. \footnote{\url{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}}
 $C_{L_{des}}$ is estimated by extracting the wing loading $\frac{W}{S}$ from the DAST drone with the ARW-2 wing in cruise condition. The estimation and the DAST drone parameters are shown in \autoref{tab:DAST_HUGO}.
 \begin{table}[H]
     \centering
@@ -25,7 +25,7 @@ $C_{L_{des}}$ is estimated by extracting the wing loading $\frac{W}{S}$ from the
     \end{tabular}
     \caption{DAST ARW-2 and HUGO derived parameters \cite{perry1982methodology}}
 \end{table}
-A wing loading $\frac{W}{S} = 3000 \ N \cdot m^{-2}$ is high and will impose structural challenges for the HUGO aircraft. However, the ARW-2 wing proves that a wing with such loading mode can be designed. \cite{} \\
+A wing loading $\frac{W}{S} = 3000 \ N \cdot m^{-2}$ is high and will impose structural challenges for the HUGO aircraft. However, the ARW-2 wing design shows that a wing with such a loading mode can be designed. \cite{Harris1990} \\
 \subsubsection{Design lift coefficient}
 To estimate $C_{L_{des}}$, \autoref{eq:C_L} was used. It includes the air density at the altitude of 27,000 feet $\rho_{cr}$ and the airspeed $V_{cr}$, for which it holds that $V_{cr} = M \cdot \sqrt{\gamma R T}$ at the ISA altitude of 27,000 ft.
 
@@ -36,7 +36,7 @@ To estimate $C_{L_{des}}$, \autoref{eq:C_L} was used. It includes the air densit
 
 Using the initial $\frac{W}{S} = 3000 \ N\cdot m^{-2}$, $\rho_{cr} = 0.5112 \ kg \cdot m^{-3}$ and $V_{cr} = 230.2945 \ m \cdot s^{-1}$ a $C_{L_{des}} = 0.2213$ was obtained.\\
 \subsubsection{Maximum lift coefficient}
-The maximum lift coefficient, $C_{L_{max}}$ has to be selected in order to obtain the stall speed of HUGO, $V_{stall}$.
+The maximum lift coefficient, $C_{L_{max}}$ has to be selected in order to obtain the stall speed of HUGO, $V_{stall}$. From a report on supercritical airfoils research by NASA, a reasonable estimate for 
 
 \subsubsection{Stall speed}
 The next step is to identify the preliminary stall speed of HUGO. NASA does not provide the stall speed for the ARW-2 wing, however, it can be estimated based on the NASA SC(2) family of supercritical airfoils. 
@@ -56,3 +56,13 @@ $Re_{cr} = $ was found using ISA conditions at the altitude 27,000 ft and $Re_{s
 Based on the data obtained in the previous subsections, an airfoil from the NASA database was selected. The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_{des}} = 0.2213$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} It was decided that the the NASA SC(2)-0414 will be used as the root wing profile, linearly transitioning towards the SC(2)-0412 profile at the wing tip. This means that the $\frac{t}{c}$ ratio is between 12 \% at the wing tip to 14 \% at the wing root.\\
 The primary driver for selecting a relatively high thickness-to-chord ratio is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_dd = 0.8$, which is beyond the conditions HUGO will operate.\cite{Harris1990}
 
+\section{Material selection}
+The selection of the material for the aircraft will be based on several considerations: performance, economics, operation and sustainability. To limit the amount of choices the candidates where sourced from materials previously used for similar applications.  
+
+\begin{itemize}
+    \item Wood
+    \item Aluminium 
+    \item Magnesium 
+    \item Titanium 
+    \item Superalloys
+\end{itemize}

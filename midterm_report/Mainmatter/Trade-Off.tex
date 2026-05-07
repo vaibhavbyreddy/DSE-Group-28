@@ -31,26 +31,140 @@ To determine the weight factors, the analytic hierarchy process (AHP) was used. 
 
 For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty \cite{Saaty 1980}. These scores are defined as follows: 1 - Equal importance; 3 - Moderate importance, 5 - Strong importance; 7 - Very strong importance; 9 - Extreme importance. 
 
-Assigning weights from 1 to 9 to the n criteria, the PCM is constructed such that the rows give the ratios of the score of a criterion with respect to all others \cite{Saaty 1980}. The obtained matrix is shown in \autoref{}.
+Assigning weights from 1 to 9 to the n criteria, the PCM is constructed such that the rows give the ratios of the score of a criterion with respect to all others \cite{Saaty 1980}. The obtained matrix is shown below.
 
-\textbf{include PCM}
+\[
+\begin{blockarray}{ccccccc}
+& \text{Cost} & \text{Versatility} & \text{Performance} &
+\text{Reliability} & \text{Sustainability} & \text{Mass} \\
+\begin{block}{c(cccccc)}
+\text{Cost}
+    & 1 & \tfrac{1}{4} & \tfrac{1}{3} & \tfrac{1}{3} & 3 & 2 \\
+
+\text{Versatility}
+    & 4 & 1 & 2 & 2 & 6 & 4 \\
+
+\text{Performance}
+    & 3 & \tfrac{1}{2} & 1 & 1 & 5 & 3 \\
+
+\text{Reliability}
+    & 3 & \tfrac{1}{2} & 1 & 1 & 5 & 3 \\
+
+\text{Sustainability}
+    & \tfrac{1}{3} & \tfrac{1}{6} & \tfrac{1}{5} &
+      \tfrac{1}{5} & 1 & \tfrac{1}{3} \\
+
+\text{Mass}
+    & \tfrac{1}{2} & \tfrac{1}{4} & \tfrac{1}{3} &
+      \tfrac{1}{3} & 3 & 1 \\
+\end{block}
+\end{blockarray}
+\]
+
+
+As an example, element PCM(2, 1) is equal to 4, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element PCM(1, 2) is the reciprocal, equal to $\frac{1}{4}$.
 
 The next step is computing the priority vector, which is the normalized eigenvector of the matrix, as shown by Kardi Teknomo \footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial}}. The column values were summed to obtain the column sums, which will be used for the normalisation of the values in the PCM. The sum of each column should be 1, which can be used as a sanity check. 
 
-\textbf{include PCM with column sums}
+\[
+\begin{blockarray}{ccccccc}
+& \text{Cost} & \text{Versatility} & \text{Performance} &
+\text{Reliability} & \text{Sustainability} & \text{Mass} \\
+\begin{block}{c(cccccc)}
+\text{Cost}
+    & 1 & \tfrac{1}{4} & \tfrac{1}{3} & \tfrac{1}{3} & 3 & 2 \\
 
-\textbf{include normalised matrix}
+\text{Versatility}
+    & 4 & 1 & 2 & 2 & 6 & 4 \\
 
-Once the matrix was normalised, the values of each row were averaged to obtain the normalised principal eigenvector. The sum of its elements should also be 1.
+\text{Performance}
+    & 3 & \tfrac{1}{2} & 1 & 1 & 5 & 3 \\
 
-\textbf{include normalised eigenvector}
+\text{Reliability}
+    & 3 & \tfrac{1}{2} & 1 & 1 & 5 & 3 \\
+
+\text{Sustainability}
+    & \tfrac{1}{3} & \tfrac{1}{6} & \tfrac{1}{5} &
+      \tfrac{1}{5} & 1 & \tfrac{1}{3} \\
+
+\text{Mass}
+    & \tfrac{1}{2} & \tfrac{1}{4} & \tfrac{1}{3} &
+      \tfrac{1}{3} & 3 & 1 \\
+
+\text{\textbf{Column Sum}}
+    & 11.83 & 2.67 & 4.8667 &
+      4.8667 & 23 & 13.3333 \\
+      
+\end{block}
+\end{blockarray}
+\]
+
+\[
+\begin{blockarray}{ccccccc}
+& \text{Cost} & \text{Versatility} & \text{Performance} &
+\text{Reliability} & \text{Sustainability} & \text{Mass} \\
+\begin{block}{c(cccccc)}
+\text{Cost}
+    & 0.0845 & 0.0938 & 0.0685 & 0.0685 & 0.1304 & 0.1500 \\
+
+\text{Versatility}
+    & 0.3380 & 0.3750 & 0.4110 & 0.4110 & 0.2609 & 0.3000 \\
+
+\text{Performance}
+    & 0.2535 & 0.1875 & 0.2055 & 0.2055 & 0.2174 & 0.2250 \\
+
+\text{Reliability}
+    & 0.2535 & 0.1875 & 0.2055 & 0.2055 & 0.2174 & 0.2250 \\
+
+\text{Sustainability}
+    & 0.0282 & 0.0625 & 0.0411 &
+      0.0411 & 0.0435 & 0.0250 \\
+
+\text{Mass}
+    & 0.0423 & 0.0938 & 0.0685 &
+      0.0685 & 0.1304 & 0.0750 \\
+
+\text{\textbf{Column Sum}}
+    & 1.0000 & 1.0000 & 1.0000 &
+      1.0000 & 1.0000 & 1.0000 \\
+      
+\end{block}
+\end{blockarray}
+\]
+
+
+Once the matrix was normalised, the values of each row were averaged to obtain the normalised principal eigenvector (priority vector). The sum of its elements should also be 1.
+
+\[
+\mathbf{w} =
+\begin{bmatrix}
+w_{\text{Cost}} \\
+w_{\text{Versatility}} \\
+w_{\text{Performance}} \\
+w_{\text{Reliability}} \\
+w_{\text{Sustainability}} \\
+w_{\text{Mass}}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.0993 \\
+0.3493 \\
+0.2157 \\
+0.2157 \\
+0.0402 \\
+0.0797
+\end{bmatrix}
+\]
 
 The priority vector shows relative weights among the things that we compare. The larger the entry, the higher the ranking of the respective criterion. 
 
 The consistency can also be estimated with the use of the principal eigenvalue $\lambda_{max}$. It is obtained from the summation of the products between the elements of the priority vector and the column sums of the PCM. 
 
-
-\textbf{include eigenvalue calculation}
+\begin{equation}
+    \lambda_{max} = 0.0993 \cdot 11.83 + 0.3493 \cdot 2.67 + 0.2157 \cdot 4.8667 + 0.2157 \cdot 4.8667 + 
+    \\
+    0.0402 \cdot 23 + 0.0797 \cdot 13.3333 = 6.1943
+\end{equation}
 
 For a consistent matrix $\lambda_{max} = n$ \cite{Saaty 1980}. The degree of consistency of an inconsistent matrix can be estimated by using the consistency index (CI) \cite{Saaty 1980} defined as:
 
