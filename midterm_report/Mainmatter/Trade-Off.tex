@@ -54,10 +54,10 @@ Now that the criteria have been selected and their no-go values defined, they ca
 \centering
 \caption{Versatility scoring criteria}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{c l}
+\begin{tabular}{|c |l|}
 \hline
 \textbf{Score} & \textbf{Definition} \\
-\hline
+\hline \hline
 5 & Full range of configurations testable (variable canard and wing) \\
 4 & Most configurations testable (variable wing and static canard) \\
 3 & Moderate limitations (static canard and wing) \\
@@ -73,10 +73,10 @@ Now that the criteria have been selected and their no-go values defined, they ca
 \centering
 \caption{Performance scoring criteria}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{c l}
+\begin{tabular}{|c |l|}
 \hline
 \textbf{Score} & \textbf{Definition} \\
-\hline
+\hline \hline
 5 & Low drag, low mass - clean configuration, no protruding components \\
 4 & Slightly elevated drag or mass, minor impact on Mach envelope \\
 3 & Moderate drag or mass penalty, noticeable but manageable impact on performance \\
@@ -102,10 +102,10 @@ The key differentiators under this definition would be:
 \centering
 \caption{Reliability scoring criteria}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{c l}
+\begin{tabular}{|c |l|}
 \hline
 \textbf{Score} & \textbf{Definition} \\
-\hline
+\hline \hline
 5 & No single-point failure modes, fully redundant \\
 4 & One minor failure mode, easily mitigated \\
 3 & Multiple failure modes with mitigation possible \\
@@ -121,10 +121,10 @@ The key differentiators under this definition would be:
 \centering
 \caption{Cost scoring criteria}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{c p{11cm}}
+\begin{tabular}{|c |p{11cm}|}
 \hline
 \textbf{Score} & \textbf{Definition} \\
-\hline
+\hline \hline
 5 & Minimal complexity - static ports, fixed gear \\
 4 & Low complexity - retractable mechanism added, limited extra manufacturing effort \\
 3 & Moderate complexity - addition of variable port, notably higher manufacturing and procurement cost \\
@@ -134,6 +134,25 @@ The key differentiators under this definition would be:
 \end{tabular}
 \end{table}
 
+\textbf{Sustainability} is quantified as the manufacturing complexity and material consumption, penalised by number of moving parts, material types, and estimated labor hours. Configurations with more moving parts, additional material types, and higher labor requirements score lower.
+
+\begin{table}[H]
+\centering
+\caption{Sustainability scoring criteria}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c |p{11cm}|}
+\hline
+\textbf{Score} & \textbf{Definition} \\
+\hline \hline
+5 & Lowest LCA impact — minimal manufacturing complexity, lowest operational fuel burn, simple end-of-life disposal \\
+4 & Low LCA impact — slightly higher manufacturing or operational impact \\
+3 & Moderate LCA impact — notable manufacturing and operational penalties \\
+2 & High LCA impact — significant manufacturing complexity and elevated fuel burn \\
+1 & Highest LCA impact — maximum manufacturing, operational, and disposal burden across all systems \\
+\hline
+\end{tabular}
+\end{table}
+ 
 
 \section{Trade-Off Weight Factors}
 \label{sec:trade-off_weight_factors}
@@ -144,44 +163,15 @@ For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty 
 
 Assigning weights from 1 to 9 to the n criteria, the PCM is constructed so that the rows represent the ratios of a criterion's score to the scores of the other criteria \cite{Saaty 1980}. The obtained matrix is shown below.
 
-\begin{comment}
-\[
-\begin{blockarray}{ccccccc}
-& \text{Cost} & \text{Versatility} & \text{Performance} &
-\text{Reliability} & \text{Sustainability} & \text{Mass} \\
-\begin{block}{c(cccccc)}
-\text{Cost}
-    & 1 & \tfrac{1}{4} & \tfrac{1}{3} & \tfrac{1}{3} & 3 & 2 \\
-
-\text{Versatility}
-    & 4 & 1 & 2 & 2 & 6 & 4 \\
-
-\text{Performance}
-    & 3 & \tfrac{1}{2} & 1 & 1 & 5 & 3 \\
-
-\text{Reliability}
-    & 3 & \tfrac{1}{2} & 1 & 1 & 5 & 3 \\
-
-\text{Sustainability}
-    & \tfrac{1}{3} & \tfrac{1}{6} & \tfrac{1}{5} &
-      \tfrac{1}{5} & 1 & \tfrac{1}{3} \\
-
-\text{Mass}
-    & \tfrac{1}{2} & \tfrac{1}{4} & \tfrac{1}{3} &
-      \tfrac{1}{3} & 3 & 1 \\
-\end{block}
-\end{blockarray}
-\]
-\end{comment}
 
 \begin{table}[H]
 \centering
 \caption{Pairwise comparison matrix (PCM)}
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{l c c c c c c}
+\begin{tabular}{|l| c| c| c |c| c| c|}
 \hline
- & Cost & Versatility & Performance & Reliability & Sustainability \\
-\hline
+ & \textbf{ Cost} & \textbf{Versatility} & \textbf{Performance} & \textbf{Reliability} & \textbf{Sustainability} \\
+\hline \hline
 Cost           & 1 & $\tfrac{1}{6}$ & $\tfrac{1}{4}$ & $\tfrac{1}{4}$ & 3  \\
 Versatility    & 6 & 1 & 3 & 3 & 7 \\
 Performance    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
@@ -281,12 +271,10 @@ The next step is computing the priority vector, which is the normalized eigenvec
 \centering
 \caption{PCM with column sums}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{l c c c c c c}
+\begin{tabular}{|l |c |c| c| c| c| c|}
 \hline
  & Cost & Versatility & Performance & Reliability & Sustainability \\
-\hline
- & Cost & Versatility & Performance & Reliability & Sustainability \\
-\hline
+\hline\hline
 Cost           & 1 & $\tfrac{1}{6}$ & $\tfrac{1}{4}$ & $\tfrac{1}{4}$ & 3  \\
 Versatility    & 6 & 1 & 3 & 3 & 7 \\
 Performance    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
@@ -302,10 +290,10 @@ Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{7}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5
 \centering
 \caption{Normalized PCM}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{l c c c c c c}
+\begin{tabular}{|l |c |c| c| c| c| c|}
 \hline
- & Cost & Versatility & Performance & Reliability & Sustainability\\
-\hline
+ & Cost & Versatility & Performance & Reliability & Sustainability \\
+\hline\hline
 Cost           & 0.0652 & 0.0843 & 0.0459 & 0.0459 & 0.1429 \\
 Versatility    & 0.3913 & 0.5060 & 0.5505 & 0.5505 & 0.3333 \\
 Performance    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 \\
@@ -365,9 +353,93 @@ If CR < 10\%, then the evaluation is consistent \cite{Saaty 1980}.
 \section{Trade-Off Matrix and Analysis}
 \label{subsec:trade-off_matrix}
 
-\textcolor{blue}{Refer to Midterm Guidelines for instructions on how to construct the trade-off matrix.}
+\begin{table}[H]
+\centering
+\caption{Trade-Off Matrix}
+\renewcommand{\arraystretch}{1.4}
 
-\textcolor{blue}{Briefly discuss the results of the trade-off}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|
+p{3cm}|
+>{\centering\arraybackslash}p{1.8cm}|
+>{\centering\arraybackslash}p{5cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{1.2cm}|
+>{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\rowcolor[HTML]{4472C4}
+\color{white}\textbf{Configuration} &
+\color{white}\textbf{Cost} &
+\color{white}\textbf{Versatility} &
+\color{white}\textbf{Performance} &
+\color{white}\textbf{Reliability} &
+\color{white}\textbf{\shortstack{Sustain\\ability}} &
+\color{white}\textbf{Total} \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+\textbf{Weight} &
+0.0768 &
+0.4663 &
+0.2069 &
+0.2069 &
+0.0430 &
+1 \\
+\hline
+
+HUG-CFG-301
+& \cellcolor[HTML]{F8696B}1
+& \cellcolor[HTML]{A9D18E}4
+& \cellcolor[HTML]{F4E285}3
+& \cellcolor[HTML]{F4B183}2
+& \cellcolor[HTML]{F4B183}2
+& 3.0627 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUG-CFG-302
+& \cellcolor[HTML]{63BE7B}5
+& \cellcolor[HTML]{F4B183}2
+& \cellcolor[HTML]{F4E285}3
+& \cellcolor[HTML]{A9D18E}4
+& \cellcolor[HTML]{63BE7B}5
+& Eliminated since below versatility no-go value \\
+\hline
+
+HUG-CFG-303
+& \cellcolor[HTML]{A9D18E}4
+& \cellcolor[HTML]{F4E285}3
+& \cellcolor[HTML]{A9D18E}4
+& \cellcolor[HTML]{F4E285}3
+& \cellcolor[HTML]{A9D18E}4
+& 3.3268 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUG-CFG-304
+& \cellcolor[HTML]{F4E285}3
+& \cellcolor[HTML]{A9D18E}4
+& \cellcolor[HTML]{F4B183}2
+& \cellcolor[HTML]{F4E285}3
+& \cellcolor[HTML]{F4E285}3
+& 3.2594 \\
+\hline
+
+HUG-CFG-305
+& \cellcolor[HTML]{F8696B}1
+& \cellcolor[HTML]{A9D18E}4
+& \cellcolor[HTML]{F4E285}3
+& \cellcolor[HTML]{F4B183}2
+& \cellcolor[HTML]{F4B183}2
+& 3.0627 \\
+\hline
+
+\end{tabular}
+\end{adjustbox}
+
+\end{table}
 
 
 \section{Final Design Configuration}
