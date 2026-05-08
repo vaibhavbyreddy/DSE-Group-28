@@ -8,42 +8,43 @@ According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to M
 The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project \footnote{\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)} and the NASA X-56A UAS \footnote{\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} are used as reference aircraft. DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission, and therefore considered as an appropriate reference point for the preliminary wing sizing. \\
 The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO. The scalability of the high wing-loading structure of DAST is uncertain and may not be feasible. Therefore, the X-56 is included as a reference aircraft.
 
+The design lift coefficient $C_{L_\text{des}}$ is estimated from the two referenced aircraft. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} \cite{} \todo{cite baseline} and the aspect ratio requirement \textbf{HUG-AER-002}. The average value from the range given in \textbf{HUG-AER-002} was taken. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft. A larger taper ratio is likely to be introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility effects, especially above a Mach number of 0.75. \cite{Torenbeek1982} Therefore, the sweep angle required for HUGO is likely less than that of the ARW-2 wing. An initial sweep $\Lambda_{LE} = 20 \degree$ was selected, similar to that of the X-56A aircraft. Relevant DAST and X-56A \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
 
-The design lift coefficient $C_{L_\text{des}}$ is estimated by extracting the wing loading $W/S$ from the DAST drone with the ARW-2 wing in cruise condition, and using scaled values for HUGO based on the known mass $m$ and aspect ratio $AR$ as a starting point for a sensitivity study. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound usually considered for jet transport aircraft. A larger taper ratio is likely going to be neccesary due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility problems especially above a Mach number of 0.75. \cite{Torenbeek1982} Therefore, the sweep angle required for HUGO is likely less than that of the ARW-2 wing. An initial sweep $\Lambda_{LE} = 15 \degree$ was selected. Relevant DAST parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
+The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft. The X-56A takeoff and landing were performed from a paved runway, whereas the DAST drone was launched from a carrier aircraft and caught by helicopter after completing a test flight \cite{} \todo{reference the stuff here}. After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1500 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. An aspect ratio $AR = 23$ was initially selected for HUGO as a middle point between the range of aspect ratios required by \textbf{HUG-AER-002}.\todo{cite here} These values will be subject to further analysis and iteration at later stages of the design, eventually converging to most ideal design values.
 
 \begin{table}[H]
     \centering
-    \caption{Reference aircraft and HUGO initial parameters \cite{perry1982methodology}\cite{Eckstrom1994}} 
+    \caption{Reference aircraft and HUGO initial parameters \cite{perry1982methodology} \cite{Eckstrom1994}} 
     \label{tab:DAST_HUGO}
     
     \begin{tabular}{|c|c||c|c|c|}
     \hline
         \textbf{Parameter} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{X-56A} & \textbf{HUGO} \\
         \hline\hline
-        Wing span [m] & $b$ & 5.79 & 8.53 & 1.94 \\
+        Wing span [m] & $b$ & 5.79 & 8.53 & 3.36 \\
         \hline
-        MAC [m] & $c$ & 0.56 & 0.61 & 0.08 \\ 
+        MAC [m] & $c$ & 0.56 & 0.61 & 0.15 \\ 
         \hline
         Aspect ratio [$-$] & $AR$ & 10.3 & 14 & 23 \\
         \hline
-        Taper ratio [$-$] & $\lambda$ & 0.4 &  & 0.5\\
+        Taper ratio [$-$] & $\lambda$ & 0.4 & 0.46 & 0.5\\
         \hline
-        Leading edge sweep [$\degree$] & $\Lambda_{LE}$ & 28.8 & & 15\\
+        Leading edge sweep [$\degree$] & $\Lambda_{LE}$ & 28.8 & 22 & 20\\
         \hline
-        Wing area [m$^2$] & $S$ & 3.25 & & 0.1635 \\
+        Wing area [m$^2$] & $S$ & 3.25 & 5.20 & 0.49 \\
         \hline
-        Mass [kg] & $m$ & 1060 & & 50 \\
+        Mass (maximum take-off) [kg] & $m$ & 1060 & 238 & 50 \\
         \hline
-        Wing loading [N$\cdot$m$^{-2}$] & $W/S$ & 3216 & & 3000 \\
+        Wing loading [N$\cdot$m$^{-2}$] & $W/S$ & 3216 & 449 & 1250 \\
         \hline
     \end{tabular}
 \end{table}
 
-A high wing loading of 3000 N$\cdot$m$^{-2}$ is expected to impose structural challenges for HUGO. However, the ARW-2 wing design shows that a wing with such a loading mode can be designed \cite{Harris1990}. Moreover, an aspect ratio $AR = 23$ was initially selected for HUGO as a middle point between the range of aspect ratios required by \textbf{HUG-AER-002}. \todo{cite here}
+
 
 \subsection{Design lift coefficient}
 \label{subsec:cl_des}
-To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air density $\rho_{cr}$ of $0.5112 \ kg \cdot m^{-3}$ at FL270, and a cruise speed $V_{cr}$ of $230.2945 \ m \cdot s^{-1}$ corresponding to the test condition. Using the initial value for $W/S$ from \autoref{tab:DAST_HUGO}, an initial  $C_{L_\text{des}}$ of 0.2213 was obtained.
+To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air density $\rho_{cr}$ of $0.5112 \ kg \cdot m^{-3}$ at FL270, and a cruise speed $V_{cr}$ of $230.2945 \ m \cdot s^{-1}$ corresponding to the test condition. Using the initial value for $W/S$ from \autoref{tab:DAST_HUGO}, an initial  $C_{L_\text{des}}$ of 0.0922 was obtained.
 %It includes the air density at the altitude of 27,000 feet $\rho_{cr}$ and the airspeed $V_{cr}$, for which it holds that $V_{cr} = M \cdot \sqrt{\gamma R T}$ at the ISA altitude of 27,000 ft.
 
 \begin{equation}
@@ -90,7 +91,6 @@ This leads to $\Lambda_{0.25c} \approx 14.22$ and $C_{L_{\max}} \approx 1.35$, i
 
 High-lift devices will help HUGO reach higher $C_L$ on landing, and, consequently, lower landing speed. Due to the high $AR$ of the HUGO wing, and therefore short chord length, simple flaps are considered as a high-lift device. 
 
-
 \subsection{Stall speed}
 The next step is to identify the preliminary stall speed of HUGO. NASA does not provide the stall speed for the ARW-2 wing, however, it can be estimated based on the NASA SC(2) family of supercritical airfoils. The SC(2)-0412 is taken as a reference here. With a maximum lift coefficient $C_{L_{max}} \approx 1.55$ and $S = 0.1635 \ m^2$ at a mass $m = 50 \ kg$, the stall speed can be calculated using \autoref{eq:Vstall}.
 \begin{equation}
@@ -120,27 +120,24 @@ The primary driver for selecting a relatively high thickness-to-chord ratio is t
     \end{itemize}
 \end{enumerate}
 
-
+\section{Structural analysis}
 
 \section{Material selection}
 The selection of the material for the aircraft will be based on several considerations: structural properties, economic factors, manufacturing, durability, sustainability and special properties. 
 \subsubsection*{Aircraft }
 The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following:
- fuselage structure, aircraft skin, wing structure, empennage and control surfaces and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
+ fuselage structure, wing structure, empennage and control surfaces and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
 \begin{itemize}
     \item \textbf{Fuselage structure}
-
-    
-    \item \textbf{Aircraft skin} 
-
-    
+    The fuselage structure is the main structure of the aircraft \cite{CHATTERJEE2019199}. It acts as a tethering point for the wings, empennage and propulsion. It also contains the major control system and payload. It most be able to sustain the loads and retain its shape. It most be able to withstand the forces and its effects at Mach 0.75.  
     \item \textbf{Wing structure}
+    The wings most be able to sustain the loadings as specified in the flight envelope (see \autoref{fig:V-n_diagram}). This is both tensile and compressive loads.   
 
-    
     \item \textbf{Empennage and control 
-    surfaces}
-    
+    surfaces} 
+    The empennage will experience loads of varying degree during the flight.  
     \item \textbf{Landing gear}
+    The landing gear most be able to carry the weight of the aircraft on the ground. It most also survive the loads at atkeoff and the impact of landing. For the final configuration the landing gear retracts into the aircraft during flight (see \autoref{sec:trade-off_final_design}) . 
     
 \end{itemize}
 
@@ -151,9 +148,9 @@ Below is the list of the different materials that will be considered.
 \begin{itemize}
     \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacture, high specific strength and stiffness. One of the most commonly used alloy are  Al alloy (7075 Al-T76) \cite{LI2023944}.
     \item \textbf{Wood} The material used for the first powered flight. The softwood Sitka spruce are chosen due to its use in the construction of gliders\cite{bookJohn}. They are characterised by their low density. 
-    \item \textbf{Magnesium alloy} These alloys used to be widely used in the aerosapce industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
-    \item \textbf{Titanium} The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
-    \item \textbf{Steel} Steel alloy (18Ni (350))
+    \item \textbf{Magnesium} These alloys used to be widely used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
+    \item \textbf{Titanium} This is excellent strength properties at moderate density  The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
+    \item \textbf{Steel} This is iron containing carbon. This has high strength with a high density. The alloy used for the comparisons are Steel (18Ni (350))
     \item \textbf{Composites} Carbon/epoxy composite
 \end{itemize}
 
@@ -189,6 +186,9 @@ Carbon/epoxy composite$^\ddagger$ & 1.7 & 50 & 29.4 & 760 & 450 & 38 & 22.4 \\
 When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since the weight directly affects the performance of the aircraft.
 
 
+
+\subsubsection*{Trade-off table}
+
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|} \hline
@@ -203,11 +203,6 @@ When evaluating different materials  the specific modulus, specific strength and
     \caption{Caption}
     \label{tab:placeholder}
 \end{table}
-
-\subsubsection*{Trade-off table}
-
-
-
 
 
 

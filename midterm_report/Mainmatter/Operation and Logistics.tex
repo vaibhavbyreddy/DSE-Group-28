@@ -1,4 +1,4 @@
-\chapter{Operation and Logistics}
+\chapter{Operations and Logistics}
 
 %This chapter will outline the operational and logistical process involved in making HUGO operational once the design and certification process is completed. The operations plan of HUGO will describe the usage practices and mission objectives, this section covers the concept, mission timeline and phases, constraints on operation, maintenance provisions and future scalability. The logistics section will include analysis on budgts such as ground personnel required, deployment logistics, location and facility and a consumable estimations (spare parts, supply chain, etc.)
 
@@ -34,8 +34,21 @@ Operational and Logistical Analysis
 \label{sec:operations}
 This Section contains a detailed description of the intended operations for HUGO, incl. an overview of the system users, testing location and conditions, mission phases, an approximate timeline. A brief discussion is additionally dedicated to operational constraints and maintenance procedures to ensure successful continuous operation of the UAV.
 
-\subsection{High-level Mission D}
+\subsection{High-level Mission Description}
+The main objective HUGO is to simulate high subsonic flight of commercial aircraft, while simultaneously implementing AFS and GLA and recording relevant flight parameters. A mission is considered as successful if all the below apply:
+\begin{enumerate}
+    \item The speed of Mach 0.75 was achieved and maintained for 5 consecutive minutes of straight flight.
+    \item All control systems required for the specific test were activated and performed their duties without error.
+    \item The flight data was successfully recorded, downloaded and provided to the customer.
+\end{enumerate}
 
+Market analysis and segmentation performed in the previous design phases highlighted four main sectors in which potential customers can be identified: universities and academic laboratories, research centres, aerospace companies, and defence\footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{HUGO Baseline Report} (accessed on 08.05.2026)}. Moreover, the Netherlands was identified as the beachhead market. Therefore, a suitable aerodrome was found in TBD.
+
+\todo[inline]{A description of the test site and operational volume goes here. Also, describe the conditions and constraints related to the operations.}
+
+\todo[inline]{Include a map of operations if possible, once more information is available. Hopefully NLR will reply. Otherwise we ball with Den Helder.}
+
+\begin{comment}
 \begin{itemize}
 \item Who uses the system?
 \item Where it operates?
@@ -44,33 +57,41 @@ This Section contains a detailed description of the intended operations for HUGO
 \item What success looks like?
 \item What constraints affect operation?
 \end{itemize}
+\end{comment}
 
-HUGO is intended to be used 
 
 \subsection{Mission Phase and Timeline}
+A reference test day for HUGO is assumed to include four
+test flights for 100 operational days per year\footref{url:baseline_report}. Four main phases were identified for a test day: transport to test site, followed by pre-flight, in-flight, and post-flight operations. These shall now be evaluated in more detail.
+
 
 \subsubsection{Transport to Test Site}
-Get HUGO to the airfield (e. g. from the hangar)
-Set up ground station if not at a commercial airfield
-Get fuel to test site if not at a commercial airfield
-Get customer to the airfield
+The day before a test flight is scheduled, the Terminal Aerodrome Forecast (TAF) shall be consulted to ensure that departure will be possible. In case of adverse weather prediction, the test day (or part of it) shall be cancelled and the customer shall be informed. 
+
+In case the weather prediction allows for a successful take-off, the test day shall proceed according to schedule. If the test requires parts provided by the client to be mounted onto HUGO, these shall be integrated in the hangar, before proceeding onto the airfield. The ground station and fuel required for the flight shall also be transported onto the airfield.
 
 \subsubsection{Pre-Flight Operations}
-This subsection covers the pre-flight opertion checklist, detailing the necessary steps that HUGO must take and 
+This subsection defines the pre-flight operations required before HUGO can proceed to the take-off checklist. The pre-flight phase begins once HUGO is unloaded from the transportation unit and ends when the aircraft is powered on and ready for final take-off checks. The objective of this phase is to verify that the mission plan, operating environment, ground support equipment, aircraft configuration, and safety provisions are suitable for the intended mission.
+The following steps will be considered in the pre-flight preparation:
 
+\begin{enumerate}
+    \item Mission Plan Review,
+    \item NOTAM check for restrictions and updates,
+    \item Final TAF check for weather details (go/no-go/conditional go),
+    \item Configure HUGO for the Mission profile,
+    \item Crew Briefing,
+    \item Configure the ground station equipment,
+    \item External inspection of HUGO (walk-around),
+    \item System checks (using pre-flight checklists),
+    \item Calibrate sensors,
+    \item Load fuel onboard HUGO.
+\end{enumerate}
 
-Mission Plan Review
-Configuration Control
-Crew Briefing
-External inspection (walk-around)
-System Checks
-loading the fuel
-Weather Check --> go/no-go/conditional go
+Once all the above items are checked and recorded, HUGO can be considered as ready to fly, and the test personnel can proceed to the in-flight phase of the mission.
 
 \subsubsection{In-Flight Operations}
-checklists
-calibrate sensors
-start engines
+Once all necessary pre-flight checklists are done and ATC clearance for take-off is obtained, HUGO will be able to enter the next mission phase. This stage of operations begins when the engines are turned on prior to take-off and ends when they are turned off post-landing. 
+
 perform take-off
 climb to test altitude, reach test area
 perform test (5 min at Mach 0.75) - constant monitoring from ground (continue, hold, abort test)
@@ -80,9 +101,10 @@ Possible missed approaches
 Perform landing
 taxi
 engie shut-off
-\todo[inline]{Include a map of operations if possible, once more information is available.}
+
 
 \subsubsection{Post-Flight Operations}
+After the UAV is on the ground, the post-flight data extraction and operations 
 download data
 debrief
 maintenance check
@@ -105,7 +127,7 @@ this one will be strongly paired with the EASA restrictions and airfield specifi
 
 \subsection{Storage Hangar}
 
-We are going with Lylistad no comment here
+We are going with Den Helder no comment here
 
 this is more a section where we decide if it is more feasible to have hugo stored in a warehouse and perform changes on it there or have a hangar rented at the airfield
 Use as ref 3 airports and perharps one from outside of NL
