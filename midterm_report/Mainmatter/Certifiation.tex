@@ -90,12 +90,40 @@ An overview of acceptable general tolerances allowed in flight tests is presente
 
 
 
-\section{V-n diagram}
-The flight envelope of the HUGO aircraft in symmetric flight is based on CS-23 airworthiness requirements for aerobatic aircraft, as outlined in  \cite{EASA_CS23_Am3_2012}. Therefore, the positive limit manoeuvre load factor is 6.0, and the negative limit manoeuvre load factor is -3.0. 
+\section{Flight envelope}
+The flight envelope of the HUGO aircraft in symmetric flight is based on CS-23 airworthiness requirements for aerobatic aircraft, as outlined in  \cite{EASA_CS23_Am3_2012}. Therefore, except where limited by the stall speeds, the positive limit manoeuvre load factor is 6.0, and the negative limit manoeuvre load factor is -3.0, with the latter allowed to vary linearly from -3.0 at the cruise speed up to -1.0 at the dive speed. Additionally, symmetrical vertical gust loads are superimposed on the manoeuvre flight envelope, with gust velocities as specified in \cite{EASA_CS23_Am3_2012}. 
+
+These constraints result in the flight envelope as illustrated in \autoref{fig:V-n_diagram}, when assuming parameters as shown in \autoref{tab:V-n_parameters}. Clearly, the gust loads are not constraining for this aircraft design, due to the high manoeuvre load factors.
+
+\begin{table}[H]
+    \centering
+    \caption{Parameters used for generating the flight envelope diagram}
+    \label{tab:V-n_parameters}
+    \renewcommand{\arraystretch}{1.3}
+    %\resizebox{\textwidth}{!}{% Scales table to fit the page width if it gets too wide
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+        \hline\hline
+       Mass & 50.0 & kg  \\
+       Span & 2.0 & m  \\
+       Aspect ratio & 25.0 & -  \\
+       Cruise altitude & 5500.0 & m  \\
+       Positive $C_L_{max}$ & 1.6 & -  \\
+       Negative $C_L_{max}$ & -1.0 & -  \\
+       Cruise altitude & 5500.0 & m  \\
+       Lift curve slope & 3.0& $\frac{1}{\text{rad}}$  \\
+       Cruise Mach number & 0.75& -  \\
+       Dive Mach number & 0.80& -  \\
+        \hline
+    \end{tabular}
+\end{table}
+
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\linewidth]{figures/V-n_diagram.png}
-    \caption{V-n diagram for the aircraft of $50kg$ mass $2.0m$ span, $AR=25.0$, cruise altitude of $5500.0m$, cruise Mach number of $0.75$, compliant with CS-23 aerobatic category requirements}
+    \caption{Flight envelope diagram for parameters listed in \autoref{tab:V-n_parameters},  compliant with CS-23 aerobatic category requirements \cite{EASA_CS23_Am3_2012}.}
     \label{fig:V-n_diagram}
 \end{figure}
+
