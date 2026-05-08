@@ -1,6 +1,31 @@
 \chapter{Design Trade-Off}
 In this Chapter, the preliminary HUGO configurations developed in previous design stages are compared by means of a trade-off. Suitable trade-off criteria are defined in \autoref{sec:trade-off_criteria_selection}, followed by a definition of weight factors in \autoref{sec:trade-off_weight_factors}. The results of the trade-off analysis are presented in \autoref{sec:trade-off_matrix}, and the final configuration to be further developed can be found in \autoref{sec:trade-off_final_design}.
 
+\autoref{tab:Final_Candidate_Architectures} lists the design configurations considered for the trade-off. Additionally, each design option features a static port for the tail, fuselage-mounted fuel tanks and fuselage-mounted engines \cite{Baseline Report}.
+
+\begin{table}[H]
+    \centering
+    \caption{Final Integrated Candidate Architectures for Detailed Trade-Off \cite{Baseline Report}}
+    \label{tab:Final_Candidate_Architectures}
+    \renewcommand{\arraystretch}{1.3}
+    %\resizebox{\textwidth}{!}{% Scales table to fit the page width if it gets too wide
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Wing Configuration} & \textbf{Wing Modularity} & \textbf{Canard Modularity} & \textbf{Gear Type}    \\
+        \hline\hline
+        HUG-CFG-301 & Low Wing & Variable Port (X) & Static Port & Retractable \\
+        \hline
+        HUG-CFG-302 & High Wing & Static Port & No Port & Buried \\
+        \hline
+        HUG-CFG-303 & High Wing & Static Port & Static Port & Retractable \\
+        \hline
+        HUG-CFG-304 & High Wing & Variable Port (X) & Static Port & Buried \\
+        \hline
+        HUG-CFG-305 & High Wing & Variable Port (X) & Static Port & Retractable \\
+        \hline
+    \end{tabular}
+\end{table}
+
 \section{Trade-Off Criteria Selection}
 \label{sec:trade-off_criteria_selection}
 Meaningful trade-off criteria should be developed such that all available technical specifications and key performance metrics are considered. Moreover, identifying the points of poor performance of each candidate allows for an in-depth analysis of the limitations of each candidate configuration \cite{SMAD}. Lastly, the key requirements can be used to ensure that the developed criteria encompass all crucial design aspects.
@@ -8,20 +33,40 @@ Meaningful trade-off criteria should be developed such that all available techni
 
 Taking all of the above into consideration, the following criteria were selected for the trade-off of HUGO designs: Versatility, Reliability, Cost, Performance, and Sustainability. \autoref{tab:trade-off_criteria} lists the rationale behind selecting each criterion.
 
-\begin{table}[H]
-    \centering
-    \caption{Trade-Off Criteria for HUGO Configurations}
-    \begin{tabular}{|c|p{13cm}|}
-    \hline
-        \textbf{Criterion} & \textbf{Rationale} \\ \hline\hline
-        Versatility & since configuration 2 prevents the testing of canard-dependent configurations, and the variable ports in configurations 1, 4, and 5 allow for a wider range of stability conditions to be tested. This means that some of the options will score low in this criterion. \\ \hline
-        Reliability &  Reliability was considered a crucial trade-off criterion since the variable port in configurations 1, 4, and 5 significantly increases the risk of failure, and also the development risk. Additionally, ports and gear bays weaken the primary structure of the aircraft. This was also derived from requirement HUG-STR-003 \cite{Baseline report}, specifying the required reliability of the structure. \\ \hline
-        Cost & Considering also that variable ports and retractable landing gear are significantly more complex and expensive in comparison to no/static port and buried gear, cost was selected as another trade-off criterion. \\ \hline
-        Performance & The performance criterion stems from several requirements from the baseline report specifying the required speed (HUG-OPS-005, HUG-OPS-006 \cite{Baseline report}), and also the insight that more complex configurations like 1, 4, and 5 will lead to a higher mass, and thus affect the performance and fuel burn. \\\hline
-        Sustainability &  Sustainability is part of the project, as specified by HUG-OPS-008 \cite{Baseline report}. Additionally, variable ports and retractable undercarriage require more material, more complex manufacturing processes, more labour hours in assembly and quality control, and higher maintenance material consumption over the aircraft's life. \\ \hline
-    \end{tabular}
-    \label{tab:trade-off_criteria}
-\end{table}
+\begin{longtable}{|c|p{14cm}|}
+\caption{Trade-Off Criteria for HUGO Configurations}
+\label{tab:trade-off_criteria} \\
+
+\hline
+\textbf{Criterion} & \textbf{Rationale} \\ 
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Criterion} & \textbf{Rationale} \\ 
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{2}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Versatility & HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
+
+Reliability & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305  significantly increase the design complexity and associated development and operational risks. The same reasoning can be applied for retractable landing gear mechanisms for HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \cite{Baseline report}).\\ \hline
+
+Cost & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-05 significantly increase the design complexity and associated development, maintenance and repair costs compared to no/static port configurations. The same reasoning can be applied to retractable landing gear mechanisms for HUG-CFG-301, HUG-CFG-303. Moreover, the design of HUGO is subject to specific cost requirements (see: HUG-FIN-001 \cite{Baseline Report}). \\ \hline
+
+Performance & Complex design options featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 are expected to result in higher design weights, which affect performance and fuel consumption. Moreover, the design of HUGO is subject to specific performance requirements (see: HUG-OPS-005, HUG-OPS-006 \cite{Baseline report}).
+\\ \hline
+
+Sustainability & Sustainability is part of the project, as specified by HUG-OPS-008 \cite{Baseline report}. Additionally, variable ports and retractable undercarriage require more material, more complex manufacturing processes, more labour hours in assembly and quality control, and higher maintenance material consumption over the aircraft's life.
+\\ \hline
+
+\end{longtable}
 
 \begin{comment}
 \begin{enumerate}
@@ -33,33 +78,52 @@ Taking all of the above into consideration, the following criteria were selected
 \end{enumerate}
 \end{comment}
 
+The preliminary configurations shall be evaluated and assigned a value ranging from 1 to 5 in each trade-off criterion. \autoref{tab:trade-off_scores} describes the meaning of specific scores for different criteria. Additionally, no-go values were established for which a design would be immediately deemed as unfeasible and rejected. These are shown in \autoref{tab: no-go}.
 
-The no-go values (ranging from 1 to 5) of the criteria were also estimated. They are given in \autoref{tab: no-go} with a short rationale. A more in-depth justification is given below.
+%The no-go values (ranging from 1 to 5) of the criteria were also estimated. They are given in \autoref{tab: no-go} with a short rationale. A more in-depth justification is given below.
 
-\textbf{Versatility :} this is the core mission of the testbed. A configuration that cannot test canard-dependent setups or is limited to a single stability condition is fundamentally failing its purpose. That is why a threshold of 3 was chosen.
+%\textbf{Versatility :} this is the core mission of the testbed. A configuration that cannot test canard-dependent setups or is limited to a single stability condition is fundamentally failing its purpose. That is why a threshold of 3 was chosen.
 
-\textbf{Performance:} specifically about reaching the required Mach number. If a configuration can't get close to the test conditions you need, the data is scientifically irrelevant.
+%\textbf{Performance:} specifically about reaching the required Mach number. If a configuration can't get close to the test conditions you need, the data is scientifically irrelevant.
 
-\textbf{Reliability:} this covers both mechanical reliability and data quality. An unreliable testbed either produces corrupted data or grounds itself frequently. 
+%\textbf{Reliability:} this covers both mechanical reliability and data quality. An unreliable testbed either produces corrupted data or grounds itself frequently. 
 
-\textbf{Cost:} a constraint, but not a mission-critical one. A very expensive configuration is painful, but it does not make the aircraft scientifically invalid.
+%\textbf{Cost:} a constraint, but not a mission-critical one. A very expensive configuration is painful, but it does not make the aircraft scientifically invalid.
 
-\textbf{Sustainability:}  lowest weighted criterion, since all configurations will already use SAF.
+%\textbf{Sustainability:}  lowest weighted criterion, since all configurations will already use SAF.
 
 \begin{table}[H]
 \centering
-\caption{No-go values and rationale}
+\begin{tabular}{|c|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+
+\cline{2-6}
+\multicolumn{1}{c|}{} & \multicolumn{5}{c|}{\textbf{Score}} \\
+\hline
+\textbf{Criterion} &\textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\hline
+Versatility & One testable configuration (core mission compromised) & Significant limitations (no canard port) & Moderate limitations (static canard and wing) & Most configurations testable (variable wing and static canard) & Full range of configurations testable (variable canard and wing) \\ 
+\hline
+Performance & High drag and weight limiting the achievable Mach at test altitude & Significant drag and mass penalties, meaningful reduction in efficiency & Moderate drag or mass penalty, noticeable but manageable impact on performance &  Slightly elevated drag or mass, minor impact & Low drag and weight - clean configuration, no protruding components
+\\\hline
+Reliability & Critical failure mode(s), mission safety compromised & Multiple failure modes, data quality at risk & Multiple failure modes,  mitigation possible & One minor failure mode, easily mitigated & No single-point failure modes, fully redundant \\ \hline
+
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{No-Go Values and Rationale}
 \label{tab: no-go}
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{|l|l| l|}
+\begin{tabular}{|c|c|p{12.5cm}|}
 \hline
-\textbf{Criterion} & \textbf{No-go value} & \textbf{Rationale} \\
+\textbf{Criterion} & \textbf{No-go} & \textbf{Rationale} \\
 \hline\hline
-Versatility    & $< 3$ & Core mission failure \\\hline
-Performance    & $< 2$ & Cannot reach test conditions \\\hline
-Reliability    & $< 2$ & Data validity compromised \\\hline
-Cost           & --    & Constraint, not mission-critical \\\hline
-Sustainability & --    & Not mission-critical \\
+Versatility    & $< 3$ & Versatility is a key feature of a flying testbed. A configuration with significant limitations to its test capability is fundamentally failing its purpose. Moderate limitations are acceptable. \\\hline
+Performance    & $< 2$ & If a configuration can't get close to the test conditions, the obtained test data is scientifically irrelevant. Moderate drag or weight penalties are acceptable. \\\hline
+Reliability    & $< 2$ & An unreliable testbed will produce corrupted data or result in large periods of Aircraft on Ground (AOG). Multiple failure modes are acceptable, so long as proper mitigation and contingency plans are defined.  \\\hline
+Cost           & $1$    & Maintaining low costs is beneficial for economic sustainability and profitability. However, the only significant constraint for cost is HUG-FIN-001 \cite{Baseline Report}. \\\hline
+Sustainability & $-$  & Not a mission-critical criterion.\\
 \hline
 \end{tabular}
 \end{table}

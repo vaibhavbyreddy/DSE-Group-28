@@ -9,11 +9,11 @@ The initial step in selecting an airfoil is to determine the design lift coeffic
 
 To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission, and therefore considered as an appropriate reference point for the preliminary wing sizing. 
 
-The design lift coefficient $C_{L_\text{des}}$ is estimated by extracting the wing loading $W/S$ from the DAST drone with the ARW-2 wing in cruise condition, and using scaled values for HUGO based on the known mass $m$ and aspect ratio $AR$ as a starting point for a sensitivity study. Relevant DAST parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
+The design lift coefficient $C_{L_\text{des}}$ is estimated by extracting the wing loading $W/S$ from the DAST drone with the ARW-2 wing in cruise condition, and using scaled values for HUGO based on the known mass $m$ and aspect ratio $AR$ as a starting point for a sensitivity study. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda$ for HUGO  Relevant DAST parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
 
 \begin{table}[H]
     \centering
-    \caption{DAST ARW-2 and HUGO derived parameters \cite{perry1982methodology}}
+    \caption{DAST ARW-2 and HUGO derived parameters \cite{perry1982methodology}} \cite{Eckstrom1994}
     \label{tab:DAST_HUGO}
     
     \begin{tabular}{|c|c||c|c|}
@@ -22,9 +22,13 @@ The design lift coefficient $C_{L_\text{des}}$ is estimated by extracting the wi
         \hline\hline
         Wing span [m] & $b$ & 5.79 & 1.94 \\
         \hline
-        Chord length [m] & $c$ & 0.56 & 0.08 \\ 
+        MAC [m] & $c$ & 0.56 & 0.08 \\ 
         \hline
         Aspect ratio [$-$] & $AR$ & 10.3 & 23 \\
+        \hline
+        Taper ratio [$-$] & $\lambda$ & 0.4 & \\
+        \hline
+        Leading edge sweep [$\degree$] & $\Lambda_{LE}$ & 28.8 & \\
         \hline
         Wing area [m$^2$] & $S$ & 3.25 & 0.1635 \\
         \hline
@@ -35,7 +39,7 @@ The design lift coefficient $C_{L_\text{des}}$ is estimated by extracting the wi
     \end{tabular}
 \end{table}
 
-A high wing loading of 3000 N$\cdot$m$^{-2}$ is expected to impose structural challenges for HUGO. However, the ARW-2 wing design shows that a wing with such a loading mode can be designed \cite{Harris1990}.
+A high wing loading of 3000 N$\cdot$m$^{-2}$ is expected to impose structural challenges for HUGO. However, the ARW-2 wing design shows that a wing with such a loading mode can be designed \cite{Harris1990}. Moreover, an aspect ratio $AR = 23$ was initially selected for HUGO as a middle point between the range of aspect ratios required by \textbf{HUG-AER-002}. \todo{cite here}
 
 \subsection{Design lift coefficient}
 \label{subsec:cl_des}
@@ -46,8 +50,6 @@ To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air
     C_{L_\text{des}} = \frac{\left(\frac{W}{S}\right)}{\frac{1}{2} \rho_{cr} V_{cr}^2}
     \label{eq:C_L}
 \end{equation}
-
-
 
 \subsection{Cruise Reynolds number}
 Based on the initial estimates from \autoref{tab:DAST_HUGO}, the Reynolds number for cruise $Re_{cr}$ and stall condition $Re_\text{stall}$ was calculated using \autoref{eq:Re}.
@@ -88,21 +90,67 @@ From \autoref{eq:Vstall}, a stall speed $V_{stall} \approx 56 \ m \cdot s^{-1}$.
 Based on the data obtained in the previous subsections, an airfoil from the NASA database was selected. The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_\text{des}} = 0.2213$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} It was decided that the the NASA SC(2)-0414 will be used as the root wing profile, linearly transitioning towards the SC(2)-0412 profile at the wing tip. This means that the $\frac{t}{c}$ ratio is between 12 \% at the wing tip to 14 \% at the wing root.\\
 The primary driver for selecting a relatively high thickness-to-chord ratio is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_{dd} = 0.8$, which is beyond the conditions HUGO will operate \cite{Harris1990}.
 
+
+\section{L/D Estimation}
+
+
+
 \section{Material selection}
 The selection of the material for the aircraft will be based on several considerations: structural properties, economic factors, manufacturing, durability, sustainability and special properties. 
-\subsubsection*{Material candidates} To limit the amount of choices the candidates where sourced from materials previously used for similar applications \cite{Mouritz2012}.  
-Below is the list of the different materials that will be considered.
+\subsubsection*{Material candidates} 
+Since most metals used in aerospace occurs as some sort of alloy the most relevant alloys has been chosen to limit the list of candidates\cite{Mouritz2012}.
+Below is the list of the different materials that will be considered.   
 \begin{itemize}
-    \item \textbf{Aluminium alloys} Different alloys \cite{LI2023944} Al alloy (2024 Al-T6) and Al alloy (7075 Al-T76)
+    \item \textbf{Aluminium alloys} The most widely used material for aerospace in the last fifty years. It is  The two most commonly used alloys are Al alloy (2024 Al-T6) and Al alloy (7075 Al-T76) \cite{LI2023944}.
     \item \textbf{Wood} 
     \item \textbf{Magnesium alloy} (WE46-T6)
-    \item \textbf{Titanium alloy} (Ti-6Al-4 V)
+    \item \textbf{Titanium alloy} β-Ti alloys (Ti-6Al-4 V) will primarily be considered\cite{Pollock2016}. 
     \item \textbf{Steel alloys}
     \item \textbf{Composites} Carbon/epoxy composite
 \end{itemize}
 \subsubsection*{Aircraft }
-The aircraft wont be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following:
-aircraft skin, fuselage structure, wing structure and engine housing. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem   
+The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following:
+ fuselage structure, aircraft skin, wing structure, empennage and control surfaces and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
+\begin{itemize}
+    \item \textbf{Fuselage structure}
+    \item \textbf{Aircraft skin} 
+    \item \textbf{Wing structure}
+    \item \textbf{Empennage and control surfaces}
+    \item \textbf{Landing gear}
+\end{itemize}
+
+\subsubsection*{Mechanical properties}
+To evaluate the different candidates it is relevant to list the mechanical properties of the different alloys to enable a direct comparison. 
+
+\begin{table}[H]
+{\setlength{\leftskip}{-1cm}
+\caption{Mechanical properties of selected aerospace materials (taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012} .}
+\label{tab:material-properties}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcccccc c}
+\toprule
+\textbf{Materials}
+  & \makecell{\textbf{Specific}\\\textbf{gravity}$^*$\\(g\,cm$^{-3}$)}
+  & \makecell{\textbf{Young's}\\\textbf{modulus}$^*$\\(GPa)}
+  & \makecell{\textbf{Specific}\\\textbf{modulus}$^*$\\$\times10^{6}$\\(N\,m\,kg$^{-1}$)}
+  & \makecell{\textbf{Yield}\\\textbf{strength}$^*$\\(MPa)}
+  & \makecell{\textbf{Specific}\\\textbf{strength}$^*$\\$\times10^{3}$\\(N\,m\,kg$^{-1}$)}
+  & \makecell{\textbf{Fracture}\\\textbf{toughness}$^\dagger$\\(MPa\,m$^{0.5}$)}
+  & \makecell{\textbf{Specific}\\\textbf{fracture}\\\textbf{toughness}$^\dagger$\\$\times10^{3}$\\(N\,m$^{1.5}$\,kg$^{-1}$)} \\
+\midrule
+Sitka spruce$^*$          & 0.4 &   9 & 22.5 &   55 & 138 &   4 & 10.0 \\
+Douglas fir$^*$           & 0.5 &  12 & 24.0 &   70 & 140 &   6 & 12.4 \\
+Ti alloy (Ti-6Al-4V)      & 4.6 & 108 & 23.5 & 1003 & 217 & 100 & 21.7 \\
+Al alloy (2024 Al-T6)     & 2.7 &  70 & 25.9 &  385 & 142 &  37 & 13.7 \\
+Al alloy (7075 Al-T76)    & 2.7 &  70 & 25.9 &  470 & 174 &  29 & 10.7 \\
+Mg alloy (WE46-T6)        & 1.7 &  45 & 26.5 &  200 & 117 &  20 & 11.8 \\
+Carbon/epoxy composite$^\ddagger$ & 1.7 & 50 & 29.4 & 760 & 450 & 38 & 22.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since aerospace applications are  weight-sensitive.
+\subsubsection*{Structural properties}
+
 
 \subsubsection*{Life-cycle Assessment}
 
