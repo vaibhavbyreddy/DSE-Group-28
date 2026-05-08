@@ -9,11 +9,11 @@ The initial step in selecting an airfoil is to determine the design lift coeffic
 
 To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission, and therefore considered as an appropriate reference point for the preliminary wing sizing. 
 
-The design lift coefficient $C_{L_\text{des}}$ is estimated by extracting the wing loading $W/S$ from the DAST drone with the ARW-2 wing in cruise condition, and using scaled values for HUGO based on the known mass $m$ and aspect ratio $AR$ as a starting point for a sensitivity study. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda$ for HUGO  Relevant DAST parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
+The design lift coefficient $C_{L_\text{des}}$ is estimated by extracting the wing loading $W/S$ from the DAST drone with the ARW-2 wing in cruise condition, and using scaled values for HUGO based on the known mass $m$ and aspect ratio $AR$ as a starting point for a sensitivity study. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound usually considered for jet transport aircraft. A larger taper ratio is likely going to be neccesary due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility problems especially above a Mach number of 0.75. \cite{Torenbeek1982} Therefore, the sweep angle required for HUGO is likely less than that of the ARW-2 wing. An initial sweep $\Lambda_{LE} = 15 \degree$ was selected. Relevant DAST parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
 
 \begin{table}[H]
     \centering
-    \caption{DAST ARW-2 and HUGO derived parameters \cite{perry1982methodology}} \cite{Eckstrom1994}
+    \caption{DAST ARW-2 and HUGO derived parameters \cite{perry1982methodology}\cite{Eckstrom1994}} 
     \label{tab:DAST_HUGO}
     
     \begin{tabular}{|c|c||c|c|}
@@ -26,9 +26,9 @@ The design lift coefficient $C_{L_\text{des}}$ is estimated by extracting the wi
         \hline
         Aspect ratio [$-$] & $AR$ & 10.3 & 23 \\
         \hline
-        Taper ratio [$-$] & $\lambda$ & 0.4 & \\
+        Taper ratio [$-$] & $\lambda$ & 0.4 & 0.5\\
         \hline
-        Leading edge sweep [$\degree$] & $\Lambda_{LE}$ & 28.8 & \\
+        Leading edge sweep [$\degree$] & $\Lambda_{LE}$ & 28.8 & 15\\
         \hline
         Wing area [m$^2$] & $S$ & 3.25 & 0.1635 \\
         \hline
@@ -67,13 +67,29 @@ A supercritical airfoil is capable to operate at transonic conditions with only 
 \subsection{Maximum lift coefficient}
 The maximum lift coefficient, $C_{L_\text{max}}$ has to be determined to obtain the stall speed of HUGO, $V_\text{stall}$. As stated previously, the use of a supercritical wing profile is highly recommended for the considered test conditions. A preliminary estimate of  $C_{L_\text{max}}$ is made by considering a NASA SC(2) airfoil and the DATCOM method for estimating the maximum lift coefficient for finite wings. 
 
-An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}(Accessed on 07.05.2026)} and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a reference $Re$ of approximately $5\cdot10^5$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}}$ of 1.55 is predicted. This result is deemed suitable for this usecase due to likely disturbed airflow from the wing surface roughness. \cite{Koul} Then, according to Torenbeek \cite{Torenbeek1982}, \autoref{} is used to obtain $C_{L_{max}}$.
+An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}(Accessed on 07.05.2026)} and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a reference $Re$ of approximately $5\cdot10^5$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}}$ of 1.55 is predicted. This result is deemed suitable for this usecase due to likely disturbed airflow from the wing surface roughness. \cite{Koul} Then, according to Torenbeek \cite{Torenbeek1982}, \autoref{} is used to obtain $C_{L_{max}}$. \autoref{eq:Lambda_conversion} is used to convert from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ and derived from \cite{Torenbeek1982}.
+
+\begin{equation}
+    \Lambda_{0.25}
+    =
+    \tan^{-1}
+    \left(
+    \tan \Lambda_{\mathrm{LE}}
+    -
+    \frac{1-\lambda}{AR (1+\lambda)}
+    \right)
+    \label{eq:Lambda_conversion}
+\end{equation}
 
 \begin{equation}
     C_{L_{\max}} = 0.9 \cdot C_{l_{\max}} \cdot \cos\Lambda_{0.25c}
+    \label{eq:CL_max}
 \end{equation}
 
-This leads to a $C_{L_{\max}} \approx $
+This leads to $\Lambda_{0.25c} \approx 14.22$ and $C_{L_{\max}} \approx 1.35$, i.e. without high-lift devices.\\
+
+
+
 
 \subsection{Stall speed}
 The next step is to identify the preliminary stall speed of HUGO. NASA does not provide the stall speed for the ARW-2 wing, however, it can be estimated based on the NASA SC(2) family of supercritical airfoils. The SC(2)-0412 is taken as a reference here. With a maximum lift coefficient $C_{L_{max}} \approx 1.55$ and $S = 0.1635 \ m^2$ at a mass $m = 50 \ kg$, the stall speed can be calculated using \autoref{eq:Vstall}.
@@ -92,6 +108,17 @@ The primary driver for selecting a relatively high thickness-to-chord ratio is t
 
 
 \section{L/D Estimation}
+\begin{enumerate}
+    \item XFLR batch analysis for both airfoils
+    \begin{itemize}
+        \item polar starts form -3.5 deg, rerun batch from -8 deg
+    \end{itemize}
+    \item XFLR wing analysis - liner transition between 2 airfoils
+    \begin{itemize}
+        \item polar for 620000 Re at 0.75. XFLR5 might be grouping polars by Mach before interpolating - it only looks at M = 0.75 polars for a M = 0.75 analysis, finds only Re = 620,000, and considers Re = 620,322 above that single-point range. To fix this error, run wing analysis for a slightly lower speed than the cruise. Estimate error.
+        \item wing analysis stops at 4.8 deg although batch analysis was run to 10 deg. This corresponds to a Cl of about 0.8, where the transition point is very close to the LE. XFoil's compressibility model is breaking down. The local Mach probably exceeds 1
+    \end{itemize}
+\end{enumerate}
 
 
 
@@ -101,8 +128,8 @@ The selection of the material for the aircraft will be based on several consider
 Since most metals used in aerospace occurs as some sort of alloy the most relevant alloys has been chosen to limit the list of candidates\cite{Mouritz2012}.
 Below is the list of the different materials that will be considered.   
 \begin{itemize}
-    \item \textbf{Aluminium alloys} The most widely used material for aerospace in the last fifty years. It is  The two most commonly used alloys are Al alloy (2024 Al-T6) and Al alloy (7075 Al-T76) \cite{LI2023944}.
-    \item \textbf{Wood} 
+    \item \textbf{Aluminium alloys} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacture, high specific strength and stiffness. The two most commonly used alloys are Al alloy (2024 Al-T6) and Al alloy (7075 Al-T76) \cite{LI2023944}.
+    \item \textbf{Wood} The material used for the first powered flight. It is characterised 
     \item \textbf{Magnesium alloy} (WE46-T6)
     \item \textbf{Titanium alloy} β-Ti alloys (Ti-6Al-4 V) will primarily be considered\cite{Pollock2016}. 
     \item \textbf{Steel alloys}
@@ -119,12 +146,12 @@ The aircraft will most likely not be made of one material but instead a combinat
     \item \textbf{Landing gear}
 \end{itemize}
 
-\subsubsection*{Mechanical properties}
+\subsubsection*{Structural properties}
 To evaluate the different candidates it is relevant to list the mechanical properties of the different alloys to enable a direct comparison. 
 
 \begin{table}[H]
 {\setlength{\leftskip}{-1cm}
-\caption{Mechanical properties of selected aerospace materials (taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012} .}
+\caption{Mechanical properties of selected aerospace materials ( part of the table taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012} .}
 \label{tab:material-properties}
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{lcccccc c}
@@ -144,15 +171,21 @@ Ti alloy (Ti-6Al-4V)      & 4.6 & 108 & 23.5 & 1003 & 217 & 100 & 21.7 \\
 Al alloy (2024 Al-T6)     & 2.7 &  70 & 25.9 &  385 & 142 &  37 & 13.7 \\
 Al alloy (7075 Al-T76)    & 2.7 &  70 & 25.9 &  470 & 174 &  29 & 10.7 \\
 Mg alloy (WE46-T6)        & 1.7 &  45 & 26.5 &  200 & 117 &  20 & 11.8 \\
+Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)}      & 8.1 &  200 & 24.6 &  2395 & 295.6 &  20 & 11.8 \\
 Carbon/epoxy composite$^\ddagger$ & 1.7 & 50 & 29.4 & 760 & 450 & 38 & 22.4 \\
 \bottomrule
 \end{tabular}
 \end{table}
+
 When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since aerospace applications are  weight-sensitive.
-\subsubsection*{Structural properties}
+\subsubsection*{Durability}
+\subsubsection*{Manufacturing}
+\subsubsection*{Cost}
+\subsubsection*{Sustainability}
+\subsubsection*{Special properties}
+\subsubsection*{Trade-off of materials}
 
 
-\subsubsection*{Life-cycle Assessment}
 
 
 

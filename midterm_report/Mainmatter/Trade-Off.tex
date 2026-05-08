@@ -78,7 +78,14 @@ Sustainability & Sustainability is part of the project, as specified by HUG-OPS-
 \end{enumerate}
 \end{comment}
 
-The preliminary configurations shall be evaluated and assigned a value ranging from 1 to 5 in each trade-off criterion. \autoref{tab:trade-off_scores} describes the meaning of specific scores for different criteria. Additionally, no-go values were established for which a design would be immediately deemed as unfeasible and rejected. These are shown in \autoref{tab: no-go}.
+The preliminary configurations shall be evaluated and assigned a value ranging from 1 to 5 in each trade-off criterion. The definition of specific scores for different criteria can be found in \autoref{ch:app_trade-off_rationale}. The following rationale was followed in quantifying the scores for individual criteria:
+\begin{itemize}
+    \item \textbf{Versatility} is quantified as the range of experiments and stability conditions that can be tested with the given configuration. As mentioned above, a configuration that can not test canard configurations or has a static port will score lower.
+    \item \textbf{Performance }is evaluated based on how effectively the maximum Mach number at test altitude can be achieved while carrying the full instrumentation payload, with minimal drag and fuel consumption. Configurations that are lighter, less complex, and feature fewer protruding components will receive higher scores.
+    \item \textbf{Reliability} is evaluated as the likelihood that the testbed will successfully perform its intended function without failure under the specified operating conditions throughout its lifetime. Features such as ports and retractable landing gear introduce additional failure risks; therefore, configurations incorporating these elements will receive lower scores
+    \item \textbf{Cost} is quantified as the manufacturing effort, materials, development, and maintenance that have gone into each configuration. More complex and heavier designs will score lower here.
+    \item \textbf{Sustainability} is quantified as the manufacturing complexity and material consumption, penalised by number of moving parts, material types, and estimated labour hours. Configurations with more moving parts, additional material types, and higher labour requirements score lower.
+\end{itemize}
 
 %The no-go values (ranging from 1 to 5) of the criteria were also estimated. They are given in \autoref{tab: no-go} with a short rationale. A more in-depth justification is given below.
 
@@ -92,23 +99,7 @@ The preliminary configurations shall be evaluated and assigned a value ranging f
 
 %\textbf{Sustainability:}  lowest weighted criterion, since all configurations will already use SAF.
 
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
-
-\cline{2-6}
-\multicolumn{1}{c|}{} & \multicolumn{5}{c|}{\textbf{Score}} \\
-\hline
-\textbf{Criterion} &\textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
-\hline
-Versatility & One testable configuration (core mission compromised) & Significant limitations (no canard port) & Moderate limitations (static canard and wing) & Most configurations testable (variable wing and static canard) & Full range of configurations testable (variable canard and wing) \\ 
-\hline
-Performance & High drag and weight limiting the achievable Mach at test altitude & Significant drag and mass penalties, meaningful reduction in efficiency & Moderate drag or mass penalty, noticeable but manageable impact on performance &  Slightly elevated drag or mass, minor impact & Low drag and weight - clean configuration, no protruding components
-\\\hline
-Reliability & Critical failure mode(s), mission safety compromised & Multiple failure modes, data quality at risk & Multiple failure modes,  mitigation possible & One minor failure mode, easily mitigated & No single-point failure modes, fully redundant \\ \hline
-
-\end{tabular}
-\end{table}
+Following the criterion definition, no-go values were established for which a design would be immediately deemed as unfeasible and rejected. These are shown in \autoref{tab: no-go}.
 
 \begin{table}[H]
 \centering
@@ -128,6 +119,7 @@ Sustainability & $-$  & Not a mission-critical criterion.\\
 \end{tabular}
 \end{table}
 
+\begin{comment}
 Now that the criteria have been selected and their no-go values defined, they can be quantified. A scale from 1 to 5 will be used.
 
 \textbf{Versatility} is quantified as the range of experiments and stability conditions that can be tested with the given configuration. As mentioned above, a configuration that can not test canard configurations or has a static port will score lower.
@@ -168,7 +160,7 @@ Now that the criteria have been selected and their no-go values defined, they ca
 \end{tabular}
 \end{table}
 
-\begin{comment}
+
 The key differentiators under this definition would be:
 \begin{enumerate}
     \item Buried gear - permanent parasitic drag penalty even when not needed
@@ -176,7 +168,7 @@ The key differentiators under this definition would be:
     \item Variable X port - mass and complexity penalty
     \item High wing - potential intake interference limiting max thrust
 \end{enumerate}
-\end{comment}
+
 
 \textbf{Reliability} is evaluated as the likelihood that the testbed will successfully perform its intended function without failure under the specified operating conditions throughout its lifetime. Features such as ports and retractable landing gear introduce additional failure risks; therefore, configurations incorporating these elements will receive lower scores.
 
@@ -234,16 +226,14 @@ The key differentiators under this definition would be:
 \hline
 \end{tabular}
 \end{table}
- 
+ \end{comment}
 
 \section{Trade-Off Weight Factors}
 \label{sec:trade-off_weight_factors}
 
-To determine the weight factors, the analytic hierarchy process (AHP) was used. This was done by pairwise comparison of the criteria specified earlier. For n criteria, a total of $n(n-1)/2$ comparisons are required to form a pairwise comparison matrix (PCM) of order n. The diagonal entries of the PCM are all 1, and the remaining values are simply the reciprocals of these $n(n-1)/2$ comparisons \cite{Pant 2022}.
+To determine the weight factors, the analytic hierarchy process (AHP) was used according to the methodology described by Pant et al. \cite{Pant2022}. This process encompasses pairwise comparison of the trade-off criteria. To form a pairwise comparison matrix (PCM) for $n$ distinct criteria, $n(n-1)/2$ comparisons are required. The diagonal entries of the PCM are all equal to 1, and the remaining values are reciprocal pairs of the $n(n-1)/2$ comparison values.
 
-For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty \cite{Saaty 1990}. These scores are defined as follows: 1 - Equal importance; 3 - Moderate importance, 5 - Strong importance; 7 - Very strong importance; 9 - Extreme importance. 
-
-Assigning weights from 1 to 9 to the n criteria, the PCM is constructed so that the rows represent the ratios of a criterion's score to the scores of the other criteria \cite{Saaty 1990}. The obtained matrix is shown below.
+For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty \cite{SAATY19909}. These scores are defined as follows: 1 - equal importance; 3 - moderate importance, 5 - strong importance; 7 - very strong importance; 9 - extreme importance.  Assigning weights from 1 to 9 to the trade-off criteria, the PCM is constructed so that the rows represent the ratios of a criterion's score to the scores of the other criteria \cite{SAATY19909}. The resulting PCM is shown in \autoref{tab:pcm}. Derivation of specific importance scores is further described in \autoref{ch:app_trade-off_rationale}.
 
 
 \begin{table}[H]
@@ -261,23 +251,8 @@ Reliability    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
 Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{7}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 \\
 \hline
 \end{tabular}
+\label{tab:pcm}
 \end{table}
-
-
-As an example, element (2, 1) is equal to 6, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element (1, 2) is the reciprocal, equal to $\frac{1}{4}$.
-
-Below, the remaining pairwise comparisons are justified: 
-\begin{enumerate}
-    \item \textbf{Cost vs Performance:} The ratio is $\frac{1}{4}$. If the aircraft cannot reach the required Mach and Reynolds number conditions, the test data is physically invalid regardless of how economical the build was. The times 4 rating reflects that performance is strongly more important, but cost still influences overall feasibility of the programme.
-    \item \textbf{Cost vs Reliability:} The ratio is $\frac{1}{4}$. Same ratio as cost vs performance, for analogous reasoning — an unreliable aircraft either produces corrupted data or is grounded, making any cost savings irrelevant. Performance and reliability are rated equally against cost because both are non-negotiable prerequisites for mission success.
-    \item \textbf{Cost vs Sustainability:} The ratio is 3. Cost is moderately more important than sustainability because it directly determines whether the aircraft gets built and operated at all. Sustainability matters but has limited influence on mission outcome for a low-flight-hour research aircraft, particularly since SAF is already being used.
-    \item \textbf{Versatility vs Performance:} The ratio is 3. Versatility is moderately more important because a testbed that performs well but can only test one configuration is fundamentally less valuable than one covering a wide experimental envelope at slightly reduced performance. The times 3 rating acknowledges that performance cannot be completely sacrificed — a versatile aircraft that cannot reach test conditions is equally useless.
-    \item \textbf{Versatility vs Reliability:} The score is 3. Same ratio as versatility vs performance. Versatility limitations are design-dependent and cannot be corrected post-build, whereas reliability issues can be partially mitigated through redundancy, maintenance procedures, and data post-processing. This makes versatility marginally more important.
-    \item \textbf{Versatility vs Sustainability:} The score is 7. The scientific output of the testbed strongly outweighs environmental considerations. A versatile testbed operating on SAF for limited research hours has a negligible environmental footprint compared to its scientific contribution.
-    \item \textbf{Performance vs Reliability:} The score is 1. Both are equal prerequisites for producing valid test data. Performance determines whether you can reach the required test conditions; reliability determines whether you get valid measurements when you do. Neither can compensate for a deficit in the other.
-    \item \textbf{Performance vs Sustainability:} The score is 5. An aircraft that cannot reach test conditions delivers zero scientific value regardless of how sustainably it was built. The times 5 rating reflects that sustainability, while important, is an ancillary concern for a research platform with limited operational hours.
-    \item \textbf{Realiability vs Sustainability:} The score is 5. Same rating and same reasoning as performance vs sustainability — unreliable data collection undermines the entire mission, whereas the sustainability impact remains small given the operational profile.
-\end{enumerate}
 
 The next step is computing the priority vector, which is the normalized eigenvector of the matrix, as shown by Kardi Teknomo \footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial}}. The column values were summed to obtain the column sums, which will be used for the normalisation of the values in the PCM. The sum of each column should be 1, which can be used as a sanity check. 
 

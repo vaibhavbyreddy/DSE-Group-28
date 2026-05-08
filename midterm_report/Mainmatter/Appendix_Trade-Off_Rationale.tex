@@ -1,0 +1,85 @@
+\chapter{Trade-Off Rationale}
+\label{ch:app_trade-off_rationale}
+In this Appendix, the reasoning behind numerical values used for the trade-off scores and weight factors is explained.
+
+
+\begin{longtable}{|c|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+
+\caption{Trade-Off Score Definition}
+\label{tab:trade-off_score_definition} \\
+
+\cline{2-6}
+\multicolumn{1}{c|}{} & \multicolumn{5}{c|}{\textbf{Score}} \\
+\hline
+\textbf{Criterion} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Criterion} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{6}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Versatility &
+One testable configuration (core mission compromised) &
+Significant limitations (no canard port) &
+Moderate limitations (static canard and wing) &
+Most configurations testable (variable wing and static canard) &
+Full range of configurations testable (variable canard and wing)
+\\ \hline
+
+Performance &
+High drag and weight limiting achievable Mach at test altitude &
+Significant drag and mass penalties, meaningful efficiency reduction &
+Moderate drag or mass penalty, noticeable but manageable impact &
+Slightly elevated drag or mass, minor impact &
+Low drag and weight — clean configuration, no protruding components
+\\ \hline
+
+Reliability &
+Critical failure modes, mission safety compromised &
+Multiple failure modes, data quality at risk &
+Multiple failure modes, mitigation possible &
+One minor failure mode, easily mitigated &
+No single-point failure modes, fully redundant
+\\ \hline
+
+Cost &
+Design violates HUG-FIN-001 \cite{Baseline Report} &
+High complexity, significant cost driver &
+Moderate complexity, high manufacturing and procurement cost &
+Low complexity, limited manufacturing effort &
+Minimal complexity
+\\ \hline
+
+Sustainability &
+Highest impact: maximum manufacturing, operational, and disposal burden &
+High impact: significant manufacturing complexity and elevated fuel burn &
+Moderate impact: notable manufacturing and operational penalties &
+Low impact: slightly higher manufacturing or operational impact &
+Lowest impact: minimal manufacturing complexity, lowest operational fuel burn, simple end-of-life disposal
+\\ \hline
+
+\end{longtable}
+
+As an example, element (2, 1) is equal to 6, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element (1, 2) is the reciprocal, equal to $\frac{1}{4}$.
+
+Below, the remaining pairwise comparisons are justified: 
+\begin{enumerate}
+    \item \textbf{Cost vs Performance:} The ratio is $\frac{1}{4}$. If the aircraft cannot reach the required Mach and Reynolds number conditions, the test data is physically invalid regardless of how economical the build was. The times 4 rating reflects that performance is strongly more important, but cost still influences overall feasibility of the programme.
+    \item \textbf{Cost vs Reliability:} The ratio is $\frac{1}{4}$. Same ratio as cost vs performance, for analogous reasoning — an unreliable aircraft either produces corrupted data or is grounded, making any cost savings irrelevant. Performance and reliability are rated equally against cost because both are non-negotiable prerequisites for mission success.
+    \item \textbf{Cost vs Sustainability:} The ratio is 3. Cost is moderately more important than sustainability because it directly determines whether the aircraft gets built and operated at all. Sustainability matters but has limited influence on mission outcome for a low-flight-hour research aircraft, particularly since SAF is already being used.
+    \item \textbf{Versatility vs Performance:} The ratio is 3. Versatility is moderately more important because a testbed that performs well but can only test one configuration is fundamentally less valuable than one covering a wide experimental envelope at slightly reduced performance. The times 3 rating acknowledges that performance cannot be completely sacrificed — a versatile aircraft that cannot reach test conditions is equally useless.
+    \item \textbf{Versatility vs Reliability:} The score is 3. Same ratio as versatility vs performance. Versatility limitations are design-dependent and cannot be corrected post-build, whereas reliability issues can be partially mitigated through redundancy, maintenance procedures, and data post-processing. This makes versatility marginally more important.
+    \item \textbf{Versatility vs Sustainability:} The score is 7. The scientific output of the testbed strongly outweighs environmental considerations. A versatile testbed operating on SAF for limited research hours has a negligible environmental footprint compared to its scientific contribution.
+    \item \textbf{Performance vs Reliability:} The score is 1. Both are equal prerequisites for producing valid test data. Performance determines whether you can reach the required test conditions; reliability determines whether you get valid measurements when you do. Neither can compensate for a deficit in the other.
+    \item \textbf{Performance vs Sustainability:} The score is 5. An aircraft that cannot reach test conditions delivers zero scientific value regardless of how sustainably it was built. The times 5 rating reflects that sustainability, while important, is an ancillary concern for a research platform with limited operational hours.
+    \item \textbf{Realiability vs Sustainability:} The score is 5. Same rating and same reasoning as performance vs sustainability — unreliable data collection undermines the entire mission, whereas the sustainability impact remains small given the operational profile.
+\end{enumerate}
