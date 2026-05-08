@@ -2,6 +2,8 @@
 \label{ch:app_trade-off_rationale}
 In this Appendix, the reasoning behind numerical values used for the trade-off scores and weight factors is explained.
 
+\section{Trade-Off Score Values}
+\autoref{tab:trade-off_score_definition} defines the scores assigned to trade-off criteria in \autoref{sec:trade-off_criteria_selection}. Each criterion was assigned a score from 1 to 5, with 1 being the lowest and 5 the highest in terms of desirability for HUGO.
 
 \begin{longtable}{|c|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
 
@@ -52,7 +54,7 @@ No single-point failure modes, fully redundant
 \\ \hline
 
 Cost &
-Design violates HUG-FIN-001 \cite{Baseline Report} &
+Design violates HUG-FIN-001 \footref{url:baseline_report} &
 High complexity, significant cost driver &
 Moderate complexity, high manufacturing and procurement cost &
 Low complexity, limited manufacturing effort &
@@ -69,7 +71,8 @@ Lowest impact: minimal manufacturing complexity, lowest operational fuel burn, s
 
 \end{longtable}
 
-As an example, element (2, 1) is equal to 6, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element (1, 2) is the reciprocal, equal to $\frac{1}{4}$.
+\section{PCM Scores}
+This Section contains the rationale behind the pairwise comparison scores used in \autoref{tab:pcm}. As an example, element (2, 1) is equal to 6, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element (1, 2) is the reciprocal, equal to $\frac{1}{4}$.
 
 Below, the remaining pairwise comparisons are justified: 
 \begin{enumerate}

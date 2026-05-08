@@ -71,10 +71,16 @@ The day before a test flight is scheduled, the Terminal Aerodrome Forecast (TAF)
 In case the weather prediction allows for a successful take-off, the test day shall proceed according to schedule. If the test requires parts provided by the client to be mounted onto HUGO, these shall be integrated in the hangar, before proceeding onto the airfield. The ground station and fuel required for the flight shall also be transported onto the airfield.
 
 \subsubsection{Pre-Flight Operations}
-This subsection defines the pre-flight operations required before HUGO can proceed to the take-off checklist. The pre-flight phase begins once HUGO is unloaded from the transportation unit and ends when the aircraft is powered on and ready for final take-off checks. The objective of this phase is to verify that the mission plan, operating environment, ground support equipment, aircraft configuration, and safety provisions are suitable for the intended mission.
+This subsection defines the pre-flight operations required before HUGO can proceed to the take-off checklist. The pre-flight phase begins once HUGO is unloaded from the transportation unit and ends when the aircraft is powered on, all checks are performed, and fuel is loaded on board. The objective of this phase is to verify that the mission plan, operating environment, ground support equipment, aircraft configuration, and safety provisions are suitable for the intended mission.
+
+An overview of the pre-flight steps is provided in \autoref{fig:pre-flight_checklist}. Once HUGO is unloaded, the mission plan is reviewed, and NOTAMs are checked for restrictions and updates. If a go or conditional go is given, HUGO can be configured for the mission profile, and the crew briefing and preparation checklists can be done. Otherwise, the test shall be cancelled or delayed. Once all preparation steps are checked and recorded, HUGO can be considered as ready to fly, and the test personnel can proceed to the in-flight phase of the mission.
+
+
+\begin{comment}
 The following steps will be considered in the pre-flight preparation:
 
 \begin{enumerate}
+    \item Unload HUGO from transportation unit,
     \item Mission Plan Review,
     \item NOTAM check for restrictions and updates,
     \item Final TAF check for weather details (go/no-go/conditional go),
@@ -86,34 +92,70 @@ The following steps will be considered in the pre-flight preparation:
     \item Calibrate sensors,
     \item Load fuel onboard HUGO.
 \end{enumerate}
+\end{comment}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/pre_flight_checklist.pdf}
+    \caption{HUGO Pre-Flight Operations}
+    \label{fig:pre-flight_checklist}
+\end{figure}
 
-Once all the above items are checked and recorded, HUGO can be considered as ready to fly, and the test personnel can proceed to the in-flight phase of the mission.
 
 \subsubsection{In-Flight Operations}
-Once all necessary pre-flight checklists are done and ATC clearance for take-off is obtained, HUGO will be able to enter the next mission phase. This stage of operations begins when the engines are turned on prior to take-off and ends when they are turned off post-landing. 
+Once all necessary pre-flight checklists are done and ATC clearance for take-off is obtained, HUGO will be able to enter the next mission phase. This stage of operations begins when the engines are turned on prior to take-off and ends when they are turned off post-landing. The objective of this mission phase is to perform the test and obtain measurements requested by the customer. 
 
-perform take-off
-climb to test altitude, reach test area
-perform test (5 min at Mach 0.75) - constant monitoring from ground (continue, hold, abort test)
-return to airfield 
-perform landing approach or hold if instructed by ATC
-Possible missed approaches
-Perform landing
-taxi
-engie shut-off
+An overview of the expected in-flight operations is provided in \autoref{fig:in-flight_ops}. After engine turn-on, HUGO will taxi onto the runway and take-off. After climbing to test altitude and reaching test area, it shall accelerate to Mach 0.75 and perform the 5 min test, while transmitting measurement data back to the ground station. Subsequently, it shall be ordered to decelerate, return to the airfield, and perform a landing. It is expected that holding or go-around manoeuvres may be necessary prior to landing. These scenarios will be included in the fuel budget.
 
+\begin{comment}
+\begin{enumerate}
+    \item Engine turn-on,
+    \item Taxi to runway,
+    \item Perform take-off,
+    \item Climb to test altitude and reach test area,
+    \item Perform test (constant monitoring from ground: continue/hold/abort test),
+    \item Return to airfield,
+    \item Perform landing approach (or hold if instructed by ATC),
+    \item Perform a go-around (if necessary),
+    \item Perform landing,
+    \item Taxi from runway,
+    \item Engine shut-off
+\end{enumerate}
+\end{comment}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/in-flight_checklist.pdf}
+    \caption{HUGO In-Flight Operations}
+    \label{fig:in-flight_ops}
+\end{figure}
 
 \subsubsection{Post-Flight Operations}
-After the UAV is on the ground, the post-flight data extraction and operations 
-download data
-debrief
-maintenance check
-process data (not necessarily on test day)
+After the UAV is on the ground, the post-flight data extraction and operations can commence. At this stage of the operation process, there are 2 possible scenatios that can take place depending on the mission profile of the day. HUGO can either undergo dissabele and reclaim procedure or can be prepared for a follow up flight.
+If the UAV is set to go for another test flight, the following check will be performed:
 
+\begin{enumerate}
+    \item Download data from the previous test
+    \item Perform check the internal and external systems of the UAV to ensure no problem developed
+    \item Perform visually inspect the fuselage for damage
+    \item Refill the tanks of HUGO
+    \item Perform in-flight operation plan 
+\end{enumerate}
 
-Should outline the preparations and the flight for one day of operations, from preparation or deployment, depends if we are already at the airfield or not positioned.  
-Data measurement process, and covers the installation of the ground system that collects the data
+Once HUGO has finished with the tests planned for that fly day, it will undergo the following steps of recall and disassembly, at the end marking the end of the test-flight day. The following procedure list will be followed by the ground crew:
 
+\begin{enumerate}
+    \item Download data from the test flight
+    \item Perform a check of the onboard systems to check that no system problems exist
+    \item Turn off power supply
+    \item Perform visual inspection of the fuselage to check for damage
+    \item Perform maintenance if required
+    \item Perform debriding of the flight day
+    \item Perform disassembly of HUGO
+    \item Load the equipment into the van
+    \item End the flight day
+\end{enumerate}
+
+The completion of the post-flight operations checklist marks the end of the flight day. If any unforeseen events, anomalies, or deviations occurred during the mission, the flight day shall be followed by an additional debriefing and the completion of the required documentation.
 
 \subsection{Operational constrains}
 this one will be strongly paired with the EASA restrictions and airfield specifications
