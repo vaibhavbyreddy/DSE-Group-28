@@ -110,6 +110,7 @@ The primary driver for selecting a relatively high thickness-to-chord ratio is t
     \item XFLR batch analysis for both airfoils
     \begin{itemize}
         \item polar starts form -3.5 deg, rerun batch from -8 deg
+        \item Re estimated for cruise condition (FL270, 0.75 M); rerun for lower altitudes for lower Mach
     \end{itemize}
     \item XFLR wing analysis - liner transition between 2 airfoils
     \begin{itemize}
@@ -117,6 +118,15 @@ The primary driver for selecting a relatively high thickness-to-chord ratio is t
         \item wing analysis stops at 4.8 deg although batch analysis was run to 10 deg. This corresponds to a Cl of about 0.8, where the transition point is very close to the LE. XFoil's compressibility model is breaking down. The local Mach probably exceeds 1
     \end{itemize}
 \end{enumerate}
+
+\begin{equation}
+    c_r = \frac{2 \cdot S_w}{(1 + \lambda) \cdot b}
+\end{equation}
+
+\begin{equation}
+    c_t = c_r \cdot \lambda
+\end{equation}
+\todo{cite ADSEE book}
 
 \section{Structural analysis}
 
