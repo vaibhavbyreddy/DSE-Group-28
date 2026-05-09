@@ -114,10 +114,13 @@ The primary driver for selecting a relatively high thickness-to-chord ratio is t
     \end{itemize}
     \item XFLR wing analysis - liner transition between 2 airfoils
     \begin{itemize}
-        \item polar for 620000 Re at 0.75. XFLR5 might be grouping polars by Mach before interpolating - it only looks at M = 0.75 polars for a M = 0.75 analysis, finds only Re = 620,000, and considers Re = 620,322 above that single-point range. To fix this error, run wing analysis for a slightly lower speed than the cruise. Estimate error.
-        \item wing analysis stops at 4.8 deg although batch analysis was run to 10 deg. This corresponds to a Cl of about 0.8, where the transition point is very close to the LE. XFoil's compressibility model is breaking down. The local Mach probably exceeds 1
+       \item initial estimate of Re and Mach pairs doesn't cover the entire range due to the wing geometry (Re scales with local chord). adjust batch analysis
     \end{itemize}
 \end{enumerate}
+
+\begin{equation}
+    Re_{local} = Re_{MAC} \cdot \frac{c_{local}}{c_{MAC}}
+\end{equation}
 
 \begin{equation}
     c_r = \frac{2 \cdot S_w}{(1 + \lambda) \cdot b}
