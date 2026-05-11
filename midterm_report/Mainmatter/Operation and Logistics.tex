@@ -130,9 +130,15 @@ An overview of the expected in-flight operations is provided in \autoref{fig:in-
 \end{figure}
 
 \subsubsection{Post-Flight Operations}
-After the UAV is on the ground, the post-flight data extraction and operations can commence. At this stage of the operation process, there are 2 possible scenatios that can take place depending on the mission profile of the day. HUGO can either undergo dissabele and reclaim procedure or can be prepared for a follow up flight.
-If the UAV is set to go for another test flight, the following check will be performed:
+Once HUGO has performed a successful landing, the post-flight data extraction and operations can commence. In this mission phase, there are two possible scenarios,  depending on the mission profile of the day: HUGO can undergo preparations for the next test flight or undergo disassembly and reclaim procedures. An overview of operations for both scenarios are shown in \autoref{fig:post-flight-ops_continue} and \autoref{fig:post-flight-ops_end}.
 
+If HUGO is set to go for another test flight, the obtained data shall be downloaded, and checks shall be performed for the internal and external systems to ensure operational readiness and safety. Next, the fuel tanks shall be refilled, enabling the mission to return to the in-flight phase.
+
+Once HUGO has finished all tests scheduled for a specific flight day, the data from the last test shall be downloaded, and onboard system checks shall be performed. If no errors are detected, the power supply will be turned off, and an inspection of the external structure shall be performed. Next, the official debrief shall take place, and HUGO shall be disassembled and transported back to the hangar. 
+
+%it will undergo the following steps of recall and disassembly, at the end marking the end of the test-flight day. The following procedure list will be followed by the ground crew:
+
+\begin{comment}
 \begin{enumerate}
     \item Download data from the previous test
     \item Perform check the internal and external systems of the UAV to ensure no problem developed
@@ -141,19 +147,18 @@ If the UAV is set to go for another test flight, the following check will be per
     \item Perform in-flight operation plan 
 \end{enumerate}
 
-Once HUGO has finished with the tests planned for that fly day, it will undergo the following steps of recall and disassembly, at the end marking the end of the test-flight day. The following procedure list will be followed by the ground crew:
-
 \begin{enumerate}
     \item Download data from the test flight
     \item Perform a check of the onboard systems to check that no system problems exist
     \item Turn off power supply
     \item Perform visual inspection of the fuselage to check for damage
     \item Perform maintenance if required
-    \item Perform debriding of the flight day
+    \item Perform debriefing of the flight day
     \item Perform disassembly of HUGO
     \item Load the equipment into the van
     \item End the flight day
 \end{enumerate}
+\end{comment}
 
 The completion of the post-flight operations checklist marks the end of the flight day. If any unforeseen events, anomalies, or deviations occurred during the mission, the flight day shall be followed by an additional debriefing and the completion of the required documentation.
 
@@ -161,6 +166,50 @@ The completion of the post-flight operations checklist marks the end of the flig
 this one will be strongly paired with the EASA restrictions and airfield specifications
 
 \subsection{Maintenance}
+To ensure the a safe and optimal operation of HUGO, regular maintenance will be provided, along with regular repairs in case irregularities are found within a work day. As stated in the report previously submitted \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Reposed}(accessed on 11.05.2026)}, one aircraft is expected to undergo maintenance 20\% of the working days, which comes down to 50 (working) days within a year, taking into account free days. As stated by EASA, the owner of the aircraft, HUGOS' operator, is responsible for ensuring the continuing airworthiness of aircraf\footnote{\label{Easa_Maintenance}\href{https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-continuing-airworthiness?erules-id=ERULES-1963177438-693}{Easy Access Rules for Continuing Airworthiness}(accessed on 11.05.2026)}. In case the operator is not able to comply with the regulations and standards imposed, then an outside certified provider will be outsourced to perform the work on the UAV.
+
+The HUGO platform will not be limited to only one model, the entire fleet being estimated at 5 UAVs' to begin with, allowing for the possibility of expansion. Having such a fleet size requires a dedicated location where maintenance can be provided for the entire duration of the week. This problem is ultimately discussed in, where the storage of models is expanded on.
+
+The maintenance operation includes: planning of operation, assessment of process, execution of repair/verification, inspection of aircraft ensure airworthiness, updating the records and release of the model. It is worth stating, that modifications brought to the structure for the purpose of fitting a new configuration to be tested will be counted as maintenance. A general maintenance schedule may include the following actions based on the number of flight hours and operating conditions, as defined in \autoref{maintenance_operation}.
+
+\begin{table}[H]
+\centering
+\caption{Maintenance operations taken from EASA Regulation (EU) No 1321/2014 \footnote{\hre}
+\label{maintenance_operation}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|p{0.28\textwidth}| X|}
+\hline
+\textbf{Maintenance activity} & \textbf{Description} \\
+\hline \hline
+
+Scheduled maintenance & 
+Planned inspections and maintenance tasks performed at defined intervals, based on flight hours, flight cycles, calendar time, landings, or the aircraft maintenance programme. \\
+
+Unscheduled or corrective maintenance & 
+Maintenance carried out to correct defects discovered during operation, pre-flight inspections, post-flight inspections, or scheduled maintenance checks. \\
+
+Airworthiness Directive compliance & 
+Mandatory maintenance or inspection actions required by the competent aviation authority to address unsafe conditions affecting the aircraft, components, or systems. \\
+
+Component replacement or overhaul & 
+Removal, replacement, repair, or overhaul of aircraft components such as batteries, engines, actuators, avionics units, landing gear parts, or other life-limited items. \\
+
+Structural repair or modification & 
+Repair or modification of the aircraft structure using approved maintenance or repair data, ensuring that the aircraft remains compliant with its certified configuration. \\
+
+Servicing tasks & 
+Routine servicing activities such as refuelling or battery charging, lubrication, oil replacement, hydraulic fluid checks, tyre pressure checks, filter replacement, and cleaning. \\
+
+Functional tests and inspections & 
+Verification that aircraft systems operate correctly after maintenance, including flight controls, propulsion systems, avionics, sensors, software configuration, and safety-critical systems. \\
+
+Maintenance check flight & 
+A flight performed after maintenance when required to verify aircraft behaviour, system performance, or airworthiness aspects that cannot be fully confirmed through ground checks alone. \\
+
+\hline
+\end{tabularx}
+\end{table}
+
 
 \section{Logistics}
 \label{sec:logistics}
@@ -168,6 +217,7 @@ this one will be strongly paired with the EASA restrictions and airfield specifi
 \subsection{Personal Required for Operation}
 
 \subsection{Storage Hangar}
+\label{hangar}
 
 We are going with Den Helder no comment here
 

@@ -1,16 +1,17 @@
 \chapter{Engineering Design and Analysis}
 
 \section{Preliminary Airfoil Selection Procedure}
-According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to Mach 0.75\cite{} \todo{cite baseline report or ref requirements section}. This is the flight condition at which tests are expected to be conducted during operations. In this Section, an estimation of the lift characteristics of HUGO is performed, along with a preliminary airfoil selection suitable for the considered operations.
+According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to Mach 0.75\cite{BaselineReport}. This is the flight condition at which tests are expected to be conducted during operations. In this Section, an estimation of the lift characteristics of HUGO is performed, along with a preliminary airfoil selection suitable for the considered operations.
 
 
 \subsection{Analysis of Reference Aircraft}
-The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project \footnote{\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)} and the NASA X-56A UAS \footnote{\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} are used as reference aircraft. DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission, and therefore considered as an appropriate reference point for the preliminary wing sizing \todo{cite all this sht}. \\
-The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO. The scalability of the high wing-loading structure of DAST is uncertain and may not be feasible. Therefore, the X-56 is included as a reference aircraft.
+The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project \footnote{\label{fn:DAST}\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)} and the NASA X-56A UAS \footnote{\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} are used as reference aircraft.\\
+DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. \footref{fn:DAST} To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission, and therefore considered as an appropriate reference point for the preliminary wing sizing. \\
+The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO. The scalability of the high wing-loading structure of DAST is uncertain and may not be feasible. Therefore, the X-56 is included as a reference aircraft.
 
-The design lift coefficient $C_{L_\text{des}}$ is estimated from the two referenced aircraft. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} \cite{} \todo{cite baseline} and the aspect ratio requirement \textbf{HUG-AER-002}. The average value from the range given in \textbf{HUG-AER-002} was taken. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft. A larger taper ratio is likely to be introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility effects, especially above a Mach number of 0.75. \cite{Torenbeek1982} Therefore, the sweep angle required for HUGO is likely less than that of the ARW-2 wing. An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A aircraft. Relevant DAST and X-56A \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
+The design lift coefficient $C_{L_\text{des}}$ is estimated from the two referenced aircraft. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}. The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was taken. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is likely to be introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A aircraft and several aircraft with comparable cruise velocities in \cite{Torenbeek1982}. Relevant DAST and X-56A \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
 
-The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft. The X-56A takeoff and landing were performed from a paved runway, whereas the DAST drone was launched from a carrier aircraft and caught by helicopter after completing a test flight \cite{} \todo{reference the stuff here}. After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. An aspect ratio $AR = 23$ was initially selected for HUGO as a middle point between the range of aspect ratios required by \textbf{HUG-AER-002}.\todo{cite here} These values will be subject to further analysis and iteration at later stages of the design, eventually converging to most ideal design values.
+The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft. The X-56A takeoff and landing were performed from a paved runway, whereas the DAST drone was launched from a carrier aircraft and caught by helicopter after completing a test flight. \footref{fn:DAST} After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. The initial wing planform is likely to be revisited at a later design iteration and serves as an initial design point.
 
 \begin{table}[H]
     \centering
@@ -23,7 +24,7 @@ The ARW-2 wing loading is several orders of magnitude larger than that of the X-
         \hline\hline
         Wing span [m] & $b$ & 5.79 & 8.53 & 3.36 \\
         \hline
-        MAC [m] & $c$ & 0.56 & 0.61 & 0.15 \\ 
+        MAC [m] & $\overline{c}$ & 0.56 & 0.61 & 0.15 \\ 
         \hline
         Aspect ratio [$-$] & $AR$ & 10.3 & 14 & 23 \\
         \hline
@@ -55,10 +56,10 @@ To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air
 \subsection{Cruise Reynolds number}
 Based on the initial estimates from \autoref{tab:DAST_HUGO}, the Reynolds number for cruise $Re_{cr}$ and stall condition $Re_\text{stall}$ was calculated using \autoref{eq:Re}.
 \begin{equation}
-    Re = \frac{\rho cV}{\mu}
+    Re = \frac{\rho \overline{c}V}{\mu}
     \label{eq:Re}
 \end{equation}
-Using the cruise conditions $\rho_{cr}$, $V_{cr}$ and dynamic viscosity $\mu_{cr}$ corresponding to Torenbeek's ISA model \cite{AdvancedACDesign_Torenbeek}, a cruise Reynold's number $Re_{cr}$ of $1.15\cdot10^6$ was obtained for test conditions at FL270. $MAC \approx 0.15 \ m$ is calculated from the derived wing parameters in \autoref{tab:DAST_HUGO}.
+Using the cruise conditions $\rho_{cr}$, $V_{cr}$ and dynamic viscosity $\mu_{cr}$ corresponding to Torenbeek's ISA model \cite{AdvancedACDesign_Torenbeek}, a cruise Reynold's number $Re_{cr}$ of $1.15\cdot10^6$ was obtained for test conditions at FL270. The MAC $\overline{c} \approx 0.15 \ m$ is calculated from the wing parameters in \autoref{tab:DAST_HUGO}.
 
 \subsection{Supercritical airfoil}
 Since the aircraft is expected to operate at Mach 0.75, it is necessary to take transonic phenomena into account. When flying in this region with a traditional airfoil, the airflow might locally be supersonic, which creates strong shock waves on the wing \cite{Whitcomb1974}. This leads to a large increase in drag, which is detrimental for the performance of the aircraft and introduces boundary layer separation. Such effects can be mitigated by the use of a supercritical airfoil. 
@@ -66,9 +67,9 @@ Since the aircraft is expected to operate at Mach 0.75, it is necessary to take 
 A supercritical airfoil is capable to operate at transonic conditions with only the onset of weak shock waves \cite{Harris1990}. An example of such airfoils used in the preliminary design for HUGO is a supercritical SC(2)-XXYY family developed by NASA, where XX is the airfoil design lift coefficient, and YY is the maximum thickness in percent \cite{Harris1990}. The advantage of using this system is the inclusion of the design lift coefficient, which makes it possible to narrow down the choices for HUGO using $C_{L_\text{des}}$ values found in \autoref{subsec:cl_des}.
 
 \subsection{Maximum lift coefficient}
-The maximum lift coefficient, $C_{L_\text{max}}$ has to be determined to obtain the stall speed of HUGO, $V_\text{stall}$. As stated previously, the use of a supercritical wing profile is highly recommended for the considered test conditions. A preliminary estimate of  $C_{L_\text{max}}$ is made by considering a NASA SC(2) airfoil and the DATCOM method for estimating the maximum lift coefficient for finite wings. 
+The maximum lift coefficient, $C_{L_\text{max}}$ has to be determined to obtain the stall speed of HUGO, $V_\text{stall}$. As stated previously, the use of a supercritical wing profile is highly recommended for the considered test conditions. A preliminary estimate of  $C_{L_\text{max}}$ is made by considering a NASA SC(2)-0010 airfoil and the DATCOM method for estimating the maximum lift coefficient for finite wings. 
 
-An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}(Accessed on 07.05.2026)} and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a reference $Re$ of approximately $1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}}$ of 1.35 is predicted. This result is deemed suitable for this usecase due to likely disturbed airflow from the wing surface roughness. \cite{Koul} Then, according to Torenbeek \cite{Torenbeek1982}, \autoref{} is used to obtain $C_{L_{max}}$. \autoref{eq:Lambda_conversion} is used to convert from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ and derived from \cite{Torenbeek1982}.
+An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}(Accessed on 07.05.2026)} and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil}(Accessed on 11.5.2026)}. $N$ is deemed suitable for this usecase due to likely disturbed airflow from the wing surface roughness. \cite{Koul} Then, according to Torenbeek \cite{Torenbeek1982}, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$. \autoref{eq:Lambda_conversion} is used to convert from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ and derived from the expression in \cite{Torenbeek1982}.
 
 \begin{equation}
     \Lambda_{0.25}
@@ -90,19 +91,16 @@ An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\h
 This leads to $\Lambda_{0.25c} \approx 14.22$ and $C_{L_{\max}} \approx 1.22$ without high-lift devices.\\ \todo{cite this stuff}
 
 \subsection{Stall speed}
-The next step is to identify the preliminary stall speed of HUGO. NASA does not provide the stall speed for the ARW-2 wing and X-56A UAS, however, it can be estimated based on the NASA SC(2) family of supercritical airfoils. The SC(2)-0012 is taken as a reference airfoil due to the high-speed cruise mode of HUGO. With a maximum lift coefficient $C_{L_{max}} \approx 1.22$ and $S = 0.49 \ m^2$ at a mass $m = 50 \ kg$, the stall speed can be calculated using \autoref{eq:Vstall}.
+The next step is to identify the preliminary stall speed of HUGO. With a maximum lift coefficient $C_{L_{max}} \approx 1.22$ and $S = 0.49 \ m^2$ at a mass $m = 50 \ kg$ and sea level ISA conditions, the stall speed can be calculated using \autoref{eq:Vstall}.
 \begin{equation}
     V_\text{stall} = \sqrt{\frac{2W}{\rho S C_{L_\text{max}}}}
     \label{eq:Vstall}
 \end{equation}
-From \autoref{eq:Vstall}, a stall speed $V_{stall} \approx 37 \ m \cdot s^{-1}$. A stall speed this large is highly likely to cause problematic landings. Therefore, adding high-lift devices to the aircraft or increasing wing area is inevitable. First, high-lift device addition is considered.\\
-
-
-
+From \autoref{eq:Vstall}, a stall speed $V_{stall} \approx 37 \ m \cdot s^{-1}$. Comparing this to the stall speed of the X-56A UAS of 33 m/s, the result appears reasonable for an initial estimation.\\
 
 \subsection{Airfoil selection}
-Based on the data obtained in the previous subsections, an airfoil from the NASA database was selected. The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_\text{des}} = 0.2213$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} It was decided that the the NASA SC(2)-0414 will be used as the root wing profile, linearly transitioning towards the SC(2)-0412 profile at the wing tip. This means that the $\frac{t}{c}$ ratio is between 12 \% at the wing tip to 14 \% at the wing root.\\
-The primary driver for selecting a relatively high thickness-to-chord ratio is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_{dd} = 0.8$, which is beyond the conditions HUGO will operate \cite{Harris1990}.
+Based on the data obtained in the previous subsections, an airfoil from the NASA database was selected. The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_\text{des}} = 0.074$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} It was decided that the the NASA SC(2)-0012 will be used as the initial wing profile. The selected airfoil is symmetrical and designed for supercritical conditions.\\
+A symmetrical supercritical airfoil is beneficial for low lift coefficient flight conditions. Only airfoils designed for $C_{l_{des}} = 0.4$ were tested, which is already significantly above the value suitable for HUGO. The symmetrical airfoil generates the desired lift coefficient with a low angle of attack. Furthermore, significant negative pitching moment is generated by non-symmetrical supercritical airfoils, like the NASA SC(2)-0412 \footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-1000000-n5}{NASA SC(2)-0412}(Accessed on 11.5.2026)}, which could result in a larger and, consequently, heavier empannage. The reason for selecting a high thickness-to-chord ratio $t/c$ is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_{dd} = 0.8$, which is beyond the conditions HUGO will operate. \cite{Harris1990}
 
 
 \section{L/D Estimation}
@@ -148,7 +146,7 @@ The aircraft will most likely not be made of one material but instead a combinat
     surfaces} 
     The empennage will experience loads of varying degree during the flight.  
     \item \textbf{Landing gear}
-    The landing gear most be able to carry the weight of the aircraft on the ground. It most also survive the loads at atkeoff and the impact of landing. For the final configuration the landing gear retracts into the aircraft during flight (see \autoref{sec:trade-off_final_design}) . 
+    The landing gear most be able to carry the weight of the aircraft on the ground. It most also survive the loads at at takeoff and the impact of landing. For the final configuration the landing gear retracts into the aircraft during flight (see \autoref{sec:trade-off_final_design}) . 
     
 \end{itemize}
 
@@ -160,36 +158,34 @@ Below is the list of the different materials that will be considered.
     \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacture, high specific strength and stiffness. One of the most commonly used alloy are  Al (7075 Al-T76) \cite{LI2023944}. 
     \item \textbf{Wood} The material used for the first powered flight. The softwood Sitka spruce are chosen due to its use in the construction of gliders\cite{bookJohn}. They are characterised by their low density. 
     \item \textbf{Magnesium} These alloys used to be widely used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
-    \item \textbf{Titanium} This is has high strength at medium density  The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
-    \item \textbf{Steel} This is iron containing carbon. This has high strength with a high density. The alloy used for the comparisons are Steel (18Ni (350))
+    \item \textbf{Titanium} This has high strength at medium density  The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
+    \item \textbf{Steel} This has high strength with high density. The alloy used for the comparisons are Steel (18Ni (350))
     \item \textbf{Composites  Carbon/epoxy} This consist typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is epoxy and the fibres are carbon.   
 \end{itemize}
 
 \subsubsection*{Structural properties}
 To evaluate the different candidates it is relevant to list the mechanical properties of the different alloys to enable a direct comparison. 
 
+
 \begin{table}[H]
-{\setlength{\leftskip}{-1.5cm}
-\caption{Mechanical properties of selected aerospace materials ( part of the table taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012} .}
+\centering
+\caption{Mechanical properties of selected aerospace materials (part of the table taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012}).}
 \label{tab:material-properties}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{lcccccc c}
+\begin{tabular}{lcccc}
 \toprule
 \textbf{Materials}
   & \makecell{\textbf{Specific}\\\textbf{gravity}$^*$\\(g\,cm$^{-3}$)}
-  & \makecell{\textbf{Young's}\\\textbf{modulus}$^*$\\(GPa)}
   & \makecell{\textbf{Specific}\\\textbf{modulus}$^*$\\$\times10^{6}$\\(N\,m\,kg$^{-1}$)}
-  & \makecell{\textbf{Yield}\\\textbf{strength}$^*$\\(MPa)}
   & \makecell{\textbf{Specific}\\\textbf{strength}$^*$\\$\times10^{3}$\\(N\,m\,kg$^{-1}$)}
-  & \makecell{\textbf{Fracture}\\\textbf{toughness}$^\dagger$\\(MPa\,m$^{0.5}$)}
   & \makecell{\textbf{Specific}\\\textbf{fracture}\\\textbf{toughness}$^\dagger$\\$\times10^{3}$\\(N\,m$^{1.5}$\,kg$^{-1}$)} \\
 \midrule
-Sitka spruce$^*$          & 0.4 &   9 & 22.5 &   55 & 138 &   4 & 10.0 \\
-Ti alloy (Ti-6Al-4V)      & 4.6 & 108 & 23.5 & 1003 & 217 & 100 & 21.7 \\
-Al alloy (7075 Al-T76)    & 2.7 &  70 & 25.9 &  470 & 174 &  29 & 10.7 \\
-Mg alloy (WE46-T6)        & 1.7 &  45 & 26.5 &  200 & 117 &  20 & 11.8 \\
-Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717}      & 8.1 &  200 & 24.6 &  2395 & 295.6 &  40 & 4.9 \\
-Carbon/epoxy composite$^\ddagger$ & 1.7 & 50 & 29.4 & 760 & 450 & 38 & 22.4 \\
+Sitka spruce$^*$          & 0.4 & 22.5 & 138 & 10.0 \\
+Ti alloy (Ti-6Al-4V)      & 4.6 & 23.5 & 217 & 21.7 \\
+Al alloy (7075 Al-T76)    & 2.7 & 25.9 & 174 & 10.7 \\
+Mg alloy (WE46-T6)        & 1.7 & 26.5 & 117 & 11.8 \\
+Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717} & 8.1 & 24.6 & 295.6 & 4.9 \\
+Carbon/epoxy composite$^\ddagger$ & 1.7 & 29.4 & 450 & 22.4 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -214,6 +210,7 @@ When evaluating different materials  the specific modulus, specific strength and
     \caption{Caption}
     \label{tab:placeholder}
 \end{table}
+
 
 
 

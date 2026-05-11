@@ -236,25 +236,36 @@ To determine the weight factors, the analytic hierarchy process (AHP) was used a
 For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty \cite{SAATY19909}. These scores are defined as follows: 1 - equal importance; 3 - moderate importance, 5 - strong importance; 7 - very strong importance; 9 - extreme importance.  Assigning weights from 1 to 9 to the trade-off criteria, the PCM is constructed so that the rows represent the ratios of a criterion's score to the scores of the other criteria \cite{SAATY19909}. The resulting PCM is shown in \autoref{tab:pcm}. Derivation of specific importance scores is further described in \autoref{ch:app_trade-off_rationale}.
 
 
-\begin{table}[H]
+\begin{table}[h!]
 \centering
-\caption{Pairwise comparison matrix (PCM)}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{|l| c| c| c |c| c| c|}
-\hline
- & \textbf{ Cost} & \textbf{Versatility} & \textbf{Performance} & \textbf{Reliability} & \textbf{Sustainability} \\
-\hline \hline
-Cost           & 1 & $\tfrac{1}{6}$ & $\tfrac{1}{4}$ & $\tfrac{1}{4}$ & 3  \\
-Versatility    & 6 & 1 & 3 & 3 & 7 \\
-Performance    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
-Reliability    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
-Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{7}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 \\
-\hline
+\caption{Pairwise Comparison Matrix}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l ||c |c| c| c| c| c|}
+\cline{2-6}
+\multicolumn{1}{r||}{} 
+
+ & Cost & Versatility & Performance & Reliability & Sustainability \\
+\hline\hline
+Cost           & 1 & $\tfrac{1}{6}$ & $\tfrac{1}{4}$ & $\tfrac{1}{4}$ & 3  \\\hline
+Versatility    & 6 & 1 & 3 & 3 & 7 \\\hline
+Performance    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\\hline
+Reliability    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\\hline
+Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{7}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 \\\hline
+%\hline
+%\textbf{Column Sum} & 15.33 & 1.98 & 5.45 & 5.45 & 21 \\
+%\hline
 \end{tabular}
 \label{tab:pcm}
 \end{table}
 
-The next step is computing the priority vector, which is the normalized eigenvector of the matrix, as shown by Kardi Teknomo \footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial}}. The column values were summed to obtain the column sums, which will be used for the normalisation of the values in the PCM. The sum of each column should be 1, which can be used as a sanity check. 
+
+The next step is computing the normalised principal eigenvector (priority vector) \textbf{w}\footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial} (accessed 11.05.2026)}. The priority vector shows relative weights among the compared parameters; the higher the entry value, the higher the importance of its respective criterion.  Individual components of \textbf{w} can obtained according to \autoref{eq:priority_vector} for a matrix with $n$ criteria. The normalised PCM and resultant \textbf{w} are shown in \autoref{tab:pcm_norm}.
+\begin{equation}
+    \label{eq:priority_vector}
+    w_i=\frac{1}{n}\sum^{n}_{j=1}\text{PCM}_{ij}
+\end{equation}
+
+%The column values were summed to obtain the column sums, which will be used for the normalisation of the values in the PCM. The sum of each column should be 1, which can be used as a sanity check. 
 
 \begin{comment}
 \[
@@ -326,44 +337,27 @@ The next step is computing the priority vector, which is the normalized eigenvec
 
 \begin{table}[h!]
 \centering
-\caption{PCM with column sums}
+\caption{Normalized PCM with priority vector}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l |c |c| c| c| c| c|}
-\hline
- & Cost & Versatility & Performance & Reliability & Sustainability \\
+
+\begin{tabular}{|l||c|c|c|c|c||c|}
+\cline{2-7}
+\multicolumn{1}{r||}{} 
+& Cost & Versatility & Performance & Reliability & Sustainability & \textbf{w} \\
 \hline\hline
-Cost           & 1 & $\tfrac{1}{6}$ & $\tfrac{1}{4}$ & $\tfrac{1}{4}$ & 3  \\
-Versatility    & 6 & 1 & 3 & 3 & 7 \\
-Performance    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
-Reliability    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\
-Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{7}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 \\
-\hline
-\textbf{Column Sum} & 15.33 & 1.98 & 5.45 & 5.45 & 21 \\
-\hline
+
+Cost           & 0.0652 & 0.0843 & 0.0459 & 0.0459 & 0.1429 & 0.0768 \\\hline
+Versatility    & 0.3913 & 0.5060 & 0.5505 & 0.5505 & 0.3333 & 0.4663\\\hline
+Performance    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 & 0.2069\\\hline
+Reliability    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 & 0.2069\\\hline
+Sustainability & 0.0217 & 0.0723 & 0.0367 & 0.0367 & 0.0476 & 0.0430\\\hline
+
 \end{tabular}
+\label{tab:pcm_norm}
 \end{table}
 
-\begin{table}[h!]
-\centering
-\caption{Normalized PCM}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l |c |c| c| c| c| c|}
-\hline
- & Cost & Versatility & Performance & Reliability & Sustainability \\
-\hline\hline
-Cost           & 0.0652 & 0.0843 & 0.0459 & 0.0459 & 0.1429 \\
-Versatility    & 0.3913 & 0.5060 & 0.5505 & 0.5505 & 0.3333 \\
-Performance    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 \\
-Reliability    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 \\
-Sustainability & 0.0217 & 0.0723 & 0.0367 & 0.0367 & 0.0476 \\
-\hline
-\textbf{Column Sum} & 1.0000 & 1.0000 & 1.0000 & 1.0000 & 1.0000 \\
-\hline
-\end{tabular}
-\end{table}
-
-Once the matrix was normalised, the values of each row were averaged to obtain the normalised principal eigenvector (priority vector). The sum of its elements should also be 1.
-
+%Once the matrix was normalised, the values of each row were averaged to obtain the normalised principal eigenvector (priority vector). The sum of its elements should also be 1.
+\begin{comment}
 \[
 \mathbf{w} =
 \begin{bmatrix}
@@ -382,34 +376,38 @@ w_{\text{Sustainability}}
 0.0430 \\
 \end{bmatrix}
 \]
+\end{comment}
 
-The priority vector shows relative weights among the things that we compare. The larger the entry, the higher the ranking of the respective criterion. 
+To ensure that the comparative weights are reliable, a consistency study has to be performed. A consistency index (CI) can be defined for the PCM matrix using \autoref{eq:cost_index} \cite{SAATY19909}, based on the number of parameters and the principal eigenvalue $\lambda_\text{max}$, which for the PCM shown in \autoref{tab:pcm} attains a value of 5.186.
 
-The consistency can also be estimated with the use of the principal eigenvalue $\lambda_{max}$. It is obtained from the summation of the products between the elements of the priority vector and the column sums of the PCM. 
+%The consistency can also be estimated with the use of the principal eigenvalue $\lambda_{max}$. It is obtained from the summation of the products between the elements of the priority vector and the column sums of the PCM. 
 
-\begin{align*}
-\lambda_{\max} = 5.2582
-\end{align*}
-
-For a consistent matrix $\lambda_{max} = n$ \cite{Saaty 1980}. The degree of consistency of an inconsistent matrix can be estimated by using the consistency index (CI) \cite{Saaty 1980} defined as:
-
-\begin{equation}
-    CI = \frac{\lambda_{max}-n}{n-1}
-\end{equation}
-
-The obtained CI is compared with the random consistency index (RI). This is done by the consistency ratio (CR) \cite{Saaty 1980}:
+%\begin{align*}
+%\lambda_{\max} = 5.2582
+%\end{align*}
 
 \begin{equation}
-    CR = \frac{CI}{CR} = 0.0576
+\label{eq:cost_index}
+    CI = \frac{\lambda_\text{max}-n}{n-1}\approx0.0465
 \end{equation}
-If CR < 10\%, then the evaluation is consistent \cite{Saaty 1980}.
 
+%The obtained CI is compared with the random consistency index (RI). This is done by the consistency ratio (CR) \cite{Saaty 1980}:
+For a fully consistent matrix $\lambda_{max} = n$, which is not true for the considered case. However, according to Saaty \cite{SAATY19909}, a consistency ratio (CR) below 0.1 indicates that the estimation of \textbf{w} is sufficiently accurate. The CR is defined as a ratio of the CI to the consistency ratio of a random $n\times n$ matrix (RI). For the considered case, the estimate of RI is 1.12 \cite{DecisionMakingAHP}. The corresponding CR is obtained with \autoref{eq:consistency_ratio}.
 
+\begin{equation}
+\label{eq:consistency_ratio}
+    CR = \frac{CI}{RI} \approx 0.0415
+\end{equation}
+
+The obtained CR implies that the evaluation of \textbf{w} is sufficiently consistent. Therefore, the entries of \textbf{w} will can used as weight factors for the final configuration trade-off.
 
 
 \section{Trade-Off Matrix and Analysis}
 \label{sec:trade-off_matrix}
-\todo{redo after weight and drag estimations}
+\todo[inline]{redo after weight and drag estimations!}
+\autoref{tab:trade-off_matrix} shows the final trade-off matrix constructed for the candidate configurations for HUGO. The criteria have been weighted according to the priority vector defined in \autoref{sec:trade-off_weight_factors}, and specific scores were assigned for each criterion-configuration pair according to the definitions provided in \autoref{ch:app_trade-off_rationale}.
+
+\todo[inline]{Write-up this paragraph after the final matrix is in.}
 
 \begin{table}[H]
 \centering
@@ -496,11 +494,13 @@ HUG-CFG-305
 
 \end{tabular}
 \end{adjustbox}
-
+\label{tab:trade-off_matrix}
 \end{table}
+
+\todo[inline]{Describe briefly the results of the trade-off - in particular, which designs got a no-go and for what reason, what were the resulting favourites, and what is the final configuration chosen for HUGO.}
 
 
 \section{Final Design Configuration}
 \label{sec:trade-off_final_design}
 
-\textcolor{blue}{Describe the final configuration in detail and conclude the design choice for the final.}
+\todo[inline]{Describe the final configuration in detail and conclude the design choice for the final.}
