@@ -133,7 +133,8 @@ A symmetrical supercritical airfoil is beneficial for low lift coefficient fligh
 
 \section{Material selection}
 The selection of the material for the aircraft will be based on several considerations: structural properties, economic factors, manufacturing, durability, sustainability and special properties. 
-\subsubsection*{Aircraft }
+\subsubsection*{Aircraft}
+\label{Aircraft_sub}
 The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following:
  fuselage structure, wing structure, empennage and control surfaces and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
 \begin{itemize}
@@ -172,30 +173,54 @@ To evaluate the different candidates it is relevant to list the mechanical prope
 \caption{Mechanical properties of selected aerospace materials (part of the table taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012}).}
 \label{tab:material-properties}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{lcccc}
+\begin{tabular}{llcccc}
 \toprule
-\textbf{Materials}
+\textbf{ID}
+  & \textbf{Materials}
   & \makecell{\textbf{Specific}\\\textbf{gravity}$^*$\\(g\,cm$^{-3}$)}
   & \makecell{\textbf{Specific}\\\textbf{modulus}$^*$\\$\times10^{6}$\\(N\,m\,kg$^{-1}$)}
   & \makecell{\textbf{Specific}\\\textbf{strength}$^*$\\$\times10^{3}$\\(N\,m\,kg$^{-1}$)}
   & \makecell{\textbf{Specific}\\\textbf{fracture}\\\textbf{toughness}$^\dagger$\\$\times10^{3}$\\(N\,m$^{1.5}$\,kg$^{-1}$)} \\
 \midrule
-Sitka spruce$^*$          & 0.4 & 22.5 & 138 & 10.0 \\
-Ti alloy (Ti-6Al-4V)      & 4.6 & 23.5 & 217 & 21.7 \\
-Al alloy (7075 Al-T76)    & 2.7 & 25.9 & 174 & 10.7 \\
-Mg alloy (WE46-T6)        & 1.7 & 26.5 & 117 & 11.8 \\
-Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717} & 8.1 & 24.6 & 295.6 & 4.9 \\
-Carbon/epoxy composite$^\ddagger$ & 1.7 & 29.4 & 450 & 22.4 \\
+HUGO-MAT-01 & Sitka spruce                  & 0.4 & 22.5 & 138   & 10.0 \\
+HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)          & 4.6 & 23.5 & 217   & 21.7 \\
+HUGO-MAT-03 & Al alloy (7075 Al-T76)        & 2.7 & 25.9 & 174   & 10.7 \\
+HUGO-MAT-04 & Mg alloy (WE46-T6)            & 1.7 & 26.5 & 117   & 11.8 \\
+HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717} & 8.1 & 24.6 & 295.6 & 4.9 \\
+HUGO-MAT-06 & Carbon/epoxy composite        & 1.7 & 29.4 & 450   & 22.4 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since the weight directly affects the performance of the aircraft.
 
+\subsubsection*{Economic factors and sustainability}
 
+
+\begin{table}[H]
+\centering
+\caption{Pricing and emissions attributed to the selected aerospace materials}
+\label{tab:material-properties}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llcc}
+\toprule
+\textbf{ID}
+  & \textbf{Materials}
+  & \makecell{\textbf{Specific}\\\textbf{cost}\\(euro\,$kg)}
+  & \makecell{\textbf{Carbon}\\\textbf{Footprint} kgCO2e/kg} \\
+\midrule
+HUGO-MAT-01 & Sitka spruce \tablefootnote{\href{https://spotmaterial.com/material/spruce/sawnwood-kiln-dried/}{Spot material} (accessed 11.05.2026)}                  & 0.85-1.7 & 0.05-0.5 \\
+HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)\tablefootnote{\href{https://spotmaterial.com/material/titanium/titanium-alloy-ti-6al-4v-grade-5-ti-6-4/}{Spot material} (accessed 11.05.2026)}             & 21-25 & 8.1-26.5 \\
+HUGO-MAT-03 & Al alloy (7075 Al-T76) \tablefootnote{\href{https://spotmaterial.com/material/aluminium/7000-series-alznmgcu-7075-7475/}{Spot material} (accessed 11.05.2026)}          & 2.55-5.1 & 4-20\\
+HUGO-MAT-04 & Mg alloy (WE46-T6)\tablefootnote{\href{https://spotmaterial.com/material/magnesium/cast-we-alloys-we43-we54/}{Spot material} (accessed 11.05.2026)}               & 2.975-5.95 & 8.5-36 \\
+HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://spotmaterial.com/material/alloy-steel/high-speed-tool-steel-hss-m-t/}{Spot material} (accessed 11.05.2026)}    & 8-20 & 6.8 \\
+HUGO-MAT-06 & Carbon/epoxy composite        & 25,91-32.30  & 17.5-23.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsubsection*{Trade-off table}
-
+As previously mentioned the aircraft could be parted into several subsections. These subsections would each have their own requirements and trade-off tables. 
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|} \hline
@@ -205,10 +230,108 @@ When evaluating different materials  the specific modulus, specific strength and
         Manufacturing &  \\ \hline
         Economic factors &  \\ \hline
         Sustainability &  \\ \hline
-        Special properties &  \\ \hline
     \end{tabular}
     \caption{Caption}
     \label{tab:placeholder}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Trade-Off Matrix}
+\renewcommand{\arraystretch}{1.4}
+
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|
+p{3cm}|
+>{\centering\arraybackslash}p{5cm}|
+>{\centering\arraybackslash}p{4cm}|
+>{\centering\arraybackslash}p{2cm}|
+>{\centering\arraybackslash}p{2cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{2.2cm}|
+}
+\hline
+\rowcolor[HTML]{4472C4}
+\color{white}\textbf{Material} &
+\color{white}\textbf{Structural properties} &
+\color{white}\textbf{Durability} &
+\color{white}\textbf{ Manufacturing} &
+\color{white}\textbf{Economic factors} &
+\color{white}\textbf{\shortstack{Sustain\\ability}} &
+\color{white}\textbf{Total} \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+\textbf{Weight} &
+ &
+ &
+&
+ &
+&
+1 \\
+\hline
+
+HUGO-MAT-01
+& \cellcolor[HTML]{F8696B}
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+&  \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUGO-MAT-02
+& \cellcolor[HTML]{63BE7B}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{63BE7B}
+&  \\
+\hline
+
+HUGO-MAT-03
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{A9D18E}
+&  \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUGO-MAT-04
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4E285}
+&  \\
+\hline
+
+HUGO-MAT-05
+& \cellcolor[HTML]{F8696B}
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+&  \\
+\hline
+\rowcolor[HTML]{D9E2F3}
+HUGO-MAT-06
+& \cellcolor[HTML]{F8696B}
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+& \\
+\hline
+
+
+\end{tabular}
+\end{adjustbox}
+\label{tab:trade-off_matrix}
 \end{table}
 
 
