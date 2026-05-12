@@ -1,4 +1,5 @@
 \chapter{Engineering Design and Analysis}
+\label{ch:engineering_design}
 
 \section{Airfoil and wing preliminary design}
 According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to Mach 0.75\cite{BaselineReport}. This is the flight condition at which tests are expected to be conducted during operations. In this Section, an estimation of the lift characteristics of HUGO is performed, along with a preliminary airfoil selection suitable for the considered operations.
@@ -135,10 +136,10 @@ Below is the list of the different materials that will be considered.
 \begin{itemize}
     \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacture, high specific strength and stiffness. The alloy used for the analysis is Al (7075 Al-T76) \cite{LI2023944}. 
     \item \textbf{Wood} The material used for the first powered flight. The softwood Sitka spruce are chosen due to its use in the construction of gliders\cite{bookJohn}. They are characterised by their low density. 
-    \item \textbf{Magnesium} These alloys used to be widely used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
+    \item \textbf{Magnesium} These alloys used to be used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
     \item \textbf{Titanium} This has high strength at medium density  The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
     \item \textbf{Steel} This has high strength with high density. The alloy used for the comparisons are Steel (18Ni (350))
-    \item \textbf{Composites  epoxy} This consist typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is epoxy and the fibres are carbon. The other choice is having glass fibres.    
+    \item \textbf{Composites epoxy} This consist typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is epoxy and the fibres are carbon. The other choice is having glass fibres.    
 \end{itemize}
 
 \subsubsection*{Structural properties}
@@ -164,8 +165,8 @@ HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)          & 4.6 & 23.5 & 217   & 21.7 \\
 HUGO-MAT-03 & Al alloy (7075 Al-T76)        & 2.7 & 25.9 & 174   & 10.7 \\
 HUGO-MAT-04 & Mg alloy (WE46-T6)            & 1.7 & 26.5 & 117   & 11.8 \\
 HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717} & 8.1 & 24.6 & 295.6 & 4.9 \\
-HUGO-MAT-06 & Carbon/epoxy composite        & 1.7 & 29.4 & 450   & 22.4 \\
-HUGO-MAT-07 & Glass/epoxy composite        & 2.0 & 28.7& 450   & 22.4 \\
+HUGO-MAT-06 & Carbon/epoxy (quasi-directional) & 1.7 & 29.4 & 450   & 22.4 \\
+HUGO-MAT-07 & Glass/epoxy  (quasi-directional) \tablefootnote{\href{https://www.goodfellow.com/eu/resources/e-glass-epoxy-material-information/}{E-glass/Epoxy - Material Information} (accessed 12.05.2026)} \cite{Vantadori}& 2.0 & 28.7&  384  & 31.0 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -205,7 +206,7 @@ As previously mentioned the aircraft could be parted into several subsections. T
     \centering
     \begin{tabular}{|c|c|} \hline
         Criterion & Rationale \\ \hline
-        Structural properties &  \\ \hline
+        Structural properties & As shown in table (insert reference here) all of the materials specific modulus is between 20-30 with the lowest being HUGO-MAT-01 and the highest being HUGO-MAT-06 \\ \hline
         Durability &  \\ \hline
         Manufacturing &  \\ \hline
         Economic factors &  \\ \hline
@@ -214,6 +215,51 @@ As previously mentioned the aircraft could be parted into several subsections. T
     \caption{Caption}
     \label{tab:placeholder}
 \end{table}
+
+
+\begin{longtable}{|p{0.28\textwidth}| p{0.68\textwidth}|}
+\caption{Trade-off table}
+\label{maintenance_operation} \\
+
+\hline
+\textbf{Maintenance Activity} & \textbf{Description} \\
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Maintenance Activity} & \textbf{Description} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{2}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Structural properties &  As shown in table (insert reference here) all of the materials specific modulus is between 20-30 with the lowest being HUGO-MAT-01 and the highest being HUGO-MAT-06 
+\\
+\hline
+
+Durability  &
+ \\
+\hline
+
+ Manufacturing  &
+ \\
+\hline
+
+Economic factors &
+ \\
+\hline
+
+Sustainability  &
+ \\
+\hline
+
+\end{longtable}
+
 
 
 \begin{table}[H]

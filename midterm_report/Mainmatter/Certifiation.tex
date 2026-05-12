@@ -1,6 +1,6 @@
 \chapter{Certification}
 \label{ch:certification}
-This chapter focuses on the process and steps required to obtain the certification of HUGO to be used for the research purpose of testing the aeroelastic effects of high aspect ratio wings. In \autoref{sec:type_certificate}, the classification process is described that places HUGO into a type class category. Following the assessment of flight class, the certification for a Design Organisational Approval (DOA) is covered, where the different wings' and tail designs are considered.
+This chapter focuses on the process and steps required to obtain the certification of HUGO to be used for the research purpose of testing the aeroelastic effects of high aspect ratio wings. In \autoref{sec:type_certificate}, the classification process is described that places HUGO into a type class category. Following the assessment of flight class, the certification for a Design Organisational Approval (DOA) is covered in \autoref{sec: DOA}. Establishing a certification basis for HUGO allows for a construction of a preliminary flight envelope, which is the focus of \autoref{sec:flight_envelope}. Lastly, the environmental protection aspect of the certification is expanded upon in \autoref{sec:environmental_protection}.
 
 \section{Type Certificate}
 \label{sec:type_certificate}
@@ -62,7 +62,7 @@ The application for the TC is detailed in 21.A.15 \cite{EASAInitialAirworthiness
 This Section discusses the approach towards certifying modifications to the original configuration of HUGO, following a successful application for a Type Certificate. Special attention is dedicated towards the DOA, its implications for the feasibility of HUGO as a flying testbed, and the necessary steps towards obtaining necessary approval from EASA.
 
 \subsection{Certification of Design Modifications}
-For the certification procedure of an aircraft, the competent authority in Europe, EASA, requires extensive documentation and validation procedures of the design. For this stage of the UAV design, several EASA-imposed operational restrictions must be considered, including the applicable airworthiness class and the permitted operational environment.\todo{source?}
+For the certification procedure of an aircraft, the competent authority in Europe, EASA, requires extensive documentation and validation procedures of the design. For this stage of the UAV design, several EASA-imposed operational restrictions must be considered, including the applicable airworthiness class and the permitted operational environment \cite{EASAInitialAirworthiness2025}.
 
 The application for a DOA involves a cooperation with EASA from early stages of the design. The steps to be taken towards successful certification are as follows:\footnote{\href{https://www.easa.europa.eu/en/domains/aircraft-products/aircraft-certification?}{EASA Aircraft Certification} (accessed on 04.05.2026)}:
 
@@ -73,19 +73,27 @@ The application for a DOA involves a cooperation with EASA from early stages of 
     \item Technical closure and issue of approval.
 \end{enumerate}
 
-Costs involved in this process and the time required for analysis of the design are not well defined, but can range from months to years, depending on the complexity of the idea\todo{source?}. This conflicts with HUGO's mission, which requires frequent structural modifications and configuration changes. Applying for a Supplemental Type Certificate or completely re-certifying HUGO for each test case due to design changes would result in an excess of downtime of the UAV, loss in revenue, and ultimately loss of purpose as a research testbed \todo{source for why re-certification long and ex-pen-sive}.
+Costs involved in this process and the time required for analysis of the design are not well defined, but can range from months to years, depending on the complexity of the idea\footnote{\href{https://www.easa.europa.eu/en/light/topics/idea-sky-how-easa-ensures-aircraft-safe-fly}{EASA - From idea to the sky: how EASA ensures that aircraft is safe to fly} (accessed on 12.05.2026)}. This conflicts with HUGO's mission, which requires frequent structural modifications and configuration changes. Applying for a Supplemental Type Certificate or completely re-certifying HUGO for each test case due to design changes would result in an excess of downtime of the UAV, loss in revenue, and ultimately loss of purpose as a research testbed\cite{EU2019_2153_fees-and-charges}.
 
-According to EASA classification, re-certification is required each time a change is implemented into the design of an aircraft, with a clear distinction between \textbf{Minor changes} and  \textbf{Major Changes} (21.A.91)\cite{EASAInitialAirworthiness2025}. A \textbf{Minor change} is classified as any type of modification that does not show any appreciable effect on weight, structural strength, reliability and other specifications 
-. Under the DOA, there is also the possibility to conduct research, which is not scrutinised by EASA when done within the certification limits. \todo{cite email} 
+According to EASA classification, re-certification is required each time a change is implemented into the design of an aircraft, with a clear distinction between "minor changes" and "major changes"
+(21.A.91)\cite{EASAInitialAirworthiness2025}. A "minor change" is classified as any type of modification that does not show any appreciable effect on weight, structural strength, reliability and other specifications A change that is not a "minor change" is considered as a "major change". This distinction determines the steps that need to be taken in order to certify modifications to the design of an aircraft.
 
-Modifications made to HUGO for each mission will require EASA recertification, as they fall under the \textbf{Major changes} category. This condition directly conflicts with the modularity requirement of HUGO. With a modular configuration, HUGO will be subject to regular structural changes to the wings, which EASA considers major modifications.  To bypass this process, or at the very least to shorten it, the team behind HUGO can apply for a DOA \footnote{\label{DOA_site}\href{https://www.easa.europa.eu/en/domains/aircraft-products/design-organisations/design-organisations-approvals}{Design Organisations Approvals} (accessed on 05.06.2026)}.
+\subsection{The Importance of DOA for HUGOs Mission}
+In case of HUGO, the expected structural changes in the wing and tail planforms between tests can be considered as "major changes" according to the EASA classification discussed previously. Typically, this would require direct supervision from EASA, significantly increasing the time and resources required to ensure that a new proposed configuration can be classified as airworthy. To facilitate this process, a DOA application can be made \footnote{\label{DOA_site}\href{https://www.easa.europa.eu/en/domains/aircraft-products/design-organisations/design-organisations-approvals}{EASA - Design Organisations Approvals} (accessed on 05.06.2026)}.
 
-A  DOA is a certification that permits the holder or organisation to perform the certification process internally, bypassing the long waits and costs imposed by EASA, leaving only the approval of the documentation to the discretion of the certification authority, EASA. This will be very useful for HUGO, as the DOA will permit the design team to internally bring and approve of modifications that fall under the \textbf{Minor} category. Regarding the modifications brought to the wings platform, the DOA permits us to categorise this procedure as a research procedure, excluding the need for recertifications and EASA interactions \todo{cite the email}.
+A  DOA is a certification that permits the holder or organisation to perform the certification process internally, reducing the workload of EASA to documentation approval as the certification authority. In the context of HUGO, this would allow the design team to internally implement all "minor changes" without unnecessary delay and with minimal dedicated resources. Additionally "major changes" to the planforms can be classified as research procedures, excluding the need for full re-certification and minimising EASA's involvement \todo{cite the email}.
 
-When it comes to the implementation of the DOA, after consultations with an EASA employee, it was determined that inside the organisation, there has to be a specific department that will obtain the permission from EASA to supervise the changes brought to HUGO and their validation. For this design, a department formed of 3 people will be enough to supervise the design process, perform the required validation and ensure compliance with EASA. Pricing of the DOA is set at \EUR{10 170}, for the initial certification, and then EASA charges a 12-month billing cycle fee, to continue oversight of the approved organisation, set at \EUR{11050} \footnote{\hyperlink{https://eur-lex.europa.eu/eli/reg_impl/2025/2347/oj}{EASA Prices} (accessed on 08.05.2026)}.
+%Under the DOA, research within certification limits can be conducted without scrutiny from EASA.  \todo{cite email} 
 
-\textbf{\textcolor{red}{THIS IS OFFICIALLY MY RESIGNATION FROM THE WRITING AND RESEARCHING PART CONCERNING ANYTHING THAT HAS TO DO WITH EASA}}
+In conversation with Hugo Manuel Rodrigues Lima da Silva, an EASA expert, it was established that in order for HUGO's design team to obtain a DOA, a specific department shall be formed within EASA that will obtain the permission to supervise the changes brought to HUGO, perform required validation steps, and ensure compliance with the applicable certification basis. It was additionally established that personnel comprising three EASA employees shall be sufficient given the complexity of HUGO's design. 
 
+The pricing of a DOA is set at \EUR{10,170} for the initial certification, after which a 12-month billing cycle fee of \EUR{11,050} is charged by EASA to continue oversight of the approved organisation  \footnote{\hyperlink{https://eur-lex.europa.eu/eli/reg_impl/2025/2347/oj}{EASA Prices} (accessed on 08.05.2026)}. 
+
+In conversation with Hugo Manuel Rodrigues Lima da Silva, the average time required to obtain a DOA was estimated as one year, provided that all procedures have been properly developed. The certification process itself is more dependent on the schedule of the design team and EASA employees, with an estimate duration of three years. Notably, both the DOA and the certification processes can run at the same time.
+
+%\todo[inline]{Do we have any way of knowing how long it can take to certify a new test configuration with the DOA?}
+
+%\textbf{\textcolor{red}{THIS IS OFFICIALLY MY RESIGNATION FROM THE WRITING AND RESEARCHING PART CONCERNING ANYTHING THAT HAS TO DO WITH EASA}}
 
 %while changes falling under the \textbf{Major} category still require approval from EASA. With this recognition, EASA only requires the validation proof and data to verify them and give the final decision\footnote{\href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX\%3A02012R0748-20230825}{EASA DOA Documentation} (accessed on 06.05.2026).}. In terms of operational impediment, it will require users to submit their test beds in advance, with at least TBD.
 
@@ -150,9 +158,10 @@ An overview of acceptable general tolerances allowed in flight tests is presente
 
 
 \section{Flight envelope}
-The flight envelope of the HUGO aircraft in symmetric flight is based on CS-23 airworthiness requirements for aerobatic aircraft, as outlined in  \cite{EASA_CS23_Am3_2012}. Therefore, except where limited by the stall speeds, the positive limit manoeuvre load factor is 6.0, and the negative limit manoeuvre load factor is -3.0, with the latter allowed to vary linearly from -3.0 at the cruise speed up to -1.0 at the dive speed. Additionally, symmetrical vertical gust loads are superimposed on the manoeuvre flight envelope, with gust velocities as specified in \cite{EASA_CS23_Am3_2012}. 
+\label{sec:flight_envelope}
+The flight envelope of the HUGO aircraft in symmetric flight is based on EASA CS-23 airworthiness requirements for aerobatic aircraft \cite{EASA_CS23_Am3_2012}. According to the specifications, except where limited by the stall speeds, the positive limit manoeuvre load factor is 6.0. The negative limit manoeuvre load factor is allowed to vary linearly from -3.0 at the cruise speed up to -1.0 at the dive speed. Additionally, symmetrical vertical gust loads are superimposed on the manoeuvre flight envelope, with gust velocities specified in  \cite{EASA_CS23_Am3_2012}. 
 
-These constraints result in the flight envelope as illustrated in \autoref{fig:V-n_diagram}, when assuming parameters as shown in \autoref{tab:V-n_parameters}. Clearly, the gust loads are not constraining for this aircraft design, due to the high manoeuvre load factors.
+These constraints result in the flight envelope as illustrated in \autoref{fig:V-n_diagram}, when assuming parameters as shown in \autoref{tab:V-n_parameters}. Clearly, the gust loads are not constraining for this aircraft design, due to the high manoeuvre load factors. Nonetheless, the required structural performance is expected to significantly influence the material selection, as well as the final configuration selection. These shall be addressed in \autoref{ch:engineering_design} and \autoref{ch:trade-off}, respectively.
 
 \begin{table}[H]
     \centering
@@ -164,20 +173,19 @@ These constraints result in the flight envelope as illustrated in \autoref{fig:V
         \hline
         \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
         \hline\hline
-       Mass & 50.0 & kg  \\
-       Cruise altitude & 5500.0 & m  \\
-       Cruise Mach number & 0.75& -  \\
-       Dive Mach number & 0.80& -  \\
-       Span & 2.0 & m  \\
-       Aspect ratio & 25.0 & -  \\
-       Positive $C_L_{max}$ & 1.6 & -  \\
-       Negative $C_L_{max}$ & -1.0 & -  \\
-       Lift curve slope & 3.0& $\frac{1}{\text{rad}}$  \\
-
-        \hline
+       Mass & 50.0 & kg  \\\hline
+       Cruise altitude & 5500.0 & m  \\\hline
+       Cruise Mach number & 0.75& $-$  \\\hline
+       Dive Mach number & 0.80& $-$  \\\hline
+       Span & 2.0 & m  \\\hline
+       Aspect ratio & 25.0 & $-$  \\\hline
+       Positive $C_{L_\text{max}}$ & 1.6 & $-$  \\\hline
+       Negative $C_{L_\text{max}}$ & $-$1.0 & $-$  \\\hline
+       Lift curve slope & 3.0& ${\text{rad}^{-1}}$  \\\hline
     \end{tabular}
 \end{table}
 
+\todo[inline]{The cruise altitude here is specified as 5500m, double-check with the group after lunch break (12.05.2026)}
 
 \begin{figure}[H]
     \centering
