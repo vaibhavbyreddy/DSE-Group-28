@@ -10,7 +10,7 @@ The initial step in selecting an airfoil is to determine the design lift coeffic
 DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. \footref{fn:DAST} To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission, and therefore considered as an appropriate reference point for the preliminary wing sizing. \\
 The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO. The scalability of the high wing-loading structure of DAST is uncertain and may not be feasible. Therefore, the X-56 is included as a reference aircraft.
 
-The design lift coefficient $C_{L_\text{des}}$ is estimated from the two referenced aircraft. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}. The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was taken. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is likely to be introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A aircraft and several aircraft with comparable cruise velocities in \cite{Torenbeek1982}. Relevant DAST and X-56A \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
+The design lift coefficient $C_{L_\text{des}}$ is estimated from the two referenced aircraft. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}. The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was taken. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is likely to be introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A aircraft and several aircraft with comparable cruise velocities in \cite{Torenbeek1982}. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. Relevant DAST and X-56A \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
 
 The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft. The X-56A takeoff and landing were performed from a paved runway, whereas the DAST drone was launched from a carrier aircraft and caught by helicopter after completing a test flight. \footref{fn:DAST} After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. The initial wing planform is likely to be revisited at a later design iteration and serves as an initial design point.
 
@@ -85,7 +85,7 @@ An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\h
 \end{equation}
 
 This leads to $\Lambda_{0.25c} \approx 14.22$ and $C_{L_{\max}} \approx 1.22$ without high-lift devices.\\ \todo{cite this stuff}
-
+\todo[inline]{In the trade-off chapter, we use $\lambda$ for eigenvalues, and here again for something else. Perhaps swapping one of them would be a good idea.}
 \subsection{Stall speed}
 The next step is to identify the preliminary stall speed of HUGO. With a maximum lift coefficient $C_{L_{max}} \approx 1.22$ and $S = 0.49 \ m^2$ at a mass $m = 50 \ kg$ and sea level ISA conditions, the stall speed can be calculated using \autoref{eq:Vstall}.
 \begin{equation}
@@ -109,40 +109,40 @@ A symmetrical supercritical airfoil is beneficial for low lift coefficient fligh
 \section{Structural analysis}
 
 \section{Material selection}
-The selection of the material for the aircraft will be based on several considerations: structural properties, economic factors, manufacturing, durability, sustainability and special properties. 
-\subsubsection*{Aircraft}
+The selection of the material for the aircraft will be based on several considerations: structural properties, material cost, manufacturing cost, durability, sustainability and special properties. 
+\subsection*{Aircraft}
 \label{Aircraft_sub}
 The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following:
  fuselage structure, wing structure, empennage and control surfaces and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
 \begin{itemize}
     \item \textbf{Fuselage structure}
-    The fuselage structure is the main structure of the aircraft \cite{CHATTERJEE2019199}. It acts as a tethering point for the wings, empennage and propulsion. It also contains the major control system and payload. It most be able to sustain the loads and retain its shape. It must be able to withstand the aerodynamic forced of flight at Mach 0.75.  
+    The fuselage structure is the main structure of the aircraft \cite{CHATTERJEE2019199}. It acts as a tethering point for the wings, empennage, and propulsion. It also contains the major control system and payload. It must be able to sustain the loads and retain its shape. It must be able to withstand the aerodynamic forces of flight at Mach 0.75.  
     \item \textbf{Wing structure}
     The wings must be able to sustain the loads as specified in the flight envelope (see \autoref{fig:V-n_diagram}). This is both tensile and compressive loads.   
 
     \item \textbf{Empennage and control 
     surfaces} 
-    The empennage will experience loads of varying degree during the flight.  
+    The empennage will experience loads of varying degrees during the flight.  
     \item \textbf{Landing gear}
-    The landing gear must be able to carry the weight of the aircraft on the ground. It must also survive the loads at at takeoff and the impact of landing. For the final configuration the landing gear retracts into the aircraft during flight (see \autoref{sec:trade-off_final_design}) .     
+    The landing gear must be able to carry the weight of the aircraft on the ground. It must also survive the loads at takeoff and the impact of landing. For the final configuration, the landing gear retracts into the aircraft during flight (see \autoref{sec:trade-off_final_design}) .     
 \end{itemize}
 In the construction of a large aircraft it makes sense to use a lot of different materials.  
 
 
 
-\subsubsection*{Material candidates} 
+\subsection*{Material candidates} 
 Since most metals used in aerospace occurs as some sort of alloy the most relevant alloys has been chosen to limit the list of candidates\cite{Mouritz2012}.
 Below is the list of the different materials that will be considered.   
 \begin{itemize}
-    \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacture, high specific strength and stiffness. The alloy used for the analysis is Al (7075 Al-T76) \cite{LI2023944}. 
+    \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacturing, high specific strength and stiffness. The alloy used for the analysis is Al (7075 Al-T76) \cite{LI2023944}. 
     \item \textbf{Wood} The material used for the first powered flight. The softwood Sitka spruce are chosen due to its use in the construction of gliders\cite{bookJohn}. They are characterised by their low density. 
-    \item \textbf{Magnesium} These alloys used to be used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
-    \item \textbf{Titanium} This has high strength at medium density  The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
+    \item \textbf{Magnesium} These alloys were used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
+    \item \textbf{Titanium} It has a high strength at medium density. The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
     \item \textbf{Steel} This has high strength with high density. The alloy used for the comparisons are Steel (18Ni (350))
-    \item \textbf{Composites epoxy} This consist typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is epoxy and the fibres are carbon. The other choice is having glass fibres.    
+    \item \textbf{Composites epoxy} This consists typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is thermoset epoxy and the fibres are carbon or glass.    
 \end{itemize}
 
-\subsubsection*{Structural properties}
+\subsection*{Structural properties}
 To evaluate the different candidates it is relevant to list the mechanical properties of the different alloys to enable a direct comparison. 
 
 
@@ -165,15 +165,16 @@ HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)          & 4.6 & 23.5 & 217   & 21.7 \\
 HUGO-MAT-03 & Al alloy (7075 Al-T76)        & 2.7 & 25.9 & 174   & 10.7 \\
 HUGO-MAT-04 & Mg alloy (WE46-T6)            & 1.7 & 26.5 & 117   & 11.8 \\
 HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717} & 8.1 & 24.6 & 295.6 & 4.9 \\
-HUGO-MAT-06 & Carbon/epoxy (quasi-directional) & 1.7 & 29.4 & 450   & 22.4 \\
-HUGO-MAT-07 & Glass/epoxy  (quasi-directional) \tablefootnote{\href{https://www.goodfellow.com/eu/resources/e-glass-epoxy-material-information/}{E-glass/Epoxy - Material Information} (accessed 12.05.2026)} \cite{Vantadori}& 2.0 & 28.7&  384  & 31.0 \\
+HUGO-MAT-06 & Carbon/epoxy (quasi-direct.) & 1.7 & 29.4 & 450   & 22.4 \\
+HUGO-MAT-07 & Glass/epoxy  (quasi-direct.) \tablefootnote{\href{https://www.goodfellow.com/eu/resources/e-glass-epoxy-material-information/}{E-glass/Epoxy - Material Information} (accessed 12.05.2026)} \cite{Vantadori}& 2.0 & 28.7&  384  & 31.0 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since the weight directly affects the performance of the aircraft.
+When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since weight reduction is crucial in aircraft design. In order to systematically rank these choices based on the properties, the following method was used. First, each property was normalised, with 1.0 being the maximum value, and the rest scaled accordingly. Then, the properties were assigned a weight based on their relative importance. The specific strength was assigned a weight of 1.0, since it determines the overall weight of the structure and is most driving. Specific modulus was assigned a weight of 0.75, since a stiffer structure minimizing structural vibrations and deflection, allowing for collection of clean, low-noise data. Fracture toughness was assigned a weight of 0.25, as this does not drive the design, but ensures minor impacts during landing and take off due to debris, and handling impacts do not cause structural failure. From this analysis, HUGO-MAT-06 (Carbon / Epoxy Composite) came out as the optimal material. A more detailed set of these results are presented in \autoref{Material_Tradeoff_Structural_Properties}.
 
-\subsubsection*{Economic factors and sustainability}
+
+\subsection*{Economic factors and sustainability}
 A very important material characteristic is the cost and the environmental impact connected to the use of it. Cost is measured in euro per kg and the carbon footprint (environmental impact) per kg.   
 
 \begin{table}[H]
@@ -200,21 +201,8 @@ HUGO-MAT-07 & Glass/epoxy composite \tablefootnote{\href{https://spotmaterial.co
 \end{tabular}
 \end{table}
 
-\subsubsection*{Trade-off table}
+\subsection*{Trade-off table}
 As previously mentioned the aircraft could be parted into several subsections. These subsections would each have their own requirements and trade-off tables. 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|} \hline
-        Criterion & Rationale \\ \hline
-        Structural properties & As shown in table (insert reference here) all of the materials specific modulus is between 20-30 with the lowest being HUGO-MAT-01 and the highest being HUGO-MAT-06 \\ \hline
-        Durability &  \\ \hline
-        Manufacturing &  \\ \hline
-        Economic factors &  \\ \hline
-        Sustainability &  \\ \hline
-    \end{tabular}
-    \caption{Caption}
-    \label{tab:placeholder}
-\end{table}
 
 
 \begin{longtable}{|p{0.28\textwidth}| p{0.68\textwidth}|}
@@ -238,19 +226,19 @@ As previously mentioned the aircraft could be parted into several subsections. T
 \hline
 \endlastfoot
 
-Structural properties &  As shown in table (insert reference here) all of the materials specific modulus is between 20-30 with the lowest being HUGO-MAT-01 and the highest being HUGO-MAT-06 
+Structural properties &  As shown in \autoref{tab:material-properties} all of the materials specific modulus is between 20-30 with the lowest being HUGO-MAT-01 and the highest being HUGO-MAT-06. The specific strength is between 117-    
 \\
 \hline
 
-Durability  &
+Durability  & The durability of a specific material will be highly dependent on the use-case and operation-conditions of the aircraft. For HUGO-MAT-01 (spruce) humidity is a know major issues. For untreated wood exposure leads to decomposing which greatly diminishes the structural properties of the material and can lead to warping. A coating would have to be applied to protect the wood. For metals oxidation and corrosion is the largest issue. HUGO-MAT-02 (Ti) posses excellent corrosion and oxidation resistance. HUGO-MAT-02 also posses a good creep resistance \cite{Mridha2016}. For HUGO-MAT-03 (Al) its reaction with oxygen leads to a protective layer ($Al_2O_3$) which prevents further oxidation. The HUGO-MAT-03 would perform well in standard atmospheric conditions (primary area of operation for the aircraft). A major issuse  
  \\
 \hline
 
- Manufacturing  &
+ Manufacturing cost  &
  \\
 \hline
 
-Economic factors &
+Material cost &
  \\
 \hline
 
@@ -275,6 +263,7 @@ p{3cm}|
 >{\centering\arraybackslash}p{2cm}|
 >{\centering\arraybackslash}p{2cm}|
 >{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
 >{\centering\arraybackslash}p{2.2cm}|
 }
 \hline
@@ -282,9 +271,10 @@ p{3cm}|
 \color{white}\textbf{Material} &
 \color{white}\textbf{Structural properties} &
 \color{white}\textbf{Durability} &
-\color{white}\textbf{ Manufacturing} &
-\color{white}\textbf{Economic factors} &
-\color{white}\textbf{\shortstack{Sustain\\ability}} &
+\color{white}\textbf{ Manufacturing cost} &
+\color{white}\textbf{Material cost} &
+\color{white}\textbf{Design freedom} &
+\color{white}\textbf{\shortstack{Sustain-\\ability}} &
 \color{white}\textbf{Total} \\
 \hline
 
@@ -295,13 +285,15 @@ p{3cm}|
 &
  &
 &
+&
 1 \\
 \hline
 
 HUGO-MAT-01
-& \cellcolor[HTML]{F8696B}
+& 1 \cellcolor[HTML]{F8696B}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 &  \\
@@ -309,48 +301,64 @@ HUGO-MAT-01
 
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-02
-& \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{63BE7B}
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{63BE7B}
+& \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
 HUGO-MAT-03
-& \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-04
-& \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
 HUGO-MAT-05
-& \cellcolor[HTML]{F8696B}
+& 3 \cellcolor[HTML]{F8696B}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-06
-& \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{F8696B}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+&  \\
+\hline
+\rowcolor[HTML]{D9E2F3}
+HUGO-MAT-07
+& 4 \cellcolor[HTML]{F8696B}
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+
 & \\
 \hline
 
@@ -369,11 +377,12 @@ HUGO-MAT-06
 \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{|
 p{3cm}|
->{\centering\arraybackslash}p{7cm}|
 >{\centering\arraybackslash}p{5cm}|
->{\centering\arraybackslash}p{1.5cm}|
->{\centering\arraybackslash}p{1.5cm}|
->{\centering\arraybackslash}p{1.5cm}|
+>{\centering\arraybackslash}p{4cm}|
+>{\centering\arraybackslash}p{2cm}|
+>{\centering\arraybackslash}p{2cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
 >{\centering\arraybackslash}p{2.2cm}|
 }
 \hline
@@ -381,9 +390,10 @@ p{3cm}|
 \color{white}\textbf{Material} &
 \color{white}\textbf{Structural properties} &
 \color{white}\textbf{Durability} &
-\color{white}\textbf{ Manufacturing} &
-\color{white}\textbf{Economic factors} &
-\color{white}\textbf{\shortstack{Sustain\\ability}} &
+\color{white}\textbf{ Manufacturing cost} &
+\color{white}\textbf{Material cost} &
+\color{white}\textbf{Design freedom} &
+\color{white}\textbf{\shortstack{Sustain-\\ability}} &
 \color{white}\textbf{Total} \\
 \hline
 
@@ -394,6 +404,7 @@ p{3cm}|
 &
  &
 &
+&
 1 \\
 \hline
 
@@ -401,6 +412,7 @@ HUGO-MAT-01
 & \cellcolor[HTML]{F8696B}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 &  \\
@@ -413,6 +425,7 @@ HUGO-MAT-02
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{63BE7B}
+& \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
@@ -422,6 +435,7 @@ HUGO-MAT-03
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
@@ -432,6 +446,7 @@ HUGO-MAT-04
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
@@ -439,6 +454,7 @@ HUGO-MAT-05
 & \cellcolor[HTML]{F8696B}
 & \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 &  \\
@@ -450,14 +466,28 @@ HUGO-MAT-06
 & \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+
 & \\
 \hline
+
+\rowcolor[HTML]{D9E2F3}
+HUGO-MAT-07
+& \cellcolor[HTML]{F8696B}
+& \cellcolor[HTML]{A9D18E}
+& \cellcolor[HTML]{F4E285}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+& \cellcolor[HTML]{F4B183}
+
+& \\
 
 
 \end{tabular}
 \end{adjustbox}
 \label{tab:trade-off_matrix}
 \end{table}
+
 
 
 \section{Sustainable Develpoment Strategy}

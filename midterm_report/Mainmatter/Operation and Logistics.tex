@@ -2,7 +2,7 @@
 
 %This chapter will outline the operational and logistical process involved in making HUGO operational once the design and certification process is completed. The operations plan of HUGO will describe the usage practices and mission objectives, this section covers the concept, mission timeline and phases, constraints on operation, maintenance provisions and future scalability. The logistics section will include analysis on budgts such as ground personnel required, deployment logistics, location and facility and a consumable estimations (spare parts, supply chain, etc.)
 
-This Chapter presents the operational and logistical framework required to bring HUGO into service following completion of the design and certification process. In \autoref{sec:operations}, the intended use of the system is described, covering the concept of operations, mission objectives, mission phases, operational constraints, and maintenance provisions. \autoref{sec:logistics} addresses the supporting resources needed for sustained operation, including: ground personnel, deployment logistics, facility and location requirements, consumables, spare parts, and supply-chain considerations. Finally, \autoref{sec:scalability} explores the potential of future scalability of HUGO.
+This Chapter presents the operational and logistical framework required to bring HUGO into service following completion of the design and certification process. In \autoref{sec:operations}, the intended use of the system is described, covering the concept of operations, mission objectives, mission phases, operational constraints, and maintenance provisions. \autoref{sec:logistics} addresses the supporting resources needed for sustained operation, including: ground personnel, deployment logistics, facility and location requirements, consumables, spare parts, and supply-chain considerations.
 %This combined analysis establishes how HUGO can be practically deployed, supported, and maintained throughout its operational life.
 
 \begin{comment}
@@ -32,7 +32,7 @@ Operational and Logistical Analysis
 
 \section{Operations}
 \label{sec:operations}
-This Section contains a detailed description of the intended operations for HUGO, incl. an overview of the system users, testing location and conditions, mission phases, an approximate timeline. A brief discussion is additionally dedicated to operational constraints and maintenance procedures to ensure successful continuous operation of the UAV.
+This Section contains a detailed description of the intended operations for HUGO, including an overview of the system users, testing location and conditions, mission phases, an approximate timeline. A brief discussion is additionally dedicated to operational constraints and maintenance procedures to ensure successful continuous operation of the UAV.
 
 \subsection{High-level Mission Description}
 The main objective HUGO is to simulate high subsonic flight of commercial aircraft, while simultaneously implementing AFS and GLA and recording relevant flight parameters. A mission is considered as successful if all the following apply:
@@ -42,7 +42,7 @@ The main objective HUGO is to simulate high subsonic flight of commercial aircra
     \item The flight data was successfully recorded, downloaded and provided to the customer.
 \end{enumerate}
 
-Market analysis and segmentation performed in the previous design phases highlighted four main sectors in which potential customers can be identified: universities and academic laboratories, research centres, aerospace companies, and defence\footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{HUGO Baseline Report} (accessed on 08.05.2026)}. Moreover, the Netherlands was identified as the beachhead market. Therefore, a suitable aerodrome was found in the north-east part of the country, Den Helder\footnote{\href{https://denhelderairport.nl/eng/}{Den Helder Aerport}(accessed on 22.05.2026)} serving as the test site take-off point. 
+Market analysis and segmentation performed in the previous design phases highlighted four main sectors in which potential customers can be identified: universities and academic laboratories, research centres, aerospace companies, and defence\footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{HUGO Baseline Report} (accessed on 08.05.2026)}. Moreover, the Netherlands was identified as the beachhead market. Therefore, a suitable aerodrome was found in the north-east part of the country, Den Helder\footnote{\href{https://denhelderairport.nl/eng/}{Den Helder Aerport} (accessed on 22.05.2026)} serving as the test site take-off point. 
 
 Several characteristics make Den Helder Airport the most suitable choice as the base of operation.
 \begin{itemize}
@@ -52,11 +52,13 @@ Several characteristics make Den Helder Airport the most suitable choice as the 
     \item It is operated in a controlled space, a requirement imposed by EASA regarding the certification \autoref{EASAInitialAirworthiness2025}.
 \end{itemize}
 
-At Den Hellen Airfield, HUGO will take off from runway 21 and depart via FOXTROT according to ATC instructions \footnote{\href{chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://opennav.com/pdf/EHKD/EH-AD-2.EHKD-VAC.pdf}{Den Helden departure map}(accessed on 11.05.2026)}. It will follow the departure regulations until it reaches a distance of 6 km from the airfield over the North Sea. Once it is clear of grease, it will start its altitude increase and route towards the testing area. The test will take place over the North Sea, and HUGO will follow the preplanned path, submitted in advance to the regional ATC.
+At Den Hellen Airfield, HUGO will take off from runway 21 and depart via FOXTROT according to ATC instructions \footnote{\href{chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://opennav.com/pdf/EHKD/EH-AD-2.EHKD-VAC.pdf}{Den Helden departure map} (accessed on 11.05.2026)}. It will follow the departure regulations until it reaches a distance of 6 km from the airfield over the North Sea. Once it is clear of grease, it will start its altitude increase and route towards the testing area. The test will take place over the North Sea, and HUGO will follow the preplanned path, submitted in advance to the regional ATC.
+
+Once the take off area is 
 
 \todo{Put a nice picture of the testing area with a region and line for the sector as per EASA certification regulations}
 
-\todo[inline]{A description of the test site and operational volume goes here. Also, describe the conditions and constraints related to the operations.}
+
 
 
 \begin{comment}
@@ -180,13 +182,13 @@ Once HUGO has finished all tests scheduled for a specific flight day, the data f
 
 The completion of the post-flight operations checklist marks the end of the flight day. If any unforeseen events, anomalies, or deviations occurred during the mission, the flight day shall be followed by an additional debriefing and the completion of the required documentation.
 
-\subsection{Operational constrains}
+\subsection{Operational Constraints}
 Flight constraints are set by the operational area where HUGU will conduct its tests. As a testing location, the north-east location of the Net
 \todo{To be finished}
 
 \subsection{Maintenance}
 \label{subsec:maintenance}
-To ensure the a safe and optimal operation of HUGO, regular maintenance shall be provided, along with regular repairs in case irregularities are found within a work day. As stated in the report previously submitted \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Reposed} (accessed on 11.05.2026)}, a single HUGO is expected to undergo maintenance for 20\% of the working days, which comes down to 50 (working) days within a year when accounting for free days. Continuing airworthiness is the responsibility of the operator or, in case the operator is not able to comply with the regulations and standards imposed, an outside certified provider\footnote{\label{Easa_Maintenance}\href{https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-continuing-airworthiness?erules-id=ERULES-1963177438-693}{Easy Access Rules for Continuing Airworthiness} (accessed on 11.05.2026)}.
+To ensure the a safe and optimal operation of HUGO, regular maintenance shall be provided, along with regular repairs in case irregularities are found within a work day. Based on considerations made in previous design phases\footref{url:baseline_report}, a single HUGO is expected to undergo maintenance for 20\% of the working days, which comes down to 50 (working) days within a year when accounting for free days. Continuing airworthiness is the responsibility of the operator or, in case the operator is not able to comply with the regulations and standards imposed, an outside certified provider\footnote{\label{Easa_Maintenance}\href{https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-continuing-airworthiness?erules-id=ERULES-1963177438-693}{Easy Access Rules for Continuing Airworthiness} (accessed on 11.05.2026)}.
 
 \subsubsection*{General Overview}
 At this stage of the design, the HUGO fleet is expected to feature five models in the initial development stage, allowing for the possibility of expansion. Having such a fleet size requires a dedicated location where maintenance can be provided for all working days. This problem is ultimately discussed in \autoref{sec:logistics}, where the storage of models is expanded upon.
@@ -276,8 +278,6 @@ A graphical representation of the relations between key stakeholders in HUGO's a
 \label{sec:logistics}
 Logistics represent the backbone of each project, operation, and mission, encompassing the entirety of the unseen processes and actions that bring together the required resources to result in a functional product. For the proper operation of HUGO, a few logistical aspects have to be addressed before it is ready to perform operations. This Section addresses the key factors influencing the logistics of operations: required ground crew, storage facility, airfield and ground support, and the part supply chain.
 
-
-
  The majority of components will be ordered from certified providers, but large parts, such as the fuselage and wings, will be produced internally at a separate facility and subsequently transported to the airfield.
 
 
@@ -288,30 +288,26 @@ Logistics represent the backbone of each project, operation, and mission, encomp
 A ground crew is required to maintain the readiness of HUGO and to set up the ground stations for monitoring. 
 
 According to ICAO\cite{ICAO2011UAS}, a remote crew comprises licensed crew members whose duties are crucial for the in-flight operations of a remotely-piloted
-aircraft. This includes the remote pilot in charge of manipulating flight controls, and visual observers (VO) who assist the operations by visually observing the UAV while it remains within line-of-sight.
+aircraft. This includes the remote pilot in charge of manipulating flight controls, and visual observers (VO) who assist the operations by visually observing the UAV while it remains within line-of-sight. It is also expected that an ATC controller and personnel responsible for coordinating runway manoeuvres will have to be involved. Since there are no hard requirements regarding the minimum composition of the crew, at this stage of the design it is assumed that HUGO will require one pilot, one VO, and additional personnel as deemed appropriate by the airport authorities.
 
 \subsection{Storage Facility}
 \label{subsec:hangar}
-On the ground, the aircraft will require an enclosed location to be stored in for maintenance and preparations. As mentioned in \autoref{subsec:maintenance}, the initial fleet is projected to comprise five HUGOs. This necessitates the use of a large hangar to house parts and machines needed for repairs.
+On the ground, the aircraft will require an enclosed location to be stored in for maintenance and preparations. As mentioned in \autoref{subsec:maintenance}, the initial fleet is projected to comprise five HUGOs. This necessitates the use of a large hangar to house parts and machines needed for repairs. 
 
-\todo[inline]{We are going with Den Helder no comment here}
+Den Helder airfield has hangar capabilities to house Project HUGO, although the conditions for using the facilities are not stated on their site. Multiple outside operators use the location as a primary air base of operations \footnote{\href{https://denhelderairport.nl/eng/airport/#faciliteiten}{Den Helder Facilities} (accessed on 12.05.2026)}. The availability of the hangar is based on request \footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%20012026\_2026\_01\_22/eAIP/EH-AD\%202\%20EHKD\%201-en-GB.html}{EHKD - DEN HELDER/DE KOOY} (accessed on 12 May 2026)}. The hangar is 51 m long, 31 m wide, and 11 m high, having a footprint of 151 $m^2$ \autoref{DenHelderAirport2013DHANieuwsbrief}. One model will have a wingspan of at most 15 m, and the space in the hangar is sufficient to fit up to 3 planes in line.  
 
-\todo[inline]{this is more a section where we decide if it is more feasible to have hugo stored in a warehouse and perform changes on it there or have a hangar rented at the airfield.\\ Use as ref 3 airports and perharps one from outside of NL}
-
-\todo[inline]{Statement- we have to look as well if the airport will allow us to performa operations, waiting time and so on}
+Once the hangar is secured, it will function as the base of operation for the storage, maintenance and verification of HUGO before and after each flight. 
 
 \subsection{Airfield and Ground Support}
 \label{subsec:ground_support}
-Additional logistical constraints stem from the use of an airfield, which introduces airfield operating costs, ATC coordination requirements, and the mapping of ground routes, taxi areas, and recovery zones.
+Additional logistical constraints stem from the use of an airfield, which introduces airfield operating costs, ATC coordination requirements, and the mapping of ground routes, taxi areas, and recovery zones. First, each drone flight must be approved via an application to De Kooy Air Traffic Control\footnote{\href{https://denhelderairport.nl/eng/flight-information/}{Flight information Den Helder Airport} (accessed on 12.05.2026)}. The departure and landing windows for HUGO will be influenced by the adjacent traffic, which necessitates accounting for multiple missed approaches or holding in the fuel budget. Additionally, Den Helder Airport charges a fee of \EUR{23.00} per landing for a fixed wing aircraft with MTOW below 1500kg\footnote{\href{https://denhelderairport.nl/wp-content/uploads/2026/01/2026-fixed-wing-miv-01-01-2026-2.pdf}{Landing fees for fixed wing aircraft at Den Helder} (accessed on 12.05.2026)}.
 
-\todo[inline]{Include the operational constraints and the requirements from EASA as well as the costs and the needed dimensions Apply for ATC approval, ATC location and the flight plan/plans for the route. We will be fling above water in a restricted region as per instructions and baseline info.}
+Den Helder is known for hosting off-shore flights above the North Sea\footnote{\href{https://denhelderairport.nl/eng/columns/beveiliging-van-de-noordzee-begint-op-den-helder-airport/}{Security of the North Sea starts at Den Helder Airport!} (accessed on 12.05.2026)}, which matches the mission profile of HUGO described in \autoref{sec:operations}. Fuel availability is limited to JET A1\footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Information for pilots} (accessed 12.05.2026)}; using alternative fuels such as SAF would require individual approval from the airport authorities. 
 
-\subsection{Parts and Supply Chain}
-\label{subsec:supply_chain}
+Lastly, the environmental policy of Den Helder is aligned with the TU Delft drive towards inventing a sustainable future, which makes the partnership between the airport and HUGOs design team remarkably valuable. Over the past years, Den Helder has implemented LED lighting in its hangars, electric GPUs, baggage carts and tow trucks, as well as introduced a heat recovery installation system\footnote{\href{https://denhelderairport.nl/eng/duurzaamheid-op-den-helder-airport-dha/}{Sustainability at Den Helder Airport (DHA)} (accessed on 12.05.2026)}. Future plans include equipping all buildings with solar panels, heat pumps or heat recovery systems. 
 
+%\todo[inline]{Include the operational constraints and the requirements from EASA as well as the costs and the needed dimensions Apply for ATC approval, ATC location and the flight plan/plans for the route. We will be fling above water in a restricted region as per instructions and baseline info.}
 
+%\subsection{Parts and Supply Chain}
+%\label{subsec:supply_chain}
 
-\section{Scalability of Operation}
-\label{sec:scalability}
-
-\todo[inline]{Bullshit based on the money we get and expected probability of expansion}
