@@ -115,17 +115,17 @@ The aircraft will most likely not be made of one material but instead a combinat
  fuselage structure, wing structure, empennage and control surfaces and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
 \begin{itemize}
     \item \textbf{Fuselage structure}
-    The fuselage structure is the main structure of the aircraft \cite{CHATTERJEE2019199}. It acts as a tethering point for the wings, empennage and propulsion. It also contains the major control system and payload. It most be able to sustain the loads and retain its shape. It most be able to withstand the forces and its effects at Mach 0.75.  
+    The fuselage structure is the main structure of the aircraft \cite{CHATTERJEE2019199}. It acts as a tethering point for the wings, empennage and propulsion. It also contains the major control system and payload. It most be able to sustain the loads and retain its shape. It must be able to withstand the aerodynamic forced of flight at Mach 0.75.  
     \item \textbf{Wing structure}
-    The wings most be able to sustain the loadings as specified in the flight envelope (see \autoref{fig:V-n_diagram}). This is both tensile and compressive loads.   
+    The wings must be able to sustain the loads as specified in the flight envelope (see \autoref{fig:V-n_diagram}). This is both tensile and compressive loads.   
 
     \item \textbf{Empennage and control 
     surfaces} 
     The empennage will experience loads of varying degree during the flight.  
     \item \textbf{Landing gear}
-    The landing gear most be able to carry the weight of the aircraft on the ground. It most also survive the loads at at takeoff and the impact of landing. For the final configuration the landing gear retracts into the aircraft during flight (see \autoref{sec:trade-off_final_design}) .     
+    The landing gear must be able to carry the weight of the aircraft on the ground. It must also survive the loads at at takeoff and the impact of landing. For the final configuration the landing gear retracts into the aircraft during flight (see \autoref{sec:trade-off_final_design}) .     
 \end{itemize}
-In the construction of a large aircraft it makes sense to 
+In the construction of a large aircraft it makes sense to use a lot of different materials.  
 
 
 
@@ -133,12 +133,12 @@ In the construction of a large aircraft it makes sense to
 Since most metals used in aerospace occurs as some sort of alloy the most relevant alloys has been chosen to limit the list of candidates\cite{Mouritz2012}.
 Below is the list of the different materials that will be considered.   
 \begin{itemize}
-    \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacture, high specific strength and stiffness. One of the most commonly used alloy are  Al (7075 Al-T76) \cite{LI2023944}. 
+    \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacture, high specific strength and stiffness. The alloy used for the analysis is Al (7075 Al-T76) \cite{LI2023944}. 
     \item \textbf{Wood} The material used for the first powered flight. The softwood Sitka spruce are chosen due to its use in the construction of gliders\cite{bookJohn}. They are characterised by their low density. 
     \item \textbf{Magnesium} These alloys used to be widely used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
     \item \textbf{Titanium} This has high strength at medium density  The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
     \item \textbf{Steel} This has high strength with high density. The alloy used for the comparisons are Steel (18Ni (350))
-    \item \textbf{Composites  Carbon/epoxy} This consist typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is epoxy and the fibres are carbon.   
+    \item \textbf{Composites  epoxy} This consist typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is epoxy and the fibres are carbon. The other choice is having glass fibres.    
 \end{itemize}
 
 \subsubsection*{Structural properties}
@@ -154,10 +154,10 @@ To evaluate the different candidates it is relevant to list the mechanical prope
 \toprule
 \textbf{ID}
   & \textbf{Materials}
-  & \makecell{\textbf{Specific}\\\textbf{gravity}$^*$\\(g\,cm$^{-3}$)}
+  & \makecell{\\\textbf{Density}\\(g\,cm$^{-3}$)}
   & \makecell{\textbf{Specific}\\\textbf{modulus}$^*$\\$\times10^{6}$\\(N\,m\,kg$^{-1}$)}
-  & \makecell{\textbf{Specific}\\\textbf{strength}$^*$\\$\times10^{3}$\\(N\,m\,kg$^{-1}$)}
-  & \makecell{\textbf{Specific}\\\textbf{fracture}\\\textbf{toughness}$^\dagger$\\$\times10^{3}$\\(N\,m$^{1.5}$\,kg$^{-1}$)} \\
+  & \makecell{\textbf{Specific}\\\textbf{strength}\\$\times10^{3}$\\(N\,m\,kg$^{-1}$)}
+  & \makecell{\textbf{Specific}\\\textbf{fracture}\\\textbf{toughness}\\$\times10^{3}$\\(N\,m$^{1.5}$\,kg$^{-1}$)} \\
 \midrule
 HUGO-MAT-01 & Sitka spruce                  & 0.4 & 22.5 & 138   & 10.0 \\
 HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)          & 4.6 & 23.5 & 217   & 21.7 \\
@@ -165,6 +165,7 @@ HUGO-MAT-03 & Al alloy (7075 Al-T76)        & 2.7 & 25.9 & 174   & 10.7 \\
 HUGO-MAT-04 & Mg alloy (WE46-T6)            & 1.7 & 26.5 & 117   & 11.8 \\
 HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717} & 8.1 & 24.6 & 295.6 & 4.9 \\
 HUGO-MAT-06 & Carbon/epoxy composite        & 1.7 & 29.4 & 450   & 22.4 \\
+HUGO-MAT-07 & Glass/epoxy composite        & 2.0 & 28.7& 450   & 22.4 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -172,7 +173,7 @@ HUGO-MAT-06 & Carbon/epoxy composite        & 1.7 & 29.4 & 450   & 22.4 \\
 When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since the weight directly affects the performance of the aircraft.
 
 \subsubsection*{Economic factors and sustainability}
-
+A very important material characteristic is the cost and the environmental impact connected to the use of it. Cost is measured in euro per kg and the carbon footprint (environmental impact) per kg.   
 
 \begin{table}[H]
 \centering
@@ -192,6 +193,8 @@ HUGO-MAT-03 & Al alloy (7075 Al-T76) \tablefootnote{\href{https://spotmaterial.c
 HUGO-MAT-04 & Mg alloy (WE46-T6)\tablefootnote{\href{https://spotmaterial.com/material/magnesium/cast-we-alloys-we43-we54/}{Spot material} (accessed 11.05.2026)}               & 2.975-5.95 & 8.5-36 \\
 HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://spotmaterial.com/material/alloy-steel/high-speed-tool-steel-hss-m-t/}{Spot material} (accessed 11.05.2026)}    & 8-20 & 6.8 \\
 HUGO-MAT-06 & Carbon/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)}           & 25,91-32.30  & 17.5-23.2 \\
+
+HUGO-MAT-07 & Glass/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 12.05.2026)}           & 25,91-32.30  & 17.5-23.2 \\
 \bottomrule
 \end{tabular}
 \end{table}
