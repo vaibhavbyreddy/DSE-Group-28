@@ -91,24 +91,28 @@ Below, the remaining pairwise comparisons are justified:
 
 
 \section{Material Selection Trade-Off}
-This section details the reasoning and details behind the material selection trade off analysis. \autoref{Material_Tradeoff_Structural_Properties} details the results of the weighted scoring of the structural properties of the materials 
+This section details the reasoning and details behind the material selection trade off analysis. \autoref{Material_Tradeoff_Structural_Properties} details the results of the weighted scoring of the structural properties of the considered materials. 
 
 
 \begin{table}[htbp]
     \centering
-    \caption{Final Weighted Material Selection Trade-off Results}
-    \label{Material_Tradeoff_Structural_Properties}
-    \begin{tabular}{lc}
+    \caption{Detailed Material Selection Decision Matrix (Normalized Values and Weights)}
+    \label{tab:Material_Tradeoff_Structural_Properties}
+    \begin{tabular}{lcccc}
         \toprule
-        \textbf{Material Candidate} & \textbf{Weighted Performance Score} \\
+        & \textbf{Norm. Modulus} & \textbf{Norm. Strength} & \textbf{Norm. Toughness} & \textbf{Weighted} \\
+        \textbf{Material Candidate} & ($w = 0.75$) & ($w = 1.00$) & ($w = 0.25$) & \textbf{Score} \\
         \midrule
-        Carbon/epoxy (quasi-directional) & \textbf{0.965} \\
-        Glass/epoxy (quasi-directional)  & 0.918 \\
-        Steel alloy (18Ni (350))         & 0.662 \\
-        Ti alloy (Ti-6Al-4V)             & 0.628 \\
-        Al alloy (7075 Al-T76)           & 0.567 \\
-        Mg alloy (WE46-T6)               & 0.516 \\
-        Sitka spruce                     & 0.481 \\
+        Carbon/epoxy (quasi-directional) & 1.000 & 1.000 & 0.723 & \textbf{0.965} \\
+        Glass/epoxy (quasi-directional)  & 0.976 & 0.853 & 1.000 & 0.918 \\
+        Steel alloy (18Ni (350))         & 0.837 & 0.657 & 0.158 & 0.662 \\
+        Ti alloy (Ti-6Al-4V)             & 0.799 & 0.482 & 0.700 & 0.628 \\
+        Al alloy (7075 Al-T76)           & 0.881 & 0.387 & 0.345 & 0.567 \\
+        Mg alloy (WE46-T6)               & 0.901 & 0.260 & 0.381 & 0.516 \\
+        Sitka spruce                     & 0.765 & 0.307 & 0.323 & 0.481 \\
         \bottomrule
     \end{tabular}
+    \vspace{0.5em}
+    \raggedright
+    \footnotesize{\textit{Note:} Final weighted scores are normalized by the sum of the weights ($\sum w = 2.00$) to maintain a standard dimensionless scale from 0.0 to 1.0.}
 \end{table}

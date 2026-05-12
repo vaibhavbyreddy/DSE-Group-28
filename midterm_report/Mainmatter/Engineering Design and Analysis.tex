@@ -137,41 +137,35 @@ Below is the list of the different materials that will be considered.
     \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacturing, high specific strength and stiffness. The alloy used for the analysis is Al (7075 Al-T76) \cite{LI2023944}. 
     \item \textbf{Wood} The material used for the first powered flight. The softwood Sitka spruce are chosen due to its use in the construction of gliders\cite{bookJohn}. They are characterised by their low density. 
     \item \textbf{Magnesium} These alloys were used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
-    \item \textbf{Titanium} It has a high strength at medium density. The β-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
+    \item \textbf{Titanium} It has a high strength at medium density. The $\beta$-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
     \item \textbf{Steel} This has high strength with high density. The alloy used for the comparisons are Steel (18Ni (350))
     \item \textbf{Composites epoxy} This consists typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is thermoset epoxy and the fibres are carbon or glass.    
 \end{itemize}
-
-\subsection*{Structural properties}
-To evaluate the different candidates it is relevant to list the mechanical properties of the different alloys to enable a direct comparison. 
-
 
 \begin{table}[H]
 \centering
 \caption{Mechanical properties of selected aerospace materials (part of the table taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012}).}
 \label{tab:material-properties}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{llcccc}
-\toprule
+\begin{tabular}{|l|l||c|c|c|c|}
+\hline
 \textbf{ID}
   & \textbf{Materials}
   & \makecell{\\\textbf{Density}\\(g\,cm$^{-3}$)}
   & \makecell{\textbf{Specific}\\\textbf{modulus}$^*$\\$\times10^{6}$\\(N\,m\,kg$^{-1}$)}
   & \makecell{\textbf{Specific}\\\textbf{strength}\\$\times10^{3}$\\(N\,m\,kg$^{-1}$)}
   & \makecell{\textbf{Specific}\\\textbf{fracture}\\\textbf{toughness}\\$\times10^{3}$\\(N\,m$^{1.5}$\,kg$^{-1}$)} \\
-\midrule
-HUGO-MAT-01 & Sitka spruce                  & 0.4 & 22.5 & 138   & 10.0 \\
-HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)          & 4.6 & 23.5 & 217   & 21.7 \\
-HUGO-MAT-03 & Al alloy (7075 Al-T76)        & 2.7 & 25.9 & 174   & 10.7 \\
-HUGO-MAT-04 & Mg alloy (WE46-T6)            & 1.7 & 26.5 & 117   & 11.8 \\
-HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717} & 8.1 & 24.6 & 295.6 & 4.9 \\
-HUGO-MAT-06 & Carbon/epoxy (quasi-direct.) & 1.7 & 29.4 & 450   & 22.4 \\
+\hline\hline
+HUGO-MAT-01 & Sitka spruce                  & 0.4 & 22.5 & 138   & 10.0 \\ \hline
+HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)          & 4.6 & 23.5 & 217   & 21.7 \\ \hline
+HUGO-MAT-03 & Al alloy (7075 Al-T76)        & 2.7 & 25.9 & 174   & 10.7 \\ \hline
+HUGO-MAT-04 & Mg alloy (WE46-T6)            & 1.7 & 26.5 & 117   & 11.8 \\ \hline
+HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} \cite{ANTOLOVICH1980717} & 8.1 & 24.6 & 295.6 & 4.9 \\ \hline
+HUGO-MAT-06 & Carbon/epoxy (quasi-direct.) & 1.7 & 29.4 & 450   & 22.4 \\ \hline
 HUGO-MAT-07 & Glass/epoxy  (quasi-direct.) \tablefootnote{\href{https://www.goodfellow.com/eu/resources/e-glass-epoxy-material-information/}{E-glass/Epoxy - Material Information} (accessed 12.05.2026)} \cite{Vantadori}& 2.0 & 28.7&  384  & 31.0 \\
-\bottomrule
+\hline
 \end{tabular}
 \end{table}
-
-When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since weight reduction is crucial in aircraft design. In order to systematically rank these choices based on the properties, the following method was used. First, each property was normalised, with 1.0 being the maximum value, and the rest scaled accordingly. Then, the properties were assigned a weight based on their relative importance. The specific strength was assigned a weight of 1.0, since it determines the overall weight of the structure and is most driving. Specific modulus was assigned a weight of 0.75, since a stiffer structure minimizing structural vibrations and deflection, allowing for collection of clean, low-noise data. Fracture toughness was assigned a weight of 0.25, as this does not drive the design, but ensures minor impacts during landing and take off due to debris, and handling impacts do not cause structural failure. From this analysis, HUGO-MAT-06 (Carbon / Epoxy Composite) came out as the optimal material. A more detailed set of these results are presented in \autoref{Material_Tradeoff_Structural_Properties}.
 
 
 \subsection*{Economic factors and sustainability}
@@ -182,30 +176,32 @@ A very important material characteristic is the cost and the environmental impac
 \caption{Pricing and emissions attributed to the selected aerospace materials}
 \label{tab:material-properties}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{llcc}
-\toprule
+\begin{tabular}{|l|l||c|c|}
+\hline
 \textbf{ID}
   & \textbf{Materials}
   & \makecell{\textbf{Specific}\\\textbf{cost}\\(euro\,$kg^{-1}$)}
   & \makecell{\textbf{Carbon}\\\textbf{Footprint}\\ ($CO_2 kg^{-1}$)} \\
-\midrule
-HUGO-MAT-01 & Sitka spruce \tablefootnote{\href{https://spotmaterial.com/material/spruce/sawnwood-kiln-dried/}{Spot material} (accessed 11.05.2026)}                  & 0.85-1.7 & 0.05-0.5 \\
-HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)\tablefootnote{\href{https://spotmaterial.com/material/titanium/titanium-alloy-ti-6al-4v-grade-5-ti-6-4/}{Spot material} (accessed 11.05.2026)}             & 21-25 & 8.1-26.5 \\
-HUGO-MAT-03 & Al alloy (7075 Al-T76) \tablefootnote{\href{https://spotmaterial.com/material/aluminium/7000-series-alznmgcu-7075-7475/}{Spot material} (accessed 11.05.2026)}          & 2.55-5.1 & 4-20\\
-HUGO-MAT-04 & Mg alloy (WE46-T6)\tablefootnote{\href{https://spotmaterial.com/material/magnesium/cast-we-alloys-we43-we54/}{Spot material} (accessed 11.05.2026)}               & 2.975-5.95 & 8.5-36 \\
-HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://spotmaterial.com/material/alloy-steel/high-speed-tool-steel-hss-m-t/}{Spot material} (accessed 11.05.2026)}    & 8-20 & 6.8 \\
-HUGO-MAT-06 & Carbon/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)}           & 25,91-32.30  & 17.5-23.2 \\
+\hline\hline
+HUGO-MAT-01 & Sitka spruce \tablefootnote{\href{https://spotmaterial.com/material/spruce/sawnwood-kiln-dried/}{Spot material} (accessed 11.05.2026)}                  & 0.85-1.7 & 0.05-0.5 \\ \hline
+HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)\tablefootnote{\href{https://spotmaterial.com/material/titanium/titanium-alloy-ti-6al-4v-grade-5-ti-6-4/}{Spot material} (accessed 11.05.2026)}              & 21-25 & 8.1-26.5 \\ \hline
+HUGO-MAT-03 & Al alloy (7075 Al-T76) \tablefootnote{\href{https://spotmaterial.com/material/aluminium/7000-series-alznmgcu-7075-7475/}{Spot material} (accessed 11.05.2026)}          & 2.55-5.1 & 4-20\\ \hline
+HUGO-MAT-04 & Mg alloy (WE46-T6)\tablefootnote{\href{https://spotmaterial.com/material/magnesium/cast-we-alloys-we43-we54/}{Spot material} (accessed 11.05.2026)}               & 2.975-5.95 & 8.5-36 \\ \hline
+HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://spotmaterial.com/material/alloy-steel/high-speed-tool-steel-hss-m-t/}{Spot material} (accessed 11.05.2026)}    & 8-20 & 6.8 \\ \hline
+HUGO-MAT-06 & Carbon/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)}            & 25,91-32.30  & 17.5-23.2 \\ \hline
 
-HUGO-MAT-07 & Glass/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 12.05.2026)}           & 25,91-32.30  & 17.5-23.2 \\
-\bottomrule
+HUGO-MAT-07 & Glass/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 12.05.2026)}            & 25,91-32.30  & 17.5-23.2 \\
+\hline
 \end{tabular}
 \end{table}
+
+\todo{More accurate specific costs for glass fibre. They are the same as carbon fiber, but I think it should be less}
 
 \subsection*{Trade-off table}
 As previously mentioned the aircraft could be parted into several subsections. These subsections would each have their own requirements and trade-off tables. 
 
 
-\begin{longtable}{|p{0.28\textwidth}| p{0.68\textwidth}|}
+\begin{longtable}{|p{0.28\textwidth}|| p{0.68\textwidth}|}
 \caption{Trade-off table}
 \label{maintenance_operation} \\
 
@@ -220,17 +216,17 @@ As previously mentioned the aircraft could be parted into several subsections. T
 \endhead
 
 \hline
-\multicolumn{2}{r}{\textit{Continued on next page.}} \\
+\multicolumn{2}{|r|}{\textit{Continued on next page.}} \\
 \endfoot
 
 \hline
 \endlastfoot
 
-Structural properties &  As shown in \autoref{tab:material-properties} all of the materials specific modulus is between 20-30 with the lowest being HUGO-MAT-01 and the highest being HUGO-MAT-06. The specific strength is between 117-    
+Structural properties &  When evaluating different materials  the specific modulus, specific strength and specific fracture toughness are  most relevant since weight reduction is crucial in aircraft design. These properties are listed in \autoref{tab:material-properties} In order to systematically rank these choices based on the properties, the following method was used. First, each property was normalised, with 1.0 being the maximum value, and the rest scaled accordingly. Then, the properties were assigned a weight based on their relative importance. The specific strength was assigned a weight of 1.0, since it determines the overall weight of the structure and is most driving. Specific modulus was assigned a weight of 0.75, since a stiffer structure minimizing structural vibrations and deflection, allowing for collection of clean, low-noise data. Fracture toughness was assigned a weight of 0.25, as this does not drive the design, but ensures minor impacts during landing and take off due to debris, and handling impacts do not cause structural failure. From this analysis, HUGO-MAT-06 (Carbon / Epoxy Composite) came out as the optimal material. A more detailed set of these results are presented in \autoref{tab:Material_Tradeoff_Structural_Properties}.   
 \\
 \hline
 
-Durability  & The durability of a specific material will be highly dependent on the use-case and operation-conditions of the aircraft. For HUGO-MAT-01 (spruce) humidity is a know major issues. For untreated wood exposure leads to decomposing which greatly diminishes the structural properties of the material and can lead to warping. A coating would have to be applied to protect the wood. For metals oxidation and corrosion is the largest issue. HUGO-MAT-02 (Ti) posses excellent corrosion and oxidation resistance. HUGO-MAT-02 also posses a good creep resistance \cite{Mridha2016}. For HUGO-MAT-03 (Al) its reaction with oxygen leads to a protective layer ($Al_2O_3$) which prevents further oxidation. The HUGO-MAT-03 would perform well in standard atmospheric conditions (primary area of operation for the aircraft). A major issuse  
+Durability  & The durability of a specific material will be highly dependent on the use-case and operation-conditions of the aircraft. For HUGO-MAT-01 (spruce) humidity is a know major issues. For untreated wood exposure leads to decomposing which greatly diminishes the structural properties of the material and can lead to warping. A coating would have to be applied to protect the wood. For metals oxidation and corrosion is the largest issue. HUGO-MAT-02 (Ti) posses excellent corrosion and oxidation resistance. HUGO-MAT-02 also posses a good creep resistance \cite{Mridha2016}. For HUGO-MAT-03 (Al) its reaction with oxygen leads to a protective layer ($Al_2O_3$) which prevents further oxidation. The HUGO-MAT-03 would perform well in standard atmospheric conditions (primary area of operation for the aircraft). A major issue for this is galvanic corrosion when it is contact with a more noble material \cite{Zhu2023}. HUGO-MAT-04 (Mg) also forms a thin protective film when in contact with oxygen and also suffers from galvanic corrosion when in contact to more noble metals. The material also posses good creep-resistance \cite{Ouyang2020}. HUGO-MAT-05 (steel) when oxidized will also form a thin layer this is often referred to as rust. It posses a good resistance to corrosion, oxidation and creep (insert citation here). Both HUGO-MAT-06 (Carbon/epoxy comp.) and HUGO-MAT-07 (Glass/epoxy comp.) are also susceptible to oxidation and corrosion but have a good resistance to both. Though contrary to metals UV-radiation over a longer period also leads to a reduction in structural performance. Water absorption also pose a problem for the long term usage \cite{Dong2024}.       
  \\
 \hline
 
@@ -238,7 +234,7 @@ Durability  & The durability of a specific material will be highly dependent on 
  \\
 \hline
 
-Material cost &
+Material cost & The cost of the raw materials of the structure of HUGO has a negligible overall impact on the financial feasibility of the project, as found in the market analysis...
  \\
 \hline
 
@@ -248,6 +244,7 @@ Sustainability  &
 
 \end{longtable}
 
+\todo{Vaibhav: Finish write up on manufacuring cost, material cost and add row for design freedom}
 
 
 \begin{table}[H]
@@ -257,13 +254,13 @@ Sustainability  &
 
 \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{|
-p{3cm}|
+p{3cm}||
 >{\centering\arraybackslash}p{5cm}|
 >{\centering\arraybackslash}p{4cm}|
 >{\centering\arraybackslash}p{2cm}|
 >{\centering\arraybackslash}p{2cm}|
 >{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}||
 >{\centering\arraybackslash}p{2.2cm}|
 }
 \hline
@@ -271,19 +268,19 @@ p{3cm}|
 \color{white}\textbf{Material} &
 \color{white}\textbf{Structural properties} &
 \color{white}\textbf{Durability} &
-\color{white}\textbf{ Manufacturing cost} &
+\color{white}\textbf{Manufacturing cost} &
 \color{white}\textbf{Material cost} &
 \color{white}\textbf{Design freedom} &
 \color{white}\textbf{\shortstack{Sustain-\\ability}} &
 \color{white}\textbf{Total} \\
-\hline
+\hline\hline
 
 \rowcolor[HTML]{D9E2F3}
 \textbf{Weight} &
- &
- &
 &
- &
+&
+&
+&
 &
 &
 1 \\
@@ -292,80 +289,80 @@ p{3cm}|
 HUGO-MAT-01
 & 1 \cellcolor[HTML]{F8696B}
 & \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 2 \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-02
-& 3 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{63BE7B}
+& 1 \cellcolor[HTML]{F8696B}
+& 2 \cellcolor[HTML]{F4B183}
+& 2 \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
 HUGO-MAT-03
-& 2 \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{F4B183}
+& 4 \cellcolor[HTML]{A9D18E}
+& 3 \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-04
-& 2 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4E285}
+& 1 \cellcolor[HTML]{F8696B}
+& 4 \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 &  \\
 \hline
 
 HUGO-MAT-05
-& 3 \cellcolor[HTML]{F8696B}
+& 3 \cellcolor[HTML]{F4E285}
 & \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
+& 1 \cellcolor[HTML]{F8696B}
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
 & \cellcolor[HTML]{F4B183}
 &  \\
 \hline
+
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-06
-& 5 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
 & \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
+& 4 \cellcolor[HTML]{A9D18E}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
 & \cellcolor[HTML]{F4B183}
 &  \\
 \hline
+
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-07
-& 4 \cellcolor[HTML]{F8696B}
+& 4 \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
+& 4 \cellcolor[HTML]{A9D18E}
+& 1 \cellcolor[HTML]{F8696B}
+& 4 \cellcolor[HTML]{A9D18E}
 & \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-
 & \\
 \hline
 
-
 \end{tabular}
 \end{adjustbox}
-\label{tab:trade-off_matrix}
+\label{tab:structures_trade-off_matrix_material_selection}
 \end{table}
 
 
@@ -376,13 +373,13 @@ HUGO-MAT-07
 
 \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{|
-p{3cm}|
+p{3cm}||
 >{\centering\arraybackslash}p{5cm}|
 >{\centering\arraybackslash}p{4cm}|
 >{\centering\arraybackslash}p{2cm}|
 >{\centering\arraybackslash}p{2cm}|
 >{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}||
 >{\centering\arraybackslash}p{2.2cm}|
 }
 \hline
@@ -395,7 +392,7 @@ p{3cm}|
 \color{white}\textbf{Design freedom} &
 \color{white}\textbf{\shortstack{Sustain-\\ability}} &
 \color{white}\textbf{Total} \\
-\hline
+\hline\hline
 
 \rowcolor[HTML]{D9E2F3}
 \textbf{Weight} &
@@ -481,17 +478,17 @@ HUGO-MAT-07
 & \cellcolor[HTML]{F4B183}
 
 & \\
-
+\hline
 
 \end{tabular}
 \end{adjustbox}
-\label{tab:trade-off_matrix}
+\label{tab:landing_gear_trade-off_matrix_material_selection}
 \end{table}
 
 
 
-\section{Sustainable Develpoment Strategy}
-To access the environmental impact of the system a preliminary LCA-analysis was setup using the open-source software openLCA. For this simplified analysis three    
+\section{Sustainable Development Strategy}
+To access the environmental impact of the system, a preliminary LCA-analysis was set up using the open-source software openLCA. For this simplified analysis, three    
 
 
 

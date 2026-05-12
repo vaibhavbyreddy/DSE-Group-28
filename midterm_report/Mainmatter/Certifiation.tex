@@ -15,7 +15,7 @@ According to the EASA eRules for Initial Airworthiness and Environmental Protect
 \subsection{Aircraft Capabilities}
 Starting with Annex I section 21.A.14 \cite{EASAInitialAirworthiness2025}, to demonstrate the design capabilities of the aircraft, HUGO must demonstrate a capability of holding a Design Organisation Approval (DOA), according to 21.A.14(a), 21.A.14(b), 21.A.112B(b), or 21.A.432B(b). 
 
-As HUGO is a UAS system, it will have to comply with 21.A.14(a) by obtaining a Design Organisational Aproval (DOA), which will be explained in \autoref{sec: DOA}. %Sections 21.A.14(b)-(c) as UAS aircraft fall outside their scope.
+As HUGO is a UAS system, it will have to comply with 21.A.14(a) by obtaining a Design Organisational Approval (DOA), which will be explained in \autoref{sec: DOA}. %Sections 21.A.14(b)-(c) as UAS aircraft fall outside their scope.
 
 \subsection{Compliance with certification basis, operational suitability, environmental protection}
 For compliance with 21.A.20 after the certification programme has been accepted by EASA, HUGO's design will have to demonstrate compliance requirements in the following areas:
@@ -32,7 +32,7 @@ In terms of operational suitability (21.B.82), EASA shall establish a suitable c
 
 Lastly, EASA shall define applicable environmental protection requirements for HUGO (21.B.85). This entails primarily noise abatement requirements for manned aircraft. Since HUGO falls outside of this category, special considerations in this regard will be made in \autoref{sec:environmental_protection}.
 
-Innspections and testing compliance will be dictated by 21.A.33 and 21.A.35 respectively. In order to successfully apply for a TC, EASA shall be provided with means of demonstration of compliance with all of the discussed requirements. 
+Inspections and testing compliance will be dictated by 21.A.33 and 21.A.35 respectively. In order to successfully apply for a TC, EASA shall be provided with means of demonstration of compliance with all of the discussed requirements. 
 
 
 %It will need to comply with 21.B.85: Applicable environmental protection requirements for a type certificate or restricted type certificate. However, specific rules for UAS are not indicated in 21.B.85, and thus will not be considered further. 
@@ -54,7 +54,7 @@ The application for the TC is detailed in 21.A.15 \cite{EASAInitialAirworthiness
     \item complexity of the design and/or demonstration of compliance;
     \item criticality of the design or technology and the related safety and environmental risks, including those identified on similar designs; and
     \item performance and experience of the design organisation of the applicant in the domain concerned.
-\end{enumerate}
+    \end{enumerate}
 \end{enumerate}
 
 
@@ -64,7 +64,9 @@ This Section discusses the approach towards certifying modifications to the orig
 \subsection{Certification of Design Modifications}
 For the certification procedure of an aircraft, the competent authority in Europe, EASA, requires extensive documentation and validation procedures of the design. For this stage of the UAV design, several EASA-imposed operational restrictions must be considered, including the applicable airworthiness class and the permitted operational environment \cite{EASAInitialAirworthiness2025}.
 
-The application for a DOA involves a cooperation with EASA from early stages of the design. The steps to be taken towards successful certification are as follows:\footnote{\href{https://www.easa.europa.eu/en/domains/aircraft-products/aircraft-certification?}{EASA Aircraft Certification} (accessed on 04.05.2026)}:
+DOA application is a step in the process of obtaining a Type Certificate, according to 21.A.14 (a), capability demonstration. Along with 21.A.20 (compliance documentation) and 21.B.80 (configuration demonstration), these three documents will facilitate the application for a Type Certificate.
+
+The application for a DOA involves cooperation with EASA from early stages of the design. The steps to be taken towards successful certification are as follows:\footnote{\href{https://www.easa.europa.eu/en/domains/aircraft-products/aircraft-certification?}{EASA Aircraft Certification} (accessed on 04.05.2026)}:
 
 \begin{enumerate}
     \item Technical familiarisation and certification basis,
@@ -76,7 +78,9 @@ The application for a DOA involves a cooperation with EASA from early stages of 
 Costs involved in this process and the time required for analysis of the design are not well defined, but can range from months to years, depending on the complexity of the idea\footnote{\href{https://www.easa.europa.eu/en/light/topics/idea-sky-how-easa-ensures-aircraft-safe-fly}{EASA - From idea to the sky: how EASA ensures that aircraft is safe to fly} (accessed on 12.05.2026)}. This conflicts with HUGO's mission, which requires frequent structural modifications and configuration changes. Applying for a Supplemental Type Certificate or completely re-certifying HUGO for each test case due to design changes would result in an excess of downtime of the UAV, loss in revenue, and ultimately loss of purpose as a research testbed\cite{EU2019_2153_fees-and-charges}.
 
 According to EASA classification, re-certification is required each time a change is implemented into the design of an aircraft, with a clear distinction between "minor changes" and "major changes"
-(21.A.91)\cite{EASAInitialAirworthiness2025}. A "minor change" is classified as any type of modification that does not show any appreciable effect on weight, structural strength, reliability and other specifications A change that is not a "minor change" is considered as a "major change". This distinction determines the steps that need to be taken in order to certify modifications to the design of an aircraft.
+(21.A.91)\cite{EASAInitialAirworthiness2025}. A "minor change" is classified as any type of modification that does not show any appreciable effect on weight, structural strength, reliability and other specifications. A change that is not a "minor change" is considered as a "major change". This distinction determines the steps that need to be taken in order to certify modifications to the design of an aircraft.
+
+The process of applying for a DOA involves the
 
 \subsection{The Importance of DOA for HUGOs Mission}
 In case of HUGO, the expected structural changes in the wing and tail planforms between tests can be considered as "major changes" according to the EASA classification discussed previously. Typically, this would require direct supervision from EASA, significantly increasing the time and resources required to ensure that a new proposed configuration can be classified as airworthy. To facilitate this process, a DOA application can be made \footnote{\label{DOA_site}\href{https://www.easa.europa.eu/en/domains/aircraft-products/design-organisations/design-organisations-approvals}{EASA - Design Organisations Approvals} (accessed on 05.06.2026)}.
@@ -185,7 +189,7 @@ These constraints result in the flight envelope as illustrated in \autoref{fig:V
     \end{tabular}
 \end{table}
 
-\todo[inline]{The cruise altitude here is specified as 5500m, double-check with the group after lunch break (12.05.2026)}
+\todo[inline]{Change the table contents so that we have FL270 + Mach 0.75 and/or 5.5km + Mach 0.4/0.5}
 
 \begin{figure}[H]
     \centering
