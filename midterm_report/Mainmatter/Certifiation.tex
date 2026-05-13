@@ -5,12 +5,40 @@ This chapter focuses on the process and steps required to obtain the certificati
 \section{Type Certificate}
 \label{sec:type_certificate}
 
-According to the EASA eRules for Initial Airworthiness and Environmental Protection (eRules), the Type Certificate (TC) is a document issued by the competent authority declaring an aircraft meets all required airworthiness standards. The eRules describes the process and all necessary documents to obtain a type certificate. Section 21.A.21 states the requirements for the issuance of a TC. For HUGO, these entail the following:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/TC.png}
+    \caption{eRules steps for the requirements, and procedure for obtaining a Type Certificate}
+    \label{fig:Certification}
+\end{figure}
+
+
+
+
+According to the EASA eRules for Initial Airworthiness and Environmental Protection (eRules), the Type Certificate (TC) is a document issued by the competent authority declaring an aircraft meets all required airworthiness standards \cite{EASAInitialAirworthiness2025}. The eRules describes the process and all necessary documents to obtain a type certificate inside Annex I. Section A details all the obligations of the applicant, and section B details those of the competent authority (EASA).
+
+The requirements for a TC are explained in full in section 21.A.21. It states that the following must be met:
+
 \begin{enumerate}
-    \item the capabilities of the aircraft (21.A.14),
+    \item demonstration of capabilities (21.A.14),
     \item demonstration of compliance with the type certification basis, operational suitability data certification basis and environmental protection requirements (21.A.20),
     \item demonstration of compliance with UAS Type Certification basis (21.B.80). 
 \end{enumerate}
+
+
+21.A.14 will be further elaborated in \autoref{sec: DOA}, as it pertains to the process for obtaining a Design Organisation Approval (DOA) under 21.A.14(a), with further guidance in Subsection J. Both 21.A.20 and 21.B.80 are covered under the section 21.A.15: Application for a TC, and will be expanded on below.
+
+As previously stated, 21.A.15: Application for a TC, requires compliance with section 21.A.20: Demonstration of compliance with the type certification basis, operational suitability data certification basis and environmental protection requirements Regulation. 
+
+Compliance with 21.A.20 is done by following the authority's guidelines provided in 21.B.80: Type-certification basis for a type-certificate, 21.B.82: Operational suitability data certification basis for an aircraft type-certificate, and 21.B.85: Applicable environmental protection requirements for a type certificate.
+
+HUGO falls under a special category as it is faster than most UAVs, but is not at the same risk class as manned aircraft. As such, compliance with 21.B.80 requires section 21.B.75: Special Conditions. These are detailed in a separate document, Special Conditions for Light Unmanned Aircraft Systems - High Risk \cite{EASA_SC_Light_UAS_High_Risk_2021}. More details on the special conditions can be found in \autoref{sec: special conditions}. Furthermore, HUGO falls outside the scope of 21.B.82 due to it's unconventional design and operations. However, it must still comply with 21.B.85, detailing the necessary compliance with environmental protection requirements as dictated in ICAO Annex XVI, further expanded on in \autoref{sec:environmental_protection}.
+
+Additionally, HUGO must comply with 21.A.33: Inspections and tests Regulation, and 21.A.35: Flight Tests for a successful application.
+
+
+
+
 
 \subsection{Aircraft Capabilities}
 Starting with Annex I section 21.A.14 \cite{EASAInitialAirworthiness2025}, to demonstrate the design capabilities of the aircraft, HUGO must demonstrate a capability of holding a Design Organisation Approval (DOA), according to 21.A.14(a), 21.A.14(b), 21.A.112B(b), or 21.A.432B(b). 
@@ -38,9 +66,15 @@ Inspections and testing compliance will be dictated by 21.A.33 and 21.A.35 respe
 %It will need to comply with 21.B.85: Applicable environmental protection requirements for a type certificate or restricted type certificate. However, specific rules for UAS are not indicated in 21.B.85, and thus will not be considered further. 
 
 \subsection{Special Conditions for UAS}
+\label{sec: special conditions}
 The special conditions detailed under the Special Condition for Light Unmanned Aircraft Systems - High Risk define additional requirements for: Design and Construction, and Systems and Equipment. The scope of these additional requirements covers risk of failure, environmental hazards, robustness in the event of a lightning strike, and additional High Intensity Radiated Fields (HIRF) protection \cite{EASA_SC_Light_UAS_High_Risk_2021}.
 
 \subsection{Application for a Type Certificate}
+
+
+As mentioned in \autoref{sec:type_certificate}, the application procedure for the TC is done in accordance with 21.A.15.
+
+
 The application for the TC is detailed in 21.A.15 \cite{EASAInitialAirworthiness2025}. According to the guidelines, the TC application should be made in a form and manner established by EASA, including as a minimum: a preliminary description of the UAS or the Control and Monitoring Unit (CMU), and the kind of operations for which certification is requested. In addition it shall comply with 21.A.20, which outlines the following:
 \begin{enumerate}
     \item a detailed description of the design, including all the configurations to be certified;
