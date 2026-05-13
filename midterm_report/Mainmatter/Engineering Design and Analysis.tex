@@ -5,15 +5,17 @@
 According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to Mach 0.75\cite{BaselineReport}. This is the flight condition at which tests are expected to be conducted during operations. In this Section, an estimation of the lift characteristics of HUGO is performed, along with a preliminary airfoil selection suitable for the considered operations.
 
 
-\subsection{Lift Coefficients of Reference Aircraft}
+\subsection{Reference aircraft parameters}
 \label{sub:lift_reference_aircraft}
-The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project \footnote{\label{fn:DAST}\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)} and the NASA X-56A UAS \footnote{\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} are used as reference aircraft.\\
+The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project \footnote{\label{fn:DAST}\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)}, NASA X-56A UAS \footnote{\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} and the FLEXOP UAS \cite{Yu2022} are used as reference aircraft.\\
 DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. \footref{fn:DAST} To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission. \\
-The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO. Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} \cite{Yu2022} Similarly to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be feasible and the number of aircraft performing a similar mission to HUGO is limited. Therefore, the X-56 and FLEXOP aircraft are included in the reference aircraft list.
+The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO.\\
+Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} \cite{Yu2022} Analogous to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be feasible and the number of aircraft performing a similar mission to HUGO is limited. Therefore, the X-56 and FLEXOP aircraft are included in the reference aircraft list.
 
-The design lift coefficient $C_{L_\text{des}}$ is estimated from the two referenced aircraft. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}. The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was taken. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is likely to be introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A aircraft and several aircraft with comparable cruise velocities in \cite{Torenbeek1982}. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}. Several additional wing parameters were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool}(Accessed on 12.5.2026)} and \cite{Torenbeek1982}.
+The design lift coefficient $C_{L_\text{des}}$ is determined based on an initial wing loading $W/S$ estimate and requirements from \cite{BaselineReport} at the sepcified cruise flight condition. Parameters of reference aircraft, including the wing loading itself, landing speed and cruise conditions are used in the estimate.\\
+HUGO has to perform high subsonic flight and take-off or land on a paved runway. The initial estimate of $W/S = 1000\  N \cdot m^{-2}$ allows for sufficiently low stall speed while remaining a reasonable design value by lying between the considered reference aircraft. The take-off and landing of the X-56A and FLEXOP were performed from on paved runway. The DAST drone was launched from a carrier aircraft and captured by helicopter after completing a test flight. This allowed for a smaller wing due to the absence of ground takeoff and landing. \footref{fn:DAST} The high wing loading achieved in the DAST UAS sets an upper bound for the HUGO wing design. A significantly smaller wing is needed for HUGO compared to the X-56A or FLEXOP aircraft due to the high-speed cruise condition, yet the wing still must allow for take-off and landing at a reasonable speed. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}.  The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was used. The wing area $S$ can then be obtained from the wing loading. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle is determined primarily by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A and FLEXOP aircraft. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}. Several additional wing parameters were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool}(Accessed on 12.5.2026)} and \cite{Torenbeek1982}.
 
-The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft. The X-56A takeoff and landing were performed from a paved runway, whereas the DAST drone was launched from a carrier aircraft and caught by helicopter after completing a test flight. \footref{fn:DAST} After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. The initial wing planform is likely to be revisited at a later design iteration and serves as an initial design point.
+The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft.  After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. The initial wing planform is likely to be revisited at a later design iteration and serves as an initial design point.
 
 \begin{table}[H]
     \centering
@@ -51,14 +53,14 @@ To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air
 %It includes the air density at the altitude of 27,000 feet $\rho_{cr}$ and the airspeed $V_{cr}$, for which it holds that $V_{cr} = M \cdot \sqrt{\gamma R T}$ at the ISA altitude of 27,000 ft.
 
 \begin{equation}
-    C_{L_\text{des}} = \frac{\left(\frac{W}{S}\right)}{\frac{1}{2} \rho_{cr} V_{cr}^2}
+    C_{L_\text{des}} = \frac{\left(\frac{W}{S}\right)}{\frac{1}{2} \rho_{cr} V_{cr}^2} \approx 0.074
     \label{eq:C_L}
 \end{equation}
 
 \subsection{Cruise Reynolds number}
 Based on the initial estimates from \autoref{tab:DAST_HUGO}, the Reynolds number for cruise $Re_{cr}$ and stall condition $Re_\text{stall}$ was calculated using \autoref{eq:Re}.
 \begin{equation}
-    Re = \frac{\rho \overline{c}V}{\mu}
+    Re = \frac{\rho \overline{c}V}{\mu} \approx 1.15\cdot10^6
     \label{eq:Re}
 \end{equation}
 Using the cruise conditions $\rho_{cr}$, $V_{cr}$ and dynamic viscosity $\mu_{cr}$ corresponding to Torenbeek's ISA model \cite{AdvancedACDesign_Torenbeek}, a cruise Reynold's number $Re_{cr}$ of $1.15\cdot10^6$ was obtained for test conditions at FL270. The MAC $\overline{c} \approx 0.15 \ m$ is calculated from the wing parameters in \autoref{tab:DAST_HUGO}.
@@ -105,24 +107,24 @@ Based on the data obtained in the previous subsections, an airfoil from the NASA
 A symmetrical supercritical airfoil is beneficial for low lift coefficient flight conditions. Only airfoils designed for $C_{l_{des}} = 0.4$ were tested, which is already significantly above the value suitable for HUGO. The symmetrical airfoil generates the desired lift coefficient with a low angle of attack. Furthermore, significant negative pitching moment is generated by non-symmetrical supercritical airfoils, like the NASA SC(2)-0412 \footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-1000000-n5}{NASA SC(2)-0412}(Accessed on 11.5.2026)}, which could result in a larger and, consequently, heavier empannage. The reason for selecting a high thickness-to-chord ratio $t/c$ is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_{dd} = 0.8$, which is beyond the conditions HUGO will operate. \cite{Harris1990}
 
 \section{Empennage preliminary design}
-The next step is a preliminary sizing of the empennage. Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference values. Two additional reference aircraft are added. First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:tail_params}. Several tail parameters were not available directly. Therefore, drawings and projected views have been used to record tail parameters using known values, such as the wing span. \cite{} Note that HT refers to the horizontal tailplane and VT refers to the vertical tailplane.
-\todo{TTBW write-up}
-
+The next step is a preliminary sizing of the empennage. Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference aircraft values. Instead, the Boeing truss-braced wing aircraft concept is used. \cite{XiongBoeing} First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:tail_params}. Several tail parameters were not available directly. Therefore, drawings and projected views have been used to record tail parameters using known values, such as the wing span. Note that HT refers to the horizontal tailplane and VT refers to the vertical tailplane.
 
 \begin{table}[H]
     \centering
-    \caption{Tail parameters of reference aircraft and HUGO \todo{cite sources} } 
+    \caption{Tail parameters of reference aircraft and HUGO \cite{XiongBoeing} \cite{Yu2022} \cite{Bauer2020} \cite{perry1982methodology} \cite{Eckstrom1994}} 
     \label{tab:tail_params}
     
     \begin{tabular}{|c|c||c|c|c|c|}
     \hline
     \textbf{Parameter} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW} & \textbf{HUGO} \\
     \hline
-    Tail configuration [-] & - & Conventional & V-tail & T-Tail & TBD\\
+    Tail configuration [-] & - & Conventional & V-tail & T-Tail & T-Tail\\
     \hline
     HT span [m] & $b_h$ & 1.71 & 1.27 (projected) & 11.75 &\\
     \hline
     HT arm [m] & $l_h$ & 2.66 & 2.0 & 21.09 &\\
+    \hline
+    Non-dimensionalized HT arm [-] & $\frac{l_h}{\overline{c}}$ & 4.75 & 2.67 & 7.25& \\
     \hline
     HT aspect ratio [-] & $AR_h$ & 3.5 & 4.2 & 4.52 &\\
     \hline
@@ -150,6 +152,41 @@ The selection of the material for the aircraft will be based on several consider
 
 The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following:
  fuselage structure, wing structure, empennage and control surfaces, and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
+
+\begin{table}[H]
+\centering
+\caption{Aerospace Applications/Idealizations, adapted from \cite[p. 6] {Arnold2012MaterialsSelection}}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Application} & \textbf{Idealization} & \textbf{Loading} & \textbf{Constraints} \\ \hline
+
+%Truss framework & Tie & Tension & Strength \\ \hline
+
+Fuselage & Cylinder & Compression, Tension, Bending  & Buckling, Strength, Deflection \\ \hline
+
+%Shafts & Thin walled tube/Beam & Torque, Rotation, Bending  & Bending, Shear, Vibration \\ \hline
+
+%Combustion Chambers & Thin walled Cylinder, Internal pressure & Pressure, Noise & Thermal, Oxidation \\ \hline
+
+%Blades (Fan, Compressor, Turbine) & Tie/Beam & Bending, Tension, Fatigue, Thermal, Creep & Deflection, Strength, Vibration, Erosion, Temperature \\ \hline
+
+%Disks (Compressor, Turbine) & Disk & Rotation, Thermomechanical Fatigue & Strength, Ductility, Toughness, Oxidation \\ \hline
+
+%Space Truss Framework & Tie rod & Axial Loading & Strength, Buckling \\ \hline
+
+Nozzle & Thin walled Cylinder & Pressure, Noise, Thermal & Strength, Vibration \\ \hline
+
+Wing & Plate & Bending, Tension, Twist, Vibration, Fatigue & Buckling, Vibration, Strength, Deflection \\ \hline
+
+%Cryogenic Tanks & Spherical Shell & Internal Pressure, Thermal & Strength, low temperature Yield before break, Leak before break \\ \hline
+
+\end{tabular}
+\label{tab:aerospace_applications}
+\end{table}
+
+\cite{Arnold2012MaterialsSelection}
+
+ 
 \begin{itemize}
     \item \textbf{Fuselage structure}
     The fuselage structure is the main structure of the aircraft \cite{CHATTERJEE2019199}. It acts as a tethering point for the wings, empennage, and propulsion. It also contains the major control system and payload. It must be able to sustain the loads and retain its shape. It must be able to withstand the aerodynamic forces of flight at Mach 0.75.  
@@ -162,8 +199,7 @@ The aircraft will most likely not be made of one material but instead a combinat
     \item \textbf{Landing gear}
     The landing gear must be able to carry the weight of the aircraft on the ground. It must also survive the loads at takeoff and the impact of landing. For the final configuration, the landing gear retracts into the aircraft during flight (see \autoref{sec:trade-off_final_design}) .  
 \end{itemize}
-\todo[inline]{I think that propulsion system and ports for wings/tail should also be considered for the material selection. Also: avionics compartment, antenna mounts etc.}
-In the construction of a large aircraft it makes sense to use a lot of different materials.  
+\todo[inline]{I think that propulsion system and ports for wings/tail should also be considered for the material selection. Also: avionics compartment, antenna mounts etc.}. 
 
 \subsection{Material Analysis of Reference Aircraft}
 \label{sub:materials_reference_aircraft}
@@ -176,7 +212,7 @@ sandwich skin material (36 layers at inboard end, 27 at outboard, with 25-percen
 
 The prevalence for composite usage in external structures is also present in modern commercial aircraft. Leading aircraft manufacturers, such as Boeing and Airbus, both incorporate carbon laminates into the airframes of their products as a lighter alternative to metallic alloys\footnote{\href{https://www.airbus.com/en/newsroom/news/2017-02-aviations-material-evolution}{Airbus - Aviation's material evolution} (accessed on 13.05.2026)}\footnote{\href{https://www.boeing.com/content/dam/boeing/boeingdotcom/features/innovation-quarterly/2024/IQ-2024-Q3-full.pdf}{Boeing - 787 Dreamliner Difference} (accessed on 13.05.2026)}. Additionally, Airbus A330neo nacelles are made with 60\% composites, together with a honeycomb structure for acoustics\footnote{\href{https://www.safran-group.com/products-services/airbus-a330neo-nacelles}{Airbus A330neo nacelles} (accessed on 13.05.2026)}, while Boeing 777x uses fine metallic alloys instead\footnote{\href{https://www.safran-group.com/products-services/boeing-777x-exhaust-system}{Boeing 777x exhaust system} (accessed 13.05.2026)}. Aluminium, steel, and titanium alloys are also among the most commonly used materials for typical landing gear systems \cite{typicallandinggear}.
 
-\autoref{tab:materials_airliner_breakdown} showcases the usage of aerospace materials for two exemplary commercial aircraft: Airbus A350 XWB, and B787 Drea
+\autoref{tab:materials_airliner_breakdown} showcases the usage of aerospace materials for two exemplary commercial aircraft: Airbus A350 XWB, and B787 Dreamliner. These models were chosen due to data availability, and were deemed as representative of modern aircraft systems.
 
 \begin{table}[H]
    \caption{Materials used in external structures of A350 XWB\cite{skinmaterials_1} and B787\cite{skinmaterials_2}}
@@ -203,25 +239,54 @@ The prevalence for composite usage in external structures is also present in mod
 
 
 
-\subsection{Material candidates}
+\subsection{Aerospace Materials for Airframe and Engines}
 \label{sub:materials_candidates}
-Since most metals used in aerospace occurs as some sort of alloy, the most relevant alloys has been chosen to limit the list of candidates \cite{Mouritz2012}.
+
+According to Mouritz\cite{Mouritz2012}, there exist less than one hundred types of metal alloys, composites, polymers and ceramics that exhibit properties suitable for aerospace applications. The main material types used for airframes and engines include: aluminium alloys, titanium alloys, steels, and composites.
+
+%Since most metals used in aerospace occurs as some sort of alloy, the most relevant alloys has been chosen to limit the list of candidates \cite{Mouritz2012}.
+
 Below is the list of the different materials that will be considered.   
 \begin{itemize}
-    \item \textbf{Aluminium} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacturing, high specific strength and stiffness. The alloy used for the analysis is Al (7075 Al-T76) \cite{LI2023944}. 
-    \item \textbf{Wood} The material used for the first powered flight. The softwood Sitka spruce are chosen due to its use in the construction of gliders \cite{bookJohn}. They are characterised by their low density and low cost. 
+    \item \textbf{Aluminium:} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacturing, high specific strength and stiffness. The alloy used for the analysis is Al (7075 Al-T76) \cite{LI2023944}. 
+    \item \textbf{Wood:} Wood has played a part in aerospace engineering since the first powered flight. The softwood Sitka spruce was chosen based on its historical use in the construction of aircraft stemming from high specific strength and stiffness \cite{bookJohn}. The material is additionally characterised by its low density and low cost. 
     \item \textbf{Magnesium} These alloys were used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
     \item \textbf{Titanium} It has a high strength at medium density. The $\beta$-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{Pollock2016}. 
     \item \textbf{Steel} This has high strength with high density. The alloy used for the comparisons are Steel (18Ni (350))
     \item \textbf{Composites} This consists typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is thermoset epoxy and the fibres are carbon or glass.    
 \end{itemize}
 
+\autoref{tab:materials_grading_properties} lists the grading of aerospace materials on key design factors.
+ 
+\begin{table}[H]
+\centering
+\caption{Grading of aerospace materials on key design factors\cite[p. 6]{Mouritz2012}}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+\textbf{Property} & \textbf{Al} & \textbf{Ti} & \textbf{Mg} & \textbf{High-strength Steel} & \textbf{Ni superalloy} & \textbf{CFRP} \\
+\hline\hline
+Cost & L & H & M & M & H & H \\\hline
+Weight (density) & L & M & VL & H & H & VL \\\hline
+Stiffness (elastic modulus) & L/M & M & L & VH & M & H \\\hline
+Strength (yield stress) & M & M/H & L & VH & M & H \\\hline
+Fracture toughness & M & H & L/M & L/M & M & L \\\hline
+Fatigue & L/M & H & L & M/H & M & H \\\hline
+Corrosion resistance & M & H & L & L/M & H & VH \\\hline
+High-temperature creep strength & L & M & L & H & VH & L \\\hline
+Ease of recycling & H & M & M & H & M & VL \\
+\hline
+\end{tabular}
+\label{tab:materials_grading_properties}
+\end{table}
+
+\todo[inline]{This table does not include wood, but it includes Ni superalloy. Rework it later to fit}
+
 \begin{table}[H]
 \centering
 \caption{Mechanical properties of selected aerospace materials (part of the table taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012}).}
 \label{tab:material-properties}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l|l||c|c|c|c|}
+\begin{tabular}{|l|l|c|c|c|c|}
 \hline
 \textbf{ID}
   & \textbf{Materials}
@@ -240,7 +305,7 @@ HUGO-MAT-07 & Glass/epoxy  (quasi-direct.) \tablefootnote{\href{https://www.good
 \hline
 \end{tabular}
 \end{table}
-
+\todo[inline]{Table does not fit within margins - needs to be narrowed.}
 
 \subsection{Economic factors}
 \label{sub:materials_economics_sustainability}
@@ -263,18 +328,23 @@ HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)\tablefootnote{\href{https://spotmaterial.com/
 HUGO-MAT-03 & Al alloy (7075 Al-T76) \tablefootnote{\href{https://spotmaterial.com/material/aluminium/7000-series-alznmgcu-7075-7475/}{Spot material} (accessed 11.05.2026)}          & 2.55-5.1 & 4-20\\ \hline
 HUGO-MAT-04 & Mg alloy (WE46-T6)\tablefootnote{\href{https://spotmaterial.com/material/magnesium/cast-we-alloys-we43-we54/}{Spot material} (accessed 11.05.2026)}               & 2.975-5.95 & 8.5-36 \\ \hline
 HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://spotmaterial.com/material/alloy-steel/high-speed-tool-steel-hss-m-t/}{Spot material} (accessed 11.05.2026)}    & 8-20 & 6.8 \\ \hline
-HUGO-MAT-06 & Carbon/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)}            & 6.5-8.7  & 4.8 \\ \hline
+HUGO-MAT-06 & Carbon/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)}    & 25,91-32.30  & 17.5-23.2 \\ \hline
 
-HUGO-MAT-07 & Glass/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/high-modulus-glass-fibre/high-strength-s/}{Spot material} (accessed 12.05.2026)}            & 25,91-32.30  & 17.5-23.2 \\
+HUGO-MAT-07 & Glass/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/high-modulus-glass-fibre/high-strength-s/}{Spot material} (accessed 12.05.2026)}            & 6.5-8.7  & 4.8 \\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Sustainability}
-The environmental impact of a material can not only be evaluated based on the based on the carbon footprint. Therefore it is necessary to perform a preliminary LCA-analyses of the aircraft using each chosen material. In this stage it makes sense to make a streamlined LCA where the focus will be on differences between the impact of the different materials\cite{Vogtlander2012}.
-
-nd the environmental impact connected to the use of it
-
+For the sustainability several factors had to be taken into account. There are the emissions stemming from the production and manufacture of the material and then there is the environmental impact of the material. The carbon footprint of a material is a method to quantify the amount of greenhouse emissions (measured in equivalent $CO_2$) necessary for the production of 1 kg of the material.   
+To asses the environmental impact of a material at this stage it is mostly relevant to look at the different end-of-life scenarios for the material. To systematically do this it is necessary to perform a preliminary LCA-analyses of the aircraft using each chosen material. In this stage it makes sense to make a streamlined LCA where the focus will be on differences between the impact of the different materials\cite{Vogtlander2012}. This was performed for each material using the following model:   
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/simpLCA-analysis.png}
+    \caption{Simplified LCA model for the aircraft}
+    \label{fig:placeholder}
+\end{figure}
+The recycle-ability of each material needs to be assessed 
 
 
 
@@ -298,7 +368,7 @@ As previously mentioned the aircraft could be parted into several subsections. T
 \endhead
 
 \hline
-\multicolumn{2}{|r|}{\textit{Continued on next page.}} \\
+\multicolumn{2}{r}{\textit{Continued on next page.}} \\
 \endfoot
 
 \hline
@@ -320,11 +390,11 @@ Manufacturing cost & The manufacturing cost is directly related to manufacturing
  \\
 \hline
 
-Design Freedom  & For a high performance application such as the one HUGO is designed for, 
+Design Freedom  & Since HUGO is designed for a lofty performance target, and since research and development costs are not constraining to the financial feasibility of the project, there is high value in choosing a material which allows for maximum design freedom. For instance, restricting the skin to only simple curves would restrict the aerodynamic design of the fuselage.  
 \\
 \hline
 
-Sustainability  & For the sustainability 
+Sustainability  & 
  \\
 \hline
 
@@ -374,7 +444,7 @@ p{3cm}||
 
 HUGO-MAT-01
 & 1 \cellcolor[HTML]{F8696B}
-& 2\cellcolor[HTML]{A9D18E}
+& 2\cellcolor[HTML]{F4B183}
 & 3 \cellcolor[HTML]{F4E285}
 & 5 \cellcolor[HTML]{63BE7B}
 & 2 \cellcolor[HTML]{F4B183}
@@ -385,7 +455,7 @@ HUGO-MAT-01
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-02
 & 3 \cellcolor[HTML]{F4E285}
-& 4\cellcolor[HTML]{F4B183}
+& 4\cellcolor[HTML]{A9D18E}
 & 1 \cellcolor[HTML]{F8696B}
 & 2 \cellcolor[HTML]{F4B183}
 & 2 \cellcolor[HTML]{F4B183}
@@ -395,7 +465,7 @@ HUGO-MAT-02
 
 HUGO-MAT-03
 & 2 \cellcolor[HTML]{F4B183}
-& 4\cellcolor[HTML]{F4E285}
+& 4\cellcolor[HTML]{A9D18E}
 & 2 \cellcolor[HTML]{F4B183}
 & 4 \cellcolor[HTML]{A9D18E}
 & 3 \cellcolor[HTML]{F4E285}
@@ -406,7 +476,7 @@ HUGO-MAT-03
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-04
 & 2 \cellcolor[HTML]{F4B183}
-& 3\cellcolor[HTML]{A9D18E}
+& 3\cellcolor[HTML]{F4E285}
 & 1 \cellcolor[HTML]{F8696B}
 & 4 \cellcolor[HTML]{A9D18E}
 & 2 \cellcolor[HTML]{F4B183}
@@ -427,7 +497,7 @@ HUGO-MAT-05
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-06
 & 5 \cellcolor[HTML]{63BE7B}
-& 3\cellcolor[HTML]{A9D18E}
+& 3\cellcolor[HTML]{F4E285}
 & 4 \cellcolor[HTML]{A9D18E}
 & 1 \cellcolor[HTML]{F8696B}
 & 5 \cellcolor[HTML]{63BE7B}
@@ -438,7 +508,7 @@ HUGO-MAT-06
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-07
 & 4 \cellcolor[HTML]{A9D18E}
-& 3\cellcolor[HTML]{A9D18E}
+& 3\cellcolor[HTML]{F4E285}
 & 4 \cellcolor[HTML]{A9D18E}
 & 1 \cellcolor[HTML]{F8696B}
 & 4 \cellcolor[HTML]{A9D18E}
@@ -576,10 +646,10 @@ HUGO-MAT-07
 \section{Sustainable Development Strategy}
 To access the environmental impact of the system, a preliminary LCA-analysis was set up using the open-source software openLCA. Having a preliminary material selected
 
-\section{Production Plan}
+\section{Manufacturing, Assembly \& Integration Plan (MAI Plan)}
 \subsection{Selection of manufacturing technique}
 
-Factors influencing the selection of the fabrication technique:
+The following factors influence the fabrication method selection and will be considered in the final decision.
 \begin{enumerate}
     \item Size of composite part
     \item Raw materials used
@@ -588,25 +658,32 @@ Factors influencing the selection of the fabrication technique:
     \item Desired performance
 \end{enumerate}
 
-Considering that composites will be used for the wings, fuselage, and empennage, the following manufacturing techniques are applicable:
+Considering that composites will be used for the wings, fuselage, and empennage, the following manufacturing techniques are applicable, grouped by process category:
+
+\textbf{Open mold processes}
 \begin{enumerate}
-    \item \textbf{Hand layup}: most common composite manufacturing technique. Requires minimal equipment and low cost, but skilled labor. It is an open molding process - a single-sided mold (positive or negative) is used for fabrication. It is especially suitable for the production of large shapes. It is inexpensive and requires little equipment, but depends heavily on skilled labor. First, the mold is cleaned and coated with a gel layer. Reinforcement material is then saturated with resin and applied layer by layer until the required thickness is reached. The laminate is compacted with brushes or rollers to eliminate air pockets and distribute the resin evenly. After curing, the component is removed from the mold, trimmed, and polished.
-    
-    \item \textbf{Vacuum resin infusion}: Vacuum pressure is used to draw resin into the mold cavity in this two-sided molding process, which combines a single-sided mold with a vacuum bag. Fiber layers are first positioned in the mold, after which resin is sucked into the cavity. Atmospheric pressure helps compact the laminate and remove trapped air bubbles. 
-    
-    \item \textbf{Resin transfer molding (RTM)}:  Unlike vacuum resin infusion, this process injects resin into the mold cavity under high positive pressure. The reinforcement layers are placed in the mold beforehand and enclosed with a rigid top mold. The thermosetting resin cures while under pressure, and the part is removed once sufficient crosslinking is achieved, followed by post-curing for complete curing. Components made with this method have smooth surface finishes and excellent mechanical properties, including high stiffness, strength, and impact resistance.
-    
-    \item \textbf{Prepreg}: Prepregs are pre-impregnated reinforcement plies used as the primary material for manufacturing high-performance composites in industries such as aerospace, automotive, sports, and ballistics. Considered one of the most advanced composite fabrication methods, prepreg processing involves layup, curing, and finishing. During curing, the material requires elevated temperature and pressure for proper consolidation, typically achieved through processes such as compression molding or autoclave curing.
-    
-    \item \textbf{Compression molding}: Compression molding is commonly used after hand layup or prepreg processing to manufacture composite parts. In this method, the laminate is placed between heated matched metal molds inside a compression press. Heat and pressure are applied to rapidly cure the material. The process requires minimal post-processing, reducing labor costs, and can be used for both thermosetting and thermoplastic composites. It is well suited for high-volume production of complex, high-strength parts with accurate dimensions, while built-in cooling systems help speed up the production cycle.
-    
-    \item \textbf{Autoclave}: An autoclave is a pressure vessel used to create controlled temperature and pressure conditions, known as the curing cycle, for material processing. It is commonly used for composites as well as thermoplastics, metals, and ceramics. Although it produces high-quality parts, the process is energy-intensive and can generate considerable material waste.
+    \item \textit{\textbf{Hand layup}}: most common composite manufacturing technique. Requires minimal equipment and low cost, but skilled labor. It is an open molding process --- a single-sided mold (positive or negative) is used for fabrication. It is especially suitable for the production of large shapes. It is inexpensive and requires little equipment, but depends heavily on skilled labor. First, the mold is cleaned and coated with a gel layer. Reinforcement material is then saturated with resin and applied layer by layer until the required thickness is reached. The laminate is compacted with brushes or rollers to eliminate air pockets and distribute the resin evenly. After curing, the component is removed from the mold, trimmed, and polished.
+
+    \item \textit{\textbf{Vacuum resin infusion}}: Vacuum pressure is used to draw resin into the mold cavity in this two-sided molding process, which combines a single-sided mold with a vacuum bag. Fiber layers are first positioned in the mold, after which resin is sucked into the cavity. Atmospheric pressure helps compact the laminate and remove trapped air bubbles.
 \end{enumerate}
 
-The strengths and weaknesses as stated in \cite{Jabaar2021} are synthesised in \autoref{tab: compositesManufacturing}.
+\textbf{Closed mold processes}
+\begin{enumerate}[resume]
+    \item \textit{\textbf{Resin transfer molding (RTM)}}: Unlike vacuum resin infusion, this process injects resin into the mold cavity under high positive pressure. The reinforcement layers are placed in the mold beforehand and enclosed with a rigid top mold. The thermosetting resin cures while under pressure, and the part is removed once sufficient crosslinking is achieved, followed by post-curing for complete curing. Components made with this method have smooth surface finishes and excellent mechanical properties, including high stiffness, strength, and impact resistance.
 
+    \item \textit{\textbf{Compression molding}}: Compression molding is used to manufacture composite parts from dry chopped fibers mixed with resin. In this method, the laminate is placed between heated matched metal molds inside a compression press. Heat and pressure are applied to rapidly cure the material. The process requires minimal post-processing, reducing labor costs, and can be used for both thermosetting and thermoplastic composites. It is well suited for high-volume production of complex, high-strength parts with accurate dimensions, while built-in cooling systems help speed up the production cycle.
+\end{enumerate}
 
-\begin{longtable}{|p{3cm}|p{6cm}|p{6cm}|}
+\textbf{Prepreg-based processes}
+\begin{enumerate}[resume]
+    \item \textit{\textbf{Prepreg}}: Prepregs are pre-impregnated reinforcement plies used as the primary material for manufacturing high-performance composites in industries such as aerospace, automotive, sports, and ballistics. Considered one of the most advanced composite fabrication methods, prepreg processing involves layup, curing, and finishing. During curing, the material requires elevated temperature and pressure for proper consolidation, typically achieved through processes such as compression molding or autoclave curing.
+
+    \item \textit{\textbf{Autoclave}}: An autoclave is a pressure vessel used to create controlled temperature and pressure conditions, known as the curing cycle, for material processing. It is commonly used for composites as well as thermoplastics, metals, and ceramics. Although it produces high-quality parts, the process is energy-intensive and can generate considerable material waste.
+\end{enumerate}
+
+The strengths and weaknesses of each method, as stated in \cite{Jabaar2021}, are synthesised in \autoref{tab:compositesManufacturing}.
+
+\begin{longtable}{|p{2cm}|p{6.5cm}|p{6.5cm}|}
 \caption{Comparison of composites manufacturing techniques}
 \label{tab:compositesManufacturing} \\
 
@@ -626,8 +703,8 @@ The strengths and weaknesses as stated in \cite{Jabaar2021} are synthesised in \
 \hline
 \endlastfoot
 
-Hand layup 
-& 
+Hand layup
+&
 \begin{itemize}
     \item A single mold, optimizing cost
     \item Suitable for producing large and complex geometries
@@ -644,12 +721,14 @@ Hand layup
 \\
 \hline
 
-Vacuum resin infusion
-& 
+Vacuum resin 
+
+infusion
+&
 \begin{itemize}
     \item Higher fiber volume fraction (improved mechanical properties)
     \item Minimal chemical emissions
-    \item No air bubbles
+    \item Minimal air bubbles
     \item Allows for repeatable and consistent production
     \item Visual inspection of the infusion through the bagging film
     \item Uniform resin distribution
@@ -663,7 +742,7 @@ Vacuum resin infusion
 \hline
 
 RTM
-& 
+&
 \begin{itemize}
     \item Shorter production cycles
     \item Uniform resin distribution
@@ -680,7 +759,7 @@ RTM
 \hline
 
 Prepreg
-& 
+&
 \begin{itemize}
     \item Uniform resin distribution and optimal resin content
     \item Ready-to-use material
@@ -699,7 +778,7 @@ Prepreg
 \hline
 
 Compression molding
-& 
+&
 \begin{itemize}
     \item Minimal post-processing
     \item Reduced labor cost
@@ -723,31 +802,52 @@ Autoclave
     \item Premier method for high-quality composite parts
     \item Excellent dimensional stability
     \item Suitable for thick laminates
+    \item Air bubbles collapse under the high pressure and temperature
 \end{itemize}
 &
 \begin{itemize}
-    \item Very energy-intensive and costly
-    \item Long cycle times
+    \item Very energy-intensive
+    \item Longer cycle times
     \item Labor-intensive
-    \item High consumable cost
-    \item Substantial equipment investment cost 
+    \item High consumables cost (release agent, bagging, peel ply)
+    \item Substantial equipment investment cost
+    \item Less suitable for high-volume production
 \end{itemize}
 \\
 \hline
 
 \end{longtable}
 
-The selection of the manufacturing technique is not primarily driven by cost or production volume, but by requirements such as structural predictability, high mechanical performance, and aerodynamic accuracy. This is motivated by the main objective of testing HAR wings, GLA, and AFS active control systems at high subsonic speeds. Based on the comparison of available methods and their respective advantages and limitations, prepreg manufacturing emerges as the most suitable option. Each of the steps for the selection of the technique was followed, and a brief justification for each is presented below.
+Based on the comparison of available methods and their respective advantages and limitations, prepreg manufacturing with autoclave curing emerges as the most suitable option for the fabrication of the wings, fuselage, and empennage. A brief justification for each selection factor is presented below.
 
 \begin{enumerate}
     \item \textbf{Size of composite part}: The wings, fuselage, and empennage of the UAV are large, aerodynamically precise primary structures with compound curvature. Prepreg is well suited for large and complex geometries, as the ply-by-ply layup process allows full control over fibre orientation across the entire surface, which is essential for the aeroelastic tailoring of a HAR wing.
-    
-    \item \textbf{Raw materials used}: Unlike traditional wet layup processes, prepregs eliminate the need for manual resin application, ensuring consistent fibre-to-resin ratios throughout the entire composite structure, which translates to superior mechanical properties, excellent surface finish, and predictable performance in the final product. 
-    
-    \item \textbf{Labor skill and cost}: Prepreg layup requires skilled labor, but significantly less so than wet hand layup, where resin mixing and application introduce operator-dependent variability. The material arrives ready to use, with resin already uniformly distributed, reducing the skill burden on resin management while concentrating it on ply placement and orientation - a more controllable and trainable task. Additionally, it does not require expensive equipment such as RTM and is faster than vacuum resin infusion because it eliminates the infusion step.
-    
-    \item \textbf{Number of units}: With a production run of only 5–10 units, high-volume techniques such as compression molding and RTM are difficult to justify. Compression molding is attractive for cutting cycle times, but this advantage is irrelevant at the present scale. Prepreg with autoclave cure, by contrast, delivers significant process efficiencies even at low volumes: it reduces labour costs by up to 40\% through less hands-on processing time, cuts rework by 60\% due to fewer defects from the outset, and achieves 30–50\% faster cycle times by eliminating the waiting associated with resin infusion \footnote{\href{https://incomepultrusion.com/pre-preg-comprehensive-guide-on-definition-characteristics-types-and-applications/}{The Complete Engineer's Guide to Prepreg Composites: What You Need to Know}}. 
 
-    \item \textbf{ Desired performance}: This imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\si{mm}, and surface finish Ra $\leq 0.8$\si{μm} \footnotemark[\value{footnote}] — all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns. 
+    \item \textbf{Raw materials used}: Unlike traditional wet layup processes, prepregs eliminate the need for manual resin application, ensuring consistent fibre-to-resin ratios throughout the entire composite structure, which translates to superior mechanical properties, excellent surface finish, and predictable performance in the final product.
+
+    \item \textbf{Labor skill and cost}: Prepreg layup requires skilled labor, but significantly less so than wet hand layup, where resin mixing and application introduce operator-dependent variability. The material arrives ready to use, with resin already uniformly distributed, reducing the skill burden on resin management while concentrating it on ply placement and orientation --- a more controllable and trainable task. Additionally, it is faster than vacuum resin infusion because it eliminates the infusion step.
+
+    \item \textbf{Number of units}: With a production run of only 5--10 units, high-volume techniques such as compression molding and RTM are difficult to justify. Compression molding is attractive for cutting cycle times, but this advantage is irrelevant at the present scale. Prepreg with autoclave cure, by contrast, delivers significant process efficiencies even at low volumes: it reduces labour costs by up to 40\% through less hands-on processing time, cuts rework by 60\% due to fewer defects from the outset, and achieves 30--50\% faster cycle times by eliminating the waiting associated with resin infusion \footnote{\href{https://incomepultrusion.com/pre-preg-comprehensive-guide-on-definition-characteristics-types-and-applications/}{The Complete Engineer's Guide to Prepreg Composites: What You Need to Know}}.
+    \newcounter{fnprepreg}
+    \setcounter{fnprepreg}{\value{footnote}}
+ 
+    \item \textbf{Desired performance}: This imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\,\si{mm}, and surface finish Ra $\leq 0.8$\,\si{\micro\metre} \footnotemark[\value{fnprepreg}] - all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns.
 \end{enumerate}
 
+
+Based on this selection, the following production plan is adopted for the fabrication of the wings, fuselage, and empennage using prepreg and autoclave curing.
+
+\subsection{Production plan}
+\begin{comment}
+Step-by-step process for autoclave molding \footnote{\href{https://noahcomposites.com/autoclave-vs-compression-molding/}{Autoclave vs. Compression Molding: What’s the Difference?}}:
+\begin{enumerate}
+    \item \textbf{Prepreg layup}: prepreg plies are cut to the required shape and laid up ply by ply according to the prescribed stacking sequence, with careful attention to fibre orientation at each layer. Intermediate debulk steps under vacuum may be applied between ply groups to improve consolidation in regions of complex curvature.
+
+    \item \textbf{Vacuum bagging}: the laid-up part is covered with peel ply, a breather fabric to ensure even pressure distribution, and sealed inside a vacuum bag. Vacuum is then applied to evacuate entrapped air and compact the laminate prior to autoclave loading.
+
+    \item \textbf{Curing cycle}: the bagged part is placed in the autoclave. Heat and pressure are applied progressively according to the material manufacturer's curing cycle. For epoxy-based prepregs, a typical cycle involves heating to 120 - 180\,\si{\degreeCelsius} for 1 - 2 hours under 3 - 7\,\si{bar} pressure.
+
+    \item \textbf{Cooling and demolding}: the autoclave is cooled gradually to avoid the development of thermal residual stresses. Once cooled to a safe handling temperature, the vacuum bag is removed and the part is demolded.
+
+\end{enumerate}
+\end{comment}
