@@ -1,0 +1,201 @@
+\chapter{Manufacturing, Assembly, Integration Plan (MAI Plan)}
+\label{ch:MAI}
+
+\section{MAI Plan Overview}
+
+
+
+\section{Manufacturing}
+
+The following factors influence the fabrication method selection and will be considered in the final decision.
+\begin{enumerate}
+    \item Size of composite part
+    \item Raw materials used
+    \item Labor skill and cost
+    \item Number of units (5 to 10)
+    \item Desired performance
+\end{enumerate}
+
+
+\subsection{Composites}
+Considering that composites will be used for the wings, fuselage, and empennage, the following manufacturing techniques are applicable, grouped by process category:
+
+\textbf{Open mold processes}
+\begin{enumerate}
+    \item \textit{\textbf{Hand layup}}: most common composite manufacturing technique. Requires minimal equipment and low cost, but skilled labor. It is an open molding process --- a single-sided mold (positive or negative) is used for fabrication. It is especially suitable for the production of large shapes. It is inexpensive and requires little equipment, but depends heavily on skilled labor. First, the mold is cleaned and coated with a gel layer. Reinforcement material is then saturated with resin and applied layer by layer until the required thickness is reached. The laminate is compacted with brushes or rollers to eliminate air pockets and distribute the resin evenly. After curing, the component is removed from the mold, trimmed, and polished.
+
+    \item \textit{\textbf{Vacuum resin infusion}}: Vacuum pressure is used to draw resin into the mold cavity in this two-sided molding process, which combines a single-sided mold with a vacuum bag. Fiber layers are first positioned in the mold, after which resin is sucked into the cavity. Atmospheric pressure helps compact the laminate and remove trapped air bubbles.
+\end{enumerate}
+
+\textbf{Closed mold processes}
+\begin{enumerate}[resume]
+    \item \textit{\textbf{Resin transfer molding (RTM)}}: Unlike vacuum resin infusion, this process injects resin into the mold cavity under high positive pressure. The reinforcement layers are placed in the mold beforehand and enclosed with a rigid top mold. The thermosetting resin cures while under pressure, and the part is removed once sufficient crosslinking is achieved, followed by post-curing for complete curing. Components made with this method have smooth surface finishes and excellent mechanical properties, including high stiffness, strength, and impact resistance.
+
+    \item \textit{\textbf{Compression molding}}: Compression molding is used to manufacture composite parts from dry chopped fibers mixed with resin. In this method, the laminate is placed between heated matched metal molds inside a compression press. Heat and pressure are applied to rapidly cure the material. The process requires minimal post-processing, reducing labor costs, and can be used for both thermosetting and thermoplastic composites. It is well suited for high-volume production of complex, high-strength parts with accurate dimensions, while built-in cooling systems help speed up the production cycle.
+\end{enumerate}
+
+\textbf{Prepreg-based processes}
+\begin{enumerate}[resume]
+    \item \textit{\textbf{Prepreg}}: Prepregs are pre-impregnated reinforcement plies used as the primary material for manufacturing high-performance composites in industries such as aerospace, automotive, sports, and ballistics. Considered one of the most advanced composite fabrication methods, prepreg processing involves layup, curing, and finishing. During curing, the material requires elevated temperature and pressure for proper consolidation, typically achieved through processes such as compression molding or autoclave curing.
+
+    \item \textit{\textbf{Autoclave}}: An autoclave is a pressure vessel used to create controlled temperature and pressure conditions, known as the curing cycle, for material processing. It is commonly used for composites as well as thermoplastics, metals, and ceramics. Although it produces high-quality parts, the process is energy-intensive and can generate considerable material waste.
+\end{enumerate}
+
+The strengths and weaknesses of each method, as stated in \cite{Jabaar2021}, are synthesised in \autoref{tab:compositesManufacturing}.
+
+\begin{longtable}{|p{2cm}|p{6.5cm}|p{6.5cm}|}
+\caption{Comparison of composites manufacturing techniques}
+\label{tab:compositesManufacturing} \\
+
+\hline
+\textbf{Technique} & \textbf{Advantages} & \textbf{Disadvantages} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{Technique} & \textbf{Advantages} & \textbf{Disadvantages} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+Hand layup
+&
+\begin{itemize}
+    \item A single mold, optimizing cost
+    \item Suitable for producing large and complex geometries
+    \item Minimal equipment required
+\end{itemize}
+&
+\begin{itemize}
+    \item Requires expert labor
+    \item Smooth finish on only one side
+    \item Uneven resin distribution (trapped air bubbles)
+    \item Health risks from inhalation of fiber particles and exposure to resin vapor fumes
+    \item Lower fiber volume fraction
+\end{itemize}
+\\
+\hline
+
+Vacuum resin 
+
+infusion
+&
+\begin{itemize}
+    \item Higher fiber volume fraction (improved mechanical properties)
+    \item Minimal chemical emissions
+    \item Minimal air bubbles
+    \item Allows for repeatable and consistent production
+    \item Visual inspection of the infusion through the bagging film
+    \item Uniform resin distribution
+\end{itemize}
+&
+\begin{itemize}
+    \item Slow infusion leads to long production times, unsuitable for large-scale manufacturing
+    \item Expensive consumables (peel ply, breather film, bagging film, sealant tape, etc.)
+\end{itemize}
+\\
+\hline
+
+RTM
+&
+\begin{itemize}
+    \item Shorter production cycles
+    \item Uniform resin distribution
+    \item Enables improved precision and tighter dimensional tolerances
+    \item Smooth surface finish
+    \item Consistent final products
+\end{itemize}
+&
+\begin{itemize}
+    \item Expensive equipment
+    \item High pressure may disturb fiber orientation
+\end{itemize}
+\\
+\hline
+
+Prepreg
+&
+\begin{itemize}
+    \item Uniform resin distribution and optimal resin content
+    \item Ready-to-use material
+    \item Widely used in aerospace applications
+    \item Consistent mechanical properties
+    \item Reduced exposure to liquid resin hazards
+    \item Suitable for large and complex structures
+\end{itemize}
+&
+\begin{itemize}
+    \item Limited shelf life (requires freezer storage)
+    \item High transportation cost
+    \item Limited variation in fiber content
+\end{itemize}
+\\
+\hline
+
+Compression molding
+&
+\begin{itemize}
+    \item Minimal post-processing
+    \item Reduced labor cost
+    \item High-volume production capability
+    \item Fast cycle times
+    \item No restriction on part thickness
+    \item No consumables required
+\end{itemize}
+&
+\begin{itemize}
+    \item High equipment cost
+    \item Excess pressure may damage reinforcement structure
+    \item Complex mold fabrication
+\end{itemize}
+\\
+\hline
+
+Autoclave
+&
+\begin{itemize}
+    \item Premier method for high-quality composite parts
+    \item Excellent dimensional stability
+    \item Suitable for thick laminates
+    \item Air bubbles collapse under the high pressure and temperature
+\end{itemize}
+&
+\begin{itemize}
+    \item Very energy-intensive
+    \item Longer cycle times
+    \item Labor-intensive
+    \item High consumables cost (release agent, bagging, peel ply)
+    \item Substantial equipment investment cost
+    \item Less suitable for high-volume production
+\end{itemize}
+\\
+\hline
+
+\end{longtable}
+
+Based on the comparison of available methods and their respective advantages and limitations, \textbf{prepreg manufacturing with autoclave curing} emerges as the most suitable option for the fabrication of the wings, fuselage, and empennage. A brief justification for each selection factor is presented below.
+
+\begin{enumerate}
+    \item \textbf{Size of composite part}: The wings, fuselage, and empennage of the UAV are large, aerodynamically precise primary structures with compound curvature. Prepreg is well suited for large and complex geometries, as the ply-by-ply layup process allows full control over fibre orientation across the entire surface, which is essential for the aeroelastic tailoring of a HAR wing.
+
+    \item \textbf{Raw materials used}: Unlike traditional wet layup processes, prepregs eliminate the need for manual resin application, ensuring consistent fibre-to-resin ratios throughout the entire composite structure, which translates to superior mechanical properties, excellent surface finish, and predictable performance in the final product.
+
+    \item \textbf{Labor skill and cost}: Prepreg layup requires skilled labor, but significantly less so than wet hand layup, where resin mixing and application introduce operator-dependent variability. The material arrives ready to use, with resin already uniformly distributed, reducing the skill burden on resin management while concentrating it on ply placement and orientation --- a more controllable and trainable task. Additionally, it is faster than vacuum resin infusion because it eliminates the infusion step.
+
+    \item \textbf{Number of units}: With a production run of only 5--10 units, high-volume techniques such as compression molding and RTM are difficult to justify. Compression molding is attractive for cutting cycle times, but this advantage is irrelevant at the present scale. Prepreg with autoclave cure, by contrast, delivers significant process efficiencies even at low volumes: it reduces labour costs by up to 40\% through less hands-on processing time, cuts rework by 60\% due to fewer defects from the outset, and achieves 30--50\% faster cycle times by eliminating the waiting associated with resin infusion \footnote{\href{https://incomepultrusion.com/pre-preg-comprehensive-guide-on-definition-characteristics-types-and-applications/}{The Complete Engineer's Guide to Prepreg Composites: What You Need to Know}}.
+    \newcounter{fnprepreg}
+    \setcounter{fnprepreg}{\value{footnote}}
+ 
+    \item \textbf{Desired performance}: This imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\,\si{mm}, and surface finish Ra $\leq 0.8$\,\si{\micro\metre} \footnotemark[\value{fnprepreg}] - all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns.
+\end{enumerate}
+
+\section{Assembly}
+
+\section{Integration}
+
+

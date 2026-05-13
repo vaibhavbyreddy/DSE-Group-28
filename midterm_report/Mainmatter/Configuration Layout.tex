@@ -16,10 +16,13 @@ This Chapter outlines the details of external and internal configuration of HUGO
 \subsection{Electronic System}
 Along the payload, the fuselage will house the electronic system, including the sensors and supply the payload. The engine requires an outside source of power for the start-up procedure, as such, the battery will provide the additional power needed. The margin left from the battery will power the payload, and other secondary subsystems.
 
+There are 5 iterations of the 
+
 A list of components included in the electronic system of HUGO can be seen in \autoref{tab:electronic_system}. For the internal configuration of HUGO, the dimensions and weight of each electronic component need to be catalogued, and in the next stage of the project, a detailed power system analysis can be conducted. For now, the numbers in \autoref{eq:Lambda_conversion} represent a first-order approximation to enable calculation of dynamic stability and C.G. properties of the UAV.
 
 \begin{table}[H]
     \centering
+    \caption{Electronic system components and approximate weight and volumes}
     \begin{tabular}{|c|c|c|}
         \hline
          \textbf{Component} & \textbf{Weight [g]} & \textbf{Dimensions [mm]}  \\
@@ -35,9 +38,9 @@ A list of components included in the electronic system of HUGO can be seen in \a
          Lights (x4)& - & - \\\hline
           
     \end{tabular}
-    \caption{Electronic system components and approximate weight and volumes}
     \label{tab:electronic_system}
 \end{table}
+For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the limit of the air speed calculator, which can only reach speeds of 450 kts, while HUGO will fly at a maximum speed of 500 kts, as such an additional speed sensor will be needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an agle of attack sensor.
 
 The electronic system is complemented by a multitude of sensors present inside and on the wings and tail to study the aeroelastic behaviour of structures. A list of sensors that have been considered for the aeroelastic analysis can be found in \autoref{wing_structural_sensors}.
 
@@ -129,7 +132,7 @@ Actuator current sensors
 \hline
 Lidar Sensor
 & Displacement of Structure\\
-& Provides 3D measurements and view of the wing in real time via a laser pointing 
+& Provides 3D measurements and view of the wing in real time via a laser pointing system\\
 
 \end{longtable}
 

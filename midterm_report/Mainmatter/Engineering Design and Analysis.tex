@@ -117,7 +117,7 @@ The next step is a preliminary sizing of the empennage. Since the NASA X-56A is 
     \begin{tabular}{|c|c||c|c|c|c|}
     \hline
     \textbf{Parameter} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW} & \textbf{HUGO} \\
-    \hline
+    \hline\hline
     Tail configuration [-] & - & Conventional & V-tail & T-Tail & T-Tail\\
     \hline
     HT span [m] & $b_h$ & 1.71 & 1.27 (projected) & 11.75 &\\
@@ -147,22 +147,24 @@ The next step is a preliminary sizing of the empennage. Since the NASA X-56A is 
 
 \section{Structural analysis}
 
-\section{Material selection}
-The selection of the material for the aircraft will be based on several considerations: structural properties, material cost, manufacturing cost, durability, sustainability and special properties. 
+\section{Material Selection}
+This Section addresses the selection of aerospace materials for various subsystems of HUGO. Key factors considered in this analysis are: structural properties, material cost, manufacturing cost, durability, sustainability and special properties. For the 
 
-The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following:
- fuselage structure, wing structure, empennage and control surfaces, and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
+%The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following: fuselage structure, wing structure, empennage and control surfaces, and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
 
+%\autoref{tab:aerospace_applications} lists the main loading modes and constraints for some of the major aircraft components. 
+
+\begin{comment}
 \begin{table}[H]
 \centering
 \caption{Aerospace Applications/Idealizations, adapted from \cite[p. 6] {Arnold2012MaterialsSelection}}
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|c|p{7cm}|p{6.5cm}|}
 \hline
-\textbf{Application} & \textbf{Idealization} & \textbf{Loading} & \textbf{Constraints} \\ \hline
+\textbf{Application} & \textbf{Loading} & \textbf{Constraints} \\ \hline
 
-%Truss framework & Tie & Tension & Strength \\ \hline
+Truss & Tension & Strength \\ \hline
 
-Fuselage & Cylinder & Compression, Tension, Bending  & Buckling, Strength, Deflection \\ \hline
+Fuselage  & Compression, Tension, Bending  & Buckling, Strength, Deflection \\ \hline
 
 %Shafts & Thin walled tube/Beam & Torque, Rotation, Bending  & Bending, Shear, Vibration \\ \hline
 
@@ -174,16 +176,16 @@ Fuselage & Cylinder & Compression, Tension, Bending  & Buckling, Strength, Defle
 
 %Space Truss Framework & Tie rod & Axial Loading & Strength, Buckling \\ \hline
 
-Nozzle & Thin walled Cylinder & Pressure, Noise, Thermal & Strength, Vibration \\ \hline
+%Nozzle & Pressure, Noise, Thermal & Strength, Vibration \\ \hline
 
-Wing & Plate & Bending, Tension, Twist, Vibration, Fatigue & Buckling, Vibration, Strength, Deflection \\ \hline
+%Wing & Bending, Tension, Twist, Vibration, Fatigue & Buckling, Vibration, Strength, Deflection \\ \hline
 
 %Cryogenic Tanks & Spherical Shell & Internal Pressure, Thermal & Strength, low temperature Yield before break, Leak before break \\ \hline
 
 \end{tabular}
 \label{tab:aerospace_applications}
 \end{table}
-
+\end{comment}
 \cite{Arnold2012MaterialsSelection}
 
  
@@ -256,7 +258,7 @@ Below is the list of the different materials that will be considered.
     \item \textbf{Composites} This consists typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is thermoset epoxy and the fibres are carbon or glass.    
 \end{itemize}
 
-\autoref{tab:materials_grading_properties} lists the grading of aerospace materials on key design factors.
+\autoref{tab:materials_grading_properties} lists the grading of aerospace materials on key design factors, distinguishing between: very low (VL), low (L), medium (M), high (H) and very high (VH). Based on the gathered data, a first-order comparison can be made between the considered material candidates.
  
 \begin{table}[H]
 \centering
@@ -344,7 +346,9 @@ To asses the environmental impact of a material at this stage it is mostly relev
     \caption{Simplified LCA model for the aircraft}
     \label{fig:placeholder}
 \end{figure}
-The recycle-ability of each material needs to be assessed 
+The recycle-ability of each material needs to be assessed . 
+
+
 
 
 
@@ -394,7 +398,7 @@ Design Freedom  & Since HUGO is designed for a lofty performance target, and sin
 \\
 \hline
 
-Sustainability  & 
+Sustainability  &  Sustainability is the combined analysis of the 
  \\
 \hline
 
@@ -402,124 +406,33 @@ Sustainability  &
 
 \todo{Vaibhav: Finish write up on manufacturing cost, material cost and add row for design freedom}
 
-
-\begin{table}[H]
-\centering
-\caption{Trade-Off Matrix for fuselage, wings and empennage}
-\renewcommand{\arraystretch}{1.4}
-
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{|
-p{3cm}||
->{\centering\arraybackslash}p{5cm}|
->{\centering\arraybackslash}p{4cm}|
->{\centering\arraybackslash}p{2cm}|
->{\centering\arraybackslash}p{2cm}|
->{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}||
->{\centering\arraybackslash}p{2.2cm}|
-}
-\hline
-\rowcolor[HTML]{4472C4}
-\color{white}\textbf{Material} &
-\color{white}\textbf{Structural properties} &
-\color{white}\textbf{Durability} &
-\color{white}\textbf{Manufacturing cost} &
-\color{white}\textbf{Material cost} &
-\color{white}\textbf{Design freedom} &
-\color{white}\textbf{\shortstack{Sustain-\\ability}} &
-\color{white}\textbf{Total} \\
-\hline\hline
-
-\rowcolor[HTML]{D9E2F3}
-\textbf{Weight} &
-&
-&
-&
-&
-&
-&
-1 \\
-\hline
-
-HUGO-MAT-01
-& 1 \cellcolor[HTML]{F8696B}
-& 2\cellcolor[HTML]{F4B183}
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 2 \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-&  \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUGO-MAT-02
-& 3 \cellcolor[HTML]{F4E285}
-& 4\cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 2 \cellcolor[HTML]{F4B183}
-& 2 \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-&  \\
-\hline
-
-HUGO-MAT-03
-& 2 \cellcolor[HTML]{F4B183}
-& 4\cellcolor[HTML]{A9D18E}
-& 2 \cellcolor[HTML]{F4B183}
-& 4 \cellcolor[HTML]{A9D18E}
-& 3 \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-&  \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUGO-MAT-04
-& 2 \cellcolor[HTML]{F4B183}
-& 3\cellcolor[HTML]{F4E285}
-& 1 \cellcolor[HTML]{F8696B}
-& 4 \cellcolor[HTML]{A9D18E}
-& 2 \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-&  \\
-\hline
-
-HUGO-MAT-05
-& 3 \cellcolor[HTML]{F4E285}
-& 4\cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-&  \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUGO-MAT-06
-& 5 \cellcolor[HTML]{63BE7B}
-& 3\cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& \cellcolor[HTML]{F4B183}
-&  \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUGO-MAT-07
-& 4 \cellcolor[HTML]{A9D18E}
-& 3\cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 4 \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4B183}
-& \\
-\hline
-
-\end{tabular}
-\end{adjustbox}
-\label{tab:structures_trade-off_matrix_material_selection}
+\begin{table}[htbp]
+    \centering
+    \caption{Comprehensive Material Selection Decision Matrix (Absolute 1–5 Scale)}
+    \label{tab:final_material_matrix}
+    % \resizebox{\textwidth}{!}{ % Uncomment if the table overflows page margins
+    \begin{tabular}{llccccccc}
+        \toprule
+        & & \textbf{Struct.} & & \textbf{Material} & \textbf{Mfg.} & \textbf{Design} & & \textbf{Weighted} \\
+        \textbf{ID} & \textbf{Material Candidate} & \textbf{Props.} & \textbf{Durability} & \textbf{Cost} & \textbf{Cost} & \textbf{Freedom} & \textbf{Sustain.} & \textbf{Total} \\
+        & & ($w = 1.0$) & ($w = 0.85$) & ($w = 0.1$) & ($w = 0.5$) & ($w = 1.0$) & ($w = 0.5$) & \\
+        \midrule
+        HUGO-MAT-01 & Sitka spruce            & 1 & 1 & 5 & 5 & 1 & 5 & 8.35  \\
+        HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)    & 3 & 5 & 2 & 1 & 2 & 2 & 10.95 \\
+        HUGO-MAT-03 & Al alloy (7075 Al-T76)  & 2 & 4 & 4 & 2 & 2 & 3 & 10.30 \\
+        HUGO-MAT-04 & Mg alloy (WE46-T6)      & 2 & 3 & 3 & 1 & 2 & 2 & 8.35  \\
+        HUGO-MAT-05 & Steel alloy (18Ni(350)) & 3 & 4 & 3 & 2 & 2 & 3 & 11.20 \\
+        HUGO-MAT-06 & \textbf{Carbon/epoxy composite} & \textbf{5} & \textbf{3} & \textbf{1} & \textbf{2} & \textbf{4} & \textbf{1} & \textbf{13.15} \\
+        HUGO-MAT-07 & Glass/epoxy composite   & 3 & 3 & 2 & 2 & 5 & 1 & 12.25 \\
+        \bottomrule
+    \end{tabular}
+    % }
+    \vspace{0.5em}
+    \raggedright
+    \footnotesize{\textit{Note:} Evaluation conducted on an absolute 1–5 utility scale against ideal mission targets. Total weighted scores reflect physical and operational suitability margins for the experimental UAV airframe.}
 \end{table}
+
+
 
 
 \begin{table}[H]
@@ -646,208 +559,3 @@ HUGO-MAT-07
 \section{Sustainable Development Strategy}
 To access the environmental impact of the system, a preliminary LCA-analysis was set up using the open-source software openLCA. Having a preliminary material selected
 
-\section{Manufacturing, Assembly \& Integration Plan (MAI Plan)}
-\subsection{Selection of manufacturing technique}
-
-The following factors influence the fabrication method selection and will be considered in the final decision.
-\begin{enumerate}
-    \item Size of composite part
-    \item Raw materials used
-    \item Labor skill and cost
-    \item Number of units (5 or 10?)
-    \item Desired performance
-\end{enumerate}
-
-Considering that composites will be used for the wings, fuselage, and empennage, the following manufacturing techniques are applicable, grouped by process category:
-
-\textbf{Open mold processes}
-\begin{enumerate}
-    \item \textit{\textbf{Hand layup}}: most common composite manufacturing technique. Requires minimal equipment and low cost, but skilled labor. It is an open molding process --- a single-sided mold (positive or negative) is used for fabrication. It is especially suitable for the production of large shapes. It is inexpensive and requires little equipment, but depends heavily on skilled labor. First, the mold is cleaned and coated with a gel layer. Reinforcement material is then saturated with resin and applied layer by layer until the required thickness is reached. The laminate is compacted with brushes or rollers to eliminate air pockets and distribute the resin evenly. After curing, the component is removed from the mold, trimmed, and polished.
-
-    \item \textit{\textbf{Vacuum resin infusion}}: Vacuum pressure is used to draw resin into the mold cavity in this two-sided molding process, which combines a single-sided mold with a vacuum bag. Fiber layers are first positioned in the mold, after which resin is sucked into the cavity. Atmospheric pressure helps compact the laminate and remove trapped air bubbles.
-\end{enumerate}
-
-\textbf{Closed mold processes}
-\begin{enumerate}[resume]
-    \item \textit{\textbf{Resin transfer molding (RTM)}}: Unlike vacuum resin infusion, this process injects resin into the mold cavity under high positive pressure. The reinforcement layers are placed in the mold beforehand and enclosed with a rigid top mold. The thermosetting resin cures while under pressure, and the part is removed once sufficient crosslinking is achieved, followed by post-curing for complete curing. Components made with this method have smooth surface finishes and excellent mechanical properties, including high stiffness, strength, and impact resistance.
-
-    \item \textit{\textbf{Compression molding}}: Compression molding is used to manufacture composite parts from dry chopped fibers mixed with resin. In this method, the laminate is placed between heated matched metal molds inside a compression press. Heat and pressure are applied to rapidly cure the material. The process requires minimal post-processing, reducing labor costs, and can be used for both thermosetting and thermoplastic composites. It is well suited for high-volume production of complex, high-strength parts with accurate dimensions, while built-in cooling systems help speed up the production cycle.
-\end{enumerate}
-
-\textbf{Prepreg-based processes}
-\begin{enumerate}[resume]
-    \item \textit{\textbf{Prepreg}}: Prepregs are pre-impregnated reinforcement plies used as the primary material for manufacturing high-performance composites in industries such as aerospace, automotive, sports, and ballistics. Considered one of the most advanced composite fabrication methods, prepreg processing involves layup, curing, and finishing. During curing, the material requires elevated temperature and pressure for proper consolidation, typically achieved through processes such as compression molding or autoclave curing.
-
-    \item \textit{\textbf{Autoclave}}: An autoclave is a pressure vessel used to create controlled temperature and pressure conditions, known as the curing cycle, for material processing. It is commonly used for composites as well as thermoplastics, metals, and ceramics. Although it produces high-quality parts, the process is energy-intensive and can generate considerable material waste.
-\end{enumerate}
-
-The strengths and weaknesses of each method, as stated in \cite{Jabaar2021}, are synthesised in \autoref{tab:compositesManufacturing}.
-
-\begin{longtable}{|p{2cm}|p{6.5cm}|p{6.5cm}|}
-\caption{Comparison of composites manufacturing techniques}
-\label{tab:compositesManufacturing} \\
-
-\hline
-\textbf{Technique} & \textbf{Advantages} & \textbf{Disadvantages} \\
-\hline
-\endfirsthead
-
-\hline
-\textbf{Technique} & \textbf{Advantages} & \textbf{Disadvantages} \\
-\hline
-\endhead
-
-\hline
-\endfoot
-
-\hline
-\endlastfoot
-
-Hand layup
-&
-\begin{itemize}
-    \item A single mold, optimizing cost
-    \item Suitable for producing large and complex geometries
-    \item Minimal equipment required
-\end{itemize}
-&
-\begin{itemize}
-    \item Requires expert labor
-    \item Smooth finish on only one side
-    \item Uneven resin distribution (trapped air bubbles)
-    \item Health risks from inhalation of fiber particles and exposure to resin vapor fumes
-    \item Lower fiber volume fraction
-\end{itemize}
-\\
-\hline
-
-Vacuum resin 
-
-infusion
-&
-\begin{itemize}
-    \item Higher fiber volume fraction (improved mechanical properties)
-    \item Minimal chemical emissions
-    \item Minimal air bubbles
-    \item Allows for repeatable and consistent production
-    \item Visual inspection of the infusion through the bagging film
-    \item Uniform resin distribution
-\end{itemize}
-&
-\begin{itemize}
-    \item Slow infusion leads to long production times, unsuitable for large-scale manufacturing
-    \item Expensive consumables (peel ply, breather film, bagging film, sealant tape, etc.)
-\end{itemize}
-\\
-\hline
-
-RTM
-&
-\begin{itemize}
-    \item Shorter production cycles
-    \item Uniform resin distribution
-    \item Enables improved precision and tighter dimensional tolerances
-    \item Smooth surface finish
-    \item Consistent final products
-\end{itemize}
-&
-\begin{itemize}
-    \item Expensive equipment
-    \item High pressure may disturb fiber orientation
-\end{itemize}
-\\
-\hline
-
-Prepreg
-&
-\begin{itemize}
-    \item Uniform resin distribution and optimal resin content
-    \item Ready-to-use material
-    \item Widely used in aerospace applications
-    \item Consistent mechanical properties
-    \item Reduced exposure to liquid resin hazards
-    \item Suitable for large and complex structures
-\end{itemize}
-&
-\begin{itemize}
-    \item Limited shelf life (requires freezer storage)
-    \item High transportation cost
-    \item Limited variation in fiber content
-\end{itemize}
-\\
-\hline
-
-Compression molding
-&
-\begin{itemize}
-    \item Minimal post-processing
-    \item Reduced labor cost
-    \item High-volume production capability
-    \item Fast cycle times
-    \item No restriction on part thickness
-    \item No consumables required
-\end{itemize}
-&
-\begin{itemize}
-    \item High equipment cost
-    \item Excess pressure may damage reinforcement structure
-    \item Complex mold fabrication
-\end{itemize}
-\\
-\hline
-
-Autoclave
-&
-\begin{itemize}
-    \item Premier method for high-quality composite parts
-    \item Excellent dimensional stability
-    \item Suitable for thick laminates
-    \item Air bubbles collapse under the high pressure and temperature
-\end{itemize}
-&
-\begin{itemize}
-    \item Very energy-intensive
-    \item Longer cycle times
-    \item Labor-intensive
-    \item High consumables cost (release agent, bagging, peel ply)
-    \item Substantial equipment investment cost
-    \item Less suitable for high-volume production
-\end{itemize}
-\\
-\hline
-
-\end{longtable}
-
-Based on the comparison of available methods and their respective advantages and limitations, prepreg manufacturing with autoclave curing emerges as the most suitable option for the fabrication of the wings, fuselage, and empennage. A brief justification for each selection factor is presented below.
-
-\begin{enumerate}
-    \item \textbf{Size of composite part}: The wings, fuselage, and empennage of the UAV are large, aerodynamically precise primary structures with compound curvature. Prepreg is well suited for large and complex geometries, as the ply-by-ply layup process allows full control over fibre orientation across the entire surface, which is essential for the aeroelastic tailoring of a HAR wing.
-
-    \item \textbf{Raw materials used}: Unlike traditional wet layup processes, prepregs eliminate the need for manual resin application, ensuring consistent fibre-to-resin ratios throughout the entire composite structure, which translates to superior mechanical properties, excellent surface finish, and predictable performance in the final product.
-
-    \item \textbf{Labor skill and cost}: Prepreg layup requires skilled labor, but significantly less so than wet hand layup, where resin mixing and application introduce operator-dependent variability. The material arrives ready to use, with resin already uniformly distributed, reducing the skill burden on resin management while concentrating it on ply placement and orientation --- a more controllable and trainable task. Additionally, it is faster than vacuum resin infusion because it eliminates the infusion step.
-
-    \item \textbf{Number of units}: With a production run of only 5--10 units, high-volume techniques such as compression molding and RTM are difficult to justify. Compression molding is attractive for cutting cycle times, but this advantage is irrelevant at the present scale. Prepreg with autoclave cure, by contrast, delivers significant process efficiencies even at low volumes: it reduces labour costs by up to 40\% through less hands-on processing time, cuts rework by 60\% due to fewer defects from the outset, and achieves 30--50\% faster cycle times by eliminating the waiting associated with resin infusion \footnote{\href{https://incomepultrusion.com/pre-preg-comprehensive-guide-on-definition-characteristics-types-and-applications/}{The Complete Engineer's Guide to Prepreg Composites: What You Need to Know}}.
-    \newcounter{fnprepreg}
-    \setcounter{fnprepreg}{\value{footnote}}
- 
-    \item \textbf{Desired performance}: This imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\,\si{mm}, and surface finish Ra $\leq 0.8$\,\si{\micro\metre} \footnotemark[\value{fnprepreg}] - all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns.
-\end{enumerate}
-
-
-Based on this selection, the following production plan is adopted for the fabrication of the wings, fuselage, and empennage using prepreg and autoclave curing.
-
-\subsection{Production plan}
-\begin{comment}
-Step-by-step process for autoclave molding \footnote{\href{https://noahcomposites.com/autoclave-vs-compression-molding/}{Autoclave vs. Compression Molding: What’s the Difference?}}:
-\begin{enumerate}
-    \item \textbf{Prepreg layup}: prepreg plies are cut to the required shape and laid up ply by ply according to the prescribed stacking sequence, with careful attention to fibre orientation at each layer. Intermediate debulk steps under vacuum may be applied between ply groups to improve consolidation in regions of complex curvature.
-
-    \item \textbf{Vacuum bagging}: the laid-up part is covered with peel ply, a breather fabric to ensure even pressure distribution, and sealed inside a vacuum bag. Vacuum is then applied to evacuate entrapped air and compact the laminate prior to autoclave loading.
-
-    \item \textbf{Curing cycle}: the bagged part is placed in the autoclave. Heat and pressure are applied progressively according to the material manufacturer's curing cycle. For epoxy-based prepregs, a typical cycle involves heating to 120 - 180\,\si{\degreeCelsius} for 1 - 2 hours under 3 - 7\,\si{bar} pressure.
-
-    \item \textbf{Cooling and demolding}: the autoclave is cooled gradually to avoid the development of thermal residual stresses. Once cooled to a safe handling temperature, the vacuum bag is removed and the part is demolded.
-
-\end{enumerate}
-\end{comment}
