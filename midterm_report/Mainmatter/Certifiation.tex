@@ -5,6 +5,9 @@ This chapter focuses on the process and steps required to obtain the certificati
 \section{Type Certificate}
 \label{sec:type_certificate}
 
+
+According to the EASA eRules for Initial Airworthiness and Environmental Protection (eRules), the Type Certificate (TC) is a document issued by the competent authority declaring an aircraft meets all required airworthiness standards \cite{EASAInitialAirworthiness2025}. The eRules describes the process and all necessary documents to obtain a type certificate inside Annex I. Section A details all the obligations of the applicant, and section B details those of the competent authority (EASA). The eRules manual is large and difficult to navigate, as such,  \autoref{fig:Certification} will serve as a visual guide for the reader. The grey blocks indicate the starting point, purple indicates the obligations of the applicant, blue the obligations of the authority, and yellow any extra source of information.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1.0\linewidth]{figures/TC.png}
@@ -13,11 +16,7 @@ This chapter focuses on the process and steps required to obtain the certificati
 \end{figure}
 
 
-
-
-According to the EASA eRules for Initial Airworthiness and Environmental Protection (eRules), the Type Certificate (TC) is a document issued by the competent authority declaring an aircraft meets all required airworthiness standards \cite{EASAInitialAirworthiness2025}. The eRules describes the process and all necessary documents to obtain a type certificate inside Annex I. Section A details all the obligations of the applicant, and section B details those of the competent authority (EASA).
-
-The requirements for a TC are explained in full in section 21.A.21. It states that the following must be met:
+The requirements for a TC are explained in full in section (21.A.21). It states that the following must be met:
 
 \begin{enumerate}
     \item demonstration of capabilities (21.A.14),
@@ -25,64 +24,43 @@ The requirements for a TC are explained in full in section 21.A.21. It states th
     \item demonstration of compliance with UAS Type Certification basis (21.B.80). 
 \end{enumerate}
 
+Section (21.A.14) will be further elaborated in \autoref{sec: DOA}, as it pertains to the process for obtaining a Design Organisation Approval (DOA) under 21.A.14(a), with further guidance in Subsection J. Both (21.A.20) and (21.B.80) are covered under the section (21.A.15): Application for a TC, and will be expanded on below.
 
-21.A.14 will be further elaborated in \autoref{sec: DOA}, as it pertains to the process for obtaining a Design Organisation Approval (DOA) under 21.A.14(a), with further guidance in Subsection J. Both 21.A.20 and 21.B.80 are covered under the section 21.A.15: Application for a TC, and will be expanded on below.
-
-As previously stated, 21.A.15: Application for a TC, requires compliance with section 21.A.20: Demonstration of compliance with the type certification basis, operational suitability data certification basis and environmental protection requirements Regulation. 
-
-Compliance with 21.A.20 is done by following the authority's guidelines provided in 21.B.80: Type-certification basis for a type-certificate, 21.B.82: Operational suitability data certification basis for an aircraft type-certificate, and 21.B.85: Applicable environmental protection requirements for a type certificate.
-
-HUGO falls under a special category as it is faster than most UAVs, but is not at the same risk class as manned aircraft. As such, compliance with 21.B.80 requires section 21.B.75: Special Conditions. These are detailed in a separate document, Special Conditions for Light Unmanned Aircraft Systems - High Risk \cite{EASA_SC_Light_UAS_High_Risk_2021}. More details on the special conditions can be found in \autoref{sec: special conditions}. Furthermore, HUGO falls outside the scope of 21.B.82 due to it's unconventional design and operations. However, it must still comply with 21.B.85, detailing the necessary compliance with environmental protection requirements as dictated in ICAO Annex XVI, further expanded on in \autoref{sec:environmental_protection}.
-
-Additionally, HUGO must comply with 21.A.33: Inspections and tests Regulation, and 21.A.35: Flight Tests for a successful application.
-
-
-
-
-
-\subsection{Aircraft Capabilities}
-Starting with Annex I section 21.A.14 \cite{EASAInitialAirworthiness2025}, to demonstrate the design capabilities of the aircraft, HUGO must demonstrate a capability of holding a Design Organisation Approval (DOA), according to 21.A.14(a), 21.A.14(b), 21.A.112B(b), or 21.A.432B(b). 
-
-As HUGO is a UAS system, it will have to comply with 21.A.14(a) by obtaining a Design Organisational Approval (DOA), which will be explained in \autoref{sec: DOA}. %Sections 21.A.14(b)-(c) as UAS aircraft fall outside their scope.
+As previously stated, (21.A.15): Application for a TC, requires compliance with section (21.A.20): Demonstration of compliance with the type certification basis, operational suitability data certification basis and environmental protection requirements Regulation. 
 
 \subsection{Compliance with certification basis, operational suitability, environmental protection}
-For compliance with 21.A.20 after the certification programme has been accepted by EASA, HUGO's design will have to demonstrate compliance requirements in the following areas:
+
+For compliance with (21.A.20) after the certification programme has been accepted by EASA, HUGO's design will have to demonstrate compliance requirements in the following areas:
 \begin{enumerate}
     \item  type-certification basis for a TC or restricted TC (21.B.80),
     \item operational suitability (21.B.82),
     \item environmental protection (21.B.85).
 \end{enumerate}
 
-According to 21.B.80, special conditions apply to HUGO, detailing how projects falling outside the scope of the eRules should comply with the regulations (21.B.75). For HUGO, this entails using the Special Condition for Light Unmanned Aircraft Systems - High Risk \cite{EASA_SC_Light_UAS_High_Risk_2021}. 
+According to 21.B.80, special conditions apply to HUGO, detailing how projects falling outside the scope of the eRules should comply with the regulations (21.B.75). For HUGO, this entails using the Special Condition for Light Unmanned Aircraft Systems - High Risk \cite{EASA_SC_Light_UAS_High_Risk_2021}. Additionally, HUGO falls outside the scope of (21.B.82) due to it's unconventional design and operations.
 
-In terms of operational suitability (21.B.82), EASA shall establish a suitable certification basis and communicate it to the applicant. The basis comprises certification specifications, along with applicable special conditions. In the case of HUGO, the expected basis entails CS-23 with additional SC-UAS.
+Section (21.B.85), detailing the necessary compliance with environmental protection requirements as dictated in ICAO Annex XVI, further expanded on in \autoref{sec:environmental_protection}. 
 
+Section (21.A.33) and (21.A.35) contain obligations for the applicant regarding inspections and tests regulation, and flight tests respectively. Lastly, (21.B.100) details the authority's obligation to provide guidance on the "Level of involvement", and the likelihood and impact of non-compliance.
 
-Lastly, EASA shall define applicable environmental protection requirements for HUGO (21.B.85). This entails primarily noise abatement requirements for manned aircraft. Since HUGO falls outside of this category, special considerations in this regard will be made in \autoref{sec:environmental_protection}.
+In order to successfully apply for a TC, EASA shall be provided with means of demonstration of compliance with all of the discussed requirements. 
 
-Inspections and testing compliance will be dictated by 21.A.33 and 21.A.35 respectively. In order to successfully apply for a TC, EASA shall be provided with means of demonstration of compliance with all of the discussed requirements. 
-
-
-%It will need to comply with 21.B.85: Applicable environmental protection requirements for a type certificate or restricted type certificate. However, specific rules for UAS are not indicated in 21.B.85, and thus will not be considered further. 
 
 \subsection{Special Conditions for UAS}
 \label{sec: special conditions}
 The special conditions detailed under the Special Condition for Light Unmanned Aircraft Systems - High Risk define additional requirements for: Design and Construction, and Systems and Equipment. The scope of these additional requirements covers risk of failure, environmental hazards, robustness in the event of a lightning strike, and additional High Intensity Radiated Fields (HIRF) protection \cite{EASA_SC_Light_UAS_High_Risk_2021}.
 
 \subsection{Application for a Type Certificate}
+As mentioned in \autoref{sec:type_certificate}, the application procedure for the TC is done in accordance with (21.A.15) \cite{EASAInitialAirworthiness2025}. The detailed procedure after the project is in compliance with (21.A.21) is detailed below:
 
-
-As mentioned in \autoref{sec:type_certificate}, the application procedure for the TC is done in accordance with 21.A.15.
-
-
-The application for the TC is detailed in 21.A.15 \cite{EASAInitialAirworthiness2025}. According to the guidelines, the TC application should be made in a form and manner established by EASA, including as a minimum: a preliminary description of the UAS or the Control and Monitoring Unit (CMU), and the kind of operations for which certification is requested. In addition it shall comply with 21.A.20, which outlines the following:
+According to the guidelines, the TC application should be made in a form and manner established by the authority, including as a minimum: a preliminary description of the UAS or the Control and Monitoring Unit (CMU), and the kind of operations for which certification is requested. In addition it shall comply with 21.A.20, which outlines the following:
 \begin{enumerate}
     \item a detailed description of the design, including all the configurations to be certified;
     \item the proposed operating characteristics and limitations;
     \item the intended use of the UAS or the CMU, and the kind of operations for which certification is requested;
-    \item a proposal for the initial TC basis, operational sustainability data certification basis, and environmental protection requirements in accordance with 21.B.80, 21.B.82, and 21.B.85 (as explained previously);
+    \item a proposal for the initial TC basis, operational sustainability data certification basis, and environmental protection requirements in accordance with (21.B.80), (21.B.82), and (21.B.85);
     \item a proposal for the breakdown of the certification program into meaningful groups of compliance demonstration activities and data, including a proposal for the means of compliance and related compliance documents;
-    \item a proposal for the assessment of meaningful groups of compliance demonstration activities and data addressing the likelihood of an unidentified non-compliance with the TC basis operational sustainability data certification basis, or environmental protection requirements and the potential impact on the non-compliance on the UAS safety or environmental compatibility or on the safety of the CMU. The proposed assessment shall take into account at least the elements set out in points 1 to 4 of 21.B.100(a):
+    \item a proposal for the assessment of meaningful groups of compliance demonstration activities and data addressing the likelihood of an unidentified non-compliance with the TC basis operational sustainability data certification basis, or environmental protection requirements and the potential impact on the non-compliance on the UAS safety or environmental compatibility or on the safety of the CMU. The proposed assessment shall take into account at least the elements set out in points 1 to 4 of (21.B.100(a)):
     \begin{enumerate}
     \item novel or unusual features of the certification project, including operational, organisational and knowledge management aspects;
     \item complexity of the design and/or demonstration of compliance;
@@ -109,7 +87,7 @@ The application for a DOA involves cooperation with EASA from early stages of th
     \item Technical closure and issue of approval.
 \end{enumerate}
 
-Costs involved in this process and the time required for analysis of the design are not well defined, but can range from months to years, depending on the complexity of the idea\footnote{\href{https://www.easa.europa.eu/en/light/topics/idea-sky-how-easa-ensures-aircraft-safe-fly}{EASA - From idea to the sky: how EASA ensures that aircraft is safe to fly} (accessed on 12.05.2026)}. This conflicts with HUGO's mission, which requires frequent structural modifications and configuration changes. Applying for a Supplemental Type Certificate or completely re-certifying HUGO for each test case due to design changes would result in an excess of downtime of the UAV, loss in revenue, and ultimately loss of purpose as a research testbed\cite{EU2019_2153_fees-and-charges}.
+Costs involved in this process and the time required for analysis of the design are not well defined, but can range from months to years, depending on the complexity of the idea\footnote{\href{https://www.easa.europa.eu/en/light/topics/idea-sky-how-easa-ensures-aircraft-safe-fly}{EASA - From idea to the sky: how EASA ensures that aircraft is safe to fly} (accessed on 12.05.2026)}. This conflicts with HUGO's mission, which requires frequent structural modifications and configuration changes. Applying for a Supplemental Type Certificate or completely re-certifying HUGO for each test case due to design changes would result in an excess of downtime of the UAV, loss in revenue, and ultimately loss of purpose as a research test-bed\cite{EU2019_2153_fees-and-charges}.
 
 According to EASA classification, re-certification is required each time a change is implemented into the design of an aircraft, with a clear distinction between "minor changes" and "major changes"
 (21.A.91)\cite{EASAInitialAirworthiness2025}. A "minor change" is classified as any type of modification that does not show any appreciable effect on weight, structural strength, reliability and other specifications. A change that is not a "minor change" is considered as a "major change". This distinction determines the steps that need to be taken in order to certify modifications to the design of an aircraft.
@@ -119,7 +97,7 @@ The process of applying for a DOA involves the
 \subsection{The Importance of DOA for HUGOs Mission}
 In case of HUGO, the expected structural changes in the wing and tail planforms between tests can be considered as "major changes" according to the EASA classification discussed previously. Typically, this would require direct supervision from EASA, significantly increasing the time and resources required to ensure that a new proposed configuration can be classified as airworthy. To facilitate this process, a DOA application can be made \footnote{\label{DOA_site}\href{https://www.easa.europa.eu/en/domains/aircraft-products/design-organisations/design-organisations-approvals}{EASA - Design Organisations Approvals} (accessed on 05.06.2026)}.
 
-A  DOA is a certification that permits the holder or organisation to perform the certification process internally, reducing the workload of EASA to documentation approval as the certification authority. In the context of HUGO, this would allow the design team to internally implement all "minor changes" without unnecessary delay and with minimal dedicated resources. Additionally "major changes" to the planforms can be classified as research procedures, excluding the need for full re-certification and minimising EASA's involvement \todo{cite the email}.
+A  DOA is a certification that permits the holder or organisation to perform the certification process internally, reducing the workload of EASA to documentation approval as the certification authority. In the context of HUGO, this would allow the design team to internally implement all "minor changes" without unnecessary delay and with minimal dedicated resources. Additionally, "major changes" to the platforms can be classified as research procedures, excluding the need for full re-certification and minimising EASA's involvement \footnote{In conversation with EASA employee}.
 
 %Under the DOA, research within certification limits can be conducted without scrutiny from EASA.  \todo{cite email} 
 

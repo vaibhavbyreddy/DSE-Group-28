@@ -8,16 +8,16 @@ According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to M
 \subsection{Lift Coefficients of Reference Aircraft}
 \label{sub:lift_reference_aircraft}
 The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project \footnote{\label{fn:DAST}\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)} and the NASA X-56A UAS \footnote{\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} are used as reference aircraft.\\
-DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. \footref{fn:DAST} To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission, and therefore considered as an appropriate reference point for the preliminary wing sizing. \\
-The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO. Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} Similarly to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be feasible and the number of aircraft performing a similar mission to HUGO is limited. Therefore, the X-56 and FLEXOP aircraft are included in the reference aircraft list.
+DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. \footref{fn:DAST} To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission. \\
+The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO. Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} \cite{Yu2022} Similarly to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be feasible and the number of aircraft performing a similar mission to HUGO is limited. Therefore, the X-56 and FLEXOP aircraft are included in the reference aircraft list.
 
-The design lift coefficient $C_{L_\text{des}}$ is estimated from the two referenced aircraft. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}. The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was taken. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is likely to be introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A aircraft and several aircraft with comparable cruise velocities in \cite{Torenbeek1982}. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. Relevant DAST and X-56A \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} parameters and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}.
+The design lift coefficient $C_{L_\text{des}}$ is estimated from the two referenced aircraft. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}. The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was taken. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is likely to be introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle should be primarily determined by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A aircraft and several aircraft with comparable cruise velocities in \cite{Torenbeek1982}. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}. Several additional wing parameters were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool}(Accessed on 12.5.2026)} and \cite{Torenbeek1982}.
 
 The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft. The X-56A takeoff and landing were performed from a paved runway, whereas the DAST drone was launched from a carrier aircraft and caught by helicopter after completing a test flight. \footref{fn:DAST} After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. The initial wing planform is likely to be revisited at a later design iteration and serves as an initial design point.
 
 \begin{table}[H]
     \centering
-    \caption{Reference aircraft and HUGO initial parameters \cite{perry1982methodology} \cite{Eckstrom1994} \cite{Bauer2020}} 
+    \caption{Reference aircraft and HUGO initial parameters \cite{perry1982methodology} \cite{Eckstrom1994} \cite{Bauer2020} \cite{Yu2022}} 
     \label{tab:DAST_HUGO}
     
     \begin{tabular}{|c|c||c|c|c|c|}
@@ -26,11 +26,11 @@ The ARW-2 wing loading is several orders of magnitude larger than that of the X-
         \hline\hline
         Wing span [m] & $b$ & 5.79 & 8.53 & 7 & 3.36 \\
         \hline
-        MAC [m] & $\overline{c}$ & 0.56 & 0.61 & & 0.15 \\ 
+        MAC [m] & $\overline{c}$ & 0.56 & 0.61 & 0.35 & 0.15 \\ 
         \hline
         Aspect ratio [$-$] & $AR$ & 10.3 & 14 & 20 & 23 \\
         \hline
-        Taper ratio [$-$] & $\lambda$ & 0.4 & 0.46 & & 0.5\\
+        Taper ratio [$-$] & $\lambda$ & 0.4 & 0.46 & 0.5 & 0.5\\
         \hline
         Leading edge sweep [$\degree$] & $\Lambda_{LE}$ & 28.8 & 22 & 20 & 15\\
         \hline
@@ -105,56 +105,40 @@ Based on the data obtained in the previous subsections, an airfoil from the NASA
 A symmetrical supercritical airfoil is beneficial for low lift coefficient flight conditions. Only airfoils designed for $C_{l_{des}} = 0.4$ were tested, which is already significantly above the value suitable for HUGO. The symmetrical airfoil generates the desired lift coefficient with a low angle of attack. Furthermore, significant negative pitching moment is generated by non-symmetrical supercritical airfoils, like the NASA SC(2)-0412 \footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-1000000-n5}{NASA SC(2)-0412}(Accessed on 11.5.2026)}, which could result in a larger and, consequently, heavier empannage. The reason for selecting a high thickness-to-chord ratio $t/c$ is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_{dd} = 0.8$, which is beyond the conditions HUGO will operate. \cite{Harris1990}
 
 \section{Empennage preliminary design}
-The next step is a preliminary sizing of the empennage. First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:HT_params} and \autoref{tab:VT_params}.\\
+The next step is a preliminary sizing of the empennage. Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference values. Two additional reference aircraft are added. First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:tail_params}. Several tail parameters were not available directly. Therefore, drawings and projected views have been used to record tail parameters using known values, such as the wing span. \cite{} Note that HT refers to the horizontal tailplane and VT refers to the vertical tailplane.
+\todo{TTBW write-up}
 
-Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference values. Two additional reference aircraft are added. The FLEXOP aircraft is a high aspect ratio unmanned testbed for testing flutter effects 
 
 \begin{table}[H]
     \centering
-    \caption{Horizontal tail parameters of reference aircraft and HUGO \todo{cite sources} } 
-    \label{tab:HT_params}
+    \caption{Tail parameters of reference aircraft and HUGO \todo{cite sources} } 
+    \label{tab:tail_params}
     
     \begin{tabular}{|c|c||c|c|c|c|}
     \hline
     \textbf{Parameter} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW} & \textbf{HUGO} \\
     \hline
-    Tail configuration [-] & - & Conventional & V-tail & T-Tail & \\
+    Tail configuration [-] & - & Conventional & V-tail & T-Tail & TBD\\
     \hline
-    Tail span [m] & $b_h$ & & & &\\
+    HT span [m] & $b_h$ & 1.71 & 1.27 (projected) & 11.75 &\\
     \hline
-    Tail arm [m] & $l_h$ & & & &\\
+    HT arm [m] & $l_h$ & 2.66 & 2.0 & 21.09 &\\
     \hline
-    Aspect ratio [-] & $AR_h$ & & & &\\
+    HT aspect ratio [-] & $AR_h$ & 3.5 & 4.2 & 4.52 &\\
     \hline
-    Taper ratio [-] & $\lambda_h$ & & & &\\
+    HT taper ratio [-] & $\lambda_h$ & 0.4 & 0.52 & 0.35 &\\
     \hline
-    Leading edge sweep [\degree] & $\Lambda_{LE_{h}}$ & & & &\\
+    HT dihedral [\degree] & $\Gamma_h$ & N/A & 35 & N/A &\\
     \hline
-    Area $[m^2]$ & $S_h$ & & & &\\
+    HT leading edge sweep [\degree] & $\Lambda_{LE_{h}}$ & 45 & & 21.3&\\
     \hline
-    \end{tabular}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \caption{Vertical tail parameters of reference aircraft and HUGO \todo{cite sources} } 
-    \label{tab:VT_params}
-    
-    \begin{tabular}{|c|c||c|c|c|c|}
+    HT quarter chord sweep [\degree] & $\Lambda_{qc_{h}}$ & & 19.83 & &\\
     \hline
-    \textbf{Parameter} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW} & \textbf{HUGO} \\
+    HT area $[m^2]$ & $S_h$ & 0.836 & 0.39 & 30.54 & \\
     \hline
-    Tail half-span [m] & $b_v$ & & & &\\
+    VT half-span [m] & $b_v$ & 0.83 & N/A & 9.64 &\\
     \hline
-    Tail arm [m] & $l_v$ & & & &\\
-    \hline
-    Aspect ratio [-] & $AR_v$ & & & &\\
-    \hline
-    Taper ratio [-] & $\lambda_v$ & & & &\\
-    \hline
-    Leading edge sweep [\degree] & $\Lambda_{LE_{v}}$ & & & &\\
-    \hline
-    Area $[m^2]$ & $S_v$ & & & &\\
+    VT leading edge sweep [\degree] & $\Lambda_{LE_{v}}$ & 52 & N/A & 16.6 & \\
     \hline
     \end{tabular}
 \end{table}
@@ -190,7 +174,33 @@ X56-A, the high aspect ratio testbed developed by NASA in the 2010s, features a 
 The DAST ARW-2, a slightly older concept from the 1980s, featured a wing using 7075-T73 aluminium spars and ribs covered with a fibreglass honeycomb
 sandwich skin material (36 layers at inboard end, 27 at outboard, with 25-percent of the layers at $\pm$45 degree orientation) \cite{Eckstrom1986ARW2}. High stiffness was achieved by incorporating a thick aluminium plate in the centre section of the wing, and strain gauge bridges were mounted on the spars and ribs.
 
-\footnote{\href{https://www.airbus.com/en/newsroom/news/2017-02-aviations-material-evolution}{Airbus - Aviation's material evolution} (accessed on 13.05.2026)}
+The prevalence for composite usage in external structures is also present in modern commercial aircraft. Leading aircraft manufacturers, such as Boeing and Airbus, both incorporate carbon laminates into the airframes of their products as a lighter alternative to metallic alloys\footnote{\href{https://www.airbus.com/en/newsroom/news/2017-02-aviations-material-evolution}{Airbus - Aviation's material evolution} (accessed on 13.05.2026)}\footnote{\href{https://www.boeing.com/content/dam/boeing/boeingdotcom/features/innovation-quarterly/2024/IQ-2024-Q3-full.pdf}{Boeing - 787 Dreamliner Difference} (accessed on 13.05.2026)}. Additionally, Airbus A330neo nacelles are made with 60\% composites, together with a honeycomb structure for acoustics\footnote{\href{https://www.safran-group.com/products-services/airbus-a330neo-nacelles}{Airbus A330neo nacelles} (accessed on 13.05.2026)}, while Boeing 777x uses fine metallic alloys instead\footnote{\href{https://www.safran-group.com/products-services/boeing-777x-exhaust-system}{Boeing 777x exhaust system} (accessed 13.05.2026)}. Aluminium, steel, and titanium alloys are also among the most commonly used materials for typical landing gear systems \cite{typicallandinggear}.
+
+\autoref{tab:materials_airliner_breakdown} showcases the usage of aerospace materials for two exemplary commercial aircraft: Airbus A350 XWB, and B787 Drea
+
+\begin{table}[H]
+   \caption{Materials used in external structures of A350 XWB\cite{skinmaterials_1} and B787\cite{skinmaterials_2}}
+    \centering
+    \begin{tabular}{|c|p{6cm}|p{6cm}|}
+    \hline
+        \textbf{Material} & \textbf{A350 XWB} & \textbf{B787} \\
+        \hline\hline
+         Carbon laminate & Fuselage skin, wings, centre wing box, keel beam, tail cone, skin panels, frames/stringers/doublers, doors & Fuselage skin, ailerons, flaps \\\hline
+         Fibreglass & $-$ & wing skin, wing-to-fuselage joints\\\hline
+         Al alloys & Cockpit, wing leading edges, engine inlets & Wing leading edges, engine inlets\\\hline
+         Metallic alloys & Pylons (Ti) & Pylons (Al/Steel/Ti)\\\hline
+         Carbon sandwich & $-$ & Nacelles, elevators, rudders\\ \hline
+    \end{tabular}
+    \label{tab:materials_airliner_breakdown}
+\end{table}
+
+%787 Dreamliner: Carbon laminate for fuselage skin + ailerons + flaps, fibreglass for wing skin and wing joints, aluminium for leading edges + engine inlets, aluminium/steel/titanium for pylons, carbon sandwich for nacelles, elevators and rudders. \cite{skinmaterials_2}
+
+%Airbus A350 XWB: CFRP for wings, centre wing box + keel beam, tail cone, skin panels, frames/stringers/doublers, doors \cite{skinmaterials_1} aluminium/al-li for cockpit, leading edge of the wing, nacelle inlet, titanium pylons
+
+
+
+
 
 
 \subsection{Material candidates}
@@ -253,19 +263,19 @@ HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)\tablefootnote{\href{https://spotmaterial.com/
 HUGO-MAT-03 & Al alloy (7075 Al-T76) \tablefootnote{\href{https://spotmaterial.com/material/aluminium/7000-series-alznmgcu-7075-7475/}{Spot material} (accessed 11.05.2026)}          & 2.55-5.1 & 4-20\\ \hline
 HUGO-MAT-04 & Mg alloy (WE46-T6)\tablefootnote{\href{https://spotmaterial.com/material/magnesium/cast-we-alloys-we43-we54/}{Spot material} (accessed 11.05.2026)}               & 2.975-5.95 & 8.5-36 \\ \hline
 HUGO-MAT-05 & Steel alloy (18Ni (350))\tablefootnote{\href{https://spotmaterial.com/material/alloy-steel/high-speed-tool-steel-hss-m-t/}{Spot material} (accessed 11.05.2026)}    & 8-20 & 6.8 \\ \hline
-HUGO-MAT-06 & Carbon/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)}            & 25,91-32.30  & 17.5-23.2 \\ \hline
+HUGO-MAT-06 & Carbon/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)}            & 6.5-8.7  & 4.8 \\ \hline
 
-HUGO-MAT-07 & Glass/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 12.05.2026)}            & 25,91-32.30  & 17.5-23.2 \\
+HUGO-MAT-07 & Glass/epoxy composite \tablefootnote{\href{https://spotmaterial.com/material/high-modulus-glass-fibre/high-strength-s/}{Spot material} (accessed 12.05.2026)}            & 25,91-32.30  & 17.5-23.2 \\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Sustainability}
-The environmental impact of a material can not only be evaluated based on the based on the carbon footprint. Therefore it is necessary to perform a preliminary LCA-analyses of the aircraft using each chosen material. In this stage it makes sense to make a streamlined LCA where the focus will be on differences between the impact of the different materials.
+The environmental impact of a material can not only be evaluated based on the based on the carbon footprint. Therefore it is necessary to perform a preliminary LCA-analyses of the aircraft using each chosen material. In this stage it makes sense to make a streamlined LCA where the focus will be on differences between the impact of the different materials\cite{Vogtlander2012}.
 
 nd the environmental impact connected to the use of it
 
-\todo{More accurate specific costs for glass fibre. They are the same as carbon fiber, but I think it should be less}
+
 
 
 \subsection{Trade-off table}
@@ -306,11 +316,11 @@ Material cost & The cost of the raw materials of the structure of HUGO has a neg
 \\
 \hline
 
-Manufacturing cost & The manufacturing cost is directly related to manufacturing complexity. Different designs can require different manufacturing processes. These processes can have different Non-Recurring Engineering costs (NRE). Due to the low volume nature of our project (<10 per production batch), the aim of this project should be to minimize these costs. A design comprising primarily of wood, as is the case with HUGO-MAT-01, the construction would likely comprise of machined spars, ribs and stiffeners, with a steam formed or bent laminate skin, bonded to the spars using adhesives. These techniques could allow for complex curves, with relatively low NRE costs for tooling and moulds. In the case of any of the metals chosen, (HUGO-MAT-02, HUGO-MAT-03, HUGO-MAT-04, HUGO-MAT-05), the construction would likely comprise of a thin, sheet metal skin, with stiffeners, ribs and spars fastened to the skin using fasteners, welded or bonded with an adhesive. If the skin has a simple bend, it can easily be laser cut and rolled to the correct radius. However, forming the sheet metal into complex, aerodynamic shapes would require a hydraulic sheet metal press with custom forms, or a stretch forming process, also requiring custom stretch blocks, both of which have high NRE costs. The ribs, spars and stiffeners would also have to be custom ordered, which would be expensive at the production volume of HUGO. Additionally, the wings, empennage and canards may have to be produced specifically for an experiment. For these cases, lead times and the cost of custom tooling for one-off parts would be prohibitively expensive. 
+Manufacturing cost & The manufacturing cost is directly related to manufacturing complexity. Different designs can require different manufacturing processes. These processes can have different Non-Recurring Engineering costs (NRE). Due to the low volume nature of our project (<10 per production batch), the aim of this project should be to minimize these costs. A design comprising primarily of wood, as is the case with HUGO-MAT-01, the construction would likely comprise of machined spars, ribs and stiffeners, with a steam formed or bent laminate skin, bonded to the spars using adhesives. These techniques could allow for complex curves, with relatively low NRE costs for tooling and moulds. In the case of any of the metals chosen, (HUGO-MAT-02, HUGO-MAT-03, HUGO-MAT-04, HUGO-MAT-05), the construction would likely comprise of a thin, sheet metal skin, with stiffeners, ribs and spars fastened to the skin using fasteners, welded or bonded with an adhesive. If the skin has a simple bend, it can easily be laser cut and rolled to the correct radius. However, forming the sheet metal into complex, aerodynamic shapes would require a hydraulic sheet metal press with custom forms, or a stretch forming process, also requiring custom stretch blocks, both of which have high NRE costs. Incremental sheet forming and digital sheet forming techniques are beginning to gain traction, which would allow for complex shapes with no NRE costs, however this still has a low TRL and is still a niche technology. The ribs, spars and stiffeners would also have to be custom made, which would be expensive at the production volume of HUGO. Additionally, the wings, empennage and canards may have to be produced specifically for an experiment. For these cases, lead times and the cost of custom tooling for one-off parts would be prohibitively expensive. Composites require relatively inexpensive moulds which could be made of MDF or similar materials, and custom cut prepreg sheets for optimal fiber layup. This has a relatively low NRE cost. However, the layup process is laborious, time consuming and requires relatively high skill. After the layup, which could possibly involve an internal honecomb layer between the outer layers of fibre, the laminate needs to be bagged and cured in an autoclave for optimal curing, while avoiding voids and dry areas in the laminate. Autoclaves are often high demand equipment, which adds cost to the manufacturing process. 
  \\
 \hline
 
-Design Freedom  &
+Design Freedom  & For a high performance application such as the one HUGO is designed for, 
 \\
 \hline
 
@@ -564,19 +574,21 @@ HUGO-MAT-07
 
 
 \section{Sustainable Development Strategy}
-To access the environmental impact of the system, a preliminary LCA-analysis was set up using the open-source software openLCA. For this simplified analysis, three  
+To access the environmental impact of the system, a preliminary LCA-analysis was set up using the open-source software openLCA. Having a preliminary material selected
 
 \section{Production Plan}
-Selection of manufacturing technique:
+\subsection{Selection of manufacturing technique}
+
+Factors influencing the selection of the fabrication technique:
 \begin{enumerate}
     \item Size of composite part
     \item Raw materials used
     \item Labor skill and cost
-    \item Number of units
+    \item Number of units (5 or 10?)
     \item Desired performance
 \end{enumerate}
 
-Considering that composites will be used, the following manufacturing techniques are applicable:
+Considering that composites will be used for the wings, fuselage, and empennage, the following manufacturing techniques are applicable:
 \begin{enumerate}
     \item \textbf{Hand layup}: most common composite manufacturing technique. Requires minimal equipment and low cost, but skilled labor. It is an open molding process - a single-sided mold (positive or negative) is used for fabrication. It is especially suitable for the production of large shapes. It is inexpensive and requires little equipment, but depends heavily on skilled labor. First, the mold is cleaned and coated with a gel layer. Reinforcement material is then saturated with resin and applied layer by layer until the required thickness is reached. The laminate is compacted with brushes or rollers to eliminate air pockets and distribute the resin evenly. After curing, the component is removed from the mold, trimmed, and polished.
     
@@ -591,67 +603,151 @@ Considering that composites will be used, the following manufacturing techniques
     \item \textbf{Autoclave}: An autoclave is a pressure vessel used to create controlled temperature and pressure conditions, known as the curing cycle, for material processing. It is commonly used for composites as well as thermoplastics, metals, and ceramics. Although it produces high-quality parts, the process is energy-intensive and can generate considerable material waste.
 \end{enumerate}
 
-The strengths and weaknesses are synthesised in \autoref{}.
+The strengths and weaknesses as stated in \cite{Jabaar2021} are synthesised in \autoref{tab: compositesManufacturing}.
 
-\begin{table}[H]
-\centering
+
+\begin{longtable}{|p{3cm}|p{6cm}|p{6cm}|}
 \caption{Comparison of composites manufacturing techniques}
-\begin{tabular}{|p{3cm}|p{6cm}|p{6cm}|}
+\label{tab:compositesManufacturing} \\
+
 \hline
 \textbf{Technique} & \textbf{Advantages} & \textbf{Disadvantages} \\
 \hline
+\endfirsthead
+
+\hline
+\textbf{Technique} & \textbf{Advantages} & \textbf{Disadvantages} \\
+\hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
 
 Hand layup 
 & 
-
+\begin{itemize}
+    \item A single mold, optimizing cost
+    \item Suitable for producing large and complex geometries
+    \item Minimal equipment required
+\end{itemize}
 &
-
+\begin{itemize}
+    \item Requires expert labor
+    \item Smooth finish on only one side
+    \item Uneven resin distribution (trapped air bubbles)
+    \item Health risks from inhalation of fiber particles and exposure to resin vapor fumes
+    \item Lower fiber volume fraction
+\end{itemize}
 \\
-
 \hline
 
 Vacuum resin infusion
 & 
-
+\begin{itemize}
+    \item Higher fiber volume fraction (improved mechanical properties)
+    \item Minimal chemical emissions
+    \item No air bubbles
+    \item Allows for repeatable and consistent production
+    \item Visual inspection of the infusion through the bagging film
+    \item Uniform resin distribution
+\end{itemize}
 &
-
+\begin{itemize}
+    \item Slow infusion leads to long production times, unsuitable for large-scale manufacturing
+    \item Expensive consumables (peel ply, breather film, bagging film, sealant tape, etc.)
+\end{itemize}
 \\
-
 \hline
 
 RTM
 & 
-
+\begin{itemize}
+    \item Shorter production cycles
+    \item Uniform resin distribution
+    \item Enables improved precision and tighter dimensional tolerances
+    \item Smooth surface finish
+    \item Consistent final products
+\end{itemize}
 &
-
+\begin{itemize}
+    \item Expensive equipment
+    \item High pressure may disturb fiber orientation
+\end{itemize}
 \\
-
 \hline
 
 Prepreg
 & 
-
+\begin{itemize}
+    \item Uniform resin distribution and optimal resin content
+    \item Ready-to-use material
+    \item Widely used in aerospace applications
+    \item Consistent mechanical properties
+    \item Reduced exposure to liquid resin hazards
+    \item Suitable for large and complex structures
+\end{itemize}
 &
-
+\begin{itemize}
+    \item Limited shelf life (requires freezer storage)
+    \item High transportation cost
+    \item Limited variation in fiber content
+\end{itemize}
 \\
-
 \hline
 
 Compression molding
 & 
-
+\begin{itemize}
+    \item Minimal post-processing
+    \item Reduced labor cost
+    \item High-volume production capability
+    \item Fast cycle times
+    \item No restriction on part thickness
+    \item No consumables required
+\end{itemize}
 &
-
+\begin{itemize}
+    \item High equipment cost
+    \item Excess pressure may damage reinforcement structure
+    \item Complex mold fabrication
+\end{itemize}
 \\
-
 \hline
 
 Autoclave
-& 
-
 &
+\begin{itemize}
+    \item Premier method for high-quality composite parts
+    \item Excellent dimensional stability
+    \item Suitable for thick laminates
+\end{itemize}
+&
+\begin{itemize}
+    \item Very energy-intensive and costly
+    \item Long cycle times
+    \item Labor-intensive
+    \item High consumable cost
+    \item Substantial equipment investment cost 
+\end{itemize}
+\\
+\hline
 
+\end{longtable}
 
-\end{tabular}
-\end{table}
+The selection of the manufacturing technique is not primarily driven by cost or production volume, but by requirements such as structural predictability, high mechanical performance, and aerodynamic accuracy. This is motivated by the main objective of testing HAR wings, GLA, and AFS active control systems at high subsonic speeds. Based on the comparison of available methods and their respective advantages and limitations, prepreg manufacturing emerges as the most suitable option. Each of the steps for the selection of the technique was followed, and a brief justification for each is presented below.
+
+\begin{enumerate}
+    \item \textbf{Size of composite part}: The wings, fuselage, and empennage of the UAV are large, aerodynamically precise primary structures with compound curvature. Prepreg is well suited for large and complex geometries, as the ply-by-ply layup process allows full control over fibre orientation across the entire surface, which is essential for the aeroelastic tailoring of a HAR wing.
+    
+    \item \textbf{Raw materials used}: Unlike traditional wet layup processes, prepregs eliminate the need for manual resin application, ensuring consistent fibre-to-resin ratios throughout the entire composite structure, which translates to superior mechanical properties, excellent surface finish, and predictable performance in the final product. 
+    
+    \item \textbf{Labor skill and cost}: Prepreg layup requires skilled labor, but significantly less so than wet hand layup, where resin mixing and application introduce operator-dependent variability. The material arrives ready to use, with resin already uniformly distributed, reducing the skill burden on resin management while concentrating it on ply placement and orientation - a more controllable and trainable task. Additionally, it does not require expensive equipment such as RTM and is faster than vacuum resin infusion because it eliminates the infusion step.
+    
+    \item \textbf{Number of units}: With a production run of only 5–10 units, high-volume techniques such as compression molding and RTM are difficult to justify. Compression molding is attractive for cutting cycle times, but this advantage is irrelevant at the present scale. Prepreg with autoclave cure, by contrast, delivers significant process efficiencies even at low volumes: it reduces labour costs by up to 40\% through less hands-on processing time, cuts rework by 60\% due to fewer defects from the outset, and achieves 30–50\% faster cycle times by eliminating the waiting associated with resin infusion \footnote{\href{https://incomepultrusion.com/pre-preg-comprehensive-guide-on-definition-characteristics-types-and-applications/}{The Complete Engineer's Guide to Prepreg Composites: What You Need to Know}}. 
+
+    \item \textbf{ Desired performance}: This imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\si{mm}, and surface finish Ra $\leq 0.8$\si{μm} \footnotemark[\value{footnote}] — all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns. 
+\end{enumerate}
 
