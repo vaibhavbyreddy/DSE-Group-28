@@ -406,33 +406,123 @@ Sustainability  &  Sustainability is the combined analysis of the
 
 \todo{Vaibhav: Finish write up on manufacturing cost, material cost and add row for design freedom}
 
-\begin{table}[htbp]
-    \centering
-    \caption{Comprehensive Material Selection Decision Matrix (Absolute 1–5 Scale)}
-    \label{tab:final_material_matrix}
-    % \resizebox{\textwidth}{!}{ % Uncomment if the table overflows page margins
-    \begin{tabular}{llccccccc}
-        \toprule
-        & & \textbf{Struct.} & & \textbf{Material} & \textbf{Mfg.} & \textbf{Design} & & \textbf{Weighted} \\
-        \textbf{ID} & \textbf{Material Candidate} & \textbf{Props.} & \textbf{Durability} & \textbf{Cost} & \textbf{Cost} & \textbf{Freedom} & \textbf{Sustain.} & \textbf{Total} \\
-        & & ($w = 1.0$) & ($w = 0.85$) & ($w = 0.1$) & ($w = 0.5$) & ($w = 1.0$) & ($w = 0.5$) & \\
-        \midrule
-        HUGO-MAT-01 & Sitka spruce            & 1 & 1 & 5 & 5 & 1 & 5 & 8.35  \\
-        HUGO-MAT-02 & Ti alloy (Ti-6Al-4V)    & 3 & 5 & 2 & 1 & 2 & 2 & 10.95 \\
-        HUGO-MAT-03 & Al alloy (7075 Al-T76)  & 2 & 4 & 4 & 2 & 2 & 3 & 10.30 \\
-        HUGO-MAT-04 & Mg alloy (WE46-T6)      & 2 & 3 & 3 & 1 & 2 & 2 & 8.35  \\
-        HUGO-MAT-05 & Steel alloy (18Ni(350)) & 3 & 4 & 3 & 2 & 2 & 3 & 11.20 \\
-        HUGO-MAT-06 & \textbf{Carbon/epoxy composite} & \textbf{5} & \textbf{3} & \textbf{1} & \textbf{2} & \textbf{4} & \textbf{1} & \textbf{13.15} \\
-        HUGO-MAT-07 & Glass/epoxy composite   & 3 & 3 & 2 & 2 & 5 & 1 & 12.25 \\
-        \bottomrule
-    \end{tabular}
-    % }
-    \vspace{0.5em}
-    \raggedright
-    \footnotesize{\textit{Note:} Evaluation conducted on an absolute 1–5 utility scale against ideal mission targets. Total weighted scores reflect physical and operational suitability margins for the experimental UAV airframe.}
+
+\begin{table}[H]
+\centering
+\caption{Trade-Off Matrix for fuselage, wings and empennage}
+\renewcommand{\arraystretch}{1.4}
+
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|
+p{3cm}||
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}||
+>{\centering\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor[HTML]{4472C4}
+\color{white}\textbf{Material} &
+\color{white}\textbf{Structural properties} &
+\color{white}\textbf{Durability} &
+\color{white}\textbf{Manufacturing cost} &
+\color{white}\textbf{Material cost} &
+\color{white}\textbf{Design freedom} &
+\color{white}\textbf{\shortstack{Sustain-\\ability}} &
+\color{white}\textbf{Weighted Total} \\
+\hline\hline
+
+\rowcolor[HTML]{D9E2F3}
+\textbf{Weight} &
+1 &
+0.85 &
+0.5 &
+0.1 &
+1 &
+0.5 &
+\\
+\hline
+
+HUGO-MAT-01
+& 1 \cellcolor[HTML]{F8696B}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 8.35 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUGO-MAT-02
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 1 \cellcolor[HTML]{F8696B}
+& 2 \cellcolor[HTML]{F4B183}
+& 2 \cellcolor[HTML]{F4B183}
+& 2 \cellcolor[HTML]{F4B183}
+& 10.95 \\
+\hline
+
+HUGO-MAT-03
+& 2 \cellcolor[HTML]{F4B183}
+& 4 \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{F4B183}
+& 4 \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 10.30 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUGO-MAT-04
+& 2 \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 1 \cellcolor[HTML]{F8696B}
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 2 \cellcolor[HTML]{F4B183}
+& 8.35 \\
+\hline
+
+HUGO-MAT-05
+& 3 \cellcolor[HTML]{F4E285}
+& 4 \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 11.20 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+\textbf{HUGO-MAT-06}
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 1 \cellcolor[HTML]{F8696B}
+& 4 \cellcolor[HTML]{A9D18E}
+& 1 \cellcolor[HTML]{F8696B}
+& \textbf{13.15} \\
+\hline
+
+HUGO-MAT-07
+& 3 \cellcolor[HTML]{F4E285}
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 2 \cellcolor[HTML]{F4B183}
+& 5 \cellcolor[HTML]{63BE7B}
+& 1 \cellcolor[HTML]{F8696B}
+& 12.25 \\
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\label{tab:structures_trade-off_matrix_material_selection}
 \end{table}
-
-
 
 
 \begin{table}[H]
