@@ -1,8 +1,8 @@
 \chapter{Engineering Design and Analysis}
 \label{ch:engineering_design}
 
-\section{Airfoil and wing preliminary design}
-According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to Mach 0.75\cite{BaselineReport}. This is the flight condition at which tests are expected to be conducted during operations. In this Section, an estimation of the lift characteristics of HUGO is performed, along with a preliminary airfoil selection suitable for the considered operations.
+\section{Airfoil and wing analogous estimation}
+According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to Mach 0.75\cite{BaselineReport}. This is the flight condition at which tests are expected to be conducted during operations. In this section, an estimation of the lift characteristics of HUGO is performed based on statistics from suitable reference aircraft, along with a preliminary airfoil selection suitable for the considered operations.
 
 
 \subsection{Reference aircraft parameters}
@@ -10,7 +10,7 @@ According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to M
 The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project \footnote{\label{fn:DAST}\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)}, NASA X-56A UAS \footnote{\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} and the FLEXOP UAS \cite{Yu2022} are used as reference aircraft.\\
 DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. \footref{fn:DAST} To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission. \\
 The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO.\\
-Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} \cite{Yu2022} Analogous to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be feasible and the number of aircraft performing a similar mission to HUGO is limited. Therefore, the X-56 and FLEXOP aircraft are included in the reference aircraft list.
+Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} \cite{Yu2022} Analogous to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be within realistic design bounds for HUGO. Therefore, the X-56 and FLEXOP aircraft are also included in the reference aircraft list.
 
 The design lift coefficient $C_{L_\text{des}}$ is determined based on an initial wing loading $W/S$ estimate and requirements from \cite{BaselineReport} at the sepcified cruise flight condition. Parameters of reference aircraft, including the wing loading itself, landing speed and cruise conditions are used in the estimate.\\
 HUGO has to perform high subsonic flight and take-off or land on a paved runway. The initial estimate of $W/S = 1000\  N \cdot m^{-2}$ allows for sufficiently low stall speed while remaining a reasonable design value by lying between the considered reference aircraft. The take-off and landing of the X-56A and FLEXOP were performed from on paved runway. The DAST drone was launched from a carrier aircraft and captured by helicopter after completing a test flight. This allowed for a smaller wing due to the absence of ground takeoff and landing. \footref{fn:DAST} The high wing loading achieved in the DAST UAS sets an upper bound for the HUGO wing design. A significantly smaller wing is needed for HUGO compared to the X-56A or FLEXOP aircraft due to the high-speed cruise condition, yet the wing still must allow for take-off and landing at a reasonable speed. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}.  The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was used. The wing area $S$ can then be obtained from the wing loading. From these parameters, the wing span $b$ and mean chord length $MAC$ can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidlines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle is determined primarily by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A and FLEXOP aircraft. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accesed on 8.5.2026)} and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}. Several additional wing parameters were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool}(Accessed on 12.5.2026)} and \cite{Torenbeek1982}.
@@ -105,6 +105,25 @@ A supercritical airfoil is capable to operate at transonic conditions with only 
 \subsection{Airfoil selection}
 Based on the data obtained in the previous subsections, an airfoil from the NASA database was selected. The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_\text{des}} = 0.074$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} It was decided that the the NASA SC(2)-0012 will be used as the initial wing profile. The selected airfoil is symmetrical and designed for supercritical conditions.\\
 A symmetrical supercritical airfoil is beneficial for low lift coefficient flight conditions. Only airfoils designed for $C_{l_{des}} = 0.4$ were tested, which is already significantly above the value suitable for HUGO. The symmetrical airfoil generates the desired lift coefficient with a low angle of attack. Furthermore, significant negative pitching moment is generated by non-symmetrical supercritical airfoils, like the NASA SC(2)-0412 \footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-1000000-n5}{NASA SC(2)-0412}(Accessed on 11.5.2026)}, which could result in a larger and, consequently, heavier empannage. The reason for selecting a high thickness-to-chord ratio $t/c$ is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_{dd} = 0.8$, which is beyond the conditions HUGO will operate. \cite{Harris1990}
+
+\section{Aerodynamic modelling}
+In order to perform preliminary sizing, aerodynamic analyses of the aircraft were performed by means of the lifting line theory (LLT) with modifications for nonzero sweep provided by the AeroSandbox Python package \footnote{\href{https://aerosandbox.readthedocs.io/en/master/autoapi/aerosandbox/aerodynamics/aero_3D/lifting_line/index.html}{AeroSandbox} (accessed 18.05.2026)}. The goals of these analyses were to obtain the lift and induced drag of the aircraft, required for the later calculation of the $\frac{L}{D}$ ratio, the lift curve slopes of all the lifting surfaces (both individually and combined with other lifting surfaces), the lift distribution along the span, the calculation of the aerodynamic centre position, and the determination of the angle of attack required for trimming. This section first outlines the generation of the model, followed by the description of the performed analyses and their verification.
+
+
+To begin with, the model is created parametrically, that is, as a function of the input parameters. These include the planform parameters of lifting surfaces, the chosen set of airfoils, and relative positions and orientations between the lifting surfaces. A lifting surface is generated by specifying the properties of an arbitrary number of sections along its span. Each section is, in turn, specified by the position of its leading edge, chord length, the airfoil, and twist. Specifically, the airfoil used in the aforementioned analyses was the same for all sections of all lifting surfaces, namely NASA SC(2)-0012. The sections in this model are spaced uniformly to simplify the extraction of the lift distribution results. Once all lifting surfaces are specified, the aircraft model is generated by combining the surfaces in a single airplane object. This object can include a single lifting surface (the main wing in isolation, for example), as well as all the lifting surfaces combined (main wing, canards, empennage).
+
+The airplane model is subsequently used as an input to the LLT-based analyses. In addition, atmospheric properties (air temperature and density) and flight conditions (angle of attack, sideslip angle, airspeed and rotational rates) are required. Since the analysis results do not include the lift distribution, the position of vortex centres and vortex strengths is extracted from the source code. Then, the Kutta–Joukowski theorem ($L=\rho V\Gamma$) is used to compute lift per unit span at each section. In order to find the lift curve slope and the aerodynamic centre position of a lifting surface, the analysis is run for a range of angles of attack (two being sufficient but more of them actually used to rule out inconsistencies). The lift curve slope is then simply the slope of the obtained $C_L-\alpha$ pairs, whereas the aerodynamic centre is the point about which the aerodynamic moment is constant (\autoref{eq:aerodynamic_centre}).
+
+\begin{equation}
+    x_{ac} = x_{ref}-c_{ref}\cdot \frac{dC_m}{d_{\alpha}}
+    \label{eq:aerodynamic_centre}
+\end{equation}
+
+
+A more difficult analysis problem is to run the trim analysis, since it requires a specific angle of attack. While the definition of the trim condition entails both vertical force and pitch moment equilibria, this analysis only considers vertical force equilibrium due to its preliminary nature (no elevators, with empennage assumed fixed for simplicity). Therefore, in order to find the required angle of attack, two approaches have been employed. First, the angle of attack is computed by checking the
+
+
+\textcolor{red}{Marek's inviscid modifications of the AeroSandbox source code}
 
 \section{Empennage preliminary design}
 The next step is a preliminary sizing of the empennage. Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference aircraft values. Instead, the Boeing truss-braced wing aircraft concept is used. \cite{XiongBoeing} First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:tail_params}. Several tail parameters were not available directly. Therefore, drawings and projected views have been used to record tail parameters using known values, such as the wing span. Note that HT refers to the horizontal tailplane and VT refers to the vertical tailplane.
@@ -390,7 +409,7 @@ Material cost & The cost of the raw materials of the structure of HUGO has a neg
 \\
 \hline
 
-Manufacturing cost & The manufacturing cost is directly related to manufacturing complexity. Different designs can require different manufacturing processes. These processes can have different Non-Recurring Engineering costs (NRE). Due to the low volume nature of our project (<10 per production batch), the aim of this project should be to minimize these costs. A design comprising primarily of wood, as is the case with HUGO-MAT-01, the construction would likely comprise of machined spars, ribs and stiffeners, with a steam formed or bent laminate skin, bonded to the spars using adhesives. These techniques could allow for complex curves, with relatively low NRE costs for tooling and moulds. In the case of any of the metals chosen, (HUGO-MAT-02, HUGO-MAT-03, HUGO-MAT-04, HUGO-MAT-05), the construction would likely comprise of a thin, sheet metal skin, with stiffeners, ribs and spars fastened to the skin using fasteners, welded or bonded with an adhesive. If the skin has a simple bend, it can easily be laser cut and rolled to the correct radius. However, forming the sheet metal into complex, aerodynamic shapes would require a hydraulic sheet metal press with custom forms, or a stretch forming process, also requiring custom stretch blocks, both of which have high NRE costs. Incremental sheet forming and digital sheet forming techniques are beginning to gain traction, which would allow for complex shapes with no NRE costs, however this still has a low TRL and is still a niche technology. The ribs, spars and stiffeners would also have to be custom made, which would be expensive at the production volume of HUGO. Additionally, the wings, empennage and canards may have to be produced specifically for an experiment. For these cases, lead times and the cost of custom tooling for one-off parts would be prohibitively expensive. Composites require relatively inexpensive moulds which could be made of MDF or similar materials, and custom cut prepreg sheets for optimal fiber layup. This has a relatively low NRE cost. However, the layup process is laborious, time consuming and requires relatively high skill. After the layup, which could possibly involve an internal honecomb layer between the outer layers of fibre, the laminate needs to be bagged and cured in an autoclave for optimal curing, while avoiding voids and dry areas in the laminate. Autoclaves are often high demand equipment, which adds cost to the manufacturing process. 
+Manufacturing cost & The manufacturing cost is directly related to manufacturing complexity. Different designs can require different manufacturing processes. These processes can have different Non-Recurring Engineering costs (NRE). Due to the low volume nature of our project (<10 per production batch), the aim of this project should be to minimize these costs. A design comprising primarily of wood, as is the case with HUGO-MAT-01, the construction would likely comprise of machined spars, ribs and stiffeners, with a steam formed or bent laminate skin, bonded to the spars using adhesives. These techniques could allow for complex curves, with relatively low NRE costs for tooling and moulds. In the case of any of the metals chosen, (HUGO-MAT-02, HUGO-MAT-03, HUGO-MAT-04, HUGO-MAT-05), the construction would likely comprise of a thin, sheet metal skin, with stiffeners, ribs and spars fastened to the skin using fasteners, welded or bonded with an adhesive. If the skin has a simple bend, it can easily be laser cut and rolled to the correct radius. However, forming the sheet metal into complex, aerodynamic shapes would require a hydraulic sheet metal press with custom forms, or a stretch forming process, also requiring custom stretch blocks, both of which have high NRE costs. Incremental sheet forming and digital sheet forming techniques are beginning to gain traction, which would allow for complex shapes with no NRE costs, however this still has a low TRL and is still a niche technology. The ribs, spars and stiffeners would also have to be custom made, which would be expensive at the production volume of HUGO. Additionally, the wings, empennage and canards may have to be produced specifically for an experiment. For these cases, lead times and the cost of custom tooling for one-off parts would be prohibitively expensive. Composites require relatively inexpensive moulds which could be made of MDF or similar materials, and custom cut prepreg sheets for optimal fiber layup. This has a relatively low NRE cost. However, the layup process is laborious, time consuming and requires relatively high skill. After the layup, which could possibly involve an internal honecomb layer between the outer layers of fibre, the laminate needs to be bagged and cured in an autoclave for optimal curing, while avoiding voids and dry areas in the laminate. Autoclaves are often high demand equipment, which adds cost to the manufacturing process. However the economics change for parts such as the engine pylons, landing gear struts and other parts. These parts can simply be machined out of a block of metal. Although some weight can be saved by making these parts out of a composite material, each part would require a unique mould, with a different lay up technique and more autoclave time. 
  \\
 \hline
 
@@ -404,7 +423,6 @@ Sustainability  &  Sustainability is the combined analysis of the
 
 \end{longtable}
 
-\todo{Vaibhav: Finish write up on manufacturing cost, material cost and add row for design freedom}
 
 
 \begin{table}[H]
@@ -527,116 +545,114 @@ HUGO-MAT-07
 
 \begin{table}[H]
 \centering
-\caption{Trade-Off Matrix for landing gear}
+\caption{Trade-Off Matrix for Landing gear and Pylons}
 \renewcommand{\arraystretch}{1.4}
 
 \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{|
 p{3cm}||
->{\centering\arraybackslash}p{5cm}|
->{\centering\arraybackslash}p{4cm}|
->{\centering\arraybackslash}p{2cm}|
->{\centering\arraybackslash}p{2cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
 >{\centering\arraybackslash}p{3cm}|
 >{\centering\arraybackslash}p{3cm}||
->{\centering\arraybackslash}p{2.2cm}|
+>{\centering\arraybackslash}p{3cm}|
 }
 \hline
 \rowcolor[HTML]{4472C4}
 \color{white}\textbf{Material} &
 \color{white}\textbf{Structural properties} &
 \color{white}\textbf{Durability} &
-\color{white}\textbf{ Manufacturing cost} &
+\color{white}\textbf{Manufacturing cost} &
 \color{white}\textbf{Material cost} &
 \color{white}\textbf{Design freedom} &
 \color{white}\textbf{\shortstack{Sustain-\\ability}} &
-\color{white}\textbf{Total} \\
+\color{white}\textbf{Weighted Total} \\
 \hline\hline
 
 \rowcolor[HTML]{D9E2F3}
 \textbf{Weight} &
- &
- &
-&
- &
-&
-&
-1 \\
+1 &
+1 &
+0.5 &
+0.1 &
+1 &
+0.5 &
+\\
 \hline
 
 HUGO-MAT-01
-& \cellcolor[HTML]{F8696B}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-&  \\
+& 1 \cellcolor[HTML]{F8696B}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 8.5 \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-02
-& \cellcolor[HTML]{63BE7B}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{63BE7B}
-& \cellcolor[HTML]{F4B183}
-&  \\
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 5 \cellcolor[HTML]{63BE7B}
+& 2 \cellcolor[HTML]{F4B183}
+& 15.7 \\
 \hline
 
 HUGO-MAT-03
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4B183}
-&  \\
+& 2 \cellcolor[HTML]{F4B183}
+& 4 \cellcolor[HTML]{A9D18E}
+& 4 \cellcolor[HTML]{A9D18E}
+& 4 \cellcolor[HTML]{A9D18E}
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 14.9 \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-04
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-&  \\
+& 2 \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 3 \cellcolor[HTML]{F4E285}
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 2 \cellcolor[HTML]{F4B183}
+& 12.8 \\
 \hline
 
-HUGO-MAT-05
-& \cellcolor[HTML]{F8696B}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-&  \\
+\textbf{HUGO-MAT-05}
+& 3 \cellcolor[HTML]{F4E285}
+& 4 \cellcolor[HTML]{A9D18E}
+& 4 \cellcolor[HTML]{A9D18E}
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& \textbf{15.8} \\
 \hline
+
 \rowcolor[HTML]{D9E2F3}
 HUGO-MAT-06
-& \cellcolor[HTML]{F8696B}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-
-& \\
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 1 \cellcolor[HTML]{F8696B}
+& 1 \cellcolor[HTML]{F8696B}
+& 2 \cellcolor[HTML]{F4B183}
+& 1 \cellcolor[HTML]{F8696B}
+& 11.1 \\
 \hline
 
-\rowcolor[HTML]{D9E2F3}
 HUGO-MAT-07
-& \cellcolor[HTML]{F8696B}
-& \cellcolor[HTML]{A9D18E}
-& \cellcolor[HTML]{F4E285}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-& \cellcolor[HTML]{F4B183}
-
-& \\
+& 3 \cellcolor[HTML]{F4E285}
+& 3 \cellcolor[HTML]{F4E285}
+& 1 \cellcolor[HTML]{F8696B}
+& 2 \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 1 \cellcolor[HTML]{F8696B}
+& 10.2 \\
 \hline
 
 \end{tabular}
@@ -649,3 +665,4 @@ HUGO-MAT-07
 \section{Sustainable Development Strategy}
 To access the environmental impact of the system, a preliminary LCA-analysis was set up using the open-source software openLCA. Having a preliminary material selected
 
+\section{Sensitivity study}
