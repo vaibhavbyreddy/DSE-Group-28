@@ -93,26 +93,24 @@ Below, the remaining pairwise comparisons are justified:
 \section{Material Selection Trade-Off}
 This section details the reasoning and details behind the material selection trade off analysis. \autoref{Material_Tradeoff_Structural_Properties} details the results of the weighted scoring of the structural properties of the considered materials.
 
-\begin{table}[htbp]
-    \centering
-    \caption{Detailed Material Selection Decision Matrix (Normalized Values and Weights)}
-    \label{tab:Material_Tradeoff_Structural_Properties}
-    \begin{tabular}{lcccc}
-        \toprule
-        & \textbf{Norm. Modulus} & \textbf{Norm. Strength} & \textbf{Norm. Toughness} & \textbf{Weighted} \\
-        \textbf{Material Candidate} & ($w = 0.75$) & ($w = 1.00$) & ($w = 0.25$) & \textbf{Score} \\
-        \midrule
-        Carbon/epoxy (quasi-directional) & 1.000 & 1.000 & 0.723 & \textbf{0.965} \\
-        Glass/epoxy (quasi-directional)  & 0.976 & 0.853 & 1.000 & 0.918 \\
-        Steel alloy (18Ni (350))         & 0.837 & 0.657 & 0.158 & 0.662 \\
-        Ti alloy (Ti-6Al-4V)             & 0.799 & 0.482 & 0.700 & 0.628 \\
-        Al alloy (7075 Al-T76)           & 0.881 & 0.387 & 0.345 & 0.567 \\
-        Mg alloy (WE46-T6)               & 0.901 & 0.260 & 0.381 & 0.516 \\
-        Sitka spruce                     & 0.765 & 0.307 & 0.323 & 0.481 \\
-        \bottomrule
-    \end{tabular}
-    \vspace{0.5em}
-    \raggedright
-    \footnotesize{\textit{Note:} Final weighted scores are normalized by the sum of the weights ($\sum w = 2.00$) to maintain a standard dimensionless scale from 0.0 to 1.0.}
+\begin{table}[H]
+\centering
+\caption{Detailed Material Selection Decision Matrix (Normalized Values and Weights)}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{3.8cm}|c|c|c|c|c|}
+\hline
+\textbf{Material} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Weighted} \\
+\textbf{Candidate} & \textbf{Density} & \textbf{Specific} & \textbf{Specific} & \textbf{Specific} & \textbf{Score} \\
+& & \textbf{Modulus} & \textbf{Strength} & \textbf{Toughness} & \\
+ & ($w = 1.00$) & ($w = 0.75$) & ($w = 1.00$) & ($w = 0.25$) & \\
+\hline\hline
+Carbon/epoxy \newline (quasi-directional) & 0.235 & 1.000 & 1.000 & 0.723 & \textbf{2.166} \\\hline
+Glass/epoxy \newline (quasi-directional)  & 0.200 & 0.976 & 0.853 & 1.000 & 2.035 \\\hline
+Sitka spruce                 & 1.000 & 0.765 & 0.307 & 0.323 & 1.961 \\\hline
+Steel alloy \newline (18Ni (350))     & 0.049 & 0.837 & 0.657 & 0.158 & 1.373 \\\hline
+Ti alloy \newline (Ti-6Al-4V)         & 0.087 & 0.799 & 0.482 & 0.700 & 1.344 \\\hline
+Al alloy \newline (7075 Al-T76)       & 0.148 & 0.881 & 0.387 & 0.345 & 1.282 \\\hline
+Mg alloy \newline (WE46-T6)           & 0.235 & 0.901 & 0.260 & 0.381 & 1.266 \\
+\hline
+\end{tabular}
+\label{tab:Material_Tradeoff_Structural_Properties}
 \end{table}
-\todo[inline]{Fix table formatting}

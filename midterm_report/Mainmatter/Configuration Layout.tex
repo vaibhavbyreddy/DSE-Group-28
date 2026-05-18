@@ -14,6 +14,7 @@ This Chapter outlines the details of external and internal configuration of HUGO
 \label{sec:internal_configuration}
 
 \subsection{Electronic System}
+\label{subsec:on-board_electronic_units}
 Along the payload, the fuselage will house the electronic system, including the sensors and supply the payload. The engine requires an outside source of power for the start-up procedure, as such, the battery will provide the additional power needed. The margin left from the battery will power the payload, and other secondary subsystems.
 
 There are 5 iterations of the 
@@ -33,7 +34,6 @@ A list of components included in the electronic system of HUGO can be seen in \a
          Rotary actuators (x10) & 19 & 28.4 x 38.0 x 13.3\\\hline
          Linear actuators (control surfaces and landing gear) x 5 &200& 22.6 x 30.4 x 150 \\\hline
          Flight Controller/Autopilot & 180 & 45.0 x 68.0 x 74.5\\\hline
-         Engine &3800&147 (diameter) x 373 (lengh)\\\hline
          Electric switch &-&-\\\hline
          Lights (x4)& - & - \\\hline
           
@@ -47,21 +47,21 @@ The electronic system is complemented by a multitude of sensors present inside a
 \begin{longtable}{|p{0.28\linewidth}| p{0.28\linewidth}| p{0.36\linewidth}|}
 \caption{Candidate sensors for aeroelastic response measurements}
 \label{wing_structural_sensors} \\
-\toprule
+\hline
 \textbf{Sensor} & \textbf{Measures} & \textbf{Use on wing} \\
-\midrule\hline
+\hline\hline
 \endfirsthead
 
-\toprule
+\hline
 \textbf{Sensor} & \textbf{Measures} & \textbf{Use on wing} \\
-\midrule\hline
+\hline\hline
 \endhead
 
-\midrule
+\hline
 \multicolumn{3}{r}{\textit{Continued on next page}} \\
 \endfoot
 
-\bottomrule 
+\hline 
 \endlastfoot
 
 Foil strain gauges 
@@ -131,20 +131,78 @@ Actuator current sensors
 & Provide an indirect indication of hinge moment, actuator loading, binding, or overload during manoeuvres. \\
 \hline
 Lidar Sensor
-& Displacement of Structure\\
+& Displacement of Structure
 & Provides 3D measurements and view of the wing in real time via a laser pointing system\\
 
 \end{longtable}
 
 
+%\subsection{On-board Electronic Units}
+
+\subsection{Fuel and propulsion system}
+\label{subsec:fuel_systems}
+Systems related to propulsion, including the turbojet engine, fuel tanks, fuel management and distribution systems are included in this category. The propulsion system is integrated into the fuselage group to allow for wing versatility, provide clean airflow over the wing and prevent aerodynamic interference of the engine with the wings. This has been determined for all of the configurations in \autoref{ch:trade-off}.\\
+
+Based on the preliminary aircraft sizing and requirements, the initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. \todo{good to refer to the actual section where this is said} Furthermore, small jet engines currently on the market can be integrated easily due to their known characteristics and availability of the supporting subsystems they require to operate. Therefore, another turbojet engine candidates were considered. The industry-proven PBS TJ40-G2 engine is considered as a serious candidate for a HUGO engine and is used as a reference component in \autoref{}.\\
+
+The turbojet engine needs several additional components to become operational. An ECU (Electronic Control Unit) is neccessary to correctly set the correct fuel mixture based on the thrust set and the fuel used. This unit needs fit inside the fuselage. The same holds for the fuel pump, fuel filter, shut-off valve and fuel distribution hoses. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem relationships is shown in \autoref{fig:prop_diagram}.
+
+\begin{table}[H]
+    \centering
+    \caption{Electronic system components and approximate weight and volumes}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Component} & \textbf{Weight [g]} & \textbf{Dimensions [mm]}  \\
+        \hline\hline
+        Engine PBS TJ40-G2 & 3800 & 147 (diameter) x 373 (length)\\
+        \hline
+        ECU & & \\
+        \hline
+        Fuel tank & & \\
+        \hline
+        Fuel pump & & \\
+        \hline
+        Fuel filter & & \\
+        \hline
+        
+            
+    \end{tabular}
+    \label{tab:prop_system}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/HUGO_propulsion_diagram_260518.png}
+    \caption{HUGO propulsion system diagram}
+    \label{fig:prop_diagram}
+\end{figure}
+\subsection{Payload systems}
+\label{subsec:payload_systems}
+\textbf{Internal Cargo}
+Additionally, HUGO will have the capacity to allow for extra payload to be mounted onboard, such as sensors and equipment needed for research. As stated by the mission requirements, the payload must have a cargo volume of at least 5 litres and support an additional weight of 5 kg. The location of the cargo bay will be in front of the wings, close to the leading edge as to have a minimum impact on the dynamic stability characteristics of the aircraft.
+This choice was made because the engine and fuel of the UAV will be placed behind the trailing edge of the plane, affecting the longitudinal trim balance of the aircraft.  
+
+A more detailed analysis of the internal payload mounting and contents will be created in the following step of the design.
+
+\textbf{Landing Gear Volume}
+The landing gear has been discussed in \autoref{sec:Landing_gear_config}, where its dimensions have been calculated. Based on the analysis, the landing gear will have the dimensions in \autoref{}, and will occupy a volume of \todo{write the volume needed}
+
+\begin{table}[H]
+    \centering
+    \hline
+    \begin{tabular}{|c|c|}
+    \hline
+        \textbf{Component} & \textbf{Dimension [m]}  \\
+        \hline \hline
+         Nose landing gear length & - \\\hline 
+         Nose landing gear width & -\\\hline
+         Fuselage landing gear length & - \\\hline 
+         Fuselage landing gear width & -\\\hline
+         
+    \end{tabular}
+    \caption{Dimensions of Loading gear}
+    \label{tab:landing gear dimensions}
+\end{table}
 
 \subsection{Internal Component Layout}
 \label{subsec:internal_component_layout}
-
-
-\subsection{On-board Electronic Units}
-
-\subsection{Fuel-system}
-
-
-\label{subsec:on-board_electronic_units}
