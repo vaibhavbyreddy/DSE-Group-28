@@ -96,20 +96,20 @@ This section details the reasoning and details behind the material selection tra
 \begin{table}[H]
 \centering
 \caption{Detailed Material Selection Decision Matrix (Normalized Values and Weights)}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{3.8cm}|c|c|c|c|c|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.8cm}|c|c|c|c|c|c|c|}
 \hline
-\textbf{Material} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Weighted} \\
-\textbf{Candidate} & \textbf{Density} & \textbf{Specific} & \textbf{Specific} & \textbf{Specific} & \textbf{Score} \\
-& & \textbf{Modulus} & \textbf{Strength} & \textbf{Toughness} & \\
- & ($w = 1.00$) & ($w = 0.75$) & ($w = 1.00$) & ($w = 0.25$) & \\
+\textbf{Material} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Weighted} \\
+\textbf{Candidate} & \textbf{Specific} & \textbf{Column} & \textbf{Plate} & \textbf{Specific} & \textbf{Specific} & \textbf{Score}\\
+ & \textbf{Modulus} & \textbf{Buckling} & \textbf{Buckling} & \textbf{Strength} & \textbf{Toughness} & \\
+ & ($w = 1.0$) & ($w = 1.0$) & ($w = 1.0$) & ($w = 1.0$) & ($w = 0.5$) & \\
 \hline\hline
-Carbon/epoxy \newline (quasi-directional) & 0.235 & 1.000 & 1.000 & 0.723 & \textbf{2.166} \\\hline
-Glass/epoxy \newline (quasi-directional)  & 0.200 & 0.976 & 0.853 & 1.000 & 2.035 \\\hline
-Sitka spruce                 & 1.000 & 0.765 & 0.307 & 0.323 & 1.961 \\\hline
-Steel alloy \newline (18Ni (350))     & 0.049 & 0.837 & 0.657 & 0.158 & 1.373 \\\hline
-Ti alloy \newline (Ti-6Al-4V)         & 0.087 & 0.799 & 0.482 & 0.700 & 1.344 \\\hline
-Al alloy \newline (7075 Al-T76)       & 0.148 & 0.881 & 0.387 & 0.345 & 1.282 \\\hline
-Mg alloy \newline (WE46-T6)           & 0.235 & 0.901 & 0.260 & 0.381 & 1.266 \\
+Sitka spruce                 & 0.77 & 1.00 & 1.00 & 0.31 & 0.32 & 3.23  \\\hline
+Ti alloy \newline (Ti-6Al-4V)         & 0.80 & 0.30 & 0.20 & 0.48 & 0.70 & 2.13  \\\hline
+Al alloy \newline (7075 Al-T76)       & 0.88 & 0.41 & 0.29 & 0.39 & 0.35 & 2.15  \\\hline
+Mg alloy \newline (WE46-T6)           & 0.90 & 0.50 & 0.38 & 0.26 & 0.38 & 2.24  \\\hline
+Steel alloy \newline (18Ni (350))     & 0.84 & 0.23 & 0.14 & 0.66 & 0.16 & 1.94  \\\hline
+\textbf{Carbon/epoxy} \newline \textbf{(quasi-directional)} & \textbf{1.00} & \textbf{0.55} & \textbf{0.42} & \textbf{1.00} & \textbf{0.72} & \textbf{3.33} \\\hline
+Glass/epoxy \newline (quasi-directional)  & 0.98 & 0.51 & 0.37 & 0.85 & 1.00 & 3.21  \\
 \hline
 \end{tabular}
 \label{tab:Material_Tradeoff_Structural_Properties}

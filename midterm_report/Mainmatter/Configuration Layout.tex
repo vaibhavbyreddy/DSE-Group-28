@@ -47,6 +47,7 @@ The electronic system is complemented by a multitude of sensors present inside a
 \begin{longtable}{|p{0.28\linewidth}| p{0.28\linewidth}| p{0.36\linewidth}|}
 \caption{Candidate sensors for aeroelastic response measurements}
 \label{wing_structural_sensors} \\
+
 \hline
 \textbf{Sensor} & \textbf{Measures} & \textbf{Use on wing} \\
 \hline\hline
@@ -61,7 +62,7 @@ The electronic system is complemented by a multitude of sensors present inside a
 \multicolumn{3}{r}{\textit{Continued on next page}} \\
 \endfoot
 
-\hline 
+\hline
 \endlastfoot
 
 Foil strain gauges 
@@ -132,7 +133,8 @@ Actuator current sensors
 \hline
 Lidar Sensor
 & Displacement of Structure
-& Provides 3D measurements and view of the wing in real time via a laser pointing system\\
+& Provides 3D measurements and view of the wing in real time via a laser pointing system \\
+\hline
 
 \end{longtable}
 
@@ -145,8 +147,10 @@ Systems related to propulsion, including the turbojet engine, fuel tanks, fuel m
 
 Based on the preliminary aircraft sizing and requirements, the initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. \todo{good to refer to the actual section where this is said} Furthermore, small jet engines currently on the market can be integrated easily due to their known characteristics and availability of the supporting subsystems they require to operate. Therefore, another turbojet engine candidates were considered. The industry-proven PBS TJ40-G2 engine is considered as a serious candidate for a HUGO engine and is used as a reference component in \autoref{}.\\
 
-The turbojet engine needs several additional components to become operational. An ECU (Electronic Control Unit) is neccessary to correctly set the correct fuel mixture based on the thrust set and the fuel used. This unit needs fit inside the fuselage. The same holds for the fuel pump, fuel filter, shut-off valve and fuel distribution hoses. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem relationships is shown in \autoref{fig:prop_diagram}.
+The turbojet engine needs several additional components to become operational. An ECU (Electronic Control Unit) is neccessary to correctly set the correct fuel mixture based on the thrust set and the fuel used. This unit is included inside the engine casing for the considered TJ40-G2 engine. Next, the fuel system consists of the fuel pump, fuel filter, shut-off valve and fuel distribution hoses. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem relationships is shown in \autoref{fig:prop_diagram}. Since no available data about the TJ40-G2 fuel pump, fuel filter and power electronics board could be found, accessories from another manufacturer, JetCat, are used for reference. A slight margin has been added to the dimensions and weights of these components to generate a conservative estimate. The weight and dimensions of the power distribution system have been estimated based on a universal BMS \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
+System}(Accessed on 18.5.2026)}
 
+%\begin{comment}
 \begin{table}[H]
     \centering
     \caption{Electronic system components and approximate weight and volumes}
@@ -156,19 +160,20 @@ The turbojet engine needs several additional components to become operational. A
         \hline\hline
         Engine PBS TJ40-G2 & 3800 & 147 (diameter) x 373 (length)\\
         \hline
-        ECU & & \\
+        ECU & N/A & N/A (integrated in engine) \\
         \hline
         Fuel tank & & \\
         \hline
-        Fuel pump & & \\
+        Fuel pump \tablefootnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Bus-Smokerpumpe}{JetCat fuel pump}(Accessed on 18.5.2026)} & 150 & 35 (diameter) x 80 (length)\\
         \hline
-        Fuel filter & & \\
+        Fuel filter \tablefootnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Schlauchverbindung/Kraftstoff-Filter\%20mit\%20herausnehmbaren\%20Filtereinsatz}{JetCat fuel filter}(Accessed on 18.5.2026)}& 20 & 25 (diameter) x 45 (length) \\
         \hline
-        
-            
+        Power distribution system \tablefootnote{\href{d}{d}(Accessed on 18.5.2026)} & 250 & 180 x 100 x 40 \\
+        \hline
     \end{tabular}
     \label{tab:prop_system}
 \end{table}
+%\end{comment}
 
 \begin{figure}[H]
     \centering
@@ -206,3 +211,4 @@ The landing gear has been discussed in \autoref{sec:Landing_gear_config}, where 
 
 \subsection{Internal Component Layout}
 \label{subsec:internal_component_layout}
+
