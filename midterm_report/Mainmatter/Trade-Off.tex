@@ -27,14 +27,16 @@ In this Chapter, the preliminary HUGO configurations developed in previous desig
     \end{tabular}
 \end{table}
 
+As the changes between considered configurations lay mostly in the modularity details and landing gear types, a separate trade-off will be performed concurrently to determine the most suitable materials for different subsystems of the final configuration. Candidate materials have been previously discussed in \autoref{sec:Material_Selection}.
+
 \section{Trade-Off Criteria Selection}
 \label{sec:trade-off_criteria_selection}
 Meaningful trade-off criteria should be developed such that all available technical specifications and key performance metrics are considered. Moreover, identifying the points of poor performance of each candidate allows for an in-depth analysis of the limitations of each candidate configuration \cite{SMAD}. Lastly, the key requirements can be used to ensure that the developed criteria encompass all crucial design aspects.
 %It is not helpful to include criteria where all options perform similarly; instead, it is more valuable to use criteria where some options perform poorly, as this helps reveal and compare weaknesses across designs. In this way, each design’s limitations can be properly assessed. In addition, some of the requirements identified in the baseline review can also serve as a basis for defining the trade-off criteria.
 
-Taking all of the above into consideration, the following criteria were selected for the trade-off of HUGO designs: Versatility, Reliability, Cost, Performance, and Sustainability. \autoref{tab:trade-off_criteria} lists the rationale behind selecting each criterion.
+Taking all of the above into consideration, the following criteria were selected for the trade-off of HUGO designs: Versatility, Reliability, Cost, Performance, and Sustainability. \autoref{tab:trade-off_criteria} lists the rationale behind selecting each criterion for the configuration trade-off, while \autoref{tab:trade-off_criteria_materials} lists those used for the material trade-off.
 
-\begin{longtable}{|c|p{14cm}|}
+\begin{longtable}{|p{2.5cm}|p{13.5cm}|}
 \caption{Trade-Off Criteria for HUGO Configurations}
 \label{tab:trade-off_criteria} \\
 
@@ -55,21 +57,66 @@ Taking all of the above into consideration, the following criteria were selected
 \hline
 \endlastfoot
 
-Versatility & HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
+Versatility & HUG-CFG-301 is a low wing concept, which prevents the testing of tuss based wing concepts, which was considered significant in conversations with NLR. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
 
-Reliability & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 significantly increase the design complexity and associated development and operational risks. The same reasoning can be applied for retractable landing gear mechanisms for HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \cite{BaselineReport}).\\ \hline
+Reliability & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 significantly increase the design complexity and associated development and operational risks. The same reasoning can be applied for retractable side podded landing gear mechanisms for HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \cite{BaselineReport}).\\ \hline
 
 Cost & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-05 significantly increase the design complexity and associated development, maintenance and repair costs compared to no/static port configurations. The same reasoning can be applied to retractable landing gear mechanisms for HUG-CFG-301, HUG-CFG-303. Moreover, the design of HUGO is subject to specific cost requirements (see: HUG-FIN-001 \cite{BaselineReport}). \\ \hline
 
 Performance & Complex design options featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 are expected to result in higher design weights, which affect performance and fuel consumption. Moreover, the design of HUGO is subject to specific performance requirements (see: HUG-OPS-005, HUG-OPS-006 \cite{BaselineReport}).
 \\ \hline
 
-Sustainability & Sustainability is part of the project, as specified by HUG-OPS-008 \cite{BaselineReport}. Additionally, variable ports and retractable undercarriage require more material, more complex manufacturing processes, more labour hours in assembly and quality control, and higher maintenance material consumption over the aircraft's life.
+Sustainability & Sustainability is part of the project, as specified by HUG-OPS-008 \cite{BaselineReport}. Variable ports and retractable undercarriage require more material, more complex manufacturing processes, more labour hours in assembly and quality control, and higher maintenance material consumption over the aircraft's life.
 \\ \hline
 
 \end{longtable}
 
+
+
 \begin{comment}
+\begin{longtable}{|p{2.5cm}|p{13.5cm}|}
+\caption{Trade-Off Criteria for HUGO Materials}
+\label{tab:trade-off_criteria_materials} \\
+
+\hline
+\textbf{Criterion} & \centering{\textbf{Rationale}} \\ 
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Criterion} & \textbf{Rationale} \\ 
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{2}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Structural Properties & The specific modulus ($E/\rho$), specific strength ($\sigma_y/\rho$), specific fracture toughness ($K_{Ic}/\rho$), column buckling efficiency ($\sqrt{E}/\rho$), and panel/skin buckling efficiency ($\sqrt[3]{E}/\rho$) are the most relevant properties to be analysed \cite{Arnold2012MaterialsSelection}. These shall be considered for the primary loading modes of each subsystem, as well as weight reduction.
+\\ \hline
+
+Durability & Based on HUGO's envisioned minimal operational life of 15 years (HUG-STR-012\footref{url:baseline_report}), the selected materials shall be capable of withstanding the design loads and environmental conditions over long periods of time, as well as multiple loading cycles within a day.
+\\ \hline
+
+Material Cost & Although raw material expenses constitute a fraction of the total unit cost compared to the processing, tooling, and labour required for low-volume manufacturing, they must still be evaluated to ensure the baseline economic viability of the selected candidates.
+\\ \hline
+
+Manufacturing Cost & Due to the low volume production model envisioned for HUGO (<10 units per batch), manufacturing costs are expected to drive the overall production cost of a single unit, and shall therefore be minimised.
+\\ \hline
+
+Design Freedom & Since HUGO has a high performance requirement, and its research and development costs are not constraining to the financial feasibility of the project, there is high value in choosing a material which allows for the production of complex shapes and profiles. A high design freedom is expected to increase the potential of HUGO as a flying testbed.
+\\ \hline
+
+Sustainability & Sustainability of the manufacturing of HUGO must be considered when choosing suitable materials. Standing at the forefront of aviation research, HUGO shall embrace the mission to lower the industry's environmental impact.
+\\ \hline
+
+\end{longtable}
+
+
+
 \begin{enumerate}
     \item Versatility was selected since configuration 2 prevents the testing of canard-dependent configurations, and the variable ports in configurations 1, 4, and 5 allow for a wider range of stability conditions to be tested. This means that some of the options will score low in this criterion. 
     \item Reliability was considered a crucial trade-off criterion since the variable port in configurations 1, 4, and 5 significantly increases the risk of failure, and also the development risk. Additionally, ports and gear bays weaken the primary structure of the aircraft. This was also derived from requirement HUG-STR-003 \cite{Baseline report}, specifying the required reliability of the structure. 
@@ -79,7 +126,7 @@ Sustainability & Sustainability is part of the project, as specified by HUG-OPS-
 \end{enumerate}
 \end{comment}
 
-The preliminary configurations shall be evaluated and assigned a value ranging from 1 to 5 in each trade-off criterion. The definition of specific scores for different criteria can be found in \autoref{ch:app_trade-off_rationale}. The following rationale was followed in quantifying the scores for individual criteria:
+The preliminary configurations and materials shall be evaluated and assigned a value ranging from 1 to 5 in each trade-off criterion. The definition of specific scores for different criteria can be found in \autoref{ch:app_trade-off_rationale}. The following rationale was followed in quantifying the scores for individual criteria for the configurations:
 \begin{itemize}
     \item \textbf{Versatility} is quantified as the range of experiments and stability conditions that can be tested with the given configuration. As mentioned above, a configuration that can not test canard configurations or has a static port will score lower.
     \item \textbf{Performance }is evaluated based on how effectively the maximum Mach number at test altitude can be achieved while carrying the full instrumentation payload, with minimal drag and fuel consumption. Configurations that are lighter, less complex, and feature fewer protruding components will receive higher scores.
