@@ -186,7 +186,7 @@ Autoclave
 \end{longtable}
 \end{comment}
 
-Based on the comparison of available methods and their respective advantages and limitations, \textbf{prepreg manufacturing with autoclave curing} emerges as the most suitable option for the fabrication of the wings, fuselage, and empennage. They are large, aerodynamically precise primary structures with compound curvature. Prepreg is well suited for large and complex geometries, as the ply-by-ply layup process allows full control over fibre orientation across the entire surface, which is essential for the aeroelastic tailoring of a HAR wing.
+Based on the comparison of available methods and their respective advantages and limitations, \textbf{prepreg manufacturing with autoclave curing} emerges as the most suitable option for the fabrication of the wings, fuselage, and empennage. As large primary structures with compound curvature and stringent aerodynamic surface tolerances, these components demand a process that offers both geometric flexibility and precise control over fibre architecture. Prepreg layup satisfies both requirements: the ply-by-ply process accommodates complex geometries across large surface areas, while allowing full control over fibre orientation, which is essential for the aeroelastic tailoring of a HAR wing.
 
 Unlike traditional wet layup processes, prepregs eliminate the need for manual resin application, ensuring consistent fibre-to-resin ratios throughout the entire composite structure, which translates to superior mechanical properties, excellent surface finish, and predictable performance in the final product.
 
@@ -194,7 +194,7 @@ Prepreg layup requires skilled labor, but significantly less so than wet hand la
 
 With a production run of only 5--10 units, high-volume techniques such as compression molding and RTM are difficult to justify. Compression molding is attractive for cutting cycle times, but this advantage is irrelevant at the present scale. Prepreg with autoclave cure, by contrast, delivers significant process efficiencies even at low volumes: it reduces labour costs by up to 40\% through less hands-on processing time, cuts rework by 60\% due to fewer defects from the outset, and achieves 30--50\% faster cycle times by eliminating the waiting associated with resin infusion \footnote{\href{https://incomepultrusion.com/pre-preg-comprehensive-guide-on-definition-characteristics-types-and-applications/}{The Complete Engineer's Guide to Prepreg Composites: What You Need to Know}}. \newcounter{fnprepreg} \setcounter{fnprepreg {\value{footnote}}
  
-This imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\,\si{mm}, and surface finish Ra $\leq 0.8$\,\si{\micro\metre} \footnotemark[\value{fnprepreg}] - all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns.
+The desired performance imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\,\si{mm}, and surface finish Ra $\leq 0.8$\,\si{\micro\metre} \footnotemark[\value{fnprepreg}] - all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns.
 
 \subsection{Metal Alloys}
 An aluminium alloy was selected as the manufacturing material for components such as landing gear struts, engine pylons, and related parts. The sequence of manufacturing steps is listed below.
@@ -243,6 +243,42 @@ For the largest primary components such as the outer cylinder and piston rod, de
 Following machining, the aluminium alloy components undergo heat treatment to achieve the required mechanical properties. Surface treatment follows as the final step, providing corrosion and wear protection by building a hard, corrosion-resistant oxide layer on the surface, followed by primer and topcoat application for additional environmental protection.
 
 \section{Assembly}
+
+After all components have been manufactured or sourced from suppliers, they are assembled. First, the main subsystems—such as the fuselage, wings, empennage, and landing gear—are built separately. These are then brought together in the final assembly stage.
+
+The joining methods that will be considered are adhesive bonding, riveting, bolting, and welding, as presented in the Production of Aerospace
+Systems reader by Jos Sinke \cite{Sinke2022}.
+\todo{cite as 'Sinke J. Production of Aerospace Systems Reader. AE3211-II: Production of Aerospace Systems.
+Feb. 2022.'}
+
+\subsection{Adhesive bonding}
+Bonding is a joining method that uses an adhesive to connect two components. The adhesive transfers loads between the parts, ideally through shear. Tensile loading of the joint creates high stress concentrations, which can lead to premature failure.
+
+Some advantages of this joining method include preserving the original material strength by avoiding holes and stress concentrations, maintaining a smooth surface without protruding fasteners, enabling the joining of dissimilar materials, and providing excellent resistance to corrosion. It also allows for air- and watertight sealing. There are also several disadvantages to bonding, including the need for surface pretreatment, the inability to disassemble joints, and the fact that it primarily carries transverse loads. Additionally, the manufacturing process can be relatively complex.
+
+\subsection{Riveting}
+
+Riveting is a widely used joining technique in the aerospace industry, where loads are transferred through fasteners or loaded pins. It is mainly used for joining thin sheet materials, typically only a few millimeters thick. However, rivets are generally unsuitable for composite materials because of bearing stress concerns; in such cases, bolts or alternative fastening methods are preferred.
+
+Riveting offers several advantages, including high reliability, simple tooling, and straightforward inspection and repair processes. However, it also has drawbacks: rivets are susceptible to fatigue and corrosion, sensitive to leakage since they are not watertight, and may disrupt smooth aerodynamic surfaces. Additionally, they require holes that reduce material strength and are primarily designed to carry shear loads only.
+
+\subsection{Bolting}
+Bolted joints are similar to riveted joints in that they require comparable preparation steps, such as drilling and deburring, and they operate on similar load transfer principles. However, there are also several key differences: bolts can carry tensile loads, allow for disassembly, and are suitable for thicker sections. On the downside, they are generally more expensive than rivets.
+
+\subsection{Welding}
+A welding process joins two pieces of similar material to one continuous section. In case of metals
+welding involves the local melting of material. Welding and riveting (sometime also bolting) are the most
+interchangeable alternatives.
+
+Welding offers several advantages, including a continuous load path, no need for overlapping components, and a resulting smooth surface. It also provides air- and watertight joints. However, it has notable drawbacks: the local melting of material alters the microstructure, which can lead to variations in quality along the weld length. For this reason, high-strength materials that rely on heat treatment to achieve their properties are generally unsuitable for welding. This is one of the key reasons why welding is rarely preferred over riveting in the aircraft industry.
+
+\subsection{Selected assembly methods}
+
+Thermoset carbon fibre composites are typically joined using adhesive bonding, as this is the most common practice in the aerospace industry. This method avoids drilling holes for fasteners, which would cut the continuous fibres and significantly weaken the structure. The joints between the primary subsystems (wing-to-fuselage) are hybrid: adhesive bonding combined with bolting, where the adhesive carries the distributed load and the bolts provide fail-safe redundancy and meet certification requirements.
+
+The landing gear sub-components are assembled using bolted and lockbolted joints for rigid structural connections, and pin joints wherever relative motion is required, such as at the torque link and retraction actuator attachment points. Welding is excluded as a joining method for this application, as the local melting of material alters the microstructure and degrades the mechanical properties of the high-strength aluminium alloy.
+
+Engine pylons are bolted to the fuselage structure. They carry very large, dynamic loads and must be removable for engine replacement and maintenance. Adhesive bonding alone cannot meet these requirements. 
 
 \section{Integration}
 
