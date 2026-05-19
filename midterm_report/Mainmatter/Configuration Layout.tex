@@ -36,6 +36,7 @@ A list of components included in the electronic system of HUGO can be seen in \a
          Flight Controller/Autopilot & 180 & 45.0 x 68.0 x 74.5\\\hline
          Electric switch &-&-\\\hline
          Lights (x4)& - & - \\\hline
+         Power distribution system \tablefootnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management System}(Accessed on 18.5.2026)} & 250 & 180 x 100 x 40 \\\hline
           
     \end{tabular}
     \label{tab:electronic_system}
@@ -145,12 +146,11 @@ Lidar Sensor
 \label{subsec:fuel_systems}
 Systems related to propulsion, including the turbojet engine, fuel tanks, fuel management and distribution systems are included in this category. The propulsion system is integrated into the fuselage group to allow for wing versatility, provide clean airflow over the wing and prevent aerodynamic interference of the engine with the wings. This has been determined for all of the configurations in \autoref{ch:trade-off}.\\
 
-Based on the preliminary aircraft sizing and requirements, the initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. \todo{good to refer to the actual section where this is said} Furthermore, small jet engines currently on the market can be integrated easily due to their known characteristics and availability of the supporting subsystems they require to operate. Therefore, another turbojet engine candidates were considered. The industry-proven PBS TJ40-G2 engine is considered as a serious candidate for a HUGO engine and is used as a reference component in \autoref{}.\\
+Based on the preliminary aircraft sizing and requirements, the initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. \todo{good to refer to the actual section where this is said} Furthermore, small turbojet engines on the market can be easily integrated due to their known characteristics and availability of the supporting subsystems. Therefore, commercial turbojet engine candidates were considered. The industry-proven PBS TJ40-G2 engine \footnote{\href{https://pdf.aeroexpo.online/pdf/pbs-velka-bites/tj-40-g2-turbojet-engine/170284-304.html}{TJ-40-G2-Turbojet-Engine}} is selected as a candidate for a HUGO engine and is used as a reference component in \autoref{tab:prop_system}.\\
 
-The turbojet engine needs several additional components to become operational. An ECU (Electronic Control Unit) is neccessary to correctly set the correct fuel mixture based on the thrust set and the fuel used. This unit is included inside the engine casing for the considered TJ40-G2 engine. Next, the fuel system consists of the fuel pump, fuel filter, shut-off valve and fuel distribution hoses. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem relationships is shown in \autoref{fig:prop_diagram}. Since no available data about the TJ40-G2 fuel pump, fuel filter and power electronics board could be found, accessories from another manufacturer, JetCat, are used for reference. A slight margin has been added to the dimensions and weights of these components to generate a conservative estimate. The weight and dimensions of the power distribution system have been estimated based on a universal BMS \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
-System}(Accessed on 18.5.2026)}
+The turbojet engine needs several additional components to become operational. An ECU (Electronic Control Unit) is neccessary to correctly set the correct fuel mixture based on the thrust required and the fuel used. This unit is included inside the engine casing for the considered TJ40-G2 engine. Next, the fuel system consists of the fuel pump \footnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Bus-Smokerpumpe}{JetCat fuel pump}(Accessed on 18.5.2026)}, fuel filter \footnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Schlauchverbindung/Kraftstoff-Filter\%20mit\%20herausnehmbaren\%20Filtereinsatz}{JetCat fuel filter}(Accessed on 18.5.2026)}, shut-off valve and fuel distribution hoses. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem relationships is shown in \autoref{fig:prop_diagram}. Since no available data about the TJ40-G2 fuel pump, fuel filter and power electronics board could be found, accessories from another manufacturer, JetCat, are used for reference. A slight margin has been added to the dimensions and weights of these components to generate a conservative estimate. The weight and dimensions of the power distribution system have been estimated based on a universal BMS. \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
+System}(Accessed on 18.5.2026)} Furthermore, 2 m of PTFE tube for fuel distribution is included.\footnote{\href{https://ptfetubeshop.com/en/product/ptfe-tube-4-mm-x-8-mm/?srsltid=AfmBOopcWd4OwpWvWxhcXm5ZaT8P1H2EP4Aw9Il2Rezb7qgHZba8-M9b}{PTFE tube 4 mm x 8 mm}(Accessed on 19.5.2026)}
 
-%\begin{comment}
 \begin{table}[H]
     \centering
     \caption{Electronic system components and approximate weight and volumes}
@@ -164,16 +164,17 @@ System}(Accessed on 18.5.2026)}
         \hline
         Fuel tank & & \\
         \hline
-        Fuel pump \tablefootnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Bus-Smokerpumpe}{JetCat fuel pump}(Accessed on 18.5.2026)} & 150 & 35 (diameter) x 80 (length)\\
+        Fuel pump & 150 & 35 (diameter) x 80 (length)\\
         \hline
-        Fuel filter \tablefootnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Schlauchverbindung/Kraftstoff-Filter\%20mit\%20herausnehmbaren\%20Filtereinsatz}{JetCat fuel filter}(Accessed on 18.5.2026)}& 20 & 25 (diameter) x 45 (length) \\
+        Fuel filter & 20 & 25 (diameter) x 45 (length) \\
         \hline
-        Power distribution system \tablefootnote{\href{d}{d}(Accessed on 18.5.2026)} & 250 & 180 x 100 x 40 \\
+        Fuel hoses & 170 & 8 x 4 x 2000 (outer x inner diameter x length) \\
         \hline
     \end{tabular}
     \label{tab:prop_system}
 \end{table}
-%\end{comment}
+
+\todo{The fuel tank has to come from the analysis}
 
 \begin{figure}[H]
     \centering

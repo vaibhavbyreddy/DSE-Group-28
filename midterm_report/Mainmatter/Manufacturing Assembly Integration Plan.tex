@@ -12,6 +12,7 @@
 
 \section{Manufacturing}
 
+\begin{comment}
 The following factors influence the fabrication method selection and will be considered in the final decision \cite{Jabaar2021}.
 \begin{enumerate}
     \item Size of composite part
@@ -20,10 +21,10 @@ The following factors influence the fabrication method selection and will be con
     \item Number of units (5 to 10)
     \item Desired performance
 \end{enumerate}
-
+\end{comment}
 
 \subsection{Composites}
-Considering that composites will be used for the wings, fuselage, and empennage, the following manufacturing techniques are applicable \cite{Jabaar2021}, grouped by process category:
+Considering that a carbon fiber composite will be used for the wings, fuselage, and empennage, the following manufacturing techniques are applicable \cite{Jabaar2021}, grouped by process category:
 
 \textbf{Open mold processes}
 \begin{enumerate}
@@ -41,11 +42,12 @@ Considering that composites will be used for the wings, fuselage, and empennage,
 
 \textbf{Prepreg-based processes}
 \begin{enumerate}[resume]
-    \item \textit{\textbf{Prepreg}}: Prepregs are pre-impregnated reinforcement plies used as the primary material for manufacturing high-performance composites in industries such as aerospace, automotive, sports, and ballistics. Considered one of the most advanced composite fabrication methods, prepreg processing involves layup, curing, and finishing. During curing, the material requires elevated temperature and pressure for proper consolidation, typically achieved through processes such as compression molding or autoclave curing.
+    \item \textit{\textbf{Prepreg}}: Prepregs are pre-impregnated reinforcement plies used as the primary material for manufacturing high-performance composites in industries such as aerospace, automotive, sports, and ballistics. Considered one of the most advanced composite fabrication methods, prepreg processing involves layup, curing, and finishing. During curing, the material requires elevated temperature and pressure for proper consolidation, typically achieved through autoclave curing.
 
     \item \textit{\textbf{Autoclave}}: An autoclave is a pressure vessel used to create controlled temperature and pressure conditions, known as the curing cycle, for material processing. It is commonly used for composites as well as thermoplastics, metals, and ceramics. Although it produces high-quality parts, the process is energy-intensive and can generate considerable material waste.
 \end{enumerate}
 
+\begin{comment}
 The strengths and weaknesses of each method, as stated in \cite{Jabaar2021}, are synthesised in \autoref{tab:compositesManufacturing}.
 
 \begin{longtable}{|p{2cm}|p{6.5cm}|p{6.5cm}|}
@@ -182,61 +184,63 @@ Autoclave
 \hline
 
 \end{longtable}
+\end{comment}
 
-Based on the comparison of available methods and their respective advantages and limitations, \textbf{prepreg manufacturing with autoclave curing} emerges as the most suitable option for the fabrication of the wings, fuselage, and empennage. A brief justification for each selection factor is presented below.
+Based on the comparison of available methods and their respective advantages and limitations, \textbf{prepreg manufacturing with autoclave curing} emerges as the most suitable option for the fabrication of the wings, fuselage, and empennage. They are large, aerodynamically precise primary structures with compound curvature. Prepreg is well suited for large and complex geometries, as the ply-by-ply layup process allows full control over fibre orientation across the entire surface, which is essential for the aeroelastic tailoring of a HAR wing.
 
-\begin{enumerate}
-    \item \textbf{Size of composite part}: The wings, fuselage, and empennage of the UAV are large, aerodynamically precise primary structures with compound curvature. Prepreg is well suited for large and complex geometries, as the ply-by-ply layup process allows full control over fibre orientation across the entire surface, which is essential for the aeroelastic tailoring of a HAR wing.
+Unlike traditional wet layup processes, prepregs eliminate the need for manual resin application, ensuring consistent fibre-to-resin ratios throughout the entire composite structure, which translates to superior mechanical properties, excellent surface finish, and predictable performance in the final product.
 
-    \item \textbf{Raw materials used}: Unlike traditional wet layup processes, prepregs eliminate the need for manual resin application, ensuring consistent fibre-to-resin ratios throughout the entire composite structure, which translates to superior mechanical properties, excellent surface finish, and predictable performance in the final product.
+Prepreg layup requires skilled labor, but significantly less so than wet hand layup, where resin mixing and application introduce operator-dependent variability. The material arrives ready to use, with resin already uniformly distributed, reducing the skill burden on resin management while concentrating it on ply placement and orientation --- a more controllable and trainable task. Additionally, it is faster than vacuum resin infusion because it eliminates the infusion step.
 
-    \item \textbf{Labor skill and cost}: Prepreg layup requires skilled labor, but significantly less so than wet hand layup, where resin mixing and application introduce operator-dependent variability. The material arrives ready to use, with resin already uniformly distributed, reducing the skill burden on resin management while concentrating it on ply placement and orientation --- a more controllable and trainable task. Additionally, it is faster than vacuum resin infusion because it eliminates the infusion step.
-
-    \item \textbf{Number of units}: With a production run of only 5--10 units, high-volume techniques such as compression molding and RTM are difficult to justify. Compression molding is attractive for cutting cycle times, but this advantage is irrelevant at the present scale. Prepreg with autoclave cure, by contrast, delivers significant process efficiencies even at low volumes: it reduces labour costs by up to 40\% through less hands-on processing time, cuts rework by 60\% due to fewer defects from the outset, and achieves 30--50\% faster cycle times by eliminating the waiting associated with resin infusion \footnote{\href{https://incomepultrusion.com/pre-preg-comprehensive-guide-on-definition-characteristics-types-and-applications/}{The Complete Engineer's Guide to Prepreg Composites: What You Need to Know}}.
-    \newcounter{fnprepreg}
-    \setcounter{fnprepreg}{\value{footnote}}
+With a production run of only 5--10 units, high-volume techniques such as compression molding and RTM are difficult to justify. Compression molding is attractive for cutting cycle times, but this advantage is irrelevant at the present scale. Prepreg with autoclave cure, by contrast, delivers significant process efficiencies even at low volumes: it reduces labour costs by up to 40\% through less hands-on processing time, cuts rework by 60\% due to fewer defects from the outset, and achieves 30--50\% faster cycle times by eliminating the waiting associated with resin infusion \footnote{\href{https://incomepultrusion.com/pre-preg-comprehensive-guide-on-definition-characteristics-types-and-applications/}{The Complete Engineer's Guide to Prepreg Composites: What You Need to Know}}. \newcounter{fnprepreg} \setcounter{fnprepreg {\value{footnote}}
  
-    \item \textbf{Desired performance}: This imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\,\si{mm}, and surface finish Ra $\leq 0.8$\,\si{\micro\metre} \footnotemark[\value{fnprepreg}] - all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns.
-\end{enumerate}
+This imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, thickness tolerances of $\pm 0.05$\,\si{mm}, and surface finish Ra $\leq 0.8$\,\si{\micro\metre} \footnotemark[\value{fnprepreg}] - all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns.
 
 \subsection{Metal Alloys}
-A titanium alloy was selected as the manufacturing material for components such as landing gear struts, wheel bearings, and related parts. The applicable manufacturing processes are listed below.
+An aluminium alloy was selected as the manufacturing material for components such as landing gear struts, engine pylons, and related parts. The sequence of manufacturing steps is listed below.
 
 \begin{enumerate}
-    \item \textbf{Forging}: It is the preferred process for the manufacturing of the primary landing gear components \footnote{\href{https://www.aero-mag.com/why-additive-is-coming-into-landing-gear}{Why additive is coming into landing gear}}. Heated high-strength alloys are plastically deformed through the application of compressive forces using dies or plates to achieve the desired shape. In general, forging can be classified into two main categories \cite{Lorraine2024}:
+    \item \textbf{Forging}: It is the preferred process for the manufacturing of the primary landing gear components \footnote{\href{https://www.aero-mag.com/why-additive-is-coming-into-landing-gear}{Why additive is coming into landing gear}}. Heated high-strength alloys are plastically deformed through the application of compressive forces using dies or plates to achieve the desired shape. In general, forging can be classified into two main categories \cite{}:
     \begin{itemize}
         \item \textbf{\textit{Open die forging}}: The workpiece is compressed by two parallel plates. The material is free to deform at the open edges.
         \item \textbf{\textit{Closed die forging}}: The workpiece is compressed between two parallel dies, allowing the material to deform freely at the exposed surfaces.
     \end{itemize}
-    Aircraft landing gear components are often produced as open die forgings due to their large size and high structural load requirements. Some of the advantages of open-die forging are its relatively low tooling costs, making it well-suited for low- to medium-volume production, and the excellent control over grain flow, which enhances fatigue resistance and strength in critical applications. In contrast, closed-die forging is better suited for complex geometries requiring tight tolerances and high precision, and it generally leads to lower material waste \footnote{\href{https://mechforged.com/open-die-vs-closed-die-forging-which-to-use/}{Open Die vs Closed Die Forging: Which to Use?}}.  
+    Common uses for closed die forging in the aerospace industry include manufacturing the landing gear axles, struts, and hinge fittings, as well as the engine mounts \footnote{\href{https://www.anchorharvey.com/knowledge-center/open-vs-closed-die-forgings-in-aerospace-applications/}{Open vs. Closed Die Forgings in Aerospace Applications}}. Some of the advantages of open-die forging are its relatively low tooling costs, making it well-suited for low- to medium-volume production, and the excellent control over grain flow, which enhances fatigue resistance and strength in critical applications. In contrast, closed-die forging is better suited for complex geometries requiring tight tolerances and high precision, and it generally leads to lower material waste \footnote{\href{https://mechforged.com/open-die-vs-closed-die-forging-which-to-use/}{Open Die vs Closed Die Forging: Which to Use?}}.  
 
     \begin{comment}
     \item \textbf{Investment Casting}: Investment casting, also known as lost-wax casting, involves creating a wax model of the desired component and coating it with a ceramic shell. The wax is then removed through heating, leaving a cavity into which molten metal is poured and allowed to solidify, forming the final part \cite{Lorraine2024}. High-strength alloys are commonly produced through investment casting for components such as brackets, links, fittings, and actuator bodies within landing gear systems. This process enables the production of near-net-shape components with tight dimensional tolerances, high-quality surface finishes, and complex geometries. In aerospace applications, these advantages contribute to reduced component weight, lower part counts, shorter manufacturing lead times, and a reduction in overall lifecycle costs \footnote{\href{https://www.epcast.com/aircraft-aerospace}{Aerospace Investment Casting}}.
     \end{comment}
 
-    \item \textbf{Rough Machining}
-
-    \item \textbf{Deep hole drilling}: Many landing gear components (such as piston rods, outer cylinders, and axles) are long, slender parts made from difficult-to-cut ultra-high-strength titanium alloy. Conventional turning methods often fail to meet requirements due to severe tool wear, limited tool rigidity, and poor durability, making it difficult to achieve the required dimensional accuracy and surface quality, particularly in transition and fillet regions \footnote{\href{https://www.szsunbright.com/news-show-1033791.html}{The main manufacturing technology of landing gear}}.
+    \item \textbf{CNC Machining}: All surfaces of the forged aluminium components require extensive CNC machining, with a substantial amount of material removal necessary for the inner cavity regions \footnote{\href{https://www.szsunbright.com/news-show-1033791.html}{The main manufacturing technology of landing gear}}.
     \newcounter{fnLG}
-    \setcounter{fnLG}{\value{footnote}}. Thus, dedicated deep hole drilling machines are required to meet the strict tolerances and demanding requirements of landing gear manufacturing, while enabling the machining of complex aerospace components \footnote{\href{https://www.aero-mag.com/unisig-b700-landing-gear-drilling-alta-precision}{Landing gear machining struts its stuff! }}.
+    \setcounter{fnLG}{\value{footnote}} Machine tools such as lathes, mills, and routers are controlled by pre-programmed software to cut, shape, and produce parts with high precision. Its main advantages include high accuracy and repeatability, improved production efficiency, reduced human error and material waste, and the ability to manufacture complex geometries consistently and safely \footnote{\href{https://www.goodwin.edu/enews/what-is-cnc/}{What is CNC Machining in Manufacturing?}}.
+
+    \item \textbf{Deep hole drilling}: Many landing gear components (such as piston rods, outer cylinders, and axles) are long, slender parts made from difficult-to-cut ultra-high-strength titanium alloy. Conventional turning methods often fail to meet requirements due to severe tool wear, limited tool rigidity, and poor durability, making it difficult to achieve the required dimensional accuracy and surface quality, particularly in transition and fillet regions \footnotemark[\value{fnLG}]. Thus, dedicated deep hole drilling machines are required to meet the strict tolerances and demanding requirements of landing gear manufacturing, while enabling the machining of complex aerospace components \footnote{\href{https://www.aero-mag.com/unisig-b700-landing-gear-drilling-alta-precision}{Landing gear machining struts its stuff! }}.
 
 
-    \item \textbf{Heat treatment}: Landing gears must perform under extreme loading conditions, imposing stringent performance requirements. Heat treatment is required to enhance the strength, ductility, and fracture toughness of the titanium alloy. Overall, heat treating titanium serves several purposes \footnote{\href{https://www.totalmateria.com/en-us/articles/heat-treating-titanium-and-titanium-alloys/}{Heat Treating of Titanium and Titanium Alloys}}:
+    \item \textbf{Heat treatment}: Landing gears must perform under extreme loading conditions, imposing stringent performance requirements. Heat treatment can relieve internal stresses, enhance the strength, and increase the hardness of the aluminium alloy. In general, there are four types of heat treatment for aluminium alloys \footnote{\href{https://alloyheat.co.uk/4-types-of-heat-treatment-for-aluminium-alloys/}{4 Types Of Heat Treatment For Aluminium Alloys}}:
     \begin{itemize}
-        \item \textbf{\textit{Stress relieving}}:  Residual stresses developed during fabrication are reduces
-        
-        \item \textbf{\textit{Annealing}}: Achieves improved ductility, machinability, and dimensional and structural stability
-        
-        \item \textbf{\textit{Solution treating and aging}}: Increases strength
-    \end{itemize}
-    %Titanium alloys require a carefully controlled thermal environment during heat treatment due to their high chemical reactivity with carbon, oxygen, and hydrogen, which can significantly deteriorate material properties. For this reason, either a vacuum furnace or an argon protective atmosphere furnace is used, with the vacuum furnace being the preferred option. When operating under vacuum, the working pressure must be maintained at no less than $2\cdot10^{-3}$ \si{Pa} to prevent surface corrosion caused by excessively low pressure, and where argon is used - either as a heating medium or quenching medium — a minimum purity of 99.99\% is required. Following heat treatment, parts are air-cooled to below 200°C and inspected for surface oxidation, with any blue or grey oxide films mandatorily removed by methods such as pickling, chemical milling, sandblasting, or machining \footnote{\href{https://www.eplus3d.com/heat-treatment-of-titanium-alloy.html}{Heat Treatment of Titanium Alloy}}.
-    
-    \item \textbf{Precision (CNC) Machining}: All surfaces of the forged titanium components require extensive CNC machining, with a substantial amount of material removal necessary for the inner cavity regions \footnotemark[\value{fnLG}]. Machine tools such as lathes, mills, and routers are controlled by pre-programmed software to cut, shape, and produce parts with high precision. Its main advantages include high accuracy and repeatability, improved production efficiency, reduced human error and material waste, and the ability to manufacture complex geometries consistently and safely \footnote{\href{https://www.goodwin.edu/enews/what-is-cnc/}{What is CNC Machining in Manufacturing?}}.
+        \item \textbf{\textit{Annealing}}: Resets the crystalline structure, relieving internal stresses and making the material easier to shape while increasing its resistance to deformation.
 
-    \item \textbf{Surface Treatment and Protection}
+        \item \textbf{\textit{Solution Heat Treatment}}: Involves quenching the alloy, typically in water, to preserve the microstructure by preventing atomic redistribution. This prepares the aluminium for subsequent age hardening and enables additional forming operations.
+
+        \item \textbf{\textit{Natural and Artificial Aging}}: Ageing enhances the strength and hardness of a solution heat-treated alloy. During this process, precipitates form from the solid solution elements, stabilising the alloy’s microstructure.
+
+        \item \textbf{\textit{Homogenising}}: Aims to uniformly distribute alloying elements throughout the material to achieve consistent chemical composition, particularly in castings that solidify at varying rates.
+    \end{itemize}
+    
+
+    \item \textbf{Surface Treatment and Protection}: To enhance the surface properties of aluminium products, including wear resistance, corrosion resistance, and reflectivity, a range of surface treatments has been developed. These processes are generally classified into three categories: electrochemical treatments, chemical treatments, and coatings \footnote{\href{https://www.totalmateria.com/en-us/articles/surface-treatment-of-aluminum/}{Surface Treatment Of Aluminum And Aluminum Alloys}}.
     
 \end{enumerate}
 
+Due to the large size and high strength requirements of the primary landing gear components, the forging process is divided into two sequential stages. The components first undergo open die forging to work the billet into a rough preform, refining the grain structure and achieving the approximate overall shape. They subsequently go through closed die forging to acquire the final near-net shape with the required dimensional precision and optimised grain flow alignment along the load paths. The combination of both methods leads to an optimisation of cost, material waste, and final mechanical properties of the forged aluminium alloy.
+
+For the subsequent removal of excess material, CNC machining is selected for both the initial rough machining stage, during which the bulk of the material is removed, and the final precision machining stage, which achieves the tight tolerances and surface finish requirements of the component. CNC machining is well suited to this role due to its versatility — combining turning, milling, drilling, and grinding operations under pre-programmed software control — which minimises human error and enables the consistent production of the complex geometries present in landing gear components.
+
+For the largest primary components such as the outer cylinder and piston rod, dedicated deep hole drilling machines are required to produce the central longitudinal bore. These are long, slender cavities with large depth-to-diameter ratios that cannot be achieved on conventional machining centres due to limitations in tool rigidity, chip evacuation, and coolant delivery at depth. Dedicated deep hole drilling machines address these constraints through specialised tooling and high-pressure coolant systems, enabling the required dimensional accuracy and surface finish to be achieved within the bore.
+
+Following machining, the aluminium alloy components undergo heat treatment to achieve the required mechanical properties. Surface treatment follows as the final step, providing corrosion and wear protection by building a hard, corrosion-resistant oxide layer on the surface, followed by primer and topcoat application for additional environmental protection.
 
 \section{Assembly}
 
