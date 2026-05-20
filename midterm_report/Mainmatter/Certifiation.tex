@@ -1,10 +1,237 @@
-\chapter{Certification}
+\chapter{Risk Assessment and Certification}
 \label{ch:certification}
-This chapter focuses on the process and steps required to obtain the certification of HUGO to be used for the research purpose of testing the aeroelastic effects of high aspect ratio wings. In \autoref{sec:type_certificate}, the classification process is described that places HUGO into a type class category. Following the assessment of flight class, the certification for a Design Organisational Approval (DOA) is covered in \autoref{sec: DOA}. Establishing a certification basis for HUGO allows for a construction of a preliminary flight envelope, which is the focus of \autoref{sec:flight_envelope}. Lastly, the environmental protection aspect of the certification is expanded upon in \autoref{sec:environmental_protection}.
+This chapter focuses on the analysis of technical risks associated with the operations of HUGO, as well as the steps required to obtain the certification necessary for operations testing the aeroelastic effects of high aspect ratio wings. First, a qualitative assessment of identified technical risks is performed in \autoref{sec:technical_risk_assessment}. Then, in \autoref{sec:type_certificate}, the classification process is described that places HUGO into a type class category. Following the assessment of flight class, the certification for a Design Organisational Approval (DOA) is covered in \autoref{sec: DOA}. Establishing a certification basis for HUGO allows for a construction of a preliminary flight envelope, which is the focus of \autoref{sec:flight_envelope}. Lastly, the environmental protection aspect of the certification is expanded upon in \autoref{sec:environmental_protection}.
+
+
+\section{Technical Risk Assessment}
+\label{sec:technical_risk_assessment}
+A preliminary risk assessment for both development and operations of HUGO has been discussed extensively in the previous design phase\footref{url:baseline_report}, the knowledge of which is assumed for this analysis. This Section addresses the developments to the lists of identified risks, as well as changes in the risk matrix due to a more in-depth analysis of preventive measures and risk mitigation strategies.
+
+\subsection{Modifications to the Risk List}
+Preliminary risk assessment performed in the previous design phase identified five development risks and ten operational risks for HUGO, with likelihood $L$ and severity $S$ scores ranging from 1 to 5, where 1 relates to the least probable/severe outcomes\footref{url:baseline_report}. A more detailed analysis of the design and operations allows for identification of additional risks, their likelihood and expected severity, which can be seen in \autoref{tab:risks_new}.
+
+
+
+\begin{table}[H]
+    \centering
+    \caption{Continuing Development and Operation Risks}
+    \begin{tabular}{|c|p{8cm}|c|c|}
+    \hline
+       \textbf{Risk ID}  & \textbf{Risk Description} & \textbf{Likelihood} & \textbf{Severity} \\ \hline \hline
+        HUG-DEV-06 & Certification duration exceeding 3 years & 2 & 3 \\ \hline
+        HUG-DEV-07 & Rejection of Certification/DOA application  & 2 & 5 \\ \hline
+        HUG-OP-11 &  Unavailability of ground crew  & 3 & 5 \\ \hline
+        HUG-OP-12 &  Ground station equipment failure  & 2 & 5 \\ \hline
+        HUG-OP-13 &  Fuel shortage at Den Helder airport for HUGO  & 2 & 4 \\ \hline
+        HUG-OP-14 &  Fuel shortage while holding  & 2 & 5 \\ \hline
+        HUG-OP-15 &  Runway congestion/lack of ATC clearance  & 2 & 3 \\ \hline
+        HUG-OP-16 &  Corrupted measurement files  & 2 & 4 \\ \hline
+        HUG-OP-17 &  Insufficient power to continue tests for the day  & 2 & 5 \\ \hline
+    \end{tabular}
+    \label{tab:risks_new}
+\end{table}
+
+Preventive measures and mitigation strategies developed for the newly identified risks, along with their expected effect on the likelihood or severity, are described in \autoref{tab:risk_preventive_measures} and \autoref{tab:risk_mitigation_scenarios}, respectively.
+
+\begin{table}[H]
+   \caption{Risk Preventive Measures}
+    \centering
+    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|}
+    \hline
+        \textbf{ Risk ID} & \textbf{Preventive Measure(s)} & \textbf{$\Delta L$}  \\ \hline\hline
+         HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is in line with the predictions made for the theoretical. & -2  \\ \hline
+         HUG-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1  \\ \hline
+         HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2  \\ \hline
+         HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1  \\ \hline
+         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO.
+         
+         Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 \\ \hline
+         HUG-OP-03 & Adequate theoretical and practical training of crew.
+         
+         Development of procedures, checklists, flight tests and simulations validated by a competent third party. & -1 \\ \hline
+         HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
+         HUG-OP-05 & Implementing alerting systems in case values approaching the envelope boundaries are detected. Apply master warnings once predefined critical margins are exceeded. & -1 \\ \hline
+         HUG-OP-07 & Operate within ATC-controlled airspaces below FL290, with adequate vertical separation of 2000' & 0 \\ \hline 
+         HUG-OP-08 & Install fire detection and mitigation systems in HUGO. & -1 \\\hline
+         HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
+
+
+         
+         
+    \end{tabular}
+    \label{tab:risk_preventive_measures}
+\end{table}
+
+\begin{table}[H]
+   \caption{Risk Mitigation Strategies}
+    \centering
+    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|}
+    \hline
+        \textbf{Risk ID} & \textbf{Mitigation Strategy} & $\Delta S$ \\ 
+        \hline\hline
+        HUG-OP-01 & \multirow{2}{*}{\parbox{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a flight termination system shall be triggered.}} & \multirow{2}{*}{-1} \\ 
+        \cline{1-1}
+        HUG-OP-02 & & \\ 
+        \hline
+        HUG-OP-04 & For problems during flight that include breaking of parts or components, HUGO shall immediately decelerate to a safe speed (TBD). Subsequently, flight termination system shall be triggered. & -1 \\ 
+        \hline
+        HUG-OP-05 & If returning to the envelope is not deemed feasbile, flight termination shall be performed as described for HUG-OP-O1. & -1 \\\hline
+        HUG-OP-06 & If the test area is exceeded, the drone will be ordered to immediately return to the testing location. & -2 \\ \hline
+        HUG-OP-08 & Initiate fire extinguishing procedures in case on-board fire is detected/ & -1 \\\hline
+        HUG-OP-09 & If a mechanical error onboard the drone during the test flight is detected, possible extent shall be assessed. Depending on the root cause of the error and severity of consequences, one of the following shall be implemented:
+        \begin{enumerate}
+        \item The drone will be ordered to immediately return. 
+        \item The flight termination system shall be triggered. 
+        \end{enumerate} 
+        & -1 \\ \hline
+        HUG-OP-10 & In case of deteriorating weather conditions, the drone will be ordered to return and land as soon as possible. & -1 \\ \hline
+        
+    \end{tabular}
+    \label{tab:risk_mitigation_scenarios}
+\end{table}
+
+
+
+\subsection{Modified Risk Matrix}
+
+\begin{figure}[H]
+\centering
+
+% -------- LEFT: TABLE --------
+\begin{minipage}[t]{0.42\textwidth}
+    \vspace{0pt}
+    \centering
+    \captionof{table}{Final Development and Operational Risk Assessment}
+    \label{tab:risk_assessment_mitigated}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Risk-ID} & \textbf{Likelihood} & \textbf{Severity} \\ \hline
+        HUG-DEV-01 & 2 & 4\\ \hline
+        HUG-DEV-02 & 1 & 3\\ \hline
+        HUG-DEV-03 & 1 & 5\\ \hline
+        HUG-DEV-04 & 1 & 2\\ \hline
+        HUG-DEV-05 & 1 & 4\\ \hline
+        HUG-OP-01 & 2 & 1 \\ \hline
+        HUG-OP-02 & 2 & 3 \\ \hline
+        HUG-OP-03 & 2 & 3 \\ \hline
+        HUG-OP-04 & 1 & 4 \\ \hline
+        HUG-OP-05 & 1 & 2 \\ \hline
+        HUG-OP-06 & 2 & 3 \\ \hline
+        HUG-OP-07 & 1 & 5 \\ \hline
+        HUG-OP-08 & 1 & 3 \\ \hline
+        HUG-OP-09 & 2 & 1 \\ \hline
+        HUG-OP-10 & 2 & 2 \\ \hline
+    \end{tabular}
+\end{minipage}
+\hfill
+% -------- RIGHT: TIKZ --------
+\begin{minipage}[t]{0.55\textwidth}
+    \vspace{25pt}
+    \centering
+    \scalebox{0.8}{
+    \begin{tikzpicture}
+        % Define colors
+        \definecolor{riskgreen}{RGB}{84,186,84}
+        \definecolor{riskyellow}{RGB}{255,200,0}
+        \definecolor{riskred}{RGB}{220,50,50}
+
+        \def\cs{1.43}
+
+        % Cells
+        \fill[riskgreen]  (0*\cs,0*\cs) rectangle (1*\cs,1*\cs);
+        \fill[riskgreen]  (1*\cs,0*\cs) rectangle (2*\cs,1*\cs);
+        \fill[riskgreen]  (2*\cs,0*\cs) rectangle (3*\cs,1*\cs);
+        \fill[riskyellow] (3*\cs,0*\cs) rectangle (4*\cs,1*\cs);
+        \fill[riskyellow] (4*\cs,0*\cs) rectangle (5*\cs,1*\cs);
+
+        \fill[riskgreen]  (0*\cs,1*\cs) rectangle (1*\cs,2*\cs);
+        \fill[riskgreen]  (1*\cs,1*\cs) rectangle (2*\cs,2*\cs);
+        \fill[riskyellow] (2*\cs,1*\cs) rectangle (3*\cs,2*\cs);
+        \fill[riskyellow] (3*\cs,1*\cs) rectangle (4*\cs,2*\cs);
+        \fill[riskyellow] (4*\cs,1*\cs) rectangle (5*\cs,2*\cs);
+
+        \fill[riskgreen]  (0*\cs,2*\cs) rectangle (1*\cs,3*\cs);
+        \fill[riskyellow] (1*\cs,2*\cs) rectangle (2*\cs,3*\cs);
+        \fill[riskyellow] (2*\cs,2*\cs) rectangle (3*\cs,3*\cs);
+        \fill[riskyellow] (3*\cs,2*\cs) rectangle (4*\cs,3*\cs);
+        \fill[riskred]    (4*\cs,2*\cs) rectangle (5*\cs,3*\cs);
+
+        \fill[riskgreen]  (0*\cs,3*\cs) rectangle (1*\cs,4*\cs);
+        \fill[riskyellow] (1*\cs,3*\cs) rectangle (2*\cs,4*\cs);
+        \fill[riskyellow] (2*\cs,3*\cs) rectangle (3*\cs,4*\cs);
+        \fill[riskred]    (3*\cs,3*\cs) rectangle (4*\cs,4*\cs);
+        \fill[riskred]    (4*\cs,3*\cs) rectangle (5*\cs,4*\cs);
+
+        \fill[riskyellow] (0*\cs,4*\cs) rectangle (1*\cs,5*\cs);
+        \fill[riskyellow] (1*\cs,4*\cs) rectangle (2*\cs,5*\cs);
+        \fill[riskred]    (2*\cs,4*\cs) rectangle (3*\cs,5*\cs);
+        \fill[riskred]    (3*\cs,4*\cs) rectangle (4*\cs,5*\cs);
+        \fill[riskred]    (4*\cs,4*\cs) rectangle (5*\cs,5*\cs);
+
+        % Grid
+        \draw[white, line width=1.5pt] (0,0) grid[step=\cs] (5*\cs,5*\cs);
+
+        % Labels (corrected to match table)
+
+% (Likelihood 2, Severity 4)
+\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-DEV-01};
+
+% (1,3)
+\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-DEV-02\\HUG-OP-08};
+
+% (1,5)
+\node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-DEV-03\\HUG-OP-07};
+
+% (1,2)
+\node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-DEV-04\\HUG-OP-05};
+
+% (1,4)
+\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-DEV-05\\HUG-OP-04};
+
+% (2,1)
+\node[font=\tiny\bfseries,align=center] at (0*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-OP-01\\HUG-OP-09};
+
+% (2,2)
+\node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-OP-10};
+
+% (2,3)
+\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2)
+{HUG-OP-02\\HUG-OP-03\\HUG-OP-06};
+
+        % Axes
+        \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
+            \node[font=\small, below] at (\x*\cs-\cs/2, -0.2) {\label};
+        }
+        \node[font=\small, below] at (2.5*\cs, -0.7) {\textbf{Severity}};
+
+        \foreach \y/\label in {1/1,2/2,3/3,4/4,5/5}{
+            \node[font=\small, left] at (-0.2, \y*\cs-\cs/2) {\label};
+        }
+        \node[font=\small, rotate=90] at (-0.7, 2.5*\cs) {\textbf{Likelihood}};
+
+        \draw[->, thick, darkgray] (-0.1, 0) -- (-0.1, 5*\cs+0.4);
+        \draw[->, thick, darkgray] (0, -0.1) -- (5*\cs+0.4, -0.1);
+    \end{tikzpicture}
+    }
+    \caption{Final Risk Matrix}
+    \label{fig:risk_matrix_mitigated}
+\end{minipage}
+
+\end{figure}
+
+
+
 
 \section{Type Certificate}
 \label{sec:type_certificate}
-
 
 According to the EASA eRules for Initial Airworthiness and Environmental Protection (eRules), the Type Certificate (TC) is a document issued by the competent authority declaring an aircraft meets all required airworthiness standards \cite{EASAInitialAirworthiness2025}. The eRules describes the process and all necessary documents to obtain a type certificate inside Annex I. Section A details all the obligations of the applicant, and section B details those of the competent authority (EASA). The eRules manual is large and difficult to navigate, as such,  \autoref{fig:Certification} will serve as a visual guide for the reader. The grey blocks indicate the starting point, purple indicates the obligations of the applicant, blue the obligations of the authority, and yellow any extra source of information.
 
@@ -183,28 +410,40 @@ These constraints result in the flight envelope as illustrated in \autoref{fig:V
     \caption{Parameters used for generating the flight envelope diagram}
     \label{tab:V-n_parameters}
     \renewcommand{\arraystretch}{1.3}
-    %\resizebox{\textwidth}{!}{% Scales table to fit the page width if it gets too wide
-    \begin{tabular}{|c|c|c|}
-        \hline
-        \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
-        \hline\hline
-       Mass & 50.0 & kg  \\\hline
-       Cruise altitude & 5500.0 & m  \\\hline
-       Cruise Mach number & 0.75& $-$  \\\hline
-       Dive Mach number & 0.80& $-$  \\\hline
-       Span & 2.0 & m  \\\hline
-       Aspect ratio & 25.0 & $-$  \\\hline
-       Positive $C_{L_\text{max}}$ & 1.6 & $-$  \\\hline
-       Negative $C_{L_\text{max}}$ & $-$1.0 & $-$  \\\hline
-       Lift curve slope & 3.0& ${\text{rad}^{-1}}$  \\\hline
-    \end{tabular}
+
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+            \hline\hline
+            Mass & 50.0 & kg  \\\hline
+            Cruise altitude & 5500.0 & m  \\\hline
+            Cruise Mach number & 0.75 & $-$  \\\hline
+            Dive Mach number & 0.80 & $-$  \\\hline
+            Span & 2.0 & m  \\\hline
+        \end{tabular}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+            \hline\hline
+            Aspect ratio & 25.0 & $-$  \\\hline
+            Positive $C_{L_\text{max}}$ & 1.6 & $-$  \\\hline
+            Negative $C_{L_\text{max}}$ & $-$1.0 & $-$  \\\hline
+            Lift curve slope & 3.0 & $\text{rad}^{-1}$  \\\hline
+        \end{tabular}
+    \end{minipage}
 \end{table}
 
 \todo[inline]{Change the table contents so that we have FL270 + Mach 0.75 and/or 5.5km + Mach 0.4/0.5}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\linewidth]{figures/V-n_diagram.png}
+    \includegraphics[width=0.5\linewidth]{figures/V-n_diagram.png}
     \caption{Flight envelope diagram for parameters listed in \autoref{tab:V-n_parameters},  compliant with CS-23 aerobatic category requirements \cite{EASA_CS23_Am3_2012}.}
     \label{fig:V-n_diagram}
 \end{figure}
@@ -217,3 +456,5 @@ Environmental compatibility was introduced in the European legislation Regulatio
 \newline
 A specific rule-set has been established for unmanned aircraft: Regulation (EU) 2018/1139 of the European Parliament and of the Council in Annex~IX: \textit{Essential Environmental Requirements for Unmanned Aircraft} states that unmanned aircraft shall comply with the environmental performance requirements set out in Annex~III.
 Looking at Annex~III, the main point is a general approach for the design and trade-off between minimising noise and emissions. The area and its surroundings must be taken into account for the operation of the unmanned aircraft, with an emphasis on reducing noise and emissions.
+
+\todo[inline]{Incorrect citation format! No source, no quotation marks.}

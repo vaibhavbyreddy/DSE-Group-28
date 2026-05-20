@@ -1,18 +1,16 @@
 \chapter{Configuration Layout}
 \label{ch:configuration_layout}
-\todo[inline]{From Project Guide: \\The configuration / layout shows the physical appearance of the product or system. It is mainly a set of sketches and drawings illustrating the internal and external layout with a short textual explanation.\\ The layout contains also a block diagram identifying the electronic units carried on-board.\\ A first version is presented in the Mid Term Report, generally for all design options involved in the concept selection, concentrating on those aspects that are essential to provide the trade-off.\\ The final, more detailed, version of the final design is included in the Final Report. }
-This Chapter outlines the details of external and internal configuration of HUGO. \autoref{sec:external_configuration} showcases sketches of external geometry for each of the configurations considered in this design phase. Details regarding the internal placement of components, along with a brief description of the electronic units carried on-board, are provided in \autoref{sec:internal_configuration}.
+%\todo[inline]{From Project Guide: \\The configuration / layout shows the physical appearance of the product or system. It is mainly a set of sketches and drawings illustrating the internal and external layout with a short textual explanation.\\ The layout contains also a block diagram identifying the electronic units carried on-board.\\ A first version is presented in the Mid Term Report, generally for all design options involved in the concept selection, concentrating on those aspects that are essential to provide the trade-off.\\ The final, more detailed, version of the final design is included in the Final Report. }
+This Chapter outlines the details of the external and internal configuration of HUGO. \autoref{sec:external_configuration} showcases sketches of external geometry for each of the configurations considered in this design phase. Details regarding the internal components and their functions, along with a brief description of the electronic units carried on-board, are provided in \autoref{sec:internal_configuration}.
+This section is not included into the trade-off process of the configurations because the internal components are the same for all designs, and layouts are similar to each other. It will serve as an analysis backbone for the final internal design, identifying necessary subsystems and their contributions. The final internal layout will be created in the next stage of the project realisation.
 
 \section{External Configuration}
 \label{sec:external_configuration}
 
 
-
-
-
 \section{Internal Configuration}
 \label{sec:internal_configuration}
-
+This section evaluates a possible internal configuration of HUGO, mapping the layout of the electronic system, propulsion system and fuel system, along with the possible sensors to measure the aero-elastic effects during the 0.75 Mach manoeuvre.
 \subsection{Electronic System}
 \label{subsec:on-board_electronic_units}
 Along the payload, the fuselage will house the electronic system, including the sensors and supply the payload. The engine requires an outside source of power for the start-up procedure, as such, the battery will provide the additional power needed. The margin left from the battery will power the payload, and other secondary subsystems.
@@ -34,6 +32,8 @@ A list of components included in the electronic system of HUGO can be seen in \a
          Rotary actuators (x10) & 19 & 28.4 x 38.0 x 13.3\\\hline
          Linear actuators (control surfaces and landing gear) x 5 &200& 22.6 x 30.4 x 150 \\\hline
          Flight Controller/Autopilot & 180 & 45.0 x 68.0 x 74.5\\\hline
+         SATA SSD & 50 & 64.5 x 42 \\ \hline
+         ADS-B Transceiver and FLARM Receiver system & 120 & 57 x 82 x 30 \\ \hline
          Electric switch &-&-\\\hline
          Lights (x4)& - & - \\\hline
          Power distribution system \tablefootnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management System}(Accessed on 18.5.2026)} & 250 & 180 x 100 x 40 \\\hline
@@ -41,9 +41,11 @@ A list of components included in the electronic system of HUGO can be seen in \a
     \end{tabular}
     \label{tab:electronic_system}
 \end{table}
-For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the limit of the air speed calculator, which can only reach speeds of 450 kts, while HUGO will fly at a maximum speed of 500 kts, as such an additional speed sensor will be needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an agle of attack sensor.
+For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the maximum air speed calculator, which can only reach speeds of 450 kts, while HUGO can fly at a maximum speed of 500 kts, as such an additional speed sensor is needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an angle of attack sensor. Storage of the data for further processing is done on a SATA SSD, with a capacity of 1TB, as it is robust and will offer enough storage space for a 30-minute flight.
 
 The electronic system is complemented by a multitude of sensors present inside and on the wings and tail to study the aeroelastic behaviour of structures. A list of sensors that have been considered for the aeroelastic analysis can be found in \autoref{wing_structural_sensors}.
+
+The nose cone will house a weather radar, giving HUGO weather prediction capabilities, aiding in measuring the atmosphere parameters.
 
 \begin{longtable}{|p{0.28\linewidth}| p{0.28\linewidth}| p{0.36\linewidth}|}
 \caption{Candidate sensors for aeroelastic response measurements}
@@ -54,7 +56,7 @@ The electronic system is complemented by a multitude of sensors present inside a
 \hline\hline
 \endfirsthead
 
-\hline
+\hline\hline
 \textbf{Sensor} & \textbf{Measures} & \textbf{Use on wing} \\
 \hline\hline
 \endhead
@@ -134,7 +136,7 @@ Actuator current sensors
 \hline
 Lidar Sensor
 & Displacement of Structure
-& Provides 3D measurements and view of the wing in real time via a laser pointing system \\
+& Provides 3D measurements and view of the wing in real time via a laser pointing system. Will be placed in the nose of the cone. \\
 \hline
 
 \end{longtable}
@@ -191,12 +193,13 @@ This choice was made because the engine and fuel of the UAV will be placed behin
 
 A more detailed analysis of the internal payload mounting and contents will be created in the following step of the design.
 
+\newpage
 \textbf{Landing Gear Volume}
 
 The landing gear has been discussed in \autoref{sec:Landing_gear_config}, where its dimensions have been computed for each iteration. Following the trade-off process, it was decided to continue moving forward with design \todo{include the design for the final presentation}, incorporating a \todo{add the specific LG}. Based on the analysis, the landing gear will have the dimensions mentioned in \autoref{tab:landing gear dimensions}. 
 \begin{table}[H]
     \centering
-    \hline
+ 
     \begin{tabular}{|c|c|}
     \hline
         \textbf{Component} & \textbf{Dimension [m]}  \\
@@ -212,7 +215,3 @@ The landing gear has been discussed in \autoref{sec:Landing_gear_config}, where 
 \end{table}
 
 Taking the tyre width mentioned in the previous sections, 45 mm with a diameter of 200, and adding 5 m to account for strut clearance and pins, each leg of the undercarriage will occupy a volume with a width of 50 mm and depth of 205 mm, based on the wheel diameter.
-
-\subsection{Internal Component Layout}
-\label{subsec:internal_component_layout}
-

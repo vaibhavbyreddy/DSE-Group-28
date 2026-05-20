@@ -8,7 +8,7 @@ The following chapter presents the Manufacturing, Assembly, and Integration (MAI
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.05\linewidth, angle=0]{figures/MAI (2).jpg}
+    \includegraphics[width=1.05\linewidth, angle=0]{figures/MAI.jpg}
     \caption{MAI plan}
     \label{fig:MAI_midterm}
 \end{figure}
@@ -203,7 +203,54 @@ With a production run of only 5-10 units, high-volume techniques such as compres
 
 The desired performance imposes the most demanding structural requirements of any of the criteria above. Prepreg achieves void content below 0.5\% for premium grades, virtually perfect fibre volume fractions, thickness tolerances of $\pm 0.05$\,\si{mm}, and surface finish Ra $\leq 0.8$\,\si{\micro\metre} \footnotemark[\value{fnprepreg}] - all of which are necessary for the structural baseline of a research airframe whose aeroelastic behaviour must be predictable and repeatable across test campaigns.
 
+
+
+
+
+
+
 \subsection{Metal Alloys}
+An aluminium alloy was selected as the manufacturing material for components such as landing gear struts, fuselage inserts, and control surface linkages. While various manufacturing processes are technically viable—including open-die forging, closed-die forging, and investment casting \cite{Lorraine2024}—these near-net-shape methods require custom dies and hard tooling, resulting in prohibitively high initial Non-Recurring Engineering (NRE) costs. For small prototype batches and low production volumes (fewer than 10 units), these upfront capital expenses are economically unviable, leaving computer numerical control (CNC) machining directly from raw stock material as the only practical and cost-effective choice.
+
+The sequence of manufacturing steps is listed below:
+
+\begin{enumerate}
+    \item \textbf{CNC Machining}: Subtractive manufacturing tools are controlled using pre-programmed software to systematically remove material from raw stock to achieve the final part dimensions with high precision and repeatability. CNC milling is used to generate complex three-dimensional profiles, brackets, and lightweight structures, while CNC turning (lathing) is used to manufacture axial geometries such as threaded fuselage inserts.
+    
+    The specific form and stress state of the stock material is crucial to prevent geometric warping. Standard quenched aluminium alloys retain severe internal residual stress gradients developed during rapid cooling. When a significant amount of material is machined away, this internal stress equilibrium is disrupted, causing the component to distort or bow. To ensure dimensional stability during and after material removal, stress-relieved stock (such as stretcher-stressed plate or extrusions designated with the T7651/T76511 suffix) must be specified to ensure the material remains flat and stable \cite{Younger2007OvercomingResidual}.
+
+    \item \textbf{Deep hole drilling}: Many landing gear components (such as piston rods, outer cylinders, and axles) are long, slender parts made from difficult-to-cut ultra-high-strength alloys. Conventional turning methods often fail to meet requirements due to severe tool wear, limited tool rigidity, and poor durability, making it difficult to achieve the required dimensional accuracy and surface quality \footnotemark[\value{fnLG}]. Thus, dedicated deep hole drilling machines are required to meet the strict tolerances and demanding requirements of landing gear manufacturing, while enabling the machining of complex aerospace components \footnote{\href{https://www.aero-mag.com/unisig-b700-landing-gear-drilling-alta-precision}{Landing gear machining struts its stuff! } (accessed 18.05.2026)}.
+    
+    \item \textbf{Heat treatment}: Landing gears must perform under extreme loading conditions, imposing stringent performance requirements. Heat treatment can relieve internal stresses, enhance the strength, and increase the hardness of the aluminium alloy. In general, the four types of heat treatment for aluminium alloys are annealing, solution heat treatment, natural and artificial aging, and homogenising \footnote{\href{https://alloyheat.co.uk/4-types-of-heat-treatment-for-aluminium-alloys/}{4 Types Of Heat Treatment For Aluminium Alloys} (accessed 18.05.2026)}.
+    \begin{itemize}
+        \item \textbf{\textit{Annealing}}: Resets the crystalline structure, relieving internal stresses and making the material easier to shape while increasing its resistance to deformation.
+
+        \item \textbf{\textit{Solution Heat Treatment}}: Involves quenching the alloy, typically in water, to preserve the microstructure by preventing atomic redistribution. This prepares the aluminium for subsequent age hardening and enables additional forming operations.
+
+        \item \textbf{\textit{Natural and Artificial Aging}}: Ageing enhances the strength and hardness of a solution heat-treated alloy. During this process, precipitates form from the solid solution elements, stabilising the alloy’s microstructure.
+
+        \item \textbf{\textit{Homogenising}}: Aims to uniformly distribute alloying elements throughout the material to achieve consistent chemical composition, particularly in castings that solidify at varying rates.
+    \end{itemize}
+
+    \item \textbf{Surface Treatment and Protection}: Because 7000-series aluminum alloys can be susceptible to environmental degradation and corrosion, surface protection is applied to the finished parts. This step includes electrochemical treatments (such as anodizing) or chemical conversion coatings to maximize resistance to wear, exfoliation, and stress-corrosion cracking in operational environments \footnote{\href{https://www.totalmateria.com/en-us/articles/surface-treatment-of-aluminum/}{Surface Treatment Of Aluminum And Aluminum Alloys} (accessed 18.05.2026)}.
+
+    Furthermore, because these aluminium components directly interface with the carbon fiber reinforced polymer (CFRP) airframe, there is a risk of galvanic corrosion due to the high electrical conductivity and noble potential of the carbon fibers relative to the aluminium. Certain design decisions have to be made to reduce the risk of corrosion. Some of these isolation strategies are listed below:
+    \begin{itemize}
+        \item Galvanic Isolation Layer: A layer of non-conductive glass fibre can be bonded to the airframe around contact points between the aluminium and carbon fibre to prevent direct contact \footnote{\label{corosion_cit}\href{https://medium.com/@18981879860/how-do-you-prevent-galvanic-corrosion-between-aluminum-and-carbon-fiber-277d07a72760}{How Do You Prevent Galvanic Corrosion Between Aluminum and Carbon Fiber?} (accessed 20.05.2026)}.
+        \item Anodising and priming: The aluminium components can be anodized and coated with an epoxy primer to prevent direct contact between the aluminium and an electrolyte or the carbon fibre.
+        \item Fastener Isolation: Non-conductive, plastic washers can be used between the fastener and aluminium parts to prevent direct electrical contact. Additionally, the fasteners can be made of a noble material, such as Titanium \footref{corosion_cit}.
+        \item Sacrificial Anode: There are cases where the previous methods are not feasible, or may not be fully reliable. To account for such cases, a sacrificial part made from a less noble material, like zinc or magnesium can be embedded into the airframe. This material will corrode first, and thereby protect the critical components \footref{corosion_cit}. 
+    \end{itemize}
+\end{enumerate}
+
+
+
+
+
+
+
+
+\begin{comment}
 An aluminium alloy was selected as the manufacturing material for components such as landing gear struts, engine pylons, and related parts. The sequence of manufacturing steps is listed below.
 
 \begin{enumerate}
@@ -214,9 +261,7 @@ An aluminium alloy was selected as the manufacturing material for components suc
     \end{itemize}
     Common uses for closed die forging in the aerospace industry include manufacturing the landing gear axles, struts, and hinge fittings, as well as the engine mounts \footnote{\href{https://www.anchorharvey.com/knowledge-center/open-vs-closed-die-forgings-in-aerospace-applications/}{Open vs. Closed Die Forgings in Aerospace Applications} (accessed 18.05.2026)}. Some of the advantages of open-die forging are its relatively low tooling costs, making it well-suited for low- to medium-volume production, and the excellent control over grain flow, which enhances fatigue resistance and strength in critical applications. In contrast, closed-die forging is better suited for complex geometries requiring tight tolerances and high precision, and it generally leads to lower material waste \footnote{\href{https://mechforged.com/open-die-vs-closed-die-forging-which-to-use/}{Open Die vs Closed Die Forging: Which to Use?} (accessed 18.05.2026)}.  
 
-    \begin{comment}
     \item \textbf{Investment Casting}: Investment casting, also known as lost-wax casting, involves creating a wax model of the desired component and coating it with a ceramic shell. The wax is then removed through heating, leaving a cavity into which molten metal is poured and allowed to solidify, forming the final part \cite{Lorraine2024}. High-strength alloys are commonly produced through investment casting for components such as brackets, links, fittings, and actuator bodies within landing gear systems. This process enables the production of near-net-shape components with tight dimensional tolerances, high-quality surface finishes, and complex geometries. In aerospace applications, these advantages contribute to reduced component weight, lower part counts, shorter manufacturing lead times, and a reduction in overall lifecycle costs \footnote{\href{https://www.epcast.com/aircraft-aerospace}{Aerospace Investment Casting}}.
-    \end{comment}
 
     \item \textbf{CNC Machining}: All surfaces of the forged aluminium components require extensive CNC machining, with a substantial amount of material removal necessary for the inner cavity regions \footnote{\href{https://www.szsunbright.com/news-show-1033791.html}{The main manufacturing technology of landing gear} (accessed 18.05.2026)}.
     \newcounter{fnLG}
@@ -248,6 +293,20 @@ For the subsequent removal of excess material, CNC machining is selected for bot
 For the largest primary components, such as the outer cylinder and piston rod, dedicated deep hole drilling machines are required to produce the central longitudinal bore. These are long, slender cavities with large depth-to-diameter ratios that cannot be achieved on conventional machining. Dedicated deep hole drilling machines address these constraints through specialised tooling and high-pressure coolant systems, enabling the required dimensional accuracy and surface finish to be achieved within the bore.
 
 Following machining, the aluminium alloy components undergo heat treatment to achieve the required mechanical properties. Surface treatment follows as the final step, providing corrosion and wear protection by building a hard, corrosion-resistant oxide layer on the surface, followed by primer and topcoat application for additional environmental protection.
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Assembly}
 \label{sec:Assembly}
@@ -274,11 +333,9 @@ Riveting offers several advantages, including high reliability, simple tooling, 
 Bolted joints are similar to riveted joints in that they require comparable preparation steps, such as drilling and deburring, and they operate on similar load transfer principles. However, there are also several key differences: bolts can carry tensile loads, allow for disassembly, and are suitable for thicker sections. On the downside, they are generally more expensive than rivets.
 
 \subsection{Welding}
-A welding process joins two pieces of similar material to one continuous section. In the case of metals, 
-welding involves the local melting of material. Welding and riveting (sometimes also bolting) are the most
-interchangeable alternatives.
+A welding process joins two pieces of similar material to one continuous section. In the case of metals, welding involves the local melting of material. Welding and riveting (sometimes also bolting) are the most interchangeable alternatives.
 
-Welding offers several advantages, including a continuous load path, no need for overlapping components, and a resulting smooth surface. It also provides air- and watertight joints. However, it has notable drawbacks: the local melting of material alters the microstructure, which can lead to variations in quality along the weld length. For this reason, high-strength materials that rely on heat treatment to achieve their properties are generally unsuitable for welding. This is one of the key reasons why welding is rarely preferred over riveting in the aircraft industry.
+Welding offers several advantages, including a continuous load path, no need for overlapping components, and a resulting smooth surface. It also provides air and watertight joints. However, it has notable drawbacks: the local melting of material alters the microstructure, which can lead to variations in quality along the weld length. For this reason, high-strength materials that rely on heat treatment to achieve their properties are generally unsuitable for welding. This is one of the key reasons why welding is rarely preferred over riveting in the aircraft industry.
 
 \subsection{Selected assembly methods}
 
