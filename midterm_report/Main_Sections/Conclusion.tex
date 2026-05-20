@@ -1,3 +1,24 @@
 \chapter{Conclusion}
 
-The midterm report aims to converge on a final HUGO configuration suitable for detailed design by establishing the operational, regulatory, and engineering foundations necessary to make the selection. 
+The midterm report aims to converge on a final HUGO configuration suitable for detailed design by establishing the operational, regulatory, and engineering foundations necessary to make the selection. Across ten chapters, the team has systematically evaluated five candidate architectures against HUGO's core mission requirements: the testing of aeroservoelastic phenomena on high aspect ratio wings at high subsonic speeds, within the constraints of certifiability, operability, and sustainability.
+
+The operational framework established in \autoref{ch:operations_logistics} confirms Den Helder Airport as the base for storage and operation, offering a controlled airspace environment, paved runway, and proximity to the designated North Sea test area. %A structured test-day timeline, ground crew composition, and continuing airworthiness scheme aligned with EASA Regulation (EU) No 1321/2014 have been defined, providing a realistic picture of how HUGO will be sustained over its intended 15-year lifecycle. 
+The certification pathway presented in \autoref{ch:certification} demonstrates that a Type Certificate,
+supported by a Design Organisation Approval, is both legally required and practically
+attainable for HUGO. Crucially, the DOA mechanism allows major structural reconfigurations to be classified as research procedures internally, avoiding
+full re-certification for each test campaign. The engineering analyses in \autoref{ch:engineering_design} have yielded a set of preliminary design parameters. The NACA SC(2)-0012 airfoil was selected, with an estimated stall speed of approximately $37 \ m \cdot s^{-1}$ and a maximum lift coefficient of 1.22. Although possible limitations in the AeroSandbox software and potential issues with the model were observed, the results are considered sufficiently accurate for distinguishing between configurations, particularly at low angles of attack. The fuselage structural
+analysis demonstrates that the weight penalty of versatility features such as variable wing
+ports and canard ports is quantifiable and manageable. The flight envelope, constructed to
+EASA CS-23 aerobatic category requirements shows that manoeuvre loads are the
+governing structural case, with gust loads remaining non-critical. The material and configuration trade-offs in \autoref{ch:trade-off} collectively indicate a clear design direction. Carbon fibre composite emerges as the primary
+structural material for the fuselage, wings, and empennage, while Aluminium 7075-T76 is
+preferred for localised high-stress components such as landing gear struts, pylons, and connection ports. Among the five candidate configurations, HUG-CFG-302
+was eliminated for failing the versatility no-go threshold. Of the remaining candidates, ... \todo{write up once trade-off is done} achieves the highest trade-off score, offering ... \todo{add summary of justification}. The manufacturing, assembly, and integration plan in \autoref{ch:MAI} confirms that the selected material combination is feasible using established aerospace processes — prepreg autoclave curing for composites and CNC machining for metals — at the low production volumes expected for HUGO.
+
+Several assumptions limit the precision of the conclusions reached at this stage. The
+aerodynamic model has not been validated against experimental data specific to HUGO, and
+known discrepancies with DATCOM predictions at higher angles of attack suggest that lift estimates may carry non-negligible uncertainty, particularly for the swept wing configuration. The structural weight penalty
+analysis relies on simplified beam models with point loads, which will require refinement
+once the final configuration geometry is fixed. These limitations are
+consistent with a midterm design stage and will be addressed systematically in the detailed
+design phase.

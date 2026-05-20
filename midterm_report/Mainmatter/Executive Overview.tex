@@ -67,9 +67,18 @@ Contents of the report:
     Final Design Configuration
     - pending
 
+    Material selection Trade off
+    - HUGO was divided into 2 main structural subsystems for which primary materials were chosen in a trade-off.
+    - An analysis of reference flying testbeds (X56-and DAST ARW-2) and airliners (A350 XWB, B787) gave us an insight into industry trends and existing solutions.
+    - In total, 7 candidate materials were identified. Their key specific structural properties (stiffness, buckling, strength, fracture toughness) were assessed, as well as material and manufacturing cost.
+    - Results: For Primary aerodynamic components fuselage, empennage, wings, CFRP won. 
+    For the rest of the structural components: Landing gear, pylons, misc brackets inserts etc., Aluminium 7075 T76 won. 
+
     
 7. Engineering Design and Analysis
     Airfoil and wing analogous estimation
+
+    Analogous airfoil and wing estimation based on statistics - relevant reference aircraft, weighing the criteria to estimate an initial HUGO wing. Initial CL, aspect ratio, taper etc. wing parameters to go from
     
     Aerodynamic Modeling
     -parametric lifting-line-theory aerodynamic model of the aircraft has been created using Aerosandbox to obtain the preliminary aerodynamic loads
@@ -85,27 +94,44 @@ Contents of the report:
     -subsequently the so-called scissor plot has been used to determine the required tail volume by constraining the aircraft to be neutrally statically stable and with a minimum required c.g. excursion from the controllability bound 
     
     Landing gear configuration
-    Structural analysis
     -we have two main concepts, the sidepods and the internal storadge one, both with advantages and disadvantages
     -once we get the data for each we can positively say each one is buildable and stable or not,
     -we can give each of them a parameter that will state the usefulness of each configuration and the in the trade off, we say add the points from the landing gear to each config
     -pretty streamed process and here we also state theundercarridge with the highest score
+
+    Structural Design
+    -Evaluated the modular configurations in terms of structural reinforcements and the consequential mass penalties. This directly feeds into the configuration trade-off under the performance category. The fuselage skin thickness was analysed across configurations HUG-CFG-302, HUG-CFG-303, and HUG-CFG-304, by implementing a fixed canard port and allowing variable wing placements with a range of ±1c 
+
+    - The fuselage skin was sized against shear, bending, and cylindrical shell buckling failure criteria. The skin was assumed to be a quasi-isotropic CFRP panel of varying thickness for the preliminary analysis. It was estimated that adding a canard port would increase the Operating Empty Mass fraction by 1-2\% and the inclusion of an x-variable wing port would increase the same fraction by 3-4\%.
+
     
-    Material selection
-    - HUGO was divided into several structural subsystems for which primary materials were chosen in a trade-off.
-    - An analysis of reference flying testbeds (X56-and DAST ARW-2) and airliners (A350 XWB, B787) gave us an insight into industry trends and existing solutions.
-    - In total, 7 candidate materials were identified. Their key structural properties (stiffness, buckling, strength, fracture toughness) were assessed and normalised w. r. t. density to generate a so-called total normalised economic factor.
     
     Susstainable development strategy
     sensitivity study
 
-8. Manufacturing, Assembly, and Integration Plan (MAI Plan)
-    MAI Plan Overview
-    Manufacturing
-    Assembly
-    Integration
+8. Manufacturing, Assembly, and Integration Plan (MAI Plan):
+\begin{enumerate}
+    \item MAI Plan Overview: just mention that it goes from the first step manufacturing, then assembly, and finally integration. Also that there is a legend with the materials, manufacturing methods, and joining methods used.
+    \item Manufacturing: split into two - manufacturing process for the carbon fibre composite, and then for the aluminium alloy. For the composite, different manufacturing techniques were considered based on labor, part size, and efficiency of manufacturing method (how time-consuming it is, material waste). The prepreg with autoclave came out on top. For the aluminium alloy, a research was conducted as to how the landing gear and pylons can be manufactured for our scale. Since the initial fleet is limited to 5 units, CNC machining is the preferred manufacturing technique, combined with deep hole drilling for the holes in the primary landing gear components. Then an overview of the heat treatment and corrosion protection processes was given.
+    \item Assembly: different joining techniques established in the aerospace industry were listed: adhesive bonding, riveting, bolting, welding, along with their advantages and disadvantages. Adhesive bonding is selected for the composite parts, whereas the engine pylons and the landing gear component are going to be bolted. Also it was mentioned that specialized modular ports will join the primary subsystems (wing, fuselage, empennage).
+    \item Integration: it goes over the integration of the remaining system like avionics, battery, engines, and interior within the assembled structure. The main considerations are accessibility and avoiding time delays and safety risk by impropersequencing.
+\end{enumerate}
+
 
 9. Configuration Layout
     External Configuration
-    internal Configuration
+    -a drawing was made that illustrates the positions of all the outside mounted prts and holes, for example, antennas and so on
+    Internal Configuration:
+    -this part only identifies the relevant components, and it does not yet decies on their location since we do now have a configuration to roll with
+    - identification of the propulsion system components and architecture
+    -the internal configuration contains a detailed description of the electronic system, we have found the major components and detailed them in a big table. 
+    -It made us realise that the battery is the biggest component that dictates a lot of the dimensions of the fuselage, especially the diameter 
+    -we also will have to make a cost analysis for the components but this will come in the following stage
+    - we narrowed our serach to specific components, autopilot and we made a comprehensive list of sensors that we will/can use to measure the deformmation
+    - the fuel and propulsion system has also been analysed here, we made a diagram and identified components that will go in this system
+    -finally we have accounted for the payload, the 5L limit
+    -and of course the landing gear that once we have the lg dimensions, we can see about the volume
+
+   
+    
 
