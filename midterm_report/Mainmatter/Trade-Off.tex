@@ -73,7 +73,7 @@ Sustainability & Sustainability is part of the project, as specified by HUG-OPS-
 
 
 
-\begin{comment}
+
 \begin{longtable}{|p{2.5cm}|p{13.5cm}|}
 \caption{Trade-Off Criteria for HUGO Materials}
 \label{tab:trade-off_criteria_materials} \\
@@ -116,7 +116,7 @@ Sustainability & Sustainability of the manufacturing of HUGO must be considered 
 \end{longtable}
 
 
-
+\begin{comment}
 \begin{enumerate}
     \item Versatility was selected since configuration 2 prevents the testing of canard-dependent configurations, and the variable ports in configurations 1, 4, and 5 allow for a wider range of stability conditions to be tested. This means that some of the options will score low in this criterion. 
     \item Reliability was considered a crucial trade-off criterion since the variable port in configurations 1, 4, and 5 significantly increases the risk of failure, and also the development risk. Additionally, ports and gear bays weaken the primary structure of the aircraft. This was also derived from requirement HUG-STR-003 \cite{Baseline report}, specifying the required reliability of the structure. 
@@ -147,8 +147,82 @@ The preliminary configurations and materials shall be evaluated and assigned a v
 
 %\textbf{Sustainability:}  lowest weighted criterion, since all configurations will already use SAF.
 
-Following the criterion definition, no-go values were established for which a design would be immediately deemed as unfeasible and rejected. These are shown in \autoref{tab: no-go}.
+Following the criterion definition, no-go values were established for which a design would be immediately deemed as unfeasible and rejected. These are shown in \autoref{tab:no-go}.
 
+\begin{longtable}{|c|c|p{13cm}|}
+\caption{No-Go Values and Rationale}
+\label{tab:no-go} \\
+
+\hline
+\textbf{Criterion} & \centering{\textbf{No-go}} & \centering{\textbf{Rationale}} \tabularnewline
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Criterion} & \textbf{No-go} & \textbf{Rationale} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+\multicolumn{3}{|c|}{\textbf{Configuration Selection}} \\
+\hline
+
+Versatility & $<3$ &
+Versatility is a key feature of a flying testbed. A configuration with significant limitations to its test capability is fundamentally failing its purpose. Moderate limitations are acceptable.
+\\ \hline
+
+Performance & $<3$ &
+If a configuration cannot get close to the test conditions, the obtained test data is scientifically irrelevant. Moderate drag or weight penalties are acceptable.
+\\ \hline
+
+Reliability & $<3$ &
+An unreliable testbed will produce corrupted data or result in large periods of Aircraft on Ground. Multiple failure modes are acceptable, so long as proper mitigation and contingency plans are defined.
+\\ \hline
+
+Cost & $1$ &
+Maintaining low costs is not design-driving, but remains beneficial for economic sustainability and profitability.
+\\ \hline
+
+Sustainability & $-$ &
+Not a mission-critical criterion.
+\\ \hline
+
+\multicolumn{3}{|c|}{\textbf{Material Selection}} \\
+\hline
+
+\makecell{Structural \\ Properties} & $<3$ &
+Structures made of materials with very poor or poor structural properties will not be able to sustain the expected aerodynamic loads, and therefore must not be used.
+\\ \hline
+
+Durability & $<3$ &
+Due to the expected lifetime of 15 years and structural loads resulting from the test conditions, materials with very low or low durability shall not be used.
+\\ \hline
+
+\makecell{Material \\ Cost} & $1$ &
+Maintaining low costs is not design-driving, but remains beneficial for economic sustainability and profitability.
+\\ \hline
+
+\makecell{Manufacturing \\ Cost} & $1$ &
+Same rationale applies as for Material Cost.
+\\ \hline
+
+\makecell{Design \\ Freedom} & $<3$ &
+Materials with very poor or poor ability to form complex shapes and profiles are not a feasible choice for HUGO, since their application would likely necessitate joining multiple simple shapes with additional parts, increasing the overall weight and size of HUGO.
+\\ \hline
+
+Sustainability & $-$ &
+Not a mission-critical criterion.
+\\ \hline
+
+\end{longtable}
+
+\begin{comment}
 \begin{table}[H]
 \centering
 \caption{No-Go Values and Rationale}
@@ -156,17 +230,26 @@ Following the criterion definition, no-go values were established for which a de
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{|c|c|p{12.5cm}|}
 \hline
-\textbf{Criterion} & \textbf{No-go} & \textbf{Rationale} \\
+\textbf{Criterion} & \textbf{No-go} & \multicolumn{1}{|c|}{\textbf{Rationale}} \\
 \hline\hline
+\multicolumn{3}{|c|}{\textbf{Configuration Selection}} \\ 
+\hline
 Versatility    & $< 3$ & Versatility is a key feature of a flying testbed. A configuration with significant limitations to its test capability is fundamentally failing its purpose. Moderate limitations are acceptable. \\\hline
-Performance    & $< 2$ & If a configuration can't get close to the test conditions, the obtained test data is scientifically irrelevant. Moderate drag or weight penalties are acceptable. \\\hline
-Reliability    & $< 2$ & An unreliable testbed will produce corrupted data or result in large periods of Aircraft on Ground (AOG). Multiple failure modes are acceptable, so long as proper mitigation and contingency plans are defined.  \\\hline
-Cost           & $1$    & Maintaining low costs is beneficial for economic sustainability and profitability. However, the only significant constraint for cost is HUG-FIN-001 \cite{BaselineReport}. \\\hline
+Performance    & $< 3$ & If a configuration can't get close to the test conditions, the obtained test data is scientifically irrelevant. Moderate drag or weight penalties are acceptable. \\\hline
+Reliability    & $< 3$ & An unreliable testbed will produce corrupted data or result in large periods of Aircraft on Ground. Multiple failure modes are acceptable, so long as proper mitigation and contingency plans are defined.  \\\hline
+Cost           & $1$    & Maintaining low costs is beneficial for economic sustainability and profitability. \\\hline
 Sustainability & $-$  & Not a mission-critical criterion.\\
 \hline
+\multicolumn{3}{|c|}{\textbf{Material Selection}} \\ \hline
+\makecell{Structural \\Properties} & $<3$ & Structures made of materials with very poor or poor structural properties will not be able to sustain the expected aerodynamic loads, and therefore must not be used. \\ \hline
+Durability & $<3$ & Due to the expected lifetime of 15 years and structural loads resulting from the test conditions, materials with very low or low durability shall not be used.\\\hline
+\makecell{\\Material \\ Cost} & $1$ & While the market analysis performed in the previous design phase\footref{url:baseline_report} has shown that HUGO is expected to achieve high profitability ,Maintaining low costs is beneficial for economic sustainability and profitability. \\\hline
+\makecell{Manufacturing \\ Cost} & $1$ & Same rationale applies as for Material Cost. \\\hline
+\makecell{Design \\ Freedom} & $<3$  & Materials with very poor or poor ability to form complex shapes and profiles are not a feasible choice for HUGO, since their application would likely necessitate joining multiple simple shaped with additional parts, increasing the overall weight and size of HUGO. \\\hline
+Sustainability & $-$ & Not a mission-critical criterion. \\\hline
 \end{tabular}
 \end{table}
-
+\end{comment}
 \begin{comment}
 Now that the criteria have been selected and their no-go values defined, they can be quantified. A scale from 1 to 5 will be used.
 
@@ -278,6 +361,10 @@ The key differentiators under this definition would be:
 
 \section{Trade-Off Weight Factors}
 \label{sec:trade-off_weight_factors}
+Determining the weight factors for the various criteria was developed independently for the analysis of configurations and materials, based on the specific selection criteria. The configuration selection followed the analytic hierarchy process (AHP) approach, while the material weights were assigned arbitrarily based on an in-depth analysis of relative criterion importance.
+
+\subsection{Weight Factors for Configuration Selection}
+\label{subsec:weight_factors_configurations}
 
 To determine the weight factors, the analytic hierarchy process (AHP) was used according to the methodology described by Pant et al. \cite{Pant2022}. This process encompasses pairwise comparison of the trade-off criteria. To form a pairwise comparison matrix (PCM) for $n$ distinct criteria, $n(n-1)/2$ comparisons are required. The diagonal entries of the PCM are all equal to 1, and the remaining values are reciprocal pairs of the $n(n-1)/2$ comparison values.
 
@@ -294,11 +381,11 @@ For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty 
 
  & Cost & Versatility & Performance & Reliability & Sustainability \\
 \hline\hline
-Cost           & 1 & $\tfrac{1}{6}$ & $\tfrac{1}{4}$ & $\tfrac{1}{4}$ & 3  \\\hline
+Cost           & 1 & $1/6$ & $1/4$ & $1/4$ & 3  \\\hline
 Versatility    & 6 & 1 & 3 & 3 & 7 \\\hline
-Performance    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\\hline
-Reliability    & 4 & $\tfrac{1}{3}$ & 1 & 1 & 5 \\\hline
-Sustainability & $\tfrac{1}{3}$ & $\tfrac{1}{7}$ & $\tfrac{1}{5}$ & $\tfrac{1}{5}$ & 1 \\\hline
+Performance    & 4 & $1/3$ & 1 & 1 & 5 \\\hline
+Reliability    & 4 & $1/3$ & 1 & 1 & 5 \\\hline
+Sustainability & $1/3$ & $1/7$ & $1/5$ & $1/5$ & 1 \\\hline
 %\hline
 %\textbf{Column Sum} & 15.33 & 1.98 & 5.45 & 5.45 & 21 \\
 %\hline
@@ -449,12 +536,99 @@ For a fully consistent matrix $\lambda_{max} = n$, which is not true for the con
 
 The obtained CR implies that the evaluation of \textbf{w} is sufficiently consistent. Therefore, the entries of \textbf{w} will can used as weight factors for the final configuration trade-off.
 
- 
+\subsection{Weight Factors for Material Selection}
+For the selection of material weight factors, a more holistic approach was applied, resulting in values from 0.1 to 1.0, where 1.0 warrants the highest priority. The followingr rationale was applied to justify the choice of specific values:
+
+\begin{itemize}
+    \item \textbf{Structural Properties (Weight 1.0):} It is the best interest to minimize the weight of HUGO's structural components. This way, the performance shall be optimized, accounting for the 5 kg mass.  Additionally, high specific modulus ($E/\rho$) and plate buckling efficiency ($\sqrt[3]{E}/\rho$) are required to withstand aeroelastic effects at Mach 0.75. Concentrated load structures (landing gear, pylons) are driven by high specific yield strength ($\sigma_y/\rho$) and fracture toughness ($K_{Ic}/\rho$) to safely absorb dynamic landing loads. For these reasons, structural performance directly dictates the aerodynamic and operational feasibility of the platform. It warrants the highest trade-off weight, 1.0.
+    
+    \item \textbf{Durability (Weight 0.85):} HUGO is designed for a 15-year operational lifecycle with several flight days per year. The selected materials must withstand continuous high-impact cyclic loading, runway debris abrasion, and environmental degradation—including UV exposure for composites and galvanic corrosion at hybrid metallic-composite interfaces. While these issues can be solved using protective coatings and modern construction methods like using patches of fibreglass between the aluminium and carbon fibre components, the durability of the materials used is a large factor in the material selection process, warranting a weight of 0.85. 
+
+    \item \textbf{Material Cost (Weight 0.1):} The cost of the raw materials of the structure of HUGO has a small overall impact on the financial feasibility of the project, as found in the market analysis during the previous design phase\footref{url:baseline_report}. As explained in \autoref{sec:trade-off_criteria_selection}, the overall costs are expected to be dominated by manufacturing. Therefore, this criterion was assigned the lowest weight of 0.1.
+    %The costs of processing these materials and production of the parts have a far greater impact than the cost of the materials themselves. The specific costs of all the considered materials are listed in \autoref{tab:base-material-properties}.
+
+    \item \textbf{Manufacturing Cost (Weight 0.5):} Manufacturing complexity dictates the primary financial burden of the project due to the low-volume production model. For aerodynamic surfaces, high Non-Recurring Engineering (NRE) costs associated with custom metallic tooling (e.g., stretch forming blocks) must be balanced against the high labour and autoclave operational costs of composite layups. For localized structures, direct CNC machining of metallic billets offers a highly efficient, low-NRE production route. Manufacturing methodology directly controls the economic viability of unit scaling, However, as shown in the previous design phase\footref{url:baseline_report}, there is a wide margin in the unit cost in the overall financial viability, which is why the criterion was deemed as one of medium importance, and assigned a weight of 0.5.
+
+    \item \textbf{Design Freedom (Weight 1.0):} Project HUGO functions as a flying testbed, rather than a mass-production vehicle. Maximizing design freedom allows for the implementation of complex, aerodynamically optimized profiles and fuselage geometries, that would be impossible or prohibitively heavy if restricted to simple, developable surfaces. Because the ability to manufacture advanced aerodynamic shapes directly governs the quality of the research data the platform can generate, design freedom is classified as a primary requirement and assigned the maximum weight of 1.0.
+
+    \item \textbf{Sustainability (Weight 0.5):} Standing at the forefront of modern aviation research, HUGO shall embrace the industry's movement towards sustainable solutions. At the same time, however, the main design focus is the ability of HUGO to perform its mission. For these reasons, this criterion was assigned a weight of 0.5
+    %The consideration of the sustainability of material has relevance for the material selection. It should always be the goal to use a material for the aircraft which is safe for the surrounding environment and where the greenhouse emissions related to its manufacture can be kept low. Due to the likely relative small size of the aircraft and the low production volume of the aircraft it has been given the weight of 0.5. 
+
+
+    \end{itemize}
+
+\begin{comment}
+\begin{longtable}{|p{0.24\textwidth}|| p{0.68\textwidth}|}
+\caption{Trade-off Weights}
+\label{maintenance_operation} \\
+
+\hline
+\textbf{Criterion} & \textbf{Rationale} \\
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Criterion} & \textbf{Rationale} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{2}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Structural Properties & 
+\textbf{Weight: 1.0} \newline
+It is the best interest to minimize the weight of the structural componenets of the aircraft. This will allow us to maximize the performance, as well as account for the 5 kg payload mass.  Additionally,  For primary aerodynamic surfaces, high specific modulus ($E/\rho$) and plate buckling efficiency ($\sqrt[3]{E}/\rho$) are required to withstand aeroelastic effects at Mach 0.75. Additionally, concentrated load structures (landing gear, pylons) are driven by high specific yield strength ($\sigma_y/\rho$) and fracture toughness ($K_{Ic}/\rho$) to safely absorb dynamic landing loads. Because structural performance directly dictates the aerodynamic and operational feasibility of the platform, it warrants the highest trade-off weight, 1.0.
+\\
+\hline
+
+Durability & 
+\textbf{Weight: 0.85} \newline
+HUGO is designed for a 15-year operational lifecycle with several flight days per year. The selected materials must withstand continuous high-impact cyclic loading, runway debris abrasion, and environmental degradation—including UV exposure for composites and galvanic corrosion at hybrid metallic-composite interfaces. While these issues can be solved using protective coatings and modern construction methods like using patches of fibreglass between the aluminium and carbon fibre components, the durability of the materials used is a large factor in the material selection process, warranting a weight of 0.85. 
+\\
+\hline
+
+Material cost & 
+\textbf{Weight: 0.1} \newline
+The cost of the raw materials of the structure of HUGO has a small overall impact on the financial feasibility of the project \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Market\%20Analysis.docx} (accessed 19.05.2026)}, as found in the market analysis. The costs of processing these materials and production of the parts have a far greater impact than the cost of the materials themselves. The specific costs of all the considered materials are listed in \autoref{tab:base-material-properties}.
+\\
+\hline
+
+Manufacturing Cost & 
+\textbf{Weight: 0.5} \newline
+Manufacturing complexity dictates the primary financial burden of the project due to the low-volume production model. For aerodynamic surfaces, high NRE (Non-Recurring Engineering) costs associated with custom metallic tooling (e.g., stretch forming blocks) must be balanced against the high labor and autoclave operational costs of composite layups. For localized structures, direct CNC machining of metallic billets offers a highly efficient, low-NRE production route. Manufacturing methodology directly controls the economic viability of unit scaling, However, as shown in the market analysis\footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Market\%20Analysis.docx} (accessed 19.05.2026)}, there is a wide margin in the unit cost in the overall financial viability.
+\\
+\hline
+
+Design Freedom & 
+\textbf{Weight: 1.0} \newline
+Project HUGO functions as a flying testbed rather than a mass-production vehicle. Maximizing design freedom allows for the implementation of complex, aerodynamically optimized profiles and fuselage geometries, that would be impossible or prohibitively heavy if restricted to simple, developable surfaces. Because the ability to manufacture advanced aerodynamic shapes directly governs the quality of the research data the platform can generate, design freedom is classified as a primary requirement and assigned a maximum weight.
+\\
+\hline
+
+Sustainability & 
+\textbf{Weight: 0.5} \newline
+The consideration of the sustainability of material has relevance for the material selection. It should always be the goal to use a material for the aircraft which is safe for the surrounding environment and where the greenhouse emissions related to its manufacture can be kept low. Due to the likely relative small size of the aircraft and the low production volume of the aircraft it has been given the weight of 0.5. 
+\\
+\hline
+
+
+\end{longtable}
+
+
+Based on the trade off criteria and weights selected in \autoref{tab:trade-off_criteria} and, the following trade off matrices were generated. Since the requirements and manufacturing methods and complexity varies significantly between the aerodynamic components (fuselage, empennage and wings), and the functional components (landing gear, pylons etc.), separate trade off matrices were required. \autoref{tab:fuselage_trade-off_matrix_material_selection} shows the trade off matrix for the aerodynamic components, and \autoref{tab:landing_gear_trade-off_matrix_material_selection} shows the trade off matrix for the functional components. 
+\todo{refer to the trade off weights table once its made}
+
+The carbon-fiber-reinforced polymer (CFRP) emerged as the clear optimal choice for the primary lifting surfaces and fuselage. Its advantage in specific modulus and plate buckling efficiency ($\sqrt[3]{E}/\rho$) is critical for a high-aspect-ratio (HAR) aircraft operating at Mach 0.75. This is what drove its score in the structural properties section. Furthermore, CFRP offers maximum design freedom, allowing for the maximum freedom to design complex aerodynamic profiles necessary for a flying laboratory. It also allows for the development and construction of new wing designs without astronomical tooling costs. Utilizing CFRP ensures that weight of the fuselage and wings can be minimized, while retaining the maximum payload volume required for the 5 kg experimental payload.
+\end{comment}
 
 
 
 
-\section{Trade-Off Matrix and Analysis}
+\section{Trade-Off Matrices and Analysis}
 \label{sec:trade-off_matrix}
 \todo[inline]{redo after weight and drag estimations!}
 \autoref{tab:trade-off_matrix} shows the final trade-off matrix constructed for the candidate configurations for HUGO. The criteria have been weighted according to the priority vector defined in \autoref{sec:trade-off_weight_factors}, and specific scores were assigned for each criterion-configuration pair according to the definitions provided in \autoref{ch:app_trade-off_rationale}.
@@ -484,7 +658,249 @@ p{3cm}|
 \color{white}\textbf{Performance} &
 \color{white}\textbf{Reliability} &
 \color{white}\textbf{\shortstack{Sustain\\ability}} &
-\color{white}\textbf{Total} \\
+
+\begin{table}[H]
+\centering
+\caption{Trade-Off Matrix for fuselage, wings and empennage}
+\renewcommand{\arraystretch}{1.4}
+
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|
+p{3cm}||
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}||
+>{\centering\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor[HTML]{4472C4}
+\color{white}\textbf{Material} &
+\color{white}\textbf{Structural properties} &
+\color{white}\textbf{Durability} &
+\color{white}\textbf{Material cost} &
+\color{white}\textbf{Manufacturing cost} &
+\color{white}\textbf{Design freedom} &
+\color{white}\textbf{\shortstack{Sustain-\\ability}} &
+\color{white}\textbf{Weighted Total} \\
+\hline\hline
+
+\rowcolor[HTML]{D9E2F3}
+\textbf{Weight} &
+1 &
+0.85 &
+0.1 &
+0.5 &
+1 &
+0.5 &
+\\
+\hline
+
+HUG-MAT-01
+& 4 \cellcolor[HTML]{A9D18E}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 10.35 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUG-MAT-02
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 1 \cellcolor[HTML]{F8696B}
+& 1 \cellcolor[HTML]{F8696B}
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 11.85 \\
+\hline
+
+HUG-MAT-03
+& 3 \cellcolor[HTML]{F4E285}
+& 4 \cellcolor[HTML]{A9D18E}
+& 4 \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 3 \cellcolor[HTML]{F4E285}
+& 12.30 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUG-MAT-04
+& 3 \cellcolor[HTML]{F4E285}
+& 3 \cellcolor[HTML]{F4E285}
+& 4 \cellcolor[HTML]{A9D18E}
+& 1 \cellcolor[HTML]{F8696B}
+& 3 \cellcolor[HTML]{F4E285}
+& 1 \cellcolor[HTML]{F8696B}
+& 9.55 \\
+\hline
+
+HUG-MAT-05
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 1 \cellcolor[HTML]{F8696B}
+& 2 \cellcolor[HTML]{F4B183}
+& 3 \cellcolor[HTML]{F4E285}
+& 3 \cellcolor[HTML]{F4E285}
+& 10.30 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+\textbf{HUG-MAT-06}
+& \textbf{5} \cellcolor[HTML]{63BE7B}
+& \textbf{3} \cellcolor[HTML]{F4E285}
+& \textbf{2} \cellcolor[HTML]{F4B183}
+& \textbf{2} \cellcolor[HTML]{F4B183}
+& \textbf{5} \cellcolor[HTML]{63BE7B}
+& \textbf{1} \cellcolor[HTML]{F8696B}
+& \textbf{15.10} \\
+\hline
+
+HUG-MAT-07
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 4 \cellcolor[HTML]{A9D18E}
+& 2 \cellcolor[HTML]{F4B183}
+& 4 \cellcolor[HTML]{A9D18E}
+& 1 \cellcolor[HTML]{F8696B}
+& 14.30 \\
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\label{tab:fuselage_trade-off_matrix_material_selection}
+\end{table}
+
+
+
+
+For localized, high-stress components such as the landing gear struts, engine pylons and modular port connection points, Aluminum 7075-T76 outperformed the composite alternatives. These components require a balance of high specific fracture toughness to absorb dynamic landing impacts and high manufacturability. Aluminum 7075-T76 provides excellent specific strength ($\sigma_y/\rho$) while keeping manufacturing and material costs significantly lower than titanium or composite alternatives. The selection of high-strength aluminum heavily supports the project's modularity requirement. Hardpoints, pylons, and gear attachments can be rapidly CNC-machined, tapped, and modified to accommodate swappable test articles without the need for expensive composite tooling or complex inserts.
+
+
+
+
+
+\begin{table}[H]
+\centering
+\caption{Trade-Off Matrix for Landing gear and Pylons}
+\renewcommand{\arraystretch}{1.4}
+
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{|
+p{3cm}||
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}|
+>{\centering\arraybackslash}p{3cm}||
+>{\centering\arraybackslash}p{3cm}|
+}
+\hline
+\rowcolor[HTML]{4472C4}
+\color{white}\textbf{Material} &
+\color{white}\textbf{Structural properties} &
+\color{white}\textbf{Durability} &
+\color{white}\textbf{Material cost} &
+\color{white}\textbf{Manufacturing cost} &
+\color{white}\textbf{Design freedom} &
+\color{white}\textbf{\shortstack{Sustain-\\ability}} &
+\color{white}\textbf{Weighted Total} \\
+\hline\hline
+
+\rowcolor[HTML]{D9E2F3}
+\textbf{Weight} &
+1 &
+0.85 &
+0.1 &
+0.5 &
+1 &
+0.5 &
+\\
+\hline
+
+HUG-MAT-01
+& 4 \cellcolor[HTML]{A9D18E}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 1 \cellcolor[HTML]{F8696B}
+& 5 \cellcolor[HTML]{63BE7B}
+& 11.35 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUG-MAT-02
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 1 \cellcolor[HTML]{F8696B}
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 2 \cellcolor[HTML]{F4B183}
+& 14.85 \\
+\hline
+
+\textbf{HUG-MAT-03}
+& \textbf{3} \cellcolor[HTML]{F4E285}
+& \textbf{4} \cellcolor[HTML]{A9D18E}
+& \textbf{4} \cellcolor[HTML]{A9D18E}
+& \textbf{4} \cellcolor[HTML]{A9D18E}
+& \textbf{5} \cellcolor[HTML]{63BE7B}
+& \textbf{3} \cellcolor[HTML]{F4E285}
+& \textbf{15.30} \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUG-MAT-04
+& 3 \cellcolor[HTML]{F4E285}
+& 3 \cellcolor[HTML]{F4E285}
+& 4 \cellcolor[HTML]{A9D18E}
+& 3 \cellcolor[HTML]{F4E285}
+& 5 \cellcolor[HTML]{63BE7B}
+& 2 \cellcolor[HTML]{F4B183}
+& 13.45 \\
+\hline
+
+HUG-MAT-05
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 1 \cellcolor[HTML]{F8696B}
+& 4 \cellcolor[HTML]{A9D18E}
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 13.30 \\
+\hline
+
+\rowcolor[HTML]{D9E2F3}
+HUG-MAT-06
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 2 \cellcolor[HTML]{F4B183}
+& 1 \cellcolor[HTML]{F8696B}
+& 3 \cellcolor[HTML]{F4E285}
+& 1 \cellcolor[HTML]{F8696B}
+& 12.60 \\
+\hline
+
+HUG-MAT-07
+& 5 \cellcolor[HTML]{63BE7B}
+& 3 \cellcolor[HTML]{F4E285}
+& 4 \cellcolor[HTML]{A9D18E}
+& 1 \cellcolor[HTML]{F8696B}
+& 2 \cellcolor[HTML]{F4B183}
+& 1 \cellcolor[HTML]{F8696B}
+& 11.80 \\
+\hline
+
+\end{tabular}
+\end{adjustbox}
+\label{tab:landing_gear_trade-off_matrix_material_selection}
+\end{table}\color{white}\textbf{Total} \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
