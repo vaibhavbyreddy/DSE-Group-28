@@ -1,11 +1,12 @@
 \chapter{Risk Assessment and Certification}
 \label{ch:certification}
-This chapter focuses on the analysis of technical risks associated with the operations of HUGO, as well as the steps required to obtain the certification necessary for operations testing the aeroelastic effects of high aspect ratio wings. First, a qualitative assessment of identified technical risks is performed in \autoref{sec:technical_risk_assessment}. Then, in \autoref{sec:type_certificate}, the classification process is described that places HUGO into a type class category. Following the assessment of flight class, the certification for a Design Organisational Approval (DOA) is covered in \autoref{sec: DOA}. Establishing a certification basis for HUGO allows for a construction of a preliminary flight envelope, which is the focus of \autoref{sec:flight_envelope}. Lastly, the environmental protection aspect of the certification is expanded upon in \autoref{sec:environmental_protection}.
+This chapter focuses on the analysis of technical risks associated with the operations of HUGO, as well as the steps required to obtain the certification necessary for operations testing the aeroelastic effects of high aspect ratio wings. A qualitative assessment of technical risks is performed in \autoref{sec:technical_risk_assessment}. Then, in \autoref{sec:type_certificate}, the classification process is described that places HUGO into a type class category. Following the assessment of flight class, the certification for a Design Organisational Approval (DOA) is covered in \autoref{sec: DOA}. Establishing a certification basis for HUGO allows for a construction of a preliminary flight envelope, which is the focus of \autoref{sec:flight_envelope}. Lastly, the environmental protection aspect of the certification is expanded upon in \autoref{sec:environmental_protection}.
 
 
 \section{Technical Risk Assessment}
 \label{sec:technical_risk_assessment}
-A preliminary risk assessment for both development and operations of HUGO has been discussed extensively in the previous design phase\footref{url:baseline_report}, the knowledge of which is assumed for this analysis. This Section addresses the developments to the lists of identified risks, as well as changes in the risk matrix due to a more in-depth analysis of preventive measures and risk mitigation strategies.
+A preliminary risk assessment for both development and operations of HUGO has been discussed extensively in the previous design phase\footref{url:baseline_report}, the knowledge of which is assumed for this analysis. 
+%This Section addresses the developments to the lists of identified risks, as well as changes in the risk matrix due to a more in-depth analysis of preventive measures and risk mitigation strategies.
 
 \subsection{Modifications to the Risk List}
 Preliminary risk assessment performed in the previous design phase identified five development risks and ten operational risks for HUGO, with likelihood $L$ and severity $S$ scores ranging from 1 to 5, where 1 relates to the least probable/severe outcomes\footref{url:baseline_report}. A more detailed analysis of the design and operations allows for identification of additional risks, their likelihood and expected severity, which can be seen in \autoref{tab:risks_new}.
@@ -17,7 +18,7 @@ Preliminary risk assessment performed in the previous design phase identified fi
     \caption{Continuing Development and Operation Risks}
     \begin{tabular}{|c|p{8cm}|c|c|}
     \hline
-       \textbf{Risk ID}  & \textbf{Risk Description} & \textbf{Likelihood} & \textbf{Severity} \\ \hline \hline
+       \textbf{Risk ID}  & \makecell{\textbf{Risk Description}} & \textbf{Likelihood} & \textbf{Severity} \\ \hline \hline
         HUG-DEV-06 & Certification duration exceeding 3 years & 2 & 3 \\ \hline
         HUG-DEV-07 & Rejection of Certification/DOA application  & 2 & 5 \\ \hline
         HUG-OP-11 &  Unavailability of ground crew  & 3 & 5 \\ \hline
@@ -31,75 +32,113 @@ Preliminary risk assessment performed in the previous design phase identified fi
     \label{tab:risks_new}
 \end{table}
 
-Preventive measures and mitigation strategies developed for the newly identified risks, along with their expected effect on the likelihood or severity, are described in \autoref{tab:risk_preventive_measures} and \autoref{tab:risk_mitigation_scenarios}, respectively.
+Preventive measures and mitigation strategies developed for the newly identified risks, along with their expected effect on the likelihood or severity, are described in \autoref{tab:risk_preventive_measures} and \autoref{tab:risk_mitigation_scenarios}, respectively. Preventive measures can be applied before operations take place to reduce the likelihood of the risks manifesting themselves. Mitigation scenarios refer to the actions that can be taken once the risks occur.
 
-\begin{table}[H]
-   \caption{Risk Preventive Measures}
-    \centering
-    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|}
-    \hline
-        \textbf{ Risk ID} & \textbf{Preventive Measure(s)} & \textbf{$\Delta L$}  \\ \hline\hline
-         HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is in line with the predictions made for the theoretical. & -2  \\ \hline
-         HUG-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1  \\ \hline
-         HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2  \\ \hline
-         HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1  \\ \hline
-         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO.
-         
-         Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 \\ \hline
-         HUG-OP-03 & Adequate theoretical and practical training of crew.
-         
-         Development of procedures, checklists, flight tests and simulations validated by a competent third party. & -1 \\ \hline
-         HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
-         HUG-OP-05 & Implementing alerting systems in case values approaching the envelope boundaries are detected. Apply master warnings once predefined critical margins are exceeded. & -1 \\ \hline
-         HUG-OP-07 & Operate within ATC-controlled airspaces below FL290, with adequate vertical separation of 2000' & 0 \\ \hline 
-         HUG-OP-08 & Install fire detection and mitigation systems in HUGO. & -1 \\\hline
-         HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
+It shall be noted that mitigation scenarios cannot be identified for all the risks. This is the case for the development risks associated with certification (HUG-DEV-06, HUG-DEV-07), as well as risks dependent on the airport authorities (HUG-OP-13). In these cases, special emphasis was put on the preventive measures.
 
+\begin{longtable}{|c|p{12.5cm}|c|}
+\caption{Risk Preventive Measures}
+\label{tab:risk_preventive_measures} \\
 
-         
-         
-    \end{tabular}
-    \label{tab:risk_preventive_measures}
-\end{table}
+\hline
+\textbf{Risk ID} & \centering{\textbf{Preventive Measure(s)}} & \centering{\textbf{$\Delta L$}} \tabularnewline
+\hline\hline
+\endfirsthead
 
-\begin{table}[H]
-   \caption{Risk Mitigation Strategies}
-    \centering
-    \begin{tabular}{|p{2.5cm}|p{11cm}|p{0.75cm}|}
-    \hline
-        \textbf{Risk ID} & \textbf{Mitigation Strategy} & $\Delta S$ \\ 
-        \hline\hline
-        HUG-OP-01 & \multirow{2}{*}{\parbox{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a flight termination system shall be triggered.}} & \multirow{2}{*}{-1} \\ 
-        \cline{1-1}
-        HUG-OP-02 & & \\ 
-        \hline
-        HUG-OP-04 & For problems during flight that include breaking of parts or components, HUGO shall immediately decelerate to a safe speed (TBD). Subsequently, flight termination system shall be triggered. & -1 \\ 
-        \hline
-        HUG-OP-05 & If returning to the envelope is not deemed feasbile, flight termination shall be performed as described for HUG-OP-O1. & -1 \\\hline
-        HUG-OP-06 & If the test area is exceeded, the drone will be ordered to immediately return to the testing location. & -2 \\ \hline
-        HUG-OP-08 & Initiate fire extinguishing procedures in case on-board fire is detected/ & -1 \\\hline
-        HUG-OP-09 & If a mechanical error onboard the drone during the test flight is detected, possible extent shall be assessed. Depending on the root cause of the error and severity of consequences, one of the following shall be implemented:
-        \begin{enumerate}
-        \item The drone will be ordered to immediately return. 
-        \item The flight termination system shall be triggered. 
-        \end{enumerate} 
-        & -1 \\ \hline
-        HUG-OP-10 & In case of deteriorating weather conditions, the drone will be ordered to return and land as soon as possible. & -1 \\ \hline
-        
-    \end{tabular}
-    \label{tab:risk_mitigation_scenarios}
-\end{table}
+\hline
+\textbf{Risk ID} & \textbf{Preventive Measure(s)} & \textbf{$\Delta L$} \\
+\hline\hline
+\endhead
 
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+HUG-DEV-06 & Ensuring that the documentation is complete, and all design details comply with relevant regulations and means of compliance.
+& -1 \\ \hline
+
+HUG-DEV-07 & Maintaining contact with EASA and other competent authorities to resolve any potential issues regarding certification.
+& -1 \\ \hline
+
+HUG-OP-11 & Regular check-ups on the crew, establishing reliable communication channels, predefining absence regulations, scheduling holidays and foreseen leaves in advance.
+& -2 \\ \hline
+
+HUG-OP-12 & Regular maintenance and equipment checks. Preparing backup equipment.
+& -1 \\ \hline
+
+HUG-OP-13 & Maintaining communication with the airport to ensure that a sufficient fuel budget is available for HUGO at all times.
+& -1 \\ \hline
+
+HUG-OP-14 & Implementing an alerting system and constant monitoring of the fuel system.
+& -1 \\ \hline
+
+HUG-OP-15 & Pre-scheduling flights with De Kooy ATC and maintaining communications according to airport regulations.
+& -1 \\ \hline
+
+HUG-OP-16 & Implement continuous data transmission, prepare a backup storage plan for in-flight measurements.
+& -1 \\ \hline
+
+HUG-OP-17 & Monitoring the battery condition after each flight day. & -1 \\
+
+\end{longtable}
+
+\begin{longtable}{|c|p{12.5cm}|c|}
+\caption{Risk Mitigation Strategies}
+\label{tab:risk_mitigation_scenarios} \\
+
+\hline
+\textbf{Risk ID} & \centering{\textbf{Mitigation Strategy}} & \centering{\textbf{$\Delta S$}} \tabularnewline
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Risk ID} & \textbf{Mitigation Strategy} & \textbf{$\Delta S$} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+HUG-OP-11 &
+Appointing pilots/crew members who can be called upon in case of emergency.
+& -1 \\ \hline
+
+HUG-OP-12 &
+Using the backup equipment, requesting assistance from available airport facilities.
+& -1 \\ \hline
+
+HUG-OP-14 &
+Sending a "MAYDAY FUEL" emergency signal to the ATC to ensure priority landing.
+& -3 \\ \hline
+
+HUG-OP-15 &
+Requesting take-off with ATC, asking for clarification on when a take-off window will become available. Including a buffer in the test day planning to account for delayes take-offs and landings.
+& -2 \\ \hline
+
+HUG-OP-16 &
+Accessing the backup files, saving the continuously transmitted data during operations.
+& -2 \\
+
+\end{longtable}
 
 
 \subsection{Modified Risk Matrix}
+Applying the preventive measures and mitigation scenarios to the newly identified risks results in a mitigated risk list shown in \autoref{tab:risk_assessment_mitigated}. The corresponding mitigated risk matrix is shown in \autoref{fig:risk_matrix_mitigated}. As can be seen, all of the new risks fall within the green or yellow zone, and therefore are deemed as acceptable, provided that all of the identified preventive measures and mitigation scenarios are implemented.
+
 
 \begin{figure}[H]
 \centering
 
 % -------- LEFT: TABLE --------
 \begin{minipage}[t]{0.42\textwidth}
-    \vspace{0pt}
+    \vspace{30pt}
     \centering
     \captionof{table}{Final Development and Operational Risk Assessment}
     \label{tab:risk_assessment_mitigated}
@@ -107,27 +146,21 @@ Preventive measures and mitigation strategies developed for the newly identified
     \begin{tabular}{|c|c|c|}
         \hline
         \textbf{Risk-ID} & \textbf{Likelihood} & \textbf{Severity} \\ \hline
-        HUG-DEV-01 & 2 & 4\\ \hline
-        HUG-DEV-02 & 1 & 3\\ \hline
-        HUG-DEV-03 & 1 & 5\\ \hline
-        HUG-DEV-04 & 1 & 2\\ \hline
-        HUG-DEV-05 & 1 & 4\\ \hline
-        HUG-OP-01 & 2 & 1 \\ \hline
-        HUG-OP-02 & 2 & 3 \\ \hline
-        HUG-OP-03 & 2 & 3 \\ \hline
-        HUG-OP-04 & 1 & 4 \\ \hline
-        HUG-OP-05 & 1 & 2 \\ \hline
-        HUG-OP-06 & 2 & 3 \\ \hline
-        HUG-OP-07 & 1 & 5 \\ \hline
-        HUG-OP-08 & 1 & 3 \\ \hline
-        HUG-OP-09 & 2 & 1 \\ \hline
-        HUG-OP-10 & 2 & 2 \\ \hline
+        HUG-DEV-06 & 1 & 3\\ \hline
+        HUG-DEV-07 & 1 & 5\\ \hline
+        HUG-OP-11 & 1 & 4\\ \hline
+        HUG-OP-12 & 1 & 4\\ \hline
+        HUG-OP-13 & 1 & 4\\ \hline
+        HUG-OP-14 & 1 & 1 \\ \hline
+        HUG-OP-15 & 1 & 1 \\ \hline
+        HUG-OP-16 & 1 & 2 \\ \hline
+        HUG-OP-17 & 1 & 5 \\ \hline
     \end{tabular}
 \end{minipage}
 \hfill
 % -------- RIGHT: TIKZ --------
 \begin{minipage}[t]{0.55\textwidth}
-    \vspace{25pt}
+\vspace{10pt}
     \centering
     \scalebox{0.8}{
     \begin{tikzpicture}
@@ -175,36 +208,40 @@ Preventive measures and mitigation strategies developed for the newly identified
         % Labels (corrected to match table)
 
 % (Likelihood 2, Severity 4)
-\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2)
-{HUG-DEV-01};
+%\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2)
+%{HUG-DEV-01};
 
 % (1,3)
 \node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-DEV-02\\HUG-OP-08};
+{HUG-DEV-06};
+
+% (1,1)
+\node[font=\tiny\bfseries,align=center] at (0*\cs+\cs/2, 0*\cs+\cs/2)
+{HUG-OP-14\\HUG-OP-15};
 
 % (1,5)
 \node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-DEV-03\\HUG-OP-07};
+{HUG-DEV-07\\HUG-OP-17};
 
 % (1,2)
 \node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-DEV-04\\HUG-OP-05};
+{HUG-OP-16};
 
 % (1,4)
 \node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-DEV-05\\HUG-OP-04};
+{HUG-OP-11\\HUG-OP-12\\HUG-OP-13};
 
 % (2,1)
-\node[font=\tiny\bfseries,align=center] at (0*\cs+\cs/2, 1*\cs+\cs/2)
-{HUG-OP-01\\HUG-OP-09};
+%\node[font=\tiny\bfseries,align=center] at (0*\cs+\cs/2, 1*\cs+\cs/2)
+%{HUG-OP-01\\HUG-OP-09};
 
 % (2,2)
-\node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 1*\cs+\cs/2)
-{HUG-OP-10};
+%\node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 1*\cs+\cs/2)
+%{HUG-OP-10};
 
 % (2,3)
-\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2)
-{HUG-OP-02\\HUG-OP-03\\HUG-OP-06};
+%\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2)
+%{HUG-OP-02\\HUG-OP-03\\HUG-OP-06};
 
         % Axes
         \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
@@ -320,7 +357,7 @@ According to EASA classification, re-certification is required each time a chang
 (21.A.91)\cite{EASAInitialAirworthiness2025}. A "minor change" is classified as any type of modification that does not show any appreciable effect on weight, structural strength, reliability and other specifications. A change that is not a "minor change" is considered as a "major change". This distinction determines the steps that need to be taken in order to certify modifications to the design of an aircraft.
 
 
-\subsection{The Importance of DOA for HUGOs Mission}
+\subsection{The Importance of DOA for HUGO's Mission}
 In case of HUGO, the expected structural changes in the wing and tail planforms between tests can be considered as "major changes" according to the EASA classification discussed previously. Typically, this would require direct supervision from EASA, significantly increasing the time and resources required to ensure that a new proposed configuration can be classified as airworthy. To facilitate this process, a DOA application can be made \footnote{\label{DOA_site}\href{https://www.easa.europa.eu/en/domains/aircraft-products/design-organisations/design-organisations-approvals}{EASA - Design Organisations Approvals} (accessed on 05.06.2026)}.
 
 A  DOA is a certification that permits the holder or organisation to perform the certification process internally, reducing the workload of EASA to documentation approval as the certification authority. In the context of HUGO, this would allow the design team to internally implement all "minor changes" without unnecessary delay and with minimal dedicated resources. Additionally, "major changes" to the platforms can be classified as research procedures, excluding the need for full re-certification and minimising EASA's involvement \footnote{In conversation with EASA employee}.
@@ -443,7 +480,7 @@ These constraints result in the flight envelope as illustrated in \autoref{fig:V
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/V-n_diagram.png}
+    \includegraphics[width=0.7\linewidth]{figures/V-n_diagram.png}
     \caption{Flight envelope diagram for parameters listed in \autoref{tab:V-n_parameters},  compliant with CS-23 aerobatic category requirements \cite{EASA_CS23_Am3_2012}.}
     \label{fig:V-n_diagram}
 \end{figure}
@@ -451,10 +488,10 @@ These constraints result in the flight envelope as illustrated in \autoref{fig:V
 
 \section{Environmental protection}
 \label{sec:environmental_protection}
-Environmental compatibility was introduced in the European legislation Regulation (EU) 2018/1139. The intention was to create a common framework for the environmental certification of aircraft. A large part of the regulation was based on the Chicago Convention (insert reference here). HUGO is exempt from those rules as stated in recital 1 in Regulation (EU) 2025/870: \textit{Aircraft, other than unmanned aircraft, and their engines, propellers, parts and non-installed equipment should comply with the environmental protection requirements. Regulation (EU) 2018/1139 provides for them by referring to specific provisions of the Chicago Convention, which contain those requirements.}
+Environmental compatibility was introduced in the European legislation Regulation (EU) 2018/1139 \footnote{\label{doc_1139}\href{https://eur-lex.europa.eu/eli/reg/2018/1139/oj/eng}{EU Document 32018R1139}(accessed on 13.05.2026)}. The intention was to create a common framework for the environmental certification of aircraft. A large part of the regulation was based on the Chicago Convention (insert reference here). HUGO is exempt from those rules as stated in recital 1 in Regulation (EU) 2025/870 \footnote{\href{https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX\%3A32025R0870}{EU Document 32025R0870} (accessed on 13.05.2026).}: \textit{"Aircraft, other than unmanned aircraft, and their engines, propellers, parts and non-installed equipment should comply with the environmental protection requirements. Regulation (EU) 2018/1139 provides for them by referring to specific provisions of the Chicago Convention, which contain those requirements."}
 \newline
 \newline
-A specific rule-set has been established for unmanned aircraft: Regulation (EU) 2018/1139 of the European Parliament and of the Council in Annex~IX: \textit{Essential Environmental Requirements for Unmanned Aircraft} states that unmanned aircraft shall comply with the environmental performance requirements set out in Annex~III.
+A specific rule-set has been established for unmanned aircraft: Regulation (EU) 2018/1139 \footref{doc_1139} of the European Parliament and of the Council in Annex~IX: \textit{"Essential Environmental Requirements for Unmanned Aircraft"} states that unmanned aircraft shall comply with the environmental performance requirements set out in Annex~III.
 Looking at Annex~III, the main point is a general approach for the design and trade-off between minimising noise and emissions. The area and its surroundings must be taken into account for the operation of the unmanned aircraft, with an emphasis on reducing noise and emissions.
 
-\todo[inline]{Incorrect citation format! No source, no quotation marks.}
+%\todo[inline]{Incorrect citation format! No source, no quotation marks.}

@@ -1,28 +1,48 @@
 \chapter{Engineering Design and Analysis}
 \label{ch:engineering_design}
+\todo[inline]{Chapter introduction (pending)}
 
 \section{Airfoil and wing analogous estimation}
-According to \textbf{HUG-OPS-005}, HUGO is required to operate at speeds up to Mach 0.75\cite{BaselineReport}. This is the flight condition at which tests are expected to be conducted during operations. In this section, an estimation of the lift characteristics of HUGO is performed based on statistics from suitable reference aircraft, along with a preliminary airfoil selection suitable for the considered operations.
+\label{sec:airfoil_wing_estimation}
+\todo[inline]{\textbf{Section under proofreading/maintenance by Hanna} - pls don't touch anything without telling me. So long as this TODO is here, things will move and disappear (only to manifest themselves again somewhere else). So if you want to add, modify, or delete something, let me know asap!}
+According to HUG-OPS-005\footref{url:baseline_report}, HUGO is required to operate at speeds up to Mach 0.75. This is the flight condition at which tests are expected to be conducted during operations. In this section, an estimation of the lift characteristics of HUGO is performed based on statistics from suitable reference aircraft, along with a preliminary airfoil selection suitable for the considered operations.
 
+Airfoil selection begins with an analysis of reference aircraft and an estimate of the design lift coefficient $C_{l_\text{des}}$. Subsequently, the maximum lift coefficient $C_{l_{\text{max}}}$ is derived along with relevant aerospace parameters to facilitate the selection. For the purpose of this analysis, it is assumed that HUGO will operate at a speed of Mach 0.75, at an altitude of FL270 (8230 m). 
 
-\subsection*{Reference aircraft parameters}
+%\textcolor{blue}{The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m).}
+
+\subsection{Reference aircraft parameters}
 \label{sub:lift_reference_aircraft}
-The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m). For initial estimates, the NASA DAST project \footnote{\label{fn:DAST}\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)}, NASA X-56A UAS \footnote{\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} and the FLEXOP UAS \cite{Yu2022} are used as reference aircraft.\\
-DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. \footref{fn:DAST} To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission. \\
-The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO.\\
-Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} \cite{Yu2022} Analogous to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be within realistic design bounds for HUGO. Therefore, the X-56 and FLEXOP aircraft are also included in the reference aircraft list.
+For initial estimates, the NASA DAST project \footnote{\label{fn:DAST}\href{https://web.archive.org/web/20230310084826/https://www.nasa.gov/centers/dryden/multimedia/imagegallery/DAST/DAST_proj_desc.html}{NASA - Firebee Drone: DAST} (accessed 07.05.2026)}, NASA X-56A UAS \footnote{\label{url:x56a}\href{https://www.nasa.gov/aeronautics/x-56a-mutt/}{NASA X-56 UAS testbed} (accesed on 8.5.2026)} and the FLEXOP UAS \cite{Yu2022} are used as reference aircraft. DAST was initially developed with the purpose of remotely testing new aerodynamic designs in the 1980s, featured replaceable wings, and to this day is the only UAV that has approached HUGO's flight speed\footref{fn:DAST}. The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, and was similar to HUGO in mass and size \cite{Schaefer2023}. Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems \cite{Bauer2020}. Although significantly slower than HUGO, FLEXOP's scale and mission description make it a suitable reference.
 
-The design lift coefficient $C_{L_\text{des}}$ is determined based on an initial wing loading $W/S$ estimate and requirements from \cite{BaselineReport} at the specified cruise flight condition. Parameters of reference aircraft, including the wing loading itself, landing speed and cruise conditions are used in the estimate.\\
-HUGO has to perform high subsonic flight and take-off or land on a paved runway. The initial estimate of $W/S = 1000\  N \cdot m^{-2}$ allows for sufficiently low stall speed while remaining a reasonable design value by lying between the considered reference aircraft. The take-off and landing of the X-56A and FLEXOP were performed from on paved runway. The DAST drone was launched from a carrier aircraft and captured by helicopter after completing a test flight. This allowed for a smaller wing due to the absence of ground takeoff and landing. \footref{fn:DAST} The high wing loading achieved in the DAST UAS sets an upper bound for the HUGO wing design. A significantly smaller wing is needed for HUGO compared to the X-56A or FLEXOP aircraft due to the high-speed cruise condition, yet the wing still must allow for take-off and landing at a reasonable speed. The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002} \cite{BaselineReport}.  The average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was used. The wing area $S$ can then be obtained from the wing loading. From these parameters, the wing span $b$ and mean chord length MAC can be derived. The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidelines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle is determined primarily by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A and FLEXOP aircraft. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accessed on 8.5.2026)} and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}. Several additional wing parameters were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool} (accessed on 12.5.2026)} and \cite{Torenbeek1982}.
+%DAST was initially developed as a modified version of the Teledyne-Ryan BQM-34E/F Firebee II, with the purpose of remotely testing new aerodynamic designs in the 1980s. The aircraft was convenient for such testing due to easily replaceable wings and use of control surfaces mounted exclusively on the tail. The UAS was retrofitted with a supercritical wing aimed at achieving a flutter speed of Mach 0.95 at FL250, and used a custom control system for flutter suppression. \footref{fn:DAST} To this day, the DAST aircraft is the only unmanned aircraft that approaches the proposed flight condition of HUGO in terms of flight speed and mission.
 
-The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft.  After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. The initial wing planform is likely to be revisited at a later design iteration and serves as an initial design point.
+%The X-56A is a NASA testbed flying-wing UAS used to test aeroelastic phenomena on high aspect ratio wings in a low-speed flight regime, with a takeoff speed of 65 kts (33 m/s), maximum airspeed of 135 kts (69 m/s) during cruise and 150 kts (77 m/s) in a dive \cite{Schaefer2023}. Although the aircraft did not approach the intended flight cruise speed of HUGO, its mass and size are closer to that intended for HUGO.
+
+%Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} \cite{Yu2022} Analogous to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be within realistic design bounds for HUGO. Therefore, the X-56 and FLEXOP aircraft are also included in the reference aircraft list.
+
+%\subsubsection*{Analysis of Wing Loading $(W/S)$}
+The design lift coefficient $C_{L_\text{des}}$ is determined based on an initial wing loading $W/S$ estimate and requirements from previous design phases\footref{url:baseline_report} at the specified cruise flight condition. \autoref{tab:DAST_HUGO} lists the relevant geometric parameters of reference aircraft, as well as their resulting statistical estimation for HUGO.
+
+%Parameters of reference aircraft, including the wing loading itself, landing speed and cruise conditions are used in the estimate.\\
+
+According to the operations and logistics description provided in \autoref{ch:operations_logistics}, HUGO has to perform high subsonic flight, and take-off or land on a paved runway. An initial estimate of $W/S = 1000\  N \cdot m^{-2}$ allows for a sufficiently low stall speed to ensure operations safety, while remaining within the range of reference values.
+%The take-off and landing of the X-56A and FLEXOP were performed from on paved runway. The DAST drone was launched from a carrier aircraft and captured by helicopter after completing a test flight. This allowed for a smaller wing due to the absence of ground takeoff and landing. \footref{fn:DAST} The high wing loading achieved in the DAST UAS sets an upper bound for the HUGO wing design. A significantly smaller wing is needed for HUGO compared to the X-56A or FLEXOP aircraft due to the high-speed cruise condition, yet the wing still must allow for take-off and landing at a reasonable speed.
+The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002}\footref{url:baseline_report}. The $AR$ of 23 was chosen as an average of the range specified by the NLR (between 19 and 27).
+%average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was used. 
+Consequently, the wing area $S$ was obtained from the wing loading. From these parameters, the wing span $b$ and mean chord length MAC can be derived. 
+
+The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidelines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle is determined primarily by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A and FLEXOP aircraft. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. 
+
+Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accessed on 8.5.2026)} and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}. Several additional wing parameters were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool} (accessed on 12.5.2026)} and Torenbeek \cite{Torenbeek1982}.
+
 
 \begin{table}[H]
     \centering
-    \caption{Reference aircraft and HUGO initial parameters \cite{perry1982methodology} \cite{Eckstrom1994} \cite{Bauer2020} \cite{Yu2022}} 
+    \caption{Reference aircraft and HUGO initial parameters \cite{Yu2022} \cite{Bauer2020} \cite{perry1982methodology} \cite{Eckstrom1994} } 
     \label{tab:DAST_HUGO}
     
-    \begin{tabular}{|c|c||c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|c|}
     \hline
         \textbf{Parameter} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{X-56A} & \textbf{FLEXOP} &\textbf{HUGO} \\
         \hline\hline
@@ -46,10 +66,16 @@ The ARW-2 wing loading is several orders of magnitude larger than that of the X-
 \end{table}
 
 
+%The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft.  After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. The initial wing planform is likely to be revisited at a later design iteration and serves as an initial design point.
 
-\subsection*{Design lift coefficient}
+
+
+\subsection{Design Aerodynamic Parameters}
 \label{subsec:cl_des}
-To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air density $\rho_{cr}$ of $0.5112 \ kg \cdot m^{-3}$ at FL270, and a cruise speed $V_{cr}$ of $230.2945 \ m \cdot s^{-1}$ corresponding to the test condition. Using the initial value for $W/S$ from \autoref{tab:DAST_HUGO}, an initial  $C_{L_\text{des}}$ of 0.074 was obtained.
+The initial geometric parameters from \autoref{tab:DAST_HUGO} can be used to derive preliminary aerodynamic characteristics of the UAV.
+
+\subsubsection*{Design Lift Coefficient}
+To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air density $\rho_{cr}$ of $0.5112 \ kg \cdot m^{-3}$ at FL270, and a cruise speed $V_{cr}$ of $230.2945 \ m \cdot s^{-1}$ corresponding to the test condition. Using the initial value for $W/S$ from \autoref{tab:DAST_HUGO}, an initial $C_{L_\text{des}}$ of 0.074 is obtained.
 %It includes the air density at the altitude of 27,000 feet $\rho_{cr}$ and the airspeed $V_{cr}$, for which it holds that $V_{cr} = M \cdot \sqrt{\gamma R T}$ at the ISA altitude of 27,000 ft.
 
 \begin{equation}
@@ -57,18 +83,18 @@ To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air
     \label{eq:C_L}
 \end{equation}
 
-\subsection*{Cruise Reynolds number}
-Based on the initial estimates from \autoref{tab:DAST_HUGO}, the Reynolds number for cruise $Re_{cr}$ and stall condition $Re_\text{stall}$ was calculated using \autoref{eq:Re}.
+\subsubsection*{Cruise Reynolds number}
+Based on the initial estimates from \autoref{tab:DAST_HUGO}, as well the cruise conditions $\rho_{cr}$, $V_{cr}$ and dynamic viscosity $\mu_{cr}$ corresponding to Torenbeek's ISA model \cite{AdvancedACDesign_Torenbeek}, a cruise Reynold's number $Re_{cr}$ can be calculated using \autoref{eq:Re}.
 \begin{equation}
-    Re = \frac{\rho \overline{c}V}{\mu} \approx 1.15\cdot10^6
+    Re_{cr} = \frac{\rho_{cr} \overline{c}V_{cr}}{\mu_{cr}} \approx 1.15\cdot10^6
     \label{eq:Re}
 \end{equation}
-Using the cruise conditions $\rho_{cr}$, $V_{cr}$ and dynamic viscosity $\mu_{cr}$ corresponding to Torenbeek's ISA model \cite{AdvancedACDesign_Torenbeek}, a cruise Reynold's number $Re_{cr}$ of $1.15\cdot10^6$ was obtained for test conditions at FL270. The MAC $\overline{c} \approx 0.15 \ m$ is calculated from the wing parameters in \autoref{tab:DAST_HUGO}.
+%Using the cruise conditions $\rho_{cr}$, $V_{cr}$ and dynamic viscosity $\mu_{cr}$ corresponding to Torenbeek's ISA model \cite{AdvancedACDesign_Torenbeek}, a cruise Reynold's number $Re_{cr}$ of $1.15\cdot10^6$ is obtained for test conditions at FL270. The MAC $\overline{c} \approx 0.15 \ m$ is calculated from the wing parameters in \autoref{tab:DAST_HUGO}.
 
-\subsection*{Maximum lift coefficient}
+\subsubsection*{Maximum Lift Coefficient}
 The maximum lift coefficient, $C_{L_\text{max}}$ has to be determined to obtain the stall speed of HUGO, $V_\text{stall}$. As stated previously, the use of a supercritical wing profile is highly recommended for the considered test conditions. A preliminary estimate of  $C_{L_\text{max}}$ is made by considering a NASA SC(2)-0010 airfoil and the DATCOM method for estimating the maximum lift coefficient for finite wings. 
 
-An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}{AirfoilTools} (accessed on 07.05.2026)} and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil} (accessed on 11.5.2026)}. $N$ is deemed suitable for this usecase due to likely disturbed airflow from the wing surface roughness \cite{Koul}. Then, according to Torenbeek \cite{Torenbeek1982}, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$. \autoref{eq:Lambda_conversion} is used to convert from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ and derived from the expression in \cite{Torenbeek1982}.
+An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}{AirfoilTools} (accessed on 07.05.2026)}, and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil} (accessed on 11.5.2026)}. $N$ is deemed suitable for this usecase due to likely disturbed airflow from the wing surface roughness \cite{Koul}. Then, according to Torenbeek \cite{Torenbeek1982}, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$. \autoref{eq:Lambda_conversion} is used to convert from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ and derived from the expression in \cite{Torenbeek1982}.
 
 \begin{equation}
     \Lambda_{0.25}
@@ -87,24 +113,33 @@ An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\h
     \label{eq:CL_max}
 \end{equation}
 
-This leads to $\Lambda_{0.25c} \approx 14.22$ and $C_{L_{\max}} \approx 1.22$ without high-lift devices.\\ \todo{cite this stuff}
-\todo[inline]{In the trade-off chapter, we use $\lambda$ for eigenvalues, and here again for something else. Perhaps swapping one of them would be a good idea.}
-\subsection*{Stall speed}
-The next step is to identify the preliminary stall speed of HUGO. With a maximum lift coefficient $C_{L_{max}} \approx 1.22$ and $S = 0.49 \ m^2$ at a mass $m = 50 \ kg$ and sea level ISA conditions, the stall speed can be calculated using \autoref{eq:Vstall}.
+This leads to $\Lambda_{0.25c} \approx 14.22$ and $C_{L_{\max}} \approx 1.22$, not accounting for the use of high-lift devices.\\ \todo{cite this stuff}
+
+\subsubsection*{Stall speed}
+The next step is to identify the preliminary stall speed of HUGO. With a maximum lift coefficient $C_{L_{max}} \approx 1.22$ and $S = 0.49 \ m^2$ at a mass $m = 50 \ kg$ and sea level ISA conditions. The stall speed $V_\text{stall}$ can be calculated using \autoref{eq:Vstall}.
 \begin{equation}
     V_\text{stall} = \sqrt{\frac{2W}{\rho S C_{L_\text{max}}}}
     \label{eq:Vstall}
 \end{equation}
-From \autoref{eq:Vstall}, a stall speed $V_{stall} \approx 37 \ m \cdot s^{-1}$. Comparing this to the stall speed of the X-56A UAS of 33 m/s, the result appears reasonable for an initial estimation.\\
+From \autoref{eq:Vstall}, a stall speed $V_{stall} \approx 37 \ m \cdot s^{-1}$. Comparing this to the stall speed of the X-56A UAS of 33 m/s\footref{url:x56a}, the result appears reasonable for an initial estimation.\\
 
-\subsection*{Supercritical airfoil}
+\subsection{Supercritical Airfoils}
+\label{subsec:supercritical_airfoil}
 Since the aircraft is expected to operate at Mach 0.75, it is necessary to take transonic phenomena into account. When flying in this region with a traditional airfoil, the airflow might locally be supersonic, which creates strong shock waves on the wing \cite{Whitcomb1974}. This leads to a large increase in drag, which is detrimental for the performance of the aircraft and introduces boundary layer separation. Such effects can be mitigated by the use of a supercritical airfoil. 
 
 A supercritical airfoil is capable to operate at transonic conditions with only the onset of weak shock waves \cite{Harris1990}. An example of such airfoils used in the preliminary design for HUGO is a supercritical SC(2)-XXYY family developed by NASA, where XX is the airfoil design lift coefficient, and YY is the maximum thickness in percent \cite{Harris1990}. The advantage of using this system is the inclusion of the design lift coefficient, which makes it possible to narrow down the choices for HUGO using $C_{L_\text{des}}$ values found in \autoref{subsec:cl_des}.
 
-\subsection*{Airfoil selection}
-Based on the data obtained in the previous subsections, an airfoil from the NASA database was selected. The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_\text{des}} = 0.074$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} It was decided that the the NASA SC(2)-0012 will be used as the initial wing profile. The selected airfoil is symmetrical and designed for supercritical conditions.\\
-A symmetrical supercritical airfoil is beneficial for low lift coefficient flight conditions. Only airfoils designed for $C_{l_{des}} = 0.4$ were tested, which is already significantly above the value suitable for HUGO. The symmetrical airfoil generates the desired lift coefficient with a low angle of attack. Furthermore, significant negative pitching moment is generated by non-symmetrical supercritical airfoils, like the NASA SC(2)-0412 \footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-1000000-n5}{NASA SC(2)-0412} (accessed on 11.5.2026)}, which could result in a larger and, consequently, heavier empannage. The reason for selecting a high thickness-to-chord ratio $t/c$ is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_{dd} = 0.8$, which is beyond the conditions HUGO will operate. \cite{Harris1990}
+\subsection{Airfoil Selection}
+\label{subsec:airfoil_selection}
+Based on the data obtained in the previous subsections, NASA SC(2)-0012 was chosen as the preliminary airfoil for HUGO. It is a symmetrical, supercritical airfoil, with properties matching the requirements for HUGO's mission. The choice follows from the NASA report on supercritical airfoils \cite{Harris1990}, as well as $C_{l_\text{des}}$ of 0.074
+
+%The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_\text{des}} = 0.074$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} 
+
+%It was decided that the the NASA SC(2)-0012 will be used as the initial wing profile. The selected airfoil is symmetrical and designed for supercritical conditions.\\
+
+A symmetrical supercritical airfoil is beneficial for low lift coefficient flight conditions.
+%Only airfoils designed for $C_{l_{des}} = 0.4$ were tested, which is already significantly above the value suitable for HUGO. 
+A symmetrical airfoil generates the desired lift coefficient at low angles of attack. Furthermore, significant negative pitching moment is generated by non-symmetrical supercritical airfoils, like the NASA SC(2)-0412 \footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-1000000-n5}{NASA SC(2)-0412} (accessed on 11.5.2026)}, which could result in a larger and, consequently, heavier empennage. The reason for selecting a high thickness-to-chord ratio $t/c$ is the expected bending load on the slender wing of HUGO. The increased area moment of inertia of a thicker wing generally helps bending resistance. There are several risks associated with these aifoils with a relative high $\frac{t}{c}$ ratio. Compared to airfoils with higher $C_{L_\text{des}}$, flow separation and weak shock waves appear earlier, further from the trailing edge. However, at the same time, it has been reported that the overall drag divergence Mach number for airfoils with lower $C_{L_\text{des}}$ is generally higher. For the selected airfoil, the drag divergence Mach number $M_{dd}$ has been found to be around $M_{dd} = 0.8$, which is beyond the conditions HUGO will operate. \cite{Harris1990}
 
 \section{Aerodynamic modelling}
 \label{sec:aerodynamic_modelling}
@@ -113,11 +148,13 @@ In order to perform preliminary sizing, aerodynamic analyses of the aircraft wer
 
 To conduct sizing of the aircraft, including steps such as a matching diagram, it is vital to know the breakdown of drag between induced and parasitic \cite{Vos}. Thus,the aerodynamic analysis shall focus on inviscid modelling to obtain the induced drag alone, while the parasitic drag will be obtained via drag buildup \todo{autoref}. As Aerosandbox LLT includes viscosity, an inviscid modification of it has been created for the purpose of this project. The LLT of Aerosandbox assembles total aerodynamic force and moments from viscous and inviscid components, so instead of the sum, only the inviscid components are returned. The inviscid analysis has been verified by comparing its output with that of the standard viscous analysis. That is, by imposing the maximum relative difference of less than 1\% in the lift coefficient.
 
-\subsection*{Parametric model}
+\subsection{Parametric model}
+\label{subsec:parametric_model}
 To begin with, the model is created parametrically, that is, as a function of the input parameters. These include the planform parameters of lifting surfaces, the chosen set of airfoils, and relative positions and orientations between the lifting surfaces. A lifting surface is generated by specifying the properties of an arbitrary number of sections along its span. Each section is, in turn, specified by the position of its leading edge, chord length, the airfoil, and twist. Specifically, the airfoil used in the aforementioned analyses was the same for all sections of all lifting surfaces, namely NASA SC(2)-0012. The measurement data from \cite{Mineck1987} has been used to obtain the lift curve slope of the airfoil, namely $
 0.125\frac{1}{\deg}$. The sections in this model are spaced uniformly to simplify the extraction of the lift distribution results. Once all lifting surfaces are specified, the aircraft model is generated by combining the surfaces in a single airplane object. This object can include a single lifting surface (the main wing in isolation, for example), as well as all the lifting surfaces combined (main wing, canards, empennage).
 
-\subsection*{Parasite drag estimation}
+\subsection{Parasitic drag estimation}
+\label{subsec:parasitic_drag_estimation}
 As mentioned previously, the parasite drag ($C_{D_0}$) is estimated using the drag buildup method described in \cite{raymer1992aircraft}. The idea is that the subsonic parasite drag of each component is estimated separately, and then summed to obtain the total $C_{D_0}$. The component drag is a product of the wetted area $S_{wet}$, calculated flat-plate skin-friction drag coefficient $C_f$, form factor $FF$ that estimates the pressure drag due to viscous separation, and interference component $Q$ that estimates the increase in drag due to the interference between the different components. The procedure is summarized in \autoref{eq:CD0}.
 \begin{equation}
     (C_{D_0})_{subsonic} = \frac{\sum(C_{f_c} \cdot FF_c \cdot Q_c \cdot S_{wet_c})}{S_{ref}} + C_{D_{misc}} + C_{D_{L\&P}}
@@ -199,9 +236,10 @@ Where the definitions of $b$ and $a$ are given in \autoref{fig:landing_gear_dime
 Finally, the leakage and protuberance drag of each component is estimated as a percentage of the total parasite drag. The exact percentage is again obtained from Raymer \cite{raymer1992aircraft}. 
 
 
-\subsection*{LLT analyses}
+\subsection{LLT Analysis}
+\label{subsec:LLT_analysis}
 
-In order to create the lifting-line-theory-based aserodynamic model, the aforementioned airplane model, atmospheric properties, and flight conditions (angle of attack, sideslip angle, airspeed and rotational rates) are required as inputs. Since the results provided by AeroSandbox exclude the lift distribution, the position of vortex centres and vortex strengths is extracted from the source code. Then, the Kutta–Joukowski theorem ($L=\rho V\Gamma$) is employed to compute lift per unit span at each section. In order to find the lift curve slope, the analysis is run for a range of angles of attack (two being sufficient but more of them actually used to rule out inconsistencies).
+In order to create the lifting-line-theory-based aerodynamic model, the aforementioned airplane model, atmospheric properties, and flight conditions (angle of attack, sideslip angle, airspeed and rotational rates) are required as inputs. Since the results provided by AeroSandbox exclude the lift distribution, the position of vortex centres and vortex strengths is extracted from the source code. Then, the Kutta–Joukowski theorem ($L=\rho V\Gamma$) is employed to compute lift per unit span at each section. In order to find the lift curve slope, the analysis is run for a range of angles of attack (two being sufficient but more of them actually used to rule out inconsistencies).
 
 Furthermore, a more difficult analysis problem is to run the trim analysis, since it requires a specific angle of attack. While the definition of the trim condition entails both vertical force and pitch moment equilibria, this analysis only considers vertical force equilibrium due to the preliminary nature of the design (no elevators, empennage assumed fixed for simplicity). Therefore, in order to find the required angle of attack, two approaches have been employed. In the first approach, the angle of attack is calculated by finding the lift force required for a specific flight condition, running the simulation for a range (at least two) angles of attack, and then calculating the angle of attack for obtaining the required lift, while assuming no lift at $\alpha=0\deg$. The second approach uses the Aerosandbox's optimizer with the objective of finding the angle of attack at which the obtained total lift equals the weight. Nevertheless, the second approach is not only more computationally expensive, but also more difficult to verify and validate. Therefore, only the first approach will be employed.
 
@@ -326,6 +364,7 @@ The aerodynamic parameters from the two equations are obtained by the aerodynami
 
 
 \section{Fuel Mass Fraction Estimation}
+\label{sec:fuel_mass_fraction_estimation}
 To estimate the fuel required for the aircraft on its mission, one can express the speed and time requirements for different stages of the flight as range requirements. Then, a sizing for range procedure, such as one used by \cite{Vos2025AirplaneDesignAnalysis} can be employed. The procedure consists of estimating the equivalent range from the nominal range (geometric range), lost range (from energy lost on climb, turns and acceleration), and diversion/loiter range (in case of HUGO, the \todo{ref 4 landing attempts req}). To account the fact that the mission plan consists of two stages of climb, acceleration and cruise (for Mach 0.4 and 0.75), the reference equation is applied to each segment separately:
 \begin{equation}
     R_{eq} =  R_{0.4}+R_{0.75}+4R_{go-around}
@@ -341,7 +380,7 @@ To estimate the fuel required for the aircraft on its mission, one can express t
 \end{equation}
 
 With $M$, $a$, $t$, $h$, $L/D$ being the Mach number, speed of sound, total time, altitude and glide ratio for the given flight phase. $t_{0.4}$, $t_{0.75}$ and $h_{0.75}$ are constrained by the requirements to 25 min, 5 min, and 27,000 ft respectively.
-As the maximum allowed altitude of 27,000 ft is below the optimal for jet aircraft flying at Mach 0.4 \todo{add source and cite}, it can be assumed that the flight segment at Mach 0.4 will be conducted at the maximum altitude as well.The multiplier of 4 for the go-around range accounts for the four required landing attempts. The go-around altitude is constrained to 1,500 feet \todo{add source and cite}, while the go around airspeed is not constrained. This allows to use a value for which the optimal glide ratio is achieved, taking into account flying in a turn:
+As the maximum allowed altitude of 27,000 ft is below the optimal for jet aircraft flying at Mach 0.4 \todo{add source and cite}, it can be assumed that the flight segment at Mach 0.4 will be conducted at the maximum altitude as well.The multiplier of 4 for the go-around range accounts for the four required landing attempts. The go-around altitude is constrained to 1,500 feet \todo{add source and cite}, while the go around airspeed is not constrained. This allows to use a value for which the maximum specific range is achieved, taking into account flying in a turn:
 \begin{equation}
     \begin{cases}V_{go-around}=\sqrt{\frac WS \frac2\rho\frac{n_{turn}}{C_{L_{opt}}}}\\
     W\sqrt{n_{turn}^2-1}=mV_{go-around}\omega_{turn}
@@ -349,20 +388,26 @@ As the maximum allowed altitude of 27,000 ft is below the optimal for jet aircra
 \end{equation}
 Where $m$ is the aircraft mass, $\omega_{turn}$ is the turn rate. Using a rate 1 turn, $\omega_{turn} = \pi/60\ \text{rad/s}$ and $T_{turn} = 120\ \text{s}$. Thus, knowing the lift coefficient, the equations can be solved for $n_{turn}$ and $V_{go-around}$. The optimal glide ratio and lift coefficient are found as:
 \begin{equation}
-    \left( \frac{L}{D} \right)_{max} = \sqrt{\frac{\pi ARe}{C_{D, 0}}};\ C_{L_{opt}} = \sqrt{{\pi ARe}{C_{D, 0}}}
+    \left( \frac{L}{D} \right)_{max} = \frac{\sqrt 3}{4}\sqrt{\frac{\pi ARe}{C_{D, 0}}};\ C_{L_{opt}} = \sqrt{{\frac13\pi ARe}{C_{D, 0}}}
 \end{equation}
 
 Knowing the ranges for the flight segments, the fuel required can be computed for each segment, using the glide ratio for this segment:
 \begin{equation}
     \left(\frac{m_{final}}{m_{initial}}\right)_i = 1-\exp\frac{R_ig_0}{\eta_i (L/D)_i e_f}
 \end{equation}
-where $e_f$ is the energy density of the fuel - a value of 42.8 MJ/kg is used \todo{source}, and $\eta$ is the total propulsion system efficiency. Due to lack of detailed data on engines available, it is assumed to be a constant number. Its baseline value is 10\% to model the low efficiency of microturbine engies \todo{cite}. A sensitivity around this parameter is recommended, as with the ranges being relatively short for the 30 min nominal flight time, the low engine efficiency is driving the fuel consumption.
+where $e_f$ is the energy density of the fuel - a value of 42.8 MJ/kg is used \todo{source}, and $\eta$ is the total propulsion system efficiency. The efficiency can be estimated per flight segment from the thrust-specific fuel consumption $c_T$ of the microturbine as:
+\begin{equation}
+    \eta_i = \frac{P}{\dot{m}_ie_f}=\frac{T_iV_i}{\dot{m}_ie_f}=\frac{a_iM_i}{c_Te_f}
+\end{equation}
+The 
 
 
 \section{Matching Diagram for Wing and Engine Sizing}
-To specify the wing loading a thrust necessary for the aircraft, it is a standard practice to construct a matching diagram. Such a diagram would contain constraints limiting the wing loading, as well as ones showing minimum thrust-weight ratio as function of wing loading. This creates a constrained optimisation problem, in which a combination offering a high wing loading and low thrust-weight ratio should preferably be selected. The creation of the diagram is according to procedures outlined by Vos \cite{Vos2025AirplaneDesignAnalysis}, but adapted for the aerobatic CS-23 and high-speed requirements of the designed aircraft.
+\label{sec:matching_diagram}
 
-First, next to the cruise speed constraint, the constraint of providing thrust in the Mach 0.75 condition with half of the fuel weight is considered. Second, due to the replaceable wing requirement, HUGO cannot be sized to require high lift devices. This means all constraints are evaluated for a clean wing. Then, since there is no specified rate of climb and approach speed considered, those constraints are omitted. The climb gradient constraints from CS-23 still guarantee satisfactory climb performance, while the landing field length provide an upper bound on the wing loading. \todo{add land with full fuel to requirements}. Both take-off and landing field lengths are constrained by runway length of den Helder Airport \todo{footnote}.  The $\pi AR e$ ratio is taken directly as the $C_L^2/C_{D_i}$ from the aerodynamic simulations \todo{autoref}. The climb gradient constraints from \todo{cite CS23 amendment 5} are evaluated for HUGO as a Level 1 (unmanned) and high-speed aircraft. The set of matching diagram constraints is presented in \todo{autoref}.
+To specify the wing loading and thrust necessary for the aircraft, it is a standard practice to construct a matching diagram. Such a diagram would contain constraints limiting the wing loading, as well as ones showing minimum thrust-weight ratio as function of wing loading. This creates a constrained optimisation problem, in which a combination offering a high wing loading and low thrust-weight ratio should preferably be selected. The creation of the diagram is according to procedures outlined by Vos \cite{Vos2025AirplaneDesignAnalysis}, but adapted for the aerobatic CS-23 and high-speed requirements of the designed aircraft.
+
+First, next to the cruise speed constraint, the constraint of providing thrust in the Mach 0.75 condition with half of the fuel weight is considered. Second, due to the replaceable wing requirement, HUGO cannot be sized to require high lift devices. This means all constraints are evaluated for a clean wing. Then, since there is no specified rate of climb and approach speed considered, those constraints are omitted. The climb gradient constraints from CS-23 still guarantee satisfactory climb performance, while the landing field length provide an upper bound on the wing loading. \todo{add land with full fuel to requirements}. Both take-off and landing field lengths are constrained by runway length of Den Helder Airport \todo{footnote}.  The $\pi AR e$ ratio is taken directly as the $C_L^2/C_{D_i}$ from the aerodynamic simulations \todo{autoref}. The climb gradient constraints from \todo{cite CS23 amendment 5} are evaluated for HUGO as a Level 1 (unmanned) and high-speed aircraft. The set of matching diagram constraints is presented in \todo{autoref}.
 
 \begin{table}[h]
 \caption{The constraints used to construct the matching diagram}
@@ -391,7 +436,7 @@ The implementation of the matching diagram is verified by reproducing the one th
 
 \section{Landing Gear Configuration}
 \label{sec:Landing_gear_config}
-
+\todo[inline]{NOT DONE}
 This section presents the selection analysis for the possible landing gear configurations of HUGO. Out of the five configurations, two of them use a buried design, with the wheels retracting vertically, while the other three configurations have a sideways diagonal retracting platform. 
 
 The two undercarriage concepts differ in both retraction mechanism and stowage arrangement. In the external side-pod configuration, the landing gear is housed in nacelles mounted outside the fuselage. This arrangement can reduce the intrusion of the undercarriage into the main fuselage structure and can simplify the internal layout. However, the addition of side pods increases wetted area and introduces interference drag at the pod fuselage junction.
@@ -537,10 +582,14 @@ The width of the landing gear is given by the width of the tyre, and all designs
 
 
 
-\section{Structural Analysis}
+\section{Structural Weight Penalty Analysis}
+\label{sec:structural_weight_penalty_analysis}
+
 In order to perform the trade-off analysis, a preliminary structural analysis of HUGO is performed in order to estimate the weight penalty of versatility for each configuration. The components under significant load mainly include the fuselage, main wing, canard, and empennage. 
-\subsection*{Fuselage initial analysis}
-First, the influence of versatility and the presence of canard port is investigated on the fuselage. The goal is to find the required skin thickness along the fuselage length, compare it between all considered HUGO configurations and report the influence of the features in each configuration, such as canard addition and movable wing port. It is assumed for this analysis that the Young's modulus $E$ is constant in all directions, i.e. the material used is isotropic. Quasi-isotropic properties of a CFRP material from \todo{Mention the ANSYS software} is used as a reference material.\\
+
+\subsection{Fuselage Initial Analysis}
+\label{subsec:fuselage_initial_analysis}
+First, the influence of versatility and the presence of canard port on the fuselage is investigated. The goal is to find the required skin thickness along the fuselage length, compare it between all considered HUGO configurations and report the influence of the features in each configuration, such as canard addition and movable wing port. It is assumed for this analysis that the Young's modulus $E$ is constant in all directions, i.e. the material used is isotropic. Quasi-isotropic properties of a CFRP material from \todo{Mention the ANSYS software} is used as a reference material.\\
  The loads from the wing, canard, empennage and weight are placed as point loads in the longitudinal direction $x$. The simplified loading diagram is shown in \autoref{fig:fuselage_loading_model}. $L_c$, $L_w$ and $L_t$ represent the lift components of the canard, wing and empennage, respectively. $W$ is the weight, which is simplified as a point load acting through the center of gravity located at $x_{cg}$.
 
  \begin{figure}[H]
@@ -581,8 +630,7 @@ First, the influence of versatility and the presence of canard port is investiga
     \label{fig:fuselage_loading_model}
 \end{figure}
 
-The fuselage is initially modeled as a cylindrical shape with diameter $d = 0.15 \ m$ and length $l = 3 \ m$. The model uses $i=500$ discrete points along the fuselage length $l$. The internal loading is obtained by summing the applied vertical forces along the fuselage axis. The main lifting loads are first determined from force and moment equilibrium. These forces are then applied as
-point loads at their corresponding fuselage stations. The internal shear force at
+The fuselage is initially modelled as a cylindrical shape with diameter $d = 0.30 \ m$ and length $l = 3 \ m$. The model uses $i=500$ discrete points along the fuselage length $l$. The internal loading is obtained by summing the applied vertical forces along the fuselage axis. The main lifting loads are first determined from force and moment equilibrium. These forces are then applied as point loads at their corresponding fuselage stations. The internal shear force at
 each station is calculated by cumulatively summing all loads up to that point:
 
 \begin{equation}
@@ -603,13 +651,14 @@ This corresponds to the standard beam relations
     \frac{dM_y}{dx} = V_z(x)
 \end{equation}
 
-For each fuselage station, the required skin thickness is found by checking shear stress, bending stress and buckling. For a trial thickness $t$, the cross-sectional properties $Q(t)$ and $I(t)$ are calculated. The shear stress is estimated using
+
+For each fuselage station, the required skin thickness is found by checking shear stress, bending stress and buckling. For a trial thickness $t$, the cross-sectional properties $Q(t)$ and $I(t)$ are calculated. The shear stress is estimated using: \cite{bruhn1973analysis}
 
 \begin{equation}
     \tau = \frac{V_z Q}{I t}
 \end{equation}
 
-while the bending stress at the outer radius of the shell is calculated as
+while the bending stress at the outer radius of the shell is calculated as: \cite{bruhn1973analysis}
 
 \begin{equation}
     \sigma_b = \frac{M_y r}{I}
@@ -634,9 +683,120 @@ The code expresses each failure criterion as a ratio $U$ describing the actual s
 \end{equation}
 
 The required skin thickness is then the smallest thickness for which all
-$U < 1$. If the minimum thickness already satisfies all criteria, it is kept for the section. Otherwise, a root-finding algorithm determines the thickness at which the governing failure mode first reaches the limit.
+$U < 1$. If the minimum thickness already satisfies all criteria, it is kept for the section. Otherwise, a root-finding algorithm determines the thickness at which the governing failure mode first reaches the limit.\\
 
-This simplification is suitable for this initial shear and bending loads estimation, however, more advanced distributed force needs to be used later for specific fuselage section design. The pitching moments of the canard, wing and tail are neglected in this initial analysis as their magnitude is insignificant due to the size of the canard and tail, and due to the near-zero pitching moment coefficient of the NASA SC(2)-0012 airfoil within the range of cruise angles of attack \cite{}.
+To test the effects of wing positioning and canard port presence to the structural weight of the fuselage, several 
+
+This simplification is suitable for this initial shear and bending loads estimation, however, more advanced distributed force needs to be used later for specific fuselage section design. The pitching moments of the canard, wing and tail are neglected in this initial analysis as their magnitude is insignificant due to the size of the canard and tail, and due to the near-zero pitching moment coefficient of the NASA SC(2)-0012 airfoil within the range of cruise angles of attack \cite{}. \\
+
+The structural penalty associated with ports is investigated by evaluating the required shell thickness in the section where the wing and canard interfaces are located. The purpose of this analysis is to quantify how much additional structural weight is introduced by allowing variable wing placement and by including the canard port. The wing mounting position is varied
+around the nominal location by shifting it by $\pm 0.5c$, where $c$ is the wing
+chord.
+
+For each tested wing position, the internal shear and bending moment distributions
+are recalculated. The maximum required shell thickness within the port region is used for sizing. This ensures that the port reinforcement is sized according to the most critical
+loading condition encountered over the full range of motion of the wing. The thickness obtained is then used for comparison of the structural fuselage weight.
+
+The configurations considered are \textbf{HUG-CFG-301}, \textbf{HUG-CFG-304}, and \textbf{HUG-CFG-305} with a variable wing port and a fixed canard port. These cases represent layouts where the wing position can be adjusted and a canard is present. HUG-CFG-302 is evaluated with a fixed wing position and without a canard port, and HUG-CFG-303 is considered with both wing and canard ports fixed, which also corresponds to the loading in \autoref{fig:fuselage_loading_model}.
+
+The comparison between these configurations allows the structural mass penalty of versatility to be estimated.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[t]{0.95\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=1.0, >=stealth]
+
+            % Fuselage beam
+            \draw[thick] (0,0) -- (12,0);
+            \draw[thick] (0,0.25) -- (12,0.25);
+            \draw[thick] (0,-0.25) -- (12,-0.25);
+            \draw[thick] (0,0.25) arc (90:270:0.25);
+            \draw[thick] (12,0.25) arc (90:-90:0.25);
+
+            % Axis
+            \draw[->] (0,-2.0) -- (12.8,-2.0) node[right] {$x$};
+
+            % Position labels
+            \draw[dashed] (5,-0.3) -- (5,-2.0);
+            \draw[dashed] (6,0.3) -- (6,-2.0);
+            \draw[dashed] (10,-0.3) -- (10,-2.0);
+
+            % Loads
+            \draw[->, thick, blue]  (6,0.3) -- (6,1.5) node[midway,right] {$L_w$};
+            \draw[->, thick, blue]  (10,-0.3) -- (10,-1.2) node[midway,right] {$L_t$};
+
+            % Weight
+            \draw[->, thick, red]  (5,-0.3) -- (5,-1.4) node[midway,right] {$W$};
+
+            % Labels
+            \node[below] at (5,-2.0) {$x_{cg}$};
+            \node[below] at (6,-2.0) {$x_w$};
+            \node[below] at (10,-2.0) {$x_t$};
+
+        \end{tikzpicture}
+        \caption{Loading case without canard port.}
+        \label{fig:fuselage_loading_no_canard}
+    \end{subfigure}
+
+    \vspace{0.6cm}
+
+    \begin{subfigure}[t]{0.95\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=1.0, >=stealth]
+
+            % Fuselage beam
+            \draw[thick] (0,0) -- (12,0);
+            \draw[thick] (0,0.25) -- (12,0.25);
+            \draw[thick] (0,-0.25) -- (12,-0.25);
+            \draw[thick] (0,0.25) arc (90:270:0.25);
+            \draw[thick] (12,0.25) arc (90:-90:0.25);
+
+            % Wing port envelope
+            \draw[fill=gray!20, draw=none] (5.2,0.28) rectangle (6.8,0.65);
+            \draw[thick, gray] (5.2,0.28) rectangle (6.8,0.65);
+            \node[gray!80!black] at (8.2,0.8) {wing port range};
+
+            % Axis
+            \draw[->] (0,-2.0) -- (12.8,-2.0) node[right] {$x$};
+
+            % Position labels
+            \draw[dashed] (2,0.3) -- (2,-2.0);
+            \draw[dashed] (5,-0.3) -- (5,-2.0);
+            \draw[dashed] (5.2,0.3) -- (5.2,-2.0);
+            \draw[dashed] (6.0,0.3) -- (6.0,-2.0);
+            \draw[dashed] (6.8,0.3) -- (6.8,-2.0);
+            \draw[dashed] (10,-0.3) -- (10,-2.0);
+
+            % Loads
+            \draw[->, thick, blue]  (2,0.3) -- (2,1.2) node[midway,right] {$L_c$};
+            \draw[->, thick, blue]  (6.0,0.3) -- (6.0,1.5) node[midway,right] {$L_w$};
+            \draw[->, thick, blue]  (10,-0.3) -- (10,-1.2) node[midway,right] {$L_t$};
+
+            % Indicate shifted wing positions
+            \draw[<->, thick] (5.2,1.75) -- (6.8,1.75);
+            \node[above] at (6.0,1.75) {$\pm 0.5c$};
+
+            % Weight
+            \draw[->, thick, red]  (5,-0.3) -- (5,-1.4) node[midway,right] {$W$};
+
+            % Labels
+            \node[below] at (2,-2.0) {$x_c$};
+            \node[below] at (5,-2.0) {$x_{cg}$};
+            \node[below] at (5.2,1.8) {$x_w^{-}$};
+            \node[below] at (6.0,-2.0) {$x_w$};
+            \node[below] at (6.8,1.8) {$x_w^{+}$};
+            \node[below] at (10,-2.0) {$x_t$};
+
+        \end{tikzpicture}
+        \caption{Loading case with static canard port and variable wing port.}
+        \label{fig:fuselage_loading_variable_wing}
+    \end{subfigure}
+
+    \caption{Remaining simplified fuselage beam loading cases in the $x$-$z$ plane.}
+    \label{fig:fuselage_loading_remaining_cases}
+\end{figure}
 
 \section{Material Selection}
 \label{sec:Material_Selection}
@@ -701,7 +861,7 @@ Fuselage  & Compression, Tension, Bending  & Buckling, Strength, Deflection \\ \
 It is important to note that at this design stage, the materials are only chosen for the primary components of each structural subsystem. A more detailed design of elements such as antenna mounts, access panel hardpoints, fastener inserts etc., as well as the details of internal supporting structure, will be analysed in more detail once the final external configuration is established for HUGO. 
 
 
-\subsection*{Material Analysis of Reference Aircraft}
+\subsection{Material Analysis of Reference Aircraft}
 \label{sub:materials_reference_aircraft}
 The material selection shall begin with an analysis of reference aircraft, X56-A and DASR ARW-2 previously introduced in \autoref{sub:lift_reference_aircraft}, as well as existing trends in the aerospace industry. The purpose of this research is to ensure that HUGO can model the behaviour of contemporary aircraft as accurately as possible.
 
@@ -738,7 +898,7 @@ The prevalence for composite usage in external structures is also present in mod
 
 
 
-\subsection*{Candidate Aerospace Materials for HUGO}
+\subsection{Candidate Aerospace Materials for HUGO}
 \label{sub:materials_candidates}
 
 According to Mouritz\cite{Mouritz2012}, there are no more than one hundred types of metal alloys, composites, polymers and ceramics that exhibit properties suitable for aerospace applications. The main materials used for airframes and engines include: aluminium alloys, titanium alloys, steels, and composites. Suitable representatives of each material group selected for the material design trade-off for HUGO are described in \autoref{tab:materials_trade-off_candidates_desc}.
@@ -765,7 +925,7 @@ According to Mouritz\cite{Mouritz2012}, there are no more than one hundred types
         HUG-MAT-01 & Sitka spruce &  Wood has played a part in aerospace engineering since the first powered flight. The softwood Sitka spruce was chosen based on its historical use in the construction of aircraft stemming from high specific strength and stiffness \cite{bookJohn}. The material is additionally characterised by its low density and low cost. \\\hline
         HUG-MAT-02 & Ti-6Al-4V & Primarily used for manufacturing of engine subsystems and landing gear, titanium is known for its high strength, long fatigue life, fracture toughness, creep strength,
         and excellent resistance to corrosion and oxidation \cite{Mouritz2012}. Ti-6Al-4V is considered a traditional alloy for commercial airliners \cite{titanium_use_airbus_boeing}. \\\hline
-        HUG-MAT-03 & Al 7075-T76 &  Aluminium has been widely used in aviation since the 1930s, and has proved usefulness in aerospace industry. The specific alloy was chosen due to its outstanding anti-corrosive properties and stress corrosion cracking resistance \cite{LI2023944}. \\\hline
+        HUG-MAT-03 & Al 7075-T76 &  Aluminium has been widely used in aviation since the 1930s, and is a proven material in the industry. The specific alloy was chosen due to its outstanding anti-corrosive properties and stress corrosion cracking resistance \cite{LI2023944}. \\\hline
         HUG-MAT-04 & Mg WE46-T6 & Magnesium has traditionally been used in aircraft due to its extremely low density (similar to that of carbon-fibre composites) \cite{Mouritz2012}. However, its popularity has declined due to poor corrosion resistance and high cost. The specific alloy was chosen based on its proven applications in aerospace industry \footnote{\href{https://www.matweb.com/search/datasheet.aspx?matguid=f41ac8bc1ddd4c1d85247e646b3ec2be}{MatWeb - Magnesium WE54-T6} (accessed on 19.05.2026)}  \\\hline
         HUG-MAT-05 & Steel 18Ni (350)
         %\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} 
@@ -856,9 +1016,10 @@ A quantitative analysis of the candidate materials can be obtained via an analys
 \textbf{ID}
   & \makecell{\textbf{Density} ($\rho$)\\($kg\,m^{-3}$)}
   & \makecell{\textbf{Young's}\\\textbf{Modulus} ($E$)\\(MPa)}
-  & \makecell{\textbf{Specific}\\\textbf{Cost}\\(USD\,$kg^{-1}$)} \\
+  & \makecell{\textbf{Specific}\\\textbf{Cost}\\(Euro\,$kg^{-1}$)} \\
   
 \hline\hline
+
 
 HUG-MAT-01 & 400  & 9000   & 0.85-1.7
 %\tablefootnote{\href{https://spotmaterial.com/material/spruce/sawnwood-kiln-dried/}{Spot material} (accessed 11.05.2026)}   
@@ -951,9 +1112,10 @@ HUG-MAT-07\tablefootnote{\href{https://spotmaterial.com/material/high-modulus-gl
 \end{comment}
 
 
-\subsection*{Sustainability}
-For the sustainability several factors had to be taken into account. There are the emissions stemming from the production and manufacture of the material and then there is the environmental impact of the material. 
-To asses the environmental impact of a material at this stage it is mostly relevant to look at the different end-of-life scenarios for the material. To systematically do this it is necessary to perform a preliminary LCA-analyses of the aircraft using each chosen material. In this stage it makes sense to make a streamlined LCA where the focus will be on differences between the impact of the different materials\cite{Vogtlander2012}.
+\subsection{Sustainability}
+\label{subsec:sustainability_materials}
+The sustainability of a material is a measure of: the emissions released during its production, its impact on the environment and its recycle-ability.  
+To systematically asses the sustainability of a material it is necessary to perform a preliminary LCA-analyses of the aircraft using each chosen material. To quantify the emissions the unit of global warming potential (GWP) is used for the emissions. In this stage it makes sense to make a streamlined LCA where the focus the emmisions related to the production of the materials\cite{Vogtlander2012}.
 
 \begin{comment}
     
@@ -966,8 +1128,8 @@ This was performed for each material using the following model:
 \end{figure}
 
 \end{comment}
-For the LCA-analysis the software openLCA was used with the added database: Swiss Federal Administration LCI Database (BAFU:2025) and the openLCA LCIA Methods package (insert reference here). For some of the materials where it was not possible to find in the database (or an equivalent material) it was necessary to make a rough estimates for the carbon-dioxide emissions related to its production. For the streamlined assessment the focus was on the construction of fuselage, empennage and wings. The preliminary mass together with an weight-fraction can be used to estimate the weight of wings, fuselage, empennage and landing gears (the turbine is not taken into consideration since this is not part of the material selection). Different materials will lead to different weights (as the specific structural characteristics are different for each material). The complete graphs and data files for each material can be found at the github (insert reference here). Below is the table for the streamlined LCA of the different materials.  
-
+For the LCA-analysis the software openLCA was used with the added databases: Swiss Federal Administration LCI Database (BAFU:2025) and the openLCA LCIA Methods package (\footnote{\href{https://nexus.openlca.org/downloads}{openLCA Nexus} (accessed 18.05.2026)}.). For the streamlined assessment the focus is on the construction of fuselage, empennage and wings. The preliminary mass together with an weight-fraction can be used to estimate the weight of wings, fuselage, empennage and landing gears (the turbine is not taken into consideration since this is not part of the material selection). Different materials will lead to different weights (as the specific structural characteristics are different for each material). The complete graphs and data files for each material can be found at the github (insert reference here). Below is the table of the GWP values for the different materials.  
+https://nexus.openlca.org/downloads
 \begin{table}[H]
 \centering
 \caption{The streamlined LCA analysis for the construction of the aircraft using different materials (insert reference here)}
@@ -979,7 +1141,7 @@ For the LCA-analysis the software openLCA was used with the added database: Swis
     \begin{tabular}{|l|c|}
     \hline
     \textbf{ID}
-      & \makecell{\textbf{Greenhouse}\\\textbf{Emissions}\\(kg $CO_2$ eq)} \\
+      & \makecell{\textbf{GWP}\\ (kg $CO_2$ eq)} \\
     \hline\hline
     HUG-MAT-01 & 5.66 \\ \hline
     HUG-MAT-02 & 95.91 \\ \hline
@@ -993,23 +1155,24 @@ For the LCA-analysis the software openLCA was used with the added database: Swis
     \begin{tabular}{|l|c|}
     \hline
     \textbf{ID}
-      & \makecell{\textbf{Greenhouse}\\\textbf{Emissions}\\(kg $CO_2$ eq)} \\
+      & \makecell{\textbf{GWP}\\(kg $CO_2$ eq)} \\
     \hline\hline
     HUG-MAT-05 & 69.88 \\ \hline
     HUG-MAT-06 & 262.88 \\ \hline
     HUG-MAT-07 & 62.83 \\ \hline
     \end{tabular}
 \end{minipage}
-
+\newline
 \end{table}
-
+Finally it is necessary to asses the recycle-ability of the different materials. Wood can be relatively easily be reused or can be burned as fuel %\footnote{\href{https://www.unilinpanels.com/en/sustainability/recycling   }{UNILIN} (accessed 18.05.2026)}. 
+As is often the case with metals it is possible for the recycled metal to retain most of the structural performance of the virgin material\cite{euric_metal_recycling}.  Recycling of glass and carbon- composites is typically very difficult and the large majority of these materials ends in landfills or are incinerated \cite{dot}.    
 
 \begin{comment}
 HUG-MAT-01 has an extreme low carbon footprint which mostly stems from the extraction and  of since wood by it self extracts and binds carbon-dioxide from the atmosphere. Recycling HUG-MAT-01 is also possible though mostly due to wear and tear down-cycling is most often the most viable approach. The material can be made into small chips which can then be compressed and made into panels\footnote{\href{https://www.unilinpanels.com/en/sustainability/recycling   }{UNILIN} (accessed 18.05.2026)}. Disposing HUG-MAT-01 is also relatively simple as the material can be burned and used for energy and heating, though it is worth noting that this will be dependent on the surface coatings and treatment used on the material. Combustion will also lead to a release of the bounded carbon-dioxide. The majority of HUG-MAT-02 (Ti) can be found in relative large quantities in the earth crust but the refinement and purification is a very energy-intensive process \cite{min11121425}. The recycle-ability of HUG-MAT-02 is quite good and due to high production and refinement cost there is a clear incentive for recycling \cite{RAHIMI2025107056}. The production of both HUG-MAT-03 and HUG-MAT-04 has a large carbon footprint (see \autoref{tab:material-economics} with HUG-MAT-04 being very high due to the specific refining process used\cite{dot}. HUG-MAT-05 has a medium carbon footprint. As is often the case with metals it is possible for the recycled HUG-MAT-02,  HUG-MAT-03,  HUG-MAT-04 and HUG-MAT-05 to retain most of the structural performance of the virgin material \cite{euric_metal_recycling}. The final two materials would be HUG-MAT-06 and HUG-MAT-07. Sustainability is often presented as one of the largest issues for the broad implementation for carbon and glass-composites \cite{dot}. The production of both fibres are  extremely energy-heavy see \autoref{tab:material-economics} with especially carbon fibre having a large carbon footprint. There lies a potential sourcing the carbon from the atmosphere though this is not implemented on a industrial scale \cite{Keiner2024}. The resin used for the matrix is typically a thermoset. Recycling of these materials is typically very difficult and the large majority of glass and carbon- composites ends in landfills or are incinerated \cite{dot}
 \end{comment}
 
-\subsection*{Trade-off table}
-%\label{sub:materials_trade-off}
+\subsection{Trade-off table}
+\label{sub:materials_trade-off}
 %As previously mentioned the aircraft could be parted into several subsections. These subsections would each have their own requirements and trade-off tables. 
 
 \begin{comment}

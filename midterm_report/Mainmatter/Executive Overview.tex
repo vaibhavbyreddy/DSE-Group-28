@@ -2,15 +2,15 @@
 
 \todo[inline]{ISBN's are not showing in bibliography! Point of interest for Mr. Documentation.}
 
-P1:
+In order to achieve HUGO's mission of testing aeroservoelastic phenomena in different kinds of high aspect ratio wings, five possible configurations were proposed in the Baseline Report \cite{BaselineReport}. The goal of the Midterm Report is to provide a final verdict on which configuration will be chosen for development. Then, a manufacturing, assembly, and integration plan will be established, the internal and external layouts of the chosen design configured, and the sustainable development strategy developed. In addition, the final project objectives will be established, the operations and logistics of HUGO's mission, and the certification and risk assessment in accordance with EASA regulations.
 
-Hook/purpose of report:
 
-P2:
 
-Useful background information
 
-P3: 
+
+
+
+P...: 
 
 Contents of the report:
 
@@ -24,7 +24,8 @@ Contents of the report:
 
 2. Operations and Logistics
     Operations
-    - Den Helder airport was chosen as the test take-off point based on NLR recommendations and the fact that the Netherlands was identified as the beachhead market. It is a joint civil and military airfield located close to the sea, and the airspace around it is controlled, which is good for the safety aspect and certification.
+    -mention the high-level mission objectives that have to be fulfilled so a mission is considered successful
+    - Den Helder airport was chosen as the test take-off point based on NLR recommendations and the fact that the Netherlands was identified as the beachhead market. It is a joint civil and military airfield located close to the sea, and the airspace around it is controlled, which is good for the safety aspect and certification. Also mention that the airport is very close to the test area and ref the map poseted and the fact that we have more space then even needed (a very little)
     - A test day timeline was drafted, highlighting the pre-, in-, and post-flight operations for each individual test, assuming 4 tests per day for 100 days a year. 
     - A preliminary maintenance and continuing plan was drafted based on EU No 1321/2014 and an analysis of stakeholder responsibilities.
     
@@ -32,13 +33,19 @@ Contents of the report:
     - HUGO is to be stored in a hangar located on Den Helder grounds.
     - Flights will be coordinated with De Kooy Air Traffic Control.
     - Den Helder is known for hosting off-shore flights above the North Sea.
+    -The support for coordinating the flights include a hangar, ground support proviede by certified personnel
+    -we will transport the fuel since no SAF at the airbase
 
 3. Certification
     Technical Risk Assessment
     - new risks were identified, preventive measures and mitigation strategies were refined, and the risk matrix was updated.
     Type Certificate
-    DOA
+    DOA - essential is that we can apply for it, not the entire association but only a part of it, for example 3 engineers that will be responsible for ensuring that all the procedures are respected. They need to have experience and will be trusted by EASA
+        - we bypass all the verifications and so on by categorising inside the DOA all the major changes as research procedures
+        -it will be expensive, 10170 once and then 11050 for the recertification yearly
     Flight Envelope
+    - ensuring compliance of the design with EASA CS-23 requirements for aerobatic aircraft
+    -combining manoeuvre and gust load envelopes that will have to be borne by the structure
     Environmental protection
 
 4. Design Trade-Off
@@ -63,10 +70,26 @@ Contents of the report:
     
 7. Engineering Design and Analysis
     Airfoil and wing analogous estimation
+    
     Aerodynamic Modeling
-    Empenage preliminary design
+    -parametric lifting-line-theory aerodynamic model of the aircraft has been created using Aerosandbox to obtain the preliminary aerodynamic loads
+
+    Fuel Fraction estimation
+    - mention that we model the mission as two cruise segments, translate the endurance and speed requirements into ranges of those segments.
+
+    Matching Diagram Step
+    - mention that we evaluate the aircraft for taking off and landing at den Helder, the climb gradients from CS-23 Amendment 5, flight half fuelled at mach 0.75, fly fully fuelled at mach .4 (you can basically copy the table from that section)
+    
+    Empennage preliminary design
+    -first the data on tail parameters of reference aircraft has been gathered
+    -subsequently the so-called scissor plot has been used to determine the required tail volume by constraining the aircraft to be neutrally statically stable and with a minimum required c.g. excursion from the controllability bound 
+    
     Landing gear configuration
     Structural analysis
+    -we have two main concepts, the sidepods and the internal storadge one, both with advantages and disadvantages
+    -once we get the data for each we can positively say each one is buildable and stable or not,
+    -we can give each of them a parameter that will state the usefulness of each configuration and the in the trade off, we say add the points from the landing gear to each config
+    -pretty streamed process and here we also state theundercarridge with the highest score
     
     Material selection
     - HUGO was divided into several structural subsystems for which primary materials were chosen in a trade-off.
