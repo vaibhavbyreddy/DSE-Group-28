@@ -432,7 +432,7 @@ where $e_f$ is the energy density of the fuel - a value of 42.8 MJ/kg is used \t
 \begin{equation}
     \eta_i = \frac{P}{\dot{m}_ie_f}=\frac{T_iV_i}{\dot{m}_ie_f}=\frac{a_iM_i}{c_Te_f}
 \end{equation}
-The mass fractions of the segments can be later combined into the total fuel mass fraction.
+The mass fractions of the segments can be later combined into the total fuel mass fraction. To verify the implementation of the method, a fuel mass fraction of a test aircraft with equivalent range equal to that of HUGO, but a single glide ratio and engine efficiency value has been computed both using the above method and the unmodified equations from Vos \cite{Vos2025AirplaneDesignAnalysis}.
 
 
 \section{Matching Diagram for Wing and Engine Sizing}
@@ -745,7 +745,7 @@ loading condition encountered over the full range of motion of the wing. The thi
 
 The configurations considered are \textbf{HUG-CFG-301}, \textbf{HUG-CFG-304}, and \textbf{HUG-CFG-305} with a variable wing port and a fixed canard port. These cases represent layouts where the wing position can be adjusted and a canard is present. HUG-CFG-302 is evaluated with a fixed wing position and without a canard port, and HUG-CFG-303 is considered with both wing and canard ports fixed, which also corresponds to the loading in \autoref{fig:fuselage_loading_model}.
 
-The comparison between these configurations allows the structural mass penalty of versatility to be estimated.
+The comparison between these configurations allows the structural mass penalty of versatility to be estimated. \todo{Mention the paper from whichthe baseline OEM fraction is taken}
 
 \begin{figure}[H]
     \centering
@@ -1607,6 +1607,12 @@ Pod to Gear Length &[-] & 1.25 & 1.0 & 1.5 & 3 \\   \hline
 
 First, the design iteration failed to converge for fuselage lengths shorter than the baseline as well as for the largest fuselage diameters due to infeasible landing gear. This is attributed to the combination of current landing gear requirements creating a heavily constrained design space for the landing gear. As the tail cone is replaceable, a tricycle configuration is strictly enforced over tail dragger. Due to the modular nature of the aircraft, the gear has to retract into fuselage or fuselage-connected pods. At the same time, a track width wider than the fuselage diameter is needed to satisfy the tip clearance and turnover angle constraints. The nose landing gear is also set to retract forward. While beneficial in case of actuator failure, this constraint might be reconsidered due to severely impacting the landing gear design freedom for shorter fuselages. As for the landing gear becoming infeasible for high fuselage diameter, it may be attributed to increasing the height of the CG without increasing without increasing the nose to main gear x distance, which worsens the turnover performance.
 
-Regarding parameter values in the feasible design space, increasing the fuselage dimensions, especially the diameter, causes a rapid increase in mass, with the exception of longer fuselage of \textbf{HUG-CFG-302}, which slightly decreases the total mass. It is thus recommended for the final design to avoid excessive enlargening of the fuselage.
+Regarding parameter values in the feasible design space, increasing the fuselage dimensions, especially the diameter, causes a rapid increase in mass (nearly double for the highest considered fuselage diameter), with the exception of the longer fuselage of \textbf{HUG-CFG-302}, which slightly decreases the total mass. It is thus recommended for the final design to avoid excessive enlargening of the fuselage,especially in diameter.
+
+Changing the C.G. excursion used to size the tail has a much weaker effect that differs significantly between the design option. \textbf{HUG-CFG-301} and \textbf{HUG-CFG-302} stay largely unaffected by the parameter, the mass of \textbf{HUG-CFG-302} slightly decreases, why the two remaining options experience non-monotonous changes in MTOM.
+
+Changes to the langing gear bay width case a small and roughly linear increase in mass for the affected design options, which is expected. Changes in the bay length have a significantly more minor effect. This can be explained by the fact that while a longer bay has a proportionally longer wetted area, its slenderness ratio is also proportionally larger. Changes in the wheel diameter of the landing gear affect the podded landing gear significantly more and similarly to increasing the bay width. This is because those options have a shorter main landing gear strut width, so the wheel diameter is more driving to their frontal and reference areas.
+
+Overall, the results of the sensitivity study are plausible and highlight the importance of fuselage optimisation, as well as point to the challenging design space of the landing gear.
 
 \todo{landing gear impact}
