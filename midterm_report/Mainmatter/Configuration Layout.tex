@@ -10,7 +10,14 @@ The final design of the plane will have an external configuration that is optimi
 
 Regardless of the smooth surface criteria, HUGO still has some outside ports, such as a pitot static tube placed under the nose cone, away from disturbed flow, the lidar port that will slightly protrude outside to scan the surrounding atmosphere, antennas for transmitting and receiving as well as the outside lights for visibility. 
 
-Other outer characteristics include the doors for the internal components, placed in top of the fuselage, doors for the landing gear, both nose and main, camera ports and the fuel port. A sketch of the external configuration can be found in 
+Other outer characteristics include the doors for the internal components, placed in top of the fuselage, doors for the landing gear, both nose and main, camera ports and the fuel port. A sketch of the external configuration can be found in \autoref{fig:External_config}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/Sketches/Outer_Stuff.jpeg}
+    \caption{External Configuration of HUGO}
+    \label{fig:External_config}
+\end{figure}
  
 % Include in the sketch the following:
 % - pitot tube
@@ -60,94 +67,91 @@ For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https:
 
 The electronic system is complemented by a multitude of sensors present inside and on the wings and tail to study the aeroelastic behaviour of structures. A list of sensors that have been considered for the aeroelastic analysis can be found in \autoref{wing_structural_sensors}.
 
-The nose cone will house a weather radar, giving HUGO weather prediction capabilities, aiding in measuring the atmosphere parameters.
+The nose cone will house a weather radar and a liedar sensor specific for atmospheric measurements, giving HUGO weather prediction capabilities, aiding in measuring the atmospheric parameters.
 
-\begin{longtable}{|p{0.28\linewidth}| p{0.28\linewidth}| p{0.36\linewidth}|}
+\begin{longtable}{|p{0.32\linewidth}|p{0.60\linewidth}|}
 \caption{Candidate sensors for aeroelastic response measurements}
 \label{wing_structural_sensors} \\
 
 \hline
-\textbf{Sensor} & \textbf{Measures} & \textbf{Use on wing} \\
+\textbf{Sensor} & \textbf{Use on wing} \\
 \hline\hline
 \endfirsthead
 
 \hline\hline
-\textbf{Sensor} & \textbf{Measures} & \textbf{Use on wing} \\
+\textbf{Sensor} & \textbf{Use on wing} \\
 \hline\hline
 \endhead
 
 \hline
-\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
 \endfoot
 
 \hline
 \endlastfoot
 
 Foil strain gauges 
-& Local strain 
 & Estimate wing-root bending moment, spar loads, and local stress through calibrated strain measurements. \\
 \hline
+
 Strain gauge rosettes 
-& Multi-directional strain 
 & Measure torsion, shear, and principal strain near spars, wing roots, cut-outs, and complex load paths. \\
 \hline
+
 Wheatstone bridge strain gauge circuits 
-& Calibrated strain response 
 & Convert strain measurements into bending moment, shear force, or torsional load through calibration. \\
 \hline
+
 Fibre Bragg Grating sensors 
-& Distributed strain and temperature 
 & Measure spanwise strain along the spar and support distributed load estimation and wing deformation reconstruction. \\
 \hline
 
 FBG-based shape sensing 
-& Strain-derived deflection and slope 
 & Reconstruct wing bending and twist from distributed strain measurements along the wing structure. \\
 \hline
+
 LVDTs 
-& Precise linear displacement 
 & Measure static wing deflection during structural tests and calibration loading cases. \\
 \hline
+
 String potentiometers / draw-wire sensors 
-& Linear displacement 
 & Measure wing-tip deflection during ground tests or structural calibration tests. \\
 \hline
 
 Inclinometers / tilt sensors 
-& Local slope or angular displacement 
 & Support wing twist or slope reconstruction when placed at selected spanwise locations. \\
 \hline
+
 Small IMUs along the wing 
-& Local acceleration and attitude 
 & Estimate dynamic wing motion, bending response, and torsional behaviour during flight. \\
 \hline
+
 Accelerometers 
-& Structural acceleration and vibration 
 & Measure modal response, gust response, flutter behaviour, and aeroelastic vibration. \\
 \hline
+
 MEMS IMUs 
-& Acceleration and angular rates 
 & Measure wing-tip motion, torsional response, and flexible-body dynamics during flight. \\
 \hline
+
 Piezoelectric patches 
-& Dynamic strain and vibration 
 & Monitor flutter, vibration, and dynamic aeroelastic response; can also support active aeroelastic control concepts. \\
 \hline
+
 Acoustic emission sensors 
-& Damage-related acoustic events 
 & Detect crack initiation, delamination, or local structural damage events for structural health monitoring. \\
 \hline
+
 Control-surface position sensors 
-& Actual control-surface deflection 
 & Correlate structural response with commanded control input and real control-surface motion. \\
 \hline
+
 Actuator current sensors 
-& Electrical current used by actuator 
 & Provide an indirect indication of hinge moment, actuator loading, binding, or overload during manoeuvres. \\
 \hline
+
 Lidar Sensor
-& Displacement of Structure
-& Provides 3D measurements and view of the wing in real time via a laser pointing system. Will be placed in the nose of the cone. \\
+& Provides 3D measurements and real-time view of the wing through a laser-based measurement system. \\
 \hline
 
 \end{longtable}

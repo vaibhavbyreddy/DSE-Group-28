@@ -1,9 +1,7 @@
-\chapter{Planning}
+\chapter{Project Planning}
 \label{ch:planning}
-\todo[inline]{\textbf{Chapter under proofreading/maintenance by Hanna} - pls don't touch anything without telling me. So long as this TODO is here, things will move and disappear (only to manifest themselves again somewhere else). So if you want to add, modify, or delete something, let me know asap!}
-\todo[inline]{Add a section about updates to the requirement list. \\ In the same line, HUG-FIN-001 is no longer a thing.}
-\todo[inline]{Chapter introduction pending}
 
+This Chapter outlines the project planning approach and tools used to define and monitor the workflow. \autoref{sec:planning_WFD} described the approach towards constructing the workflow diagram, from which the work breakdown structure is derived in \autoref{sec:planning_WBS}. Mutual task dependencies are defined and evaluated using an N2 diagram in \autoref{sec:n2_diagram}. The future steps for project design and development are outlined in \autoref{sec:Project Design Development Logic}. Organisational aspects such as team responsibility allocation and work timeline are described in \autoref{sec:organogram} and \autoref{sec:planning_gantt_chart}, respectively.
 \section{Midterm Workflow Diagram (WFD)}
 \label{sec:planning_WFD}
 
@@ -16,7 +14,35 @@ All the tasks from this phase contribute to the preliminary sizing.
 
 In the final stage, differences between candidate HUGO configurations can be quantified, a preliminary life-cycle assessment can be performed. Consequently, a trade-off is performed in a feedback loop with the sensitivity study, and a final design configuration is established. %This is to ensure that the trade-off procedure remains unambiguous and unbiased, and with minimum overlapping between the criteria. Based on the trade-off, the final configuration is chosen.
 
+
+\section{Midterm Work Breakdown Structure (WBS)}
+\label{sec:planning_WBS}
+
+Following from the WFD, the WBS is constructed to provide a more hierarchical overview of all project activities. %Each task from the workflow diagram is represented in the WBS and further divided into subtasks, 
+It ensures that progress can be tracked and responsibilities clearly assigned at every level. HUGO's WBS was divided into four work phases reflecting the natural progression of the engineering design process:
+
+\begin{enumerate}
+    \item \textbf{Low-Fidelity Design Analysis:} initial aerodynamic characterisation of candidate configurations, incl. airfoil selection, V-n diagram, endurance estimation, and static stability determination.
+    
+    \item \textbf{Preliminary Sizing:} constraint analysis and weight estimation activities that yield the first quantitative geometric and performance parameters of the aircraft.
+
+    \item \textbf{Trade-off Framework \& Parameter Computation}: establishing evaluation criteria, computing trade-off parameters for each configuration, preliminary Life Cycle Assessment.
+
+    \item \textbf{Trade-off \& Configuration Selection}, where the weighted scoring matrix is applied, a sensitivity study is conducted on the trade-off results, and the best configuration is formally selected.
+\end{enumerate}
+
+Each task has a responsibility defined based on one of the disciplinay roles (Aerodynamics, Structures, Systems Engineering, Operations, and Sustainability). An estimated duration was also attributed to each task, allowing the WBS to feed directly into the project Gantt chart (see: \autoref{sec:planning_gantt_chart}).
+
+Identified methods used for specific tasks (e. g. Roskam statistical fractions for weight estimation, or XFOIL for airfoil analysis) are noted explicitly at the subtask level.
+%Each task was subsequently decomposed into two or more subtasks. Where a specific method was already identified — such as the ADSEE method for constraint analysis, the Roskam statistical fractions for weight estimation, or XFOIL for airfoil analysis — this was noted explicitly at the subtask level. 
+In cases where a method has not yet been determined, a TBD flag is placed. This highlights areas that require further investigation before work can begin. This approach ensures the WBS serves not only as a planning tool but also as a live record of methodological decisions
+%and open action items.
+
+%A legend is included in the WBS to provide clarity on the colour convention used throughout the diagram.
+The colour scheme of the WBS diagram follows the work phases. Lighter coloured cards correspond to tasks belonging to earlier phases of the project, while progressively darker colours indicate tasks that are executed later in the workflow. The WBS diagram is shown in \autoref{WBS} in \autoref{app:project_planning_diagrams}.
+
 \section{N2 diagram}
+\label{sec:n2_diagram}
 The purpose of an N2 diagram is to break down a complete system into functional units or subsystems, and define the dependencies between them\footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/Project_Guide_2025-2026_Spring_Saullo_Castro.pdf}{Project Guide Design Synthesis Exercise 2025-2026}(accessed on 20.04.2026)}. An N2 diagram is a square matrix, in which functions or subsystems are placed on the diagonal. Each function or system component is linked by mapping its output on the horizontal axis and input on the vertical axis, respective to the block of the corresponding function or subsystem. The N2 diagram for the HUGO system is shown in \autoref{fig: N2} in \autoref{app:project_planning_diagrams}.
 
 % \begin{figure}[H]
@@ -50,37 +76,6 @@ The purpose of an N2 diagram is to break down a complete system into functional 
 
 
 
-
-
-
-\section{Midterm Work Breakdown Structure (WBS)}
-\label{sec:planning_WBS}
-
-Following from the WFD, the WBS is constructed to provide a more hierarchical overview of all project activities. %Each task from the workflow diagram is represented in the WBS and further divided into subtasks, 
-It ensures that progress can be tracked and responsibilities clearly assigned at every level. HUGO's WBS was divided into four work phases reflecting the natural progression of the engineering design process:
-
-\begin{enumerate}
-    \item \textbf{Low-Fidelity Design Analysis:} initial aerodynamic characterisation of candidate configurations, incl. airfoil selection, V-n diagram, endurance estimation, and static stability determination.
-    
-    \item \textbf{Preliminary Sizing:} constraint analysis and weight estimation activities that yield the first quantitative geometric and performance parameters of the aircraft.
-
-    \item \textbf{Trade-off Framework \& Parameter Computation}: establishing evaluation criteria, computing trade-off parameters for each configuration, preliminary Life Cycle Assessment.
-
-    \item \textbf{Trade-off \& Configuration Selection}, where the weighted scoring matrix is applied, a sensitivity study is conducted on the trade-off results, and the best configuration is formally selected.
-\end{enumerate}
-
-Each task has a responsibility defined based on one of the disciplinay roles (Aerodynamics, Structures, Systems Engineering, Operations, and Sustainability). An estimated duration was also attributed to each task, allowing the WBS to feed directly into the project Gantt chart (see: \autoref{sec:planning_gantt_chart}).
-
-Identified methods used for specific tasks (e. g. Roskam statistical fractions for weight estimation, or XFOIL for airfoil analysis) are noted explicitly at the subtask level.
-%Each task was subsequently decomposed into two or more subtasks. Where a specific method was already identified — such as the ADSEE method for constraint analysis, the Roskam statistical fractions for weight estimation, or XFOIL for airfoil analysis — this was noted explicitly at the subtask level. 
-In cases where a method has not yet been determined, a TBD flag is placed. This highlights areas that require further investigation before work can begin. This approach ensures the WBS serves not only as a planning tool but also as a live record of methodological decisions
-%and open action items.
-
-%A legend is included in the WBS to provide clarity on the colour convention used throughout the diagram.
-The colour scheme of the WBS diagram follows the work phases. Lighter coloured cards correspond to tasks belonging to earlier phases of the project, while progressively darker colours indicate tasks that are executed later in the workflow. The WBS diagram is shown in \autoref{} in \autoref{app:project_planning_diagrams}.
-
-
-
 \section{Project Design \& Development Logic }
 \label{sec:Project Design Development Logic}
 It is important to keep an outlook for the future of the project and the subsequent development of the aircraft after the design has been completed. To create a more comprehensible diagram, the project design and development were broken down into five different phases \cite{Spitz2001}: 
@@ -98,6 +93,7 @@ It is important to keep an outlook for the future of the project and the subsequ
 The Project Design \& Development Logic diagram can be seen in \autoref{fig:proj_design} in \autoref{app:project_planning_diagrams}.
 
 \section{Team Organogram \& HR Allocation}
+\label{sec:organogram}
 
 To optimise technical development, the team identified and distributed critical organisational responsibilities, as shown in \autoref{fig:organogram} in \autoref{app:project_planning_diagrams}. These roles structure the development process, mitigating internal risks and enhancing the overall quality of the final product. The designated roles and their core functions are as follows:
 
@@ -112,8 +108,7 @@ To optimise technical development, the team identified and distributed critical 
     \item \textbf{Quality Assurance Manager:} Ensures all work products meet the standards required by external stakeholders and internal protocols.
 \end{itemize}
 
-Additional technical roles were defined to create focused engineering design departments. Each team member was assigned one organisational role and one technical role, and backup members were appointed for each department (names written in bold and italics). Other 
-The Team Organogram is shown in \autoref{fig:organogram} in \autoref{sec:project_diagrams}.
+Additional technical roles were defined to create focused engineering design departments. Each team member was assigned one organisational role and one technical role, and backup members were appointed for each department (names written in bold and italics). Additional members expected to contribute to a specific department were highlighted as "Contributors". The complete Team Organogram is shown in \autoref{fig:organogram} in \autoref{app:project_planning_diagrams}.
 
 
 %According to the aircraft subsystems described in the Design Option Tree of the Baseline Report \footref{url:baseline_report}, engineering departments were developed and are presented in \autoref{fig:organogram}. Each team member has been assigned as main responsible for a single technical department. Each department has a backup member to become responsible in the case Risk[Team Member absence] were to occur, with their names marked in bold and italics. Other members expected to make significant contributions are named as "Contributors".
@@ -122,9 +117,11 @@ The Team Organogram is shown in \autoref{fig:organogram} in \autoref{sec:project
 \section{Gantt Chart}
 \label{sec:planning_gantt_chart}
 
+\autoref{fig:gantt_chart} shows the project Gantt chart outlining the project tasks, along with relevant dependencies and a preliminary timeline.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figures/GantChart.pdf}
-    \caption{Gantt Chart Scheduele}
+    \caption{Project HUGO Gantt Chart}
     \label{fig:gantt_chart}
 \end{figure}

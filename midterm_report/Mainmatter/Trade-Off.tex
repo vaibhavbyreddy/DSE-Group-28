@@ -35,7 +35,7 @@ Meaningful trade-off criteria should be developed such that all available techni
 %It is not helpful to include criteria where all options perform similarly; instead, it is more valuable to use criteria where some options perform poorly, as this helps reveal and compare weaknesses across designs. In this way, each design’s limitations can be properly assessed. In addition, some of the requirements identified in the baseline review can also serve as a basis for defining the trade-off criteria.
 
 Taking all of the above into consideration, the following criteria were selected for the trade-off of HUGO designs: Versatility, Reliability, Cost, Performance, and Sustainability. \autoref{tab:trade-off_criteria} lists the rationale behind selecting each criterion for the configuration trade-off, while \autoref{sec:Mat_sel} lists those used for the material trade-off.
-\newpage
+
 \begin{longtable}{|p{2.5cm}|p{13.5cm}|}
 \caption{Trade-Off Criteria for HUGO Configurations}
 \label{tab:trade-off_criteria} \\
@@ -59,7 +59,7 @@ Taking all of the above into consideration, the following criteria were selected
 
 Versatility & HUG-CFG-301 is a low wing concept, which prevents the testing of truss brased wing concepts, which was considered significant in conversations with NLR. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
 
-Reliability & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 significantly increase the design complexity and associated development and operational risks. The same reasoning can be applied for retractable side podded landing gear mechanisms for HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \footref{url:baseline_report}).\\ \hline
+Reliability & Variable wing ports in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 introduce additional fatigue exposure at modular interfaces, increasing operational risk. Buried retractable gear in HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305 reduces accessibility for maintenance of the retraction mechanism. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \footref{url:baseline_report}).\\ \hline
 
 Cost & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-05 significantly increase the design complexity and associated development, maintenance and repair costs compared to no/static port configurations. The same reasoning can be applied to retractable landing gear mechanisms for HUG-CFG-302, HUG-CFG-304 due to the additonal podded complexity. Moreover, the design of HUGO is subject to specific cost requirements (see: HUG-FIN-001 \footref{url:baseline_report}). \\ \hline
 
@@ -86,7 +86,7 @@ The preliminary configurations and materials shall be evaluated and assigned a v
 \begin{itemize}
     \item \textbf{Versatility} is quantified as the range of experiments and stability conditions that can be tested with the given configuration. As mentioned above, a configuration that can not test canard configurations or has a static port will score lower.
     \item \textbf{Performance }is evaluated based on how effectively the maximum Mach number at test altitude can be achieved while carrying the full instrumentation payload, with minimal drag and fuel consumption. Configurations that are lighter, less complex, and feature fewer protruding components will receive higher scores.
-    \item \textbf{Reliability} is evaluated as the likelihood that the testbed will successfully perform its intended function without failure under the specified operating conditions throughout its lifetime. Features such as ports and retractable landing gear introduce additional failure risks; therefore, configurations incorporating these elements will receive lower scores
+    \item \textbf{Reliability} is evaluated as the likelihood that the testbed successfully performs its intended function without failure under specified operating conditions throughout its lifetime. Mainframe fatigue at modular interfaces and maintenance accessibility are identified as primary reliability drivers. Accessibility determines the feasibility of preventive maintenance, directly affecting whether soft failures can be detected and corrected before escalating. Scores reflect the severity of anticipated failure modes, from soft failures causing minor performance degradation to severe failures risking significant structural damage.
     \item \textbf{Cost} is quantified as the manufacturing effort, materials, development, and maintenance that have gone into each configuration. More complex and heavier designs will score lower here.
     \item \textbf{Sustainability} is quantified as the manufacturing complexity and material consumption, penalised by number of moving parts, material types, and estimated labour hours. Configurations with more moving parts, additional material types, and higher labour requirements score lower.
 \end{itemize}
@@ -513,6 +513,7 @@ For the selection of material weight factors, a more holistic approach was appli
 
 
     \end{itemize}
+    
 
 \begin{comment}
 \begin{longtable}{|p{0.24\textwidth}|| p{0.68\textwidth}|}
@@ -681,18 +682,32 @@ HUG-CFG-305
 \label{tab:trade-off_matrix}
 \end{table}
 
+\todo{The below justifications will not be included in the final version, currently just for overview of justifications}
 \textbf{Versatility}:
 \begin{enumerate}
-    \item HUG-CFG-301: features both a static canard port and variable wing port - scores 4
-    \item HUG-CFG-302: No canard port - scores 2 - eliminated because of versatility no-go value
-    \item HUG-CFG-303: Wing static port instead of variable - scores 3
-    \item HUG-CFG-304: same as 1, scores 4
-    \item HUG-CFG-305: same as 1 and 4, scores a 4
+    \item HUG-CFG-301: Does not allow for testing of truss based wing - scores 2 - eliminated because of versatility no-go value.
+    \item HUG-CFG-302: No canard port - scores 3
+    \item HUG-CFG-303: Wing and canard static ports- scores 4.
+    \item HUG-CFG-304: Full range of configurations testable - scores 5
+    \item HUG-CFG-305: Same as 4 - scores 5.
 \end{enumerate}
 
 \textbf{Reliability}:
 \begin{enumerate}
-    \item 
+    \item HUG-CFG-301:  Variable wing port introduces moderate fatigue exposure; low wing configuration provides good accessibility for timely intervention — moderate failure risk — score 3
+    \item HUG-CFG-302: Static port results in minimal fatigue exposure; side podded landing gear ensures good accessibility enabling routine preventive maintenance — no anticipated failure — score 4
+    \item HUG-CFG-303: Static ports result in minimal fatigue exposure; buried landing gear limits accessibility, though preventive maintenance remains feasible with planning — soft failure risk — score 3
+    \item HUG-CFG-304: Variable wing port introduces moderate fatigue exposure; side podded landing gear ensures good accessibility for timely intervention — moderate failure risk — score 3
+    \item HUG-CFG-305: Variable wing port introduces moderate fatigue exposure; buried landing gear limits accessibility, increasing the likelihood of undetected degradation — severe failure risk — score 2 — eliminated
+\end{enumerate}
+
+\textbf{Cost}
+\begin{enumerate}
+    \item HUG-CFG-301: scores 2
+    \item HUG-CFG-302: scores 4
+    \item HUG-CFG-303: scores 3
+    \item HUG-CFG-304: scores 2
+    \item HUG-CFG-305: scores 2
 \end{enumerate}
 
 \begin{table}[H]
