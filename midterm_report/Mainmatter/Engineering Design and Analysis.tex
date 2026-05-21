@@ -4,7 +4,7 @@
 
 \section{Airfoil and wing analogous estimation}
 \label{sec:airfoil_wing_estimation}
-\todo[inline]{\textbf{Section under proofreading/maintenance by Hanna} - pls don't touch anything without telling me. So long as this TODO is here, things will move and disappear (only to manifest themselves again somewhere else). So if you want to add, modify, or delete something, let me know asap!}
+\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
 According to HUG-OPS-005\footref{url:baseline_report}, HUGO is required to operate at speeds up to Mach 0.75. This is the flight condition at which tests are expected to be conducted during operations. In this section, an estimation of the lift characteristics of HUGO is performed based on statistics from suitable reference aircraft, along with a preliminary airfoil selection suitable for the considered operations.
 
 Airfoil selection begins with an analysis of reference aircraft and an estimate of the design lift coefficient $C_{l_\text{des}}$. Subsequently, the maximum lift coefficient $C_{l_{\text{max}}}$ is derived along with relevant aerospace parameters to facilitate the selection. For the purpose of this analysis, it is assumed that HUGO will operate at a speed of Mach 0.75, at an altitude of FL270 (8230 m). 
@@ -84,7 +84,7 @@ To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} can be applied for a cruise air
 \end{equation}
 
 \subsubsection*{Cruise Reynolds number}
-Based on the initial estimates from \autoref{tab:DAST_HUGO}, as well the cruise conditions $\rho_{cr}$, $V_{cr}$ and dynamic viscosity $\mu_{cr}$ corresponding to Torenbeek's ISA model \cite{AdvancedACDesign_Torenbeek}, a cruise Reynold's number $Re_{cr}$ can be calculated using \autoref{eq:Re}.
+Based on the initial estimates from \autoref{tab:DAST_HUGO}, as well the cruise conditions $\rho_{cr}$, $V_{cr}$ and dynamic viscosity $\mu_{cr}$ corresponding to Torenbeek's ISA (International Standard Atmosphere) model \cite{AdvancedACDesign_Torenbeek}, a cruise Reynold's number $Re_{cr}$ can be calculated using \autoref{eq:Re}.
 \begin{equation}
     Re_{cr} = \frac{\rho_{cr} \overline{c}V_{cr}}{\mu_{cr}} \approx 1.15\cdot10^6
     \label{eq:Re}
@@ -94,7 +94,8 @@ Based on the initial estimates from \autoref{tab:DAST_HUGO}, as well the cruise 
 \subsubsection*{Maximum Lift Coefficient}
 The maximum lift coefficient, $C_{L_\text{max}}$ has to be determined to obtain the stall speed of HUGO, $V_\text{stall}$. As stated previously, the use of a supercritical wing profile is highly recommended for the considered test conditions. A preliminary estimate of  $C_{L_\text{max}}$ is made by considering a NASA SC(2)-0010 airfoil and the DATCOM method for estimating the maximum lift coefficient for finite wings. 
 
-An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}{AirfoilTools} (accessed on 07.05.2026)}, and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil} (accessed on 11.5.2026)}. The $N$ value is deemed suitable for this use case due to likely disturbed airflow from the wing surface roughness \cite{Koul}. Then, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$ \cite[p. ]{Torenbeek1982}. \autoref{eq:Lambda_conversion} is used to convert from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ and derived from the expression in \cite{Torenbeek1982}.
+An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}{AirfoilTools} (accessed on 07.05.2026)}, and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil} (accessed on 11.5.2026)}. The $N$ value is deemed suitable for this use case due to likely disturbed airflow from the wing surface roughness \cite{Koul}. Then, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$ \cite[p. ]{Torenbeek1982}. Conversion from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ is done with \autoref{eq:Lambda_conversion} \cite[p. ]{} derived from the expression in \cite{Torenbeek1982}. \todo{cite equation source!!!!}
+\textcolor{red}{Cite sources for equations!}
 
 \begin{equation}
     \Lambda_{0.25}
@@ -123,14 +124,12 @@ The next step is to identify the preliminary stall speed of HUGO. With a maximum
 \end{equation}
 From \autoref{eq:Vstall}, a stall speed $V_{stall} \approx 37 \ m \cdot s^{-1}$. Comparing this to the stall speed of the X-56A UAS of 33 m/s\footref{url:x56a}, the result appears reasonable for an initial estimation.\\
 
-\subsection{Supercritical Airfoils}
-\label{subsec:supercritical_airfoil}
+\subsection{Airfoil Selection}
+\label{subsec:airfoil_selection}
 Since the aircraft is expected to operate at Mach 0.75, it is necessary to take transonic phenomena into account. When flying in this region with a traditional airfoil, the airflow might locally be supersonic, which creates strong shock waves on the wing \cite{Whitcomb1974}. This leads to a large increase in drag, which is detrimental for the performance of the aircraft and introduces boundary layer separation. Such effects can be mitigated by the use of a supercritical airfoil. 
 
 A supercritical airfoil is capable to operate at transonic conditions with only the onset of weak shock waves \cite{Harris1990}. An example of such airfoils used in the preliminary design for HUGO is a supercritical SC(2)-XXYY family developed by NASA, where XX is the airfoil design lift coefficient, and YY is the maximum thickness in percent \cite{Harris1990}. The advantage of using this system is the inclusion of the design lift coefficient, which makes it possible to narrow down the choices for HUGO using $C_{L_\text{des}}$ values found in \autoref{subsec:cl_des}.
 
-\subsection{Airfoil Selection}
-\label{subsec:airfoil_selection}
 Based on the data obtained in the previous subsections, NASA SC(2)-0012 was chosen as the preliminary airfoil for HUGO. It is a symmetrical, supercritical airfoil, with properties matching the requirements for HUGO's mission. The choice follows from the NASA report on supercritical airfoils \cite{Harris1990}, as well as $C_{l_\text{des}}$ of 0.074
 
 %The ARW-2 wing of the DAST drone used supercritical airfoils with varying thicknesses along the wing span. The profile thickness varied between $\frac{t}{c} = 0.14$ at the wing root to $\frac{t}{c} = 0.10$ at the wing tip. \cite{ARW-2_NASA} Based on the initial design lift coefficient $C_{L_\text{des}} = 0.074$, the selected airfoil is based on a NASA report on supercritical airfoils. \cite{Harris1990} 
@@ -146,7 +145,8 @@ Moreover, it does not create significant negative pitching moments that necessit
 \section{Aerodynamic modelling}
 \label{sec:aerodynamic_modelling}
 \todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
-\todo[inline]{If desperate for pages, I think that some equations (FF, $Re_\text{cut-off}$ etc. can be commented out, as per Gui's suggestion - Hanna}
+
+\todo[inline]{If desperate for pages, I think that some equations (FF, $Re_\text{cut-off}$ etc. can be commented out, as per Gui's suggestion. But I'd rather leave the decision of what to keep to section authors. - Hanna}
 In order to perform preliminary sizing, aerodynamic analyses of the aircraft were performed by means of the lifting line theory (LLT) with modifications for nonzero sweep provided by the AeroSandbox Python package \footnote{\href{https://aerosandbox.readthedocs.io/en/master/autoapi/aerosandbox/aerodynamics/aero_3D/lifting_line/index.html}{AeroSandbox} (accessed 18.05.2026)}. The goals of these analyses were to obtain: the lift and induced drag of the aircraft required for the later calculation of the $L/D$ ratio, the lift curve slopes of all the lifting surfaces (both individually and combined with other lifting surfaces), the lift distribution along the span, the aerodynamic centre position, and the determination of the angle of attack required for trimming. This section first outlines the generation of the model, followed by the description of the performed analyses and their verification.
 
 To conduct sizing of the aircraft, including steps such as a matching diagram, it is vital to know the breakdown of drag between induced and parasitic \cite{Vos}. Thus,the aerodynamic analysis shall focus on inviscid modelling to obtain the induced drag alone, while the parasitic drag will be obtained via drag buildup. As Aerosandbox LLT includes viscosity, an inviscid modification of it has been created for the purpose of this project. The LLT of Aerosandbox assembles total aerodynamic force and moments from viscous and inviscid components, so instead of the sum, only the inviscid components are returned. The inviscid analysis has been verified by comparing its output with that of the standard viscous analysis, i. e. by imposing the maximum relative difference of less than 1\% in the lift coefficient.
@@ -244,7 +244,7 @@ Where the definitions of $b$ and $a$ are given in \autoref{fig:landing_gear_dime
 \subsection{LLT Analysis}
 \label{subsec:LLT_analysis}
 
-To create the LLT-based aerodynamic model, the airplane model, atmospheric properties, and flight conditions (angle of attack, sideslip angle, airspeed and rotational rates) are required as inputs. Since the results provided by AeroSandbox exclude the lift distribution, the position of vortex centres and vortex strengths are extracted from the source code. Then, the Kutta–Joukowski theorem ($L=\rho V\Gamma$) is employed to compute the lift per unit span at each section. To find the lift curve slope, the analysis is run for a range of angles of attack, with a minimum of two values, and additional ones being used to rule out inconsistencies. 
+To create the LLT-based aerodynamic model, the airplane model, atmospheric properties, and flight conditions (angle of attack, sideslip angle, airspeed and rotational rates) are required as inputs. Since the results provided by AeroSandbox exclude the lift distribution, the positions of vortex centres and vortex strengths are extracted from the source code. Then, the Kutta–Joukowski theorem ($L=\rho V\Gamma$) is employed to compute the lift per unit span at each section. To find the lift curve slope, the analysis is run for a range of angles of attack, with a minimum of two values, and additional ones being used to rule out inconsistencies. 
 
 The trim analysis requires a specific angle of attack. While the definition of the trim condition entails both vertical force and pitch moment equilibria, this analysis only considers vertical force equilibrium due to the preliminary nature of the design (no elevators, empennage assumed fixed for simplicity). The required angle of attack can be obtained in two ways:
 \begin{enumerate}
@@ -277,14 +277,14 @@ The tests of highest importance for direct model verification involve comparing 
     \end{tabular}
 \end{table}
 
-The slope $a$ of the lift curve of model 1 (\autoref{tab:aero_verification_parameters}) in the incompressible regime has been compared with Prandtl's formula for high-aspect-ratio wings, shown in \autoref{eq:prandtl_slope}\cite[p. ]{}\todo{cite source}, where $a_0$ is \textcolor{red}{TBD TBD TBD} \todo{explain what $a_0$ is}.
+The slope $a$ of the lift curve of model 1 (\autoref{tab:aero_verification_parameters}) in the incompressible regime has been compared with Prandtl's formula for high-aspect-ratio wings (\autoref{eq:prandtl_slope}) \cite{anderson2011ebook}, where $a_0$ is the lift curve slope of the airfoil.
 
 \begin{equation}
     a=\frac{a_0}{1+\frac{a_0}{\pi AR}}
     \label{eq:prandtl_slope}
 \end{equation}
 
-The relative difference for the considered case is about 25.2\% at the angle of attack of $2.5\deg$, which can be attributed to two reasons. Firstly, Prandtl's formula assumes elliptical lift distribution, which is not the case for the considered (rectangular) wing. Secondly, \autoref{eq:prandtl_slope} assumes a thin airfoil, which is not the case for HUGO, as explained in \autoref{sec:airfoil_wing_estimation}. 
+The relative difference for the considered case is about 25.2\% at the angle of attack of $2.5\deg$, which can be attributed to two reasons. Firstly, \autoref{eq:prandtl_slope} assumes elliptical lift distribution, which is not the case for the considered (rectangular) wing. Secondly, \autoref{eq:prandtl_slope} assumes a thin airfoil, which is not the case for HUGO, as explained in \autoref{sec:airfoil_wing_estimation}. 
 %In fact, the supercritical airfoil used here has a relatively large thickness-to-chord ratio of 12\%, which violates the Prandtl's assumption of thin airfoils. 
 
 %\textcolor{blue}{As shown in \autoref{fig:aerodynamic_verification}, the incompressible results are close to each other around the angle of attack of $0\deg$, but start differing from there significantly; the absolute difference becomes larger than 0.1 at the angle of attack of $6\deg$.}
@@ -304,7 +304,7 @@ verify the aerodynamic model in a more realistic scenario, model 2 from \autoref
 These observations imply possible limitations of the AeroSandbox software in accurately predicting the lift forces, or issues with the model itself. Nevertheless, for the purposes of the preliminary design stage, the accuracy is deemed sufficient, especially at lower angles of attack.
 %since the objective of this design stage is differentiating between the different configurations. In other words, the possible errors in lift prediction will be applied to the aerodynamic models of all these configurations, so the effect of the aerodynamic model limitation on the final choice is expected to remain limited. 
 
-\autoref{fig:aerodynamic_verification} showcases the results of aerodynamic analysis for the Prandtl formula, DATCOM method, as well as both incompressible and compressible AeroSandbox results. As expected, the AeroSandbox are nonlinear  \footnote{\href{https://aerosandbox.readthedocs.io/en/master/autoapi/aerosandbox/aerodynamics/aero_3D/lifting_line/index.html}{Aerosandbox LiftingLine class} (accessed 20.05.2026)}, and the linear results from Prandtl and DATCOM attain similar values at $\alpha=0$, and began differing significantly with increasing $\alpha$.
+\autoref{fig:aerodynamic_verification} showcases the results of aerodynamic analysis for the Prandtl formula, DATCOM method, as well as both incompressible and compressible AeroSandbox results. As expected, the AeroSandbox are nonlinear  \footnote{\href{https://aerosandbox.readthedocs.io/en/master/autoapi/aerosandbox/aerodynamics/aero_3D/lifting_line/index.html}{Aerosandbox LiftingLine class} (accessed 20.05.2026)}, and the linear results from Prandtl and DATCOM coincide at $\alpha=0$, and started differing significantly with increasing $\alpha$.
 
 %Another observation from \autoref{fig:aerodynamic_verification} is that AeroSandbox results are nonlinear, which is indeed as expected \footnote{\href{https://aerosandbox.readthedocs.io/en/master/autoapi/aerosandbox/aerodynamics/aero_3D/lifting_line/index.html}{Aerosandbox LiftingLine class} (accessed 20.05.2026)}.
 
@@ -315,7 +315,7 @@ These observations imply possible limitations of the AeroSandbox software in acc
     \label{fig:aerodynamic_verification}
 \end{figure}
 
-The position of aerodynamic centre as calculated by Aerosandbox can be verified by independently implementing the procedure. For a swept, tapered trapezoidal wing, the mean aerodynamic chord (MAC) of each wing section is first computed, and the aerodynamic centre of each section is assumed to be at 25\% of the MAC. Subsequently, the weighted average of all the sections' aerodynamic centres is computed based on their surface area. The relative difference between the outputs of AeroSandbox and independent calculation is asserted to remain below 1\%.
+Furthermore, the position of aerodynamic centre as calculated by Aerosandbox can be verified by independently implementing the procedure. For a swept, tapered trapezoidal wing, the mean aerodynamic chord (MAC) of each wing section is first computed, and the aerodynamic centre of each section is assumed to be at 25\% of the MAC. Subsequently, the weighted average of all the sections' aerodynamic centres is computed based on their surface area. The relative difference between the outputs of AeroSandbox and independent calculation is asserted to remain below 1\%.
 
 % \begin{equation}
 %     \bar{c}_s = \frac{2}{3} c_i \cdot \frac{1 + \lambda_s + \lambda_s^2}{1 + \lambda_s}
@@ -327,58 +327,68 @@ The position of aerodynamic centre as calculated by Aerosandbox can be verified 
 %     \label{eq:aerodynamic_centre_weighted_average}
 % \end{equation}
 
-\section{Empennage preliminary design}
-The next step is a preliminary sizing of the empennage. Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference aircraft values. Instead, the Boeing truss-braced wing aircraft concept is used. \cite{XiongBoeing}. First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:tail_params}. Several tail parameters were not available directly. Therefore, drawings and projected views have been used to record tail parameters using known values, such as the wing span. Note that HT refers to the horizontal tailplane and VT refers to the vertical tailplane. 
+\section{Empennage Preliminary Design}
+\label{sec:empennage_preliminary_design}
+\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
+Preliminary sizing of the empennage follows from an analysis of reference aircraft: DAST ARW-2, FLEXOP, and Boeing's Transonic Truss-Braced Wing (TTBW) \cite{XiongBoeing}. The X56-A was not included in this part of the analysis due to being tailless. Relevant statistical data for the horizontal tail (HT) and vertical tail (VT) is provided in \autoref{tab:tail_params}. For parameters not included in official documentation, values were estimates from drawings and projected views.
+
+%The next step is a preliminary sizing of the empennage. Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference aircraft values. Instead, the Boeing truss-braced wing aircraft concept is used. \cite{XiongBoeing}. First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:tail_params}. Several tail parameters were not available directly. Therefore, drawings and projected views have been used to record tail parameters using known values, such as the wing span. Note that HT refers to the horizontal tailplane and VT refers to the vertical tailplane. 
 
 \begin{table}[H]
     \centering
-    \caption{Tail parameters of reference aircraft and HUGO \cite{XiongBoeing} \cite{Yu2022} \cite{Bauer2020} \cite{perry1982methodology} \cite{Eckstrom1994}} 
+    \caption{Tail parameters of reference aircraft and HUGO \cite{Yu2022} \cite{Bauer2020} \cite{perry1982methodology} \cite{Eckstrom1994} \cite{XiongBoeing} } 
     \label{tab:tail_params}
     
-    \begin{tabular}{|c|c||c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
-    \textbf{Parameter} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW} & \textbf{HUGO} \\
+    \textbf{Parameter} &\textbf{Tail} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW} & \textbf{HUGO} \\
     \hline\hline
-    Tail configuration [-] & - & Conventional & V-tail & T-Tail & T-Tail\\
+    Tail configuration [-] &$-$ & $-$ & Conventional & V-tail & T-Tail & T-Tail\\
     \hline
-    HT span [m] & $b_h$ & 1.71 & 1.27 (projected) & 11.75 &\\
+    Span [m] & HT & $b_h$ & 1.71 & 1.27 (projected) & 11.75 &\\
     \hline
-    HT arm [m] & $l_h$ & 2.66 & 2.0 & 21.09 &\\
+    Arm [m] & HT & $l_h$ & 2.66 & 2.0 & 21.09 &\\
     \hline
-    Non-dimensionalized HT arm [-] & $\frac{l_h}{\overline{c}}$ & 4.75 & 2.67 & 7.25& \\
+    Non-dimensionalized arm [-] & HT & $l_h/\bar{c}$ & 4.75 & 2.67 & 7.25& \\
     \hline
-    HT aspect ratio [-] & $AR_h$ & 3.5 & 4.2 & 4.52 &\\
+    Aspect ratio [-] & HT & $AR_h$ & 3.5 & 4.2 & 4.52 &\\
     \hline
-    HT taper ratio [-] & $\lambda_h$ & 0.4 & 0.52 & 0.35 &\\
+    Taper ratio [-] & HT & $\lambda_h$ & 0.4 & 0.52 & 0.35 &\\
     \hline
-    HT dihedral [\degree] & $\Gamma_h$ & N/A & 35 & N/A &\\
+    Dihedral [\degree] & HT & $\Gamma_h$ & N/A & 35 & N/A &\\
     \hline
-    HT leading edge sweep [\degree] & $\Lambda_{LE_{h}}$ & 45 & 23.55 & 21.3&\\
+    LE sweep [\degree] & HT & $\Lambda_{LE_{h}}$ & 45 & 23.55 & 21.3&\\
     \hline
-    HT quarter chord sweep [\degree] & $\Lambda_{qc_{h}}$ & 41.27 & 19.83 & 15.82 &\\
+    Quarter-chord sweep [\degree] & HT& $\Lambda_{qc_{h}}$ & 41.27 & 19.83 & 15.82 &\\
     \hline
-    HT area $[m^2]$ & $S_h$ & 0.836 & 0.39 & 30.54 & \\
+    Surface area $[m^2]$ & HT & $S_h$ & 0.836 & 0.39 & 30.54 & \\
     \hline
-    VT half-span [m] & $b_v$ & 0.83 & N/A & 9.64 &\\
+    Half-span [m] & VT & $b_v$ & 0.83 & N/A & 9.64 &\\
     \hline
-    VT leading edge sweep [\degree] & $\Lambda_{LE_{v}}$ & 52 & N/A & 16.6 & \\
+    LE sweep [\degree] & VT & $\Lambda_{LE_{v}}$ & 52 & N/A & 16.6 & \\
     \hline
     \end{tabular}
 \end{table}
 
-The following design approach considers the conventional airplane configuration (a T-tail), since considering canards would make the distinction between design option configurations less clear. The reason is that the canard is movable for all the considered configurations, so these configurations will also have to be able to fly without a canard. Since the aircraft has to be able to allow for stable, neutrally stable, and unstable flight configurations, the neutral position of the c.g. is chosen as the design point. However, the aircraft has to be controllable at the same time, with a certain margin. These two conflicting properties of stability and controllability are governed by the equations shown in \autoref{eq:Controllability} and \autoref{eq:Stability}, respectively \cite{torenbeek2013synthesis}. Clearly, they describe the positions of the centre of gravity as a function of the aerodynamic centre position and numerous aerodynamic and geometric parameters. The two curves constitute the so-called scissor plot, where the aircraft is controllable when ${\bar{x}_{cg}}>\bar{x}_{cg,\text{controllability}} $ and stable when ${\bar{x}_{cg}}<\bar{x}_{cg,\text{stability}}$. Hence, in order to constrain the design space, we enforce $\bar{x}_{cg}=\bar{x}_{cg,\text{stability}}$ and $\bar{x}_{cg}-\bar{x}_{cg,\text{controllability}}=\text{C.G.E.}$, where  C.G.E. is the minimum required excursion between the controllability curve and the design point. 
+The following design approach for HUGO considers the conventional (i. e. non-canard) configurations featuring a T-tail. This is motivated by the fact that all configurations shall be able to perform operations without a canard, even if the ports for it are included in the design.
+%since considering canards would make the distinction between design option configurations less clear. The reason is that the canard is movable for all the considered configurations, so these configurations will also have to be able to fly without a canard. 
+The performance of HUGO is limited by two main factor which govern the allowable centre of gravity range: stability and controllability. The constraining relations are expressed by \autoref{eq:Stability} and \autoref{eq:Controllability}, respectively \cite[p. 309]{torenbeek2013synthesis}.
 
+%Since the aircraft has to be able to allow for stable, neutrally stable, and unstable flight configurations, the neutral position of the c.g. is chosen as the design point. However, the aircraft has to be controllable at the same time, with a certain margin. These two conflicting properties of stability and controllability are governed by the equations shown in \autoref{eq:Controllability} and \autoref{eq:Stability}, respectively \cite{torenbeek2013synthesis}. Clearly, they describe the positions of the centre of gravity as a function of the aerodynamic centre position and numerous aerodynamic and geometric parameters. The two curves constitute the so-called scissor plot, where 
 \begin{equation}
-{\bar{x}_{cg,\text{controllability}} = \bar{x}_{ac} - \frac{C_{m_{ac}}}{C_{L_{A-h}}} + \frac{C_{L_h}}{C_{L_{A-h}}} \frac{S_h l_h}{S\bar{c}} \left(\frac{V_h}{V}\right)^2
-\label{eq:Controllability}
-\end{equation}
-
-\begin{equation}
-{\bar{x}_{cg,\text{stability}} = \bar{x}_{ac} + \frac{C_{L_{\alpha_h}}}{C_{L_{\alpha_{A-h}}}} \left(1 - \frac{d\varepsilon}{d\alpha}\right) \frac{S_h l_h}{S\bar{c}} \left(\frac{V_h}{V}\right)^2
+\bar{x}_{cg,\text{stability}} = \bar{x}_{ac} + \frac{C_{L_{\alpha_h}}}{C_{L_{\alpha_{A-h}}}} \left(1 - \frac{d\varepsilon}{d\alpha}\right) \frac{S_h l_h}{S\bar{c}} \left(\frac{V_h}{V}\right)^2
 \label{eq:Stability}
 \end{equation}
 
-The aerodynamic parameters from the two equations are obtained by the aerodynamic analysis (\autoref{sec:aerodynamic_modelling}), and it is assumed that $(\frac{V_h}{V})^2=1$ and $\frac{d\varepsilon}{d\alpha}=0.0$ due to the use of the T-tail. That leaves the tail volume $S_h l_h$ as the only unknown. The horizontal tail position is then estimated based on the ratio between the horizontal tail arm and surface area of the FLEXOP airplane (\autoref{tab:tail_params}), enabling the calculation of the required tail surface area. This calculation is part of a larger iterative design loop.
+\begin{equation}
+\bar{x}_{cg,\text{controllability}} = \bar{x}_{ac} - \frac{C_{m_{ac}}}{C_{L_{A-h}}} + \frac{C_{L_h}}{C_{L_{A-h}}} \frac{S_h l_h}{S\bar{c}} \left(\frac{V_h}{V}\right)^2
+\label{eq:Controllability}
+\end{equation}
+
+The aircraft is controllable when ${\bar{x}_{cg}}>\bar{x}_{cg,\text{controllability}} $ and stable when ${\bar{x}_{cg}}<\bar{x}_{cg,\text{stability}}$ \cite{torenbeek2013synthesis}. To determine the allowable $x_{cg}$ range, we enforce $\bar{x}_{cg}=\bar{x}_{cg,\text{stability}}$ and $\bar{x}_{cg}-\bar{x}_{cg,\text{controllability}}=\text{CGE}$, where $CGE$ is the minimum required excursion between the controllability curve and the design point. 
+
+
+The aerodynamic parameters required for \autoref{eq:Stability} and \autoref{eq:Controllability} are obtained by the aerodynamic analysis, as described in \autoref{sec:aerodynamic_modelling}. It is assumed that $({V_h}/{V})^2=1$ and ${d\varepsilon}/{d\alpha}=0.0$ due to the use of a T-tail \cite{torenbeek2013synthesis}. That leaves the tail volume $S_h l_h$ as the only unknown. The horizontal tail position $l_h$ can be estimated based on the ratio between the horizontal tail arm and surface area of the FLEXOP, effectively reducing the tail volume to a function of only surface area. This calculation is part of a larger iterative design loop.
 
 
 \section{Fuel Mass Fraction Estimation}
@@ -490,7 +500,7 @@ By using trigonometric relations between the landing gear and critical points su
 For the optimiser to converge to reasonable values, further constraints were imposed to limit the design space. The chosen airfoil has a stall angle of attack of 15\degree. The purpose of the tip-back angle is to prevent the aircraft from tipping back when it contacts the ground during landing at the maximum landing angle of attack, or during take off. Because the stall angle of attack is 15\degree for all relevant regimes, the optimizer restricts the tip back angle to be equal to 15\degree. This allows for a variable beta angle (the angle between the landing gear to the C.G. and from the landing gear vertically to the centre line), placing the landing gear further back as beta increases. By allowing the landing gear to be housed in the tail cone, the lateral separation of the main landing gear remains close the diameter of the fuselage. This prevents unfeasible landing gear configurations, which would require complex mechanisms, more housing space, and add unnecessary weight. Based on the input parameters of fuselage length and diameter, up-sweep of the tail cone, and location of the C.G., the calculated values using the optimiser will help determine the kind of housing required for the landing gear of each configuration.
 
 The nose gear will be positioned in the middle of the fuselage at y = 0.
-
+\todo[inline]{Complete this tables}
 \begin{table}[H]
     \centering
     \small
@@ -607,7 +617,8 @@ In order to perform the trade-off analysis, a preliminary structural analysis of
 
 \subsection{Fuselage Initial Analysis}
 \label{subsec:fuselage_initial_analysis}
-First, the influence of versatility and the presence of canard port on the fuselage is investigated. The goal is to find the required skin thickness along the fuselage length, compare it between all considered HUGO configurations and report the influence of the features in each configuration, such as canard addition and movable wing port. It is assumed for this analysis that the Young's modulus $E$ is constant in all directions, i.e. the material used is isotropic. Quasi-isotropic properties of a carbon fibre reinforced polymer (CFRP) material from the Ansys GrantaEdupack database \cite{ansysgranta2022r1} is used as a reference material.\\
+The primary purpose of this preliminary analysis is to investigate the extent to which a configuration's versatility, via the inclusion of a canard port and the ability to shift the main wing forward and aft, impacts the empty mass of the aircraft. To achieve this, it was assumed that the most significant contribution to a change in mass would be a result of the additional fuselage reinforcements required to maintain structural integrity. The inclusion of a canard port would impart additional structural reinforcements, but the mass of a canard wing itself would be considered part of the payload. Given that the main wing is quick swappable across all configurations, it is assumed that the variable position port would be identical to the static port, but stretched along a larger part of the fuselage. eThe goal is to find the required skin thickness along the fuselage length, compare it between all considered HUGO configurations and report the influence of the features in each configuration, such as canard addition and movable wing port. It is assumed for this analysis that the Young's modulus $E$ is constant in all directions, i.e. the material used is isotropic. Quasi-isotropic properties of a carbon fibre reinforced polymer (CFRP) material from the Ansys GrantaEdupack database \cite{ansysgranta2022r1} is used as a reference material.
+
 The loads from the wing, canard, empennage and weight are placed as point loads in the longitudinal direction $x$. The simplified loading diagram is shown in \autoref{fig:fuselage_loading_model}. $L_c$, $L_w$ and $L_t$ represent the lift components of the canard, wing and empennage, respectively. $W$ is the weight, which is simplified as a point load acting through the center of gravity located at $x_{cg}$.
 
  \begin{figure}[H]
@@ -705,7 +716,7 @@ $U < 1$. If the minimum thickness already satisfies all criteria, it is kept for
 
 To test the effects of wing positioning and canard port presence to the structural weight of the fuselage, several 
 
-This simplification is suitable for this initial shear and bending loads estimation, however, more advanced distributed force needs to be used later for specific fuselage section design. The pitching moments of the canard, wing and tail are neglected in this initial analysis as their magnitude is insignificant due to the size of the canard and tail, and due to the near-zero pitching moment coefficient of the NASA SC(2)-0012 airfoil within the range of cruise angles of attack \cite{}. \\
+This simplification is suitable for this initial shear and bending loads estimation, however, more advanced distributed force needs to be used later for specific fuselage section design. The pitching moments of the canard, wing and tail are neglected in this initial analysis as their magnitude is insignificant due to the size of the canard and tail, and due to the near-zero pitching moment coefficient of the NASA SC(2)-0012 airfoil within the range of cruise angles of attack \cite{}. 
 
 The structural penalty associated with ports is investigated by evaluating the required shell thickness in the section where the wing and canard interfaces are located. The purpose of this analysis is to quantify how much additional structural weight is introduced by allowing variable wing placement and by including the canard port. The wing mounting position is varied
 around the nominal location by shifting it by $\pm 0.5c$, where $c$ is the wing
@@ -1072,7 +1083,7 @@ HUG-MAT-07 & 2000 & 57400  & 6.5-8.7
 \end{table}
 \begin{table}[H]
 \centering
-\caption{Derived Specific Material Indices and Economic Factors for Aerospace Structural Design\footref{url:midterm_material_selection}}
+\caption{Derived Specific Material Indices and Economic Factors for Aerospace Structural Design \footref{url:midterm_material_selection}}
 \label{tab:derived-material-properties}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l|c|c|c|c|c|c|}
@@ -1146,7 +1157,7 @@ This was performed for each material using the following model:
 \end{figure}
 
 \end{comment}
-For the LCA-analysis the software openLCA was used with the added databases: Swiss Federal Administration LCI Database (BAFU:2025) and the openLCA LCIA Methods package (\footnote{\href{https://nexus.openlca.org/downloads}{openLCA Nexus} (accessed 18.05.2026)}.). For the streamlined assessment the focus is on the construction of fuselage, empennage and wings. The preliminary mass together with an weight-fraction can be used to estimate the weight of wings, fuselage, empennage and landing gears (the turbine is not taken into consideration since this is not part of the material selection). Different materials will lead to different weights (as the specific structural characteristics are different for each material). The complete graphs and data files for each material can be found at the github (insert reference here). Below is the table of the GWP values for the different materials.  
+For the LCA-analysis the software openLCA was used with the added databases: Swiss Federal Administration LCI Database (BAFU:2025) and the openLCA LCIA Methods package (\footnote{\href{https://nexus.openlca.org/downloads}{openLCA Nexus} (accessed 6.05.2026)}.). For the streamlined assessment the focus is on the construction of fuselage, empennage and wings. The preliminary mass together with an weight-fraction can be used to estimate the weight of wings, fuselage, empennage and landing gears (the turbine is not taken into consideration since this is not part of the material selection). Different materials will lead to different weights (as the specific structural characteristics are different for each material). The complete graphs and data files for each material can be found at the github (insert reference here). Below is the table of the GWP values for the different materials.  
 \begin{table}[H]
 \centering
 \caption{The streamlined LCA analysis for the construction of the aircraft using different materials (insert reference here)}

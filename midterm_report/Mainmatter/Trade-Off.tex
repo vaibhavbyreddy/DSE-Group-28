@@ -35,19 +35,19 @@ Meaningful trade-off criteria should be developed such that all available techni
 %It is not helpful to include criteria where all options perform similarly; instead, it is more valuable to use criteria where some options perform poorly, as this helps reveal and compare weaknesses across designs. In this way, each design’s limitations can be properly assessed. In addition, some of the requirements identified in the baseline review can also serve as a basis for defining the trade-off criteria.
 
 Taking all of the above into consideration, the following criteria were selected for the trade-off of HUGO designs: Versatility, Reliability, Cost, Performance, and Sustainability. \autoref{tab:trade-off_criteria} lists the rationale behind selecting each criterion for the configuration trade-off, while \autoref{sec:Mat_sel} lists those used for the material trade-off.
-
+\newpage
 \begin{longtable}{|p{2.5cm}|p{13.5cm}|}
 \caption{Trade-Off Criteria for HUGO Configurations}
 \label{tab:trade-off_criteria} \\
 
 \hline
 \textbf{Criterion} & \textbf{Rationale} \\ 
-\hline\hline
+\hline
 \endfirsthead
 
 \hline
 \textbf{Criterion} & \textbf{Rationale} \\ 
-\hline\hline
+\hline
 \endhead
 
 \hline
@@ -57,24 +57,20 @@ Taking all of the above into consideration, the following criteria were selected
 \hline
 \endlastfoot
 
-Versatility & HUG-CFG-301 is a low wing concept, which prevents the testing of tuss based wing concepts, which was considered significant in conversations with NLR. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
+Versatility & HUG-CFG-301 is a low wing concept, which prevents the testing of truss brased wing concepts, which was considered significant in conversations with NLR. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
 
-Reliability & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 significantly increase the design complexity and associated development and operational risks. The same reasoning can be applied for retractable side podded landing gear mechanisms for HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \cite{BaselineReport}).\\ \hline
+Reliability & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 significantly increase the design complexity and associated development and operational risks. The same reasoning can be applied for retractable side podded landing gear mechanisms for HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \footref{url:baseline_report}).\\ \hline
 
-Cost & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-05 significantly increase the design complexity and associated development, maintenance and repair costs compared to no/static port configurations. The same reasoning can be applied to retractable landing gear mechanisms for HUG-CFG-301, HUG-CFG-303. Moreover, the design of HUGO is subject to specific cost requirements (see: HUG-FIN-001 \cite{BaselineReport}). \\ \hline
+Cost & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-05 significantly increase the design complexity and associated development, maintenance and repair costs compared to no/static port configurations. The same reasoning can be applied to retractable landing gear mechanisms for HUG-CFG-302, HUG-CFG-304 due to the additonal podded complexity. Moreover, the design of HUGO is subject to specific cost requirements (see: HUG-FIN-001 \footref{url:baseline_report}). \\ \hline
 
-Performance & Complex design options featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 are expected to result in higher design weights, which affect performance and fuel consumption. Moreover, the design of HUGO is subject to specific performance requirements (see: HUG-OPS-005, HUG-OPS-006 \cite{BaselineReport}). The type of landing gear was also part of the grading process, as it was analysed in \autoref{sec:Landing_gear_config}, HUG-CFG-302 and HUG-CFG-304 scoring lower due to the podded drawbacks.
+Performance & Complex design options featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 are expected to result in higher design weights, which affect performance and fuel consumption. Moreover, the design of HUGO is subject to specific performance requirements (see: HUG-OPS-005, HUG-OPS-006 \footref{url:baseline_report}). The type of landing gear was also part of the grading process, as it was analysed in \autoref{sec:Landing_gear_config}, HUG-CFG-302 and HUG-CFG-304 scoring lower due to the podded added drag.
 \\ \hline
 
-Sustainability & Sustainability is part of the project, as specified by HUG-OPS-008 \cite{BaselineReport}. Variable ports and retractable undercarriage require more material, more complex manufacturing processes, more labour hours in assembly and quality control, and higher maintenance material consumption over the aircraft's life.
-\\ \hline
+Sustainability & Sustainability is part of the project, as specified by HUG-OPS-008 \footref{url:baseline_report}. Variable ports and podded retractable undercarriage require more material, more complex manufacturing processes, more labour hours in assembly and quality control, and higher maintenance material consumption over the aircraft's life.
+\\
 
 \end{longtable}
 
-
-
-
-\
 
 \begin{comment}
 \begin{enumerate}
@@ -684,6 +680,20 @@ HUG-CFG-305
 \end{adjustbox}
 \label{tab:trade-off_matrix}
 \end{table}
+
+\textbf{Versatility}:
+\begin{enumerate}
+    \item HUG-CFG-301: features both a static canard port and variable wing port - scores 4
+    \item HUG-CFG-302: No canard port - scores 2 - eliminated because of versatility no-go value
+    \item HUG-CFG-303: Wing static port instead of variable - scores 3
+    \item HUG-CFG-304: same as 1, scores 4
+    \item HUG-CFG-305: same as 1 and 4, scores a 4
+\end{enumerate}
+
+\textbf{Reliability}:
+\begin{enumerate}
+    \item 
+\end{enumerate}
 
 \begin{table}[H]
 \centering

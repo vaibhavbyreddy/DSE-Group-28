@@ -97,7 +97,7 @@
     urlcolor=blue,
     breaklinks=true
 }
-\DeclareFieldFormat{url}{\href{#1}{Source}}
+\DeclareFieldFormat{url}{\href{#1}{\textsc{Source}}}
 \usepackage{varioref}
 \usepackage{cleveref}
 \usepackage{amsmath}                                % Math packages
@@ -214,7 +214,7 @@ Vaibhav Byreddy (5237254)\\
 \include{Main_Sections/title}
 
 \tableofcontents
-\include{Main_Sections/Nomenclature}
+%\include{Main_Sections/Nomenclature}
 \printnomenclature[3cm]
 
 
@@ -250,6 +250,7 @@ Vaibhav Byreddy (5237254)\\
 %\bibliography{references}
 \printbibliography
 \appendix
+\input{Mainmatter/Appendix_Planning_Diagrams}
 \input{Mainmatter/Appendix_Trade-Off_Rationale}
 \input{Mainmatter/Task_Distribution}
 %% ----------------------------------------------------------------------

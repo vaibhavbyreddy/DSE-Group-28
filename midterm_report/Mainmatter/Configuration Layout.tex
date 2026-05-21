@@ -56,7 +56,7 @@ A list of components included in the electronic system of HUGO can be seen in \a
     \end{tabular}
     \label{tab:electronic_system}
 \end{table}
-For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the maximum air speed calculator, which can only reach speeds of 450 kts, while HUGO can fly at a maximum speed of 500 kts, as such an additional speed sensor is needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an angle of attack sensor. Storage of the data for further processing is done on a SATA SSD, with a capacity of 1TB, as it is robust and will offer enough storage space for a 30-minute flight.
+For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05.2026)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the maximum air speed calculator, which can only reach speeds of 450 kts, while HUGO can fly at a maximum speed of 500 kts, as such an additional speed sensor is needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an angle of attack sensor. Storage of the data for further processing is done on a SATA SSD, with a capacity of 1TB, as it is robust and will offer enough storage space for a 30-minute flight.
 
 The electronic system is complemented by a multitude of sensors present inside and on the wings and tail to study the aeroelastic behaviour of structures. A list of sensors that have been considered for the aeroelastic analysis can be found in \autoref{wing_structural_sensors}.
 
@@ -136,10 +136,6 @@ Piezoelectric patches
 Acoustic emission sensors 
 & Damage-related acoustic events 
 & Detect crack initiation, delamination, or local structural damage events for structural health monitoring. \\
-\hline
-Microphones / pressure fluctuation sensors 
-& Unsteady pressure or acoustic fluctuations 
-& Identify buffet, flow separation, and unsteady aerodynamic loading near the wing. \\
 \hline
 Control-surface position sensors 
 & Actual control-surface deflection 
