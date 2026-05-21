@@ -75,7 +75,7 @@ Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api
 The initial geometric parameters from \autoref{tab:DAST_HUGO} can be used to derive preliminary aerodynamic characteristics of the UAV.
 
 \subsubsection*{Design Lift Coefficient}
-To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} \cite{torenbeek2013synthesis} can be applied for a cruise air density $\rho_{cr}$ of $0.5112 \ kg \cdot m^{-3}$ at FL270, and a cruise speed $V_{cr}$ of $230.2945 \ m \cdot s^{-1}$ corresponding to the test condition. Using the initial value for $W/S$ from \autoref{tab:DAST_HUGO}, an initial $C_{L_\text{des}}$ of 0.074 is obtained.
+To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} \cite{Torenbeek1982} can be applied for a cruise air density $\rho_{cr}$ of $0.5112 \ kg \cdot m^{-3}$ at FL270, and a cruise speed $V_{cr}$ of $230.2945 \ m \cdot s^{-1}$ corresponding to the test condition. Using the initial value for $W/S$ from \autoref{tab:DAST_HUGO}, an initial $C_{L_\text{des}}$ of 0.074 is obtained.
 %It includes the air density at the altitude of 27,000 feet $\rho_{cr}$ and the airspeed $V_{cr}$, for which it holds that $V_{cr} = M \cdot \sqrt{\gamma R T}$ at the ISA altitude of 27,000 ft.
 
 \begin{equation}
@@ -94,8 +94,13 @@ Based on the initial estimates from \autoref{tab:DAST_HUGO}, as well the cruise 
 \subsubsection*{Maximum Lift Coefficient}
 The maximum lift coefficient, $C_{L_\text{max}}$ has to be determined to obtain the stall speed of HUGO, $V_\text{stall}$. As stated previously, the use of a supercritical wing profile is highly recommended for the considered test conditions. A preliminary estimate of  $C_{L_\text{max}}$ is made by considering a NASA SC(2)-0010 airfoil and the DATCOM method for estimating the maximum lift coefficient for finite wings. 
 
-An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}{AirfoilTools} (accessed on 07.05.2026)}, and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil} (accessed on 11.5.2026)}. The $N$ value is deemed suitable for this use case due to likely disturbed airflow from the wing surface roughness \cite{Koul}. Then, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$ \cite[p. ]{Torenbeek1982}. Conversion from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ is done with \autoref{eq:Lambda_conversion} \cite[p. ]{} derived from the expression in \cite{Torenbeek1982}. \todo{cite equation source!!!!}
-\textcolor{red}{Cite sources for equations!}
+An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}{AirfoilTools} (accessed on 07.05.2026)}, and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil} (accessed on 11.5.2026)}. The $N$ value is deemed suitable for this use case due to likely disturbed airflow from the wing surface roughness \cite{Koul}. Then, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$ \cite[p. ]{Torenbeek1982}. Conversion from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ is done with \autoref{eq:Lambda_conversion} \cite[p. ]{} derived from \autoref{eq:torenbeek_sweep} in \cite{Torenbeek1982}.
+
+\begin{equation}
+    \tan\Lambda_2 = \tan\Lambda_1 + \frac{4}{AR}(\frac{1-\lambda}{1+\lambda})(e_1-e_2)
+    \label{eq:torenbeek_sweep}
+\end{equation}
+By substituting $e_1 = 0$ for the leading edge and $e_2 = 0.25$ for quarter-chord, \autoref{eq:Lambda_conversion} is obtained.
 
 \begin{equation}
     \Lambda_{0.25}
@@ -149,7 +154,7 @@ Moreover, it does not create significant negative pitching moments that necessit
 \todo[inline]{If desperate for pages, I think that some equations (FF, $Re_\text{cut-off}$ etc. can be commented out, as per Gui's suggestion. But I'd rather leave the decision of what to keep to section authors. - Hanna}
 In order to perform preliminary sizing, aerodynamic analyses of the aircraft were performed by means of the lifting line theory (LLT) with modifications for nonzero sweep provided by the AeroSandbox Python package \footnote{\href{https://aerosandbox.readthedocs.io/en/master/autoapi/aerosandbox/aerodynamics/aero_3D/lifting_line/index.html}{AeroSandbox} (accessed 18.05.2026)}. The goals of these analyses were to obtain: the lift and induced drag of the aircraft required for the later calculation of the $L/D$ ratio, the lift curve slopes of all the lifting surfaces (both individually and combined with other lifting surfaces), the lift distribution along the span, the aerodynamic centre position, and the determination of the angle of attack required for trimming. This section first outlines the generation of the model, followed by the description of the performed analyses and their verification.
 
-To conduct sizing of the aircraft, including steps such as a matching diagram, it is vital to know the breakdown of drag between induced and parasitic \cite{Vos}. Thus,the aerodynamic analysis shall focus on inviscid modelling to obtain the induced drag alone, while the parasitic drag will be obtained via drag buildup. As Aerosandbox LLT includes viscosity, an inviscid modification of it has been created for the purpose of this project. The LLT of Aerosandbox assembles total aerodynamic force and moments from viscous and inviscid components, so instead of the sum, only the inviscid components are returned. The inviscid analysis has been verified by comparing its output with that of the standard viscous analysis, i. e. by imposing the maximum relative difference of less than 1\% in the lift coefficient.
+To start sizing of the aircraft, including steps such as a matching diagram, it is vital to know the breakdown of drag between induced and parasitic \cite{Vos}. Thus,the aerodynamic analysis shall focus on inviscid modelling to obtain the induced drag alone, while the parasitic drag will be obtained via drag build-up. As Aerosandbox LLT includes viscosity, an inviscid modification of it has been created for the purpose of this project. The LLT of Aerosandbox assembles total aerodynamic force and moments from viscous and inviscid components, so instead of the sum, only the inviscid components are returned. The inviscid analysis has been verified by comparing its output with that of the standard viscous analysis, i. e. by imposing the maximum relative difference of less than 1\% in the lift coefficient.
 
 \subsection{Parametric model}
 \label{subsec:parametric_model}
@@ -336,36 +341,36 @@ Preliminary sizing of the empennage follows from an analysis of reference aircra
 
 \begin{table}[H]
     \centering
-    \caption{Tail parameters of reference aircraft and HUGO \cite{Yu2022} \cite{Bauer2020} \cite{perry1982methodology} \cite{Eckstrom1994} \cite{XiongBoeing} } 
+    \caption{Tail parameters of reference aircraft\cite{Yu2022} \cite{Bauer2020} \cite{perry1982methodology} \cite{Eckstrom1994} \cite{XiongBoeing} } 
     \label{tab:tail_params}
     
     \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
-    \textbf{Parameter} &\textbf{Tail} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW} & \textbf{HUGO} \\
+    \textbf{Parameter} &\textbf{Tail} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW}\\
     \hline\hline
-    Tail configuration [-] &$-$ & $-$ & Conventional & V-tail & T-Tail & T-Tail\\
+    Tail configuration [-] &$-$ & $-$ & Conventional & V-tail & T-Tail\\
     \hline
-    Span [m] & HT & $b_h$ & 1.71 & 1.27 (projected) & 11.75 &\\
+    Span [m] & HT & $b_h$ & 1.71 & 1.27 (projected) & 11.75\\
     \hline
-    Arm [m] & HT & $l_h$ & 2.66 & 2.0 & 21.09 &\\
+    Arm [m] & HT & $l_h$ & 2.66 & 2.0 & 21.09\\
     \hline
-    Non-dimensionalized arm [-] & HT & $l_h/\bar{c}$ & 4.75 & 2.67 & 7.25& \\
+    Non-dimensionalized arm [-] & HT & $l_h/\bar{c}$ & 4.75 & 2.67 & 7.25\\
     \hline
-    Aspect ratio [-] & HT & $AR_h$ & 3.5 & 4.2 & 4.52 &\\
+    Aspect ratio [-] & HT & $AR_h$ & 3.5 & 4.2 & 4.52\\
     \hline
-    Taper ratio [-] & HT & $\lambda_h$ & 0.4 & 0.52 & 0.35 &\\
+    Taper ratio [-] & HT & $\lambda_h$ & 0.4 & 0.52 & 0.35\\
     \hline
-    Dihedral [\degree] & HT & $\Gamma_h$ & N/A & 35 & N/A &\\
+    Dihedral [\degree] & HT & $\Gamma_h$ & N/A & 35 & N/A\\
     \hline
-    LE sweep [\degree] & HT & $\Lambda_{LE_{h}}$ & 45 & 23.55 & 21.3&\\
+    LE sweep [\degree] & HT & $\Lambda_{LE_{h}}$ & 45 & 23.55 & 21.3\\
     \hline
-    Quarter-chord sweep [\degree] & HT& $\Lambda_{qc_{h}}$ & 41.27 & 19.83 & 15.82 &\\
+    Quarter-chord sweep [\degree] & HT& $\Lambda_{qc_{h}}$ & 41.27 & 19.83 & 15.82 \\
     \hline
-    Surface area $[m^2]$ & HT & $S_h$ & 0.836 & 0.39 & 30.54 & \\
+    Surface area $[m^2]$ & HT & $S_h$ & 0.836 & 0.39 & 30.54\\
     \hline
-    Half-span [m] & VT & $b_v$ & 0.83 & N/A & 9.64 &\\
+    Half-span [m] & VT & $b_v$ & 0.83 & N/A & 9.64\\
     \hline
-    LE sweep [\degree] & VT & $\Lambda_{LE_{v}}$ & 52 & N/A & 16.6 & \\
+    LE sweep [\degree] & VT & $\Lambda_{LE_{v}}$ & 52 & N/A & 16.6\\
     \hline
     \end{tabular}
 \end{table}
@@ -393,7 +398,7 @@ The aerodynamic parameters required for \autoref{eq:Stability} and \autoref{eq:C
 
 \section{Fuel Mass Fraction Estimation}
 \label{sec:fuel_mass_fraction_estimation}
-To estimate the fuel required for the aircraft on its mission, one can express the speed and time requirements for different stages of the flight as range requirements. Then, a sizing for range procedure, such as one used by \cite{Vos2025AirplaneDesignAnalysis} can be employed. The procedure consists of estimating the equivalent range from the nominal range (geometric range), lost range (from energy lost on climb, turns and acceleration), and diversion/loiter range (in case of HUGO, the \todo{ref 4 landing attempts req}). To account the fact that the mission plan consists of two stages of climb, acceleration and cruise (for Mach 0.4 and 0.75), the reference equation is applied to each segment separately:
+To estimate the fuel required for the aircraft on its mission, one can express the speed and time requirements for different stages of the flight as range requirements. Then, a sizing for range procedure, such as one used by \cite{Vos2025AirplaneDesignAnalysis} can be employed. The procedure consists of estimating the equivalent range from the nominal range (geometric range), lost range (from energy lost on climb, turns and acceleration), and diversion/loiter range (in case of HUGO, has to perform up to 4 landing attempts\footnote{In conversations with M.T.H. (Malcom) Brown} ). To account the fact that the mission plan consists of two stages of climb, acceleration and cruise (for Mach 0.4 and 0.75), the reference equation is applied to each segment separately:
 \begin{equation}
     R_{eq} =  R_{0.4}+R_{0.75}+4R_{go-around}
     %M_{.75}a_{.75}t_{.75}+M_{.4}a_{.4}t_{.4} + \frac{1}{0.7} \left[\left( \frac{L}{D} \right)_{0.75}\left(h_{.75}+\frac{V^2_{.75}}{2g_0}\right)+\left( \frac{L}{D} \right)_{0.4}\left(h_{.4}+\frac{V^2_{.4}}{2g_0}\right)\right]+4[V]
@@ -408,7 +413,7 @@ To estimate the fuel required for the aircraft on its mission, one can express t
 \end{equation}
 
 With $M$, $a$, $t$, $h$, $L/D$ being the Mach number, speed of sound, total time, altitude and glide ratio for the given flight phase. $t_{0.4}$, $t_{0.75}$ and $h_{0.75}$ are constrained by the requirements to 25 min, 5 min, and 27,000 ft respectively.
-As the maximum allowed altitude of 27,000 ft is below the optimal for jet aircraft flying at Mach 0.4 \todo{add source and cite}, it can be assumed that the flight segment at Mach 0.4 will be conducted at the maximum altitude as well.The multiplier of 4 for the go-around range accounts for the four required landing attempts. The go-around altitude is constrained to 1,500 feet \todo{add source and cite}, while the go around airspeed is not constrained. This allows to use a value for which the maximum specific range is achieved, taking into account flying in a turn:
+As the maximum allowed altitude of 27,000 ft is below the optimal for jet aircraft flying at Mach 0.4 \footnote{\href{https://www.britannica.com/topic/How-High-Does-An-Airplane-Fly}{Britanica}(accessed on 21.05.2026)} \todo{add source and cite}, it can be assumed that the flight segment at Mach 0.4 will be conducted at the maximum altitude as well.The multiplier of 4 for the go-around range accounts for the four required landing attempts. The go-around altitude is constrained to 1,500 feet \todo{add source and cite}, while the go around airspeed is not constrained. This allows to use a value for which the maximum specific range is achieved, taking into account flying in a turn:
 \begin{equation}
     \begin{cases}V_{go-around}=\sqrt{\frac WS \frac2\rho\frac{n_{turn}}{C_{L_{opt}}}}\\
     W\sqrt{n_{turn}^2-1}=mV_{go-around}\omega_{turn}
@@ -439,9 +444,10 @@ First, next to the cruise speed constraint, the constraint of providing thrust i
 
 \begin{table}[h]
 \caption{The constraints used to construct the matching diagram}
+\label{tab: Matching diagram constraints}
 \begin{tabular}
 {|c|c||c|c|c|c|}
-\label{tab: Matching diagram constraints}
+    
     \hline
     \textbf{N.O.} & \textbf{Costraint} & \textbf{constrained value} & \textbf{landing gear} & \textbf{altitude} & \textbf{fuel burned} \\
     \hline\hline
@@ -620,8 +626,8 @@ The width of the landing gear is given by the width of the tyre, and all designs
 
 In order to perform the trade-off analysis, a preliminary structural analysis of HUGO is performed in order to estimate the weight penalty of versatility for each configuration. The components under significant load mainly include the fuselage, main wing, canard, and empennage. 
 
-\subsection{Fuselage Initial Analysis}
-\label{subsec:fuselage_initial_analysis}
+%\subsection{Fuselage Initial Analysis}
+%\label{subsec:fuselage_initial_analysis}
 The primary purpose of this preliminary analysis is to investigate the extent to which a configuration's versatility, via the inclusion of a canard port and the ability to shift the main wing forward and aft, impacts the empty mass of the aircraft. To achieve this, it was assumed that the most significant contribution to a change in mass would be the additional fuselage reinforcements required to maintain structural integrity for each configuration. The mass of the canard wing itself is considered part of the payload mass and thus that penalty is neglected. Furthermore, it is acknowledged that the mounting solution for the main wing will incur a mass penalty. However, it is implicit in the trade-off analysis that for a variable port, the mass penalty of the mounting solution for the static port would be multiplied by the desired variance in wing position, which would guarantee a larger mass penalty. It was therefore only deemed necessary to estimate the additional structural mass required due to the variation in the position of lift forces.  
 
 It is assumed for this analysis that the Young's modulus $E$ is constant in all directions, i.e. the material used is isotropic. Quasi-isotropic properties of a carbon fibre reinforced polymer (CFRP) material from the Ansys GrantaEdupack database \cite{ansysgranta2022r1} is used as a reference material. Furthermore, a minimum fuselage skin thickness of $0.3mm$ was determined for the optimiser, based on manufacturability \cite{galos2020thin}.
@@ -721,8 +727,11 @@ The code expresses each failure criterion as a ratio $U$ describing the actual s
 \end{equation}
 
 The required skin thickness is then the smallest thickness for which all
-$U < 1$. If the minimum thickness already satisfies all criteria, it is kept for the section. Otherwise, a root-finding algorithm determines the thickness at which the governing failure mode first reaches the limit.
+$U < 1$. If the minimum thickness already satisfies all criteria, it is kept for the section. Otherwise, a root-finding algorithm determines the thickness at which the governing failure mode first reaches the limit. Lastly, the skin thickness is then employed to obtain the volume of the hollow cylinder and multiplied by the density of the selected CFRP material to obtain a mass estimation for the entire fuselage shell.
 
+The configuration analysis begins by obtaining shear, moment and skin thickness for configuration HUG_CFG_302 by setting the canard lift fraction $L_c / L_w = 0$. This leads to no lifting loads applied at the canard location and thus no additional reinforcements are required at that location. Without a canard, the empennage is wholly responsible for the moment equilibrium around the centre of gravity, and the main wing will have to provide more lift to   
+
+The values obtained for shear, moment, and skin thickness are then plotted From these charts, it is possible to see the structural reinforcement required around
 
 To test the effects of wing positioning and canard port presence to the structural weight of the fuselage, several 
 \todo{fix this}
@@ -1568,7 +1577,7 @@ HUG-MAT-07
 \end{comment}
 
 \section{Sensitivity study}
-During the preliminary sizing, several assumptions have been made, whose impact needs to be assessed.
+During the preliminary sizing, several assumptions have been made, whose impact needs to be assessed. The uncertainty in fuselage and landing gear dimensions (taken from FLEXOP geometry), the dimensions of landing gear pod with respect to the gear itself, as well as the target CG excursion between minimum controllability and neutral stability points are identified as driving assumptions. This is a basis for a sensitivity study whose details are shown in \autoref{tab:sensitivity study}. The results of the sensitivity study have been presented as MTOM plots for every configuration across different parameter values \todo{footnote}.
 
 \begin{table}[H]
 \centering
@@ -1587,12 +1596,17 @@ During the preliminary sizing, several assumptions have been made, whose impact 
 \hline\hline
 C.G. Excursion & [\%MAC]& 0.5 &  0.25 & 1.0 & 4 \\   \hline
 Fuselage Diameter &[m] & 0.315 & 0.25 & 0.45 & 4 \\   \hline
-Fuselage Length &[m] & 3.45 & 1.71 & 0.45 & 4 \\   \hline
+Fuselage Length &[m] & 3.45 & 1.71 & 4.104 & 4 \\   \hline
 Landing Gear Diameter &[m] & .085 & 0.05 & 0.12 & 4 \\   \hline
 Pod to Gear Diameter &[-] & 2.0 & 1.5 & 3.0 & 4 \\   \hline
-Pod to Gear Length &[-] & 1.0 & 1.25 & 1.5 & 3 \\   \hline
+Pod to Gear Length &[-] & 1.25 & 1.0 & 1.5 & 3 \\   \hline
 
 \hline
 \end{tabular}
 \end{table}
 
+First, the design iteration failed to converge for fuselage lengths shorter than the baseline as well as for the largest fuselage diameters due to infeasible landing gear. This is attributed to the combination of current landing gear requirements creating a heavily constrained design space for the landing gear. As the tail cone is replaceable, a tricycle configuration is strictly enforced over tail dragger. Due to the modular nature of the aircraft, the gear has to retract into fuselage or fuselage-connected pods. At the same time, a track width wider than the fuselage diameter is needed to satisfy the tip clearance and turnover angle constraints. The nose landing gear is also set to retract forward. While beneficial in case of actuator failure, this constraint might be reconsidered due to severely impacting the landing gear design freedom for shorter fuselages. As for the landing gear becoming infeasible for high fuselage diameter, it may be attributed to increasing the height of the CG without increasing without increasing the nose to main gear x distance, which worsens the turnover performance.
+
+Regarding parameter values in the feasible design space, increasing the fuselage dimensions, especially the diameter, causes a rapid increase in mass, with the exception of longer fuselage of \textbf{HUG-CFG-302}, which slightly decreases the total mass. It is thus recommended for the final design to avoid excessive enlargening of the fuselage.
+
+\todo{landing gear impact}

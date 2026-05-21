@@ -29,6 +29,58 @@ In this Chapter, the preliminary HUGO configurations developed in previous desig
 
 As the changes between considered configurations lay mostly in the modularity details and landing gear types, a separate trade-off will be performed concurrently to determine the most suitable materials for different subsystems of the final configuration. Candidate materials have been previously discussed in \autoref{sec:Material_Selection}.
 
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-301.jpeg}
+        \caption{HUG-CFG-301: low wing, static wing port, no canard port, buried retractable landing gear}
+        \label{fig:hug-cfg-301}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-302.jpeg}
+        \caption{HUG-CFG-302: low wing, variable wing port, no canard port, side-podded retractable landing gear}
+        \label{fig:hug-cfg-302}
+    \end{subfigure}
+
+    \caption{Initial HUGO configuration concepts}
+    \label{fig:hugo-configurations-301-302}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-303.jpeg}
+        \caption{HUG-CFG-303: high wing, static wing port, static canard port, buried retractable landing gear}
+        \label{fig:hug-cfg-303}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-305.jpeg}
+        \caption{HUG-CFG-305: high wing, variable wing port, static canard port, buried retractable landing gear}
+        \label{fig:hug-cfg-305}
+    \end{subfigure}
+
+    \caption{Initial HUGO configuration concepts}
+    \label{fig:hugo-configurations-303-304}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+
+    \includegraphics[width=\textwidth]{figures/Sketches/Outer_Stuff.jpeg}
+
+    \caption{HUG-CFG-304: high wing, variable wing port, static canard port, side-podded retractable landing gear; with an example external instrument layout}
+    \label{fig:hug-cfg-304-outer}
+\end{figure}
+
 \section{Trade-Off Criteria Selection}
 \label{sec:trade-off_criteria_selection}
 Meaningful trade-off criteria should be developed such that all available technical specifications and key performance metrics are considered. Moreover, identifying the points of poor performance of each candidate allows for an in-depth analysis of the limitations of each candidate configuration \cite{SMAD}. Lastly, the key requirements can be used to ensure that the developed criteria encompass all crucial design aspects.
@@ -695,20 +747,20 @@ HUG-CFG-305
 \textbf{Reliability}:
 \begin{enumerate}
     \item HUG-CFG-301:  Variable wing port introduces moderate fatigue exposure; low wing configuration provides good accessibility for timely intervention — moderate failure risk — score 3
-    \item HUG-CFG-302: Static port results in minimal fatigue exposure; side podded landing gear ensures good accessibility enabling routine preventive maintenance — no anticipated failure — score 4
-    \item HUG-CFG-303: Static ports result in minimal fatigue exposure; buried landing gear limits accessibility, though preventive maintenance remains feasible with planning — soft failure risk — score 3
+    \item HUG-CFG-302: Static port results in minimal fatigue exposure; side podded landing gear ensures good accessibility enabling routine preventive maintenance — no anticipated failure — score 5
+    \item HUG-CFG-303: Static ports result in minimal fatigue exposure; buried landing gear limits accessibility, though preventive maintenance remains feasible with planning — soft failure risk — score 4
     \item HUG-CFG-304: Variable wing port introduces moderate fatigue exposure; side podded landing gear ensures good accessibility for timely intervention — moderate failure risk — score 3
     \item HUG-CFG-305: Variable wing port introduces moderate fatigue exposure; buried landing gear limits accessibility, increasing the likelihood of undetected degradation — severe failure risk — score 2 — eliminated
 \end{enumerate}
 
 \textbf{Cost}
-\begin{enumerate}
-    \item HUG-CFG-301: scores 2
-    \item HUG-CFG-302: scores 4
-    \item HUG-CFG-303: scores 3
-    \item HUG-CFG-304: scores 2
-    \item HUG-CFG-305: scores 2
-\end{enumerate}
+almost the same as reliability, but differs for config 3 due to the complexity of side podded LG; low wing is less complex than high from a structural point of view
+
+\textbf{Performance}
+same for all
+
+\textbf{Sustainability}
+based on fuel mass, most important, redo appendix
 
 \begin{table}[H]
 \centering
