@@ -12,36 +12,36 @@ The second work package begins with low-fidelity aerodynamic analyses to determi
 
 In the next work package, the designs featuring configuration change can be quantified, followed by the preliminary life-cycle assessment. At the same time, the trade-off parameters are computed, with the LCA required for full quantification. Then, the trade-off is performed, in a feedback loop with the sensitivity study. This is to ensure that the trade-off procedure remains unambiguous and unbiased, and with minimum overlapping between the criteria. Based on the trade-off, the final configuration is chosen.
 \section{N2 diagram}
-The main purpose of an N2 diagram is to break down a complete system into functional units or subsystems and define the dependencies between them to identify their interactions and help organize the design process for a later stage \cite{Castro2026}. This is done by a square matrix with the functions or subsystems placed on its diagonal. Each function or system component is linked by mapping its output on the horizontal axis and input on the vertical axis, respective to the block of the corresponding function or subsystem. The N2 diagram for the HUGO system is shown in \autoref{fig: N2}.
+The main purpose of an N2 diagram is to break down a complete system into functional units or subsystems and define the dependencies between them to identify their interactions and help organize the design process for a later stage \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/Project_Guide_2025-2026_Spring_Saullo_Castro.pdf}{Project Guide Design Synthesis Exercise 2025-2026}(accessed on 20.04.2026)}. This is done by a square matrix with the functions or subsystems placed on its diagonal. Each function or system component is linked by mapping its output on the horizontal axis and input on the vertical axis, respective to the block of the corresponding function or subsystem. The N2 diagram for the HUGO system is shown in \autoref{fig: N2}, present in \autoref{sec:project_diagrams}.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.4\linewidth, angle=90]{figures/Mid-term workflow.jpg}
-    \caption{Midterm Workflow Diagram}
-    \label{fig:workflow_midterm}
-\end{figure}
-\clearpage
-\pdfpagewidth=420mm
-\pdfpageheight=297mm
-\paperwidth=420mm
-\paperheight=297mm
-\includepdf[pages=-, fitpaper=true, width=420mm, keepaspectratio, scale=1, pagecommand={
-        \vspace*{\fill} 
-        \thispagestyle{empty} 
-        \noindent\hspace*{0cm} % Adjust this to center the text on the A3 page 
-        \begin{minipage}{400mm} 
-            \captionof{figure}{HUGO platform N2 diagram} 
-            \label{fig: N2}
-        \end{minipage}
-        \vspace*{1.5cm} 
-        \label{fig:N2}
-        % Pushes the caption up from the bottom edge 
-    }]{figures/N2 Diagram.pdf}
-\clearpage
-\pdfpagewidth=210mm
-\pdfpageheight=297mm
-\paperwidth=210mm
-\paperheight=297mm
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1.4\linewidth, angle=90]{figures/Mid-term workflow.jpg}
+%     \caption{Midterm Workflow Diagram}
+%     \label{fig:workflow_midterm}
+% \end{figure}
+% \clearpage
+% \pdfpagewidth=420mm
+% \pdfpageheight=297mm
+% \paperwidth=420mm
+% \paperheight=297mm
+% \includepdf[pages=-, fitpaper=true, width=420mm, keepaspectratio, scale=1, pagecommand={
+%         \vspace*{\fill} 
+%         \thispagestyle{empty} 
+%         \noindent\hspace*{0cm} % Adjust this to center the text on the A3 page 
+%         \begin{minipage}{400mm} 
+%             \captionof{figure}{HUGO platform N2 diagram} 
+%             \label{fig: N2}
+%         \end{minipage}
+%         \vspace*{1.5cm} 
+%         \label{fig:N2}
+%         % Pushes the caption up from the bottom edge 
+%     }]{figures/N2 Diagram.pdf}
+% \clearpage
+% \pdfpagewidth=210mm
+% \pdfpageheight=297mm
+% \paperwidth=210mm
+% \paperheight=297mm
 
 
 
@@ -68,11 +68,7 @@ For each task within these work packages, a responsible person or team was assig
 
 Each task was subsequently decomposed into two or more subtasks. Where a specific method was already identified — such as the ADSEE method for constraint analysis, the Roskam statistical fractions for weight estimation, or XFOIL for airfoil analysis — this was noted explicitly at the subtask level. Where a method has not yet been determined, this was flagged as TBD, highlighting areas that require further investigation before work can begin. This approach ensures the WBS serves not only as a planning tool but also as a live record of methodological decisions and open action items.
 
-A legend is included in the WBS to provide clarity on the colour convention used throughout the diagram. The colour scheme follows the same phase distinction established in the WFD. Lighter coloured cards correspond to tasks belonging to earlier phases of the project, while progressively darker colours indicate tasks that are executed later in the workflow. 
-
-
-\includepdf[pages=-,fitpaper=true, width=420mm, keepaspectratio]{figures/Midterm_WBS.drawio.pdf}
-
+A legend is included in the WBS to provide clarity on the colour convention used throughout the diagram. The colour scheme follows the same phase distinction established in the WFD. Lighter coloured cards correspond to tasks belonging to earlier phases of the project, while progressively darker colours indicate tasks that are executed later in the workflow. The WBS diagram can be found along with the workflow diagram in \autoref{sec:project_diagrams}.
 
 
 
@@ -87,17 +83,9 @@ It is important to keep an outlook for the future of the project and the subsequ
     \item Manufacturing and certification phase: This phase is where the finalized, validated design is taken into production. In the beginning the aircraft is certified by EASA in the appropriate category. If it passes certification the production can be setup simultaneously as the structure of the operation structure. If it does not the design is reiterated. This involves the procurement of off the shelf components, working with manufacturers and suppliers for the airframe and other custom components. The final product will then be sent to be certified, along with the required documentation.
     \item Operations phase: The operations phase is the bulk of the life of an aircraft. In order to operate the aircraft, technicians and pilots must be hired and trained. Operation manuals must be written and procedures must be put into place. Then, the operation certification can be acquired from EASA. Then the normal operations can begin, including building the aircraft, modifying it to fit the experiment being run by the client, certifying this new configuration if necessary and performing the flight test.
     \item End-of-life phase: In the end of life phase, the airframe must be decommissioned responsibly. The airframe must be recycled wherever possible, or scrapped. The useful components, such as the avionics and actuators can be repurposed. All other parts must be recycled, or disposed if recycling is not possible.
-\end{enumerate}
 
-\begin{landscape}
-\begin{figure}[H]
-\hspace*{-1.75cm}  
-    \centering
-    \includegraphics[width=1.1\linewidth]{figures/Simpleprojectdesignanddevelopment.jpg}
-    \caption{Project Design \& Development Logic}
-    \label{fig:placeholder}
-\end{figure}
-\end{landscape}
+The Project Design \& Development Logic diagram \autoref{fig:proj_design} can be found in \autoref{sec:project_diagrams}.
+\end{enumerate}
 
 \section{Team Organogram \& HR Allocation}
 
@@ -116,18 +104,13 @@ To optimise technical development, the team identified and distributed critical 
     \item \textbf{Quality Assurance Manager:} Ensures all work products meet the standards required by external stakeholders and internal protocols.
 \end{itemize}
 
+The Team Organogram \autoref{fig:organogram} is located \autoref{sec:project_diagrams}.
 
 
-\begin{figure}[H]
-    \centering
-    \makebox[\textwidth][c]{\includegraphics[width=1.07\textwidth]{figures/Group 28 Organigram.pdf}}
-    \caption{Team 28 Organigram}
-    \label{fig:organogram}
-\end{figure}
 
 \subsection{Technical roles}
 
-According to the aircraft subsystems described in the Design Option Tree of the Baseline Report \todo{cite{baseline report github}}, engineering departments were developed and are presented in \autoref{fig:organogram}. Each team member has been assigned as main responsible for a single technical department. Each department has a backup member to become responsible in the case Risk[Team Member absence] were to occur, with their names marked in bold and italics. Other members expected to make significant contributions are named as "Contributors".
+According to the aircraft subsystems described in the Design Option Tree of the Baseline Report \footref{url:baseline_report}, engineering departments were developed and are presented in \autoref{fig:organogram}. Each team member has been assigned as main responsible for a single technical department. Each department has a backup member to become responsible in the case Risk[Team Member absence] were to occur, with their names marked in bold and italics. Other members expected to make significant contributions are named as "Contributors".
 
 
 \section{Gantt Chart}

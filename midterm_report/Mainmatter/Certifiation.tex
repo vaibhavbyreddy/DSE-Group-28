@@ -440,49 +440,63 @@ An overview of acceptable general tolerances allowed in flight tests is presente
 \label{sec:flight_envelope}
 The flight envelope of the HUGO aircraft in symmetric flight is based on EASA CS-23 airworthiness requirements for aerobatic aircraft \cite{EASA_CS23_Am3_2012}. According to the specifications, except where limited by the stall speeds, the positive limit manoeuvre load factor is 6.0. The negative limit manoeuvre load factor is allowed to vary linearly from -3.0 at the cruise speed up to -1.0 at the dive speed. Additionally, symmetrical vertical gust loads are superimposed on the manoeuvre flight envelope, with gust velocities specified in  \cite{EASA_CS23_Am3_2012}. 
 
-These constraints result in the flight envelope as illustrated in \autoref{fig:V-n_diagram}, when assuming parameters as shown in \autoref{tab:V-n_parameters}. Clearly, the gust loads are not constraining for this aircraft design, due to the high manoeuvre load factors. Nonetheless, the required structural performance is expected to significantly influence the material selection, as well as the final configuration selection. These shall be addressed in \autoref{ch:engineering_design} and \autoref{ch:trade-off}, respectively.
+Due to the specific flight profile of this aircraft, with essentially two cruise stages, two envelope diagrams are created. These constraints result in the flight envelope as illustrated in \autoref{fig:V-n_diagram}, when assuming parameters as shown in \autoref{tab:V-n_parameters}. Clearly, the gust loads are not constraining for this aircraft design, due to the high manoeuvre load factors. Nonetheless, the required structural performance is expected to significantly influence the material selection, as well as the final configuration selection. These shall be addressed in \autoref{ch:engineering_design} and \autoref{ch:trade-off}, respectively.
 
-\begin{table}[H]
-    \centering
-    \caption{Parameters used for generating the flight envelope diagram}
-    \label{tab:V-n_parameters}
-    \renewcommand{\arraystretch}{1.3}
+% \begin{table}[H]
+%     \centering
+%     \caption{Parameters used for generating the flight envelope diagrams}
+%     \label{tab:V-n_parameters}
+%     \renewcommand{\arraystretch}{1.3}
+%     \begin{subtable}[t]{0.48\textwidth}
+%         \centering
+%         \caption{Aircraft parameters}
+%         \label{tab:V-n_aircraft}
+%         \begin{tabular}{|c|c|c|}
+%             \hline
+%             \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+%             \hline\hline
+%             Mass & 50.0 & kg  \\\hline
+%             Aspect ratio & 25.0 & $-$  \\\hline
+%             Span & 2.0 & m  \\\hline
+%             Quarter-chord sweep &15.0 & $\degree$ \\\hline
+%             Taper ratio & 1.0 & $-$ \\\hline
+%             Positive $C_{L_\text{max}}$ & 1.087 & $-$  \\\hline
+%             Negative $C_{L_\text{max}}$ & $-$1.087 & $-$  \\\hline
+% Wing lift curve slope (\cite{Mineck1987}) & 7.15 & $\text{rad}^{-1}$ \\\hline
+% \end{tabular}
 
-    \begin{minipage}[t]{0.48\textwidth}
-        \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
-            \hline\hline
-            Mass & 50.0 & kg  \\\hline
-            Cruise altitude & 5500.0 & m  \\\hline
-            Cruise Mach number & 0.75 & $-$  \\\hline
-            Dive Mach number & 0.80 & $-$  \\\hline
-            Span & 2.0 & m  \\\hline
-        \end{tabular}
-    \end{minipage}
-    \hfill
-    \begin{minipage}[t]{0.48\textwidth}
-        \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
-            \hline\hline
-            Aspect ratio & 25.0 & $-$  \\\hline
-            Positive $C_{L_\text{max}}$ & 1.6 & $-$  \\\hline
-            Negative $C_{L_\text{max}}$ & $-$1.0 & $-$  \\\hline
-            Lift curve slope & 3.0 & $\text{rad}^{-1}$  \\\hline
-        \end{tabular}
-    \end{minipage}
-\end{table}
-
-\todo[inline]{Change the table contents so that we have FL270 + Mach 0.75 and/or 5.5km + Mach 0.4/0.5}
+%     \end{subtable}
+%     \hfill
+%     \begin{subtable}[t]{0.48\textwidth}
+%         \centering
+%         \caption{Flight conditions}
+%         \label{tab:V-n_flight}
+%         \begin{tabular}{|c|c|c|c|}
+%             \hline
+%             \textbf{Parameter} & \textbf{Value: condition 1} & \textbf{Value: condition 2} & \textbf{Unit}\\
+%             \hline\hline
+%               Cruise altitude & 5500.0 & 8230.0& m  \\\hline
+%             Cruise Mach number & 0.45 &0.75& $-$  \\\hline
+%             Dive Mach number & 0.50 & 0.80& $-$  \\\hline
+%         \end{tabular}
+%     \end{subtable}
+% \end{table}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures/V-n_diagram.png}
-    \caption{Flight envelope diagram for parameters listed in \autoref{tab:V-n_parameters},  compliant with CS-23 aerobatic category requirements \cite{EASA_CS23_Am3_2012}.}
-    \label{fig:V-n_diagram}
+    \begin{subfigure}{0.48\linewidth}
+        \includegraphics[width=\linewidth]{figures/flight_envelope_45.png}
+        \caption{}
+        \label{fig:flight_envelope_45}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\linewidth}
+        \includegraphics[width=\linewidth]{figures/figures/flight_envelope_75.png}
+        \caption{}
+        \label{fig:flight_envelope_75}
+    \end{subfigure}
+    \caption{Flight envelope diagrams for aircraft parameters from \autoref{tab:V-n_aircraft}, compliant with CS-23 aerobatic category requirements \cite{EASA_CS23_Am3_2012}.}
+    \label{fig:flight_envelope_both}
 \end{figure}
 
 

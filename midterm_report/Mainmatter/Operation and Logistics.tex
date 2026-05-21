@@ -43,7 +43,7 @@ The main objective HUGO is to simulate high subsonic flight of commercial aircra
     \item The flight data was successfully recorded, downloaded and provided to the customer.
 \end{enumerate}
 
-Market analysis and segmentation performed in the previous design phases highlighted four main sectors in which potential customers can be identified: universities and academic laboratories, research centres, aerospace companies, and defence\footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{HUGO Baseline Report} (accessed on 08.05.2026)}. Moreover, the Netherlands was identified as the beachhead market. Therefore, a suitable aerodrome was found in the north-east part of the country, Den Helder\footnote{\href{https://denhelderairport.nl/eng/}{Den Helder Airport} (accessed on 22.05.2026)} serving as the test site take-off point. 
+Market analysis and segmentation performed in the previous design phases highlighted four main sectors in which potential customers can be identified: universities and academic laboratories, research centres, aerospace companies, and defence\footref{url:baseline_report}. Moreover, the Netherlands was identified as the beachhead market. Therefore, a suitable aerodrome was found in the north-east part of the country, Den Helder\footnote{\href{https://denhelderairport.nl/eng/}{Den Helder Airport} (accessed on 22.05.2026)} serving as the test site take-off point. 
 
 Several characteristics make Den Helder Airport the most suitable choice as the base of operation.
 \begin{itemize}
@@ -236,9 +236,9 @@ Airworthiness Directive compliance &
 Mandatory maintenance or inspection actions required by the competent aviation authority to address unsafe conditions affecting the aircraft, components, or systems. \\
 \hline
 
-Component replacement or overhaul &
-Removal, replacement, repair, or overhaul of aircraft components such as batteries, engines, actuators, avionics units, landing gear parts, or other life-limited items. \\
-\hline
+%Component replacement or overhaul &
+%Removal, replacement, repair, or overhaul of aircraft components such as batteries, engines, actuators, avionics units, landing gear parts, or other life-limited items. \\
+%\hline
 
 Structural repair or modification &
 Repair or modification of the aircraft structure using approved maintenance or repair data, ensuring that the aircraft remains compliant with its certified configuration. \\
@@ -248,13 +248,13 @@ Servicing tasks &
 Routine servicing activities such as refuelling or battery charging, lubrication, oil replacement, hydraulic fluid checks, tyre pressure checks, filter replacement, and cleaning. \\
 \hline
 
-Functional tests and inspections &
-Verification that aircraft systems operate correctly after maintenance, including flight controls, propulsion systems, avionics, sensors, software configuration, and safety-critical systems. \\
+Functional tests and inspections, including test flights &
+Verification that aircraft systems operate correctly after maintenance, including flight controls, propulsion systems, avionics, sensors, software configuration, safety-critical systems and a flight to asses the aircraft behaviour. \\
 \hline
 
-Maintenance check flight &
-A flight performed after maintenance when required to verify aircraft behaviour, system performance, or airworthiness aspects that cannot be fully confirmed through ground checks alone. \\
-\hline
+% Maintenance check flight &
+% A flight performed after maintenance when required to verify aircraft behaviour, system performance, or airworthiness aspects that cannot be fully confirmed through ground checks alone. \\
+% \hline
 
 \end{longtable}
 
@@ -301,7 +301,7 @@ aircraft. This includes the remote pilot in charge of manipulating flight contro
 \label{subsec:hangar}
 On the ground, the aircraft will require an enclosed location to be stored in for maintenance and preparations. As mentioned in \autoref{subsec:maintenance}, the initial fleet is projected to comprise five HUGOs. This necessitates the use of a large hangar to house parts and machines needed for repairs. 
 
-Den Helder airfield has hangar capabilities to house Project HUGO, although the conditions for using the facilities are not stated on their site. Multiple outside operators use the location as a primary air base of operations \footnote{\href{https://denhelderairport.nl/eng/airport/#faciliteiten}{Den Helder Facilities} (accessed on 12.05.2026)}. The availability of the hangar is based on request \footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2005-2026_2026_05_14/eAIP/EH-AD\%202\%20EHKD\%201-en-GB.html}{EHKD - DEN HELDER/DE KOOY} (accessed on 12.05.2026)}. The hangar is 51 m long, 31 m wide, and 11 m high, and has a footprint of 151 $m^2$ \cite{DenHelderAirport2013DHANieuwsbrief}. One model will have a wingspan of at most 15 m, and the space in the hangar is sufficient to fit up to 3 planes in line.  
+Den Helder airfield has hangar capabilities to house Project HUGO, although the conditions for using the facilities are not stated on their site. Multiple outside operators use the location as a primary air base of operations \footnote{\label{facilities_den_helder}\href{https://denhelderairport.nl/eng/airport/#faciliteiten}{Den Helder Facilities} (accessed on 12.05.2026)}. The availability of the hangar is based on request \footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2005-2026_2026_05_14/eAIP/EH-AD\%202\%20EHKD\%201-en-GB.html}{EHKD - DEN HELDER/DE KOOY} (accessed on 12.05.2026)}. The hangar is 51 m long, 31 m wide, and 11 m high, and has a footprint of 151 $m^2$ \cite{DenHelderAirport2013DHANieuwsbrief}. One model will have a wingspan of at most 15 m, and the space in the hangar is sufficient to fit up to 3 planes in line.  
 
 Once the hangar is secured, it will function as the base of operation for the storage, maintenance and verification of HUGO before and after each flight. 
 
@@ -309,7 +309,7 @@ Once the hangar is secured, it will function as the base of operation for the st
 \label{subsec:ground_support}
 Additional logistical constraints stem from the use of an airfield, which introduces airfield operating costs, ATC coordination requirements, and the mapping of ground routes, taxi areas, and recovery zones. First, each drone flight must be approved via an application to De Kooy Air Traffic Control\footnote{\href{https://denhelderairport.nl/eng/flight-information/}{Flight information Den Helder Airport} (accessed on 12.05.2026)}. The departure and landing windows for HUGO will be influenced by the adjacent traffic, which necessitates accounting for multiple missed approaches or holding in the fuel budget. Additionally, Den Helder Airport charges a fee of \EUR{23.00} per landing for a fixed wing aircraft with MTOW below 1500kg\footnote{\href{https://denhelderairport.nl/wp-content/uploads/2026/01/2026-fixed-wing-miv-01-01-2026-2.pdf}{Landing fees for fixed wing aircraft at Den Helder} (accessed on 12.05.2026)}.
 
-Den Helder is known for hosting off-shore flights above the North Sea\footnote{\href{https://denhelderairport.nl/eng/columns/beveiliging-van-de-noordzee-begint-op-den-helder-airport/}{Security of the North Sea starts at Den Helder Airport!} (accessed on 12.05.2026)}, which matches the mission profile of HUGO described in \autoref{sec:operations}. Fuel availability is limited to JET A1\footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Information for pilots} (accessed 12.05.2026)}; using alternative fuels such as SAF would require individual approval from the airport authorities.
+Den Helder is known for hosting off-shore flights above the North Sea\footref{facilities_den_helder}, which matches the mission profile of HUGO described in \autoref{sec:operations}. Fuel availability is limited to JET A1\footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Information for pilots} (accessed 12.05.2026)}; using alternative fuels such as SAF would require individual approval from the airport authorities.
 
 Lastly, the environmental policy of Den Helder is aligned with the TU Delft drive towards inventing a sustainable future, which makes the partnership between the airport and HUGOs design team remarkably valuable. Over the past years, Den Helder has implemented LED lighting in its hangars, electric GPUs, baggage carts and tow trucks, as well as introduced a heat recovery installation system\footnote{\href{https://denhelderairport.nl/eng/duurzaamheid-op-den-helder-airport-dha/}{Sustainability at Den Helder Airport (DHA)} (accessed on 12.05.2026)}. Future plans include equipping all buildings with solar panels, heat pumps or heat recovery systems. 
 

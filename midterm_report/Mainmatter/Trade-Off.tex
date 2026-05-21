@@ -2,11 +2,11 @@
 \label{ch:trade-off}
 In this Chapter, the preliminary HUGO configurations developed in previous design stages are compared by means of a trade-off. Suitable trade-off criteria are defined in \autoref{sec:trade-off_criteria_selection}, followed by a definition of weight factors in \autoref{sec:trade-off_weight_factors}. The results of the trade-off analysis are presented in \autoref{sec:trade-off_matrix}, and the final configuration to be further developed can be found in \autoref{sec:trade-off_final_design}.
 
-\autoref{tab:Final_Candidate_Architectures} lists the design configurations considered for the trade-off. Additionally, each design option features a static port for the tail, fuselage-mounted fuel tanks and fuselage-mounted engines \cite{BaselineReport}.
+\autoref{tab:Final_Candidate_Architectures} lists the design configurations considered for the trade-off. Additionally, each design option features a static port for the tail, fuselage-mounted fuel tanks and fuselage-mounted engines \footref{url:baseline_report}.
 
 \begin{table}[H]
     \centering
-    \caption{Final Integrated Candidate Architectures for Detailed Trade-Off \cite{BaselineReport}}
+    \caption{Final Integrated Candidate Architectures for Detailed Trade-Off \footref{url:baseline_report}}
     \label{tab:Final_Candidate_Architectures}
     \renewcommand{\arraystretch}{1.3}
     %\resizebox{\textwidth}{!}{% Scales table to fit the page width if it gets too wide
@@ -34,7 +34,7 @@ As the changes between considered configurations lay mostly in the modularity de
 Meaningful trade-off criteria should be developed such that all available technical specifications and key performance metrics are considered. Moreover, identifying the points of poor performance of each candidate allows for an in-depth analysis of the limitations of each candidate configuration \cite{SMAD}. Lastly, the key requirements can be used to ensure that the developed criteria encompass all crucial design aspects.
 %It is not helpful to include criteria where all options perform similarly; instead, it is more valuable to use criteria where some options perform poorly, as this helps reveal and compare weaknesses across designs. In this way, each design’s limitations can be properly assessed. In addition, some of the requirements identified in the baseline review can also serve as a basis for defining the trade-off criteria.
 
-Taking all of the above into consideration, the following criteria were selected for the trade-off of HUGO designs: Versatility, Reliability, Cost, Performance, and Sustainability. \autoref{tab:trade-off_criteria} lists the rationale behind selecting each criterion for the configuration trade-off, while \autoref{tab:trade-off_criteria_materials} lists those used for the material trade-off.
+Taking all of the above into consideration, the following criteria were selected for the trade-off of HUGO designs: Versatility, Reliability, Cost, Performance, and Sustainability. \autoref{tab:trade-off_criteria} lists the rationale behind selecting each criterion for the configuration trade-off, while \autoref{sec:Mat_sel} lists those used for the material trade-off.
 
 \begin{longtable}{|p{2.5cm}|p{13.5cm}|}
 \caption{Trade-Off Criteria for HUGO Configurations}
@@ -497,6 +497,7 @@ For a fully consistent matrix $\lambda_{max} = n$, which is not true for the con
 The obtained CR implies that the evaluation of \textbf{w} is sufficiently consistent. Therefore, the entries of \textbf{w} will can used as weight factors for the final configuration trade-off.
 
 \subsection{Weight Factors for Material Selection}
+\label{sec:Mat_sel}
 For the selection of material weight factors, a more holistic approach was applied, resulting in values from 0.1 to 1.0, where 1.0 warrants the highest priority. The followingr rationale was applied to justify the choice of specific values:
 
 \begin{itemize}
