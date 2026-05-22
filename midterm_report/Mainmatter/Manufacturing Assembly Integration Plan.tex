@@ -1,6 +1,6 @@
 \chapter{Manufacturing, Assembly, and Integration Plan}
 \label{ch:MAI}
-\todo[inline]{\textbf{This Chapter is currently being proofread by Hanna.}}
+%\todo[inline]{\textbf{This Chapter is currently being proofread by Hanna.}}
 This Chapter outlines the Manufacturing, Assembly, and Integration (MAI) plan for HUGO. Based on the material trade-off analysis performed in \autoref{ch:trade-off}, the final configuration features parts made out of CFRP and aluminium. The manufacturing of individual components from the raw materials is described in \autoref{sec:Manufacturing}. Selected joining methods are outlined in \autoref{sec:Assembly}, followed by a discussion of the integration of the final assembly in \autoref{sec:Integration}.
 
 %An overview of the MAI process is provided in \autoref{sec:MAI_Overview} in the form of a flowchart, beginning with the manufacturing phase, followed by assembly, and concluding with integration. Subsequently, \autoref{sec:Manufacturing} describes the manufacturing processes for the materials selected in \autoref{sec:Material_Selection}, followed by the selected joining methods in \autoref{sec:Assembly}. Finally, \autoref{sec:Integration} discusses the integration of the remaining systems into the structure.
@@ -354,26 +354,22 @@ Following machining, the aluminium alloy components undergo heat treatment to ac
 
 \section{Assembly}
 \label{sec:Assembly}
-\todo[inline]{\textbf{Section under proofreading/maintenance by Hanna} - pls don't touch anything without telling me. So long as this TODO is here, things will move and disappear (only to manifest themselves again somewhere else). So if you want to add, modify, or delete something, let me know asap!}
+%\todo[inline]{\textbf{Section under proofreading/maintenance by Hanna} - pls don't touch anything without telling me. So long as this TODO is here, things will move and disappear (only to manifest themselves again somewhere else). So if you want to add, modify, or delete something, let me know asap!}
 This Section describes the joining methods selected for CFRP and aluminium components for HUGO's main structural subsystems outlined in \autoref{sec:Material_Selection}. The primary components shall be assembled separately, and then assembled into the final structure together with the remaining parts of the UAV. 
 
 %After all components have been manufactured or sourced from suppliers, they are assembled. First, the main subsystems—such as the fuselage, wings, empennage, and landing gear—are built separately. These are then brought together in the final assembly stage.
 
-%The joining methods that will be considered are adhesive bonding, riveting, bolting, and welding, as presented in the Production of Aerospace
-Systems reader by Jos Sinke \cite{Sinke2022}.
-\todo{cite as 'Sinke J. Production of Aerospace Systems Reader. AE3211-II: Production of Aerospace Systems.
-Feb. 2022.'}
+%The joining methods that will be considered are adhesive bonding, riveting, bolting, and welding, as presented in the Production of Aerospace Systems reader by Jos Sinke \cite{Sinke2022}. \todo{cite as 'Sinke J. Production of Aerospace Systems Reader. AE3211-II: Production of Aerospace Systems. Feb. 2022.'}
 
 \subsection{Composite Joints}
 CFRP components shall be connected using adhesive bonding, which is the common practice in aerospace industry, and has been proven to comply with certification requirements\footnote{\href{https://www.tudelft.nl/en/ae/current/research-stories/one-way-to-make-composite-aircraft-lighter-stop-riveting-and-start-bonding}{ One way to make composite aircraft lighter: stop riveting and start bonding} (accessed on 22.05.2026)}
 \cite{CFRPbonding}. This process is expected to provide components with a smooth surface and good corrosion resistance, as well as joining of dissimilar materials (incl. CFRP-aluminium joints).
 
-An exception has to be made in case of pylons, which cannot be attached to the fuselage with an adhesive joint due to integrity and structural concerns. The alternative solution to joining the CFRP and aluminium surfaces encorporates \todo[tbd tbd tbd + source]
+An exception has to be made in case of pylons, which cannot be attached to the fuselage with an adhesive joint due to integrity and structural concerns\footnote{\href{https://patentimages.storage.googleapis.com/b6/9d/6c/42339e49b46460/US20150013142A1.pdf}{US Patent Application Publication - Method for Mounting a Pylon to an Aircraft} (accessed on 22.05.2026)}. The alternative solution to joining the CFRP and aluminium surfaces may include using bolts, disks, pucks, lug fittings,
+bosses, trunnions, support beams, and/or caps, depending on the detailed joint structure.
 
 \subsection{Aluminium Joints}
-Aluminium element of the landing gear, pylon, and port compone
-
-The landing gear sub-components are assembled using bolted and lockbolted joints for rigid structural connections, and pin joints wherever relative motion is required, such as at the torque link and retraction actuator attachment points. Welding is excluded as a joining method for this application, as the local melting of material alters the microstructure and degrades the mechanical properties of the high-strength aluminium alloy.
+The landing gear, pylon, and connection port subsection shall be assembled using bolted joints in favour of bonded joints. In particular, bolted and lockbolted joints shall be applied for rigid structural connections, and pin joints wherever relative motion is required (e. g. attachment points for the torque link or retraction actuator). Welding is excluded as a joining method for this application, as the local melting of material alters the microstructure and degrades the mechanical properties of the high-strength aluminium alloy\footnote{\href{https://www.stillarcsiteservices.co.uk/blog/how-welding-affects-material-properties-a-metallurgists-perspective}{How Welding Affects Material Properties: A Metallurgist’s Perspective} (accessed on 22.05.2026)}.
 
 \begin{comment}
 \subsection{Adhesive bonding}
@@ -381,7 +377,7 @@ Bonding is a joining method that uses an adhesive to connect two components. The
 
 Some advantages of this joining method include preserving the original material strength by avoiding holes and stress concentrations, maintaining a smooth surface without protruding fasteners, enabling the joining of dissimilar materials, and providing excellent resistance to corrosion. It also allows for air- and watertight sealing. There are also several disadvantages to bonding, including the need for surface pretreatment, the inability to disassemble joints, and the fact that it primarily carries transverse loads. Additionally, the manufacturing process can be relatively complex.
 \end{comment}
-
+\begin{comment}
 \subsection{Riveting}
 
 Riveting is a widely used joining technique in the aerospace industry, where loads are transferred through fasteners or loaded pins. It is mainly used for joining thin sheet materials, typically only a few millimeters thick. However, rivets are generally unsuitable for composite materials because of bearing stress concerns; in such cases, bolts or alternative fastening methods are preferred.
@@ -395,19 +391,22 @@ Bolted joints are similar to riveted joints in that they require comparable prep
 A welding process joins two pieces of similar material to one continuous section. In the case of metals, welding involves the local melting of material. Welding and riveting (sometimes also bolting) are the most interchangeable alternatives.
 
 Welding offers several advantages, including a continuous load path, no need for overlapping components, and a resulting smooth surface. It also provides air and watertight joints. However, it has notable drawbacks: the local melting of material alters the microstructure, which can lead to variations in quality along the weld length. For this reason, high-strength materials that rely on heat treatment to achieve their properties are generally unsuitable for welding. This is one of the key reasons why welding is rarely preferred over riveting in the aircraft industry.
+\end{comment}
 
-\subsection{Selected assembly methods}
+%\subsection{Selected assembly methods}
 
 %Thermoset carbon fibre composites are typically joined using adhesive bonding, as this is the most common practice in the aerospace industry. This method avoids drilling holes for fasteners, which would cut the continuous fibres and weaken the structure. %The skin of the fuselage and wings is produced as one continuous part. Depending on the empennage configuration, bonding between the vertical and horizontal stabilizers might be required. 
 
 %The joints between the primary subsystems (wing-to-fuselage, empennage-to-fuselage) are modular: specialized ports are designed in order to allow for the swapping of the wing and tail, enabling the testing of different configurations.
 
-The landing gear sub-components are assembled using bolted and lockbolted joints for rigid structural connections, and pin joints wherever relative motion is required, such as at the torque link and retraction actuator attachment points. Welding is excluded as a joining method for this application, as the local melting of material alters the microstructure and degrades the mechanical properties of the high-strength aluminium alloy.
+%The landing gear sub-components are assembled using bolted and lockbolted joints for rigid structural connections, and pin joints wherever relative motion is required, such as at the torque link and retraction actuator attachment points. Welding is excluded as a joining method for this application, as the local melting of material alters the microstructure and degrades the mechanical properties of the high-strength aluminium alloy.
 
 %Engine pylons are bolted to the composite fuselage structure. They carry very large, dynamic loads and must be removable for engine replacement and maintenance. Adhesive bonding alone cannot meet these requirements. 
 
 \section{Integration}
 \label{sec:Integration}
+%The integration process shall proceed in a sequence driven by component accessibility. Components that are the highest accessibility difficulties shall be installed first, followed by the avionics wire harness, battery, avionics equipment (flight computers, sensors, and displays connected to the harness). Subsequently, the propulsion system shall be installed and connected to the fuel, hydraulic, and electrical systems. Lastly, HUGO shall be equipped with interior elements covering and protecting the underlying systems. Arranging the integration in the proper sequence is an important objective, as improper sequencing causes rework, time delays, cost increases, and potential safety risks.  
+
 
 Following structural assembly, integration of the aircraft systems proceeds in a defined sequence driven by accessibility - items that are hardest to reach or that other systems depend on are installed first. The avionics wiring harness is installed first, before any interior or equipment obstructs access to the airframe structure. The wire harness connects every critical system from avionics to landing gear, and can be found on gas turbine engines, nacelles, and airframe fuselages - with modern fly-by-wire aircraft relying critically on these interconnects. The battery is installed next as part of the electrical system, followed by the avionics equipment itself - flight computers, sensors, and displays - which are connected to the pre-routed harness. The engines are then installed and connected to the fuel, hydraulic, and electrical systems. The interior is installed last, as it covers and protects the underlying systems while also being the most easily removable for any rework that may be required during systems testing. Arranging the integration in the proper sequence is an important objective, as improper sequencing causes rework, time delays, cost increases, and potential safety risks.  
 

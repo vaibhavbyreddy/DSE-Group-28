@@ -1,10 +1,10 @@
 \chapter{Engineering Design and Analysis}
 \label{ch:engineering_design}
-\todo[inline]{Chapter introduction (pending)}
+To provide the necessary quantitative background for the trade-off, preliminary sizing of the design options is undertaken. \autoref{sec:airfoil_wing_estimation} describes how statistics from the reference aircraft are used to specify the initial values for design iteration. \autoref{sec:aerodynamic_modelling} describes the aerodynamic model used to obtain the lift and drag performance of the aircraft. \autoref{sec:fuel_mass_fraction_estimation} describe determining the fuel mass fraction, \autoref{sec:structural_weight_penalty_analysis} - the empty mass fraction, and \autoref{sec:matching_diagram} - the design point (wing loading and thrust-weight ratio). \autoref{sec:empennage_preliminary_design} and \autoref{sec:Landing_gear_config} cover the design of the empenage and landing gear subsystems. The robustness of the sizing is then assessed in \autoref{sec: sensitivity study} by meansof a sensitivity study.
 
 \section{Airfoil and wing analogous estimation}
 \label{sec:airfoil_wing_estimation}
-\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
+%\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
 According to HUG-OPS-005\footref{url:baseline_report}, HUGO is required to operate at speeds up to Mach 0.75. This is the flight condition at which tests are expected to be conducted during operations. In this section, an estimation of the lift characteristics of HUGO is performed based on statistics from suitable reference aircraft, along with a preliminary airfoil selection suitable for the considered operations.
 
 Airfoil selection begins with an analysis of reference aircraft and an estimate of the design lift coefficient $C_{l_\text{des}}$. Subsequently, the maximum lift coefficient $C_{l_{\text{max}}}$ is derived along with relevant aerospace parameters to facilitate the selection. For the purpose of this analysis, it is assumed that HUGO will operate at a speed of Mach 0.75, at an altitude of FL270 (8230 m). 
@@ -32,7 +32,7 @@ The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement 
 %average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was used. 
 Consequently, the wing area $S$ was obtained from the wing loading. From these parameters, the wing span $b$ and mean chord length MAC can be derived. 
 
-The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidelines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle is determined primarily by compressibility effects and should increase progressively above a Mach number of 0.8. \cite{Torenbeek1982} An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A and FLEXOP aircraft. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. 
+The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidelines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle is determined primarily by compressibility effects and should increase progressively above a Mach number of 0.8 \cite{Torenbeek1982}. An initial sweep $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A and FLEXOP aircraft. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. 
 
 Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accessed on 8.5.2026)} and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}. Several additional wing parameters were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool} (accessed on 12.5.2026)} and Torenbeek \cite{Torenbeek1982}.
 
@@ -72,7 +72,7 @@ Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api
 
 \subsection{Design Aerodynamic Parameters}
 \label{subsec:cl_des}
-The initial geometric parameters from \autoref{tab:DAST_HUGO} can be used to derive preliminary aerodynamic characteristics of the UAV.
+The initial geometric parameters from \autoref{tab:DAST_HUGO} can be used to derive HUGO's preliminary aerodynamic characteristics.
 
 \subsubsection*{Design Lift Coefficient}
 To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} \cite{Torenbeek1982} can be applied for a cruise air density $\rho_{cr}$ of $0.5112 \ kg \cdot m^{-3}$ at FL270, and a cruise speed $V_{cr}$ of $230.2945 \ m \cdot s^{-1}$ corresponding to the test condition. Using the initial value for $W/S$ from \autoref{tab:DAST_HUGO}, an initial $C_{L_\text{des}}$ of 0.074 is obtained.
@@ -94,8 +94,8 @@ Based on the initial estimates from \autoref{tab:DAST_HUGO}, as well the cruise 
 \subsubsection*{Maximum Lift Coefficient}
 The maximum lift coefficient, $C_{L_\text{max}}$ has to be determined to obtain the stall speed of HUGO, $V_\text{stall}$. As stated previously, the use of a supercritical wing profile is highly recommended for the considered test conditions. A preliminary estimate of  $C_{L_\text{max}}$ is made by considering a NASA SC(2)-0010 airfoil and the DATCOM method for estimating the maximum lift coefficient for finite wings. 
 
-An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}{AirfoilTools} (accessed on 07.05.2026)}, and an expression for estimating the wing $C_{L_{max}}$ from the $C_{l_{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil} (accessed on 11.5.2026)}. The $N$ value is deemed suitable for this use case due to likely disturbed airflow from the wing surface roughness \cite{Koul}. Then, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$ \cite[p. ]{Torenbeek1982}. Conversion from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ is done with \textcolor{red}{add citations}\autoref{eq:Lambda_conversion} \cite[p. ]{} derived from \autoref{eq:torenbeek_sweep} in \cite{Torenbeek1982}.
-
+An estimation of $C_{L_\text{max}}$ can be made using Xfoil software\footnote{\href{http://airfoiltools.com/polar/details?polar=xf-sc20412-il-500000-n5}{AirfoilTools} (accessed on 07.05.2026)}, and an expression for estimating the wing $C_{L_\text{max}}$ from the $C_{l_\text{max}}$ of the wing profile. For a $Re \approx 1.15\cdot10^6$ and a critical amplification factor $N$ of 5, a $C_{l_\text{max}} \approx 1.4$ was found \footnote{\href{http://www.airfoiltools.com/polar/details?polar=xf-sc20010-il-1000000-n5}{NASA SC(2)-0010 airfoil} (accessed on 11.5.2026)}. The $N$ value is deemed suitable for this use case due to likely disturbed airflow from the wing surface roughness \cite{Koul}. Then, \autoref{eq:CL_max} is used to obtain $C_{L_{max}}$ \cite[p. 153]{Torenbeek1982}.
+\begin{comment}
 \begin{equation}
     \tan\Lambda_2 = \tan\Lambda_1 + \frac{4}{AR}(\frac{1-\lambda}{1+\lambda})(e_1-e_2)
     \label{eq:torenbeek_sweep}
@@ -113,21 +113,22 @@ By substituting $e_1 = 0$ for the leading edge and $e_2 = 0.25$ for quarter-chor
     \right)
     \label{eq:Lambda_conversion}
 \end{equation}
-
+\end{comment}
 \begin{equation}
     C_{L_{\max}} = 0.9 \cdot C_{l_{\max}} \cdot \cos\Lambda_{0.25c}
     \label{eq:CL_max}
 \end{equation}
 
-This leads to $\Lambda_{0.25c} \approx 14.22$ and $C_{L_{\max}} \approx 1.22$, not accounting for the use of high-lift devices.\\ \todo{cite this stuff}
+Conversion from the leading edge sweep angle $\Lambda_{LE}$ to the quarter-chord sweep angle $\Lambda_{0.25c}$ is derived from Torenbeek
+\cite[p. 440]{Torenbeek1982}, and yields $\Lambda_{0.25c}$ of 14.22 deg. This leads to a his leads to a $C_{L_{\max}}$ value of approximately 1.22, not accounting for the use of high-lift devices.
 
 \subsubsection*{Stall speed}
 The next step is to identify the preliminary stall speed of HUGO. With a maximum lift coefficient $C_{L_{max}} \approx 1.22$ and $S = 0.49 \ m^2$ at a mass $m = 50 \ kg$ and sea level ISA conditions. The stall speed $V_\text{stall}$ can be calculated using \autoref{eq:Vstall}.
 \begin{equation}
-    V_\text{stall} = \sqrt{\frac{2W}{\rho S C_{L_\text{max}}}}
+    V_\text{stall} = \sqrt{\frac{2W}{\rho S C_{L_\text{max}}}}\approx 37\hspace{0.1cm}m\cdot s^{-1}
     \label{eq:Vstall}
 \end{equation}
-From \autoref{eq:Vstall}, a stall speed $V_{stall} \approx 37 \ m \cdot s^{-1}$. Comparing this to the stall speed of the X-56A UAS of 33 m/s\footref{url:x56a}, the result appears reasonable for an initial estimation.\\
+Compared to the stall speed of the X-56A UAS of 33 m/s\footref{url:x56a}, the result appears reasonable for an initial estimation.\\
 
 \subsection{Airfoil Selection}
 \label{subsec:airfoil_selection}
@@ -149,12 +150,12 @@ Moreover, it does not create significant negative pitching moments that necessit
 
 \section{Aerodynamic modelling}
 \label{sec:aerodynamic_modelling}
-\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
+%\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
 
-\todo[inline]{If desperate for pages, I think that some equations (FF, $Re_\text{cut-off}$ etc. can be commented out, as per Gui's suggestion. But I'd rather leave the decision of what to keep to section authors. - Hanna}
+%\todo[inline]{If desperate for pages, I think that some equations (FF, $Re_\text{cut-off}$ etc. can be commented out, as per Gui's suggestion. But I'd rather leave the decision of what to keep to section authors. - Hanna}
 In order to perform preliminary sizing, aerodynamic analyses of the aircraft were performed by means of the lifting line theory (LLT) with modifications for nonzero sweep provided by the AeroSandbox Python package \footnote{\href{https://aerosandbox.readthedocs.io/en/master/autoapi/aerosandbox/aerodynamics/aero_3D/lifting_line/index.html}{AeroSandbox} (accessed 18.05.2026)}. The goals of these analyses were to obtain: the lift and induced drag of the aircraft required for the later calculation of the $L/D$ ratio, the lift curve slopes of all the lifting surfaces (both individually and combined with other lifting surfaces), the lift distribution along the span, the aerodynamic centre position, and the determination of the angle of attack required for trimming. This section first outlines the generation of the model, followed by the description of the performed analyses and their verification.
 
-To start sizing of the aircraft, including steps such as a matching diagram, it is vital to know the breakdown of drag between induced and parasitic \cite{Vos}. Thus,the aerodynamic analysis shall focus on inviscid modelling to obtain the induced drag alone, while the parasitic drag will be obtained via drag build-up. As Aerosandbox LLT includes viscosity, an inviscid modification of it has been created for the purpose of this project. The LLT of Aerosandbox assembles total aerodynamic force and moments from viscous and inviscid components, so instead of the sum, only the inviscid components are returned. The inviscid analysis has been verified by comparing its output with that of the standard viscous analysis, i. e. by imposing the maximum relative difference of less than 1\% in the lift coefficient.
+To start sizing of the aircraft, including steps such as a matching diagram, it is vital to know the breakdown of drag between induced and parasitic \cite{Vos}. Thus, the aerodynamic analysis shall focus on inviscid modelling to obtain the induced drag alone, while the parasitic drag will be obtained via drag build-up. As Aerosandbox LLT includes viscosity, an inviscid modification of it has been created for the purpose of this project. The LLT of Aerosandbox assembles total aerodynamic force and moments from viscous and inviscid components, so instead of the sum, only the inviscid components are returned. The inviscid analysis has been verified by comparing its output with that of the standard viscous analysis, i. e. by imposing the maximum relative difference of less than 1\% in the lift coefficient.
 
 \subsection{Parametric model}
 \label{subsec:parametric_model}
@@ -170,27 +171,35 @@ As mentioned previously, the parasite drag ($C_{D_0}$) is estimated using the dr
 
 Here, $C_{D_\text{misc}}$ is miscellaneous drag due to flaps, unretracted landing gear etc., and $C_{D_{L\&P}}$ is an estimate of the drag due to leakages and protuberances. $S_{wet}$ is the wetted area, and $S_{ref}$ is the reference area. The subscript $c$ refers to a single component.
 
-The $C_f$ is estimated as a weighted average of the laminar and turbulent flow values. The value of $C_f$ for laminar flow is calculated with \autoref{eq:laminar_Cf} \cite[p. 282]{raymer1992aircraft}, and for turbulent flow with \autoref{eq:turbulent_Cf} \cite[p. 282]{raymer1992aircraft}.
+The $C_f$ is estimated as a weighted average of the laminar and turbulent flow values, and can be calculated according to Raymer  \cite[p. 282]{raymer1992aircraft}. In case the skin roughness is high, the $C_f$ value can be expected to increase. An adjusted value can be calculated by introducing a cut-off Reynold number $Re_\text{cut-off}$ for subsonic flight \cite[p. 282]{raymer1992aircraft}, for a given  characteristic length and skin roughness.
+
+\begin{comment}
+The value of $C_f$ for laminar and turbulent flow is calculated with \autoref{eq:Cf} \cite[p. 282]{raymer1992aircraft}.
 
 \begin{equation}
-    C_f = \frac{1.328}{\sqrt{Re}}
-    \label{eq:laminar_Cf}
-\end{equation}
-
-\begin{equation}
-    C_f = \frac{0.455}{\sqrt{\log_{10}(Re)^{2.58} \cdot (1+0.144 M^2)^{0.65}}}
-    \label{eq:turbulent_Cf}
+C_f =
+\frac{1.328}{\sqrt{Re}} \; (\text{laminar})
+\qquad
+C_f =
+\frac{0.455}{\sqrt{\log_{10}(Re)^{2.58} \cdot (1+0.144 M^2)^{0.65}}} \; (\text{turbulent})
+\label{eq:Cf}
 \end{equation}
 
 %An estimate of the fraction of laminar and turbulent flow over the component is taken from Raymer \cite{raymer1992aircraft}.
-In case the skin roughness is high, the $C_f$ value can be expected to increase further. An adjusted value can be calculated by introducing a cut-off Reynold number $Re_\text{cut-off}$ determined by \autoref{eq:cutoff_Re} for subsonic flight \cite[p. 282]{raymer1992aircraft}, Where $l$ is the characteristic length and $k$ is the skin-roughness value.
+
+In case the skin roughness is high, the $C_f$ value can be expected to increase. An adjusted value can be calculated by introducing a cut-off Reynold number $Re_\text{cut-off}$ determined by \autoref{eq:cutoff_Re} for subsonic flight \cite[p. 282]{raymer1992aircraft}, Where $l$ is the characteristic length and $k$ is the skin-roughness value.
 
 \begin{equation}
     Re_\text{cut-off} = 38.21 \cdot \left(\frac{l}{k}\right) ^{1.053}
     \label{eq:cutoff_Re}
 \end{equation}
+\end{comment}
 
-Form factors for various components can be calculated with \autoref{eq:FF_wing} for the wing, tail, strut, and pylon, \autoref{eq:FF_fuselage} for the fuselage and smooth canopies, and \autoref{eq:FF_nacelle} for nacelles and smooth external stores, respectively \cite[p. 283]{raymer1992aircraft}
+
+Form factors $FF$ for various components can be calculated according to Raymer, depending on the relevant geometric parameters and fineness ratio \cite[p. 283]{raymer1992aircraft}. Since the interference of the landing gear with the rest of the components can be assumed to be negligible, it was justified that a separate parasite drag estimation would be used. The landing gear $C_{D_0}$ is estimated based on the method presented in Roskam \cite{roskamVI}. Then, the leakage and protuberance drag of each component is estimated as a percentage of the total parasite drag. The exact values obtained from Raymer \cite{raymer1992aircraft}.
+
+\begin{comment}
+Form factors $FF$ for various components can be calculated with \autoref{eq:FF_wing} for the wing, tail, strut, and pylon, \autoref{eq:FF_fuselage} for the fuselage and smooth canopies, and \autoref{eq:FF_nacelle} for nacelles and smooth external stores, respectively \cite[p. 283]{raymer1992aircraft}
 %The specific form factors for the different components are estimated with equations \autoref{eq:FF_wing} - \autoref{eq:FF_nacelle}.
 
 %\textbf{Wing, tail, strut, and pylon}:
@@ -211,16 +220,16 @@ Form factors for various components can be calculated with \autoref{eq:FF_wing} 
     \label{eq:FF_nacelle}
 \end{equation}
 
-In Equations \ref{eq:FF_wing}-\ref{eq:FF_nacelle}, $(x/c)_m$ is the chordwise location of the airfoil maximum thickness point, $\Lambda_m$ refers to the sweep of the maximum thickness line, and $f$ is the slenderness ratio calculated with \autoref{eq:slenderness_ratio} \cite[p. 283]{raymer1992aircraft} using \textcolor{red}{Define $A_\text{max}$} $A_\text{max}$.
-\todo[inline]{Define $A_\text{max}$ for Eq. 6.13.}
+In Equations \ref{eq:FF_wing}-\ref{eq:FF_nacelle}, $(x/c)_m$ is the chordwise location of the airfoil maximum thickness point, $\Lambda_m$ refers to the sweep of the maximum thickness line, and $f$ is the slenderness ratio calculated with \autoref{eq:slenderness_ratio} \cite[p. 283]{raymer1992aircraft} using $A_\text{max}$, the maximum fuselage cross-sectional area.
 \begin{equation}
     f = \frac{l}{d} = \frac{l}{\sqrt{(4/\pi)A_{max}}}
     \label{eq:slenderness_ratio}
 \end{equation}
 \
 %The interference factors for the components are obtained from Raymer \cite{raymer1992aircraft}.
+\end{comment}
 
-Since the interference of the landing gear with the rest of the components can be assumed to be negligible, it was justified that a separate parasitic drag estimation would be used. The landing gear $C_{D_0}$ is estimated based on the method presented in Roskam \cite{roskamVI}. Then, the leakage and protuberance drag of each component is estimated as a percentage of the total parasite drag. The exact values obtained from Raymer \cite{raymer1992aircraft}.  
+%Since the interference of the landing gear with the rest of the components can be assumed to be negligible, it was justified that a separate parasite drag estimation would be used. The landing gear $C_{D_0}$ is estimated based on the method presented in Roskam \cite{roskamVI}. Then, the leakage and protuberance drag of each component is estimated as a percentage of the total parasite drag. The exact values obtained from Raymer \cite{raymer1992aircraft}.  
 %The drag coefficients for open and closed wheels are calculated with \autoref{eq:CDO_open_wheels} and \autoref{eq:CDO_closed_wheels}.\textcolor{red}{FIND SOURCE FOR EQUATIONS!!!}
 %\todo[inline]{Find a source for the equations!!!}
 
@@ -257,7 +266,7 @@ The trim analysis requires a specific angle of attack. While the definition of t
     \item Use Aerosandbox's optimizer with the objective of finding the angle of attack at which the obtained total lift equals the weight.
 \end{enumerate}
 %Therefore, in order to find the required angle of attack, two approaches have been employed. In the first approach, the angle of attack is calculated by finding the lift force required for a specific flight condition, running the simulation for a range (at least two) angles of attack, and then calculating the angle of attack for obtaining the required lift, while assuming no lift at $\alpha=0\deg$. The second approach uses the Aerosandbox's optimizer with the objective of finding the angle of attack at which the obtained total lift equals the weight. Nevertheless, the second approach is not only more computationally expensive, but also more difficult to verify and validate. Therefore, only the first approach will be employed.
-Due to convenience of implementation, verification, and validation, the first approach will be used. The results were verified with unit tests, which can be accessed in the project repository\footnote{\label{url:github_repo}\href{https://github.com/Teo-Cokonaj/DSE-28}{HUGO Project Repository} (accessed on 21.05.2026)}
+Due to convenience of implementation, verification, and validation, the first approach will be used. The results were verified with unit tests, which can be accessed in the project repository\footnote{\label{url:github_repo}\href{https://github.com/Teo-Cokonaj/DSE-28}{HUGO Project Repository} (accessed on 21.05.2026)}.
 %In order to verify the results, unit tests have been written and can be found in the repository. Some of them are pure code verification, so these will not be discussed here. 
 The tests of highest importance for direct model verification involve comparing the obtained lift curves with those from theory or from semi-empirical formulas. Two configurations have been used from two different flight regimes: an unswept, untapered wing in low-subsonic incompressible flow, and a highly-swept, untapered wing in high-subsonic compressible flow, as shown in \autoref{tab:aero_verification_parameters}.
 
@@ -282,13 +291,13 @@ The tests of highest importance for direct model verification involve comparing 
     \end{tabular}
 \end{table}
 
-The slope $a$ of the lift curve of model 1 (\autoref{tab:aero_verification_parameters}) in the incompressible regime has been compared with Prandtl's formula for high-aspect-ratio wings (\autoref{eq:prandtl_slope}) \cite{anderson2011ebook}, where $a_0$ is the lift curve slope of the airfoil.
-
+The slope $a$ of the lift curve of model 1 (\autoref{tab:aero_verification_parameters}) in the incompressible regime has been compared with Prandtl's formula for high-aspect-ratio wings \cite{anderson2011ebook}.% (\autoref{eq:prandtl_slope}) \cite{anderson2011ebook}, where $a_0$ is the lift curve slope of the airfoil.
+\begin{comment}
 \begin{equation}
     a=\frac{a_0}{1+\frac{a_0}{\pi AR}}
     \label{eq:prandtl_slope}
 \end{equation}
-
+\end{comment}
 The relative difference for the considered case is about 25.2\% at the angle of attack of $2.5\deg$, which can be attributed to two reasons. Firstly, \autoref{eq:prandtl_slope} assumes elliptical lift distribution, which is not the case for the considered (rectangular) wing. Secondly, \autoref{eq:prandtl_slope} assumes a thin airfoil, which is not the case for HUGO, as explained in \autoref{sec:airfoil_wing_estimation}. 
 %In fact, the supercritical airfoil used here has a relatively large thickness-to-chord ratio of 12\%, which violates the Prandtl's assumption of thin airfoils. 
 
@@ -332,77 +341,23 @@ Furthermore, the position of aerodynamic centre as calculated by Aerosandbox can
 %     \label{eq:aerodynamic_centre_weighted_average}
 % \end{equation}
 
-\section{Empennage Preliminary Design}
-\label{sec:empennage_preliminary_design}
-\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
-Preliminary sizing of the empennage follows from an analysis of reference aircraft: DAST ARW-2, FLEXOP, and Boeing's Transonic Truss-Braced Wing (TTBW) \cite{XiongBoeing}. The X56-A was not included in this part of the analysis due to being tailless. Relevant statistical data for the horizontal tail (HT) and vertical tail (VT) is provided in \autoref{tab:tail_params}. For parameters not included in official documentation, values were estimates from drawings and projected views.
-
-%The next step is a preliminary sizing of the empennage. Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference aircraft values. Instead, the Boeing truss-braced wing aircraft concept is used. \cite{XiongBoeing}. First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:tail_params}. Several tail parameters were not available directly. Therefore, drawings and projected views have been used to record tail parameters using known values, such as the wing span. Note that HT refers to the horizontal tailplane and VT refers to the vertical tailplane. 
-
-\begin{table}[H]
-    \centering
-    \caption{Tail parameters of reference aircraft\cite{Yu2022} \cite{Bauer2020} \cite{perry1982methodology} \cite{Eckstrom1994} \cite{XiongBoeing} } 
-    \label{tab:tail_params}
-    
-    \begin{tabular}{|c|c|c|c|c|c|c|}
-    \hline
-    \textbf{Parameter} &\textbf{Tail} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW}\\
-    \hline\hline
-    Tail configuration [-] &$-$ & $-$ & Conventional & V-tail & T-Tail\\
-    \hline
-    Span [m] & HT & $b_h$ & 1.71 & 1.27 (projected) & 11.75\\
-    \hline
-    Arm [m] & HT & $l_h$ & 2.66 & 2.0 & 21.09\\
-    \hline
-    Non-dimensionalized arm [-] & HT & $l_h/\bar{c}$ & 4.75 & 2.67 & 7.25\\
-    \hline
-    Aspect ratio [-] & HT & $AR_h$ & 3.5 & 4.2 & 4.52\\
-    \hline
-    Taper ratio [-] & HT & $\lambda_h$ & 0.4 & 0.52 & 0.35\\
-    \hline
-    Dihedral [\degree] & HT & $\Gamma_h$ & N/A & 35 & N/A\\
-    \hline
-    LE sweep [\degree] & HT & $\Lambda_{LE_{h}}$ & 45 & 23.55 & 21.3\\
-    \hline
-    Quarter-chord sweep [\degree] & HT& $\Lambda_{qc_{h}}$ & 41.27 & 19.83 & 15.82 \\
-    \hline
-    Surface area $[m^2]$ & HT & $S_h$ & 0.836 & 0.39 & 30.54\\
-    \hline
-    Half-span [m] & VT & $b_v$ & 0.83 & N/A & 9.64\\
-    \hline
-    LE sweep [\degree] & VT & $\Lambda_{LE_{v}}$ & 52 & N/A & 16.6\\
-    \hline
-    \end{tabular}
-\end{table}
-
-The following design approach for HUGO considers the conventional (i. e. non-canard) configurations featuring a T-tail. This is motivated by the fact that all configurations shall be able to perform operations without a canard, even if the ports for it are included in the design.
-%since considering canards would make the distinction between design option configurations less clear. The reason is that the canard is movable for all the considered configurations, so these configurations will also have to be able to fly without a canard. 
-The performance of HUGO is limited by two main factor which govern the allowable centre of gravity range: stability and controllability. The constraining relations are expressed by \autoref{eq:Stability} and \autoref{eq:Controllability}, respectively \cite[p. 309]{torenbeek2013synthesis}.
-
-%Since the aircraft has to be able to allow for stable, neutrally stable, and unstable flight configurations, the neutral position of the c.g. is chosen as the design point. However, the aircraft has to be controllable at the same time, with a certain margin. These two conflicting properties of stability and controllability are governed by the equations shown in \autoref{eq:Controllability} and \autoref{eq:Stability}, respectively \cite{torenbeek2013synthesis}. Clearly, they describe the positions of the centre of gravity as a function of the aerodynamic centre position and numerous aerodynamic and geometric parameters. The two curves constitute the so-called scissor plot, where 
-\begin{equation}
-\bar{x}_{cg,\text{stability}} = \bar{x}_{ac} + \frac{C_{L_{\alpha_h}}}{C_{L_{\alpha_{A-h}}}} \left(1 - \frac{d\varepsilon}{d\alpha}\right) \frac{S_h l_h}{S\bar{c}} \left(\frac{V_h}{V}\right)^2
-\label{eq:Stability}
-\end{equation}
-
-\begin{equation}
-\bar{x}_{cg,\text{controllability}} = \bar{x}_{ac} - \frac{C_{m_{ac}}}{C_{L_{A-h}}} + \frac{C_{L_h}}{C_{L_{A-h}}} \frac{S_h l_h}{S\bar{c}} \left(\frac{V_h}{V}\right)^2
-\label{eq:Controllability}
-\end{equation}
-
-The aircraft is controllable when ${\bar{x}_{cg}}>\bar{x}_{cg,\text{controllability}} $ and stable when ${\bar{x}_{cg}}<\bar{x}_{cg,\text{stability}}$ \cite{torenbeek2013synthesis}. To determine the allowable $x_{cg}$ range, we enforce $\bar{x}_{cg}=\bar{x}_{cg,\text{stability}}$ and $\bar{x}_{cg}-\bar{x}_{cg,\text{controllability}}=\text{CGE}$, where $CGE$ is the minimum required excursion between the controllability curve and the design point. 
-
-
-The aerodynamic parameters required for \autoref{eq:Stability} and \autoref{eq:Controllability} are obtained by the aerodynamic analysis, as described in \autoref{sec:aerodynamic_modelling}. It is assumed that $({V_h}/{V})^2=1$ and ${d\varepsilon}/{d\alpha}=0.0$ due to the use of a T-tail \cite{torenbeek2013synthesis}. That leaves the tail volume $S_h l_h$ as the only unknown. The horizontal tail position $l_h$ can be estimated based on the ratio between the horizontal tail arm and surface area of the FLEXOP, effectively reducing the tail volume to a function of only surface area. This calculation is part of a larger iterative design loop.
-
 
 \section{Fuel Mass Fraction Estimation}
 \label{sec:fuel_mass_fraction_estimation}
-To estimate the fuel required for the aircraft on its mission, one can express the speed and time requirements for different stages of the flight as range requirements. Then, a sizing for range procedure, such as one used by \cite{Vos2025AirplaneDesignAnalysis} can be employed. The procedure consists of estimating the equivalent range from the nominal range (geometric range), lost range (from energy lost on climb, turns and acceleration), and diversion/loiter range (in case of HUGO, has to perform up to 4 landing attempts\footnote{In conversations with M.T.H. (Malcom) Brown} ). To account the fact that the mission plan consists of two stages of climb, acceleration and cruise (for Mach 0.4 and 0.75), the reference equation is applied to each segment separately:
+To estimate the fuel required for HUGO to perform its mission, one can express the speed and time requirements for different stages of the flight as range requirements. Then, a procedure for sizing the range can be followed, such as the one developed by Vos \cite{Vos}. 
+
+The total range $R_{eq}$ can be expressed as a sum of the test segment range (distance flown at Mach 0.75), the distance flown at lower speeds (Mach 0.4), as well as the range required for go-around manoeuvres (for HUGO, up to four landing attempts can be expected\footnote{established in conversation with M.T.H. (Malcom) Brown}, as shown in \autoref{eq:fuel_mass_fraction_range}. Each of the aforementioned segments comprises the nominal (geometric) range, as well as lost range which accounts for energy loss on climb, turns, and acceleration.
+
+%The total required range $R_{eq}$ comprises the nominal range (geometric range), lost range (from energy lost on climb, turns and acceleration), and diversion/loiter range (in case of HUGO, has to perform up to four landing attempts\footnote{established in conversation with M.T.H. (Malcom) Brown} ). To account the fact that the mission plan consists of two stages of climb, acceleration and cruise (for Mach 0.4 and 0.75),  the reference equation is applied to each segment separately, as shown in \autoref{eq:fuel_mass_fraction_range}.
+
+
 \begin{equation}
-    R_{eq} =  R_{0.4}+R_{0.75}+4R_{go-around}
+\label{eq:fuel_mass_fraction_range}
+    R_{eq} =  R_{0.4}+R_{0.75}+4R_\text{go-around}
     %M_{.75}a_{.75}t_{.75}+M_{.4}a_{.4}t_{.4} + \frac{1}{0.7} \left[\left( \frac{L}{D} \right)_{0.75}\left(h_{.75}+\frac{V^2_{.75}}{2g_0}\right)+\left( \frac{L}{D} \right)_{0.4}\left(h_{.4}+\frac{V^2_{.4}}{2g_0}\right)\right]+4[V]
 \end{equation}
+
+\begin{comment}
 \begin{equation}
     \begin{cases}
     R_{0.4} = M_{0.4}a_{0.4}t_{0.4}+\frac{1}{0.7}\left( \frac{L}{D} \right)_{0.4}\left(h_{0.4}+\frac{a^2_{0.4}M^2_{0.4}}{2g_0}\right)\\
@@ -413,258 +368,34 @@ To estimate the fuel required for the aircraft on its mission, one can express t
 \end{equation}
 
 With $M$, $a$, $t$, $h$, $L/D$ being the Mach number, speed of sound, total time, altitude and glide ratio for the given flight phase. $t_{0.4}$, $t_{0.75}$ and $h_{0.75}$ are constrained by the requirements to 25 min, 5 min, and 27,000 ft respectively.
-As the maximum allowed altitude of 27,000 ft is below the optimal for jet aircraft flying at Mach 0.4 \cite{Koutz1952Loitering}, it can be assumed that the flight segment at Mach 0.4 will be conducted at the maximum altitude as well.The multiplier of 4 for the go-around range accounts for the four required landing attempts. The go-around altitude is constrained to 1,500 feet \todo{add source and cite}, while the go around airspeed is not constrained. This allows to use a value for which the maximum specific range is achieved, taking into account flying in a turn:
+\end{comment}
+
+Estimations of each range segment follow from methodology described by Vos \cite{Vos}. As the maximum allowed altitude of FL270 is below the optimal for jet aircraft flying at Mach 0.4 \cite{Koutz1952Loitering}, it can be assumed that the flight segment at Mach 0.4 will be conducted at the maximum altitude as well. %The multiplier of 4 for the go-around range accounts for the four required landing attempts. 
+The go-around altitude is constrained as 1500 feet \footnote{\href{https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_3.html?utm_source=chatgpt.com}{FAA air traffic control regulations} (accessed on 22.05.2026)}. %The go-around airspeed is not constrained. This allows to use a value for which the maximum specific range is achieved, taking into account flying in a turn during go around.
+
+% \begin{equation}
+%     \begin{cases}V_{go-around}=\sqrt{\frac WS \frac2\rho\frac{n_{turn}}{C_{L_{opt}}}}\\
+%     W\sqrt{n_{turn}^2-1}=mV_{go-around}\omega_{turn}
+%     \end{cases}
+% \end{equation}
+% Where $m$ is the aircraft mass, $\omega_{turn}$ is the turn rate. Using a rate 1 turn, $\omega_{turn} = \pi/60\ \text{rad/s}$ and $T_{turn} = 120\ \text{s}$. Thus, knowing the lift coefficient, the equations can be solved for $n_{turn}$ and $V_{go-around}$. The optimal glide ratio and lift coefficient are found as:
+% \begin{equation}
+%     \left( \frac{L}{D} \right)_{max} = \frac{\sqrt 3}{4}\sqrt{\frac{\pi ARe}{C_{D, 0}}};\ C_{L_{opt}} = \sqrt{{\frac13\pi ARe}{C_{D, 0}}}
+% \end{equation}
+Once the distances and glide ratios are established for each flight segment, the required fuel can be calculated according to \autoref{eq:fuel_fraction} \cite{Vos} using the total propulsion system efficiency $\eta_i$ and fuel energy density $e_f$.
+%Knowing the ranges and glide ratios for the flight segments, the fuel required can be computed for each segment:
 \begin{equation}
-    \begin{cases}V_{go-around}=\sqrt{\frac WS \frac2\rho\frac{n_{turn}}{C_{L_{opt}}}}\\
-    W\sqrt{n_{turn}^2-1}=mV_{go-around}\omega_{turn}
-    \end{cases}
-\end{equation}
-Where $m$ is the aircraft mass, $\omega_{turn}$ is the turn rate. Using a rate 1 turn, $\omega_{turn} = \pi/60\ \text{rad/s}$ and $T_{turn} = 120\ \text{s}$. Thus, knowing the lift coefficient, the equations can be solved for $n_{turn}$ and $V_{go-around}$. The optimal glide ratio and lift coefficient are found as:
-\begin{equation}
-    \left( \frac{L}{D} \right)_{max} = \frac{\sqrt 3}{4}\sqrt{\frac{\pi ARe}{C_{D, 0}}};\ C_{L_{opt}} = \sqrt{{\frac13\pi ARe}{C_{D, 0}}}
+\label{eq:fuel_fraction}
+    \left(\frac{m_\text{final}}{m_\text{initial}}\right)_i = 1-\exp\frac{R_ig_0}{\eta_i (L/D)_i e_f}
 \end{equation}
 
-Knowing the ranges for the flight segments, the fuel required can be computed for each segment, using the glide ratio for this segment:
-\begin{equation}
-    \left(\frac{m_{final}}{m_{initial}}\right)_i = 1-\exp\frac{R_ig_0}{\eta_i (L/D)_i e_f}
-\end{equation}
+\begin{comment}
 where $e_f$ is the energy density of the fuel, and $\eta$ is the total propulsion system efficiency. The efficiency can be estimated per flight segment from the thrust-specific fuel consumption $c_T$ of the microturbine as:
 \begin{equation}
     \eta_i = \frac{P}{\dot{m}_ie_f}=\frac{T_iV_i}{\dot{m}_ie_f}=\frac{a_iM_i}{c_Te_f}
 \end{equation}
-The mass fractions of the segments can be later combined into the total fuel mass fraction. To verify the implementation of the method, a fuel mass fraction of a test aircraft with equivalent range equal to that of HUGO, but a single glide ratio and engine efficiency value has been computed both using the above method and the unmodified equations from Vos \cite{Vos2025AirplaneDesignAnalysis}.
-
-
-\section{Matching Diagram for Wing and Engine Sizing}
-\label{sec:matching_diagram}
-
-To specify the wing loading and thrust necessary for the aircraft, it is a standard practice to construct a matching diagram. Such a diagram would contain constraints limiting the wing loading, as well as ones showing minimum thrust-weight ratio as function of wing loading. This creates a constrained optimisation problem, in which a combination offering a high wing loading and low thrust-weight ratio should preferably be selected. The creation of the diagram is according to procedures outlined by Vos \cite{Vos2025AirplaneDesignAnalysis}, but adapted for the aerobatic CS-23 and high-speed requirements of the designed aircraft.
-
-First, next to the cruise speed constraint, the constraint of providing thrust in the Mach 0.75 condition with half of the fuel weight is considered. Second, due to the replaceable wing requirement, HUGO cannot be sized to require high lift devices. This means all constraints are evaluated for a clean wing. Then, since there is no specified rate of climb and approach speed considered, those constraints are omitted. The climb gradient constraints from CS-23 still guarantee satisfactory climb performance, while the landing field length provide an upper bound on the wing loading. \todo{add land with full fuel to requirements}. Both take-off and landing field lengths are constrained by runway length of Den Helder Airport \todo{footnote}.  The $\pi AR e$ ratio is taken directly as the $C_L^2/C_{D_i}$ from the aerodynamic simulations \todo{autoref}. The climb gradient constraints from \todo{cite CS23 amendment 5} are evaluated for HUGO as a Level 1 (unmanned) and high-speed aircraft. The set of matching diagram constraints is presented in \autoref{tab: Matching diagram constraints}.
-
-\begin{table}[h]
-\caption{The constraints used to construct the matching diagram}
-\label{tab: Matching diagram constraints}
-\begin{tabular}
-{|c|c||c|c|c|c|}
-    
-    \hline
-    \textbf{N.O.} & \textbf{Costraint} & \textbf{constrained value} & \textbf{landing gear} & \textbf{altitude} & \textbf{fuel burned} \\
-    \hline\hline
-    1. & Airfield Length & 1275 m& down & sea level & 0\% \\
-    \hline
-    2. & Cruise speed & Mach 0.4 & up & 27000 ft & 0\% \\
-    \hline
-    3. & Maximum speed & Mach 0.75 & up & 27000 ft & 50\% \\
-    \hline
-    4. & Climb gradient single engine & 0.01 & up & sea level & 0\% \\
-    \hline
-    5. & Climb gradient all engines & 0.04 & up & sea level & 0\% \\
-    \hline
-    6. & Take-off field length & 1275 m & down & sea level & 0\% \\
-    \hline
-    \end{tabular}
-\end{table}
-
-The implementation of the matching diagram is verified by reproducing the example jet aircraft analysed by \cite{Vos}. Agreement with the textbook results is reached up to the precision of the values provided in the source.
-
-
-
-\section{Sensitivity study}
-During the preliminary sizing, several assumptions have been made, whose impact needs to be assessed. The uncertainty in fuselage and landing gear dimensions (taken from FLEXOP geometry), the dimensions of landing gear pod with respect to the gear itself, as well as the target CG excursion between minimum controllability and neutral stability points are identified as driving assumptions. This is a basis for a sensitivity study whose details are shown in \autoref{tab:sensitivity study}. The results of the sensitivity study have been presented as MTOM plots for every configuration across different parameter values \todo{footnote}.
-
-\begin{table}[H]
-\centering
-\caption{Overview of the sensitivity study}
-\label{tab:sensitivity study}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\textbf{Parameter}
-& \textbf{Unit}
-  & \textbf{Baseline Value}
-  & \textbf{Upper Bound}
-  & \textbf{Lower Bound}
-  & \textbf{Evaluation Points}\\
-  
-\hline\hline
-C.G. Excursion & [\%MAC]& 0.5 &  0.25 & 1.0 & 4 \\   \hline
-Fuselage Diameter &[m] & 0.315 & 0.25 & 0.45 & 4 \\   \hline
-Fuselage Length &[m] & 3.45 & 1.71 & 4.104 & 4 \\   \hline
-Landing Gear Diameter &[m] & .085 & 0.05 & 0.12 & 4 \\   \hline
-Pod to Gear Diameter &[-] & 2.0 & 1.5 & 3.0 & 4 \\   \hline
-Pod to Gear Length &[-] & 1.25 & 1.0 & 1.5 & 3 \\   \hline
-
-\hline
-\end{tabular}
-\end{table}
-
-First, the design iteration failed to converge for fuselage lengths shorter than the baseline as well as for the largest fuselage diameters due to infeasible landing gear. This is attributed to the combination of current landing gear requirements creating a heavily constrained design space for the landing gear. As the tail cone is replaceable, a tricycle configuration is strictly enforced over tail dragger. Due to the modular nature of the aircraft, the gear has to retract into fuselage or fuselage-connected pods. At the same time, a track width wider than the fuselage diameter is needed to satisfy the tip clearance and turnover angle constraints. The nose landing gear is also set to retract forward. While beneficial in case of actuator failure, this constraint might be reconsidered due to severely impacting the landing gear design freedom for shorter fuselages. As for the landing gear becoming infeasible for high fuselage diameter, it may be attributed to increasing the height of the CG without increasing the nose to main gear x distance, which worsens the turnover performance.
-
-Regarding parameter values in the feasible design space, increasing the fuselage dimensions, especially the diameter, causes a rapid increase in mass (nearly double for the highest considered fuselage diameter), with the exception of the longer fuselage of HUG-CFG-302, which slightly decreases the total mass. It is thus recommended for the final design to avoid excessive enlargening of the fuselage, especially in diameter.
-
-Changing the C.G. excursion used to size the tail has a much weaker effect than differs significantly between the design option. HUG-CFG-301 and HUG-CFG-302 stay largely unaffected by the parameter, the mass of HUG-CFG-302 slightly decreases, why the two remaining options experience non-monotonous changes in MTOM.
-
-Changes to the langing gear bay width case a small and roughly linear increase in mass for the affected design options, which is expected. Changes in the bay length have a significantly more minor effect. This can be explained by the fact that while a longer bay has a proportionally longer wetted area, its slenderness ratio is also proportionally larger. Changes in the wheel diameter of the landing gear affect the podded landing gear significantly more and similarly to increasing the bay width. This is because those options have a shorter main landing gear strut width, so the wheel diameter is more driving to their frontal and reference areas.
-
-Overall, the results of the sensitivity study are plausible and highlight the importance of fuselage optimisation, as well as point to the challenging design space of the landing gear.
-
-
-\section{Landing Gear Configuration}
-\label{sec:Landing_gear_config}
-
-This section presents the selection analysis for the possible landing gear configurations of HUGO. Out of the five configurations, two of them use a podded buried design, with the wheels retracting vertically, while the other three configurations have a sideways diagonal retracting platform. 
-
-The HUGO UAV will have swappable wings for aeroservoelastic testing, and thus cannot support landing mounted to them. This restricts the landing gear to be housed in the fuselage. 
-
-The two undercarriage concepts differ in both retraction mechanism and stowage arrangement. In the external side-pod configuration, the landing gear is housed in nacelles mounted outside the fuselage. This arrangement can reduce the intrusion of the undercarriage into the main fuselage structure and can simplify the internal layout. However, the addition of side pods increases wetted area, weight and introduces interference drag at the pod fuselage junction.
-
-In the internal fuselage-bay configuration, the landing gear is retracted into the fuselage structure. This provides a cleaner external geometry, but requires dedicated internal volume, local structural reinforcement, landing gear doors, and a more integrated retraction mechanism. The placement of the undercarriage is also constrained by the need to avoid interference with the wing box, especially if a modular wing structure is used. Therefore, the final landing gear arrangement will depend strongly on the selected HUGO configuration and on the available structural integration space.
-
-Both configurations have clear advantages and disadvantages. The side pods are great for slow-moving aircraft, such as propeller or cargo aircraft \cite{raymer1992aircraft}, as they produce a lot of parasitic drag due to the extra area. They are used when a design has to maximise the internal volume \cite{raymer1992aircraft}, as they present a complex mechanism that requires a lot of moving parts. The major penalty for this undercarriage is the added drag due to the extra skin present and weight.
-
-On the other hand, the fuselage integrated landing gear, it is widely used for fast aircraft, as HUGO, because it keeps the outer skin undisturbed, retaining a low parasitic drag coefficient. The system is easier to design, as it only needs 3 struts for the retraction mechanism. The downside of this model is the occupied internal volume as opposed to the previous design. If the fuselage has the appropriate dimensions that permit this undercarriage design to fold, this option will be more desirable. In the case of a weight penalty of this model due to the need of the rod to resist both bending and compression loads, it can be compensated by the simplicity of the model and the low weight of the plane.
-%Since all five aircraft configurations use the same general landing gear concept, namely a retractable undercarriage, it does not directly affect the main trade-off selection.
-
-
-Aircraft landing gear serve to taxi on the runway, but also to allow for an aircraft to pivot during take off and landing. As such, several constraints are placed on the design of the landing gear, the most important of which are the tip back and beta angle, the turn over angle, and the wing-tip-to-landing-gear angle. The following restrictions must be obeyed by the landing gear \cite{roskamLandingGearSystems,Vos2025AirplaneDesignAnalysis}:
-\begin{itemize}
-    \item The scraping angle must be equal to, or larger than $15 \deg$ (pitch angle req.)\autoref{fig:lg_angles}
-    \item The angle between the vertical line and the line through the main gear and the C.G. has to be at least equal to the scraping angle (pitch angle req.) \autoref{fig:lg_angles}
-    \item The turn over angle must be less than 55 degrees;
-    \item The wing-tip-to-landing-gear-wheel angle must be greater than 7 degrees
-    \item The front landing gear must bear between 8\% and 15\% of the total aircraft weight
-\end{itemize}
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/Raymar LG dim.png}
-    \caption{Tip back angle and Scraping angle visualisations \cite{raymer1992aircraft}}
-    \label{fig:lg_angles}
-\end{figure}
-
-
-By using trigonometric relations between the landing gear and critical points such as the location of the C.G., the positions of the beginning and end of the tail cone, and the wing tips as described in \cite{roskamLandingGearSystems}, the location of the main and nose landing gear, as well as the landing gear length, and main landing gear separation can be optimised for the given geometric parameters of the fuselage. Using Sequential Least Squares Quadratic Programming (SLSQP), the strut length, x-position, and the lateral track of the main landing gear, as well as the x-position of the nose landing gear, can be minimised. 
-
-For the optimiser to converge to reasonable values, further constraints were imposed to limit the design space. The chosen airfoil has a stall angle of attack of 15\degree. The purpose of the tip-back angle is to prevent the aircraft from tipping back when it contacts the ground during landing at the maximum landing angle of attack, or during take off. Because the stall angle of attack is 15\degree for all relevant regimes, the optimizer restricts the tip back angle to be equal to 15\degree. This allows for a variable beta angle (the angle between the landing gear to the C.G. and from the landing gear vertically to the centre line), placing the landing gear further back as beta increases. By allowing the landing gear to be housed in the tail cone, the lateral separation of the main landing gear remains close the diameter of the fuselage. This prevents unfeasible landing gear configurations, which would require complex mechanisms, more housing space, and add unnecessary weight. Based on the input parameters of fuselage length and diameter, up-sweep of the tail cone, and location of the C.G., the calculated values using the optimiser will help determine the kind of housing required for the landing gear of each configuration.
-
-The nose gear will be positioned in the middle of the fuselage at y = 0.
-
-\begin{table}[H]
-    \centering
-    \small
-    \caption{Landing gear dimensions and observations}
-    \label{tab:landing_gear_tradeoff}
-
-    % ---------- Row 1 ----------
-    \begin{subtable}[t]{0.48\textwidth}
-        \centering
-        \caption{HUG-CFG-301}
-        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
-            \hline
-            \textbf{Parameter} & \textbf{Dimension}  \\
-            \hline \hline
-            Nose gear x poz & 0.387 m \\
-            Fuselage gear x poz & 2.143 m \\
-            Fuselage gear y poz & 0.334 m\\
-            Height & 0.282 m\\
-            Observations & Wing tip clearance drives length\\
-            \hline
-        \end{tabularx}
-    \end{subtable}
-    \hfill
-    \begin{subtable}[t]{0.48\textwidth}
-        \centering
-        \caption{HUG-CFG-302}
-        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
-            \hline
-            \textbf{Parameter} & \textbf{Dimension}  \\
-            \hline \hline
-            Nose gear x pos & 0.272 m \\
-            Fuselage gear x pos & 2.570 m \\
-            Fuselage gear y pos & 0.231 m\\
-            Height & 0.168 m\\
-            Observations & Almost the same for all high-wings\\
-            \hline
-        \end{tabularx}
-    \end{subtable}
-
-    \vspace{0.5cm}
-
-    % ---------- Row 2 ----------
-    \begin{subtable}[t]{0.48\textwidth}
-        \centering
-        \caption{HUG-CFG-303}
-        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
-            \hline
-            \textbf{Parameter} & \textbf{Dimension}  \\
-            \hline \hline
-            Nose gear x pos &0.273 m \\
-            Fuselage gear x pos &  2.570 m\\
-            Fuselage gear y pos & 0.231 m\\
-            Height & 0.168 m\\
-            Observations &Almost the same for all high-wings\\
-            \hline
-        \end{tabularx}
-    \end{subtable}
-    \hfill
-    \begin{subtable}[t]{0.48\textwidth}
-        \centering
-        \caption{HUG-CFG-304}
-        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
-            \hline
-            \textbf{Parameter} & \textbf{Dimension }  \\
-            \hline \hline
-            
-            Nose gear x pos &0.273 m \\
-            Fuselage gear x pos &  2.570 m\\
-            Fuselage gear y pos & 0.231 m\\
-            Height & 0.168 m\\
-            Observations &Almost the same for all high-wings\\
-            \hline
-        \end{tabularx}
-    \end{subtable}
-
-    \vspace{0.5cm}
-
-    % ---------- Centered bottom table ----------
-    \begin{subtable}[t]{0.58\textwidth}
-        \centering
-        \caption{HUG-CFG-305}
-        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
-            \hline
-            \textbf{Parameter} & \textbf{Dimension}  \\
-            \hline \hline
-            Nose gear x pos &0.273 m \\
-            Fuselage gear x pos &  2.570 m\\
-            Fuselage gear y pos & 0.231 m\\
-            Height & 0.167 m\\
-            Observations &Almost the same for all high-wings\\
-            \hline
-        \end{tabularx}
-    \end{subtable}
-
-\end{table}
-
-Based on the data above, the landing gear position does not pose an impediment for any of the configurations. The first configuration has the longest landing gear (HUG-CFG-301), so it will incur the largest mass penalty. The rest of the designs have similar dimensions, but the podded configurations will have additional weight due to the extra material and added complexity, placing lower in the trade-off process compared to the remaining two models.
-
-The width of the landing gear is given by the width of the tyre, and all designs use the same tyre type. Looking at the reference UAVs, especially at the X-56 UAV \footnote{\href{https://ntrs.nasa.gov/citations/20150023568}{X-56}(accessed on 20.05.2026)}, we calculated that the tyre has a width of 45 mm, and a diameter of 200 mm. The fuselage will have a diameter of 31.5 cm, to account for all the internal components that need to be included, analysed in \autoref{sec:internal_configuration}.
-
-% Pros and cons for the 2 LG 
-% 1. Outside nacelle: 
-%     -Mass: it only has the nacelles that have to be integrated to the outside fuselage. they need to be resistant and be able to transfer the loads from it to the main structure, 
-%     -Interference to the wing box: the LG can be integrated into all the configs since it will not affect the wing box of the fuselage 
-%     -Aerodynamics: the friction coefficient is: 
-% 2. Internal bay:
-%     -occupies more volume but it might be easier to retract as it is less complex to store
-
-% Raymer- page 291, the internal storagde of the fuseage is due to the large drag formed by the nacelas, while it is beneficial to have the lg in nacelas because of the reduced weight, the drag is very large
-%     -pods create a lor of drag
-
-
-%The landing gear has to comply with a couple of conditions in order to ensure proper functionality. The tip-back angle of HUGO is $\theta =15\deg$\cite{roskamLandingGearSystems} and a requirement from \cite{roskamLandingGearSystems} states that the angle between the vertical line and the line through the main gear and the C.G. has to be larger 
-
-
+\end{comment}
+The mass fractions of the segments can be later combined into the total fuel mass fraction. To verify the implementation of the method, a fuel mass fraction of a test aircraft with equivalent range equal to that of HUGO, but a single glide ratio and engine efficiency value has been computed both using the above method and the unmodified equations from Vos \cite{Vos}.
 
 \section{Structural Weight Penalty Analysis}
 \label{sec:structural_weight_penalty_analysis}
@@ -674,11 +405,11 @@ The width of the landing gear is given by the width of the tyre, and all designs
 
 %\subsection{Fuselage Initial Analysis}
 %\label{subsec:fuselage_initial_analysis}
-The purpose of this analysis is to investigate the extent to which a configuration's versatility, via the inclusion of a canard port and the ability to shift the main wing forward and aft, impacts the empty mass of the aircraft. To achieve this, it was assumed that the most significant contribution to a change in mass would be the additional fuselage reinforcements required to maintain structural integrity for each configuration. The mass of the canard wing itself is considered part of the tested planform and thus that penalty is neglected. Furthermore, it is acknowledged that the mounting solution for the main wing will incur a mass penalty. However, it is implicit in the trade-off analysis that for a variable port, the mass penalty of the mounting solution for the static port would be multiplied by the desired variance in wing position, which would guarantee a larger mass penalty. It was therefore only deemed necessary to estimate the additional structural mass required due to the variation in the position of lift forces.  
+The purpose of this analysis is to investigate the extent to which a configuration's versatility, via the inclusion of a canard port and the ability to shift the main wing forward and aft, impacts the empty mass of the aircraft. To achieve this, it was assumed that the most significant contribution to a change in mass would be the additional fuselage reinforcements required to maintain structural integrity for each configuration. The mass of the canard wing itself is considered part of the tested planform and thus that penalty is neglected. Variable mounting of the main wing would require a range of wing attachments points, multiplying the weight penalty from wing attachment compared to a non-variable wing mount.  
 
-It is assumed for this analysis that the Young's modulus $E$ is constant in all directions, i.e. the material used is isotropic. Quasi-isotropic properties of a carbon fibre reinforced polymer (CFRP) material from the Ansys GrantaEdupack database \footnote{\href{https://www.ansys.com/products/materials/granta-edupack}{Ansys Granta EduPack}(accessed on 21.05.2026)} is used as a reference material. Furthermore, a minimum fuselage skin thickness of $0.3mm$ was determined for the optimiser, based on manufacturability \cite{galos2020thin}.
+It is assumed for this analysis that the Young's modulus $E$ is constant in all directions, i.e. the material used is isotropic. Quasi-isotropic properties of a carbon fibre reinforced polymer (CFRP) material from the Ansys GrantaEdupack database \footnote{\href{https://www.ansys.com/products/materials/granta-edupack}{Ansys Granta EduPack}(accessed on 21.05.2026)} is used as a reference material. Furthermore, a minimum fuselage skin thickness of $0.3mm$ was determined for the optimiser, based on the range of minimum ply thicknesses from Galos \cite{galos2020thin}.
 
-The loads from the wing, canard, empennage and weight are placed as point loads in the longitudinal direction $x$. The simplified loading diagram is shown in \autoref{fig:fuselage_loading_model}. $L_c$, $L_w$ and $L_t$ represent the lift components of the canard, wing and empennage, respectively. $W$ is the weight, which is simplified as a point load acting through the centre of gravity located at $x_{cg}$. The main lifting loads are first determined from force and moment equilibrium. For the configurations with canard ports, an initial canard lifting fraction $L_c / L_w = 0.20$ was selected to minimise the possible impact of its wake whilst representing a significant load to the airframe \cite{AdvancedACDesign_Torenbeek}.
+The loads from the wing, canard, empennage and weight are placed as point loads in the direction transverse to the fuselage direction $x$. The simplified loading diagram is shown in \autoref{fig:fuselage_loading_model}. $L_c$, $L_w$ and $L_t$ represent the lift components of the canard, wing and empennage, respectively. $W$ is the weight, which is simplified as a point load acting through the centre of gravity located at $x_{cg}$. The main lifting loads are first determined from force and moment equilibrium. For the configurations with canard ports, an initial canard lifting fraction $L_c / L_w = 0.20$ was selected to minimise the possible impact of its wake whilst representing a significant load to the airframe \cite{AdvancedACDesign_Torenbeek}.
 
  \begin{figure}[H]
     \centering
@@ -718,11 +449,11 @@ The loads from the wing, canard, empennage and weight are placed as point loads 
     \label{fig:fuselage_loading_model}
 \end{figure}
 
-The point loads and point mass simplifications are suitable for the initial shear and bending loads estimation. However, more detailed distributed loads will be used further in the design stage for specific fuselage section design. The pitching moment of the canard and tail are neglected in this initial analysis to the reduced size of the canard and tail, whilst the pitching moment of the main wing is also neglected due to the near-zero pitching moment coefficient of the NASA SC(2)-0012 airfoil within the range of cruise angles of attack 
+The point loads and point mass simplifications are suitable for the initial shear and bending loads estimation. However, more detailed distributed loads will be used further in the design stage for specific fuselage section design. The zero-lift pitching moment of the canard and tail are neglected in this initial analysis due to the reduced size of the canard and tail, whilst the zero-lift pitching moment of the main wing is also neglected due to the negligible pitching moment coefficient of the NASA SC(2)-0012 airfoil within the range of cruise angles of attack 
 \footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il#polars}{NASA SC(2)-0012}(accessed on 20.05.2026)}.
 
 For this preliminary analysis, the fuselage was simplified and modelled as a hollow cylinder with an outer diameter $d = 0.315 \ m$ and length $l = 3.42 \ m$ based on FLEXOP dimensions \todo{footnote}. The model partitions the fuselage into discrete points along the fuselage length $l$ based on an initial resolution value $i=500$. The external loads where placed at the partition correspondent to their respective $x$ values.  The internal shear force at
-each station is calculated by cumulatively summing all loads up to that point and the internal moments are obtained vianumerical integration:
+each station is calculated by cumulatively summing all loads up to that point and the internal moments are obtained via numerical integration:
 
 \begin{equation}
     V_z(x_i) = \sum_{j=0}^{i} F_z(x_j);\ M_y(x_i) = \sum_{j=0}^{i} V_z(x_j)\Delta x
@@ -765,6 +496,7 @@ For the iterative sizing, a baseline empty mass fraction is obtained from Finger
     \left(\frac{\text{OEM}}{\text{MTOM}}\right)_{baseline}=0.699\text{ MTOM}^{-0.051};\ \frac{\text{OEM}}{\text{MTOM}}=\left(\frac{\text{OEM}}{\text{MTOM}}\right)_{baseline}+\frac{\Delta m}{\text{MTOM}}
 \end{equation}
 
+The mass penalty is incorporated into the sizing loop of the aircraft, and as such will affect its final MTOM.
 
 \begin{comment}
 \begin{figure}[htbp]
@@ -835,7 +567,7 @@ For the iterative sizing, a baseline empty mass fraction is obtained from Finger
 \end{comment}
 
 
-\begin{figure}[p] 
+\begin{figure}[H] 
     \centering
     
     % ================= CONFIG 2 =================
@@ -1001,582 +733,311 @@ For the iterative sizing, a baseline empty mass fraction is obtained from Finger
 %    \label{fig:fuselage_loading_remaining_cases}
 %\end{figure}
 
-\section{Material Selection}
-\label{sec:Material_Selection}
 
-This Section addresses the selection of aerospace materials for various subsystems of HUGO. Key factors considered in this analysis are: structural properties, material cost, manufacturing cost, durability, sustainability, and special properties. For the purpose of a preliminary material selection, the aircraft was divided into the following subgroups:
 
-%The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following: fuselage structure, wing structure, empennage and control surfaces, and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
 
-%\autoref{tab:aerospace_applications} lists the main loading modes and constraints for some of the major aircraft components. 
 
-\begin{comment}
-\begin{table}[H]
-\centering
-\caption{Aerospace Applications/Idealizations, adapted from \cite[p. 6] {Arnold2012MaterialsSelection}}
-\begin{tabular}{|c|p{7cm}|p{6.5cm}|}
-\hline
-\textbf{Application} & \textbf{Loading} & \textbf{Constraints} \\ \hline
 
-Truss & Tension & Strength \\ \hline
 
-Fuselage  & Compression, Tension, Bending  & Buckling, Strength, Deflection \\ \hline
+\section{Matching Diagram for Wing and Engine Sizing}
+\label{sec:matching_diagram}
 
-%Shafts & Thin walled tube/Beam & Torque, Rotation, Bending  & Bending, Shear, Vibration \\ \hline
+To specify the wing loading and thrust necessary for the aircraft, it is a standard practice to construct a matching diagram. This is done according to procedures outlined by Vos \cite{Vos}, but adapted for the aerobatic CS-23 and high-speed requirements of the designed aircraft.
 
-%Combustion Chambers & Thin walled Cylinder, Internal pressure & Pressure, Noise & Thermal, Oxidation \\ \hline
+Next to the cruise speed constraint, the constraint of providing thrust in the Mach 0.75 condition with half of the fuel weight is considered. Due to the replaceable wing requirement, HUGO cannot be sized to require high lift devices. This means all constraints are evaluated for a clean wing. Since there is no specified rate of climb and approach speed considered, those constraints are omitted. The climb gradient constraints from CS-23 still guarantee satisfactory climb performance, while the landing field length provide an upper bound on the wing loading. Both take-off and landing field lengths are constrained by runway length of Den Helder Airport \footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Den Helder - Information for pilots} (accessed on 22.05.2026)}. The set of matching diagram constraints is presented in \autoref{tab: Matching diagram constraints}.
 
-%Blades (Fan, Compressor, Turbine) & Tie/Beam & Bending, Tension, Fatigue, Thermal, Creep & Deflection, Strength, Vibration, Erosion, Temperature \\ \hline
-
-%Disks (Compressor, Turbine) & Disk & Rotation, Thermomechanical Fatigue & Strength, Ductility, Toughness, Oxidation \\ \hline
-
-%Space Truss Framework & Tie rod & Axial Loading & Strength, Buckling \\ \hline
-
-%Nozzle & Pressure, Noise, Thermal & Strength, Vibration \\ \hline
-
-%Wing & Bending, Tension, Twist, Vibration, Fatigue & Buckling, Vibration, Strength, Deflection \\ \hline
-
-%Cryogenic Tanks & Spherical Shell & Internal Pressure, Thermal & Strength, low temperature Yield before break, Leak before break \\ \hline
-
-\end{tabular}
-\label{tab:aerospace_applications}
+\begin{table}[h]
+\caption{The constraints used to construct the matching diagram}
+\label{tab: Matching diagram constraints}
+\begin{tabular}
+{|c|c||c|c|c|c|}
+    
+    \hline
+    \textbf{N.O.} & \textbf{Costraint} & \textbf{constrained value} & \textbf{landing gear} & \textbf{altitude} & \textbf{fuel burned} \\
+    \hline\hline
+    1. & Airfield Length & 1275 m& down & sea level & 0\% \\
+    \hline
+    2. & Cruise speed & Mach 0.4 & up & 27000 ft & 0\% \\
+    \hline
+    3. & Maximum speed & Mach 0.75 & up & 27000 ft & 50\% \\
+    \hline
+    4. & Climb gradient single engine & 0.01 & up & sea level & 0\% \\
+    \hline
+    5. & Climb gradient all engines & 0.04 & up & sea level & 0\% \\
+    \hline
+    6. & Take-off field length & 1275 m & down & sea level & 0\% \\
+    \hline
+    \end{tabular}
 \end{table}
-\end{comment}
 
- 
+The implementation of the matching diagram is verified by reproducing the example jet aircraft analysed by \cite{Vos}. Agreement with the textbook results is reached up to the precision of the values provided in the source.
+
+
+
+
+\section{Empennage Preliminary Design}
+\label{sec:empennage_preliminary_design}
+%\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
+Preliminary sizing of the empennage follows from an analysis of reference aircraft: DAST ARW-2, FLEXOP, and Boeing's Transonic Truss-Braced Wing (TTBW) \cite{XiongBoeing}. The X56-A was not included in this part of the analysis due to being tailless. Relevant statistical data for the horizontal tail (HT) and vertical tail (VT) is provided in \autoref{tab:tail_params}. For parameters not included in official documentation, values were estimates from drawings and projected views.
+
+%The next step is a preliminary sizing of the empennage. Since the NASA X-56A is a tailless aircraft, it is not included in the list of reference aircraft values. Instead, the Boeing truss-braced wing aircraft concept is used. \cite{XiongBoeing}. First, data about the horizontal and vertical tail from several reference aircraft were collected, shown in \autoref{tab:tail_params}. Several tail parameters were not available directly. Therefore, drawings and projected views have been used to record tail parameters using known values, such as the wing span. Note that HT refers to the horizontal tailplane and VT refers to the vertical tailplane. 
+
+\begin{table}[H]
+    \centering
+    \caption{Tail parameters of reference aircraft\cite{Yu2022} \cite{Bauer2020} \cite{perry1982methodology} \cite{Eckstrom1994} \cite{XiongBoeing} } 
+    \label{tab:tail_params}
+    
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    \textbf{Parameter} &\textbf{Tail} & \textbf{Symbol} & \textbf{DAST ARW-2} & \textbf{FLEXOP} & \textbf{TTBW}\\
+    \hline\hline
+    Tail configuration [-] &$-$ & $-$ & Conventional & V-tail & T-Tail\\
+    \hline
+    Span [m] & HT & $b_h$ & 1.71 & 1.27 (projected) & 11.75\\
+    \hline
+    Arm [m] & HT & $l_h$ & 2.66 & 2.0 & 21.09\\
+    \hline
+    Non-dimensionalized arm [-] & HT & $l_h/\bar{c}$ & 4.75 & 2.67 & 7.25\\
+    \hline
+    Aspect ratio [-] & HT & $AR_h$ & 3.5 & 4.2 & 4.52\\
+    \hline
+    Taper ratio [-] & HT & $\lambda_h$ & 0.4 & 0.52 & 0.35\\
+    \hline
+    Dihedral [\degree] & HT & $\Gamma_h$ & N/A & 35 & N/A\\
+    \hline
+    LE sweep [\degree] & HT & $\Lambda_{LE_{h}}$ & 45 & 23.55 & 21.3\\
+    \hline
+    Quarter-chord sweep [\degree] & HT& $\Lambda_{qc_{h}}$ & 41.27 & 19.83 & 15.82 \\
+    \hline
+    Surface area $[m^2]$ & HT & $S_h$ & 0.836 & 0.39 & 30.54\\
+    \hline
+    Half-span [m] & VT & $b_v$ & 0.83 & N/A & 9.64\\
+    \hline
+    LE sweep [\degree] & VT & $\Lambda_{LE_{v}}$ & 52 & N/A & 16.6\\
+    \hline
+    \end{tabular}
+\end{table}
+
+The following design approach for HUGO considers the conventional (i. e. non-canard) configurations featuring a T-tail. This is motivated by the fact that all configurations shall be able to perform operations without a canard, even if the ports for it are included in the design.
+%since considering canards would make the distinction between design option configurations less clear. The reason is that the canard is movable for all the considered configurations, so these configurations will also have to be able to fly without a canard. 
+The performance of HUGO is limited by two main factor which govern the allowable centre of gravity range: stability and controllability. The constraining relations are expressed by \autoref{eq:Stability} and \autoref{eq:Controllability}, respectively \cite[p. 309]{torenbeek2013synthesis}.
+
+%Since the aircraft has to be able to allow for stable, neutrally stable, and unstable flight configurations, the neutral position of the c.g. is chosen as the design point. However, the aircraft has to be controllable at the same time, with a certain margin. These two conflicting properties of stability and controllability are governed by the equations shown in \autoref{eq:Controllability} and \autoref{eq:Stability}, respectively \cite{torenbeek2013synthesis}. Clearly, they describe the positions of the centre of gravity as a function of the aerodynamic centre position and numerous aerodynamic and geometric parameters. The two curves constitute the so-called scissor plot, where 
+\begin{equation}
+\bar{x}_{cg,\text{stability}} = \bar{x}_{ac} + \frac{C_{L_{\alpha_h}}}{C_{L_{\alpha_{A-h}}}} \left(1 - \frac{d\varepsilon}{d\alpha}\right) \frac{S_h l_h}{S\bar{c}} \left(\frac{V_h}{V}\right)^2
+\label{eq:Stability}
+\end{equation}
+
+\begin{equation}
+\bar{x}_{cg,\text{controllability}} = \bar{x}_{ac} - \frac{C_{m_{ac}}}{C_{L_{A-h}}} + \frac{C_{L_h}}{C_{L_{A-h}}} \frac{S_h l_h}{S\bar{c}} \left(\frac{V_h}{V}\right)^2
+\label{eq:Controllability}
+\end{equation}
+
+The aircraft is controllable when ${\bar{x}_{cg}}>\bar{x}_{cg,\text{controllability}} $ and stable when ${\bar{x}_{cg}}<\bar{x}_{cg,\text{stability}}$ \cite{torenbeek2013synthesis}. To determine the allowable $x_{cg}$ range, we enforce $\bar{x}_{cg}=\bar{x}_{cg,\text{stability}}$ and $\bar{x}_{cg}-\bar{x}_{cg,\text{controllability}}=\text{CGE}$, where $CGE$ is the minimum required excursion between the controllability curve and the design point. 
+
+
+The aerodynamic parameters required for \autoref{eq:Stability} and \autoref{eq:Controllability} are obtained by the aerodynamic analysis, as described in \autoref{sec:aerodynamic_modelling}. It is assumed that $({V_h}/{V})^2=1$ and ${d\varepsilon}/{d\alpha}=0.0$ due to the use of a T-tail \cite{torenbeek2013synthesis}. That leaves the tail volume $S_h l_h$ as the only unknown. The horizontal tail position $l_h$ can be estimated based on the ratio between the horizontal tail arm and surface area of the FLEXOP, effectively reducing the tail volume to a function of only surface area. This calculation is part of a larger iterative design loop.
+
+
+
+\section{Landing Gear Configuration}
+\label{sec:Landing_gear_config}
+
+This section presents the selection analysis for the possible landing gear configurations of HUGO. Out of the five configurations, two of them use a podded buried design, with the wheels retracting vertically, while the other three configurations have a sideways diagonal retracting platform. 
+
+The HUGO UAV will have swappable wings for aeroservoelastic testing, and thus cannot support landing mounted to them. This restricts the landing gear to be housed in the fuselage. 
+
+The two undercarriage concepts differ in both retraction mechanism and stowage arrangement. In the external side-pod configuration, the landing gear is housed in nacelles mounted outside the fuselage. This arrangement can reduce the intrusion of the undercarriage into the main fuselage structure and can simplify the internal layout. However, the addition of side pods increases wetted area, weight and introduces interference drag at the pod fuselage junction.
+
+In the internal fuselage-bay configuration, the landing gear is retracted into the fuselage structure. This provides a cleaner external geometry, but requires dedicated internal volume, local structural reinforcement, landing gear doors, and a more integrated retraction mechanism. The placement of the undercarriage is also constrained by the need to avoid interference with the wing box, especially if a modular wing structure is used. Therefore, the final landing gear arrangement will depend strongly on the selected HUGO configuration and on the available structural integration space.
+
+Both configurations have clear advantages and disadvantages. The side pods are great for slow-moving aircraft, such as propeller or cargo aircraft \cite{raymer1992aircraft}, as they produce a lot of parasitic drag due to the extra area. They are used when a design has to maximise the internal volume \cite{raymer1992aircraft}, as they present a complex mechanism that requires a lot of moving parts. The major penalty for this undercarriage is the added drag due to the extra skin present and weight.
+
+On the other hand, the fuselage integrated landing gear, it is widely used for fast aircraft, as HUGO, because it keeps the outer skin undisturbed, retaining a low parasitic drag coefficient. The system is easier to design, as it only needs 3 struts for the retraction mechanism. The downside of this model is the occupied internal volume as opposed to the previous design. If the fuselage has the appropriate dimensions that permit this undercarriage design to fold, this option will be more desirable. In the case of a weight penalty of this model due to the need of the rod to resist both bending and compression loads, it can be compensated by the simplicity of the model and the low weight of the plane.
+%Since all five aircraft configurations use the same general landing gear concept, namely a retractable undercarriage, it does not directly affect the main trade-off selection.
+
+
+Aircraft landing gear serve to taxi on the runway, but also to allow for an aircraft to pivot during take off and landing. As such, several constraints are placed on the design of the landing gear, the most important of which are the tip back and beta angle, the turn over angle, and the wing-tip-to-landing-gear angle. The following restrictions must be obeyed by the landing gear \cite{roskamLandingGearSystems,Vos}:
 \begin{itemize}
-    \item \textbf{Fuselage structure:}
-    The fuselage is the main structure of the aircraft, which acts as a tethering point for the wings, empennage, and propulsion \cite{CHATTERJEE2019199}. Additionally, it contains the major control system and payload. The main loads acting on a fuselage are compression, tension, and bending, and main design constraints are based on phenomena such as buckling, yielding, and deflection \cite{Arnold2012MaterialsSelection}. For HUGO, the largest loads are expected to occur at a flight speed of Mach 0.75 and during high-g manoeuvrers. 
-    
-    \item \textbf{Wing structure:} The wings of an aircraft are subjected to varying types of loads during flight, including bending, tension, compression, twist, vibration, and fatigue \cite{Arnold2012MaterialsSelection}. The main design constraints are related to an analysis of buckling, vibrations, yielding, and deflection. The material for HUGO's wing planform shall therefore be chosen to provide a sufficiently stiff and strong structure (e.g. to withstand the load factors defined in the flight envelope shown in \autoref{fig:flight_envelope_both}). Depending on the nature of the test, and especially the required stiffness, the choice of material for this subsystem is expected to vary.
-
-    \item \textbf{Empennage and control surfaces:} The empennage will experience loads of varying degrees during the flight. The structure need to act as a moment-arm for the generated forces at the tailplane. This makes it possible to generate moments around the centre of gravity both in the vertical and horizontal plane. This is not only to ensure straight and steady flight but also to make manoeuvring (change of heading, flight direction and etc.) possible for the aircraft.   
-
-    
-    \item \textbf{Landing gear:} 
-    The landing gear must be able to carry the weight of the aircraft, as well as withstand take-off and landing loads. According to Albuquerque\cite{structural_loads_handbook}, the key loads acting on the undercarriage can be split into: ground loads (static load, braking, braked roll, ground turns, reversed braking, nose wheel yaw and steering, pivoting, towing etc.), landing loads, and take-off loads (associated with retraction of the landing gear and gyroscopic effects of changing wheel direction). All of these cases are relevant for HUGO, as the in its final configuration, the landing gear retracts into the aircraft during flight (see: \autoref{sec:trade-off_final_design}).  
-
-    \item \textbf{Pylons:} For the design of HUGO, it is assumed that an already existing engine will be chosen, together with a nacelle provided by the manufacturer. However, the design of pylons still has to be considered. The main loads acting on the pylons come from the engines, specifically the associated vibrations and thermal loads \cite{pylon_load_analysis}. Therefore, key considerations for this structural element are related to fatigue life and resistance to high temperatures.    
-
-    %\item \textbf{Wing/Empennage Ports:} The modular ports defined for the empennage and/or wing structures of HUGO will have to withstand the loads acting at the connection points between the fuselage and the given planform. Structural analysis shows that both the bending and shear loads are the highest at the root \cite{structural_loads_handbook}. Therefore, the material for the ports shall be chosen such that the resistance to the aforementioned load types is prioritised.
+    \item The scraping angle must be equal to, or larger than $15 \deg$ (pitch angle req.)\autoref{fig:lg_angles}
+    \item The angle between the vertical line and the line through the main gear and the C.G. has to be at least equal to the scraping angle (pitch angle req.) \autoref{fig:lg_angles}
+    \item The turn over angle must be less than 55 degrees;
+    \item The wing-tip-to-landing-gear-wheel angle must be greater than 7 degrees
+    \item The front landing gear must bear between 8\% and 15\% of the total aircraft weight
 \end{itemize}
 
-It is important to note that at this design stage, the materials are only chosen for the primary components of each structural subsystem. A more detailed design of elements such as antenna mounts, access panel hardpoints, fastener inserts etc., as well as the details of internal supporting structure, will be analysed in more detail once the final external configuration is established for HUGO. 
-
-
-\subsection{Material Analysis of Reference Aircraft}
-\label{sub:materials_reference_aircraft}
-The material selection shall begin with an analysis of reference aircraft, X56-A and DASR ARW-2 previously introduced in \autoref{sub:lift_reference_aircraft}, as well as existing trends in the aerospace industry. The purpose of this research is to ensure that HUGO can model the behaviour of contemporary aircraft as accurately as possible.
-
-X56-A, the high aspect ratio testbed developed by NASA in the 2010s, features a carbon fibre composite centrebody with honeycomb bulkheads \cite{X56-AMaterials}. Carbon fibre composites were also used for the wing spars and ribs, as well as the skin for stiff wings. Flexible wing configurations featured glass fibre skins due to their lower stiffness. It also features a stiff landing gear designed for parachute landing loads. While specific materials used for the landing gear do not seem to be publicly available, accessible footage suggests that the structure is metallic.
-
-The DAST ARW-2, a slightly older concept from the 1980s, featured a wing using 7075-T73 aluminium spars and ribs covered with a fibreglass honeycomb sandwich skin material (36 layers at inboard end, 27 at outboard, with 25-percent of the layers at $\pm$45 degree orientation) \cite{Eckstrom1986ARW2}. High stiffness was achieved by incorporating a thick aluminium plate in the centre section of the wing, and strain gauge bridges were mounted on the spars and ribs.
-
-The prevalence for composite usage in external structures is also present in modern commercial aircraft. Leading aircraft manufacturers, such as Boeing and Airbus, both incorporate carbon laminates into the airframes of their products as a lighter alternative to metallic alloys\footnote{\label{url:cfrp_airbus}\href{https://www.airbus.com/en/newsroom/news/2017-02-aviations-material-evolution}{Airbus - Aviation's material evolution} (accessed on 13.05.2026)}\footnote{\label{url:cfrp_boeing}\href{https://www.boeing.com/content/dam/boeing/boeingdotcom/features/innovation-quarterly/2024/IQ-2024-Q3-full.pdf}{Boeing - 787 Dreamliner Difference} (accessed on 13.05.2026)}. Additionally, Airbus A330neo nacelles are made with 60\% composites, together with a honeycomb structure for acoustics\footnote{\href{https://www.safran-group.com/products-services/airbus-a330neo-nacelles}{Airbus A330neo nacelles} (accessed on 13.05.2026)}, while Boeing 777x uses fine metallic alloys instead\footnote{\href{https://www.safran-group.com/products-services/boeing-777x-exhaust-system}{Boeing 777x exhaust system} (accessed 13.05.2026)}. In the recent years, NLR has also began experimenting with implementing composites into upper spars of pylons    \footnote{\href{https://www.toraytac.com/newsroom/story/HelI/Thermoplastic-Upper-Spar-for-an-Aircraft-Engine-Pylon}{Automated Production of Large and Thick Thermoplastic Composite Aircraft Parts} (accessed on 18.05.2026)}. Aluminium, steel, and titanium alloys are also among the most commonly used materials for typical landing gear systems \cite{typicallandinggear}, as well as engine pylons (specifically Ti and Al-Li alloys)\cite{TiAl_pylon_materials}. 
-
-\autoref{tab:materials_airliner_breakdown} showcases the usage of aerospace materials for two exemplary commercial aircraft: Airbus A350 XWB, and B787 Dreamliner. These models were chosen due to data availability, and were deemed as representative of modern aircraft systems.
-
-\begin{table}[H]
-   \caption{Materials used in external structures of A350 XWB\cite{skinmaterials_1} and B787\cite{skinmaterials_2}}
+\begin{figure}[h]
     \centering
-    \begin{tabular}{|c|p{6cm}|p{6cm}|}
-    \hline
-        \textbf{Material} & \textbf{A350 XWB} & \textbf{B787} \\
-        \hline\hline
-         Carbon laminate & Fuselage skin, wings, centre wing box, keel beam, tail cone, skin panels, frames/stringers/doublers, doors & Fuselage skin, ailerons, flaps \\\hline
-         Fibreglass & $-$ & wing skin, wing-to-fuselage joints\\\hline
-         Al alloys & Cockpit, wing leading edges, engine inlets & Wing leading edges, engine inlets\\\hline
-         Metallic alloys & Pylons (Ti) & Pylons (Al/Steel/Ti)\\\hline
-         Carbon sandwich & $-$ & Nacelles, elevators, rudders\\ \hline
-    \end{tabular}
-    \label{tab:materials_airliner_breakdown}
-\end{table}
-
-%787 Dreamliner: Carbon laminate for fuselage skin + ailerons + flaps, fibreglass for wing skin and wing joints, aluminium for leading edges + engine inlets, aluminium/steel/titanium for pylons, carbon sandwich for nacelles, elevators and rudders. \cite{skinmaterials_2}
-
-%Airbus A350 XWB: CFRP for wings, centre wing box + keel beam, tail cone, skin panels, frames/stringers/doublers, doors \cite{skinmaterials_1} aluminium/al-li for cockpit, leading edge of the wing, nacelle inlet, titanium pylons
-
-\subsection{Candidate Aerospace Materials for HUGO}
-\label{sub:materials_candidates}
-
-According to Mouritz\cite{Mouritz2012}, there are no more than one hundred types of metal alloys, composites, polymers and ceramics that exhibit properties suitable for aerospace applications. The main materials used for airframes and engines include: aluminium alloys, titanium alloys, steels, and composites. Suitable representatives of each material group selected for the material design trade-off for HUGO are described in \autoref{tab:materials_trade-off_candidates_desc}.
-
-\begin{longtable}{|c|p{2.25cm}|p{10.75cm}|}
-        \caption{Candidate Materials for Detailed Trade-Off}
-        \label{tab:materials_trade-off_candidates_desc}\\
-
-\hline
-       \textbf{Material ID} & \textbf{Material} & \textbf{Description}\\\hline\hline
-\endfirsthead
-
-\hline
-       \textbf{Material ID} & \textbf{Material} & \textbf{Description}\\\hline\hline
-\endhead
-
-\hline
-\multicolumn{3}{r}{\textit{Continued on next page.}} \\
-\endfoot
-
-\hline
-\endlastfoot
-
-        HUG-MAT-01 & Sitka spruce &  Wood has played a part in aerospace engineering since the first powered flight. The softwood Sitka spruce was chosen based on its historical use in the construction of aircraft stemming from high specific strength and stiffness \cite{bookJohn}. The material is additionally characterised by its low density and low cost. \\\hline
-        HUG-MAT-02 & Ti-6Al-4V & Primarily used for manufacturing of engine subsystems and landing gear, titanium is known for its high strength, long fatigue life, fracture toughness, creep strength,
-        and excellent resistance to corrosion and oxidation \cite{Mouritz2012}. Ti-6Al-4V is considered a traditional alloy for commercial airliners \cite{titanium_use_airbus_boeing}. \\\hline
-        HUG-MAT-03 & Al 7075-T76 &  Aluminium has been widely used in aviation since the 1930s, and is a proven material in the industry. The specific alloy was chosen due to its outstanding anti-corrosive properties and stress corrosion cracking resistance \cite{LI2023944}. \\\hline
-        HUG-MAT-04 & Mg WE46-T6 & Magnesium has traditionally been used in aircraft due to its extremely low density (similar to that of carbon-fibre composites) \cite{Mouritz2012}. However, its popularity has declined due to poor corrosion resistance and high cost. The specific alloy was chosen based on its proven applications in aerospace industry \footnote{\href{https://www.matweb.com/search/datasheet.aspx?matguid=f41ac8bc1ddd4c1d85247e646b3ec2be}{MatWeb - Magnesium WE54-T6} (accessed on 19.05.2026)}  \\\hline
-        HUG-MAT-05 & Steel 18Ni (350)
-        %\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} 
-        & Steel is primarily applied to safety-critical structural components due to its very high specific strength \cite{Mouritz2012}. The specific steel type was chosen due to its high fracture toughness, as well as demonstrated reliability in aerospace applications \cite{ANTOLOVICH1980717}.\\\hline
-        HUG-MAT-06 & Carbon/epoxy Composite & The widespread use of CFRP in contemporary aviation stems from its remarkably high strength-to-weight ratio, as well as high stiffness and corrosion resistance \cite{Mouritz2012}. Depending on the application, uni- or quasi-directional fibre placement can be selected to suit the envisioned loading mode of a structure\footnote{\href{https://www.abbottaerospace.com/aa-sb-001/4-materials/4-1-composite-materials/4-1-3-fundamental-behavior-of-carbon-fiber-epoxy-resin-composite-laminates/}{Fundamental Behavior of Carbon Fiber Epoxy Resin Composite Laminates} (accessed on 19.05.2026)}.
-        
-        \\\hline
-        HUG-MAT-07 & Glass/epoxy Composite %\cite{Vantadori}
-        & Glass composites present similar properties to their carbon counterparts, with the most notable exceptions of a slightly lower strength and stiffness \cite{Mouritz2012}. This makes them a viable design option for cases where flexibility is desired. Similarly to the CFRP, different fibre orientations can be chosen depending on the purpose of the designed part or structure.
-        %\footnote{\href{https://www.goodfellow.com/eu/resources/e-glass-epoxy-material-information/}{E-glass/Epoxy - Material Information} (accessed 12.05.2026)}  
-        \\\hline
-        
-\end{longtable}
-
-%Since most metals used in aerospace occurs as some sort of alloy, the most relevant alloys has been chosen to limit the list of candidates \cite{Mouritz2012}.
-   
-%\begin{itemize}
-    %\item \textbf{Aluminium:} The most widely used material for aerospace in the last fifty years. It is characterised by its ease of manufacturing, high specific strength and stiffness. The alloy used for the analysis is Al (7075 Al-T76) \cite{LI2023944}. 
-    %\item \textbf{Wood:} Wood has played a part in aerospace engineering since the first powered flight. The softwood Sitka spruce was chosen based on its historical use in the construction of aircraft stemming from high specific strength and stiffness \cite{bookJohn}. The material is additionally characterised by its low density and low cost. 
-    %\item \textbf{Magnesium} These alloys were used in the aerospace industry for a wide range of applications. It has the lowest density of all metals commonly used in aircraft. The alloy Mg (WE46-T6) will be used in the trade-off.
-   % \item \textbf{Titanium} It has a high strength at medium density. The $\beta$-Ti alloy (Ti-6Al-4 V) will be considered.  \cite{titanium_use_airbus_boeing}. 
-    %\item \textbf{Steel} This has high strength with high density. The alloy used for the comparisons are Steel (18Ni (350))
-    %\item \textbf{Composites} This consists typically of two materials the matrix and the fibres. In the case of this the chosen composite the matrix is thermoset epoxy and the fibres are carbon or glass.    
-%\end{itemize}
-
-%A qualitative comparison of the candidate materials can be performed using relevant aerospace literature. \autoref{tab:materials_grading_properties} lists the grading of aerospace materials on key design factors, distinguishing between: very low (VL), low (L), medium (M), high (H) and very high (VH), based on Mouritz's classification of metal alloys and CFRP \cite[p. 6]{Mouritz2012}. Additional columns were added for wood and glass/epoxy composites based on a comparison to CFRP\footnote{\label{url:cfrp_vs_gfrp}\href{https://njnir.com/aerospace/cfrp-vs-gfrp?utm_source=chatgpt.com}{CFRP vs. GFRP in Aerospace Engineering: A Comparative Analysis of Composite Materials} (accessed on 19.05.2026)}, Mouritz material comparison \cite{Mouritz2012}, and material property plots made by Ashby et al \cite{ashby2019materials}. Based on the gathered data, a first-order comparison can be made between the considered material candidates.
-
-
- \begin{comment}
-\begin{table}[H]
-\centering
-\caption{Grading of aerospace materials on key design factors (adapted from \cite[p. 6]{Mouritz2012})}
-\begin{tabular}{|l|c|c|c|c|c|c|c|}
-\hline
-\textbf{Property} & \textbf{Al} & \textbf{Ti} & \textbf{Mg} & \textbf{Steel} & \textbf{CFRP}  & \textbf{Glass/epoxy} & \textbf{Wood} \\
-\hline\hline
-Cost & L & H & M & M  & H & M & VL\\\hline
-Weight (density) & L & M & VL & H  & VL & L & VL\\\hline
-Stiffness (elastic modulus) & L/M & M & L & VH & H & L & L \\\hline
-Strength (yield stress) & M & M/H & L & VH  & H & M & L \\\hline
-Fracture toughness & M & H & L/M & L/M  & L & L & L\\\hline
-Fatigue & L/M & H & L & M/H & H & M & H\\\hline
-Corrosion resistance & M & H & L & L/M & VH & H & N/A \\\hline
-High-temperature creep strength & L & M & L & H  & L & L & N/A\\\hline
-Ease of recycling & H & M & M & H & VL & L & VH\\
-\hline
-\end{tabular}
-\label{tab:materials_grading_properties}
-\end{table}
-\end{comment}
-
-\begin{comment}
-\begin{table}[H]
-\centering
-\caption{Mechanical properties of selected aerospace materials (part of the table taken from chapter 17 table 17.1 in Introduction to Aerospace Materials \cite{Mouritz2012}).}
-\label{tab:material-properties}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l|l|c|c|c|c|}
-\hline
-\textbf{ID}
-  & \makecell{\\\textbf{Density}\\(g\,cm$^{-3}$)}
-  & \makecell{\textbf{Specific}\\\textbf{modulus}$^*$\\$\times10^{6}$\\(N\,m\,kg$^{-1}$)}
-  & \makecell{\textbf{Specific}\\\textbf{strength}\\$\times10^{3}$\\(N\,m\,kg$^{-1}$)}
-  & \makecell{\textbf{Specific}\\\textbf{fracture}\\\textbf{toughness}\\$\times10^{3}$\\(N\,m$^{1.5}$\,kg$^{-1}$)} \\
-\hline\hline
-HUG-MAT-01 &  0.4 & 22.5 & 138   & 10.0 \\ \hline
-HUG-MAT-02 & 4.6 & 23.5 & 217   & 21.7 \\ \hline
-HUG-MAT-03 &  2.7 & 25.9 & 174   & 10.7 \\ \hline
-HUG-MAT-04 & 1.7 & 26.5 & 117   & 11.8 \\ \hline
-HUG-MAT-05  & 8.1 & 24.6 & 295.6 & 4.9 \\ \hline
-HUG-MAT-06  & 1.7 & 29.4 & 450   & 22.4 \\ \hline
-HUG-MAT-07 & 2.0 & 28.7&  384  & 31.0 \\
-\hline
-\end{tabular}
-\end{table}
-\end{comment}
-
-A quantitative analysis of the candidate materials can be obtained via an analysis of the base material properties of each candidate (listed in \autoref{tab:base-material-properties}), as well as deriving the weight-specific properties, such as the specific modulus ($E/\rho$), specific strength ($\sigma_y/\rho$), specific fracture toughness ($K_{Ic}/\rho$), column buckling efficiency ($\sqrt{E}/\rho$), and panel/skin buckling efficiency ($\sqrt[3]{E}/\rho$) (listed in \autoref{tab:derived-material-properties}). The weight-specific properties can be further normalised and summed to provide an overall index for the mechanical properties of the materials, which can be used to rank the materials in the trade-off. Specific costs of each material used in \autoref{tab:base-material-properties} were obtained from the Spot materials database\footnote{\href{https://spotmaterial.com/}{Spot material} (accessed on 20.05.2026)}. All calculations made to determine the density-specific properties and assist with the trade-off can be accessed via the Project HUGO GitHub \footnote{\label{url:midterm_material_selection}\href{https://docs.google.com/spreadsheets/d/1GpVjdeAKDGPKHCRgVgf5LDyppZcSMRnKjkgZY_FNGBo/edit?gid=916630606#gid=916630606}{Midterm Material Selection}(accessed on 20.05.2026)}.
-
-The sustainability of a material is a measure of: the emissions released during its production, its impact on the environment and its recycle-ability.  
-To systematically asses the sustainability of a material it is necessary to perform a preliminary LCA-analyses of the aircraft using each chosen material. To quantify the emissions the unit of global warming potential (GWP) is used for the emissions. In this stage it makes sense to make a streamlined LCA where the focus the emissions related to the production of the materials.
-
-\begin{comment}
-    
-This was performed for each material using the following model:   
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{figures/simpLCA-analysis.png}
-    \caption{Simplified LCA model for the aircraft}
-    \label{fig:placeholder}
+    \includegraphics[width=0.8\linewidth]{figures/Raymar LG dim.png}
+    \caption{Tip back angle and Scraping angle visualisations \cite{raymer1992aircraft}}
+    \label{fig:lg_angles}
 \end{figure}
 
-\end{comment}
-For the LCA-analysis the software openLCA was used with the added databases: Swiss Federal Administration LCI Database (BAFU:2025) and the openLCA LCIA Methods package (\footnote{\href{https://nexus.openlca.org/downloads}{openLCA Nexus} (accessed 6.05.2026)}.). For the streamlined assessment the focus is on the construction of fuselage, empennage and wings. The preliminary mass together with an weight-fraction can be used to estimate the weight of wings, fuselage, empennage and landing gears (the turbine is not taken into consideration since this is not part of the material selection). Different materials will lead to different weights (as the specific structural characteristics are different for each material). The complete graphs and data files for each material can be found at(\footnote{\href{https://www.dropbox.com/scl/fi/44g7n0904dl4oh5xsrz3s/DSE28streamlined.zip?rlkey=19iyhsbcg01kxn4chadqhtqb0&st=b9eibuvj&dl=0}{Streamlined LCA}}).   
-Finally it is necessary to asses the recycle-ability of the different materials. Wood can be relatively easily be reused or can be burned as fuel %\footnote{\href{https://www.unilinpanels.com/en/sustainability/recycling   }{UNILIN} (accessed 18.05.2026)}. 
-As is often the case with metals it is possible for the recycled metal to retain most of the structural performance of the virgin material\cite{euric_metal_recycling}.  Recycling of glass and carbon- composites is typically very difficult and the large majority of these materials ends in landfills or are incinerated \cite{dot}.
+
+By using trigonometric relations between the landing gear and critical points such as the location of the C.G., the positions of the beginning and end of the tail cone, and the wing tips as described in \cite{roskamLandingGearSystems}, the location of the main and nose landing gear, as well as the landing gear length, and main landing gear separation can be optimised for the given geometric parameters of the fuselage. Using Sequential Least Squares Quadratic Programming (SLSQP), the strut length, x-position, and the lateral track of the main landing gear, as well as the x-position of the nose landing gear, can be minimised. 
+
+For the optimiser to converge to reasonable values, further constraints were imposed to limit the design space. The chosen airfoil has a stall angle of attack of 15\degree. The purpose of the tip-back angle is to prevent the aircraft from tipping back when it contacts the ground during landing at the maximum landing angle of attack, or during take off. Because the stall angle of attack is 15\degree for all relevant regimes, the optimizer restricts the tip back angle to be equal to 15\degree. This allows for a variable beta angle (the angle between the landing gear to the C.G. and from the landing gear vertically to the centre line), placing the landing gear further back as beta increases. By allowing the landing gear to be housed in the tail cone, the lateral separation of the main landing gear remains close the diameter of the fuselage. This prevents unfeasible landing gear configurations, which would require complex mechanisms, more housing space, and add unnecessary weight. Based on the input parameters of fuselage length and diameter, up-sweep of the tail cone, and location of the C.G., the calculated values using the optimiser will help determine the kind of housing required for the landing gear of each configuration.
+
+The nose gear will be positioned in the middle of the fuselage at y = 0.
+
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Landing gear dimensions and observations}
+    \label{tab:landing_gear_tradeoff}
+
+    % ---------- Row 1 ----------
+    \begin{subtable}[t]{0.48\textwidth}
+        \centering
+        \caption{HUG-CFG-301}
+        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
+            \hline
+            \textbf{Parameter} & \textbf{Dimension}  \\
+            \hline \hline
+            Nose gear x poz & 0.387 m \\
+            Fuselage gear x poz & 2.143 m \\
+            Fuselage gear y poz & 0.334 m\\
+            Height & 0.282 m\\
+            Observations & Wing tip clearance drives length\\
+            \hline
+        \end{tabularx}
+    \end{subtable}
+    \hfill
+    \begin{subtable}[t]{0.48\textwidth}
+        \centering
+        \caption{HUG-CFG-302}
+        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
+            \hline
+            \textbf{Parameter} & \textbf{Dimension}  \\
+            \hline \hline
+            Nose gear x pos & 0.272 m \\
+            Fuselage gear x pos & 2.570 m \\
+            Fuselage gear y pos & 0.231 m\\
+            Height & 0.168 m\\
+            Observations & Almost the same for all high-wings\\
+            \hline
+        \end{tabularx}
+    \end{subtable}
+
+    \vspace{0.5cm}
+
+    % ---------- Row 2 ----------
+    \begin{subtable}[t]{0.48\textwidth}
+        \centering
+        \caption{HUG-CFG-303}
+        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
+            \hline
+            \textbf{Parameter} & \textbf{Dimension}  \\
+            \hline \hline
+            Nose gear x pos &0.273 m \\
+            Fuselage gear x pos &  2.570 m\\
+            Fuselage gear y pos & 0.231 m\\
+            Height & 0.168 m\\
+            Observations &Almost the same for all high-wings\\
+            \hline
+        \end{tabularx}
+    \end{subtable}
+    \hfill
+    \begin{subtable}[t]{0.48\textwidth}
+        \centering
+        \caption{HUG-CFG-304}
+        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
+            \hline
+            \textbf{Parameter} & \textbf{Dimension }  \\
+            \hline \hline
+            
+            Nose gear x pos &0.273 m \\
+            Fuselage gear x pos &  2.570 m\\
+            Fuselage gear y pos & 0.231 m\\
+            Height & 0.168 m\\
+            Observations &Almost the same for all high-wings\\
+            \hline
+        \end{tabularx}
+    \end{subtable}
+
+    \vspace{0.5cm}
+
+    % ---------- Centered bottom table ----------
+    \begin{subtable}[t]{0.58\textwidth}
+        \centering
+        \caption{HUG-CFG-305}
+        \begin{tabularx}{\linewidth}{|@{}X c@{}|}
+            \hline
+            \textbf{Parameter} & \textbf{Dimension}  \\
+            \hline \hline
+            Nose gear x pos &0.273 m \\
+            Fuselage gear x pos &  2.570 m\\
+            Fuselage gear y pos & 0.231 m\\
+            Height & 0.167 m\\
+            Observations &Almost the same for all high-wings\\
+            \hline
+        \end{tabularx}
+    \end{subtable}
+
+\end{table}
+
+Based on the above tables, the landing gear position does not pose an impediment for any of the configurations. The first configuration has the longest landing gear (HUG-CFG-301), so it will incur the largest mass penalty. The rest of the designs have similar dimensions, but the podded configurations will have additional weight due to the extra material and added complexity, placing lower in the trade-off process compared to the remaining two models.
+
+The width of the landing gear is given by the width of the tyre, and all designs use the same tyre type. Looking at the reference UAVs, especially at the X-56 UAV \footnote{\href{https://ntrs.nasa.gov/citations/20150023568}{X-56}(accessed on 20.05.2026)}, we calculated that the tyre has a width of 45 mm, and a diameter of 200 mm. The fuselage will have a diameter of 31.5 cm, to account for all the internal components that need to be included, analysed in \autoref{sec:internal_configuration}.
+A more detailed analysis and design of the landing gear will be performed in the next stage of the project, at the final design stage.
+
+% Pros and cons for the 2 LG 
+% 1. Outside nacelle: 
+%     -Mass: it only has the nacelles that have to be integrated to the outside fuselage. they need to be resistant and be able to transfer the loads from it to the main structure, 
+%     -Interference to the wing box: the LG can be integrated into all the configs since it will not affect the wing box of the fuselage 
+%     -Aerodynamics: the friction coefficient is: 
+% 2. Internal bay:
+%     -occupies more volume but it might be easier to retract as it is less complex to store
+
+% Raymer- page 291, the internal storagde of the fuseage is due to the large drag formed by the nacelas, while it is beneficial to have the lg in nacelas because of the reduced weight, the drag is very large
+%     -pods create a lor of drag
+
+
+%The landing gear has to comply with a couple of conditions in order to ensure proper functionality. The tip-back angle of HUGO is $\theta =15\deg$\cite{roskamLandingGearSystems} and a requirement from \cite{roskamLandingGearSystems} states that the angle between the vertical line and the line through the main gear and the C.G. has to be larger 
+
+\section{Sensitivity study}
+\label{sec: sensitivity study}
+During the preliminary sizing, several assumptions have been made, whose impact needs to be assessed. The uncertainty in fuselage and landing gear dimensions (taken from FLEXOP geometry), the dimensions of landing gear pod with respect to the gear itself, as well as the target CG excursion between minimum controllability and neutral stability points are identified as driving assumptions. This is a basis for a sensitivity study whose details are shown in \autoref{tab:sensitivity study}. The results of the sensitivity study have been presented as MTOM plots for every configuration across different parameter values \todo{footnote}.
+
 \begin{table}[H]
 \centering
-\caption{Base Mechanical, Economic, and Environmental Properties of Selected Aerospace Materials (Mechanical data derived from \cite{Mouritz2012}).}
-\label{tab:base-material-properties}
+\caption{Overview of the sensitivity study}
+\label{tab:sensitivity study}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|}
 \hline
-\textbf{ID}
-  & \makecell{\textbf{Density} ($\rho$)\\($kg\,m^{-3}$)}
-  & \makecell{\textbf{Young's}\\\textbf{Modulus} ($E$)\\(MPa)}
-  & \makecell{\textbf{Specific}\\\textbf{Cost}\\(Euro\,$kg^{-1}$)} 
-  & \makecell{\textbf{GWP}\\(kg $CO_2$ eq)} \\
+\textbf{Parameter}
+& \textbf{Unit}
+  & \textbf{Baseline Value}
+  & \textbf{Lower Bound}
+  & \textbf{Upper Bound}
+  & \textbf{Evaluation Points}\\
   
 \hline\hline
+C.G. Excursion & [\%MAC]& 0.5 &  0.25 & 1.0 & 4 \\   \hline
+Fuselage Diameter &[m] & 0.315 & 0.25 & 0.45 & 4 \\   \hline
+Fuselage Length &[m] & 3.45 & 1.71 & 4.104 & 4 \\   \hline
+Landing Gear Diameter &[m] & .085 & 0.05 & 0.12 & 4 \\   \hline
+Pod to Gear Diameter &[-] & 2.0 & 1.5 & 3.0 & 4 \\   \hline
+Pod to Gear Length &[-] & 1.25 & 1.0 & 1.5 & 3 \\   \hline
 
-HUG-MAT-01 & 400  & 9000   & 0.85-1.7 & 5.66
-%\tablefootnote{\href{https://spotmaterial.com/material/spruce/sawnwood-kiln-dried/}{Spot material} (accessed 11.05.2026)}   
-\\ \hline
-
-HUG-MAT-02 & 4600 & 108100 & 21-25 & 95.91
-%\tablefootnote{\href{https://spotmaterial.com/material/titanium/titanium-alloy-ti-6al-4v-grade-5-ti-6-4/}{Spot material} (accessed 11.05.2026)}    
-\\ \hline
-
-HUG-MAT-03 & 2700 & 69930  & 2.55-5.1 & 100.85
-%\tablefootnote{\href{https://spotmaterial.com/material/aluminium/7000-series-alznmgcu-7075-7475/}{Spot material} (accessed 11.05.2026)}  
-\\ \hline
-
-HUG-MAT-04 & 1850 & 49025  & 2.975-5.95 & 1085.43
-%\tablefootnote{\href{https://spotmaterial.com/material/magnesium/cast-we-alloys-we43-we54/}{Spot material} (accessed 11.05.2026)}
-\\ \hline
-
-HUG-MAT-05 & 8100 & 199260 & 8-20 & 69.88
-%\tablefootnote{\href{https://spotmaterial.com/material/alloy-steel/high-speed-tool-steel-hss-m-t/}{Spot material} (accessed 11.05.2026)}     
-\\ \hline
-
-HUG-MAT-06 & 1700 & 49980  & 25.91-32.30 & 262.88
-%\tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)} 
-\\ \hline
-
-HUG-MAT-07 & 2000 & 57400  & 6.5-8.7 & 62.83
-%\tablefootnote{\href{https://spotmaterial.com/material/high-modulus-glass-fibre/high-strength-s/}{Spot material} (accessed 12.05.2026)}   
-\\ \hline
-\end{tabular}
-\end{table}
-
-
-
-\begin{table}[H]
-\centering
-\caption{Derived Specific Material Indices and Economic Factors for Aerospace Structural Design \footref{url:midterm_material_selection}}
-\label{tab:derived-material-properties}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l|c|c|c|c|c|c|}
-\hline
-\textbf{ID}
-  & \makecell{\textbf{Specific}\\\textbf{Modulus}\\($E/\rho$)\\(GPa / $kg\,m^{-3}$)}
-  & \makecell{\textbf{Column}\\\textbf{Buckling}\\($\sqrt{E}/\rho$)}
-  & \makecell{\textbf{Plate}\\\textbf{Buckling}\\($\sqrt[3]{E}/\rho$)}
-  & \makecell{\textbf{Specific}\\\textbf{Strength}\\($\sigma/\rho$)\\$\times10^{3}$\\(N\,m\,kg$^{-1}$)}
-  & \makecell{\textbf{Specific}\\\textbf{Fracture}\\\textbf{Toughness}\\($K_{Ic}/\rho$)\\$\times10^{3}$\\(N\,m$^{1.5}$\,kg$^{-1}$)} 
-  & \makecell{\textbf{Total}\\\textbf{Normalized}\\\textbf{Economic}\\\textbf{Factor}} \\
-\hline\hline
-HUG-MAT-01 & 22.5 & 0.24 & 0.05 & 138   & 10.0 & 0.21 \\ \hline
-HUG-MAT-02 & 23.5 & 0.07 & 0.01 & 217   & 21.7 & 4.34 \\ \hline
-HUG-MAT-03 & 25.9 & 0.10 & 0.02 & 174   & 10.7 & 0.68 \\ \hline
-HUG-MAT-04 & 26.5 & 0.12 & 0.02 & 117   & 11.8 & 0.92 \\ \hline
-HUG-MAT-05 & 24.6 & 0.06 & 0.01 & 295.6 & 4.9  & 3.80 \\ \hline
-HUG-MAT-06 & 29.4 & 0.13 & 0.02 & 450   & 22.4 & 3.35 \\ \hline
-HUG-MAT-07 & 28.7 & 0.12 & 0.02 & 384   & 31.0 & 0.94 \\
 \hline
 \end{tabular}
 \end{table}
 
-The total normalized economic factor shown in \autoref{tab:derived-material-properties} is determined by adding dividing the material cost per kilogram by its material indices, and then normalizing the results. It is a critical parameter to be used for the material trade-off. The material cost per kg does not paint a clear picture, as it does not account for differences in mechanical properties.
-%(e. g. 1 kg of CFRP is not equivalent in strength to 1 kg of steel). 
-Lower values of the normalized economic factor point towards more cost-effective solutions. Detailed calculations regarding the economic factor of HUGO's material selection can be found in the Project HUGO Git\footref{url:midterm_material_selection}.
-%To account for this, the cost per kilogram of each material was divided by its material indices, then normalized to a dimensionless value, and summed to arrive at the normalized material cost, where lower is better. The results of this can be seen in \autoref{tab:derived-material-properties}.
-%The results of this analysis show that Sitka Spruce (HUG-MAT-01) is the cheapest material in terms of raw cost, whereas Titanium (HUG-MAT-02) is the most expensive. 
+First, the design iteration failed to converge for fuselage lengths shorter than the baseline as well as for the largest fuselage diameters due to infeasible landing gear. This is attributed to the combination of current landing gear requirements creating a heavily constrained design space for the landing gear. As the tail cone is replaceable, a tricycle configuration is strictly enforced over tail dragger. Due to the modular nature of the aircraft, the gear has to retract into fuselage or fuselage-connected pods. At the same time, a track width wider than the fuselage diameter is needed to satisfy the tip clearance and turnover angle constraints. The nose landing gear is also set to retract forward. While beneficial in case of actuator failure, this constraint might be reconsidered due to severely impacting the landing gear design freedom for shorter fuselages. As for the landing gear becoming infeasible for high fuselage diameter, it may be attributed to increasing the height of the CG without increasing the nose to main gear x distance, which worsens the turnover performance.
+
+Regarding parameter values in the feasible design space, increasing the fuselage dimensions, especially the diameter, causes a rapid increase in mass (nearly double for the highest considered fuselage diameter), with the exception of the longer fuselage of HUG-CFG-302, which slightly decreases the total mass. It is thus recommended for the final design to avoid excessive enlargening of the fuselage, especially in diameter.
+
+Changing the C.G. excursion used to size the tail has a much weaker effect than differs significantly between the design option. HUG-CFG-301 and HUG-CFG-302 stay largely unaffected by the parameter, the mass of HUG-CFG-302 slightly decreases, why the two remaining options experience non-monotonous changes in MTOM.
+
+Changes to the langing gear bay width case a small and roughly linear increase in mass for the affected design options, which is expected. Changes in the bay length have a significantly more minor effect. This can be explained by the fact that while a longer bay has a proportionally longer wetted area, its slenderness ratio is also proportionally larger. Changes in the wheel diameter of the landing gear affect the podded landing gear significantly more and similarly to increasing the bay width. This is because those options have a shorter main landing gear strut width, so the wheel diameter is more driving to their frontal and reference areas.
+
+Overall, the results of the sensitivity study are plausible and highlight the importance of fuselage optimisation, as well as point to the challenging design space of the landing gear.
 
 
 
-\begin{comment}
-
-\begin{table}[H]
-\centering
-\caption{Pricing and emissions attributed to the selected aerospace materials}
-\label{tab:material-economics}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l||c|c|}
-\hline
-\textbf{ID}
-  & \makecell{\textbf{Specific}\\\textbf{cost}\\(euro\,$kg^{-1}$)}
-  & \makecell{\textbf{Carbon}\\\textbf{Footprint}\\ ($CO_2 kg^{-1}$)} \\
-\hline\hline
-HUG-MAT-01\tablefootnote{\href{https://spotmaterial.com/material/spruce/sawnwood-kiln-dried/}{Spot material} (accessed 11.05.2026)}                  & 0.85-1.7 & 0.05-0.5 \\ \hline
-HUG-MAT-02\tablefootnote{\href{https://spotmaterial.com/material/titanium/titanium-alloy-ti-6al-4v-grade-5-ti-6-4/}{Spot material} (accessed 11.05.2026)}              & 21-25 & 8.1-26.5 \\ \hline
-HUG-MAT-03\tablefootnote{\href{https://spotmaterial.com/material/aluminium/7000-series-alznmgcu-7075-7475/}{Spot material} (accessed 11.05.2026)}          & 2.55-5.1 & 4-20\\ \hline
-HUG-MAT-04\tablefootnote{\href{https://spotmaterial.com/material/magnesium/cast-we-alloys-we43-we54/}{Spot material} (accessed 11.05.2026)}               & 2.975-5.95 & 8.5-36 \\ \hline
-HUG-MAT-05\tablefootnote{\href{https://spotmaterial.com/material/alloy-steel/high-speed-tool-steel-hss-m-t/}{Spot material} (accessed 11.05.2026)}    & 8-20 & 6.8 \\ \hline
-HUG-MAT-06\tablefootnote{\href{https://spotmaterial.com/material/carbon-fibre-cf/high-modulus-hm-ep-cf60-60-continuous-cf-hm/}{Spot material} (accessed 11.05.2026)}    & 25,91-32.30  & 17.5-23.2 \\ \hline
-HUG-MAT-07\tablefootnote{\href{https://spotmaterial.com/material/high-modulus-glass-fibre/high-strength-s/}{Spot material} (accessed 12.05.2026)}            & 6.5-8.7  & 4.8 \\
-\hline
-\end{tabular}
-\end{table}
-\end{comment}
-
-
-\begin{comment}
-HUG-MAT-01 has an extreme low carbon footprint which mostly stems from the extraction and  of since wood by it self extracts and binds carbon-dioxide from the atmosphere. Recycling HUG-MAT-01 is also possible though mostly due to wear and tear down-cycling is most often the most viable approach. The material can be made into small chips which can then be compressed and made into panels\footnote{\href{https://www.unilinpanels.com/en/sustainability/recycling   }{UNILIN} (accessed 18.05.2026)}. Disposing HUG-MAT-01 is also relatively simple as the material can be burned and used for energy and heating, though it is worth noting that this will be dependent on the surface coatings and treatment used on the material. Combustion will also lead to a release of the bounded carbon-dioxide. The majority of HUG-MAT-02 (Ti) can be found in relative large quantities in the earth crust but the refinement and purification is a very energy-intensive process \cite{min11121425}. The recycle-ability of HUG-MAT-02 is quite good and due to high production and refinement cost there is a clear incentive for recycling \cite{RAHIMI2025107056}. The production of both HUG-MAT-03 and HUG-MAT-04 has a large carbon footprint (see \autoref{tab:material-economics} with HUG-MAT-04 being very high due to the specific refining process used\cite{dot}. HUG-MAT-05 has a medium carbon footprint. As is often the case with metals it is possible for the recycled HUG-MAT-02,  HUG-MAT-03,  HUG-MAT-04 and HUG-MAT-05 to retain most of the structural performance of the virgin material \cite{euric_metal_recycling}. The final two materials would be HUG-MAT-06 and HUG-MAT-07. Sustainability is often presented as one of the largest issues for the broad implementation for carbon and glass-composites \cite{dot}. The production of both fibres are  extremely energy-heavy see \autoref{tab:material-economics} with especially carbon fibre having a large carbon footprint. There lies a potential sourcing the carbon from the atmosphere though this is not implemented on a industrial scale \cite{Keiner2024}. The resin used for the matrix is typically a thermoset. Recycling of these materials is typically very difficult and the large majority of glass and carbon- composites ends in landfills or are incinerated \cite{dot}
-\end{comment}
-
-\subsection{Criterion and Weight Factors for Material Selection Trade Off}
-\label{sec:Mat_sel}
-For the selection of material weight factors, a more holistic approach was applied, resulting in values from 0.1 to 1.0, where 1.0 warrants the highest priority. The followingr rationale was applied to justify the choice of specific values:
-
-\begin{itemize}
-    \item \textbf{Structural Properties (Weight 1.0):} It is the best interest to minimize the weight of HUGO's structural components. This way, the performance shall be optimized, accounting for the 5 kg mass.  Additionally, high specific modulus ($E/\rho$) and plate buckling efficiency ($\sqrt[3]{E}/\rho$) are required to withstand aeroelastic effects at Mach 0.75. Concentrated load structures (landing gear, pylons) are driven by high specific yield strength ($\sigma_y/\rho$) and fracture toughness ($K_{Ic}/\rho$) to safely absorb dynamic landing loads. Therefore, structural performance directly dictates the aerodynamic and operational feasibility of the platform. It warrants the highest trade-off weight, 1.0.
-    
-    \item \textbf{Durability (Weight 0.85):} HUGO is designed for a 15-year operational lifecycle with several flight days per year. The selected materials must withstand continuous high-impact cyclic loading, runway debris abrasion, and environmental degradation—including UV exposure for composites and galvanic corrosion at hybrid metallic-composite interfaces. While these issues can be solved using protective coatings and modern construction methods like using patches of fibreglass between the aluminium and carbon fibre components, the durability of the materials used is a large factor in the material selection process, warranting a weight of 0.85. 
-
-    \item \textbf{Material Cost (Weight 0.1):} The cost of the raw materials of the structure of HUGO has a small overall impact on the financial feasibility of the project, as found in the market analysis during the previous design phase\footref{url:baseline_report}. As explained in \autoref{sec:trade-off_criteria_selection}, the overall costs are expected to be dominated by manufacturing. Therefore, this criterion was assigned the lowest weight of 0.1.
-    %The costs of processing these materials and production of the parts have a far greater impact than the cost of the materials themselves. The specific costs of all the considered materials are listed in \autoref{tab:base-material-properties}.
-
-    \item \textbf{Manufacturing Cost (Weight 0.5):} Manufacturing complexity dictates the primary financial burden of the project due to the low-volume production model. For aerodynamic surfaces, high Non-Recurring Engineering (NRE) costs associated with custom metallic tooling (e.g., stretch forming blocks) must be balanced against the high labour and autoclave operational costs of composite layups. For localized structures, direct CNC machining of metallic billets offers a highly efficient, low-NRE production route. Manufacturing methodology directly controls the economic viability of unit scaling, However, as shown in the previous design phase\footref{url:baseline_report}, there is a wide margin in the unit cost in the overall financial viability, which is why the criterion was deemed as one of medium importance, and assigned a weight of 0.5.
-
-    \item \textbf{Design Freedom (Weight 1.0):} Project HUGO functions as a flying testbed, rather than a mass-production vehicle. Maximizing design freedom allows for the implementation of complex, aerodynamically optimized profiles and fuselage geometries, that would be impossible or prohibitively heavy if restricted to simple, developable surfaces. Because the ability to manufacture advanced aerodynamic shapes directly governs the quality of the research data the platform can generate, design freedom is classified as a primary requirement and assigned the maximum weight of 1.0.
-
-    \item \textbf{Sustainability (Weight 0.5):} Being at the forefront of modern aviation research, HUGO shall embrace the industry's movement towards sustainable solutions. At the same time, the main design focus is the ability of HUGO to perform its mission. Therefore, this criterion was assigned a weight of 0.5.
-    %The consideration of the sustainability of material has relevance for the material selection. It should always be the goal to use a material for the aircraft which is safe for the surrounding environment and where the greenhouse emissions related to its manufacture can be kept low. Due to the likely relative small size of the aircraft and the low production volume of the aircraft it has been given the weight of 0.5.
-    \end{itemize}
-
-\subsection{Trade-off table}
-
-Based on the trade off criteria and weights selected in \autoref{sec:Mat_sel} and, the following trade off matrices were generated. Since the requirements and manufacturing methods and complexity varies significantly between the aerodynamic components (fuselage, empennage and wings), and the functional components (landing gear, pylons etc.), separate trade off matrices were required. \autoref{tab:fuselage_trade-off_matrix_material_selection} shows the trade off matrix for the aerodynamic components, and \autoref{tab:landing_gear_trade-off_matrix_material_selection} shows the trade off matrix for the functional components. 
-
-\begin{table}[H]
-\centering
-\caption{Trade-Off Matrix for Fuselage, Wings and Empennage}
-\renewcommand{\arraystretch}{1.4}
-
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{|p{2.5cm}||>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{2cm}||>{\centering\arraybackslash}p{3cm}|}
-\hline
-\rowcolor[HTML]{4472C4}
-\color{white}\textbf{Material} &\color{white}\textbf{Structural properties} &
-\color{white}\textbf{Durability} &\color{white}\textbf{Materi\-al cost} &
-\color{white}\textbf{Manufactur\-ing cost} &\color{white}\textbf{Design freedom} &\color{white}\textbf{\shortstack{Sustain-\\ability}} &
-\color{white}\textbf{Weighted Total} \\
-\hline\hline
-
-\rowcolor[HTML]{D9E2F3}
-\textbf{Weight} &
-1 & 0.85 &
-0.1 &
-0.5 &
-1 &
-0.5 &
-\\
-\hline
-
-HUG-MAT-01
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 10.35 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-02
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 1 \cellcolor[HTML]{F8696B}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& 11.85 \\
-\hline
-
-HUG-MAT-03
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 4 \cellcolor[HTML]{A9D18E}
-& 2 \cellcolor[HTML]{F4B183}
-& 3 \cellcolor[HTML]{F4E285}
-& 3 \cellcolor[HTML]{F4E285}
-& 12.30 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-04
-& 3 \cellcolor[HTML]{F4E285}
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 1 \cellcolor[HTML]{F8696B}
-& 9.55 \\
-\hline
-
-HUG-MAT-05
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& 1 \cellcolor[HTML]{F8696B}
-& 2 \cellcolor[HTML]{F4B183}
-& 3 \cellcolor[HTML]{F4E285}
-& 3 \cellcolor[HTML]{F4E285}
-& 10.30 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-\textbf{HUG-MAT-06}
-& \textbf{5} \cellcolor[HTML]{63BE7B}
-& \textbf{3} \cellcolor[HTML]{F4E285}
-& \textbf{2} \cellcolor[HTML]{F4B183}
-& \textbf{2} \cellcolor[HTML]{F4B183}
-& \textbf{5} \cellcolor[HTML]{63BE7B}
-& \textbf{1} \cellcolor[HTML]{F8696B}
-& \textbf{15.10} \\
-\hline
-
-HUG-MAT-07
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 2 \cellcolor[HTML]{F4B183}
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 14.30 \\
-\hline
-
-\end{tabular}
-\end{adjustbox}
-\label{tab:fuselage_trade-off_matrix_material_selection}
-\end{table}
-
-The carbon-fiber-reinforced polymer (CFRP) emerged as the clear optimal choice for the primary lifting surfaces and fuselage. Its advantage in specific modulus and plate buckling efficiency ($\sqrt[3]{E}/\rho$) is critical for a high-aspect-ratio (HAR) aircraft operating at Mach 0.75. This is what drove its score in the structural properties section. Furthermore, CFRP offers maximum design freedom, allowing for the maximum freedom to design complex aerodynamic profiles necessary for a flying laboratory. It also allows for the development and construction of new wing designs without large tooling costs. Utilizing CFRP ensures that weight of the fuselage and wings can be minimized, while retaining the maximum payload volume required for the 5 kg experimental payload.
-
-
-
-\begin{table}[H]
-\centering
-\caption{Trade-Off Matrix for Landing gear, Pylons, and Connection Ports}
-\renewcommand{\arraystretch}{1.4}
-
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{|p{2.5cm}||>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{2cm}||>{\centering\arraybackslash}p{3cm}|}
-\hline
-\rowcolor[HTML]{4472C4}
-\color{white}\textbf{Material} &
-\color{white}\textbf{Structural properties} &
-\color{white}\textbf{Durability} &
-\color{white}\textbf{Materi\-al cost} &
-\color{white}\textbf{Manufactur\-ing cost} &
-\color{white}\textbf{Design freedom} &
-\color{white}\textbf{\shortstack{Sustain-\\ability}} &
-\color{white}\textbf{Weighted Total} \\
-\hline\hline
-
-\rowcolor[HTML]{D9E2F3}
-\textbf{Weight} &
-1 &
-0.85 &
-0.1 &
-0.5 &
-1 &
-0.5 &
-\\
-\hline
-
-HUG-MAT-01
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 11.35 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-02
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 2 \cellcolor[HTML]{F4B183}
-& 14.85 \\
-\hline
-
-\textbf{HUG-MAT-03}
-& \textbf{3} \cellcolor[HTML]{F4E285}
-& \textbf{4} \cellcolor[HTML]{A9D18E}
-& \textbf{4} \cellcolor[HTML]{A9D18E}
-& \textbf{4} \cellcolor[HTML]{A9D18E}
-& \textbf{5} \cellcolor[HTML]{63BE7B}
-& \textbf{3} \cellcolor[HTML]{F4E285}
-& \textbf{15.30} \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-04
-& 3 \cellcolor[HTML]{F4E285}
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 2 \cellcolor[HTML]{F4B183}
-& 13.45 \\
-\hline
-
-HUG-MAT-05
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& 1 \cellcolor[HTML]{F8696B}
-& 4 \cellcolor[HTML]{A9D18E}
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 13.30 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-06
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 1 \cellcolor[HTML]{F8696B}
-& 12.60 \\
-\hline
-
-HUG-MAT-07
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 2 \cellcolor[HTML]{F4B183}
-& 1 \cellcolor[HTML]{F8696B}
-& 11.80 \\
-\hline
-
-\end{tabular}
-\end{adjustbox}
-\label{tab:landing_gear_trade-off_matrix_material_selection}
-\end{table}
-
-For localized, high-stress components such as the landing gear struts, engine pylons and modular port connection points, Aluminum 7075-T76 outperformed the composite alternatives. These components require a balance of high specific fracture toughness to absorb dynamic landing impacts and high manufacturability. Aluminum 7075-T76 provides excellent specific strength ($\sigma_y/\rho$) while keeping manufacturing and material costs significantly lower than titanium or composite alternatives. The selection of high-strength aluminum heavily supports the project's modularity requirement.
-%Hardpoints, pylons, and gear attachments can be rapidly CNC-machined, tapped, and modified to accommodate swappable test articles without the need for expensive composite tooling or complex inserts.
-
-
-
-
-\label{sub:materials_trade-off}
+%\label{sub:materials_trade-off}
 %As previously mentioned the aircraft could be parted into several subsections. These subsections would each have their own requirements and trade-off tables. 
 
 \begin{comment}
@@ -1934,3 +1395,6 @@ HUG-MAT-07
 \label{tab:landing_gear_trade-off_matrix_material_selection}
 \end{table}
 \end{comment}
+
+
+

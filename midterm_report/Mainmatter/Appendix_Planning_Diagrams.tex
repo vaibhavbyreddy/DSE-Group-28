@@ -1,48 +1,42 @@
+% Required packages in preamble:
+% \usepackage{graphicx}
+% \usepackage{subcaption}
+% \usepackage{float}
+% \usepackage{geometry}
+% \usepackage{adjustbox}
+
 \chapter{Project Planning Diagrams}
 \label{app:project_planning_diagrams}
-This Appendix contains the planning diagrams described in \autoref{ch:planning}. \autoref{fig:workflow_midterm} presents the WFD. \autoref{fig:N2} showcases the N2 diagram. \autoref{WBS} shows the WBS, and the project design and development logic is presented in \autoref{fig:proj_design}. Lastly, the team organogram is shown in \autoref{fig:organogram}.
+
+This Appendix contains the planning diagrams described in \autoref{ch:planning}.
+\autoref{fig:workflow_midterm} presents the WFD and \autoref{fig:N2} shows the N2 diagram.
+\autoref{WBS} shows the WBS, and the project design and development logic is presented in \autoref{fig:proj_design}.
+Lastly, the team organogram is shown in \autoref{fig:organogram}.
 
 \begin{figure}[H]
     \centering
 
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth, angle=90]{figures/Mid-term workflow.jpg}
-        \caption{Midterm workflow}
-        \label{fig:workflow_midterm}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth, angle=90]{figures/N2 Diagram.pdf}
-        \caption{N2 Diagram}
-        \label{fig:n2_diagram}
-    \end{subfigure}
+    \includegraphics[
+        width=1.2\textwidth,
+        angle=90
+    ]{figures/Mid-term workflow.jpg}
 
-    \caption{Workflow diagrams}
-    \label{fig:workflow_comparison}
+    \caption{Midterm workflow}
+    \label{fig:workflow_midterm}
 \end{figure}
 
-% \pdfpagewidth=420mm
-% \pdfpageheight=297mm
-% \paperwidth=420mm
-% \paperheight=297mm
-% \includepdf[pages=-, fitpaper=true, width=420mm, keepaspectratio, scale=1, pagecommand={
-%         \vspace*{\fill} 
-%         \thispagestyle{empty} 
-%         \noindent\hspace*{0cm} % Adjust this to center the text on the A3 page 
-%         \begin{minipage}{400mm} 
-%             \captionof{figure}{HUGO platform N2 diagram} 
-%         \end{minipage}
-%         \vspace*{1.5cm} 
-%         \label{fig:N2}
-%         % Pushes the caption up from the bottom edge 
-%     }]{figures/N2 Diagram.pdf}
-% \clearpage
-% \pdfpagewidth=210mm
-% \pdfpageheight=297mm
-% \paperwidth=210mm
-% \paperheight=297mm
+\newpage
+\begin{figure}[H]
+    \centering
+
+    \includegraphics[
+        width=1.35\textwidth,
+        angle=90
+    ]{figures/N2 Diagram.pdf}
+
+    \caption{HUGO platform N2 diagram}
+    \label{fig:N2}
+\end{figure}
 
 \label{WBS}
 \includepdf[pages=-,fitpaper=true, width=420mm, keepaspectratio]{figures/Midterm_WBS.drawio.pdf}
