@@ -69,7 +69,7 @@ As the changes between considered configurations lay mostly in the modularity de
     \end{subfigure}
 
     \caption{Initial HUGO configuration concepts}
-    \label{fig:hugo-configurations-303-304}
+    \label{fig:hugo-configurations-303-305}
 \end{figure}
 
 \begin{figure}[H]
@@ -109,7 +109,7 @@ Taking all of the above into consideration, the following criteria were selected
 \hline
 \endlastfoot
 
-Versatility & HUG-CFG-301 is a low wing concept, which prevents the testing of truss brased wing concepts, which was considered significant in conversations with NLR. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
+Versatility & HUG-CFG-301 is a low wing concept, which prevents the testing of truss-braced wing concepts, which was considered significant in conversations with NLR. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
 
 Reliability & Variable wing ports in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 introduce additional fatigue exposure at modular interfaces, increasing operational risk. Buried retractable gear in HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305 reduces accessibility for maintenance of the retraction mechanism. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \footref{url:baseline_report}).\\ \hline
 
@@ -182,7 +182,7 @@ Following the criterion definition, no-go values were established for which a de
 \hline
 
 Versatility & $<3$ &
-Versatility is a key feature of a flying testbed. A configuration with significant limitations to its test capability is fundamentally failing its purpose. Moderate limitations are acceptable.
+Versatility is a key feature of a flying testbed. A configuration with significant limitations to its test capability is failing its purpose. Moderate limitations are acceptable.
 \\ \hline
 
 Performance & $<3$ &
@@ -200,34 +200,6 @@ Maintaining low costs is not design-driving, but remains beneficial for economic
 Sustainability & $-$ &
 Not a mission-critical criterion.
 \\ \hline
-
-\multicolumn{3}{|c|}{\textbf{Material Selection}} \\
-\hline
-
-\makecell{Structural \\ Properties} & $<3$ &
-Structures made of materials with very poor or poor structural properties will not be able to sustain the expected aerodynamic loads, and therefore must not be used.
-\\ \hline
-
-Durability & $<3$ &
-Due to the expected lifetime of 15 years and structural loads resulting from the test conditions, materials with very low or low durability shall not be used.
-\\ \hline
-
-\makecell{Material \\ Cost} & $1$ &
-Maintaining low costs is not design-driving, but remains beneficial for economic sustainability and profitability.
-\\ \hline
-
-\makecell{Manufacturing \\ Cost} & $1$ &
-Same rationale applies as for Material Cost.
-\\ \hline
-
-\makecell{Design \\ Freedom} & $<3$ &
-Materials with very poor or poor ability to form complex shapes and profiles are not a feasible choice for HUGO, since their application would likely necessitate joining multiple simple shapes with additional parts, increasing the overall weight and size of HUGO.
-\\ \hline
-
-Sustainability & $-$ &
-Not a mission-critical criterion.
-\\ \hline
-
 \end{longtable}
 
 \begin{comment}
@@ -367,6 +339,8 @@ The key differentiators under this definition would be:
 \end{table}
  \end{comment}
 
+Although performance was initially considered a viable trade-off criterion, preliminary mass estimates and fuel fraction data obtained from the parametric model showed comparable values across all configurations. Therefore, performance was excluded from the trade-off analysis.
+
 \section{Trade-Off Weight Factors}
 \label{sec:trade-off_weight_factors}
 Determining the weight factors for the various criteria was developed independently for the analysis of configurations and materials, based on the specific selection criteria. The configuration selection followed the analytic hierarchy process (AHP) approach, while the material weights were assigned arbitrarily based on an in-depth analysis of relative criterion importance.
@@ -383,24 +357,18 @@ For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty 
 \centering
 \caption{Pairwise Comparison Matrix}
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|l ||c |c| c| c| c| c|}
-\cline{2-6}
+\begin{tabular}{|l ||c| c| c| c|}
+\cline{2-5}
 \multicolumn{1}{r||}{} 
-
- & Cost & Versatility & Performance & Reliability & Sustainability \\
+ & Cost & Versatility & Reliability & Sustainability \\
 \hline\hline
-Cost           & 1 & $1/6$ & $1/4$ & $1/4$ & 3  \\\hline
-Versatility    & 6 & 1 & 3 & 3 & 7 \\\hline
-Performance    & 4 & $1/3$ & 1 & 1 & 5 \\\hline
-Reliability    & 4 & $1/3$ & 1 & 1 & 5 \\\hline
-Sustainability & $1/3$ & $1/7$ & $1/5$ & $1/5$ & 1 \\\hline
-%\hline
-%\textbf{Column Sum} & 15.33 & 1.98 & 5.45 & 5.45 & 21 \\
-%\hline
+Cost           & 1 & $1/6$ & $1/4$ & 3  \\\hline
+Versatility    & 6 & 1 & 3 & 7 \\\hline
+Reliability    & 4 & $1/3$ & 1 & 5 \\\hline
+Sustainability & $1/3$ & $1/7$ & $1/5$ & 1 \\\hline
 \end{tabular}
 \label{tab:pcm}
 \end{table}
-
 
 The next step is computing the normalised principal eigenvector (priority vector) \textbf{w}\footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial} (accessed 11.05.2026)}. The priority vector shows relative weights among the compared parameters; the higher the entry value, the higher the importance of its respective criterion.  Individual components of \textbf{w} can obtained according to \autoref{eq:priority_vector} for a matrix with $n$ criteria. The normalised PCM and resultant \textbf{w} are shown in \autoref{tab:pcm_norm}.
 \begin{equation}
@@ -483,17 +451,16 @@ The next step is computing the normalised principal eigenvector (priority vector
 \caption{Normalized PCM with priority vector}
 \renewcommand{\arraystretch}{1.2}
 
-\begin{tabular}{|l||c|c|c|c|c||c|}
-\cline{2-7}
+\begin{tabular}{|l||c|c|c|c||c|}
+\cline{2-6}
 \multicolumn{1}{r||}{} 
-& Cost & Versatility & Performance & Reliability & Sustainability & \textbf{w} \\
+& Cost & Versatility & Reliability & Sustainability & \textbf{w} \\
 \hline\hline
 
-Cost           & 0.0652 & 0.0843 & 0.0459 & 0.0459 & 0.1429 & 0.0768 \\\hline
-Versatility    & 0.3913 & 0.5060 & 0.5505 & 0.5505 & 0.3333 & 0.4663\\\hline
-Performance    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 & 0.2069\\\hline
-Reliability    & 0.2609 & 0.1687 & 0.1835 & 0.1835 & 0.2381 & 0.2069\\\hline
-Sustainability & 0.0217 & 0.0723 & 0.0367 & 0.0367 & 0.0476 & 0.0430\\\hline
+Cost           & 0.0882 & 0.1014 & 0.0562 & 0.1875 & 0.1083 \\\hline
+Versatility    & 0.5294 & 0.6087 & 0.6742 & 0.4375 & 0.5624 \\\hline
+Reliability    & 0.3529 & 0.2029 & 0.2247 & 0.3125 & 0.2733 \\\hline
+Sustainability & 0.0294 & 0.0870 & 0.0449 & 0.0625 & 0.0560 \\\hline
 
 \end{tabular}
 \label{tab:pcm_norm}
@@ -521,7 +488,7 @@ w_{\text{Sustainability}}
 \]
 \end{comment}
 
-To ensure that the comparative weights are reliable, a consistency study has to be performed. A consistency index (CI) can be defined for the PCM matrix using \autoref{eq:cost_index} \cite{SAATY19909}, based on the number of parameters and the principal eigenvalue $\lambda_\text{max}$, which for the PCM shown in \autoref{tab:pcm} attains a value of 5.258.
+To ensure that the comparative weights are reliable, a consistency study has to be performed. A consistency index (CI) can be defined for the PCM matrix using \autoref{eq:cost_index} \cite{SAATY19909}, based on the number of parameters and the principal eigenvalue $\lambda_\text{max}$, which for the PCM shown in \autoref{tab:pcm} attains a value of 4.2632.
 
 %The consistency can also be estimated with the use of the principal eigenvalue $\lambda_{max}$. It is obtained from the summation of the products between the elements of the priority vector and the column sums of the PCM. 
 
@@ -531,40 +498,18 @@ To ensure that the comparative weights are reliable, a consistency study has to 
 
 \begin{equation}
 \label{eq:cost_index}
-    CI = \frac{\lambda_\text{max}-n}{n-1}\approx0.0646
+    CI = \frac{\lambda_\text{max}-n}{n-1}\approx0.0877
 \end{equation}
 
 %The obtained CI is compared with the random consistency index (RI). This is done by the consistency ratio (CR) \cite{Saaty 1980}:
-For a fully consistent matrix $\lambda_{max} = n$, which is not true for the considered case. However, according to Saaty \cite{SAATY19909}, a consistency ratio (CR) below 0.1 indicates that the estimation of \textbf{w} is sufficiently accurate. The CR is defined as a ratio of the CI to the consistency ratio of a random $n\times n$ matrix (RI). For the considered case, the estimate of RI is 1.12 \cite{DecisionMakingAHP}. The corresponding CR is obtained with \autoref{eq:consistency_ratio}.
+For a fully consistent matrix $\lambda_{max} = n$, which is not true for the considered case. However, according to Saaty \cite{SAATY19909}, a consistency ratio (CR) below 0.1 indicates that the estimation of \textbf{w} is sufficiently accurate. The CR is defined as a ratio of the CI to the consistency ratio of a random $n\times n$ matrix (RI). For the considered case, the estimate of RI is 0.9 \cite{DecisionMakingAHP}. The corresponding CR is obtained with \autoref{eq:consistency_ratio}.
 
 \begin{equation}
 \label{eq:consistency_ratio}
-    CR = \frac{CI}{RI} \approx 0.0576
+    CR = \frac{CI}{RI} \approx 0.0975
 \end{equation}
 
 The obtained CR implies that the evaluation of \textbf{w} is sufficiently consistent. Therefore, the entries of \textbf{w} will can used as weight factors for the final configuration trade-off.
-
-\subsection{Weight Factors for Material Selection}
-\label{sec:Mat_sel}
-For the selection of material weight factors, a more holistic approach was applied, resulting in values from 0.1 to 1.0, where 1.0 warrants the highest priority. The followingr rationale was applied to justify the choice of specific values:
-
-\begin{itemize}
-    \item \textbf{Structural Properties (Weight 1.0):} It is the best interest to minimize the weight of HUGO's structural components. This way, the performance shall be optimized, accounting for the 5 kg mass.  Additionally, high specific modulus ($E/\rho$) and plate buckling efficiency ($\sqrt[3]{E}/\rho$) are required to withstand aeroelastic effects at Mach 0.75. Concentrated load structures (landing gear, pylons) are driven by high specific yield strength ($\sigma_y/\rho$) and fracture toughness ($K_{Ic}/\rho$) to safely absorb dynamic landing loads. Therefore, structural performance directly dictates the aerodynamic and operational feasibility of the platform. It warrants the highest trade-off weight, 1.0.
-    
-    \item \textbf{Durability (Weight 0.85):} HUGO is designed for a 15-year operational lifecycle with several flight days per year. The selected materials must withstand continuous high-impact cyclic loading, runway debris abrasion, and environmental degradation—including UV exposure for composites and galvanic corrosion at hybrid metallic-composite interfaces. While these issues can be solved using protective coatings and modern construction methods like using patches of fibreglass between the aluminium and carbon fibre components, the durability of the materials used is a large factor in the material selection process, warranting a weight of 0.85. 
-
-    \item \textbf{Material Cost (Weight 0.1):} The cost of the raw materials of the structure of HUGO has a small overall impact on the financial feasibility of the project, as found in the market analysis during the previous design phase\footref{url:baseline_report}. As explained in \autoref{sec:trade-off_criteria_selection}, the overall costs are expected to be dominated by manufacturing. Therefore, this criterion was assigned the lowest weight of 0.1.
-    %The costs of processing these materials and production of the parts have a far greater impact than the cost of the materials themselves. The specific costs of all the considered materials are listed in \autoref{tab:base-material-properties}.
-
-    \item \textbf{Manufacturing Cost (Weight 0.5):} Manufacturing complexity dictates the primary financial burden of the project due to the low-volume production model. For aerodynamic surfaces, high Non-Recurring Engineering (NRE) costs associated with custom metallic tooling (e.g., stretch forming blocks) must be balanced against the high labour and autoclave operational costs of composite layups. For localized structures, direct CNC machining of metallic billets offers a highly efficient, low-NRE production route. Manufacturing methodology directly controls the economic viability of unit scaling, However, as shown in the previous design phase\footref{url:baseline_report}, there is a wide margin in the unit cost in the overall financial viability, which is why the criterion was deemed as one of medium importance, and assigned a weight of 0.5.
-
-    \item \textbf{Design Freedom (Weight 1.0):} Project HUGO functions as a flying testbed, rather than a mass-production vehicle. Maximizing design freedom allows for the implementation of complex, aerodynamically optimized profiles and fuselage geometries, that would be impossible or prohibitively heavy if restricted to simple, developable surfaces. Because the ability to manufacture advanced aerodynamic shapes directly governs the quality of the research data the platform can generate, design freedom is classified as a primary requirement and assigned the maximum weight of 1.0.
-
-    \item \textbf{Sustainability (Weight 0.5):} Being at the forefront of modern aviation research, HUGO shall embrace the industry's movement towards sustainable solutions. At the same time, the main design focus is the ability of HUGO to perform its mission. Therefore, this criterion was assigned a weight of 0.5.
-    %The consideration of the sustainability of material has relevance for the material selection. It should always be the goal to use a material for the aircraft which is safe for the surrounding environment and where the greenhouse emissions related to its manufacture can be kept low. Due to the likely relative small size of the aircraft and the low production volume of the aircraft it has been given the weight of 0.5. 
-
-
-    \end{itemize}
     
 
 \begin{comment}
@@ -638,12 +583,35 @@ The carbon-fiber-reinforced polymer (CFRP) emerged as the clear optimal choice f
 
 
 
-\section{Trade-Off Matrices and Analysis}
+\section{Trade-Off Matrix and Analysis}
 \label{sec:trade-off_matrix}
-\todo[inline]{redo after weight and drag estimations!}
-\autoref{tab:trade-off_matrix} shows the final trade-off matrix constructed for the candidate configurations for HUGO. The criteria have been weighted according to the priority vector defined in \autoref{sec:trade-off_weight_factors}, and specific scores were assigned for each criterion-configuration pair according to the definitions provided in \autoref{ch:app_trade-off_rationale}. For the material choice, separate analysis was performed for the lifting surfaces (wing, fuselage, empennage) and high-stress subsystems (landing gear, pylons, port connections). The resulting matrices can be seen in \autoref{tab:fuselage_trade-off_matrix_material_selection} and \autoref{tab:landing_gear_trade-off_matrix_material_selection}, respectively.
 
-\todo[inline]{Write-up this paragraph after the final matrix is in.}
+\autoref{tab:trade_off_matrix} shows the final trade-off matrix constructed for the candidate configurations for HUGO. The criteria have been weighted according to the priority vector defined in \autoref{sec:trade-off_weight_factors}, and specific scores were assigned for each criterion-configuration pair according to the definitions provided in \autoref{ch:app_trade-off_rationale}. %For the material choice, separate analysis was performed for the lifting surfaces (wing, fuselage, empennage) and high-stress subsystems (landing gear, pylons, port connections). The resulting matrices can be seen in \autoref{tab:fuselage_trade-off_matrix_material_selection} and \autoref{tab:landing_gear_trade-off_matrix_material_selection}, respectively.
+
+The clear overall winner is \textbf{HUG-CFG-303}, achieving the highest total score of \textbf{3.9940}. HUG-CFG-301 and HUG-CFG-305 are eliminated early in the evaluation due to failing to meet the minimum acceptable thresholds in one or more criteria.
+
+From a cost and manufacturability perspective, HUG-CFG-302 and HUG-CFG-303 perform best, as both configurations exhibit relatively low structural and production complexity. HUG-CFG-301 also performs reasonably well in this category, benefiting from the simpler integration of its low-wing configuration from a structural standpoint. In contrast, HUG-CFG-304 and HUG-CFG-305 incorporate a higher degree of modularity, which significantly increases design and manufacturing complexity. In particular, HUG-CFG-304 is further penalized by its side-podded landing gear configuration, which introduces additional structural weight and integration challenges, resulting in the lowest score in this category.
+
+Regarding versatility, the configurations with higher modularity generally perform better, as they allow for a wider range of testing options. HUG-CFG-303 scores slightly lower than HUG-CFG-302 in this respect due to its fixed wing port configuration. HUG-CFG-302 is also penalized for lacking a dedicated canard port, reducing its adaptability. HUG-CFG-301 achieves a moderate score of 2, as it does not support testing of truss-braced wing configurations.
+
+Reliability is inversely correlated with system complexity and ease of maintenance. Consequently, configurations with variable ports and increased modularity tend to perform worse in this category. The inclusion of side-podded landing gear in HUG-CFG-304 further reduces accessibility and increases structural complexity, resulting in the lowest reliability score. In contrast, HUG-CFG-302 and HUG-CFG-303 achieve the highest reliability scores due to their comparatively simpler and more constrained architectures.
+
+Finally, sustainability is assessed based on fuel mass predictions obtained from the parametric model. The fuel consumption values for all five configurations are presented in \autoref{tab:fuel_consumption}.
+
+\begin{table}[H]
+\centering
+\caption{Fuel consumption of HUGO configurations}
+\label{tab:fuel_consumption}
+\begin{tabular}{lccccc}
+\hline
+ & HUG-CFG-301 & HUG-CFG-302 & HUG-CFG-303 & HUG-CFG-304 & HUG-CFG-305 \\
+\hline
+Fuel Mass [kg] & 10.22 & 9.65 & 9.99 & 10.24 & 10.21 \\
+\hline
+\end{tabular}
+\end{table}
+
+In terms of fuel efficiency, HUG-CFG-302 performs best with the lowest fuel mass. HUG-CFG-303 follows closely as the second most efficient configuration. HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 exhibit the highest fuel consumption, with differences of approximately 0.5 kg relative to the most efficient design, and therefore receive lower sustainability scores.
 
 \begin{table}[H]
 \centering
@@ -653,345 +621,91 @@ The carbon-fiber-reinforced polymer (CFRP) emerged as the clear optimal choice f
 \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{|
 p{3cm}|
->{\centering\arraybackslash}p{1.8cm}|
+>{\centering\arraybackslash}p{1.5cm}|
 >{\centering\arraybackslash}p{5cm}|
 >{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{1.2cm}|
->{\centering\arraybackslash}p{2.2cm}|
+>{\centering\arraybackslash}p{1.0cm}|
+>{\centering\arraybackslash}p{2.5cm}|
 }
 \hline
 \rowcolor[HTML]{4472C4}
 \color{white}\textbf{Configuration} &
 \color{white}\textbf{Cost} &
 \color{white}\textbf{Versatility} &
-\color{white}\textbf{Performance} &
 \color{white}\textbf{Reliability} &
 \color{white}\textbf{\shortstack{Sustain\\ability}} &
-
 \color{white}\textbf{Total} \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
 \textbf{Weight} &
-0.0768 &
-0.4663 &
-0.2069 &
-0.2069 &
-0.0430 &
+0.1083 &
+0.5624 &
+0.2733 &
+0.0560 &
 1 \\
 \hline
 
-HUG-CFG-301
-& \cellcolor[HTML]{F8696B}1
-& \cellcolor[HTML]{A9D18E}4
+HUG-CFG-301 
 & \cellcolor[HTML]{F4E285}3
 & \cellcolor[HTML]{F4B183}2
-& \cellcolor[HTML]{F4B183}2
-& 3.0627 \\
+& \cellcolor[HTML]{F4E285}3
+& \cellcolor[HTML]{F8696B}1
+& Eliminated since below versatility no-go value \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
 HUG-CFG-302
 & \cellcolor[HTML]{63BE7B}5
-& \cellcolor[HTML]{F4B183}2
 & \cellcolor[HTML]{F4E285}3
-& \cellcolor[HTML]{A9D18E}4
 & \cellcolor[HTML]{63BE7B}5
-& Eliminated since below versatility no-go value \\
+& \cellcolor[HTML]{63BE7B}5
+& 3.8751 \\
 \hline
 
-HUG-CFG-303
-& \cellcolor[HTML]{A9D18E}4
-& \cellcolor[HTML]{F4E285}3
-& \cellcolor[HTML]{A9D18E}4
-& \cellcolor[HTML]{F4E285}3
-& \cellcolor[HTML]{A9D18E}4
-& 3.3268 \\
+\textbf{HUG-CFG-303}
+& \cellcolor[HTML]{A9D18E}\textbf{4}
+& \cellcolor[HTML]{A9D18E}\textbf{4}
+& \cellcolor[HTML]{A9D18E}\textbf{4}
+& \cellcolor[HTML]{F4E285}\textbf{3}
+& \textbf{3.9440} \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
 HUG-CFG-304
-& \cellcolor[HTML]{F4E285}3
-& \cellcolor[HTML]{A9D18E}4
+& \cellcolor[HTML]{F8696B}1
+& \cellcolor[HTML]{63BE7B}5
 & \cellcolor[HTML]{F4B183}2
-& \cellcolor[HTML]{F4E285}3
-& \cellcolor[HTML]{F4E285}3
-& 3.2594 \\
+& \cellcolor[HTML]{F8696B}1
+& Eliminated since below reliability no-go value \\
 \hline
 
 HUG-CFG-305
-& \cellcolor[HTML]{F8696B}1
-& \cellcolor[HTML]{A9D18E}4
+& \cellcolor[HTML]{F4B183}2
+& \cellcolor[HTML]{63BE7B}5
 & \cellcolor[HTML]{F4E285}3
-& \cellcolor[HTML]{F4B183}2
-& \cellcolor[HTML]{F4B183}2
-& 3.0627 \\
+& \cellcolor[HTML]{F8696B}1
+& 3.9046 \\
 \hline
 
 \end{tabular}
 \end{adjustbox}
-\label{tab:trade-off_matrix}
+\label{tab:trade_off_matrix}
 \end{table}
-
-\todo{The below justifications will not be included in the final version, currently just for overview of justifications}
-\textbf{Versatility}:
-\begin{enumerate}
-    \item HUG-CFG-301: Does not allow for testing of truss based wing - scores 2 - eliminated because of versatility no-go value.
-    \item HUG-CFG-302: No canard port - scores 3
-    \item HUG-CFG-303: Wing and canard static ports- scores 4.
-    \item HUG-CFG-304: Full range of configurations testable - scores 5
-    \item HUG-CFG-305: Same as 4 - scores 5.
-\end{enumerate}
-
-\textbf{Reliability}:
-\begin{enumerate}
-    \item HUG-CFG-301:  Variable wing port introduces moderate fatigue exposure; low wing configuration provides good accessibility for timely intervention — moderate failure risk — score 3
-    \item HUG-CFG-302: Static port results in minimal fatigue exposure; side podded landing gear ensures good accessibility enabling routine preventive maintenance — no anticipated failure — score 5
-    \item HUG-CFG-303: Static ports result in minimal fatigue exposure; buried landing gear limits accessibility, though preventive maintenance remains feasible with planning — soft failure risk — score 4
-    \item HUG-CFG-304: Variable wing port introduces moderate fatigue exposure; side podded landing gear ensures good accessibility for timely intervention — moderate failure risk — score 3
-    \item HUG-CFG-305: Variable wing port introduces moderate fatigue exposure; buried landing gear limits accessibility, increasing the likelihood of undetected degradation — severe failure risk — score 2 — eliminated
-\end{enumerate}
-
-\textbf{Cost}
-almost the same as reliability, but differs for config 3 due to the complexity of side podded LG; low wing is less complex than high from a structural point of view
-
-\textbf{Performance}
-same for all
-
-\textbf{Sustainability}
-based on fuel mass, most important, redo appendix
-
-\begin{table}[H]
-\centering
-\caption{Trade-Off Matrix for Fuselage, Wings and Empennage}
-\renewcommand{\arraystretch}{1.4}
-
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{|p{3cm}||>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{3cm}|>{\centering\arraybackslash}p{3cm}||>{\centering\arraybackslash}p{3cm}|}
-\hline
-\rowcolor[HTML]{4472C4}
-\color{white}\textbf{Material} &\color{white}\textbf{Structural properties} &
-\color{white}\textbf{Durability} &\color{white}\textbf{Material cost} &
-\color{white}\textbf{Manufacturing cost} &\color{white}\textbf{Design freedom} &\color{white}\textbf{\shortstack{Sustain-\\ability}} &
-\color{white}\textbf{Weighted Total} \\
-\hline\hline
-
-\rowcolor[HTML]{D9E2F3}
-\textbf{Weight} &
-1 & 0.85 &
-0.1 &
-0.5 &
-1 &
-0.5 &
-\\
-\hline
-
-HUG-MAT-01
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 10.35 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-02
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 1 \cellcolor[HTML]{F8696B}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& 11.85 \\
-\hline
-
-HUG-MAT-03
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 4 \cellcolor[HTML]{A9D18E}
-& 2 \cellcolor[HTML]{F4B183}
-& 3 \cellcolor[HTML]{F4E285}
-& 3 \cellcolor[HTML]{F4E285}
-& 12.30 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-04
-& 3 \cellcolor[HTML]{F4E285}
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 1 \cellcolor[HTML]{F8696B}
-& 9.55 \\
-\hline
-
-HUG-MAT-05
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& 1 \cellcolor[HTML]{F8696B}
-& 2 \cellcolor[HTML]{F4B183}
-& 3 \cellcolor[HTML]{F4E285}
-& 3 \cellcolor[HTML]{F4E285}
-& 10.30 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-\textbf{HUG-MAT-06}
-& \textbf{5} \cellcolor[HTML]{63BE7B}
-& \textbf{3} \cellcolor[HTML]{F4E285}
-& \textbf{2} \cellcolor[HTML]{F4B183}
-& \textbf{2} \cellcolor[HTML]{F4B183}
-& \textbf{5} \cellcolor[HTML]{63BE7B}
-& \textbf{1} \cellcolor[HTML]{F8696B}
-& \textbf{15.10} \\
-\hline
-
-HUG-MAT-07
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 2 \cellcolor[HTML]{F4B183}
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 14.30 \\
-\hline
-
-\end{tabular}
-\end{adjustbox}
-\label{tab:fuselage_trade-off_matrix_material_selection}
-\end{table}
-
-
-
-
-\begin{table}[H]
-\centering
-\caption{Trade-Off Matrix for Landing gear, Pylons, and Connection Ports}
-\renewcommand{\arraystretch}{1.4}
-
-\begin{adjustbox}{width=\textwidth}
-\begin{tabular}{|
-p{3cm}||
->{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}|
->{\centering\arraybackslash}p{3cm}||
->{\centering\arraybackslash}p{3cm}|
-}
-\hline
-\rowcolor[HTML]{4472C4}
-\color{white}\textbf{Material} &
-\color{white}\textbf{Structural properties} &
-\color{white}\textbf{Durability} &
-\color{white}\textbf{Material cost} &
-\color{white}\textbf{Manufacturing cost} &
-\color{white}\textbf{Design freedom} &
-\color{white}\textbf{\shortstack{Sustain-\\ability}} &
-\color{white}\textbf{Weighted Total} \\
-\hline\hline
-
-\rowcolor[HTML]{D9E2F3}
-\textbf{Weight} &
-1 &
-0.85 &
-0.1 &
-0.5 &
-1 &
-0.5 &
-\\
-\hline
-
-HUG-MAT-01
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 1 \cellcolor[HTML]{F8696B}
-& 5 \cellcolor[HTML]{63BE7B}
-& 11.35 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-02
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 2 \cellcolor[HTML]{F4B183}
-& 14.85 \\
-\hline
-
-\textbf{HUG-MAT-03}
-& \textbf{3} \cellcolor[HTML]{F4E285}
-& \textbf{4} \cellcolor[HTML]{A9D18E}
-& \textbf{4} \cellcolor[HTML]{A9D18E}
-& \textbf{4} \cellcolor[HTML]{A9D18E}
-& \textbf{5} \cellcolor[HTML]{63BE7B}
-& \textbf{3} \cellcolor[HTML]{F4E285}
-& \textbf{15.30} \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-04
-& 3 \cellcolor[HTML]{F4E285}
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 3 \cellcolor[HTML]{F4E285}
-& 5 \cellcolor[HTML]{63BE7B}
-& 2 \cellcolor[HTML]{F4B183}
-& 13.45 \\
-\hline
-
-HUG-MAT-05
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& 1 \cellcolor[HTML]{F8696B}
-& 4 \cellcolor[HTML]{A9D18E}
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 13.30 \\
-\hline
-
-\rowcolor[HTML]{D9E2F3}
-HUG-MAT-06
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 2 \cellcolor[HTML]{F4B183}
-& 1 \cellcolor[HTML]{F8696B}
-& 3 \cellcolor[HTML]{F4E285}
-& 1 \cellcolor[HTML]{F8696B}
-& 12.60 \\
-\hline
-
-HUG-MAT-07
-& 5 \cellcolor[HTML]{63BE7B}
-& 3 \cellcolor[HTML]{F4E285}
-& 4 \cellcolor[HTML]{A9D18E}
-& 1 \cellcolor[HTML]{F8696B}
-& 2 \cellcolor[HTML]{F4B183}
-& 1 \cellcolor[HTML]{F8696B}
-& 11.80 \\
-\hline
-
-\end{tabular}
-\end{adjustbox}
-\label{tab:landing_gear_trade-off_matrix_material_selection}
-\end{table}
-\todo[inline]{Describe briefly the results of the trade-off - in particular, which designs got a no-go and for what reason, what were the resulting favourites, and what is the final configuration chosen for HUGO.}
-
-For localized, high-stress components such as the landing gear struts, engine pylons and modular port connection points, Aluminum 7075-T76 outperformed the composite alternatives. These components require a balance of high specific fracture toughness to absorb dynamic landing impacts and high manufacturability. Aluminum 7075-T76 provides excellent specific strength ($\sigma_y/\rho$) while keeping manufacturing and material costs significantly lower than titanium or composite alternatives. The selection of high-strength aluminum heavily supports the project's modularity requirement.
-%Hardpoints, pylons, and gear attachments can be rapidly CNC-machined, tapped, and modified to accommodate swappable test articles without the need for expensive composite tooling or complex inserts.
-\todo[inline]{Write about the results of material trade-off for fuselage, wing and empennage.}
 
 
 \section{Final Design Configuration}
 \label{sec:trade-off_final_design}
 
-\todo[inline]{Describe the final configuration in detail and conclude the design choice for the final.}
+A simplified sketch of the final selected configuration, HUG-CFG-303, is presented in \autoref{fig:hug-cfg-303}. The design adopts a high-wing layout, which is essential for enabling the testing of truss-braced wing configurations.
+
+The wing interface is implemented as a static port. Compared to a variable port architecture, this approach significantly reduces design and manufacturing complexity. While variable ports offer the advantage of adjusting the aerodynamic center and center of gravity, similar effects can be achieved through simpler means, such as redistributing payload within the fuselage.
+
+The configuration also includes a static canard port, which substantially increases the range of achievable test configurations and expands the envelope of stability conditions that can be investigated.
+
+The propulsion system is fuselage-mounted. This choice avoids direct interference with the modular wing requirement and prevents significant complications in routing fuel lines, hydraulic systems, and avionics through the wing structure. Additionally, wing-mounted engines would require quick-release mounting systems and pylons capable of withstanding high dynamic loads, both of which would introduce considerable structural and maintenance complexity.
+
+The landing gear is a retractable buried configuration to minimise aerodynamic drag at high subsonic Mach numbers. This solution also avoids the additional mass and structural complexity associated with side-podded landing gear arrangements.
+
+Finally, a T-tail configuration is employed to ensure that the horizontal stabilizer remains outside the wake of the fuselage-mounted engines. As noted earlier in this chapter, the empennage is also designed with a static port system, enabling a broader range of tail configurations to be tested. However, it should be noted that fuselage-mounted engines impose limitations on certain empennage layouts, such as conventional tail configurations, due to potential interference from engine wake effects on the stabilizing surfaces.
+

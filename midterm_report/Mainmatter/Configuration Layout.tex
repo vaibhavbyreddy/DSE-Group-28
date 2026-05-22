@@ -10,15 +10,9 @@ The final design of the plane will have an external configuration that is optimi
 
 Regardless of the smooth surface criteria, HUGO still has some outside ports, such as a pitot static tube placed under the nose cone, away from disturbed flow, the lidar port that will slightly protrude outside to scan the surrounding atmosphere, antennas for transmitting and receiving as well as the outside lights for visibility. 
 
-Other outer characteristics include the doors for the internal components, placed in top of the fuselage, doors for the landing gear, both nose and main, camera ports and the fuel port. A sketch of the external configuration can be found in \autoref{fig:External_config}.
+Other outer characteristics include the doors for the internal components, placed in top of the fuselage, doors for the landing gear, both nose and main, camera ports and the fuel port. A sketch of the external configuration can be found in \autoref{fig:hug-cfg-304-outer}.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.6\linewidth]{figures/Sketches/Outer_Stuff.jpeg}
-    \caption{External Configuration of HUGO}
-    \label{fig:External_config}
-\end{figure}
- 
+
 % Include in the sketch the following:
 % - pitot tube
 % - liedar port
@@ -40,6 +34,8 @@ This section evaluates a possible internal configuration of HUGO, mapping the la
 Along the payload, the fuselage will house the electronic system, including the sensors and supply the payload. The engine requires an outside source of power for the start-up procedure, as such, the battery will provide the additional power needed. The margin left from the battery will power the payload, and other secondary subsystems.
 
 A list of components included in the electronic system of HUGO can be seen in \autoref{tab:electronic_system}. For the internal configuration of HUGO, the dimensions and weight of each electronic component need to be catalogued, and in the next stage of the project, a detailed power system analysis can be conducted. For now, the numbers in \autoref{eq:Lambda_conversion} represent a first-order approximation to enable calculation of dynamic stability and C.G. properties of the UAV.
+
+For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05.2026)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the maximum air speed calculator, which can only reach speeds of 450 kts, while HUGO can fly at a maximum speed of 500 kts, as such an additional speed sensor is needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an angle of attack sensor. Storage of the data for further processing is done on a SATA SSD, with a capacity of 1TB, as it is robust and will offer enough storage space for a 30-minute flight.
 
 \begin{table}[H]
     \centering
@@ -63,7 +59,7 @@ A list of components included in the electronic system of HUGO can be seen in \a
     \end{tabular}
     \label{tab:electronic_system}
 \end{table}
-For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05.2026)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the maximum air speed calculator, which can only reach speeds of 450 kts, while HUGO can fly at a maximum speed of 500 kts, as such an additional speed sensor is needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an angle of attack sensor. Storage of the data for further processing is done on a SATA SSD, with a capacity of 1TB, as it is robust and will offer enough storage space for a 30-minute flight.
+
 
 The electronic system is complemented by a multitude of sensors present inside and on the wings and tail to study the aeroelastic behaviour of structures. A list of sensors that have been considered for the aeroelastic analysis can be found in \autoref{wing_structural_sensors}.
 
@@ -170,7 +166,7 @@ System}(Accessed on 18.5.2026)} Furthermore, 2 m of PTFE tube for fuel distribut
 
 \begin{table}[H]
     \centering
-    \caption{Electronic system components and approximate weight and volumes}
+    \caption{Propulsion system components and approximate weight and volumes}
     \begin{tabular}{|c|c|c|}
         \hline
         \textbf{Component} & \textbf{Weight [g]} & \textbf{Dimensions [mm]}  \\
@@ -195,7 +191,7 @@ System}(Accessed on 18.5.2026)} Furthermore, 2 m of PTFE tube for fuel distribut
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{figures/HUGO_propulsion_diagram_260518.png}
+    \includegraphics[width=0.9\linewidth]{figures/HUGO_propulsion_diagram_260518.png}
     \caption{HUGO propulsion system diagram}
     \label{fig:prop_diagram}
 \end{figure}
@@ -210,7 +206,7 @@ A more detailed analysis of the internal payload mounting and contents will be c
 
 \textbf{Landing Gear Volume}
 
-The landing gear has been discussed in \autoref{sec:Landing_gear_config}, where its dimensions have been computed for each iteration. Following the trade-off process, it was decided to continue moving forward with design \todo{include the design for the final presentation}, incorporating a \todo{add the specific LG}. Based on the analysis, the landing gear will have the dimensions mentioned in \autoref{tab:landing gear dimensions}. 
+The landing gear has been discussed in \autoref{sec:Landing_gear_config}, where its dimensions have been computed for each iteration. Following the trade-off process, it was decided to continue moving forward with design HUG-CFG-303, incorporating a retractable buried landing gear. Based on the analysis, the landing gear will have the dimensions mentioned in \autoref{tab:landing gear dimensions}. 
 \begin{table}[H]
     \centering
  
@@ -218,14 +214,14 @@ The landing gear has been discussed in \autoref{sec:Landing_gear_config}, where 
     \hline
         \textbf{Component} & \textbf{Dimension [m]}  \\
         \hline \hline
-         Nose landing gear length & - \\\hline 
-         Nose landing gear width & -\\\hline
-         Fuselage landing gear length & - \\\hline 
-         Fuselage landing gear width & -\\\hline
+         Nose gear x poz & 0.273 \\\hline 
+         Fuselage gear x poz & 2.570 \\\hline
+         Fuselage gear y poz & 0.321 \\\hline 
+         Height of landing gear & 0.168\\ \hline
          
     \end{tabular}
-    \caption{Dimensions of Loading gear}
+    \caption{Dimensions of the chosen landing gear}
     \label{tab:landing gear dimensions}
 \end{table}
 
-Taking the tyre width mentioned in the previous sections, 45 mm with a diameter of 200, and adding 5 m to account for strut clearance and pins, each leg of the undercarriage will occupy a volume with a width of 50 mm and depth of 205 mm, based on the wheel diameter.
+Taking the tyre width mentioned in the previous sections of 45 mm with a diameter of 200 mm and adding 5 mm to account for strut clearance and pins, each leg of the undercarriage will occupy a volume of width of 50 mm and depth of 205 mm, based on the wheel diameter. The volume ocupoed by each leg is 0.001722 $m^2$, in total 0.005166 $m^2$ of internal volume occupied by the undercarriage.

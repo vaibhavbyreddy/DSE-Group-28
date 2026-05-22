@@ -39,12 +39,6 @@ To determine if each of the five configurations complied with the requirements, 
     Airfoil and wing analogous estimation
 
     Analogous airfoil and wing estimation based on statistics - relevant reference aircraft, weighing the criteria to estimate an initial HUGO wing. Initial CL, aspect ratio, taper etc. wing parameters to go from
-
-     Material selection 
-    - HUGO was divided into 2 main structural subsystems for which primary materials were chosen in a trade-off.
-    - An analysis of reference flying testbeds (X56-and DAST ARW-2) and airliners (A350 XWB, B787) gave us an insight into industry trends and existing solutions.
-    - In total, 7 candidate materials were identified. Their key specific structural properties (stiffness, buckling, strength, fracture toughness) were assessed, as well as material and manufacturing cost.
-    Aerodynamic Modeling
     
     -parametric lifting-line-theory aerodynamic model of the aircraft has been created using Aerosandbox to obtain the preliminary aerodynamic loads
 
@@ -60,18 +54,15 @@ To determine if each of the five configurations complied with the requirements, 
     
     Landing gear configuration
     -we have two main concepts, the sidepods and the internal storadge one, both with advantages and disadvantages
-    -once we get the data for each we can positively say each one is buildable and stable or not,
-    -we can give each of them a parameter that will state the usefulness of each configuration and the in the trade off, we say add the points from the landing gear to each config
-    -pretty streamed process and here we also state theundercarridge with the highest score
+    -both are retractable and are possible configurations
+    -the downside of the podded is the added drag at high speeds and compexity, also it had to be quite close to the fuselage to not add to much area so its also more heavy, it is not made really made for high-speed configurations
+    -retractable, more slick but it needs internal space and it also implies added holes in the fuselage for the retractable part, no idea how much more heavy is compared to the one but it is less complex to design because of the folding mechanisc
+    -after computing the positions of the landing gear we concluded that there are no defining differences between then, as such due to the added weight and complexity, the side podded designs will score lower in performance 
 
     Structural Design
     -Evaluated the modular configurations in terms of structural reinforcements and the consequential mass penalties. This directly feeds into the configuration trade-off under the performance category. The fuselage skin thickness was analysed across configurations HUG-CFG-302, HUG-CFG-303, and HUG-CFG-304, by implementing a fixed canard port and allowing variable wing placements with a range of ±1c 
 
     - The fuselage skin was sized against shear, bending, and cylindrical shell buckling failure criteria. The skin was assumed to be a quasi-isotropic CFRP panel of varying thickness for the preliminary analysis. It was estimated that adding a canard port would increase the Operating Empty Mass fraction by 1-2\% and the inclusion of an x-variable wing port would increase the same fraction by 3-4\%.
-
-    
-    
-    sensitivity study
 
 
 7. Design Trade-Off
@@ -88,10 +79,10 @@ To determine if each of the five configurations complied with the requirements, 
     analysis of relative criterion importance. (wink wink)
     
     Trade-Off Matrix and Analysis
-    - pending
+    - The scores were assigned according to the criteria definitions provided in Appendix B. HUG-CFG-301 was excluded as it did not meet the minimum acceptable threshold for versatility, while HUG-CFG-304 was eliminated due to insufficient reliability. HUG-CFG-303 emerged as the best-performing configuration, achieving a total score of 3.9940. It provides a well-balanced combination of versatility, reliability, and cost efficiency, while also maintaining lower structural complexity and minimizing mass penalties. 
     
     Final Design Configuration
-    - pending
+    - HUG-CFG-303 is selected for the detailed design phase. It is a high-wing configuration incorporating static wing and canard ports, fuselage-mounted engines, and buried retractable landing gear. In addition, it includes a static empennage port, which further extends the range of possible test configurations and broadens the overall testing envelope.
 
     Material selection Trade off
     - Results: For Primary aerodynamic components fuselage, empennage, wings, CFRP won. 
