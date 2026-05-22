@@ -33,7 +33,7 @@ This section evaluates a possible internal configuration of HUGO, mapping the la
 \label{subsec:on-board_electronic_units}
 Along the payload, the fuselage will house the electronic system, including the sensors and supply the payload. The engine requires an outside source of power for the start-up procedure, as such, the battery will provide the additional power needed. The margin left from the battery will power the payload, and other secondary subsystems.
 
-A list of components included in the electronic system of HUGO can be seen in \autoref{tab:electronic_system}. For the internal configuration of HUGO, the dimensions and weight of each electronic component need to be catalogued, and in the next stage of the project, a detailed power system analysis can be conducted. For now, the numbers in \autoref{eq:Lambda_conversion} represent a first-order approximation to enable calculation of dynamic stability and C.G. properties of the UAV.
+A list of components included in the electronic system of HUGO can be seen in \autoref{tab:electronic_system}. For the internal configuration of HUGO, the dimensions and weight of each electronic component need to be catalogued, and in the next stage of the project, a detailed power system analysis can be conducted. For now, the numbers in \autoref{tab:electronic_system} represent a first-order approximation to enable calculation of dynamic stability and C.G. properties of the UAV.
 
 For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05.2026)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the maximum air speed calculator, which can only reach speeds of 450 kts, while HUGO can fly at a maximum speed of 500 kts, as such an additional speed sensor is needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an angle of attack sensor. Storage of the data for further processing is done on a SATA SSD, with a capacity of 1TB, as it is robust and will offer enough storage space for a 30-minute flight.
 
@@ -54,7 +54,7 @@ For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https:
          ADS-B Transceiver and FLARM Receiver system & 120 & 57 x 82 x 30 \\ \hline
          Electric switch &-&-\\\hline
          Lights (x4)& - & - \\\hline
-         Power distribution system \tablefootnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management System}(Accessed on 18.5.2026)} & 250 & 180 x 100 x 40 \\\hline
+         Power distribution system \tablefootnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management System}(accessed on 18.5.2026)} & 250 & 180 x 100 x 40 \\\hline
           
     \end{tabular}
     \label{tab:electronic_system}
@@ -159,7 +159,12 @@ Lidar Sensor
 \label{subsec:fuel_systems}
 Systems related to propulsion, including the turbojet engine, fuel tanks, fuel management and distribution systems are included in this category. The propulsion system is integrated into the fuselage group to allow for wing versatility, provide clean airflow over the wing and prevent aerodynamic interference of the engine with the wings. This has been determined for all of the configurations in \autoref{ch:trade-off}.
 
-Based on the preliminary aircraft sizing and requirements, the initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. Furthermore, small turbojet engines on the market can be easily integrated due to their known characteristics and availability of the supporting subsystems. Therefore, commercial turbojet engine candidates were considered. The industry-proven PBS TJ40-G2 engine \footnote{\href{https://pdf.aeroexpo.online/pdf/pbs-velka-bites/tj-40-g2-turbojet-engine/170284-304.html}{TJ-40-G2-Turbojet-Engine}} is selected as a candidate for a HUGO engine and is used as a reference component in \autoref{tab:prop_system}.
+\subsection{Fuel and propulsion system}
+\label{subsec:fuel_systems}
+Systems related to propulsion, including the turbojet engine, fuel tanks, fuel management, and distribution systems are included in this category. The propulsion system is integrated into the fuselage group to allow for wing versatility, provide clean airflow over the wing and prevent aerodynamic interference of the engine with the wings. This has been determined for all of the configurations in \autoref{ch:trade-off}.
+
+The initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. Furthermore, small turbojet engines on the market can be easily integrated due to their known characteristics and availability of the supporting subsystems. Therefore, based on the approximate thrust requirement found in \autoref{sec:matching_diagram}, a pair of Jetcat P100-RX-BL engines \footnote{\href{https://www.jetcat.de/de/productdetails/produkte/jetcat/produkte/RC\%20ENGINES/Engines/p100_rx-bl}{Jetcat P100-RX-BL engine}(accessed on 19.05.2026)} are selected as the candidate engines for HUGO and are used as a reference component in \autoref{tab:prop_system}.
+
 
 \begin{table}[H]
     \centering
@@ -168,15 +173,15 @@ Based on the preliminary aircraft sizing and requirements, the initially selecte
         \hline
         \textbf{Component} & \textbf{Weight [g]} & \textbf{Dimensions [mm]}  \\
         \hline\hline
-        Engine: JetCat P100-RX-BL & 1080 & 97 (diameter) x 241 (length)\\
+        Engine: JetCat P100-RX-BL (X2) & 1080 & 97 (diameter) x 241 (length)\\
         \hline
-        ECU (V10.0) & 26 & 55 x 36 x 18 (length x width x height) \\
+        ECU (V10.0) (X2) & 26 & 55 x 36 x 18 (length x width x height) \\
         \hline
-        Fuel tank & 0.57 & N/A (fuel bag, 3 gal capacity) \tablefootnote{\href{https://giantloopmoto.com/products/armadillo-bag?variant=61789625712970\#features}{Armadillo Bag}(Accessed on 22.05.2026)}\\
+        Fuel tank & 0.57 & N/A (fuel bag, 3 gal capacity) \tablefootnote{\href{https://giantloopmoto.com/products/armadillo-bag?variant=61789625712970\#features}{Armadillo Bag}(accessed on 22.05.2026)}\\
         \hline
-        Fuel pump (Bus-system BL) & 110 & 31.5 (diameter) x 77 (length)\\
+        Fuel pump (Bus-system BL) (X2)& 110 & 31.5 (diameter) x 77 (length)\\
         \hline
-        Fuel filter (Standard Inline) & 15 & 20 (diameter) x 45 (length) \\
+        Fuel filter (Standard Inline) (X2)& 15 & 20 (diameter) x 45 (length) \\
         \hline
         Fuel hoses & 170 & 8 x 4 x 2000 (outer x inner diameter x length) \\
         \hline
@@ -184,14 +189,13 @@ Based on the preliminary aircraft sizing and requirements, the initially selecte
     \label{tab:prop_system}
 \end{table}
 
-The turbojet engine needs several additional components to become operational. An ECU (Engine Control Unit) is necessary to control combustion. Next, the fuel system consists of the fuel pump \footnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Bus-Smokerpumpe}{JetCat fuel pump}(Accessed on 18.5.2026)}, fuel filter \footnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Schlauchverbindung/Kraftstoff-Filter\%20mit\%20herausnehmbaren\%20Filtereinsatz}{JetCat fuel filter}(Accessed on 18.5.2026)}, shut-off valve and fuel distribution hoses. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem relationships is shown in \autoref{fig:prop_diagram}. The weight and dimensions of the power distribution system were estimated based on a universal BMS. \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
-System}(Accessed on 18.5.2026)} Furthermore, 2m of PTFE tube for fuel distribution is added and a 3 gallon fuel bag are.\footnote{\href{https://ptfetubeshop.com/en/product/ptfe-tube-4-mm-x-8-mm/?srsltid=AfmBOopcWd4OwpWvWxhcXm5ZaT8P1H2EP4Aw9Il2Rezb7qgHZba8-M9b}{PTFE tube 4 mm x 8 mm}(Accessed on 19.5.2026)} This corresponds to the fuel mass estimated in \autoref{sec:trade-off_matrix}.
+The turbojet engine needs several additional components to become operational. An ECU (Engine Control Unit) is necessary to control combustion. Next, the fuel system consists of the fuel pump \footnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Bus-Smokerpumpe}{JetCat fuel pump}(accessed on 18.5.2026)}, fuel filter \footnote {\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/zubehoer/Schlauchverbindung/Kraftstoff-Filter\%20mit\%20herausnehmbaren\%20Filtereinsatz}{JetCat fuel filter}(accessed on 18.5.2026)}, shut-off valve and fuel distribution hoses. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem relationships is shown in \autoref{fig:prop_diagram}. The weight and dimensions of the power distribution system were estimated based on a universal BMS \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
+System}(accessed on 18.5.2026)}. Furthermore, 2m of PTFE tube for fuel distribution is added and a 3 gallon fuel bag will be used for fuel storage\footnote{\href{https://ptfetubeshop.com/en/product/ptfe-tube-4-mm-x-8-mm/?srsltid=AfmBOopcWd4OwpWvWxhcXm5ZaT8P1H2EP4Aw9Il2Rezb7qgHZba8-M9b}{PTFE tube 4 mm x 8 mm}(accessed on 19.5.2026)}. This corresponds to the fuel mass estimated in \autoref{sec:trade-off_matrix}.
 
 
-\todo{the below fig is unreadable, try to redo it by optimising the space between the boxes and the arrows' length}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\linewidth]{figures/HUGO_propulsion_diagram_260518.png}
+    \includegraphics[width=\linewidth]{figures/HUGO_propulsion_diagram_260518.png}
     \caption{HUGO propulsion system diagram}
     \label{fig:prop_diagram}
 \end{figure}

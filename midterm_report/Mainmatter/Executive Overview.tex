@@ -1,4 +1,4 @@
-\chapter{Executive Overview}
+\chapter{Executive Overview}\label{sec:executive_overview}
 
 %\todo[inline]{ISBN's are not showing in bibliography! Point of interest for Mr. Documentation.}
 
@@ -16,45 +16,56 @@ To facilitate the operations and reduce transport costs, HUGO is to be stored in
 
 The technical risk assessment was also improved. The technical risk matrix was updated after new risks were identified, and the preventative measures and mitigation strategies refined. Some of the identified risks include: certification duration in the range of years, rejection of type certificate and/or DOA application, operating risks specific to Den Helder airport like fuel shortage, lack of ATC clearance, ground station equipment failure, or corrupted measurement data. The chosen preventive measures and contingency scenarios reduce all the risks to acceptable levels of likelihood and severity.
 
-\textbf{add some examples please. this section is very non-descriptive}
-
 EASA Certification was also a major concern in the Baseline Report, as HUGO's risk class and operational environment were highly uncertain. However, in consultation with, and with guidance from EASA, HUGO was classified under CS-23 for aerobatic aircraft, with supplemental special conditions for unmanned aerial vehicles considered high risk. Successful certification of a UAV with such a high degree of modularity would require constant and expensive certification. However, through the simultaneous application for a type certificate and a Design Organisation Approval (DOA), HUGO will be allowed to undergo major changes without requiring full recertification. Though more versatile, it is a process that will require an initial investment of \euro{10170} for the certification, and then a yearly fee of \euro{11050} for the maintenance of the Type Certificate. For compliance, a team of engineers will therefore have to apply for the DOA, and be responsible for approving any major changes. A flight envelope combining both manoeuvrer and gust loads borne by the structure was then calculated to ensure compliance with the CS-23 aerobatic requirements. Furthermore, it was necessary to verify the present environmental requirements issued by the European Union. The relevant legalisation for UAVs of HUGO's specifications emphasise a focus on the reduction of noise and emissions.   
 
-To determine if each of the five configurations complied with the requirements, a cursory analysis and estimation of design parameters had to be performed. Several trade-off criteria were established for parts of the design. First, the airfoil and analogous wing estimation was performed. To do that, performance and geometric parameters were obtained from reference aircraft and drag buildup methods described by Torenbeek, namely: stall speed, AR, wingspan, MAC, sweep, wing area, wing loading, and taper ratio. Then, design aerodynamic parameters were estimated using the previously obtained data and drag build-up methods described by Raymer (design lift coefficient, cruise Reynolds number, maximum lift coefficient). Lastly, a symmetrical supercritical airfoil (NASA SC(2)-0012) was selected to ensure successful operations at test conditions.
+To determine if each of the five configurations complied with the requirements, a cursory analysis and estimation of design parameters had to be performed. Several trade-off criteria were established for parts of the design. First, the airfoil and analogous wing estimation was performed. To do that, performance and geometric parameters were obtained from reference aircraft. These aircraft were selected based on the mission profile, size and cruise conditions. Drag buildup methods described by Torenbeek were used, namely: stall speed, AR, wingspan, MAC, sweep, wing area, wing loading, and taper ratio. Then, design aerodynamic parameters were estimated using the previously obtained data and drag build-up methods described by Raymer (design lift coefficient, cruise Reynolds number, maximum lift coefficient). Finally, based on the reference aircraft and HUGO cruise condition requirements, a NASA symmetrical supercritical airfoil was selected to limit compressibility effects and prevent shock wave formation on the lifting surfaces.
 
+To generate numerical data to serve as basis for the trade-off, the five design options were conceptually sized, taking into account the design aspects where differences between the configurations were expected. To provide initial values for the design iterations, reference aircraft data was gathered. No reference aircraft of similar scale were developed by the time of writing this report, however, several aircraft approach it. One of the aircraft close to HUGO's mission is the NASA DAST UAS with the ARW-2 wing used for aeroservoelastic effects testing. Although the mission objective was very similar, the aircraft maximum take-off weight was above 1000 kg, placing it far from the requirements for HUGO. Next, the NASA X-56 and FLEXOP experimental drones were used. These aircraft approach more closely the weight and scale of HUGO but operate in a highly subsonic low-speed regime. Nevertheless, the data obtained from all the considered aircraft helped to guide the first stage of the design process.
 
+To model the aerodynamic performance of the aircraft an inviscid parametric lifting line model of the aircraft was constructed using Aerosandbox. This was combined with a component build-up method to account for parasitic drag.
 
-6. Engineering Design and Analysis
-    Airfoil and wing analogous estimation
+The fuel mass fraction of the aircraft was obtained by breaking down its mission profile into multiple climb and cruise segments, for which standard equivalent range formulae are available, and evaluating the fuel mass fractions for each segment with performance parameters for that segment. Then, the mass fractions were combined into the total fuel mass fraction, which was around 27 \% for all configurations.
 
-    Analogous airfoil and wing estimation based on statistics - relevant reference aircraft, weighing the criteria to estimate an initial HUGO wing. Initial CL, aspect ratio, taper etc. wing parameters to go from
+Due to HUGO's modular design considered in multiple configurations, the effect on structural loading had to be investigated. The variable longitudinal location of the wing has to be accounted for structurally at all possible wing positions. Furthermore, loads from a canard change the load on the aircraft as well. Since multiple configurations were modular, it was necessary to account for the worst-case scenario with the highest load. To investigate this, the fuselage was initially modelled as a simple cylindrical shape with applied point loads from the canard, wing and tail. A quasi-isotropic material with similar mechanical properties to a carbon fibre reinforced polymer was used for this analysis. Code was developed to calculate the required skin thickness along the length of the fuselage and compare the weight penalties caused by the multiple configurations considered.
+
+The design wing loading and thrust-weight ratio were obtained by means of a matching diagram, with constraints tailored to account for the high-speed operations of HUGO, compliance with CS-23, and its compatibility with den Helder airport.
+
+As a next step, a preliminary empennage size estimation was performed. Analogously to the wing preliminary design, statistical data from reference aircraft were collected. Based on that an initial size of the empennage is obtained and iterated upon using standard stability and controllability equations. The sizing point for the empennage is neutral stability, to allow or the aircraft to be easily reconfigurable into stable and unstable configurations.
+
+The results of the sizing were assessed in a sensitivity study, whose main finding include a highly constrained design space for the landing gear placement, and significant dependency of the overall aircraft mass on fuselage dimensions. Other assumptions, such as the design C.G. Excursion and the geometry of particular landing gear struts,drive the results to a lesser extent.
+
+% 6. Engineering Design and Analysis
     
-    -parametric lifting-line-theory aerodynamic model of the aircraft has been created using Aerosandbox to obtain the preliminary aerodynamic loads
 
-    Fuel Fraction estimation
-    - mention that we model the mission as two cruise segments, translate the endurance and speed requirements into ranges of those segments.
-
-    Matching Diagram Step
-    - mention that we evaluate the aircraft for taking off and landing at den Helder, the climb gradients from CS-23 Amendment 5, flight half fuelled at mach 0.75, fly fully fuelled at mach .4 (you can basically copy the table from that section)
+%     Analogous airfoil and wing estimation based on statistics - relevant reference aircraft, weighing the criteria to estimate an initial HUGO wing. Initial CL, aspect ratio, taper etc. wing parameters to go from
     
-    Empennage preliminary design
-    -first the data on tail parameters of reference aircraft has been gathered
-    -subsequently the so-called scissor plot has been used to determine the required tail volume by constraining the aircraft to be neutrally statically stable and with a minimum required c.g. excursion from the controllability bound 
+%     -parametric lifting-line-theory aerodynamic model of the aircraft has been created using Aerosandbox to obtain the preliminary aerodynamic loads
+
+%     Fuel Fraction estimation
+%     - mention that we model the mission as two cruise segments, translate the endurance and speed requirements into ranges of those segments.
+
+%     Matching Diagram Step
+%     - mention that we evaluate the aircraft for taking off and landing at den Helder, the climb gradients from CS-23 Amendment 5, flight half fuelled at mach 0.75, fly fully fuelled at mach .4 (you can basically copy the table from that section)
     
-    Landing gear configuration
-    -we have two main concepts, the sidepods and the internal storadge one, both with advantages and disadvantages
-    -both are retractable and are possible configurations
-    -the downside of the podded is the added drag at high speeds and compexity, also it had to be quite close to the fuselage to not add to much area so its also more heavy, it is not made really made for high-speed configurations
-    -retractable, more slick but it needs internal space and it also implies added holes in the fuselage for the retractable part, no idea how much more heavy is compared to the one but it is less complex to design because of the folding mechanisc
-    -after computing the positions of the landing gear we concluded that there are no defining differences between then, as such due to the added weight and complexity, the side podded designs will score lower in performance 
+%     Empennage preliminary design
+%     -first the data on tail parameters of reference aircraft has been gathered
+%     -subsequently the so-called scissor plot has been used to determine the required tail volume by constraining the aircraft to be neutrally statically stable and with a minimum required c.g. excursion from the controllability bound 
+    
+%     Landing gear configuration
+%     -we have two main concepts, the sidepods and the internal storadge one, both with advantages and disadvantages
+%     -both are retractable and are possible configurations
+%     -the downside of the podded is the added drag at high speeds and compexity, also it had to be quite close to the fuselage to not add to much area so its also more heavy, it is not made really made for high-speed configurations
+%     -retractable, more slick but it needs internal space and it also implies added holes in the fuselage for the retractable part, no idea how much more heavy is compared to the one but it is less complex to design because of the folding mechanisc
+%     -after computing the positions of the landing gear we concluded that there are no defining differences between then, as such due to the added weight and complexity, the side podded designs will score lower in performance 
 
-    Structural Design
-    -Evaluated the modular configurations in terms of structural reinforcements and the consequential mass penalties. This directly feeds into the configuration trade-off under the performance category. The fuselage skin thickness was analysed across configurations HUG-CFG-302, HUG-CFG-303, and HUG-CFG-304, by implementing a fixed canard port and allowing variable wing placements with a range of ±1c 
+%     Structural Design
+%     -Evaluated the modular configurations in terms of structural reinforcements and the consequential mass penalties. This directly feeds into the configuration trade-off under the performance category. The fuselage skin thickness was analysed across configurations HUG-CFG-302, HUG-CFG-303, and HUG-CFG-304, by implementing a fixed canard port and allowing variable wing placements with a range of ±1c 
 
-    - The fuselage skin was sized against shear, bending, and cylindrical shell buckling failure criteria. The skin was assumed to be a quasi-isotropic CFRP panel of varying thickness for the preliminary analysis. It was estimated that adding a canard port would increase the Operating Empty Mass fraction by 1-2\% and the inclusion of an x-variable wing port would increase the same fraction by 3-4\%.
+%     - The fuselage skin was sized against shear, bending, and cylindrical shell buckling failure criteria. The skin was assumed to be a quasi-isotropic CFRP panel of varying thickness for the preliminary analysis. It was estimated that adding a canard port would increase the Operating Empty Mass fraction by 1-2\% and the inclusion of an x-variable wing port would increase the same fraction by 3-4\%.
 
 
-7. Design Trade-Off
+\begin{comment}
+    7. Design Trade-Off
     - separate trade-offs were made for the configuration and materials, since our original configurations only vary in the types of ports and landing gear (not much to do with material selection)
     
     Trade-Off Criteria Selection
@@ -76,50 +87,23 @@ To determine if each of the five configurations complied with the requirements, 
     Material selection Trade off
     - Results: For Primary aerodynamic components fuselage, empennage, wings, CFRP won. 
     For the rest of the structural components: Landing gear, pylons, misc brackets inserts etc., Aluminium 7075 T76 won. 
+\end{comment}
+
+To evaluate the candidate vehicle configurations, a weighted trade-off matrix was made using criteria including cost, versatility, reliability, and sustainability. This qualitative assessment was integrated with quantitative performance metrics derived from the parametric sizing code. The results of the code showed that the performance of the different configurations were largely the same, even after accounting for the structural weight penalties of the added modularity. By comparing the configurations against these combined criteria, HUG-CFG-303 was identified as the optimal architecture. This configuration—featuring a high-wing layout, T-tail, fuselage-mounted propulsion, and static modular ports, achieved the highest overall score by maximizing reliability and aerodynamic efficiency while maintaining the essential modularity required for a flying laboratory.
+
+Subsequently, a material selection trade-off was performed to determine the optimal structural composition of the aircraft. Several material candidates were evaluated against weighted criteria, including structural properties, durability, manufacturing cost, and design freedom. Carbon-fiber-reinforced polymer (CFRP) was selected as the primary material for the fuselage and main aerodynamic surfaces. Its superior specific modulus and plate buckling efficiency are critical for supporting a high-aspect-ratio airframe operating at Mach 0.75, while simultaneously offering the design freedom necessary to manufacture complex, aerodynamically optimized profiles. For localized, high-stress functional components such as the landing gear and pylons, Aluminum 7075-T76 was selected due to its high specific fracture toughness and ease of manufacturability.
 
 
 
-Once the final configuration was established, a Manufacturing, Assembly and Integration (MAI) plan was created. The manufacturing techniques were chosen based on labour costs, part size, production time, and material efficiency. The chosen materials, carbon fibre composite and Al 7075 T76, require different manufacturing processes. The carbon fibre parts will be manufactured using a pre-preg and autoclave method. Due to the primary use of the aluminium alloy for the landing gear, and the limited number of HUGOs set to be produced, CNC machining paired with deep-hole drilling, heat treatment, and corrosion protection was chosen as the manufacturing method. The assembly will involve the joining of different parts. As such, different joining techniques such as adhesive bonding, riveting, bolting, and welding were analysed, and the pros and cons of each method described for each planned application. Additionally, it was determined that the specialised modular ports will join the primary structure subsystems. The integration of the remaining systems (i. e. avionics, power supply, engine, and interior) were done in \autoref{sec:Integration}. The main considerations when planning the integration of subsystems were: accessibility of the components for maintenance, and avoiding time delays and safety risks due to improper subsystem integration.
+Once the final configuration and material was established, a Manufacturing, Assembly and Integration (MAI) plan was created. The manufacturing techniques were chosen based on labour costs, part size, production time, and material efficiency. The chosen materials, carbon fibre composite and Al 7075 T76, require different manufacturing processes. The carbon fibre parts will be manufactured using a pre-preg lay up and autoclave method. Due to the primary use of the aluminium alloy for the landing gear, and the limited number of HUGOs set to be produced, CNC machining paired with deep-hole drilling, heat treatment, and corrosion protection was chosen as the manufacturing method. The assembly will involve the joining of different parts. As such, different joining techniques such as adhesive bonding, riveting, bolting, and welding were analysed, and the pros and cons of each method described for each planned application. Additionally, it was determined that the specialised modular ports will join the primary structure subsystems. The integration of the remaining systems (i. e. avionics, power supply, engine, and interior) were done in \autoref{sec:Integration}. The main considerations when planning the integration of subsystems were: accessibility of the components for maintenance, and avoiding time delays and safety risks due to improper subsystem integration.
 
 The external configuration of the chosen design was illustrated through a sketch, elucidating the positions of all outside mounted ports and holes, such as antennas. The internal configuration is not yet defined at this design stage. Instead, all relevant components that must be contained within the fuselage are listed. A detailed explanation of the electronics system, major components, as well as specific components like the autopilot, and a comprehensive list of sensors used to quantify aeroservoelastic phenomena is provided further. It was determined that the battery will likely be the limiting factor dictating the dimensions of the fuselage, as it is the largest component. The fuel and propulsion system was also analysed and visualised graphically. The components related to the propulsion system were identified. Additionally, the components were sized to ensure compliance with the 5 litre payload requirement. The required positioning of the landing gear and the associated retraction mechanisms were also estimated and accounted for in the internal volume of the fuselage. Subsequently, a cost analysis of all components will be performed.
 
-   
-10. Sustainable development strategy.
-
 To ensure minimal environmental impact, HUGO's sustainable development strategy was devised. A preliminary LCA analysis was performed, resulting in an estimated total Global Warming Potential (GWP) of $1.92794\cdot10^{6}$ [kg CO2 eq] for the production, operation and end-of-life solutions, with fuel-burn and the production of SAF being the biggest contributors. The social sustainability strategy from the Baseline Report was expanded on with the recommendations set out by the European Commission in regulation (EU) 2018/1139 Annex IX.
-
-11. Conclusion
-
 
 To conclude, HUG-CFG-303, a high-wing configuration with static wing and canard
 ports, and retractable buried landing gear, was chosen as the final configuration for its balance of experimental versatility, cost efficiency, and reliability.
 
+HUG-CFG-303 will undergo further development, as there are several factors limiting the precision of the models at this time. The aerodynamic model has not been validated against experimental data specific to HUGO. Additionally, known discrepancies with DATCOM pre-dictions at higher angles of attack suggest that lift estimates may carry non-negligible uncertainty, particularly for the swept wing configuration. Lastly, the structural weight penalty analysis relied on simplified beam models with point loads, which will require refinement once the final configuration geometry is fixed.
 
-
-limitations on the precision:
-erodynamic model has
-not been validated against experimental data specific to HUGO
-known discrepancies with DATCOM pre-
-dictions at higher angles of attack suggest that lift estimates may carry non-negligible uncertainty, particularly
-for the swept wing configuration
-tructural weight penalty analysis relies on simplified beam models with
-point loads, which will require refinement once the final configuration geometry is fixed.
-
-
-recommendations are: converging the weight and centre-of-gravity iteration
-loop, refining the aerodynamic model through higher-fidelity analysis at high subsonic conditions, completing
-the detailed structural design of the wing-fuselage and tail-fuselage static ports, and finalising the internal layout
-and fuel system sizing for HUG-CFG-303. On the organisational side, initiating preliminary contact with EASA
-regarding the DOA application and confirming hangar availability at Den Helder are advised as early actions
-that can be pursued in parallel with the ongoing design work.
-
-
-
-
-
-In conclusion, everything sucks, and I wanna go home.
-
-XOXO
-
-- your friendly neighbourhood executive overview writer <3
-\textcolor{red}{<3}
+Further recommendations are proposed to refine the final configuration. Namely, it is recommended to proceed with converging the weight and centre-of-gravity iteration loop, refining the aerodynamic model through higher-fidelity analysis at high subsonic conditions, completing the detailed structural design of the wing-fuselage and tail-fuselage static ports, and finalising the internal layout and fuel system sizing for HUG-CFG-303. In addition, to improve the organisational structure, it is also recomended to initiate preliminary contact with EASA regarding the DOA application and confirming hangar availability at Den Helder, which can be done in parallel with the development of the final design.
