@@ -163,7 +163,7 @@
 \usepackage{parskip}
 
 
-\setcounter{tocdepth}{0} 
+\setcounter{tocdepth}{1} 
 %\setlist{itemsep=-2pt} % Reducing white space in lists slightly
 %\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
@@ -216,7 +216,16 @@ Vaibhav Byreddy (5237254)\\
 
 \include{Main_Sections/title}
 
-\tableofcontents
+\cleardoublepage
+\chapter*{\contentsname}
+
+\begin{multicols}{2}
+\makeatletter
+\@starttoc{toc}
+\makeatother
+\end{multicols}
+
+\cleardoublepage
 %\include{Main_Sections/Nomenclature}
 \printnomenclature[3cm]
 
@@ -243,6 +252,7 @@ Vaibhav Byreddy (5237254)\\
 \input{Mainmatter/Manufacturing Assembly Integration Plan}
 \input{Mainmatter/Configuration Layout}
 \input{Mainmatter/Sustainable_Development_Strategy}
+\input{Mainmatter/VandV}
 
 \input{Main_Sections/Conclusion}
 
