@@ -33,7 +33,7 @@ This section evaluates a possible internal configuration of HUGO, mapping the la
 \label{subsec:on-board_electronic_units}
 Along the payload, the fuselage will house the electronic system, including the sensors and supply the payload. The engine requires an outside source of power for the start-up procedure, as such, the battery will provide the additional power needed. The margin left from the battery will power the payload, and other secondary subsystems.
 
-A list of components included in the electronic system of HUGO can be seen in \autoref{tab:electronic_system}. For the internal configuration of HUGO, the dimensions and weight of each electronic component need to be catalogued, and in the next stage of the project, a detailed power system analysis can be conducted. For now, the numbers in \autoref{tab:electronic_system} represent a first-order approximation to enable calculation of dynamic stability and C.G. properties of the UAV.
+A list of components included in the electronic system of HUGO can be seen in \autoref{tab:electronic_system}. For the internal configuration of HUGO, the dimensions and weight of each electronic component need to be catalogued, and in the next stage of the project, a detailed power system analysis can be conducted. For now, the numbers in \autoref{tab:electronic_system} represent a first-order approximation to enable calculation of dynamic stability and C.G. properties of the UAV. The components can be found in\footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/excel-files/Electronic\%20Components.xlsx}{Electronic Component List} (accessed on 26.05.2026)}.
 
 For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https://www.uavnavigation.com/products/autopilots/vector-600}{Vector-600}(accessed on 13.05.2026)} was chosen as it incorporates many of the basic air sensors needed to conduct the flight. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual IMU, redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, GNSS receiver for gps signal. One limitation of this system is the maximum air speed calculator, which can only reach speeds of 450 kts, while HUGO can fly at a maximum speed of 500 kts, as such an additional speed sensor is needed. Alongside the autopilot, the design team has decided to include additional data sources such as: pitot static tube, radar system, temperature sensors, humidity sensors, cameras (one for piloting and 2 more for the view of the fuselage), and an angle of attack sensor. Storage of the data for further processing is done on a SATA SSD, with a capacity of 1TB, as it is robust and will offer enough storage space for a 30-minute flight.
 
@@ -44,7 +44,7 @@ For the purpose of this application, autopilot VECTOR-600 \footnote{\href{https:
         \hline
          \textbf{Component} & \textbf{Weight [g]} & \textbf{Dimensions [mm]}  \\
          \hline\hline
-         Battery &4000&  206 x 124.3 x 70.5 \\
+         Battery  &4000&  206 x 124.3 x 70.5 \\
          \hline
          Wires &0.33 kg/1000 ft& - \\\hline
          Rotary actuators (x10) & 19 & 28.4 x 38.0 x 13.3\\\hline

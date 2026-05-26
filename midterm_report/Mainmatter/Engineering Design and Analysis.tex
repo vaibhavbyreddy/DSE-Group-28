@@ -490,7 +490,7 @@ The values obtained for shear, moment, and skin thickness are then plotted. From
 
 Furthermore, diagrams for HUG-CFG-303, shown in \autoref{fig:VMT_303}, include flight conditions with and without a canard. Since the canard is intended to be optional, there will likely be scenarios where the drone flies without a canard and the moment loads are wholly counteracted by the empennage. The plotting selected the most constraining forces between both conditions for each stage. The estimate for fuselage skin mass of this configuration is $2.84kg$, representing a $5.5\%$ increase in mass compared to HUG-CFG-302.
 
-Lastly, a similar approach to the previous configuration was taken for HUG-CFG-301, 304 and 305, presented in \autoref{fig:VMT_304}. For this configuration, the main wing lift location was shifted by $\pm 1$ chord length. Once again, the most constraining internal loading at each partition was selected and resulted in a fuselage skin mass of $3.17kg$, a $17.8\%$ increase over HUG-CFG-302.
+Lastly, a similar approach to the previous configuration was taken for HUG-CFG-301, 304 and 305, presented in \autoref{fig:VMT_304}. For this configuration, the main wing lift location was shifted by $\pm 1$ the design C.G. excursion. Once again, the most constraining internal loading at each partition was selected and resulted in a fuselage skin mass of $3.17kg$, a $17.8\%$ increase over HUG-CFG-302.
 
 For the iterative sizing, a baseline empty mass fraction is obtained from Finger \cite{Finger2016VTOL} and then increased by the weight penalty $\Delta m$:
 \begin{equation}
@@ -1005,7 +1005,7 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
 
 
 Based on \autoref{tab:landing_gear_tradeoff} and \autoref{tab:landing_gear_tradeoff2}, the landing gear position does not pose an impediment for any of the configurations. HUG-CFG-301 has the longest landing gear, which is expected to incur the largest mass penalty. The rest of the configurations have similar dimensions, but the podded configurations will introduce additional weight to the design due to the extra material and added complexity.%placing lower in the trade-off process compared to the remaining two models.
-
+\todo[inline]{Rewrite the parts of the dimensions of the wheel and the lengths and the podded and so on as it was originally thought that the plane would heve 100+ kg }
 An analysis of the X-56A landing gear system, an estimated tyre width of 45 mm, and a diameter of 200 mm were obtained\footnote{\href{https://ntrs.nasa.gov/citations/20150023568}{X-56A MUTT: Aeroservoelastic Modeling} (accessed on 20.05.2026)}. To account for all the internal components analysed in \autoref{sec:internal_configuration}, the fuselage shall have a diameter of 31.5 cm. A more detailed analysis and design of the landing gear will be performed in the final stage of the project.
 
 % Pros and cons for the 2 LG 
@@ -1058,7 +1058,7 @@ Due to the modular nature of the aircraft, the gear has to retract into fuselage
 
 Regarding parameter values in the feasible design space, increasing the fuselage dimensions, especially the diameter, causes a rapid increase in mass (nearly double for the highest considered fuselage diameter), with the exception of the longer fuselage of HUG-CFG-302, which slightly decreases the total mass. It is thus recommended for the final design to avoid excessive enlarging of the fuselage, especially in diameter.
 
-Changing the CG excursion used to size the tail has a much weaker effect and differs significantly between the design options. HUG-CFG-301 and HUG-CFG-302 stay largely unaffected by the parameter, while the mass of HUG-CFG-302 slightly decreases, and the two remaining options experience non-monotonous changes in MTOM.
+Changing the CG excursion used to size the tail has a much weaker effect and differs significantly between the design options. HUG-CFG-301 and HUG-CFG-302 have their masses slightly decreased with larger C.G. Excursions, while the three remaining options experience a small increase in MTOM.
 
 Changes to the landing gear bay width induce a small, roughly linear increase in mass for the affected design options, which is expected. Changes in the bay length have a significantly more minor effect. This can be explained by the fact that while a longer bay has a proportionally longer wetted area, its slenderness ratio is also proportionally larger. Changes in the wheel diameter of the landing gear affect the podded landing gear significantly more and similarly to increasing the bay width. This is because those options have a shorter main landing gear strut width, so the wheel diameter is more driving to their frontal and reference areas.
 
@@ -1075,14 +1075,14 @@ Overall, the results of the sensitivity study are plausible and highlight the im
     % Row 1
     \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sensitivity_Analysis_Plots/Fuselage Diameter.png}
+        \includegraphics[width=\linewidth]{figures/Sensitivity_Analysis_Plots/FUS_DIAMETER.png}
         \caption{Effect of altering the fuselage diameter}
         \label{fig:sensitivity-fuselage-diameter}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sensitivity_Analysis_Plots/Landing_Gear_Diameters_SA.png}
+        \includegraphics[width=\linewidth]{figures/Sensitivity_Analysis_Plots/GEAR_WIDTH.png}
         \caption{Effect of altering the landing gear wheel diameter}
         \label{fig:sensitivity-wheel-diameter}
     \end{subfigure}
@@ -1099,7 +1099,7 @@ Overall, the results of the sensitivity study are plausible and highlight the im
     \hfill
     \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sensitivity_Analysis_Plots/Gear_Width_SA.png}
+        \includegraphics[width=\linewidth]{figures/Sensitivity_Analysis_Plots/BAY_WIDTH.png}
         \caption{Effect of altering the width of landing gear pods}
         \label{fig:sensitivity-pod-width}
     \end{subfigure}
@@ -1116,7 +1116,7 @@ Overall, the results of the sensitivity study are plausible and highlight the im
     \hfill
     \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sensitivity_Analysis_Plots/LG_Bay_size_SA.png}
+        \includegraphics[width=\linewidth]{figures/Sensitivity_Analysis_Plots/LG_LEN.png}
         \caption{Effect of altering the landing gear pod length}
         \label{fig:sensitivity-landing-pod-length}
     \end{subfigure}
