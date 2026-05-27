@@ -1,7 +1,7 @@
 \chapter{Configuration Layout}
 \label{ch:configuration_layout}
 %\todo[inline]{From Project Guide: \\The configuration / layout shows the physical appearance of the product or system. It is mainly a set of sketches and drawings illustrating the internal and external layout with a short textual explanation.\\ The layout contains also a block diagram identifying the electronic units carried on-board.\\ A first version is presented in the Mid Term Report, generally for all design options involved in the concept selection, concentrating on those aspects that are essential to provide the trade-off.\\ The final, more detailed, version of the final design is included in the Final Report. }
-This Chapter outlines the details of the external and internal configuration of HUGO. \autoref{sec:external_configuration} showcases sketches of external geometry for each of the configurations considered in this design phase. Details regarding the internal components and their functions, along with a brief description of the electronic units carried on-board, are provided in \autoref{sec:internal_configuration}.
+This chapter outlines the details of the external and internal configuration of HUGO. \autoref{sec:external_configuration} showcases sketches of external geometry for each of the configurations considered in this design phase. Details regarding the internal components and their functions, along with a brief description of the electronic units carried on-board, are provided in \autoref{sec:internal_configuration}.
 This section is not included into the trade-off process of the configurations because the internal components are the same for all designs, and layouts are similar to each other. It will serve as an analysis backbone for the final internal design, identifying necessary subsystems and their contributions. The final internal layout will be created in the next stage of the project realisation.
 
 \section{External Configuration}
@@ -11,6 +11,11 @@ The final design of the plane will have an external configuration that is optimi
 Regardless of the smooth surface criteria, HUGO still has some outside ports, such as a pitot static tube placed under the nose cone, away from disturbed flow, the lidar port that will slightly protrude outside to scan the surrounding atmosphere, antennas for transmitting and receiving as well as the outside lights for visibility. 
 
 Other outer characteristics include the doors for the internal components, placed in top of the fuselage, doors for the landing gear, both nose and main, camera ports and the fuel port. A sketch of the external configuration can be found in \autoref{fig:hug-cfg-304-outer}.
+
+As per calculations in \autoref{ch:engineering_design},
+the aircraft requires a wingspan of 2.667 m at the maximum aspect ratio of 27. This should not cause issues with transporting the aircraft, as per van dimensions from the Baseline Report \footref{url:baseline_report}
+
+
 
 
 % Include in the sketch the following:
@@ -191,7 +196,7 @@ System}(accessed on 18.5.2026)}. Furthermore, 2m of PTFE tube for fuel distribut
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{figures/HUGO propulsion system control feedback diagram.png}
+    \includegraphics[width=0.8\linewidth]{figures/HUGO propulsion system control feedback diagram.png}
     \caption{HUGO propulsion system diagram}
     \label{fig:prop_diagram}
 \end{figure}

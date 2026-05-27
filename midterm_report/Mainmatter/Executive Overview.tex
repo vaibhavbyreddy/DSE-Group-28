@@ -2,7 +2,7 @@
 
 %\todo[inline]{ISBN's are not showing in bibliography! Point of interest for Mr. Documentation.}
 
-In order to achieve a High-speed Unmanned General-purpose Observatory (HUGO) mission of testing aeroservoelastic phenomena in different kinds of high aspect ratio wings, five possible configurations were proposed in the Baseline Report \footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report}(accessed on 21.05.2026)}, and shown in table 7.1. The goal of the Midterm Report is to provide a final assessment on which configuration will be chosen for further development. To facilitate this, a manufacturing, assembly, and integration plan will be established, followed by the internal and external layouts of the chosen design configured, and the sustainable development strategy. In addition, the final project objectives will be established, the operations and logistics of HUGO's mission, and the certification and risk assessment in accordance with European Union Aviation Safety Agency (EASA) regulations.
+In order to achieve a High-speed Unmanned General-purpose Observatory (HUGO) mission of testing aeroservoelastic phenomena in different kinds of high aspect ratio wings, five possible configurations were proposed in the Baseline Report \footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report}(accessed on 21.05.2026)}. Upon further revision, four of the configurations were upheld and are shown in table 7.1. The goal of the Midterm Report is to provide a final assessment on which configuration will be chosen for further development. To facilitate this, a manufacturing, assembly, and integration plan will be established, followed by the internal and external layouts of the chosen design configured, and the sustainable development strategy. In addition, the final project objectives will be established, the operations and logistics of HUGO's mission, and the certification and risk assessment in accordance with European Union Aviation Safety Agency (EASA) regulations.
 
 
 
@@ -15,7 +15,7 @@ In order to achieve a High-speed Unmanned General-purpose Observatory (HUGO) mis
         \hline
         \textbf{ID} & \textbf{Wing Configuration} & \textbf{Wing Modularity} & \textbf{Canard Modularity} \\
         \hline\hline
-        HUG-CFG-301 & Low Wing & Variable Port (X) & Static Port \\
+        HUG-CFG-301 & Low Wing & Static Port & Static Port \\
         \hline
         HUG-CFG-302 & High Wing & Static Port & No Port \\
         \hline
@@ -50,7 +50,7 @@ To model the aerodynamic performance of the aircraft an inviscid parametric lift
 
 The fuel mass fraction of the aircraft was obtained by breaking down its mission profile into multiple climb and cruise segments, for which standard equivalent range formulae are available, and evaluating the fuel mass fractions for each segment with performance parameters for that segment. Then, the mass fractions were combined into the total fuel mass fraction, which was around 27 \% for all configurations.
 
-Due to HUGO's modular design considered in multiple configurations, the effect on structural loading had to be investigated. The variable longitudinal location of the wing has to be accounted for structurally at all possible wing positions. Furthermore, loads from a canard change the load on the aircraft as well. Since multiple configurations were modular, it was necessary to account for the worst-case scenario with the highest load. To investigate this, the fuselage was initially modelled as a simple cylindrical shape with applied point loads from the canard, wing and tail. A quasi-isotropic material with similar mechanical properties to a carbon fibre reinforced polymer was used for this analysis. Code was developed to calculate the required skin thickness along the length of the fuselage and compare the weight penalties caused by the multiple configurations considered.
+Due to HUGO's varying modularity across most configurations, its effect on structural loading had to be investigated. The variable longitudinal location of the wing has to be accounted for structurally at all possible wing positions. Regarding configurations with a canard port, loads from a canard change the load on the aircraft as well. Since multiple configurations were modular, it was necessary to account for the worst-case scenario with the highest load. To investigate this, the fuselage was initially modelled as a simple cylindrical shape with applied point loads from the canard, wing and tail. The quasi-isotropic mechanical properties of carbon fibre reinforced polymer (CFRP) were used for this analysis. Code was developed to calculate the required skin thickness along the length of the fuselage and compare the weight penalties caused by the multiple configurations considered.
 
 The design wing loading and thrust-weight ratio were obtained by means of a matching diagram, with constraints tailored to account for the high-speed operations of HUGO, compliance with CS-23, and its compatibility with den Helder airport.
 

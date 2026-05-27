@@ -1,12 +1,12 @@
 \chapter{Verification and Validation Plan}
-The methods used to size the design, as well as the product itself need to be verified and validated. For the methods, this means testing of individual computations as well as assessing the convergence of the final results (verification, see \autoref{sec:Method Verification}) and assessing the relevance of the method (validation, see \autoref{sec:Method Validation}). For the product, this means confirming it meets the requirements (verification, see \autoref{sec: Product verification}) and that it indeed can perform its envisioned mission (validation, see \autoref{sec: Product validation}).
+The methods used to size the design need to be verified and validated. This means testing of individual computations as well as assessing the convergence of the final results (verification, see \autoref{sec:Method Verification}) and assessing the relevance of the method (validation, see \autoref{sec:Method Validation}). 
 
 \section{Verification}
 \label{sec:Method Verification}
 
 The designs are sized using iterative code. The code executes several independent analyses in a loop. After each analysis, parts of a global single source of truth object representing the aircraft are updated.
 
-This setup allows to verify the particular analyses themselves. Per-analysis verification is described in the relevant sections of \autoref{ch:engineering_design}.
+This setup allows to verify the particular analyses themselves. Per-analysis verification is described in the relevant sections of \autoref{ch:engineering_design}. As a guideline, particular analyses are expected to have enough resolution in order to model both HUGO and the verification case.
 
 It is also necessary to ensure the iterative sizing converges. This is done by tracking the history of aircraft MTOM for each iteration step for each configuration. The results of the convergence study are shown in \autoref{fig:midtermIteration}. For the sizing of the final design, a similar convergence study shall be conducted.
 
@@ -22,7 +22,9 @@ It is also necessary to ensure the iterative sizing converges. This is done by t
 
 The main goal for the methods for the Midterm Report is to provide numerical data for the trade-off. As such, a sensitivity study is conducted in \autoref{sec: sensitivity study} to assess whether the method predictions will not change to an extend that affects the trade-off with varying its assumptions.
 
-For the Final Report, the goal of the method is to provide accurate numerical values used for subsystem design. As such, it can be verified by employing the same method to evaluate an existing aircraft, and compare the method's results with real aircraft data. This would require detailed information on the reference aircraft of choice. The method would also need to be general enough to accommodate both HUGO and the reference aircraft. The need for validation may thus be driving for the development of the Final Report methods.
+For the Final Report, the goal of the method is to provide accurate numerical values used for subsystem design. As such, it can be verified by employing the same method to evaluate an existing aircraft, and compare the method's results with real aircraft data. This would require detailed information on the reference aircraft of choice. The method would also need to be general enough to accommodate both HUGO and the reference aircraft. The need for validation may thus be driving for the development of the Final Report methods. Depending o the availability of statistical data, it might be necessary to validate different parts of the method against different reference aircraft.
+
+A sensitivity study should be conducted for the Final Report methods as well. In that case, the question to answer would be if changes to assumptions significantly equal subsystem design or final system performance.
 
 % \section{Product verification}
 % \label{sec: Product verification}
