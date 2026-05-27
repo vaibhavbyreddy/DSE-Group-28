@@ -20,22 +20,22 @@ Preliminary risk assessment performed in the previous design phase identified fi
     \begin{tabular}{|c|p{8cm}|c|c|}
     \hline
        \textbf{Risk ID}  & \makecell{\textbf{Risk Description}} & \textbf{Likelihood} & \textbf{Severity} \\ \hline \hline
-        HUG-DEV-06 & Certification duration exceeding 3 years & 2 & 3 \\ \hline
-        HUG-DEV-07 & Rejection of Certification/DOA application  & 2 & 5 \\ \hline
-        HUG-OP-11 &  Unavailability of ground crew  & 3 & 5 \\ \hline
-        HUG-OP-12 &  Ground station equipment failure  & 2 & 5 \\ \hline
-        HUG-OP-13 &  Fuel shortage at Den Helder airport for HUGO  & 2 & 4 \\ \hline
-        HUG-OP-14 &  Fuel shortage while holding  & 2 & 5 \\ \hline
-        HUG-OP-15 &  Runway congestion/lack of ATC clearance  & 2 & 3 \\ \hline
-        HUG-OP-16 &  Corrupted measurement files  & 2 & 4 \\ \hline
-        HUG-OP-17 &  Insufficient power to continue tests for the day  & 2 & 5 \\ \hline
+        HUG-RSK-DEV-06 & Certification duration exceeding 3 years & 2 & 3 \\ \hline
+        HUG-RSK-DEV-07 & Rejection of Certification/DOA application  & 2 & 5 \\ \hline
+        HUG-RSK-OP-11 &  Unavailability of ground crew  & 3 & 5 \\ \hline
+        HUG-RSK-OP-12 &  Ground station equipment failure  & 2 & 5 \\ \hline
+        HUG-RSK-OP-13 &  Fuel shortage at Den Helder airport for HUGO  & 2 & 4 \\ \hline
+        HUG-RSK-OP-14 &  Fuel shortage while holding  & 2 & 5 \\ \hline
+        HUG-RSK-OP-15 &  Runway congestion/lack of ATC clearance  & 2 & 3 \\ \hline
+        HUG-RSK-OP-16 &  Corrupted measurement files  & 2 & 4 \\ \hline
+        HUG-RSK-OP-17 &  Insufficient power to continue tests for the day  & 2 & 5 \\ \hline
     \end{tabular}
     \label{tab:risks_new}
 \end{table}
 
 Preventive measures and mitigation strategies developed for the newly identified risks, along with their expected effect on the likelihood or severity, are described in \autoref{tab:risk_preventive_measures} and \autoref{tab:risk_mitigation_scenarios}, respectively. Preventive measures can be applied before operations take place to reduce the likelihood of the risks occurring. Mitigation refer to the actions that can be taken once the risks occur.
 
-It shall be noted that mitigation strategies cannot be identified for all the risks. This is the case for the development risks associated with certification (HUG-DEV-06, HUG-DEV-07), as well as risks dependent on the airport authorities (HUG-OP-13). In these cases, special emphasis was put on preventive measures.
+It shall be noted that mitigation strategies cannot be identified for all the risks. This is the case for the development risks associated with certification (HUG-RSK-DEV-06, HUG-RSK-DEV-07), as well as risks dependent on the airport authorities (HUG-RSK-OP-13). In these cases, special emphasis was put on preventive measures.
 
 \begin{longtable}{|c|p{12.5cm}|c|}
 \caption{Risk Preventive Measures}
@@ -58,31 +58,34 @@ It shall be noted that mitigation strategies cannot be identified for all the ri
 \hline
 \endlastfoot
 
-HUG-DEV-06 & Ensuring that the documentation is complete, and all design details comply with relevant regulations and means of compliance.
+HUG-RSK-DEV-06 & Ensuring that the documentation is complete, and all design details comply with relevant regulations and means of compliance.
 & -1 \\ \hline
 
-HUG-DEV-07 & Maintaining contact with EASA and other authorities to resolve any potential issues regarding certification.
+HUG-RSK-DEV-07 & Maintaining contact with EASA and other authorities to resolve any potential issues regarding certification.
 & -1 \\ \hline
 
-HUG-OP-11 & Regular check-ups on crew, establishing reliable communication channels, predefining absence regulations, scheduling holidays and foreseen leaves in advance.
+HUG-RSK-OP-11 & Regular check-ups on crew, establishing reliable communication channels, predefining absence regulations, scheduling holidays and foreseen leaves in advance.
 & -2 \\ \hline
 
-HUG-OP-12 & Regular maintenance and equipment checks. Preparing backup equipment.
+HUG-RSK-OP-12 & Regular maintenance and equipment checks. Preparing backup equipment.
 & -1 \\ \hline
 
-HUG-OP-13 & Having personnel on standby to supply sustainable aviation fuel (SAF) as soon as a fuel shortage is assessed.
+HUG-RSK-OP-13 & Having personnel on standby to supply sustainable aviation fuel (SAF) as soon as a fuel shortage is assessed.
 & -1 \\ \hline
 
-HUG-OP-14 & Implementing a alerting system and constant monitoring of the fuel system.
+HUG-RSK-OP-14 & Implementing a alerting system and constant monitoring of the fuel system.
 & -1 \\ \hline
 
-HUG-OP-15 & Pre-scheduling flights with De Kooy ATC and maintaining communications according to airport regulations.
+HUG-RSK-OP-15 & Pre-scheduling flights with De Kooy ATC and maintaining communications according to airport regulations.
 & -1 \\ \hline
 
-HUG-OP-16 & Implement continuous data transmission, prepare a backup storage plan for in-flight measurements.
+HUG-RSK-OP-16 & Implement continuous data transmission, prepare a backup storage plan for in-flight measurements.
 & -1 \\ \hline
 
-HUG-OP-17 & Monitoring the battery condition after each flight day. & -1 \\
+HUG-RSK-OP-17 & \begin{comment}Monitoring the battery condition after each flight day.
+\end{comment}
+Regurly checking the condtion of the battery
+& -1 \\
 
 \end{longtable}
 
@@ -107,23 +110,23 @@ HUG-OP-17 & Monitoring the battery condition after each flight day. & -1 \\
 \hline
 \endlastfoot
 
-HUG-OP-11 &
+HUG-RSK-OP-11 &
 Appointing pilots/crew members who can be called upon in case of emergency.
 & -1 \\ \hline
 
-HUG-OP-12 &
+HUG-RSK-OP-12 &
 Using the backup equipment, requesting assistance from available airport facilities.
 & -1 \\ \hline
 
-HUG-OP-14 &
+HUG-RSK-OP-14 &
 Sending a "MAYDAY FUEL" emergency signal to the ATC to ensure priority landing.
 & -3 \\ \hline
 
-HUG-OP-15 &
+HUG-RSK-OP-15 &
 Requesting take-off with ATC, asking for clarification on when a take-off window will become available. Including a buffer in the test day planning to account for delay take-off and landings.
 & -2 \\ \hline
 
-HUG-OP-16 &
+HUG-RSK-OP-16 &
 Accessing the backup files, saving the continuously transmitted data during operations.
 & -2 \\
 
@@ -147,15 +150,15 @@ Applying the preventive measures and mitigation strategies to the newly identifi
     \begin{tabular}{|c|c|c|}
         \hline
         \textbf{Risk-ID} & \textbf{Likelihood} & \textbf{Severity} \\ \hline
-        HUG-DEV-06 & 1 & 3\\ \hline
-        HUG-DEV-07 & 1 & 5\\ \hline
-        HUG-OP-11 & 1 & 4\\ \hline
-        HUG-OP-12 & 1 & 4\\ \hline
-        HUG-OP-13 & 1 & 4\\ \hline
-        HUG-OP-14 & 1 & 1 \\ \hline
-        HUG-OP-15 & 1 & 1 \\ \hline
-        HUG-OP-16 & 1 & 2 \\ \hline
-        HUG-OP-17 & 1 & 5 \\ \hline
+        HUG-RSK-DEV-06 & 1 & 3\\ \hline
+        HUG-RSK-DEV-07 & 1 & 5\\ \hline
+        HUG-RSK-OP-11 & 1 & 4\\ \hline
+        HUG-RSK-OP-12 & 1 & 4\\ \hline
+        HUG-RSK-OP-13 & 1 & 4\\ \hline
+        HUG-RSK-OP-14 & 1 & 1 \\ \hline
+        HUG-RSK-OP-15 & 1 & 1 \\ \hline
+        HUG-RSK-OP-16 & 1 & 2 \\ \hline
+        HUG-RSK-OP-17 & 1 & 5 \\ \hline
     \end{tabular}
 \end{minipage}
 \hfill
@@ -163,14 +166,15 @@ Applying the preventive measures and mitigation strategies to the newly identifi
 \begin{minipage}[t]{0.55\textwidth}
 \vspace{10pt}
     \centering
-    \scalebox{0.7}{
+    \resizebox{\linewidth}{!}{%
     \begin{tikzpicture}
         % Define colors
         \definecolor{riskgreen}{RGB}{84,186,84}
         \definecolor{riskyellow}{RGB}{255,200,0}
         \definecolor{riskred}{RGB}{220,50,50}
 
-        \def\cs{1.43}
+        % Cell size
+        \def\cs{1.8}
 
         % Cells
         \fill[riskgreen]  (0*\cs,0*\cs) rectangle (1*\cs,1*\cs);
@@ -206,43 +210,26 @@ Applying the preventive measures and mitigation strategies to the newly identifi
         % Grid
         \draw[white, line width=1.5pt] (0,0) grid[step=\cs] (5*\cs,5*\cs);
 
-        % Labels (corrected to match table)
+        % Labels
+        \node[font=\tiny\bfseries, align=center, text width=1.65cm] 
+        at (0*\cs+\cs/2, 0*\cs+\cs/2)
+        {HUG-RSK-OP-14\\HUG-RSK-OP-15};
 
-% (Likelihood 2, Severity 4)
-%\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 1*\cs+\cs/2)
-%{HUG-DEV-01};
+        \node[font=\tiny\bfseries, align=center, text width=1.65cm] 
+        at (1*\cs+\cs/2, 0*\cs+\cs/2)
+        {HUG-RSK-OP-16};
 
-% (1,3)
-\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-DEV-06};
+        \node[font=\tiny\bfseries, align=center, text width=1.65cm] 
+        at (2*\cs+\cs/2, 0*\cs+\cs/2)
+        {HUG-RSK-DEV-06};
 
-% (1,1)
-\node[font=\tiny\bfseries,align=center] at (0*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-OP-14\\HUG-OP-15};
+        \node[font=\tiny\bfseries, align=center, text width=1.65cm] 
+        at (3*\cs+\cs/2, 0*\cs+\cs/2)
+        {HUG-RSK-OP-11\\HUG-RSK-OP-12\\HUG-RSK-OP-13};
 
-% (1,5)
-\node[font=\tiny\bfseries,align=center] at (4*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-DEV-07\\HUG-OP-17};
-
-% (1,2)
-\node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-OP-16};
-
-% (1,4)
-\node[font=\tiny\bfseries,align=center] at (3*\cs+\cs/2, 0*\cs+\cs/2)
-{HUG-OP-11\\HUG-OP-12\\HUG-OP-13};
-
-% (2,1)
-%\node[font=\tiny\bfseries,align=center] at (0*\cs+\cs/2, 1*\cs+\cs/2)
-%{HUG-OP-01\\HUG-OP-09};
-
-% (2,2)
-%\node[font=\tiny\bfseries,align=center] at (1*\cs+\cs/2, 1*\cs+\cs/2)
-%{HUG-OP-10};
-
-% (2,3)
-%\node[font=\tiny\bfseries,align=center] at (2*\cs+\cs/2, 1*\cs+\cs/2)
-%{HUG-OP-02\\HUG-OP-03\\HUG-OP-06};
+        \node[font=\tiny\bfseries, align=center, text width=1.65cm] 
+        at (4*\cs+\cs/2, 0*\cs+\cs/2)
+        {HUG-RSK-DEV-07\\HUG-RSK-OP-17};
 
         % Axes
         \foreach \x/\label in {1/1,2/2,3/3,4/4,5/5}{
@@ -257,12 +244,11 @@ Applying the preventive measures and mitigation strategies to the newly identifi
 
         \draw[->, thick, darkgray] (-0.1, 0) -- (-0.1, 5*\cs+0.4);
         \draw[->, thick, darkgray] (0, -0.1) -- (5*\cs+0.4, -0.1);
-    \end{tikzpicture}
+    \end{tikzpicture}%
     }
     \caption{Final Risk Matrix}
     \label{fig:risk_matrix_mitigated}
 \end{minipage}
-
 \end{figure}
 
 

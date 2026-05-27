@@ -7,7 +7,7 @@ To provide the necessary quantitative background for the trade-off, a preliminar
 %\todo[inline]{\textbf{This section was proofread by Hanna}. Stuff was commented out and shifted around. As far as I'm concerned, no information was strictly deleted.\\ If you have any questions, complaints, or want to make more changes, please let me know (and don't just revert my changes without saying anything).}
 According to HUG-OPS-005\footref{url:baseline_report}, HUGO is required to operate at speeds up to Mach 0.75. This is the flight condition at which tests are to be performed. In this section, an estimation of the lift characteristics of HUGO is performed based on statistics from suitable reference aircraft, along with a preliminary airfoil selection suitable for the operations.
 
-Airfoil selection begins with an analysis of reference aircraft and an estimate of the design lift coefficient $C_{l_\text{des}}$. Subsequently, the maximum lift coefficient $C_{l_{\text{max}}}$ is derived along with relevant aerospace parameters to facilitate the selection. For the purpose of this analysis, it is assumed that HUGO will operate at a speed of Mach 0.75, at an altitude of FL270 (8230 m). 
+The airfoil selection begins with an analysis of reference aircraft and an estimate of the airfoil design lift coefficient $C_{l_\text{des}}$. Subsequently, the maximum lift coefficient $C_{l_{\text{max}}}$ is derived along with relevant aerospace parameters to facilitate the selection. For the purpose of this analysis, it is assumed that HUGO will operate at a speed of Mach 0.75, at an altitude of FL270 (8230 m). 
 
 %\textcolor{blue}{The initial step in selecting an airfoil is to determine the design lift coefficient $C_{L_\text{des}}$ and maximum lift coefficient $C_{L_\text{max}}$. Several steps have to be conducted beforehand to obtain these coefficients. Due to the specified testing conditions, $C_{L_\text{des}}$ was selected for the Mach 0.75 cruise airspeed condition at FL270 (8230 m).}
 
@@ -22,19 +22,19 @@ For initial estimates, the NASA DAST project \footnote{\label{fn:DAST}\href{http
 %Similarly, the FLEXOP UAS was used as a modular testbed with interchangeable wings for researching aeroelastic phenomena and design of flutter-suppressing control systems. \cite{Bauer2020} \cite{Yu2022} Analogous to the NASA X-56A aircraft, the cruise speed of $38 m/s$ of FLEXOP is significantly below the cruise speed of HUGO. However, the mission and scale of this aircraft approach HUGO much more closely, making it a reasonable reference for initial sizing. Furthermore, the scalability of the high wing-loading structure of DAST is uncertain and may not be within realistic design bounds for HUGO. Therefore, the X-56 and FLEXOP aircraft are also included in the reference aircraft list.
 
 %\subsubsection*{Analysis of Wing Loading $(W/S)$}
-The design lift coefficient $C_{L_\text{des}}$ is determined based on an initial wing loading $W/S$ estimate and requirements from previous design phases\footref{url:baseline_report} at the specified cruise flight condition. \autoref{tab:DAST_HUGO} lists the relevant geometric parameters of reference aircraft, as well as their resulting statistical estimation for HUGO.
+The wing design lift coefficient $C_{L_\text{des}}$ is determined based on an initial wing loading $W/S$ estimate and requirements from previous design phases\footref{url:baseline_report} at the specified cruise flight condition. \autoref{tab:DAST_HUGO} lists the relevant geometric parameters of reference aircraft, as well as their resulting statistical estimation for HUGO.
 
 %Parameters of reference aircraft, including the wing loading itself, landing speed and cruise conditions are used in the estimate.\\
 
-According to the operations and logistics description provided in \autoref{ch:operations_logistics}, HUGO has to perform high subsonic flight, and take-off or land on a paved runway. An initial estimate of $W/S = 1000\  N \cdot m^{-2}$ allows for a sufficiently low stall speed to ensure operations safety, while remaining within the range of reference values.
+According to the operations and logistics description provided in \autoref{ch:operations_logistics}, HUGO has to perform high subsonic flight, and take-off or land on a paved runway. An initial value of $W/S = 1000\  N \cdot m^{-2}$, which lies within the range of the reference aircraft, allows for a sufficiently low stall speed to ensure operations safety.
 %The take-off and landing of the X-56A and FLEXOP were performed from on paved runway. The DAST drone was launched from a carrier aircraft and captured by helicopter after completing a test flight. This allowed for a smaller wing due to the absence of ground takeoff and landing. \footref{fn:DAST} The high wing loading achieved in the DAST UAS sets an upper bound for the HUGO wing design. A significantly smaller wing is needed for HUGO compared to the X-56A or FLEXOP aircraft due to the high-speed cruise condition, yet the wing still must allow for take-off and landing at a reasonable speed.
-The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002}\footref{url:baseline_report}. The $AR$ of 23 was chosen as an average of the range specified by the NLR (between 19 and 27).
+The mass $m$ and aspect ratio $AR$ are determined based on the mass requirement \textbf{HUG-GEN-001} and the aspect ratio requirement \textbf{HUG-AER-002}\footref{url:baseline_report}. From this requirement, the $AR$ of 23 was chosen as an average of the range specified by the NLR (between 19 and 27).
 %average value $AR=\frac{27+19}{2}=23$ from the range given in \textbf{HUG-AER-002} was used. 
 Consequently, the wing area $S$ was obtained from the wing loading. From these parameters, the wing span $b$ and mean chord length MAC can be derived. 
 
 The taper ratio $\lambda = 0.5$ for HUGO was selected based on guidelines by Torenbeek \cite{Torenbeek1982} and lies within the upper bound considered for jet transport aircraft in a similar flight regime. A slightly larger taper ratio is introduced due to the high aspect ratio of the wing. Torenbeek suggests that the sweep angle is determined primarily by compressibility effects and should increase progressively above a Mach number of 0.8 \cite{Torenbeek1982}. An initial sweep of $\Lambda_{LE} = 15 \degree$ was selected, similar to that of the X-56A and FLEXOP aircraft. This is considered a good balance between obtaining reasonable low-speed lift characteristics and delaying drag divergence at the test velocity. 
 
-Relevant reference aircraft parameters \footnote{\href{https://ntrs.nasa.gov/api/citations/20120015944/downloads/20120015944.pdf}{NASA X-56A parameters} (accessed on 8.5.2026)} and preliminary estimates for HUGO are shown in \autoref{tab:DAST_HUGO}. Several additional wing parameters were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool} (accessed on 12.5.2026)} and Torenbeek \cite{Torenbeek1982}.
+Several additional wing parameters, such as the MAC and wing area, were obtained using the AeroToolbox website \footnote{\href{https://aerotoolbox.com/wing-plot-tool/}{AeroToolbox wing plotting tool} (accessed on 12.5.2026)} and Torenbeek \cite{Torenbeek1982}.
 
 
 \begin{table}[H]
@@ -396,7 +396,7 @@ where $e_f$ is the energy density of the fuel, and $\eta$ is the total propulsio
     \eta_i = \frac{P}{\dot{m}_ie_f}=\frac{T_iV_i}{\dot{m}_ie_f}=\frac{a_iM_i}{c_Te_f}
 \end{equation}
 \end{comment}
-The mass fractions of the segments can be later combined into the total fuel mass fraction. To verify the implementation of the method, a fuel mass fraction of a test aircraft with equivalent range equal to that of HUGO, but a single glide ratio and engine efficiency value has been computed both using the above method and the unmodified equations from Vos \cite{Vos}.
+The mass fractions of the segments can be later combined into the total fuel mass fraction. To verify the implementation of the method, a fuel mass fraction of a test aircraft with equivalent range equal to that of HUGO, but a single glide ratio, and engine efficiency value has been computed both using the above method and the unmodified equations from Vos \cite{Vos}.
 
 \section{Structural Weight Penalty Analysis}
 \label{sec:structural_weight_penalty_analysis}
@@ -789,7 +789,7 @@ Next to the cruise speed constraint, the constraint of providing thrust in the M
     \end{tabular}
 \end{table}
 
-The implementation of the matching diagram is verified by reproducing the example jet aircraft analysed by \cite{Vos}. Agreement with the textbook results is reached up to the precision of the values provided in the source.
+The implementation of the matching diagram is verified by reproducing the example jet aircraft analysed by Vos \cite{Vos}. Agreement with the textbook results is reached up to the precision of the values provided in the source.
 
 
 
@@ -887,7 +887,7 @@ the tip back angle, beta angle (the angle between the landing gear to the C.G. a
     \item The angle between the vertical line and the line through the main gear and the centre of gravity must not be less than the scraping angle (see: \autoref{fig:lg_angles});
     \item The turn over angle must not exceed than 55 deg;
     \item The wing-tip-to-landing-gear-wheel angle must be greater than 7 deg;
-    \item The front landing gear must bear between 8\% and 15\% of the total aircraft weight.
+    % \item The front landing gear must bear between 8\% and 15\% of the total aircraft weight.
 \end{itemize}
 
 \begin{figure}[H]
@@ -902,7 +902,7 @@ By using trigonometric relations between the landing gear and critical points, s
 
 For the optimising tool to converge to acceptable values, further constraints were imposed to limit the design space. The chosen airfoil has a stall angle of attack of 15\degree\footref{url:nasa_airfoil}. This value was used as a constraint for the tip-back angle, as the purpose of the latter is to prevent the aircraft from tipping back when it contacts the ground during landing at the maximum landing angle of attack, or during take off. 
 %Because the stall angle of attack is 15\degree for all relevant regimes, the optimizer restricts the tip back angle to be equal to 15\degree. 
-This allows for the landing gear to be placed further back along the fuselage with increasing beta angle. 
+This allows for the landing gear to be placed further back along the fuselage with increasing $\beta$. 
 
 By allowing the landing gear to be housed in the tail cone, the lateral separation of the main landing gear remains close the diameter of the fuselage. This prevents unfeasible landing gear configurations, which would require complex mechanisms, more housing space, and add unnecessary weight. Based on the input parameters of fuselage length and diameter, up-sweep of the tail cone, and location of the C.G., the calculated values using the optimiser will help determine the kind of housing required for the landing gear of each configuration. The nose gear shall be positioned in the middle of the fuselage at y = 0.
 
@@ -1005,8 +1005,10 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
 
 
 Based on \autoref{tab:landing_gear_tradeoff} and \autoref{tab:landing_gear_tradeoff2}, the landing gear position does not pose an impediment for any of the configurations. HUG-CFG-301 has the longest landing gear, which is expected to incur the largest mass penalty. The rest of the configurations have similar dimensions, but the podded configurations will introduce additional weight to the design due to the extra material and added complexity.%placing lower in the trade-off process compared to the remaining two models.
-\todo[inline]{Rewrite the parts of the dimensions of the wheel and the lengths and the podded and so on as it was originally thought that the plane would heve 100+ kg }
-An analysis of the X-56A landing gear system, an estimated tyre width of 45 mm, and a diameter of 200 mm were obtained\footnote{\href{https://ntrs.nasa.gov/citations/20150023568}{X-56A MUTT: Aeroservoelastic Modeling} (accessed on 20.05.2026)}. To account for all the internal components analysed in \autoref{sec:internal_configuration}, the fuselage shall have a diameter of 31.5 cm. A more detailed analysis and design of the landing gear will be performed in the final stage of the project.
+\todo[inline]{Rewrite the parts of the dimensions of the wheel and the lengths and the podded and so on as it was originally thought that the plane would have 100+ kg }
+% An analysis of the X-56A landing gear system, an estimated tyre width of 45 mm, and a diameter of 200 mm were obtained\footnote{\href{https://ntrs.nasa.gov/citations/20150023568}{X-56A MUTT: Aeroservoelastic Modeling} (accessed on 20.05.2026)}. 
+Based on the FLEXOP landing gear measured from the drawing by Luspay et al. \cite{flexop_lg} scaled down to the lower aircraft mass of HUGO, wheel diameter of $85\  mm$ and width of $25\ mm$, as well as strut width of $25\ mm$ were obtained.
+To account for all the internal components analysed in \autoref{sec:internal_configuration}, the fuselage shall have a diameter of 31.5 cm. A more detailed analysis and design of the landing gear will be performed in the final stage of the project.
 
 % Pros and cons for the 2 LG 
 % 1. Outside nacelle: 

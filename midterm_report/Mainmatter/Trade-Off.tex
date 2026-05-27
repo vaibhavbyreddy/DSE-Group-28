@@ -46,7 +46,7 @@ As the changes between considered configurations lay mostly in the modularity de
         \label{fig:hug-cfg-302}
     \end{subfigure}
 
-    \caption{Initial HUGO configuration concepts}
+    \caption{Initial HUGO configuration concepts 301 and 302}
     \label{fig:hugo-configurations-301-302}
 \end{figure}
 
@@ -68,7 +68,7 @@ As the changes between considered configurations lay mostly in the modularity de
         \label{fig:hug-cfg-305}
     \end{subfigure}
 
-    \caption{Initial HUGO configuration concepts}
+    \caption{Initial HUGO configuration concepts 303 and 305}
     \label{fig:hugo-configurations-303-305}
 \end{figure}
 
@@ -112,11 +112,13 @@ Taking all of the above into consideration, the following criteria were selected
 
 Versatility & HUG-CFG-301 is a low wing concept that prevents the testing of truss-braced wing concepts, which was considered significant in conversations with NLR. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
 
-Reliability & Variable wing ports in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 introduce additional fatigue exposure at modular interfaces, increasing operational risk. Buried retractable gear in HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305 reduces accessibility for maintenance of the retraction mechanism. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \footref{url:baseline_report}).\\ \hline
+Reliability & Variable wing ports in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 introduce additional fatigue exposure at modular interfaces, increasing operational risk. Due to their high-wing configuration, the last 4 configurations exhibit reduced accessibility for maintenance operations. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \footref{url:baseline_report}).\\ \hline
 
-Cost & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-05 significantly increase the design complexity and associated development, maintenance and repair costs compared to no/static port configurations. The same reasoning can be applied to retractable landing gear mechanisms for HUG-CFG-302, HUG-CFG-304 due to the additonal podded complexity. Moreover, the design of HUGO is subject to specific cost requirements (see: HUG-FIN-001 \footref{url:baseline_report}). \\ \hline
+Cost & Variable wing ports featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-05 significantly increase the design complexity and associated development, maintenance, and repair costs compared to no/static port configurations. 
+%The same reasoning can be applied to retractable landing gear mechanisms for HUG-CFG-302, HUG-CFG-304 due to the additional podded complexity. 
+Moreover, the design of HUGO is subject to specific cost requirements (see: HUG-FIN-001 \footref{url:baseline_report}). \\ \hline
 
-Performance & Complex design options featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 are expected to result in higher design weights, which affect performance and fuel consumption. Moreover, the design of HUGO is subject to specific performance requirements (see: HUG-OPS-005, HUG-OPS-006 \footref{url:baseline_report}). The type of landing gear was also part of the grading process, as it was analysed in \autoref{sec:Landing_gear_config}, HUG-CFG-302 and HUG-CFG-304 scoring lower due to the podded added drag.
+Performance & Complex design options featured in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 are expected to result in higher design weights, which affect performance and fuel consumption. Moreover, the design of HUGO is subject to specific performance requirements (see: HUG-OPS-005, HUG-OPS-006 \footref{url:baseline_report}). %The type of landing gear was also part of the grading process, as it was analysed in \autoref{sec:Landing_gear_config}, HUG-CFG-302 and HUG-CFG-304 scoring lower due to the podded added drag.
 \\ \hline
 
 Sustainability & Sustainability is part of the project, as specified by HUG-OPS-008 \footref{url:baseline_report}. Variable ports and podded retractable undercarriage require more material, more complex manufacturing processes, more labour hours in assembly and quality control, and higher maintenance material consumption over the aircraft's life.
@@ -137,11 +139,11 @@ Sustainability & Sustainability is part of the project, as specified by HUG-OPS-
 
 The preliminary configurations and materials shall be evaluated and assigned a value ranging from 1 to 5 in each trade-off criterion. The definition of specific scores for different criteria can be found in \autoref{ch:app_trade-off_rationale}. The following rationale was followed in quantifying the scores for individual criteria for the configurations:
 \begin{itemize}
-    \item \textbf{Versatility} is quantified as the range of experiments and stability conditions that can be tested with the given configuration. As mentioned above, a configuration that can not test canard configurations or has a static port will score lower.
+    \item \textbf{Versatility} is quantified as the range of experiments and stability conditions that can be tested with the given configuration. As mentioned above, a configuration that can not test canard and truss-braced wing configurations or has a static port will score lower.
     \item \textbf{Performance }is evaluated based on how effectively the maximum Mach number at test altitude can be achieved while carrying the full instrumentation payload, with minimal drag and fuel consumption. Configurations that are lighter, less complex, and feature fewer protruding components will receive higher scores.
     \item \textbf{Reliability} is evaluated as the likelihood that the testbed successfully performs its intended function without failure under specified operating conditions throughout its lifetime. Mainframe fatigue at modular interfaces and maintenance accessibility are identified as primary reliability drivers. Accessibility determines the feasibility of preventive maintenance, directly affecting whether soft failures can be detected and corrected before escalating. Scores reflect the severity of anticipated failure modes, from soft failures causing minor performance degradation to severe failures risking significant structural damage.
     \item \textbf{Cost} is quantified as the manufacturing effort, materials, development, and maintenance that have gone into each configuration. More complex and heavier designs will score lower here.
-    \item \textbf{Sustainability} is quantified as the manufacturing complexity and material consumption, penalised by number of moving parts, material types, and estimated labour hours. Configurations with more moving parts, additional material types, and higher labour requirements score lower.
+    \item \textbf{Sustainability} As mentioned in \autoref{sec:Environmental sustainability}, the primary contributors to emissions are fuel consumption and SAF production. While manufacturing complexity and material consumption of the configurations may also be considered, configurations with the highest fuel mass are expected to have the lowest overall performance in terms of sustainability.
 \end{itemize}
 
 %The no-go values (ranging from 1 to 5) of the criteria were also estimated. They are given in \autoref{tab: no-go} with a short rationale. A more in-depth justification is given below.
@@ -179,15 +181,15 @@ Following the criterion definition, no-go values were established for which a de
 \hline
 \endlastfoot
 
-\multicolumn{3}{|c|}{\textbf{Configuration Selection}} \\
-\hline
+%\multicolumn{3}{|c|}{\textbf{Configuration Selection}} \\
+%\hline
 
 Versatility & $<3$ &
 Versatility is a key feature of a flying testbed. A configuration with significant limitations to its test capability is failing its purpose. Moderate limitations are acceptable.
 \\ \hline
 
 Performance & $<3$ &
-If a configuration cannot get close to the test conditions, the obtained test data is scientifically irrelevant. Moderate drag or weight penalties are acceptable.
+If a configuration cannot effectively achieve the required test conditions, the resulting test data has limited value. Therefore, moderate penalties in drag or weight are considered acceptable.
 \\ \hline
 
 Reliability & $<3$ &
@@ -609,7 +611,7 @@ The carbon-fiber-reinforced polymer (CFRP) emerged as the clear optimal choice f
 
 \autoref{tab:trade_off_matrix} shows the final trade-off matrix constructed for the candidate configurations for HUGO. The criteria have been weighted according to the priority vector defined in \autoref{sec:trade-off_weight_factors}, and specific scores were assigned for each criterion-configuration pair according to the definitions provided in \autoref{ch:app_trade-off_rationale}. %For the material choice, separate analysis was performed for the lifting surfaces (wing, fuselage, empennage) and high-stress subsystems (landing gear, pylons, port connections). The resulting matrices can be seen in \autoref{tab:fuselage_trade-off_matrix_material_selection} and \autoref{tab:landing_gear_trade-off_matrix_material_selection}, respectively.
 
-The clear overall winner is \textbf{HUG-CFG-303}, achieving the highest total score of \textbf{3.9356}. HUG-CFG-301 and HUG-CFG-305 are eliminated early in the evaluation due to failing to meet the minimum acceptable thresholds in one or more criteria.
+The clear overall winner is \textbf{HUG-CFG-303}, achieving the highest total score of \textbf{3.9356}. HUG-CFG-301 and HUG-CFG-305 are eliminated early in the evaluation due to failing to meet the minimum acceptable thresholds in versatility and reliability, respectively.
 
 From a cost and manufacturability perspective, HUG-CFG-302 and HUG-CFG-303 perform best, as both configurations exhibit relatively low structural and production complexity. HUG-CFG-301 also performs reasonably well in this category, benefiting from the simpler integration of its low-wing configuration from a structural standpoint. In contrast, HUG-CFG-304 and HUG-CFG-305 incorporate a higher degree of modularity, which significantly increases design and manufacturing complexity. In particular, HUG-CFG-304 is further penalized by its side-podded landing gear configuration, which introduces additional structural weight and integration challenges, resulting in the lowest score in this category.
 
@@ -675,7 +677,7 @@ HUG-CFG-301
 & \cellcolor[HTML]{F4B183}2
 & \cellcolor[HTML]{F4E285}3
 & \cellcolor[HTML]{F8696B}1
-& Eliminated since below versatility no-go value \\
+& 2.30 \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
@@ -684,7 +686,7 @@ HUG-CFG-302
 & \cellcolor[HTML]{F4E285}3
 & \cellcolor[HTML]{63BE7B}5
 & \cellcolor[HTML]{63BE7B}5
-& 3.8514 \\
+& 3.85 \\
 \hline
 
 \textbf{HUG-CFG-303}
@@ -692,7 +694,7 @@ HUG-CFG-302
 & \cellcolor[HTML]{A9D18E}\textbf{4}
 & \cellcolor[HTML]{A9D18E}\textbf{4}
 & \cellcolor[HTML]{F4E285}\textbf{3}
-& \textbf{3.9356} \\
+& \textbf{3.94} \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
@@ -701,21 +703,30 @@ HUG-CFG-304
 & \cellcolor[HTML]{63BE7B}5
 & \cellcolor[HTML]{F4B183}2
 & \cellcolor[HTML]{F8696B}1
-& Eliminated since below reliability no-go value \\
+& 3.66 \\
 \hline
 
-HUG-CFG-305
-& \cellcolor[HTML]{F4B183}2
-& \cellcolor[HTML]{63BE7B}5
-& \cellcolor[HTML]{F4B183}2
-& \cellcolor[HTML]{F8696B}1
-& 3.6585 \\
-\hline
+%HUG-CFG-305
+%& \cellcolor[HTML]{F4B183}2
+%%& \cellcolor[HTML]{F4E285}{3}
+%& \cellcolor[HTML]{F8696B}1
+%& 3.9231 \\
+%\hline
 
 \end{tabular}
 \end{adjustbox}
 \label{tab:trade_off_matrix}
 \end{table}
+
+\begin{center}
+\begin{tabular}{cccccccccc}
+\cellcolor[HTML]{63BE7B}\hspace{0.5cm} & Excellent &
+\cellcolor[HTML]{A9D18E}\hspace{0.5cm} & Good &
+\cellcolor[HTML]{F4E285}\hspace{0.5cm} & Average &
+\cellcolor[HTML]{F4B183}\hspace{0.5cm} & Poor &
+\cellcolor[HTML]{F8696B}\hspace{0.5cm} & Very Poor
+\end{tabular}
+\end{center}
 
 
 \section{Final Design Configuration}
@@ -740,7 +751,7 @@ Finally, a T-tail configuration is employed to ensure that the horizontal stabil
 \section{Material Selection}
 \label{sec:Material_Selection}
 
-This Section addresses the selection of aerospace materials for various subsystems of HUGO. Key factors considered in this analysis are: structural properties, material cost, manufacturing cost, durability, sustainability, and special properties. For the purpose of a preliminary material selection, the aircraft was divided into the following subgroups:
+This addresses the selection of aerospace materials for various subsystems of HUGO. Key factors considered in this analysis are: structural properties, material cost, manufacturing cost, durability, sustainability, and special properties. For the purpose of a preliminary material selection, the aircraft was divided into the following subgroups:
 
 %The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following: fuselage structure, wing structure, empennage and control surfaces, and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
 
@@ -1143,7 +1154,7 @@ HUG-MAT-02
 & 11.85 \\
 \hline
 
-HUG-MAT-03
+HUG-MAT-03 
 & 3 \cellcolor[HTML]{F4E285}
 & 4 \cellcolor[HTML]{A9D18E}
 & 4 \cellcolor[HTML]{A9D18E}
@@ -1199,6 +1210,16 @@ HUG-MAT-07
 \end{adjustbox}
 \label{tab:fuselage_trade-off_matrix_material_selection}
 \end{table}
+
+\begin{center}
+\begin{tabular}{cccccccccc}
+\cellcolor[HTML]{63BE7B}\hspace{0.5cm} & Excellent &
+\cellcolor[HTML]{A9D18E}\hspace{0.5cm} & Good &
+\cellcolor[HTML]{F4E285}\hspace{0.5cm} & Average &
+\cellcolor[HTML]{F4B183}\hspace{0.5cm} & Poor &
+\cellcolor[HTML]{F8696B}\hspace{0.5cm} & Very Poor
+\end{tabular}
+\end{center}
 
 The carbon-fiber-reinforced polymer (CFRP) emerged as the clear optimal choice for the primary lifting surfaces and fuselage. Its advantage in specific modulus and plate buckling efficiency ($\sqrt[3]{E}/\rho$) is critical for a high-aspect-ratio (HAR) aircraft operating at Mach 0.75. This is what drove its score in the structural properties section. Furthermore, CFRP offers maximum design freedom, allowing for the design of complex aerodynamic profiles necessary for a flying laboratory. It also allows for the development and construction of new wing designs without large tooling costs. Utilizing CFRP ensures that weight of the fuselage and wings can be minimized, while retaining the maximum payload volume required for the 5 kg experimental payload.
 
@@ -1311,6 +1332,17 @@ HUG-MAT-07
 \end{adjustbox}
 \label{tab:landing_gear_trade-off_matrix_material_selection}
 \end{table}
-\vspace{-10}
+
+\begin{center}
+\begin{tabular}{cccccccccc}
+\cellcolor[HTML]{63BE7B}\hspace{0.5cm} & Excellent &
+\cellcolor[HTML]{A9D18E}\hspace{0.5cm} & Good &
+\cellcolor[HTML]{F4E285}\hspace{0.5cm} & Average &
+\cellcolor[HTML]{F4B183}\hspace{0.5cm} & Poor &
+\cellcolor[HTML]{F8696B}\hspace{0.5cm} & Very Poor
+\end{tabular}
+\end{center}
+
+%\vspace{-10}
 For localized, high-stress components such as the landing gear struts, engine pylons and modular port connection points, Aluminum 7075-T76 outperformed the composite alternatives. These components require a balance of high specific fracture toughness to absorb dynamic landing impacts and high manufacturability. Aluminum 7075-T76 provides excellent specific strength ($\sigma_y/\rho$) while keeping manufacturing and material costs significantly lower than titanium or composite alternatives. The selection of high-strength aluminium heavily supports the project's modularity requirement.
 %Hardpoints, pylons, and gear attachments can be rapidly CNC-machined, tapped, and modified to accommodate swappable test articles without the need for expensive composite tooling or complex inserts.
