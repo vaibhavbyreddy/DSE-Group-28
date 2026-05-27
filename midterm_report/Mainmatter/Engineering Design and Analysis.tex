@@ -65,6 +65,8 @@ Several additional wing parameters, such as the MAC and wing area, were obtained
     \end{tabular}
 \end{table}
 
+The fuselage dimensions are taken from that of FLEXOP drawings \cite{flexop_lg}. The nose cone length is measured to  0.55 m, the tail cone to 1.12 m, and the total fuselage length was 3.42 m. The fuselage diameter was established as 0.315 m. From the drawing, the tail arm could also be deduced as 2 m.
+
 
 %The ARW-2 wing loading is several orders of magnitude larger than that of the X-56A UAS. This is due to the launch and landing conditions of both aircraft.  After matching the required cruise and takeoff/landing conditions, an initial wing loading $W/S = 1000 \ N \cdot m^{-2}$ was selected for HUGO. This value reflects the cruise Mach number of 0.75 as well as the landing and takeoff conditions for HUGO, requiring a larger wing. At the same time, the DAST ARW-2 wing design proves this magnitude of wing loading can be designed and used. The initial wing planform is likely to be revisited at a later design iteration and serves as an initial design point.
 
@@ -861,18 +863,22 @@ The aerodynamic parameters required for \autoref{eq:Stability} and \autoref{eq:C
 
 \section{Landing Gear Configuration}
 \label{sec:Landing_gear_config}
+This section presents the selection analysis for the landing gear configuration of HUGO. Since the design features modular wings, the landing gear must be fully integrated into the fuselage structure. At this stage, two landing gear configurations are under consideration: buried retractable inside the fuselage and buried side podded. These have been chosen, as given the high testing speed of 0.75 a non-retractable landing gear would either break or produce too much drag. This section will not mark either of the configurations as permanent, as the final design of HUGO is not yet selected.
+%OLD LANDING GEAR CONFIGS
+%This section presents the selection analysis for the possible landing gear configurations of HUGO. Since the design features modular wings, the landing gear must be fully integrated into the fuselage structure. Two types of landing gear configuration are being investigated 
 
-This Section presents the selection analysis for the possible landing gear configurations of HUGO. Since the design features modular wings, the landing gear must be fully integrated into the fuselage structure. HUG-CFG-302 and HUG-CFG-304 include a podded buried gear with vertically retracting wheels, while HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305 implement a sideways diagonal retracting platform. This Section describes the preliminary sizing of both mechanisms to aid the final configuration trade-off.
+%HUG-CFG-302 and HUG-CFG-304 include a podded buried gear with vertically retracting wheels, while HUG-CFG-301, HUG-CFG-303, and HUG-CFG-305 implement a sideways diagonal retracting platform. This Section describes the preliminary sizing of both mechanisms to aid the final configuration trade-off.
 
 %The HUGO UAV will have swappable wings for aeroservoelastic testing, and thus cannot support landing mounted to them. This restricts the landing gear to be housed in the fuselage. 
 
 \subsection{Landing Gear Mechanism Concepts}
 \label{sub:landing_gear_mechanisms}
+The undercarriage concept includes a mechanism to fully retract the landing gear inside the fuselage. In the external side-pod configuration, the landing gear is housed in nacelles mounted outside the fuselage. This arrangement is expected to reduce the intrusion of the undercarriage into the main fuselage structure and thus simplify the internal layout design. However, the addition of side pods increases the wetted area, as well as introducing interference drag at the pod-fuselage junction. An advantage of this model is the load distribution due to the very short struts.
+%---OLD MIDTERM DRAFT SECTIONS---
+%The undercarriage concepts differ in both retraction mechanism and stowage arrangement. In the external side-pod configuration, the landing gear is housed in nacelles mounted outside the fuselage. This arrangement is expected to reduce the intrusion of the undercarriage into the main fuselage structure and thus simplify the internal layout design. However, the addition of side pods increases the wetted area, as well as introducing interference drag at the pod-fuselage junction. An advantage of this model is the load distribution due to the very short struts.
 
-The undercarriage concepts differ in both retraction mechanism and stowage arrangement. In the external side-pod configuration, the landing gear is housed in nacelles mounted outside the fuselage. This arrangement is expected to reduce the intrusion of the undercarriage into the main fuselage structure and thus simplify the internal layout design. However, the addition of side pods increases the wetted area and weight of HUGO, as well as introduces interference drag at the pod-fuselage junction.
-
-In the internal fuselage-bay configuration, the landing gear is retracted into the fuselage structure. This provides a cleaner external geometry, but requires dedicated internal volume, local structural reinforcement, landing gear doors, and a more integrated retraction mechanism. The placement of the undercarriage is also constrained by the need to avoid interference with the wing box, especially if a modular wing structure is used. Therefore, the final landing gear arrangement will depend strongly on the selected HUGO configuration and on the available structural integration space.
-
+%In the internal fuselage-bay configuration, the landing gear is retracted into the fuselage structure. This provides a cleaner external geometry, but requires dedicated internal volume, local structural reinforcement, landing gear doors, and a more integrated retraction mechanism. The placement of the undercarriage is also constrained by the need to avoid interference with the wing box, especially if a modular wing structure is used. Due to the construction of this type, the main strut will experience all the bedding and compressing forces during landing, requiring reinforcements that will increase the weight. Therefore, the final landing gear arrangement will depend strongly on the selected HUGO configuration and on the available structural integration space.
+%---OLD MIDTERM DRAFT SECTIONS---
 %Both configurations have clear advantages and disadvantages. The side pods are great for slow-moving aircraft, such as propeller or cargo aircraft \cite{raymer1992aircraft}, as they produce a lot of parasitic drag due to the extra area. They are used when a design has to maximise the internal volume \cite{raymer1992aircraft}, as they present a complex mechanism that requires a lot of moving parts. The major penalty for this undercarriage is the added drag due to the extra skin present and weight.
 
 %On the other hand, the fuselage integrated landing gear, it is widely used for fast aircraft, as HUGO, because it keeps the outer skin undisturbed, retaining a low parasitic drag coefficient. The system is easier to design, as it only needs 3 struts for the retraction mechanism. The downside of this model is the occupied internal volume as opposed to the previous design. If the fuselage has the appropriate dimensions that permit this undercarriage design to fold, this option will be more desirable. In the case of a weight penalty of this model due to the need of the rod to resist both bending and compression loads, it can be compensated by the simplicity of the model and the low weight of the plane.
@@ -898,7 +904,7 @@ the tip back angle, beta angle (the angle between the landing gear to the C.G. a
 \end{figure}
 
 \subsection{Design Optimisation}
-By using trigonometric relations between the landing gear and critical points, such as the location of the centre of gravity, the position of the tail cone and the wing tips as described in \cite{roskamLandingGearSystems}, the location of the main and nose landing gear, landing gear length, and main landing gear separation can be optimised for the given fuselage geometric parameters. Using Sequential Least Squares Quadratic Programming, the strut length, x-position, and the lateral track of the main landing gear, as well as the x-position of the nose landing gear, can be minimised. 
+By using trigonometric relations between the landing gear and critical points, such as the location of the centre of gravity, the position of the tail cone and the wing tips (as described in \cite{roskamLandingGearSystems}), the location of the main and nose landing gear, landing gear length, and main landing gear separation can be optimised for the given fuselage geometric parameters. Using Sequential Least Squares Quadratic Programming, the strut length, x-position, and the lateral track of the main landing gear, as well as the x-position of the nose landing gear, can be minimised. 
 
 For the optimising tool to converge to acceptable values, further constraints were imposed to limit the design space. The chosen airfoil has a stall angle of attack of 15\degree\footref{url:nasa_airfoil}. This value was used as a constraint for the tip-back angle, as the purpose of the latter is to prevent the aircraft from tipping back when it contacts the ground during landing at the maximum landing angle of attack, or during take off. 
 %Because the stall angle of attack is 15\degree for all relevant regimes, the optimizer restricts the tip back angle to be equal to 15\degree. 
@@ -920,10 +926,10 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
             \hline
             \textbf{Parameter} & \textbf{Dimension}  \\
             \hline \hline
-            Nose gear x poz & 0.387 m \\
-            Fuselage gear x poz & 2.143 m \\
+            Nose gear x poz & 0.386 m \\
+            Fuselage gear x poz & 2.145 m \\
             Fuselage gear y poz & 0.334 m\\
-            Height & 0.282 m\\
+            Height & 0.281 m\\
            % Observations & Wing tip clearance drives length\\
             \hline
         \end{tabularx}
@@ -936,7 +942,7 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
             \hline
             \textbf{Parameter} & \textbf{Dimension}  \\
             \hline \hline
-            Nose gear x pos & 0.272 m \\
+            Nose gear x pos & 0.273 m \\
             Fuselage gear x pos & 2.570 m \\
             Fuselage gear y pos & 0.231 m\\
             Height & 0.168 m\\
@@ -972,10 +978,10 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
             \textbf{Parameter} & \textbf{Dimension }  \\
             \hline \hline
             
-            Nose gear x pos &0.273 m \\
+            Nose gear x pos &0.272 m \\
             Fuselage gear x pos &  2.570 m\\
             Fuselage gear y pos & 0.231 m\\
-            Height & 0.168 m\\
+            Height & 0.167 m\\
             %Observations &Almost the same for all high-wings\\
             \hline
         \end{tabularx}
@@ -986,29 +992,29 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
     % ---------- Centered bottom table ---------
 \end{table}
 
-\begin{table}[H]
-    \centering
-    \caption{HUG-CFG-305}
-    \label{tab:lg_305}
-    \begin{tabularx}{0.45\textwidth}{|X c|}
-        \hline
-        \textbf{Parameter} & \textbf{Dimension} \\
-        \hline\hline
-        Nose gear x pos     & 0.273 m \\
-        Fuselage gear x pos & 2.570 m \\
-        Fuselage gear y pos & 0.231 m \\
-        Height              & 0.167 m \\
-        \hline
-    \end{tabularx}
-    \label{tab:landing_gear_tradeoff2}
-\end{table}
+% \begin{table}[H]
+%     \centering
+%     \caption{HUG-CFG-305}
+%     \label{tab:lg_305}
+%     \begin{tabularx}{0.45\textwidth}{|X c|}
+%         \hline
+%         \textbf{Parameter} & \textbf{Dimension} \\
+%         \hline\hline
+%         Nose gear x pos     & 0.273 m \\
+%         Fuselage gear x pos & 2.570 m \\
+%         Fuselage gear y pos & 0.231 m \\
+%         Height              & 0.167 m \\
+%         \hline
+%     \end{tabularx}
+%     \label{tab:landing_gear_tradeoff2}
+% \end{table}
 
 
 Based on \autoref{tab:landing_gear_tradeoff} and \autoref{tab:landing_gear_tradeoff2}, the landing gear position does not pose an impediment for any of the configurations. HUG-CFG-301 has the longest landing gear, which is expected to incur the largest mass penalty. The rest of the configurations have similar dimensions, but the podded configurations will introduce additional weight to the design due to the extra material and added complexity.%placing lower in the trade-off process compared to the remaining two models.
-\todo[inline]{Rewrite the parts of the dimensions of the wheel and the lengths and the podded and so on as it was originally thought that the plane would have 100+ kg }
+% \todo[inline]{Rewrite the parts of the dimensions of the wheel and the lengths and the podded and so on as it was originally thought that the plane would have 100+ kg }
 % An analysis of the X-56A landing gear system, an estimated tyre width of 45 mm, and a diameter of 200 mm were obtained\footnote{\href{https://ntrs.nasa.gov/citations/20150023568}{X-56A MUTT: Aeroservoelastic Modeling} (accessed on 20.05.2026)}. 
 Based on the FLEXOP landing gear measured from the drawing by Luspay et al. \cite{flexop_lg} scaled down to the lower aircraft mass of HUGO, wheel diameter of $85\  mm$ and width of $25\ mm$, as well as strut width of $25\ mm$ were obtained.
-To account for all the internal components analysed in \autoref{sec:internal_configuration}, the fuselage shall have a diameter of 31.5 cm. A more detailed analysis and design of the landing gear will be performed in the final stage of the project.
+With the fuselage dimensions already found in \autoref{sub:lift_reference_aircraft}to account for all the internal components analysed in \autoref{sec:internal_configuration}. A more detailed analysis and design of the landing gear will be performed in the final stage of the project.
 
 % Pros and cons for the 2 LG 
 % 1. Outside nacelle: 
@@ -1060,9 +1066,9 @@ Due to the modular nature of the aircraft, the gear has to retract into fuselage
 
 Regarding parameter values in the feasible design space, increasing the fuselage dimensions, especially the diameter, causes a rapid increase in mass (nearly double for the highest considered fuselage diameter), with the exception of the longer fuselage of HUG-CFG-302, which slightly decreases the total mass. It is thus recommended for the final design to avoid excessive enlarging of the fuselage, especially in diameter.
 
-Changing the CG excursion used to size the tail has a much weaker effect and differs significantly between the design options. HUG-CFG-301 and HUG-CFG-302 have their masses slightly decreased with larger C.G. Excursions, while the three remaining options experience a small increase in MTOM.
+Changing the CG excursion used to size the tail has a much weaker effect and differs significantly between the design options. HUG-CFG-302 and HUG-CFG-303 have their masses slightly decreased with larger C.G. Excursions, while the two remaining options experience a small increase in MTOM.
 
-Changes to the landing gear bay width induce a small, roughly linear increase in mass for the affected design options, which is expected. Changes in the bay length have a significantly more minor effect. This can be explained by the fact that while a longer bay has a proportionally longer wetted area, its slenderness ratio is also proportionally larger. Changes in the wheel diameter of the landing gear affect the podded landing gear significantly more and similarly to increasing the bay width. This is because those options have a shorter main landing gear strut width, so the wheel diameter is more driving to their frontal and reference areas.
+Changes to the landing gear bay width induce a small, roughly linear increase in mass, which is expected. Changes in the bay length have a significantly more minor effect. This can be explained by the fact that while a longer bay has a proportionally longer wetted area, its slenderness ratio is also proportionally larger. Changes in the wheel diameter of the landing gear affect the podded landing gear significantly more and similarly to increasing the bay width. This is because those options have a shorter main landing gear strut width, so the wheel diameter is more driving to their frontal and reference areas.
 
 Overall, the results of the sensitivity study are plausible and highlight the importance of fuselage optimisation, as well as point to the challenging design space of the landing gear.
 

@@ -4,6 +4,7 @@ In this Chapter, the preliminary HUGO configurations developed in previous desig
 
 \autoref{tab:Final_Candidate_Architectures} lists the design configurations considered for the trade-off. Additionally, each design option features a static port for the tail, fuselage-mounted fuel tanks and fuselage-mounted engines \footref{url:baseline_report}.
 
+\begin{comment}
 \begin{table}[H]
     \centering
     \caption{Final Integrated Candidate Architectures for Detailed Trade-Off \footref{url:baseline_report}}
@@ -26,8 +27,31 @@ In this Chapter, the preliminary HUGO configurations developed in previous desig
         \hline
     \end{tabular}
 \end{table}
+\end{comment}
 
-As the changes between considered configurations lay mostly in the modularity details and landing gear types, a separate trade-off will be performed concurrently to determine the most suitable materials for different subsystems of the final configuration. Candidate will be discussed in \autoref{sec:Material_Selection}.
+\begin{table}[H]
+    \centering
+    \caption{Final Integrated Candidate Architectures for Detailed Trade-Off \footref{url:baseline_report}}
+    \label{tab:Final_Candidate_Architectures}
+    
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Wing Configuration} & \textbf{Wing Modularity} & \textbf{Canard Modularity} \\
+        \hline\hline
+        HUG-CFG-301 & Low Wing & Variable Port (X) & Static Port \\
+        \hline
+        HUG-CFG-302 & High Wing & Static Port & No Port \\
+        \hline
+        HUG-CFG-303 & High Wing & Static Port & Static Port \\
+        \hline
+        HUG-CFG-304 & High Wing & Variable Port (X) & Static Port \\
+        \hline
+        %HUG-CFG-305 & High Wing & Variable Port (X) & Static Port \\
+        %\hline
+    \end{tabular}
+\end{table}
+
+As the changes between considered configurations lie mostly in the modularity details, a separate trade-off will be performed concurrently to determine the most suitable materials for different subsystems of the final configuration. Candidate will be discussed in \autoref{sec:Material_Selection}.
 
 \begin{figure}[H]
     \centering
@@ -83,12 +107,13 @@ As the changes between considered configurations lay mostly in the modularity de
 
 \section{Trade-Off Criteria Selection}
 \label{sec:trade-off_criteria_selection}
-Meaningful trade-off criteria should be developed such that all available technical specifications and key performance metrics are considered. Moreover, identifying the points of poor performance of each candidate allows for an in-depth analysis of the limitations of each candidate configuration \cite{SMAD}. Lastly, the key requirements can be used to ensure that the developed criteria encompass all crucial design aspects.
+Meaningful trade-off criteria should be developed such that all available technical specifications and key performance metrics are considered. Moreover, it is recommended to identify criteria where one or more configurations perform poorly, as these are often the factors that distinguish them. In contrast, using criteria where all configurations score similarly is less useful, since such criteria do not provide meaningful differentiation \cite{SMAD}. Lastly, the key requirements can be used to ensure that the developed criteria encompass all crucial design aspects.
 %It is not helpful to include criteria where all options perform similarly; instead, it is more valuable to use criteria where some options perform poorly, as this helps reveal and compare weaknesses across designs. In this way, each design’s limitations can be properly assessed. In addition, some of the requirements identified in the baseline review can also serve as a basis for defining the trade-off criteria.
 
 Taking all of the above into consideration, the following criteria were selected for the trade-off of HUGO designs: Versatility, Reliability, Cost, Performance, and Sustainability. \autoref{tab:trade-off_criteria} lists the rationale behind selecting each criterion for the configuration trade-off, while \autoref{sec:Mat_sel} lists those used for the material trade-off.
 
 \todo{redo this table once landing gear dilemma is settled}
+
 \begin{longtable}{|p{2.5cm}|p{13.5cm}|}
 \caption{Trade-Off Criteria for HUGO Configurations}
 \label{tab:trade-off_criteria} \\
@@ -110,7 +135,7 @@ Taking all of the above into consideration, the following criteria were selected
 \hline
 \endlastfoot
 
-Versatility & HUG-CFG-301 is a low wing concept that prevents the testing of truss-braced wing concepts, which was considered significant in conversations with NLR. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios, including the testing of canard configurations and mounting scaled wing models in front of the main planform.\\ \hline
+Versatility & HUG-CFG-301 is a low-wing concept that prevents the testing of truss-braced wing concepts, which was considered significant in conversations with NLR \todo{cite this as in conversation}. Similarly, HUG-CFG-302 prevents the testing of canard-dependent configurations, which limits the range of possible test scenarios.\\ \hline
 
 Reliability & Variable wing ports in HUG-CFG-301, HUG-CFG-304, and HUG-CFG-305 introduce additional fatigue exposure at modular interfaces, increasing operational risk. Due to their high-wing configuration, the last 4 configurations exhibit reduced accessibility for maintenance operations. Moreover, the design of HUGO is subject to specific reliability requirements (see: HUG-STR-003 \footref{url:baseline_report}).\\ \hline
 
@@ -192,7 +217,7 @@ Performance & $<3$ &
 If a configuration cannot effectively achieve the required test conditions, the resulting test data has limited value. Therefore, moderate penalties in drag or weight are considered acceptable.
 \\ \hline
 
-Reliability & $<3$ &
+Reliability & $<2$ &
 An unreliable testbed will produce corrupted data or result in large periods of Aircraft on Ground. Multiple failure modes are acceptable, so long as proper mitigation and contingency plans are defined.
 \\ \hline
 
@@ -358,7 +383,7 @@ HUG-CFG-301 & 38.163 & 0.333 & 0.268 & 0.022 & 0.0219 & 0.022 & 0.226 \\
 HUG-CFG-302 & 35.252 & 0.362 & 0.274 & 0.024 & 0.0235 & 0.024 & 0.290 \\
 HUG-CFG-303 & 37.027 & 0.343 & 0.270 & 0.023 & 0.0224 & 0.023 & 0.220 \\
 HUG-CFG-304 & 38.208 & 0.334 & 0.268 & 0.022 & 0.0219 & 0.022 & 0.267 \\
-HUG-CFG-305 & 38.139 & 0.333 & 0.268 & 0.022 & 0.0219 & 0.022 & 0.214 \\
+%HUG-CFG-305 & 38.139 & 0.333 & 0.268 & 0.022 & 0.0219 & 0.022 & 0.214 \\
 \bottomrule
 \end{tabular}%
 }
@@ -619,7 +644,7 @@ Regarding versatility, the configurations with higher modularity generally perfo
 
 Reliability is inversely correlated with system complexity and ease of maintenance. Consequently, configurations with variable ports and increased modularity tend to perform worse in this category. HUG-CFG-304 and HUG-CFG-305 receive the lowest reliability scores, a consequence of their high degree of modularity and the restricted maintenance access imposed by their high-wing configuration. HUG-CFG-301 benefits from the improved maintenance accessibility of a low-wing configuration, earning a slightly higher reliability score. In contrast, HUG-CFG-302 and HUG-CFG-303 achieve the highest reliability scores due to their comparatively simpler and more constrained architectures.
 
-Finally, sustainability is assessed based on fuel mass predictions obtained from the parametric model. The fuel consumption values for all five configurations are presented in \autoref{tab:fuel_consumption}.
+Finally, sustainability is assessed based on fuel mass predictions obtained from the parametric model. Although it was previously stated that the fuel fractions are comparable across all configurations, fuel burn and SAF production are still taken into account, as they are the primary contributors to emissions. The fuel consumption values for all five configurations are presented in \autoref{tab:fuel_consumption}.
 
 \begin{table}[H]
 \centering
@@ -702,7 +727,7 @@ HUG-CFG-304
 & \cellcolor[HTML]{F8696B}1
 & \cellcolor[HTML]{63BE7B}5
 & \cellcolor[HTML]{F4B183}2
-& \cellcolor[HTML]{F8696B}1
+& \cellcolor[HTML]{F4B183}2
 & 3.66 \\
 \hline
 

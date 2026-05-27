@@ -2,7 +2,31 @@
 
 %\todo[inline]{ISBN's are not showing in bibliography! Point of interest for Mr. Documentation.}
 
-In order to achieve a High-speed Unmanned General-purpose Observatory (HUGO) mission of testing aeroservoelastic phenomena in different kinds of high aspect ratio wings, five possible configurations were proposed in the Baseline Report \footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report}(accessed on 21.05.2026)}. The goal of the Midterm Report is to provide a final assessment on which configuration will be chosen for further development. To facilitate this, a manufacturing, assembly, and integration plan will be established, followed by the internal and external layouts of the chosen design configured, and the sustainable development strategy. In addition, the final project objectives will be established, the operations and logistics of HUGO's mission, and the certification and risk assessment in accordance with European Union Aviation Safety Agency (EASA) regulations.
+In order to achieve a High-speed Unmanned General-purpose Observatory (HUGO) mission of testing aeroservoelastic phenomena in different kinds of high aspect ratio wings, five possible configurations were proposed in the Baseline Report \footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report}(accessed on 21.05.2026)}, and shown in table 7.1. The goal of the Midterm Report is to provide a final assessment on which configuration will be chosen for further development. To facilitate this, a manufacturing, assembly, and integration plan will be established, followed by the internal and external layouts of the chosen design configured, and the sustainable development strategy. In addition, the final project objectives will be established, the operations and logistics of HUGO's mission, and the certification and risk assessment in accordance with European Union Aviation Safety Agency (EASA) regulations.
+
+
+
+\begin{table}[H]
+    \centering
+    \caption*{\textbf{Table 7.1:} Final Integrated Candidate Architectures for Detailed Trade-Off \footref{url:baseline_report}}
+    \label{tab:Final_Candidate_Architectures}
+    
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \textbf{ID} & \textbf{Wing Configuration} & \textbf{Wing Modularity} & \textbf{Canard Modularity} \\
+        \hline\hline
+        HUG-CFG-301 & Low Wing & Variable Port (X) & Static Port \\
+        \hline
+        HUG-CFG-302 & High Wing & Static Port & No Port \\
+        \hline
+        HUG-CFG-303 & High Wing & Static Port & Static Port \\
+        \hline
+        HUG-CFG-304 & High Wing & Variable Port (X) & Static Port \\
+        \hline
+        %HUG-CFG-305 & High Wing & Variable Port (X) & Static Port \\
+        %\hline
+    \end{tabular}
+\end{table}
 
 First, the project objectives were formulated according to the SMART methodology to help guide the trade-off between the different configurations selected in the baseline report. They cover the financial, quality, performance, business, and compliance objectives of HUGO and its mission.
 
@@ -18,7 +42,7 @@ The technical risk assessment was also improved. The technical risk matrix was u
 
 EASA Certification was also a major concern in the Baseline Report, as HUGO's risk class and operational environment were highly uncertain. However, in consultation with, and with guidance from EASA, HUGO was classified under CS-23 for aerobatic aircraft, with supplemental special conditions for unmanned aerial vehicles considered high risk. Successful certification of an Unmanned Aerial Vehicle (UAV) with such a high degree of modularity would require constant and expensive certification. However, through the simultaneous application for a type certificate and a Design Organisation Approval (DOA), HUGO will be allowed to undergo major changes without requiring full recertification. Though more versatile, it is a process that will require an initial investment of \euro{10,170} for the certification, and then a yearly fee of \euro{11,050} for the maintenance of the Type Certificate. For compliance, a team of engineers will therefore have to apply for the DOA, and be responsible for approving any major changes. A flight envelope combining both manoeuvring and gust loads borne by the structure was then calculated to ensure compliance with the CS-23 aerobatic requirements. Furthermore, it was necessary to verify the present environmental requirements issued by the European Union. The relevant legalisation for UAVs of HUGO's specifications emphasise a focus on the reduction of noise and emissions.   
 
-To determine if each of the five configurations complied with the requirements, a cursory analysis and estimation of design parameters had to be performed. Several trade-off criteria were established for parts of the design. First, the airfoil and analogous wing estimation was performed. To do that, performance and geometric parameters were obtained from reference aircraft. These aircraft were selected based on the mission profile, size and cruise conditions. Drag buildup methods described by Torenbeek \cite{Torenbeek1982}were used, namely: stall speed, Aspect Ratio (AR), wingspan, Mean Aerodynamic Chord(MAC), sweep, wing area, wing loading, and taper ratio. Then, design aerodynamic parameters were estimated using the previously obtained data and drag build-up methods described by Raymer (design lift coefficient, cruise Reynolds number, maximum lift coefficient). Finally, based on the reference aircraft and HUGO cruise condition requirements, a NASA symmetrical supercritical airfoil was selected to limit compressibility effects and prevent shock wave formation on the lifting surfaces.
+To determine if each of the five configurations complied with the requirements, a cursory analysis and estimation of design parameters had to be performed. Several trade-off criteria were established for parts of the design. First, the airfoil and analogous wing estimation was performed. To do that, performance and geometric parameters were obtained from reference aircraft. These aircraft were selected based on the mission profile, size and cruise conditions. Drag buildup methods described by Torenbeek (1982) \cite{Torenbeek1982}were used, namely: stall speed, Aspect Ratio (AR), wingspan, Mean Aerodynamic Chord(MAC), sweep, wing area, wing loading, and taper ratio. Then, design aerodynamic parameters were estimated using the previously obtained data and drag build-up methods described by Raymer (design lift coefficient, cruise Reynolds number, maximum lift coefficient). Finally, based on the reference aircraft and HUGO cruise condition requirements, a NASA symmetrical supercritical airfoil was selected to limit compressibility effects and prevent shock wave formation on the lifting surfaces.
 
 To generate numerical data to serve as basis for the trade-off, the five design options were conceptually sized, taking into account the design aspects where differences between the configurations were expected. To provide initial values for the design iterations, reference aircraft data was gathered. No reference aircraft of similar scale were developed by the time of writing this report, however, several aircraft approach it. One of the aircraft close to HUGO's mission is the NASA DAST UAS with the ARW-2 wing used for aeroservoelastic effects testing. Although the mission objective was very similar, the aircraft maximum take-off weight was above 1000 kg, placing it far from the requirements for HUGO. Next, the NASA X-56 and FLEXOP experimental drones were used. These aircraft approach more closely the weight and scale of HUGO but operate in a highly subsonic low-speed regime. Nevertheless, the data obtained from all the considered aircraft helped to guide the first stage of the design process.
 
