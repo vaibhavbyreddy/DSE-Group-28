@@ -74,7 +74,7 @@ The fuselage dimensions are taken from that of FLEXOP drawings \cite{flexop_lg}.
 
 \subsection{Design Aerodynamic Parameters}
 \label{subsec:cl_des}
-The initial geometric parameters from \autoref{tab:DAST_HUGO} can be used to derive HUGO's preliminary aerodynamic characteristics.
+The initial geometric parameters from \autoref{tab:DAST_HUGO} can be used to derive HUGO's preliminary aerodynamic characteristics. Those parameters are also used as an initial condition for the iterative sizing, with exception of the aspect ratio, which is set to 27, the most constraining case.
 
 \subsubsection*{Design Lift Coefficient}
 To estimate $C_{L_\text{des}}$, \autoref{eq:C_L} \cite{Torenbeek1982} can be applied for a cruise air density $\rho_{cr}$ of $0.5112 \ kg \cdot m^{-3}$ at FL270, and a cruise speed $V_{cr}$ of $230.2945 \ m \cdot s^{-1}$ corresponding to the test condition. Using the initial value for $W/S$ from \autoref{tab:DAST_HUGO}, an initial $C_{L_\text{des}}$ of 0.074 is obtained.
@@ -491,9 +491,9 @@ The per-configuration weight penalty analysis begins by obtaining shear, moment 
 The values obtained for shear, moment, and skin thickness are then plotted. From these charts, it is possible to see the structural reinforcement required. The diagrams for HUG-CFG-302, without a canard port and a static wing, are shown in \autoref{fig:VMT_302}. Based on skin thickness, the mass of the fuselage is $2.69kg$.
 
 
-Furthermore, diagrams for HUG-CFG-303, shown in \autoref{fig:VMT_303}, include flight conditions with and without a canard. Since the canard is intended to be optional, there will likely be scenarios where the drone flies without a canard and the moment loads are wholly counteracted by the empennage. The plotting selected the most constraining forces between both conditions for each stage. The estimate for fuselage skin mass of this configuration is $2.84kg$, representing a $5.5\%$ increase in mass compared to HUG-CFG-302.
+Furthermore, diagrams for HUG-CFG-303 and 301, shown in \autoref{fig:VMT_303}, include flight conditions with and without a canard. Since the canard is intended to be optional, there will likely be scenarios where the drone flies without a canard and the moment loads are wholly counteracted by the empennage. The plotting selected the most constraining forces between both conditions for each stage. The estimate for fuselage skin mass of this configuration is $2.84kg$, representing a $5.5\%$ increase in mass compared to HUG-CFG-302.
 
-Lastly, a similar approach to the previous configuration was taken for HUG-CFG-301, 304 and 305, presented in \autoref{fig:VMT_304}. For this configuration, the main wing lift location was shifted by $\pm 1$ the design C.G. excursion. Once again, the most constraining internal loading at each partition was selected and resulted in a fuselage skin mass of $3.17kg$, a $17.8\%$ increase over HUG-CFG-302.
+Lastly, a similar approach to the previous configuration was taken for HUG-CFG-304, presented in \autoref{fig:VMT_304}. For this configuration, the main wing lift location was shifted by $\pm 1$ the design C.G. excursion. Once again, the most constraining internal loading at each partition was selected and resulted in a fuselage skin mass of $3.17kg$, a $17.8\%$ increase over HUG-CFG-302.
 
 For the iterative sizing, a baseline empty mass fraction is obtained from Finger \cite{Finger2016VTOL} and then increased by the weight penalty $\Delta m$:
 \begin{equation}
@@ -625,7 +625,7 @@ The mass penalty is incorporated into the sizing loop of the aircraft, and as su
         \caption{Skin Thickness Diagram}
         \label{fig:t_303}
     \end{subfigure}
-    \caption{Shear, moment, and skin diagram for HUG-CFG-303}
+    \caption{Shear, moment, and skin diagram for HUG-CFG-303 and 301}
     \label{fig:VMT_303}
     
     \vspace{1.5em} % Adjust this value to shrink/grow space between rows
@@ -644,7 +644,7 @@ The mass penalty is incorporated into the sizing loop of the aircraft, and as su
         \caption{Skin Thickness Diagram}
         \label{fig:t_304}
     \end{subfigure}
-    \caption{Shear, moment, and skin diagram for HUG-CFG-301, 304 and 305}
+    \caption{Shear, moment, and skin diagram for HUG-CFG-304}
     \label{fig:VMT_304}
     
 \end{figure}
@@ -926,8 +926,8 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
             \textbf{Parameter} & \textbf{Dimension}  \\
             \hline \hline
             Nose gear x poz & 0.386 m \\
-            Fuselage gear x poz & 2.145 m \\
-            Fuselage gear y poz & 0.334 m\\
+            Fuselage gear x poz & 2.147 m \\
+            Fuselage gear y poz & 0.332 m\\
             Height & 0.281 m\\
            % Observations & Wing tip clearance drives length\\
             \hline
@@ -941,10 +941,10 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
             \hline
             \textbf{Parameter} & \textbf{Dimension}  \\
             \hline \hline
-            Nose gear x pos & 0.273 m \\
+            Nose gear x pos & 0.272 m \\
             Fuselage gear x pos & 2.570 m \\
             Fuselage gear y pos & 0.231 m\\
-            Height & 0.168 m\\
+            Height & 0.167 m\\
             %Observations & Almost the same for all high-wings\\
             \hline
         \end{tabularx}
@@ -960,10 +960,10 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
             \hline
             \textbf{Parameter} & \textbf{Dimension}  \\
             \hline \hline
-            Nose gear x pos &0.273 m \\
+            Nose gear x pos &0.272 m \\
             Fuselage gear x pos &  2.570 m\\
             Fuselage gear y pos & 0.231 m\\
-            Height & 0.168 m\\
+            Height & 0.167 m\\
             %Observations &Almost the same for all high-wings\\
             \hline
         \end{tabularx}
@@ -977,10 +977,10 @@ By allowing the landing gear to be housed in the tail cone, the lateral separati
             \textbf{Parameter} & \textbf{Dimension }  \\
             \hline \hline
             
-            Nose gear x pos &0.272 m \\
+            Nose gear x pos &0.273 m \\
             Fuselage gear x pos &  2.570 m\\
             Fuselage gear y pos & 0.231 m\\
-            Height & 0.167 m\\
+            Height & 0.168 m\\
             %Observations &Almost the same for all high-wings\\
             \hline
         \end{tabularx}
@@ -1059,13 +1059,13 @@ Pod to Gear Length & $-$ & 1.25 & 1.0 & 1.5 & 3 \\   \hline
 \end{tabular}
 \end{table}
 
-The design iteration failed to converge for fuselage lengths shorter than the baseline, as well as for the largest fuselage diameters, due to infeasible landing gear. This is attributed to the combination of current landing gear requirements creating a heavily constrained design space for the landing gear. As the tail cone is replaceable, a tricycle configuration is strictly enforced over tail dragger. 
+The design iteration failed to converge for the shortest fuselage length, as well as for the largest fuselage diameter, due to infeasible landing gear. This is attributed to the combination of current landing gear requirements creating a heavily constrained design space for the landing gear. As the tail cone is replaceable, a tricycle configuration is strictly enforced over tail dragger. 
 
 Due to the modular nature of the aircraft, the gear has to retract into fuselage or fuselage-connected pods. At the same time, a track width wider than the fuselage diameter is needed to satisfy the tip clearance and turnover angle constraints. The nose landing gear is also set to retract forward. While beneficial in case of actuator failure, this constraint might be reconsidered due to severely impacting the landing gear design freedom for shorter fuselages. As for the landing gear becoming infeasible for high fuselage diameter, it may be attributed to increasing the height of the CG without increasing the nose to main gear x distance, which worsens the turnover performance.
 
 Regarding parameter values in the feasible design space, increasing the fuselage dimensions, especially the diameter, causes a rapid increase in mass (nearly double for the highest considered fuselage diameter), with the exception of the longer fuselage of HUG-CFG-302, which slightly decreases the total mass. It is thus recommended for the final design to avoid excessive enlarging of the fuselage, especially in diameter.
 
-Changing the CG excursion used to size the tail has a much weaker effect and differs significantly between the design options. HUG-CFG-302 and HUG-CFG-303 have their masses slightly decreased with larger C.G. Excursions, while the two remaining options experience a small increase in MTOM.
+Changing the C.G. excursion used to size the tail has a much weaker effect. Options without movable tail port have their masses slightly decreased with larger C.G. excursions, while the HUG-CFG-304 experiences an increase in MTOM. This is due to the movable wig port having to account for larger C.G. excursion.
 
 Changes to the landing gear bay width induce a small, roughly linear increase in mass, which is expected. Changes in the bay length have a significantly more minor effect. This can be explained by the fact that while a longer bay has a proportionally longer wetted area, its slenderness ratio is also proportionally larger. Changes in the wheel diameter of the landing gear affect the podded landing gear significantly more and similarly to increasing the bay width. This is because those options have a shorter main landing gear strut width, so the wheel diameter is more driving to their frontal and reference areas.
 

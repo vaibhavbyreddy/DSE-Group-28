@@ -59,14 +59,14 @@ As the changes between considered configurations lie mostly in the modularity de
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-301.jpeg}
-        \caption{HUG-CFG-301: low wing, static wing port, no canard port, buried retractable landing gear}
+        \caption{HUG-CFG-301: low wing, static wing port, static canard port}
         \label{fig:hug-cfg-301}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-302.jpeg}
-        \caption{HUG-CFG-302: low wing, variable wing port, no canard port, side-podded retractable landing gear}
+        \caption{HUG-CFG-302: low wing, variable wing port, no canard port}
         \label{fig:hug-cfg-302}
     \end{subfigure}
 
@@ -81,18 +81,18 @@ As the changes between considered configurations lie mostly in the modularity de
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-303.jpeg}
-        \caption{HUG-CFG-303: high wing, static wing port, static canard port, buried retractable landing gear}
+        \caption{HUG-CFG-303: high wing, static wing port, static canard port}
         \label{fig:hug-cfg-303}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sketches/Outer_Stuff.jpeg}
-        \caption{HUG-CFG-304: high wing, variable wing port, static canard port, side-podded retractable landing gear; with an example external instrument layout}
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-304 no arrows.jpg}
+        \caption{HUG-CFG-304: high wing, variable wing port, static canard port; with an example external instrument layout}
         \label{fig:hug-cfg-304-outer}
     \end{subfigure}
 
-    \caption{Initial HUGO configuration concepts 303 and 305}
+    \caption{Initial HUGO configuration concepts 303 and 304}
     \label{fig:hugo-configurations-303-305}
 \end{figure}
 
@@ -395,7 +395,7 @@ The key differentiators under this definition would be:
 
 Although performance was initially considered a viable trade-off criterion, preliminary mass and drag estimates and fuel fraction data obtained from the parametric model showed comparable values across all configurations as can be seen in \autoref{tab:performance_params}. Therefore, performance was excluded from the trade-off analysis.
 
-\todo{\textbf{CHECK VALUES IN TABLE!}}
+% \todo{\textbf{CHECK VALUES IN TABLE!}}
 \begin{table}[H]
 \centering
 \caption{Performance Parameters for Configurations}
@@ -406,10 +406,10 @@ Although performance was initially considered a viable trade-off criterion, prel
 \hline
 \textbf{ID} & \textbf{MTOM [kg]} & \textbf{T/W} & \textbf{Fuel Fraction} & \textbf{CD0 Cruise} & \textbf{CD0 Mach Max} & \textbf{CD0 Go Around} & \textbf{CD0 Takeoff} \\
 \hline\hline
-HUG-CFG-301 & 38.163 & 0.333 & 0.268 & 0.022 & 0.0219 & 0.022 & 0.226 \\\hline
-HUG-CFG-302 & 35.252 & 0.362 & 0.274 & 0.024 & 0.0235 & 0.024 & 0.290 \\\hline
-HUG-CFG-303 & 37.027 & 0.343 & 0.270 & 0.023 & 0.0224 & 0.023 & 0.220 \\\hline
-HUG-CFG-304 & 38.208 & 0.334 & 0.268 & 0.022 & 0.0219 & 0.022 & 0.267 \\\hline
+HUG-CFG-301 & 37.728 & 0.346 & 0.273 & 0.0232 & 0.0227 & 0.0233 & 0.1896 \\\hline
+HUG-CFG-302 & 35.736 & 0.362 & 0.276 & 0.0241 & 0.0237 & 0.0243 & 0.2874 \\\hline
+HUG-CFG-303 & 37.683 & 0.345 & 0.273 & 0.0231 & 0.0226 & 0.0232 & 0.2724 \\\hline
+HUG-CFG-304 & 38.085 & 0.341 & 0.272 & 0.0229 & 0.0224 & 0.0230 & 0.2695 \\\hline
 %HUG-CFG-305 & 38.139 & 0.333 & 0.268 & 0.022 & 0.0219 & 0.022 & 0.214 \\
 \end{tabular}%
 }
@@ -679,18 +679,18 @@ Finally, sustainability is assessed based on fuel mass predictions obtained from
 \label{tab:fuel_consumption}
 
 
-\begin{tabular}{|l|c|c|c|c|c|}
-\cline{2-6}
+\begin{tabular}{|l|c|c|c|c|}
+\cline{2-5}
 \multicolumn{1}{c|}{} 
-& \textbf{HUG-CFG-301} & \textbf{HUG-CFG-302} & \textbf{HUG-CFG-303} & \textbf{HUG-CFG-304} & \textbf{HUG-CFG-305} \\
+& \textbf{HUG-CFG-301} & \textbf{HUG-CFG-302} & \textbf{HUG-CFG-303} & \textbf{HUG-CFG-304}\\
 \hline
-\textbf{Fuel Mass} & 10.22 kg & 9.65 kg & 9.99 kg & 10.24 kg & 10.21 kg \\
+\textbf{Fuel Mass} & 10.29 kg & 9.87 kg & 10.26 kg & 10.34 kg\\
 \hline
 \end{tabular}
 
 \end{table}
 
-In terms of fuel efficiency, HUG-CFG-302 performs best with the lowest fuel mass. HUG-CFG-303 follows closely as the second most efficient configuration. HUG-CFG-301 and HUG-CFG-304 exhibit the highest fuel consumption, with differences of approximately 0.5 kg relative to the most efficient design, and therefore receive the lowest sustainability scores.\todo{add a sentence about impact of manufacturing}
+In terms of fuel efficiency, HUG-CFG-302 performs best with the lowest fuel mass. The other three configurations exhibit the highest fuel consumption, with differences of approximately 0.5 kg relative to the most efficient design, and therefore receive the lowest sustainability scores. This is further attributed to the simpler manufacturing process and lower material usage of configuration 2, whereas the alternatives would require more complex manufacturing and greater material usage, particularly for reinforcing the variable and static ports.
 
 \begin{table}[H]
 \centering
@@ -746,8 +746,8 @@ HUG-CFG-302
 & \cellcolor[HTML]{F4E285}\textbf{3}
 & \cellcolor[HTML]{A9D18E}\textbf{4}
 & \cellcolor[HTML]{A9D18E}\textbf{4}
-& \cellcolor[HTML]{F4E285}\textbf{3}
-& \textbf{3.84} \\
+& \cellcolor[HTML]{F8696B}\textbf{1}
+& \textbf{3.71} \\
 \hline
 
 \rowcolor[HTML]{D9E2F3}
@@ -793,7 +793,7 @@ The configuration also includes a static canard port, which substantially increa
 
 The propulsion system is fuselage-mounted. This choice avoids direct interference with the modular wing requirement and prevents significant complications in routing fuel lines, hydraulic systems, and avionics through the wing structure. Additionally, wing-mounted engines would require quick-release mounting systems and pylons capable of withstanding high dynamic loads, both of which would introduce considerable structural and maintenance complexity.
 
-The landing gear is a retractable buried configuration to minimise aerodynamic drag at high subsonic Mach numbers. This solution also avoids the additional mass and structural complexity associated with side-podded landing gear arrangements.
+The landing gear is a retractable configuration to minimise aerodynamic drag at high subsonic Mach numbers. This solution also avoids the additional mass and structural complexity associated with side-podded landing gear arrangements.
 
 Finally, a T-tail configuration is employed to ensure that the horizontal stabilizer remains outside the wake of the fuselage-mounted engines. As noted earlier in this chapter, the empennage is also designed with a static port system, enabling a broader range of tail configurations to be tested. However, it should be noted that fuselage-mounted engines impose limitations on certain empennage layouts, such as conventional tail configurations, due to potential interference from engine wake effects on the stabilizing surfaces.
 
