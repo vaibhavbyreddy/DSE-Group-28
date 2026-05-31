@@ -7,7 +7,7 @@ In this section, the general resources are identified and categorised, as such, 
 The critical areas with a finite budget are:
 
 \begin{itemize}
-    \item Centre of gravity location (CG location)
+    \item Centre of gravity location (C.G. location)
     \item Communication link budget
     \item Mass
     \item Aircraft dimensions
@@ -19,8 +19,8 @@ The critical areas with a finite budget are:
 
 
 
-\subsection{Centre of Gravity (CG) Location}
-The CG range of an aircraft is crucial for its stability and controllability limits. An unbalanced vehicle cannot guarantee safety or functionality during operations. The specific margins of stability and controllability will be subject to change based on the payload and desired test conditions. The specific CG range can be evaluated based on the following:
+\subsection{Centre of Gravity (C.G.) Location}
+The C.G. range of an aircraft is crucial for its stability and controllability limits. An unbalanced vehicle cannot guarantee safety or functionality during operations. The specific margins of stability and controllability will be subject to change based on the payload and desired test conditions. The specific C.G. range can be evaluated based on the following:
 \begin{itemize}
     \item Longitudinal position of the wing w. r. t. the fuselage,
     \item Tail size and position,
@@ -31,7 +31,7 @@ The CG range of an aircraft is crucial for its stability and controllability lim
     \item Implementation of a control system for the fuel flow.
 \end{itemize}
 
-Verifying the CG position against the allowable limits can be done with the use of a scissor plot combining the stability and controllability curves, which in turn defines the required tail size and longitudinal wing position. The process can be iterated until a balanced design is achieved that can operate within the desired stability and controllability limits.
+Verifying the C.G. position against the allowable limits can be done with the use of a scissor plot combining the stability and controllability curves, which in turn defines the required tail size and longitudinal wing position. The process can be iterated until a balanced design is achieved that can operate within the desired stability and controllability limits.
 
 \subsection{Communication Link}
 An analysis of the link budget is required to ensure communication with the UAV can be performed successfully during all operations. The main design considerations stem from mission range and endurance, as well as operating conditions of the UAV. In particular, the following parameters are used to define the communication link budget:
@@ -173,7 +173,7 @@ The distribution of resources depends on the needs of each department and their 
 \begin{tabular}{|p{2.5cm}|p{1.7cm}|p{1.7cm}|p{1.2cm}|p{1.6cm}|p{1.7cm}|p{1.5cm}|p{1.7cm}|}
 \hline 
 \textbf{Department} 
-& \textbf{CG location} 
+& \textbf{C.G. location} 
 & \textbf{Link budget} 
 & \textbf{Mass} 
 & \textbf{Aircraft dimensions} 
@@ -195,11 +195,11 @@ Control \& Systems & $\times$ & $\times$ &  & $\times$ & $\times$ &  & $\times$ 
 This initial distribution is susceptible to change as the development process advances and unforeseen circumstances appear.
 
 \subsection{Usage Tracking}
-Effective resource allocation requires continuous monitoring of how each resource is used throughout the design process. This is necessary to ensure that no department exceeds its allocated budget and that changes in one subsystem are communicated to all affected departments. Since resources such as mass, internal volume, fuel, battery power and CG location are strongly coupled, they cannot be tracked independently by each department without a common overview.
+Effective resource allocation requires continuous monitoring of how each resource is used throughout the design process. This is necessary to ensure that no department exceeds its allocated budget and that changes in one subsystem are communicated to all affected departments. Since resources such as mass, internal volume, fuel, battery power and C.G. location are strongly coupled, they cannot be tracked independently by each department without a common overview.
 
 Resource tracking will therefore be performed using a centralised budget file, accessible to all departments. This file will contain the latest estimated value, allocated limit, remaining margin and responsible department. This ensures that all departments work with the same baseline values and prevents outdated assumptions from propagating through the design.
 
-The mass budget, fuel budget and battery power budget will be updated whenever a subsystem mass, fuel consumption estimate or electrical power requirement changes. The CG location will be recalculated after relevant changes in component placement, fuel tank location, payload position or battery arrangement. Similarly, internal and external dimensions will be updated when changes are made to the fuselage layout, modular wing interface, payload bay or transport configuration.
+The mass budget, fuel budget and battery power budget will be updated whenever a subsystem mass, fuel consumption estimate or electrical power requirement changes. The C.G. location will be recalculated after relevant changes in component placement, fuel tank location, payload position or battery arrangement. Similarly, internal and external dimensions will be updated when changes are made to the fuselage layout, modular wing interface, payload bay or transport configuration.
 
 To support concurrent engineering, resource usage will be discussed during regular team meetings. If a resource exceeds its allocated limit, or if the margin becomes too small, the responsible department must notify the affected departments and propose a corrective action. Possible actions include redesigning the subsystem, reallocating budget from another department, changing the component placement, or revising the configuration layout. Major changes that affect multiple departments shall be documented as design decisions to maintain traceability.
 

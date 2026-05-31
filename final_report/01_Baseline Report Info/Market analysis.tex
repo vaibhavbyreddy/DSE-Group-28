@@ -1,0 +1,148 @@
+\chapter{Market analysis}
+The main goal of a market analysis is to research and establish the state of the competition by several criteria, including cost, production capacity or logistics and reach. 
+\section{Market segmentation}
+Market segmentation is the process of dividing a broad market into smaller and concrete groups with similar interests. \cite{Homburg} It is crucial for defining a strong business marketing strategy. This helps to understand and meet current market requirements as well as distinguishing from the competition. Additionally, a beachhead market needs to be identified. The beachhead market is the initial and most promising market aimed for the product to enter first. An overview of the main identified market segments is shown in \autoref{tab:market_seg}.
+\subsubsection{Universities and academic laboratories}
+Universities are the most accessible market segment and, therefore, the beachhead market. Universities typically conduct research in aeroelasticity, flight dynamics, active control and other related topics, but often lack access to large wind tunnels or manned flying laboratories. Therefore, a fleet of testbed UAVs at a fraction of the cost of a wind tunnel could be utilized in their research instead. As an example, the University of Washington is aiming to research similar phenomena, which makes it a suitable potential customer. \footnote{\href{https://sites.uw.edu/activeaeroelastic/research/}{Active Aeroelastic Structures Lab, University of Washington} (accessed on 29.04.2026)}
+
+\subsubsection{Research centres}
+A second key segment consists of national aerospace research centres and applied research institutes, such as NLR or DLR. These institutions conduct research in multiple related fields, including aeroelasticity or flutter suppression. Compared with universities, they usually have stronger technical resources and larger budgets. Their main interest is generating high-quality and accurate experimental data. Robustness and predictability of the modular platform is of high importance for these customers.\footnote{\href{https://www.dlr.de/en/dlr/about-us}{About DLR} (acessed on 29.04.2026)}
+
+\subsubsection{Aerospace companies}
+Companies developing new aircraft and subsystems for aircraft follow as other potential customers. These stakeholders may make use of the platform to test new aerospace components in real-life conditions prior to certification. Since the testing often involves many design iterations and testing loops, the costs of the process can grow quickly. At the same time, the use of external facilities for testing can delay the process further. Therefore, shortening development cycles allows components and configuration to enter market earlier would save costs and resources for the aerospace manufacturers. These companies usually allocate a budget for research and development (R\&D) activities, which can help to make this project profitable.
+
+
+\subsubsection{Defence sector}
+Recently, governments has started allocating more resources to defence and security \footnote{\href{https://www.consilium.europa.eu/en/policies/defence-numbers/}{EU defence in numbers} (accessed 29.04.2026)}. Defence companies and governmental departments need to test new technologies to be used in the rapidly evolving sector of unmanned aerial vehicles (UAVs) for combat and reconnaissance. Having a dedicated test platform could help these organizations centralize the testing of new and sensitive technologies instead of relying on an external partner.
+
+\begin{table}[H]
+    \centering
+    \caption{Market segmentation overview}
+    \begin{tabular}{|p{3cm}|p{4cm}|p{4.5cm}|p{2.5cm}|}
+        \hline
+        \textbf{Segment} & \textbf{Typical users} & \textbf{Main need} & \textbf{Attractiveness} \\
+        \hline
+        Universities & TU Delft and other universities/faculties & Affordable modular platform for research, teaching, and student projects & High \\
+        \hline
+        Research centres & NLR, DLR, national labs & High accuracy validation of aeroelastic and flight control technologies & High \\
+        \hline
+        Aircraft companies & Aerodynamics and structure engineers & Accelerate testing and development cycles, reduce dependency & Medium to High \\
+        \hline
+        Defense and government users & Government labs, defense research agencies & Centralize testing and development, reduce dependency, accelerate development & Medium \\
+        \hline
+    \end{tabular}
+    \label{tab:market_seg}
+\end{table}
+
+\section{SWOT analysis}
+
+A SWOT analysis evaluates a project or organisation by examining its strengths, weaknesses, opportunities, and threats, helping to inform strategic decision-making, highlight key risks, and guide future planning. An organisation can use a SWOT analysis to assess both internal and external factors, enabling it to develop strategies that leverage strengths, mitigate weaknesses, and take advantage of emerging opportunities. It also provides a structured framework for evaluating competitive advantage and informing future strategic direction.
+
+%Although SWOT analysis typically distinguishes between internal and external factors, the nature of an unmanned flying laboratory introduces overlap between these categories. For example, aspects such as cost efficiency or data fidelity depend both on system design and on external comparisons to existing testing methods.
+
+The classification groups strengths and opportunities, and weaknesses and threats.
+
+\begin{longtable}{|p{0.48\textwidth}|p{0.48\textwidth}|}
+\caption{Strengths and Opportunities of the Aircraft}
+\label{tab:SO} \\
+
+\hline
+\rowcolor[HTML]{ABE7F3}
+\textbf{Strengths} & \textbf{Opportunities} \\ \hline
+\endfirsthead
+
+\hline
+\rowcolor[HTML]{ABE7F3}
+\textbf{Strengths} & \textbf{Opportunities} \\ \hline
+\endhead
+
+Enables data collection in unconstrained flow, avoiding wind tunnel artefacts such as wall effects and mounting interference \cite{Castro2026}.
+&
+Testing to failure, including structural limits, flutter, and failure modes that are impractical or unsafe to investigate in traditional wind tunnel facilities \cite{Castro2026}.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+Eliminates or reduces scaling issues (e.g.\ Reynolds number mismatch), improving fidelity of aerodynamic and aeroelastic data \cite{Castro2026}.
+&
+Limitations of wind tunnel testing, such as wall interference, scaling issues, and cost create a gap that the modular flying test bed can fill \cite{Castro2026}.
+\\ \hline
+
+%Testing to failure, including structural limits, flutter, and failure modes that are impractical or unsafe to investigate in traditional wind tunnel facilities.
+Realistic operation conditions that are hard to simulate in wind tunnel facilities offer potential long-term cost and time efficiency \cite{article}.
+&
+The modular testing system enables rapid prototyping and iterative design.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+%The modular payload configuration enables testing of multiple concepts more time-effectively compared to building dedicated prototypes.
+Use of sustainable aviation fuel (SAF) can reduce carbon dioxide emissions by as much as 80\% compared to fossil-based jet \footnote{\href{https://www.carbonclick.com/news-views/the-benefits-of-sustainable-aviation-fuel-explained}{The benefits of sustainable aviation fuel explained} (accessed on 29.04.2026)}, which aligns with future regulatory and industry trends.
+&
+%The development of unconventional modular aircraft configurations enables real-flight validation.
+Increased accessibility to aerodynamic testing, lowering barriers for universities, researchers, and developers who lack access to high-end wind tunnel facilities.
+\\ \hline
+
+Advanced active control systems (e.g.\ AFS, GLA) expand the safe flight envelope and allow operation of flexible or unconventional configurations \cite{Abramov2014}.
+&
+An increased focus on aeroelasticity and lightweight structures through the use of HAR wings and next-generation active control systems \cite{Castro2026}.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+High-aspect-ratio (HAR) wings reduce induced drag, improving fuel efficiency and increasing available test endurance \cite{Castro2026}.
+&
+Recent growth in autonomous and unmanned systems supports wider adoption of UAV-based testing platforms \cite{Telli2023}.
+\\ \hline
+
+\end{longtable}
+
+
+
+\begin{longtable}{|p{0.48\textwidth}|p{0.48\textwidth}|}
+\caption{Weaknesses and Threats of the Aircraft}
+\label{tab:WT} \\
+
+\hline
+\rowcolor[HTML]{ABE7F3}
+\textbf{Weaknesses} & \textbf{Threats} \\ \hline
+\endfirsthead
+
+\hline
+\rowcolor[HTML]{ABE7F3}
+\textbf{Weaknesses} & \textbf{Threats} \\ \hline
+\endhead
+
+%Unmanned flying laboratories are not yet widely standardized, leading to higher development risk and fewer established methodologies.
+Differences in drone aviation standards across countries stem from factors such as terrain, infrastructure, and altitude, making global standardization of aviation rules and regulations a challenge \cite{Bhat2024}.
+&
+%Advancement of high-fidelity CFD may reduce the need for physical testing.
+Airspace restrictions, certification requirements, and safety regulations may limit operation \cite{Bhat2024}.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+The modularity of the test bed increases overall system complexity.
+&
+Combining modular payloads, advanced controls, and measurement systems may lead to unforeseen system-level issues.
+\\ \hline
+
+Each new test article introduces uncertainty in mass distribution, aerodynamics, and control response.
+&
+%Unlike wind tunnels and traditional flight testing, modular flying test beds introduce uncertainties in data acquisition and certification challenges.
+Operational constraints such as weather dependency, limited test windows, and airspace access disrupt the testing schedule and frequency.
+\\ \hline
+
+\rowcolor[HTML]{ECF4FF}
+%Atmospheric variability reduces repeatability compared to controlled wind tunnel conditions.
+The use of sustainable aviation fuel (SAF) is difficult because it is currently expensive, limited in supply, and requires significant feedstock availability and infrastructure investment to compete with conventional jet fuel \cite{Kumar2025}.
+&
+Risk of vehicle loss during testing could increase cost, reduce project reliability, and pose a safety threat.
+\\ \hline
+
+Due to environmental factors such as temperature fluctuations, humidity, and electromagnetic interference, in-flight measurements are noisier and face calibration challenges \footnote{\href{https://www.simco.com/blog/why-measurement-uncertainty-matters-in-aerospace-calibration/}{Accuracy Isn’t Enough: Why Measurement Uncertainty Matters in Aerospace Calibration} (accessed 29.04.2026)}.
+&
+
+\\ \hline
+
+\end{longtable}
+
+After having performed the SWOT analysis, different categories can be combined: use strengths to exploit opportunities (SO), use opportunities to overcome weaknesses (WO), use strengths to mitigate threats (ST), consider both weaknesses and threats to minimise risk (WT).
+
+

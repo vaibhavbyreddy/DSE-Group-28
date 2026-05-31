@@ -1,0 +1,120 @@
+\chapter{Trade-Off Rationale}
+\label{ch:app_trade-off_rationale}
+In this Appendix, the reasoning behind numerical values used for the trade-off scores and weight factors is explained.
+
+\section{Trade-Off Score Values}
+\autoref{tab:trade-off_score_definition} defines the scores assigned to trade-off criteria in \autoref{sec:trade-off_criteria_selection}. Each criterion was assigned a score from 1 to 5, with 1 being the lowest and 5 the highest in terms of desirability for HUGO.
+
+\begin{longtable}{|c|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+
+\caption{Trade-Off Score Definition}
+\label{tab:trade-off_score_definition} \\
+
+\cline{2-6}
+\multicolumn{1}{c|}{} & \multicolumn{5}{c|}{\textbf{Score}} \\
+\hline
+\textbf{Criterion} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Criterion} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{6}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Versatility &
+One testable configuration (core mission compromised) &
+Significant limitations (inability to test truss-braced wings) &
+Moderate limitations (no canard port) &
+Most configurations testable (wing and canard static port) &
+Full range of configurations testable (variable wing and static canard)
+\\ \hline
+
+Performance &
+High fuel consumption and weight limiting the achievable Mach at test altitude &
+Significant fuel consumption and mass penalties, meaningful efficiency reduction &
+Moderate fuel consumption or mass penalty, noticeable but manageable impact &
+Slightly elevated fuel consumption or mass, minor impact &
+Low fuel consumption and weight — clean configuration, no protruding components
+\\ \hline
+
+Reliability &
+Catastrophic failure risk: extreme fatigue exposure; accessibility insufficient to prevent escalation & Severe failure risk: moderate fatigue exposure; limited accessibility increases likelihood of undetected degradation & Moderate failure risk: moderate fatigue exposure; good accessibility allows timely intervention & Soft failure risk: minimal fatigue exposure; limited accessibility, preventive maintenance feasible with planning & No anticipated failure: minimal fatigue exposure; good accessibility enabling routine preventive maintenance
+
+\\ \hline
+
+Cost &
+Design violates HUG-FIN-001 \footref{url:baseline_report} &
+High complexity, significant cost driver &
+Moderate complexity, high manufacturing and procurement cost &
+Low complexity, limited manufacturing effort &
+Minimal complexity
+\\ \hline
+
+Sustainability &
+Highest impact: highest fuel consumption and manufacturing impact &
+High impact: significant manufacturing complexity and elevated fuel burn &
+Moderate impact: notable manufacturing and operational penalties &
+Low impact: slightly higher manufacturing or operational impact &
+Lowest impact: minimal manufacturing complexity, lowest operational fuel burn
+\\ \hline
+
+\end{longtable}
+
+\section{PCM Scores}
+This Section contains the rationale behind the pairwise comparison scores used in \autoref{tab:pcm}. As an example, element (2, 1) is equal to 6, meaning that versatility is ranked 4 times more important than cost, since a cheap testbed that can't cover the test envelope has no scientific value. Element (1, 2) is the reciprocal, equal to $\frac{1}{4}$.
+
+Below, the remaining pairwise comparisons are justified: 
+\begin{enumerate}
+    \item \textbf{Cost vs Performance:} The ratio is $\frac{1}{4}$. If the aircraft cannot reach the required Mach and Reynolds number conditions, the test data is physically invalid regardless of how economical the build was. The times 4 rating reflects that performance is strongly more important, but cost still influences overall feasibility of the programme.
+    \item \textbf{Cost vs Reliability:} The ratio is $\frac{1}{4}$. Same ratio as cost vs performance, for analogous reasoning — an unreliable aircraft either produces corrupted data or is grounded, making any cost savings irrelevant. Performance and reliability are rated equally against cost because both are non-negotiable prerequisites for mission success.
+    \item \textbf{Cost vs Sustainability:} The ratio is 3. Cost is moderately more important than sustainability because it directly determines whether the aircraft gets built and operated at all. Sustainability matters but has limited influence on mission outcome for a low-flight-hour research aircraft, particularly since SAF is already being used.
+    \item \textbf{Versatility vs Performance:} The ratio is 3. Versatility is moderately more important because a testbed that performs well but can only test one configuration is fundamentally less valuable than one covering a wide experimental envelope at slightly reduced performance. The times 3 rating acknowledges that performance cannot be completely sacrificed — a versatile aircraft that cannot reach test conditions is equally useless.
+    \item \textbf{Versatility vs Reliability:} The score is 3. Same ratio as versatility vs performance. Versatility limitations are design-dependent and cannot be corrected post-build, whereas reliability issues can be partially mitigated through redundancy, maintenance procedures, and data post-processing. This makes versatility marginally more important.
+    \item \textbf{Versatility vs Sustainability:} The score is 7. The scientific output of the testbed strongly outweighs environmental considerations. A versatile testbed operating on SAF for limited research hours has a negligible environmental footprint compared to its scientific contribution.
+    \item \textbf{Performance vs Reliability:} The score is 1. Both are equal prerequisites for producing valid test data. Performance determines whether you can reach the required test conditions; reliability determines whether you get valid measurements when you do. Neither can compensate for a deficit in the other.
+    \item \textbf{Performance vs Sustainability:} The score is 5. An aircraft that cannot reach test conditions delivers zero scientific value regardless of how sustainably it was built. The times 5 rating reflects that sustainability, while important, is an ancillary concern for a research platform with limited operational hours.
+    \item \textbf{Realiability vs Sustainability:} The score is 5. Same rating and same reasoning as performance vs sustainability — unreliable data collection undermines the entire mission, whereas the sustainability impact remains small given the operational profile.
+\end{enumerate}
+
+
+
+
+\begin{comment}
+
+\section{Material Selection Trade-Off}
+This section details the reasoning and details behind the material selection trade off analysis. \autoref{tab:Material_Tradeoff_Structural_Properties} details the results of the weighted scoring of the structural properties of the considered materials. This includes consideration of the material indices of plate and column buckling as well.
+
+\begin{table}[H]
+\centering
+\caption{Detailed Material Selection Decision Matrix (Normalized Values and Weights)}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.8cm}|c|c|c|c|c|c|c|}
+\hline
+\textbf{Material} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Normalized} & \textbf{Weighted} \\
+\textbf{Candidate} & \textbf{Specific} & \textbf{Column} & \textbf{Plate} & \textbf{Specific} & \textbf{Specific} & \textbf{Score}\\
+ & \textbf{Modulus} & \textbf{Buckling} & \textbf{Buckling} & \textbf{Strength} & \textbf{Toughness} & \\
+ & ($w = 1.0$) & ($w = 1.0$) & ($w = 1.0$) & ($w = 1.0$) & ($w = 0.5$) & \\
+\hline\hline
+Sitka spruce                 & 0.77 & 1.00 & 1.00 & 0.31 & 0.32 & 3.23  \\\hline
+Ti alloy \newline (Ti-6Al-4V)         & 0.80 & 0.30 & 0.20 & 0.48 & 0.70 & 2.13  \\\hline
+Al alloy \newline (7075 Al-T76)       & 0.88 & 0.41 & 0.29 & 0.39 & 0.35 & 2.15  \\\hline
+Mg alloy \newline (WE46-T6)           & 0.90 & 0.50 & 0.38 & 0.26 & 0.38 & 2.24  \\\hline
+Steel alloy \newline (18Ni (350))     & 0.84 & 0.23 & 0.14 & 0.66 & 0.16 & 1.94  \\\hline
+\textbf{Carbon/epoxy} \newline \textbf{(quasi-directional)} & \textbf{1.00} & \textbf{0.55} & \textbf{0.42} & \textbf{1.00} & \textbf{0.72} & \textbf{3.33} \\\hline
+Glass/epoxy \newline (quasi-directional)  & 0.98 & 0.51 & 0.37 & 0.85 & 1.00 & 3.21  \\
+\hline
+\end{tabular}
+\label{tab:Material_Tradeoff_Structural_Properties}
+\end{table}
+
+
+Similarly, \autoref{tab:---} shows the trade off performed to determine the cost of material used, based on a wholistic analysis of their structural properties.
+
+\end{comment}

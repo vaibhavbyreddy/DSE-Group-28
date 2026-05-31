@@ -31,7 +31,7 @@ In this chapter, the preliminary HUGO configurations developed in previous desig
 
 \begin{table}[H]
     \centering
-    \caption{Final Integrated Candidate Architectures for Detailed Trade-Off \footref{url:baseline_report}}
+    \caption{Final integrated candidate architectures for detailed trade-Off \footref{url:baseline_report}}
     \label{tab:Final_Candidate_Architectures}
     
     \begin{tabular}{|c|c|c|c|}
@@ -58,42 +58,33 @@ As the changes between considered configurations lie mostly in the modularity de
 
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-301.jpeg}
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-301.jpg}
         \caption{HUG-CFG-301: low wing, static wing port, static canard port}
         \label{fig:hug-cfg-301}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-302.jpeg}
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-302.jpg}
         \caption{HUG-CFG-302: low wing, variable wing port, no canard port}
         \label{fig:hug-cfg-302}
     \end{subfigure}
-
-    \caption{Initial HUGO configuration concepts 301 and 302}
-    \label{fig:hugo-configurations-301-302}
-\end{figure}
-
-
-\begin{figure}[H]
-    \centering
-
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-303.jpeg}
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-303.jpg}
         \caption{HUG-CFG-303: high wing, static wing port, static canard port}
         \label{fig:hug-cfg-303}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-304 no arrows.jpg}
-        \caption{HUG-CFG-304: high wing, variable wing port, static canard port; with an example external instrument layout}
-        \label{fig:hug-cfg-304-outer}
+        \includegraphics[width=\linewidth]{figures/Sketches/HUG-CFG-304.jpeg}
+        \caption{HUG-CFG-304: high wing, variable wing port, static canard port}
+        \label{fig:hug-cfg-304}
     \end{subfigure}
 
-    \caption{Initial HUGO configuration concepts 303 and 304}
-    \label{fig:hugo-configurations-303-305}
+    \caption{Initial HUGO configuration concepts}
+    \label{fig:hugo-configurations}
 \end{figure}
 
 \section{Trade-Off Criteria Selection}
@@ -105,7 +96,7 @@ Taking all of the above into consideration, the following criteria were selected
 
 
 \begin{longtable}{|p{2.5cm}|p{13.5cm}|}
-\caption{Trade-Off Criteria for HUGO Configurations}
+\caption{Trade-Off criteria for HUGO configurations}
 \label{tab:trade-off_criteria} \\
 
 \hline
@@ -155,7 +146,7 @@ Sustainability & Sustainability is a defined project objective (HUG-OPS-008 \foo
 The preliminary configurations and materials shall be evaluated and assigned a value ranging from 1 to 5 in each trade-off criterion. The definition of specific scores for different criteria can be found in \autoref{ch:app_trade-off_rationale}. \autoref{tab:trade-off_scoring} presents the rationale used to quantify the scores for each criterion across the different configurations.
 
 \begin{longtable}{|p{2.5cm}|p{13.5cm}|}
-\caption{Trade-Off Scoring for HUGO Configurations}
+\caption{Trade-Off scoring for HUGO configurations}
 \label{tab:trade-off_scoring} \\
 
 \hline
@@ -212,7 +203,7 @@ Sustainability & Sustainability is a defined project objective (HUG-OPS-008 \foo
 Following the criterion definition, no-go values were established for which a design would be immediately deemed as unfeasible and rejected. These are shown in \autoref{tab:no-go}.
 
 \begin{longtable}{|c|c|p{13cm}|}
-\caption{No-Go Values and Rationale}
+\caption{No-Go values and rationale}
 \label{tab:no-go} \\
 
 \hline
@@ -235,15 +226,15 @@ Following the criterion definition, no-go values were established for which a de
 %\multicolumn{3}{|c|}{\textbf{Configuration Selection}} \\
 %\hline
 
-Versatility & $<3$ &
+Versatility & $1$ &
 Versatility is a key feature of a flying testbed. A configuration with significant limitations to its test capability is failing its purpose. Moderate limitations are acceptable.
 \\ \hline
 
-Performance & $<3$ &
+Performance & $2$ &
 If a configuration cannot effectively achieve the required test conditions, the resulting test data has limited value. Therefore, moderate penalties in drag or weight are considered acceptable.
 \\ \hline
 
-Reliability & $<2$ &
+Reliability & $1$ &
 An unreliable testbed will produce corrupted data or result in large periods of Aircraft on Ground. Multiple failure modes are acceptable, so long as proper mitigation and contingency plans are defined.
 \\ \hline
 
@@ -253,7 +244,7 @@ Maintaining low costs is not design-driving, but remains beneficial for economic
 
 Sustainability & $-$ &
 Not a mission-critical criterion.
-\\ \hline
+\\
 \end{longtable}
 
 \begin{comment}
@@ -398,7 +389,7 @@ Although performance was initially considered a viable trade-off criterion, prel
 % \todo{\textbf{CHECK VALUES IN TABLE!}}
 \begin{table}[H]
 \centering
-\caption{Performance Parameters for Configurations}
+\caption{Performance parameters for configurations}
 \label{tab:performance_params}
 
 \resizebox{\textwidth}{!}{%
@@ -419,17 +410,17 @@ HUG-CFG-304 & 38.085 & 0.341 & 0.272 & 0.0229 & 0.0224 & 0.0230 & 0.2695 \\\hlin
 \label{sec:trade-off_weight_factors}
 Determining the weight factors for the various criteria was developed independently for the analysis of configurations and materials, based on the specific selection criteria. The configuration selection followed the analytic hierarchy process (AHP) approach, while the material weights were assigned arbitrarily based on an in-depth analysis of relative criterion importance.
 
-\subsection{Weight Factors for Configuration Selection}
-\label{subsec:weight_factors_configurations}
+%\subsection{Weight Factors for Configuration Selection}
+%\label{subsec:weight_factors_configurations}
 
-To determine the weight factors, the analytic hierarchy process (AHP) was used according to the methodology described by Pant et al. \cite{Pant2022}. This process encompasses pairwise comparison of the trade-off criteria. To form a pairwise comparison matrix (PCM) for $n$ distinct criteria, $n(n-1)/2$ comparisons are required. The diagonal entries of the PCM are all equal to 1, and the remaining values are reciprocal pairs of the $n(n-1)/2$ comparison values.
+The AHP was applied as described by Pant et al. \cite{Pant2022}. This process encompasses pairwise comparison of the trade-off criteria. To form a pairwise comparison matrix (PCM) for $n$ distinct criteria, $n(n-1)/2$ comparisons are required. The diagonal entries of the PCM are all equal to 1, and the remaining values are reciprocal pairs of the $n(n-1)/2$ comparison values.
 
 For the pairwise comparison, a scale from 1 to 9 was used, as proposed by Saaty \cite{SAATY19909}. These scores are defined as follows: 1 - equal importance; 3 - moderate importance, 5 - strong importance; 7 - very strong importance; 9 - extreme importance.  Assigning weights from 1 to 9 to the trade-off criteria, the PCM is constructed so that the rows represent the ratios of a criterion's score to the scores of the other criteria \cite{SAATY19909}. The resulting PCM is shown in \autoref{tab:pcm}. Derivation of specific importance scores is further described in \autoref{ch:app_trade-off_rationale}.
 
 
 \begin{table}[h!]
 \centering
-\caption{Pairwise Comparison Matrix}
+\caption{Pairwise comparison matrix}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l ||c| c| c| c|}
 \cline{2-5}
@@ -444,7 +435,7 @@ Sustainability & $1/2$ & $1/7$ & $1/4$ & 1 \\\hline
 \label{tab:pcm}
 \end{table}
 
-The next step is computing the normalised principal eigenvector (priority vector) \textbf{w}\footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial} (accessed 11.05.2026)}. The priority vector shows relative weights among the compared parameters; the higher the entry value, the higher the importance of its respective criterion.  Individual components of \textbf{w} can obtained according to \autoref{eq:priority_vector} for a matrix with $n$ criteria. The normalised PCM and resultant \textbf{w} are shown in \autoref{tab:pcm_norm}.
+The next step is computing the normalised principal eigenvector (priority vector) \textbf{w} \footnote{\href{https://people.revoledu.com/kardi/tutorial/AHP}{Analytic Hierarchy Process (AHP) Tutorial} (accessed on 11.05.2026)}. The priority vector shows relative weights among the compared parameters; the higher the entry value, the higher the importance of its respective criterion.  Individual components of \textbf{w} can obtained according to \autoref{eq:priority_vector} for a matrix with $n$ criteria. The normalised PCM and resultant \textbf{w} are shown in \autoref{tab:pcm_norm}.
 \begin{equation}
     \label{eq:priority_vector}
     w_i=\frac{1}{n}\sum^{n}_{j=1}\text{PCM}_{ij}
@@ -648,8 +639,8 @@ The consideration of the sustainability of material has relevance for the materi
 \end{longtable}
 
 
-Based on the trade off criteria and weights selected in \autoref{tab:trade-off_criteria} and, the following trade off matrices were generated. Since the requirements and manufacturing methods and complexity varies significantly between the aerodynamic components (fuselage, empennage and wings), and the functional components (landing gear, pylons etc.), separate trade off matrices were required. \autoref{tab:fuselage_trade-off_matrix_material_selection} shows the trade off matrix for the aerodynamic components, and \autoref{tab:landing_gear_trade-off_matrix_material_selection} shows the trade off matrix for the functional components. 
-\todo{refer to the trade off weights table once its made}
+Based on the trade-off criteria and weights selected in \autoref{tab:trade-off_criteria} and, the following trade-off matrices were generated. Since the requirements and manufacturing methods and complexity varies significantly between the aerodynamic components (fuselage, empennage and wings), and the functional components (landing gear, pylons etc.), separate trade-off matrices were required. \autoref{tab:fuselage_trade-off_matrix_material_selection} shows the trade-off matrix for the aerodynamic components, and \autoref{tab:landing_gear_trade-off_matrix_material_selection} shows the trade-off matrix for the functional components. 
+\todo{refer to the trade-off weights table once its made}
 
 The carbon-fiber-reinforced polymer (CFRP) emerged as the clear optimal choice for the primary lifting surfaces and fuselage. Its advantage in specific modulus and plate buckling efficiency ($\sqrt[3]{E}/\rho$) is critical for a high-aspect-ratio (HAR) aircraft operating at Mach 0.75. This is what drove its score in the structural properties section. Furthermore, CFRP offers maximum design freedom, allowing for the maximum freedom to design complex aerodynamic profiles necessary for a flying laboratory. It also allows for the development and construction of new wing designs without astronomical tooling costs. Utilizing CFRP ensures that weight of the fuselage and wings can be minimized, while retaining the maximum payload volume required for the 5 kg experimental payload.
 \end{comment}
@@ -662,7 +653,7 @@ The carbon-fiber-reinforced polymer (CFRP) emerged as the clear optimal choice f
 
 \autoref{tab:trade_off_matrix} shows the final trade-off matrix constructed for the candidate configurations for HUGO. The criteria have been weighted according to the priority vector defined in \autoref{sec:trade-off_weight_factors}, and specific scores were assigned for each criterion-configuration pair according to the definitions provided in \autoref{ch:app_trade-off_rationale}. %For the material choice, separate analysis was performed for the lifting surfaces (wing, fuselage, empennage) and high-stress subsystems (landing gear, pylons, port connections). The resulting matrices can be seen in \autoref{tab:fuselage_trade-off_matrix_material_selection} and \autoref{tab:landing_gear_trade-off_matrix_material_selection}, respectively.
 
-The clear overall winner is \textbf{HUG-CFG-303}, achieving the highest total score of \textbf{3.84}. HUG-CFG-301 is eliminated early in the evaluation due to failing to meet the minimum acceptable threshold in versatility.
+The clear overall winner is \textbf{HUG-CFG-303}, achieving the highest total score of \textbf{3.84}. HUG-CFG-304 is eliminated early in the evaluation due to failing to meet the minimum acceptable threshold in cost.
 
 From a cost and manufacturability perspective, HUG-CFG-302 performs best due to its relatively low structural and production complexity. HUG-CFG-301 and HUG-CFG-303 also perform well in this category, as they include only an additional static canard port. In contrast, HUG-CFG-304 features a higher degree of modularity, which substantially increases both design and manufacturing complexity.
 
@@ -672,7 +663,6 @@ Reliability is inversely correlated with system complexity. Consequently, config
 
 Finally, sustainability is assessed based on fuel mass predictions obtained from the parametric model. Although it was previously stated that the fuel fractions are comparable across all configurations, fuel burn and SAF production are still taken into account, as they are the primary contributors to emissions. The fuel consumption values for all five configurations are presented in \autoref{tab:fuel_consumption}.
 
-\textbf{CHECK VALUES IN TABLE!}
 \begin{table}[H]
 \centering
 \caption{Fuel consumption of HUGO configurations}
@@ -694,7 +684,7 @@ In terms of fuel efficiency, HUG-CFG-302 performs best with the lowest fuel mass
 
 \begin{table}[H]
 \centering
-\caption{Trade-Off Matrix for Configurations}
+\caption{Trade-Off matrix for configurations}
 \renewcommand{\arraystretch}{1.4}
 
 \begin{adjustbox}{width=\textwidth}
@@ -718,10 +708,10 @@ p{3cm}|
 
 \rowcolor[HTML]{D9E2F3}
 \textbf{Weight} &
-0.0967 &
-0.5743 &
-0.2647 &
-0.0644 &
+0.10 &
+0.57 &
+0.26 &
+0.06 &
 1 \\
 \hline
 
@@ -771,6 +761,7 @@ HUG-CFG-304
 \label{tab:trade_off_matrix}
 \end{table}
 
+
 \begin{center}
 \begin{tabular}{cccccccccc}
 \cellcolor[HTML]{63BE7B}\hspace{0.5cm} & Excellent &
@@ -793,7 +784,7 @@ The configuration also includes a static canard port, which substantially increa
 
 The propulsion system is fuselage-mounted. This choice avoids direct interference with the modular wing requirement and prevents significant complications in routing fuel lines, hydraulic systems, and avionics through the wing structure. Additionally, wing-mounted engines would require quick-release mounting systems and pylons capable of withstanding high dynamic loads, both of which would introduce considerable structural and maintenance complexity.
 
-The landing gear is a retractable configuration to minimise aerodynamic drag at high subsonic Mach numbers. This solution also avoids the additional mass and structural complexity associated with side-podded landing gear arrangements.
+The landing gear is a retractable configuration to minimise aerodynamic drag at high subsonic Mach numbers. During the final design, a selection will be made between buried retractable landing gear  inside the fuselage or buried side podded landing gear.
 
 Finally, a T-tail configuration is employed to ensure that the horizontal stabilizer remains outside the wake of the fuselage-mounted engines. As noted earlier in this chapter, the empennage is also designed with a static port system, enabling a broader range of tail configurations to be tested. However, it should be noted that fuselage-mounted engines impose limitations on certain empennage layouts, such as conventional tail configurations, due to potential interference from engine wake effects on the stabilizing surfaces.
 
@@ -804,7 +795,7 @@ Finally, a T-tail configuration is employed to ensure that the horizontal stabil
 \section{Material Selection}
 \label{sec:Material_Selection}
 
-This addresses the selection of aerospace materials for various subsystems of HUGO. Key factors considered in this analysis are: structural properties, material cost, manufacturing cost, durability, sustainability, and special properties. For the purpose of a preliminary material selection, the aircraft was divided into the following subgroups:
+This section addresses the selection of aerospace materials for various subsystems of HUGO. Key factors considered in this analysis are: structural properties, material cost, manufacturing cost, durability, sustainability, and special properties. For the purpose of a preliminary material selection, the aircraft was divided into the following subgroups:
 
 %The aircraft will most likely not be made of one material but instead a combination of several. The aircraft can be roughly be split up into the following: fuselage structure, wing structure, empennage and control surfaces, and landing gear. It is a simplification to assume that each of those subcategories would by made of the same material but this is a valid assumption at this stage of the design process. The specific operating requirements and conditions can be detailed for each subsystem. 
 
@@ -854,7 +845,7 @@ Fuselage  & Compression, Tension, Bending  & Buckling, Strength, Deflection \\ \
 
     
     \item \textbf{Landing gear:} 
-    The landing gear must be able to carry the weight of the aircraft, as well as withstand take-off and landing loads. According to Albuquerque\cite{structural_loads_handbook}, the key loads acting on the undercarriage can be split into: ground loads (static load, braking, braked roll, ground turns, reversed braking, nose wheel yaw and steering, pivoting, towing etc.), landing loads, and take-off loads (associated with retraction of the landing gear and gyroscopic effects of changing wheel direction). All of these cases are relevant for HUGO, as the in its final configuration, the landing gear retracts into the aircraft during flight (see: \autoref{sec:trade-off_final_design}).  
+    The landing gear must be able to carry the weight of the aircraft, as well as withstand take-off and landing loads. According to Albuquerque \cite{structural_loads_handbook}, the key loads acting on the undercarriage can be split into: ground loads (static load, braking, braked roll, ground turns, reversed braking, nose wheel yaw and steering, pivoting, towing etc.), landing loads, and take-off loads (associated with retraction of the landing gear and gyroscopic effects of changing wheel direction). All of these cases are relevant for HUGO, as the in its final configuration, the landing gear retracts into the aircraft during flight (see: \autoref{sec:trade-off_final_design}).  
 
     \item \textbf{Pylons:} For the design of HUGO, it is assumed that an already existing engine will be chosen, together with a nacelle provided by the manufacturer. However, the design of pylons still has to be considered. The main loads acting on the pylons come from the engines, specifically the associated vibrations and thermal loads \cite{pylon_load_analysis}. Therefore, key considerations for this structural element are related to fatigue life and resistance to high temperatures.    
 
@@ -872,7 +863,7 @@ X56-A, the high aspect ratio testbed developed by NASA in the 2010s, features a 
 
 The DAST ARW-2, a slightly older concept from the 1980s, featured a wing using 7075-T73 aluminium spars and ribs covered with a fibreglass honeycomb sandwich skin material (36 layers at inboard end, 27 at outboard, with 25-percent of the layers at $\pm$45 degree orientation) \cite{Eckstrom1986ARW2}. High stiffness was achieved by incorporating a thick aluminium plate in the centre section of the wing, and strain gauge bridges were mounted on the spars and ribs.
 
-The prevalence for composite usage in external structures is also present in modern commercial aircraft. Leading aircraft manufacturers, such as Boeing and Airbus, both incorporate carbon laminates into the airframes of their products as a lighter alternative to metallic alloys\footnote{\label{url:cfrp_airbus}\href{https://www.airbus.com/en/newsroom/news/2017-02-aviations-material-evolution}{Airbus - Aviation's material evolution} (accessed on 13.05.2026)}\footnote{\label{url:cfrp_boeing}\href{https://www.boeing.com/content/dam/boeing/boeingdotcom/features/innovation-quarterly/2024/IQ-2024-Q3-full.pdf}{Boeing - 787 Dreamliner Difference} (accessed on 13.05.2026)}. Additionally, Airbus A330neo nacelles are made with 60\% composites, together with a honeycomb structure for acoustics\footnote{\href{https://www.safran-group.com/products-services/airbus-a330neo-nacelles}{Airbus A330neo nacelles} (accessed on 13.05.2026)}, while Boeing 777x uses fine metallic alloys instead\footnote{\href{https://www.safran-group.com/products-services/boeing-777x-exhaust-system}{Boeing 777x exhaust system} (accessed 13.05.2026)}. In the recent years, NLR has also began experimenting with implementing composites into upper spars of pylons    \footnote{\href{https://www.toraytac.com/newsroom/story/HelI/Thermoplastic-Upper-Spar-for-an-Aircraft-Engine-Pylon}{Automated Production of Large and Thick Thermoplastic Composite Aircraft Parts} (accessed on 18.05.2026)}. Aluminium, steel, and titanium alloys are also among the most commonly used materials for typical landing gear systems \cite{typicallandinggear}, as well as engine pylons (specifically Ti and Al-Li alloys)\cite{TiAl_pylon_materials}. 
+The prevalence for composite usage in external structures is also present in modern commercial aircraft. Leading aircraft manufacturers, such as Boeing and Airbus, both incorporate carbon laminates into the airframes of their products as a lighter alternative to metallic alloys \footnote{\label{url:cfrp_airbus}\href{https://www.airbus.com/en/newsroom/news/2017-02-aviations-material-evolution}{Airbus - Aviation's material evolution} (accessed on 13.05.2026)}\footnote{\label{url:cfrp_boeing}\href{https://www.boeing.com/content/dam/boeing/boeingdotcom/features/innovation-quarterly/2024/IQ-2024-Q3-full.pdf}{Boeing - 787 Dreamliner Difference} (accessed on 13.05.2026)}. Additionally, Airbus A330neo nacelles are made with 60\% composites, together with a honeycomb structure for acoustics \footnote{\href{https://www.safran-group.com/products-services/airbus-a330neo-nacelles}{Airbus A330neo nacelles} (accessed on 13.05.2026)}, while Boeing 777x uses fine metallic alloys instead \footnote{\href{https://www.safran-group.com/products-services/boeing-777x-exhaust-system}{Boeing 777x exhaust system} (accessed on 13.05.2026)}. In the recent years, NLR has also began experimenting with implementing composites into upper spars of pylons    \footnote{\href{https://www.toraytac.com/newsroom/story/HelI/Thermoplastic-Upper-Spar-for-an-Aircraft-Engine-Pylon}{Automated Production of Large and Thick Thermoplastic Composite Aircraft Parts} (accessed on 18.05.2026)}. Aluminium, steel, and titanium alloys are also among the most commonly used materials for typical landing gear systems \cite{typicallandinggear}, as well as engine pylons (specifically Ti and Al-Li alloys)\cite{TiAl_pylon_materials}. 
 
 \autoref{tab:materials_airliner_breakdown} showcases the usage of aerospace materials for two exemplary commercial aircraft: Airbus A350 XWB, and B787 Dreamliner. These models were chosen due to data availability, and were deemed as representative of modern aircraft systems.
 
@@ -899,11 +890,11 @@ The prevalence for composite usage in external structures is also present in mod
 \subsection{Candidate Aerospace Materials for HUGO}
 \label{sub:materials_candidates}
 
-According to Mouritz\cite{Mouritz2012}, there are more than one hundred materials with properties suitable for aerospace applications. The main materials used for airframes and engines include: aluminium, titanium and steel alloys, and composites. Suitable representatives of each material group selected for the material design trade-off for HUGO are described in \autoref{tab:materials_trade-off_candidates_desc}.
-A quantitative analysis of the candidate materials can be obtained via an analysis of the base material properties of each candidate (listed in \autoref{tab:base-material-properties}), as well as deriving the weight-specific properties, such as the specific modulus, specific strength, specific fracture toughness, column buckling efficiency, and panel/skin buckling efficiency (listed in \autoref{tab:derived-material-properties}). The weight-specific properties can be further normalised and summed to provide an overall index for the mechanical properties of the materials, which can be used to rank the materials in the trade-off. Specific costs of each material used in \autoref{tab:base-material-properties} were obtained from the Spot materials database\footnote{\href{https://spotmaterial.com/}{Spot material}(accessed on 20.05.2026)}. All calculations made to determine the derived properties and assist with the trade-off can be accessed via the Project HUGO GitHub \footnote{\label{url:midterm_material_selection}\href{https://docs.google.com/spreadsheets/d/1GpVjdeAKDGPKHCRgVgf5LDyppZcSMRnKjkgZY_FNGBo/edit?gid=916630606#gid=916630606}{Midterm Material Selection}(accessed on 20.05.2026)}.
+According to Mouritz \cite{Mouritz2012}, there are more than one hundred materials with properties suitable for aerospace applications. The main materials used for airframes and engines include: aluminium, titanium and steel alloys, and composites. Suitable representatives of each material group selected for the material design trade-off for HUGO are described in \autoref{tab:materials_trade-off_candidates_desc}.
+A quantitative analysis of the candidate materials can be obtained via an analysis of the base material properties of each candidate (listed in \autoref{tab:base-material-properties}), as well as deriving the weight-specific properties, such as the specific modulus, specific strength, specific fracture toughness, column buckling efficiency, and panel/skin buckling efficiency (listed in \autoref{tab:derived-material-properties}). The weight-specific properties can be further normalised and summed to provide an overall index for the mechanical properties of the materials, which can be used to rank the materials in the trade-off. Specific costs of each material used in \autoref{tab:base-material-properties} were obtained from the Spot materials database \footnote{\href{https://spotmaterial.com/}{Spot material} (accessed on 20.05.2026)}. All calculations made to determine the derived properties and assist with the trade-off can be accessed via the Project HUGO GitHub \footnote{\label{url:midterm_material_selection}\href{https://docs.google.com/spreadsheets/d/1GpVjdeAKDGPKHCRgVgf5LDyppZcSMRnKjkgZY_FNGBo/edit?gid=916630606#gid=916630606}{Midterm Material Selection} (accessed on 20.05.2026)}.
 
 \begin{longtable}{|c|p{2.25cm}|p{10.75cm}|}
-        \caption{Candidate Materials for Detailed Trade-Off}
+        \caption{candidate materials for detailed Trade-Off}
         \label{tab:materials_trade-off_candidates_desc}\\
 
 \hline
@@ -921,7 +912,7 @@ A quantitative analysis of the candidate materials can be obtained via an analys
 \hline
 \endlastfoot
 
-        HUG-MAT-01 & Sitka spruce &  Wood has played a part in aerospace engineering since the first powered flight. The softwood Sitka spruce was chosen based on its historical use in the construction of aircraft stemming from high specific strength and stiffness \footnote{\href{https://www.forestresearch.gov.uk/publications/wood-properties-and-uses-of-sitka-spruce-in-britain/}{Wood properties and uses of Sitka spruce in Britain}(accessed 19.05.2026)}. The material is additionally characterised by its low density and low cost. \\\hline
+        HUG-MAT-01 & Sitka spruce &  Wood has played a part in aerospace engineering since the first powered flight. The softwood Sitka spruce was chosen based on its historical use in the construction of aircraft stemming from high specific strength and stiffness \footnote{\href{https://www.forestresearch.gov.uk/publications/wood-properties-and-uses-of-sitka-spruce-in-britain/}{Wood properties and uses of Sitka spruce in Britain} (accessed on 19.05.2026)}. The material is additionally characterised by its low density and low cost. \\\hline
         HUG-MAT-02 & Ti-6Al-4V & Primarily used for manufacturing of engine subsystems and landing gear, titanium is known for its high strength, long fatigue life, fracture toughness, creep strength,
         and excellent resistance to corrosion and oxidation \cite{Mouritz2012}. Ti-6Al-4V is considered a traditional alloy for commercial airliners \cite{titanium_use_airbus_boeing}. \\\hline
         HUG-MAT-03 & Al 7075-T76 &  Aluminium has been widely used in aviation since the 1930s, and is a proven material in the industry. The specific alloy was chosen due to its outstanding anti-corrosive properties and stress corrosion cracking resistance \cite{LI2023944}. \\\hline
@@ -929,7 +920,7 @@ A quantitative analysis of the candidate materials can be obtained via an analys
         HUG-MAT-05 & Steel 18Ni (350)
         %\tablefootnote{\href{https://www.matweb.com/search/DataSheet.aspx?MatGUID=d0e2e9edae8d4060aa22dc11dd1b66b5&ckck=1}{MatWeb AISI Grade 18Ni (350) Maraging Steel} (accessed 08.05.2026)} 
         & Steel is primarily applied to safety-critical structural components due to its very high specific strength \cite{Mouritz2012}. The specific steel type was chosen due to its high fracture toughness, as well as demonstrated reliability in aerospace applications \cite{ANTOLOVICH1980717}.\\\hline
-        HUG-MAT-06 & Carbon/epoxy Composite & The widespread use of CFRP in contemporary aviation stems from its remarkably high strength-to-weight ratio, as well as high stiffness and corrosion resistance \cite{Mouritz2012}. Depending on the application, uni- or quasi-directional fibre placement can be selected to suit the envisioned loading mode of a structure\footnote{\href{https://www.abbottaerospace.com/aa-sb-001/4-materials/4-1-composite-materials/4-1-3-fundamental-behavior-of-carbon-fiber-epoxy-resin-composite-laminates/}{Fundamental Behavior of Carbon Fiber Epoxy Resin Composite Laminates} (accessed on 19.05.2026)}.
+        HUG-MAT-06 & Carbon/epoxy Composite & The widespread use of CFRP in contemporary aviation stems from its remarkably high strength-to-weight ratio, as well as high stiffness and corrosion resistance \cite{Mouritz2012}. Depending on the application, uni- or quasi-directional fibre placement can be selected to suit the envisioned loading mode of a structure \footnote{\href{https://www.abbottaerospace.com/aa-sb-001/4-materials/4-1-composite-materials/4-1-3-fundamental-behavior-of-carbon-fiber-epoxy-resin-composite-laminates/}{Fundamental Behavior of Carbon Fiber Epoxy Resin Composite Laminates} (accessed on 19.05.2026)}.
         
         \\\hline
         HUG-MAT-07 & Glass/epoxy Composite %\cite{Vantadori}
@@ -1018,15 +1009,15 @@ This was performed for each material using the following model:
 \end{figure}
 
 \end{comment}
-For the LCA-analysis the software openLCA was used with the added databases: Swiss Federal Administration LCI Database (BAFU:2025) and the openLCA LCIA Methods package \footnote{\href{https://nexus.openlca.org/downloads}{openLCA Nexus} (accessed 6.05.2026)}. For the streamlined assessment the focus is on the construction of fuselage, empennage and wings. The preliminary mass together with a weight fraction can be used to estimate the weight of wings, fuselage, empennage and landing gears (the turbine is not taken into consideration since this is not part of the material selection). Different materials will lead to different weights (as the specific structural characteristics are different for each material). The complete graphs and data files for each material can be found at \footnote{\href{https://www.dropbox.com/scl/fi/d59fjeeyomrkgpxksygrg/DSE28streamlinedLCA.zip?rlkey=iy6cmqd368n8ruztcux6bf0yh&st=o02j2rds&dl=0}{Streamlined LCA}(accessed on 18.05.2026)}.   
+For the LCA-analysis the software openLCA was used with the added databases: Swiss Federal Administration LCI Database (BAFU:2025) and the openLCA LCIA Methods package \footnote{\href{https://nexus.openlca.org/downloads}{openLCA Nexus} (accessed on 06.05.2026)}. For the streamlined assessment the focus is on the construction of fuselage, empennage and wings. The preliminary mass together with a weight fraction can be used to estimate the weight of wings, fuselage, empennage and landing gears (the turbine is not taken into consideration since this is not part of the material selection). Different materials will lead to different weights (as the specific structural characteristics are different for each material). The complete graphs and data files for each material can be found at \footnote{\href{https://www.dropbox.com/scl/fi/d59fjeeyomrkgpxksygrg/DSE28streamlinedLCA.zip?rlkey=iy6cmqd368n8ruztcux6bf0yh&st=o02j2rds&dl=0}{Streamlined LCA} (accessed on 18.05.2026)}.   
 Finally it is necessary to assess the recycle-ability of the different materials. Wood can be relatively easily be reused or can be burned as fuel.%\footnote{\href{https://www.unilinpanels.com/en/sustainability/recycling   }{UNILIN} (accessed 18.05.2026)}.  
-As is often the case with metals it is possible for the recycled metal to retain most of the structural performance of the virgin material\footnote{\href{https://circulareconomy.europa.eu/platform/sites/default/files/euric_metal_recycling_factsheet.pdf}{Metal Recycling Factsheet}(accessed on 18.05.2026)}.  Recycling of glass and carbon- composites is typically very difficult and the large majority of these materials ends in landfills or are incinerated \cite{dot}.
+As is often the case with metals it is possible for the recycled metal to retain most of the structural performance of the virgin material \footnote{\href{https://circulareconomy.europa.eu/platform/sites/default/files/euric_metal_recycling_factsheet.pdf}{Metal Recycling Factsheet} (accessed on 18.05.2026)}.  Recycling of glass and carbon- composites is typically very difficult and the large majority of these materials ends in landfills or are incinerated \cite{dot}.
 
 
 
 \begin{table}[H]
 \centering
-\caption{Base Mechanical, Economic, and Environmental Properties of Selected Aerospace Materials (Mechanical data derived from \cite{Mouritz2012}).}
+\caption{Base mechanical, economic, and environmental properties of selected aerospace materials (mechanical data derived from \cite{Mouritz2012})}
 \label{tab:base-material-properties}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l|c|c|c|c|}
@@ -1073,7 +1064,7 @@ HUG-MAT-07 & 2000 & 57400  & 6.5-8.7 & 67.81310
 
 \begin{table}[H]
 \centering
-\caption{Derived Specific Material Indices and Economic Factors for Aerospace Structural Design \footref{url:midterm_material_selection}}
+\caption{Derived specific material indices and economic factors for aerospace structural design \footref{url:midterm_material_selection}}
 \label{tab:derived-material-properties}
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|l|c|c|c|c|c|c|}
@@ -1099,7 +1090,7 @@ HUG-MAT-07 & 28.7 & 0.12 & 0.02 & 384   & 31.0 & 0.94 \\
 
  The material cost per kg does not paint a clear picture, as it does not account for differences in mechanical properties. Therefore, the total normalized economic factor shown in \autoref{tab:derived-material-properties} is determined by dividing the material cost per kilogram by its material indices, multiplying them by their weights, and then normalizing the results.
 %(e. g. 1 kg of CFRP is not equivalent in strength to 1 kg of steel). 
-Lower values of the normalized economic factor point towards more cost-effective solutions. Detailed calculations regarding the economic factor of HUGO's material selection can be found in the Project HUGO Git\footref{url:midterm_material_selection}.
+Lower values of the normalized economic factor point towards more cost-effective solutions. Detailed calculations regarding the economic factor of HUGO's material selection can be found in the Project HUGO Git \footref{url:midterm_material_selection}.
 
 
 %To account for this, the cost per kilogram of each material was divided by its material indices, then normalized to a dimensionless value, and summed to arrive at the normalized material cost, where lower is better. The results of this can be seen in \autoref{tab:derived-material-properties}.
@@ -1137,19 +1128,19 @@ HUG-MAT-07\tablefootnote{\href{https://spotmaterial.com/material/high-modulus-gl
 HUG-MAT-01 has an extreme low carbon footprint which mostly stems from the extraction and  of since wood by it self extracts and binds carbon-dioxide from the atmosphere. Recycling HUG-MAT-01 is also possible though mostly due to wear and tear down-cycling is most often the most viable approach. The material can be made into small chips which can then be compressed and made into panels\footnote{\href{https://www.unilinpanels.com/en/sustainability/recycling   }{UNILIN} (accessed 18.05.2026)}. Disposing HUG-MAT-01 is also relatively simple as the material can be burned and used for energy and heating, though it is worth noting that this will be dependent on the surface coatings and treatment used on the material. Combustion will also lead to a release of the bounded carbon-dioxide. The majority of HUG-MAT-02 (Ti) can be found in relative large quantities in the earth crust but the refinement and purification is a very energy-intensive process \cite{min11121425}. The recycle-ability of HUG-MAT-02 is quite good and due to high production and refinement cost there is a clear incentive for recycling \cite{RAHIMI2025107056}. The production of both HUG-MAT-03 and HUG-MAT-04 has a large carbon footprint (see \autoref{tab:material-economics} with HUG-MAT-04 being very high due to the specific refining process used\cite{dot}. HUG-MAT-05 has a medium carbon footprint. As is often the case with metals it is possible for the recycled HUG-MAT-02,  HUG-MAT-03,  HUG-MAT-04 and HUG-MAT-05 to retain most of the structural performance of the virgin material \cite{euric_metal_recycling}. The final two materials would be HUG-MAT-06 and HUG-MAT-07. Sustainability is often presented as one of the largest issues for the broad implementation for carbon and glass-composites \cite{dot}. The production of both fibres are  extremely energy-heavy see \autoref{tab:material-economics} with especially carbon fibre having a large carbon footprint. There lies a potential sourcing the carbon from the atmosphere though this is not implemented on a industrial scale \cite{Keiner2024}. The resin used for the matrix is typically a thermoset. Recycling of these materials is typically very difficult and the large majority of glass and carbon- composites ends in landfills or are incinerated \cite{dot}
 \end{comment}
 
-\subsection{Criterion and Weight Factors for Material Selection Trade Off}
+\subsection{Criterion and Weight Factors for Material Selection trade-off}
 \label{sec:Mat_sel}
 For the selection of material weight factors, a more holistic approach was applied, resulting in values from 0.1 to 1.0, where 1.0 warrants the highest priority. The following rationale was applied to justify the choice of specific values:
 
 \begin{itemize}
     \item \textbf{Structural Properties (Weight 1.0):} It is in our best interest to minimize the weight of HUGO's structural components. Choosing materials with high specific modulus ($E/\rho$) and plate buckling efficiency ($\sqrt[3]{E}/\rho$) are required to withstand aeroelastic effects at Mach 0.75 while minimizing weight. Concentrated load structures (landing gear, pylons) are driven by high specific yield strength ($\sigma_y/\rho$) and fracture toughness ($K_{Ic}/\rho$) to safely absorb dynamic landing loads. Therefore, structural performance directly dictates the aerodynamic and operational feasibility of the platform. It warrants the highest trade-off weight, 1.0.
     
-    \item \textbf{Durability (Weight 0.85):} HUGO is designed for a 15-year operational lifecycle with several flight days per year. The selected materials must withstand continuous high-impact cyclic loading, runway debris abrasion, and environmental degradation—including UV exposure for composites and galvanic corrosion at hybrid metallic-composite interfaces. While these issues can be solved using protective coatings and modern construction methods like using patches of fibreglass between the aluminium and carbon fibre components, the durability of the materials used is a large factor in the material selection process, warranting a weight of 0.85. 
+    \item \textbf{Durability (Weight 0.85):} HUGO is designed for a 15-year operational lifecycle with several flight days per year. The selected materials must withstand continuous high-impact cyclic loading, runway debris abrasion, and environmental degradation - including UV exposure for composites and galvanic corrosion at hybrid metallic-composite interfaces. While these issues can be solved using protective coatings and modern construction methods like using patches of fibreglass between the aluminium and carbon fibre components, the durability of the materials used is a large factor in the material selection process, warranting a weight of 0.85. 
 
-    \item \textbf{Material Cost (Weight 0.1):} The cost of the raw materials of the structure of HUGO has a small overall impact on the financial feasibility of the project, as found in the market analysis during the previous design phase\footref{url:baseline_report}. As explained in \autoref{sec:trade-off_criteria_selection}, the overall costs are expected to be dominated by manufacturing. Therefore, this criterion was assigned the lowest weight of 0.1.
+    \item \textbf{Material Cost (Weight 0.1):} The cost of the raw materials of the structure of HUGO has a small overall impact on the financial feasibility of the project, as found in the market analysis during the previous design phase \footref{url:baseline_report}. As explained in \autoref{sec:trade-off_criteria_selection}, the overall costs are expected to be dominated by manufacturing. Therefore, this criterion was assigned the lowest weight of 0.1.
     %The costs of processing these materials and production of the parts have a far greater impact than the cost of the materials themselves. The specific costs of all the considered materials are listed in \autoref{tab:base-material-properties}.
 
-    \item \textbf{Manufacturing Cost (Weight 0.5):} Manufacturing complexity dictates the primary financial burden of the project due to the low-volume production model. For aerodynamic surfaces, high Non-Recurring Engineering (NRE) costs associated with custom metallic tooling (e.g., stretch forming blocks) must be balanced against the high labour and autoclave operational costs of composite layups. For localized structures, direct CNC machining of metallic billets offers a highly efficient, low-NRE production route. Manufacturing methodology directly controls the economic viability of unit scaling, However, as shown in the previous design phase\footref{url:baseline_report}, there is a wide margin in the unit cost in the overall financial viability, which is why the criterion was deemed as one of medium importance, and assigned a weight of 0.5.
+    \item \textbf{Manufacturing Cost (Weight 0.5):} Manufacturing complexity dictates the primary financial burden of the project due to the low-volume production model. For aerodynamic surfaces, high Non-Recurring Engineering (NRE) costs associated with custom metallic tooling (e.g., stretch forming blocks) must be balanced against the high labour and autoclave operational costs of composite layups. For localized structures, direct CNC machining of metallic billets offers a highly efficient, low-NRE production route. Manufacturing methodology directly controls the economic viability of unit scaling, However, as shown in the previous design phase \footref{url:baseline_report}, there is a wide margin in the unit cost in the overall financial viability, which is why the criterion was deemed as one of medium importance, and assigned a weight of 0.5.
 
     \item \textbf{Design Freedom (Weight 1.0):} Project HUGO functions as a flying testbed, rather than a mass-production vehicle. Maximizing design freedom allows for the implementation of complex, aerodynamically optimized profiles and fuselage geometries, that would be impossible or prohibitively heavy if restricted to simple, developable surfaces. Because the ability to manufacture advanced aerodynamic shapes directly governs the quality of the research data the platform can generate, design freedom is classified as a primary requirement and assigned the maximum weight of 1.0.
 
@@ -1159,11 +1150,11 @@ For the selection of material weight factors, a more holistic approach was appli
 
 \subsection{Trade-off table}
 
-Based on the trade off criteria and weights selected in \autoref{sec:Mat_sel} and, the following trade off matrices were generated. Since the requirements and manufacturing methods and complexity varies significantly between the aerodynamic components (fuselage, empennage and wings), and the functional components (landing gear, pylons etc.), separate trade off matrices were required. \autoref{tab:fuselage_trade-off_matrix_material_selection} shows the trade off matrix for the aerodynamic components, and \autoref{tab:landing_gear_trade-off_matrix_material_selection} shows the trade off matrix for the functional components. 
+Based on the trade-off criteria and weights selected in \autoref{sec:Mat_sel} and, the following trade-off matrices were generated. Since the requirements and manufacturing methods and complexity varies significantly between the aerodynamic components (fuselage, empennage and wings), and the functional components (landing gear, pylons etc.), separate trade-off matrices were required. \autoref{tab:fuselage_trade-off_matrix_material_selection} shows the trade-off matrix for the aerodynamic components, and \autoref{tab:landing_gear_trade-off_matrix_material_selection} shows the trade-off matrix for the functional components. 
 
 \begin{table}[H]
 \centering
-\caption{Trade-Off Matrix for Fuselage, Wings and Empennage}
+\caption{Trade-Off matrix for fuselage, wings and empennage}
 \renewcommand{\arraystretch}{1.4}
 
 \begin{adjustbox}{width=\textwidth}
@@ -1277,7 +1268,7 @@ HUG-MAT-07
 
 \begin{table}[H]
 \centering
-\caption{Trade-Off Matrix for Landing gear, Pylons, and Connection Ports}
+\caption{Trade-Off matrix for landing gear, pylons, and connection ports}
 \renewcommand{\arraystretch}{1.4}
 
 \begin{adjustbox}{width=\textwidth}

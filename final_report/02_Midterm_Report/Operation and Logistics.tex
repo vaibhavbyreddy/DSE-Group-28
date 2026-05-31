@@ -1,0 +1,302 @@
+\chapter{Operations and Logistics}
+\label{ch:operations_logistics}
+
+%This chapter will outline the operational and logistical process involved in making HUGO operational once the design and certification process is completed. The operations plan of HUGO will describe the usage practices and mission objectives, this section covers the concept, mission timeline and phases, constraints on operation, maintenance provisions and future scalability. The logistics section will include analysis on budgts such as ground personnel required, deployment logistics, location and facility and a consumable estimations (spare parts, supply chain, etc.)
+
+This Chapter presents the operational and logistical framework required to bring HUGO into service following completion of the design and certification process. In \autoref{sec:operations}, the intended use of the system is described, covering the concept of operations, mission objectives, mission phases, and maintenance provisions. Then, \autoref{sec:logistics} addresses the supporting resources needed for sustained operation, including: ground personnel, deployment logistics, facility and location requirements, consumables, spare parts, and supply-chain considerations.
+%This combined analysis establishes how HUGO can be practically deployed, supported, and maintained throughout its operational life.
+
+\begin{comment}
+
+Devide the chapter into 2 parts, operation and logistics
+
+Operation
+Operational and Logistical Analysis
+
+1. Operational Concept - O
+2. Mission Timeline and Phases - O
+3. Required Personnel and Responsibilities - L
+4. Ground Support and Deployment Logistics - L
+5. Operational Constraints - O
+6. Maintenance and Turnaround - exclude for now or it can be implemented later - O
+7. Consumables, Spare Parts and Supply Chain - not applicable or write only a short part -L
+
+8. Cost of Operation - detailed in the TAM SAM SOM
+9. Contingency Procedures  - covered in the previous section
+10. Regulatory and Safety Considerations - covered by certification and risk management part (included into the airport fees)
+
+11. Scalability of Operations - to be determined and written -O 
+
+\end{comment}
+
+%\todo[inline]{!!!ALL OF BELOW SECTIONS HAVE TO BE EXPANDED ON !!!!!}
+
+\section{Operations}
+\label{sec:operations}
+This Section contains a detailed description of HUGO's intended operations, an overview of the system users, testing location and conditions, mission phases, and approximate timeline. A brief discussion is dedicated to operational constraints and maintenance procedures to ensure HUGO's successful, and continuous operation.
+
+\subsection{High-level Mission Description}
+HUGO's main objective aeroservoelastic phenomena in high aspect ratio wings. The mission is considered successful if a flight speed of Mach 0.75 is achieved for 5 consecutive minutes of straight flight, all control systems required by the user were activated/actuated without error, and the collected data is successfully recorded, downloaded, and delivered to the user.
+
+Based on the identified beachhead marker in the baseline report,  a suitable airport was found in the north-east of The Netherlands for HUGO's operations, Den Helder\footnote{\href{https://denhelderairport.nl/eng/}{Den Helder Airport} (accessed on 22.05.2026)} . Several characteristics make Den Helder Airport the best choice as HUGO's base of operations. It is located 5km away from the North sea, reducing the transit time from take off to the test area over populated areas, and has controlled airspace as required by EASA \cite{EASAInitialAirworthiness2025}.  Den Helder is a joint civilian and military airport, consequently, it is not subject to the same congestion as regular airports, and permits special operations. It also has a 1.27 km runway with on call emergency services, which are beneficial for a test aircraft with potentially high take-off speeds.
+
+At Den Helder Airfield, HUGO will take off from runway 21 and depart via FOXTROT according to ATC instructions \footnote{\href{https://nl.ivao.aero/downloads/specops_loa/ehkd.pdf}{Den Helder Departure Map} (accessed on 11.05.2026)}. It will follow the departure regulations until it reaches a distance of approximately 6 km from the airfield over the North Sea. Once it is clear of ground, it will start climbing to test altitude and route towards the testing area at ATC discretion. The test will take place over the North Sea, and HUGO will follow the preplanned path.
+
+Once the take-off area is free, HUGO can proceed to the test site shown in \autoref{fig:flight_area}. The site was chosen to be close to Den Helder airport to comply with the fuel and endurance requirements. The maximum distance in a straight line in the highlighted area is estimated to span 110 km, which allows for the 5 minute test flight to be successfully performed.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[angle=-90,width=0.3\linewidth]{figures/Flight_area.png}
+    \caption{Flight area highlighted on Netherlands AIP chart — flight area highlighted for clarity, taken from the Netherlands AIP\footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2002-2026\_2026\_02\_19/index.html}{AIRAC AMDT 02/2026} (accessed on 12.05.2026)}}
+    \label{fig:flight_area}
+\end{figure}
+
+
+
+
+
+\begin{comment}
+\begin{itemize}
+\item Who uses the system?
+\item Where it operates?
+\item Under what conditions it operates?
+\item What the mission objective is?
+\item What success looks like?
+\item What constraints affect operation?
+\end{itemize}
+\end{comment}
+
+
+\subsection{Mission Phase and Timeline}
+A reference test day for HUGO is assumed to include four
+test flights, with 100 operational days per year\footref{url:baseline_report}. Four main phases were identified for a test day: transport to test site, followed by pre-flight, in-flight, and post-flight operations. These shall now be evaluated in more detail.
+
+
+\subsubsection{Transport to Test Site}
+The day before a test flight is scheduled, the Terminal Aerodrome Forecast (TAF) shall be consulted to ensure that departure will be possible. In case of adverse weather prediction, the test day (or part of it) shall be cancelled and the customer shall be informed. 
+
+In case the weather prediction allows for a successful take-off, the test day shall proceed according to schedule. If the test requires parts provided by the client to be mounted onto HUGO, these shall be integrated in the hangar, before proceeding onto the airfield. The ground station and fuel required for the flight shall also be transported onto the airfield.
+
+\subsubsection{Pre-Flight Operations}
+The pre-flight phase begins once HUGO is unloaded from the transportation unit and ends when the aircraft is powered on, all checks are performed, and fuel is loaded on board. The objective of this phase is to verify that the mission plan, operating environment, ground support equipment, aircraft configuration, and safety provisions are suitable for the intended mission.
+
+An overview of the pre-flight steps is provided in \autoref{fig:pre-flight_checklist}. Once HUGO is unloaded, the mission plan is reviewed, and NOTAMs; an updated list containing alerts for potential hazards, are checked. If the initial inspection is completed and no problems are found, HUGO can be configured for the mission profile, and the crew briefing and preparation checklists can be performed. Otherwise, the test shall be aborted or delayed. Once all preparation steps are checked and recorded, HUGO can be considered as ready to fly, and the test personnel can proceed to the in-flight phase of the mission.
+
+
+\begin{comment}
+The following steps will be considered in the pre-flight preparation:
+ If a go or conditional go is given by the mission leader, HUGO can be configured for the mission profile, and the crew briefing and preparation checklists can be done.
+\begin{enumerate}
+    \item Unload HUGO from transportation unit,
+    \item Mission Plan Review,
+    \item NOTAM check for restrictions and updates,
+    \item Final TAF check for weather details (go/no-go/conditional go),
+    \item Configure HUGO for the Mission profile,
+    \item Crew Briefing,
+    \item Configure the ground station equipment,
+    \item External inspection of HUGO (walk-around),
+    \item System checks (using pre-flight checklists),
+    \item Calibrate sensors,
+    \item Load fuel onboard HUGO.
+\end{enumerate}
+\end{comment}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/pre_flight_checklist.pdf}
+    \caption{HUGO Pre-Flight Operations}
+    \label{fig:pre-flight_checklist}
+\end{figure}
+
+
+\subsubsection{In-Flight Operations}
+Once all necessary pre-flight checklists are done and ATC clearance for take-off is obtained, HUGO will be able to enter the next mission phase. This stage of operations begins when the engines are turned on prior to take-off and ends when they are turned off post-landing. The objective of this mission phase is to perform the test and obtain measurements requested by the customer. 
+%\todo[inline]{Still needs to be finished}
+
+An overview of the expected in-flight operations is provided in \autoref{fig:in-flight_ops}. After engine turn-on, HUGO will taxi onto the runway and take-off. After climbing to test altitude and reaching test area, it shall accelerate to Mach 0.75 and perform the 5 min test, while transmitting measurement data back to the ground station. Subsequently, it shall be ordered to decelerate, return to the airfield, and perform a landing. It is expected that holding or go-around manoeuvres may be necessary prior to landing. These scenarios will be included in the fuel budget.
+
+\begin{comment}
+\begin{enumerate}
+    \item Engine turn-on,
+    \item Taxi to runway,
+    \item Perform take-off,
+    \item Climb to test altitude and reach test area,
+    \item Perform test (constant monitoring from ground: continue/hold/abort test),
+    \item Return to airfield,
+    \item Perform landing approach (or hold if instructed by ATC),
+    \item Perform a go-around (if necessary),
+    \item Perform landing,
+    \item Taxi from runway,
+    \item Engine shut-off
+\end{enumerate}
+\end{comment}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.98\linewidth]{figures/in-flight_checklist.pdf}
+    \caption{HUGO In-Flight Operations}
+    \label{fig:in-flight_ops}
+\end{figure}
+
+\subsubsection{Post-Flight Operations}
+Once HUGO has performed a successful landing, the post-flight data extraction and operations can commence. In this mission phase, there are two possible scenarios,  depending on the mission profile of the day: HUGO can undergo preparations for the next test flight or undergo disassembly and reclaim procedures. An overview of operations for both scenarios are shown in \autoref{fig:post-flight_ops}.
+
+Once HUGO has finished all tests scheduled for a specific flight day, the onboard system checks shall be performed. If no errors are detected, the power supply will be turned off, and an inspection of the external structure shall be performed. Next, the official debrief shall take place, and HUGO shall be disassembled and transported back to the hangar. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.01\linewidth]{figures/post-flight_ops.pdf}
+    \caption{HUGO Post-Flight Operations}
+    \label{fig:post-flight_ops}
+\end{figure}
+%it will undergo the following steps of recall and disassembly, at the end marking the end of the test-flight day. The following procedure list will be followed by the ground crew:
+
+\begin{comment}
+\begin{enumerate}
+    \item Download data from the previous test
+    \item Perform check the internal and external systems of the UAV to ensure no problem developed
+    \item Perform visually inspect the fuselage for damage
+    \item Refill the tanks of HUGO
+    \item Perform in-flight operation plan 
+\end{enumerate}
+
+\begin{enumerate}
+    \item Download data from the test flight
+    \item Perform a check of the onboard systems to check that no system problems exist
+    \item Turn off power supply
+    \item Perform visual inspection of the fuselage to check for damage
+    \item Perform maintenance if required
+    \item Perform debriefing of the flight day
+    \item Perform disassembly of HUGO
+    \item Load the equipment into the van
+    \item End the flight day
+\end{enumerate}
+\end{comment}
+
+The completion of the post-flight operations checklist marks the end of the flight day. If any unforeseen events, anomalies, or deviations occurred during the mission, the flight day shall be followed by an additional debriefing and the completion of the required documentation.
+
+%\subsection{Operational Constraints}
+%Flight constraints are set by the operational area where HUGU will conduct its tests. As a testing location, the north-east location of the Net
+%\todo{To be finished}
+
+\subsection{Maintenance}
+\label{subsec:maintenance}
+To ensure HUGO's safe and optimal operation, regular maintenance shall be performed, along with regular repairs in case irregularities are found within the workday. Based on considerations made in previous design phases\footref{url:baseline_report}, one HUGO is expected to undergo maintenance for 20\% of the working days, which comes down to 50 working days within a year when accounting for free days. Continuing airworthiness is the responsibility of the operator or, in case the operator is not able to comply with the regulations and standards imposed, an outside certified provider\footnote{\label{Easa_Maintenance}\href{https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-continuing-airworthiness?erules-id=ERULES-1963177438-693}{Easy Access Rules for Continuing Airworthiness} (accessed on 11.05.2026)}.
+
+\subsubsection*{General Overview}
+At this stage of the design, the HUGO fleet is expected to feature five models in the initial development stage, allowing for the possibility of expansion. Having such a fleet size requires a dedicated location where maintenance can be provided. This problem is ultimately discussed in \autoref{sec:logistics}, where the storage of models is expanded upon.
+
+The maintenance operations include: planning of operation, assessment of process, execution of repair/verification, inspection of aircraft, ensure airworthiness, updating the records and release of the model. It is worth stating that modifications brought to the structure for the purpose of fitting a new configuration to be tested will be counted as maintenance. A general maintenance schedule may include the following actions based on the number of flight hours and operating conditions, as defined in \autoref{maintenance_operation}.
+
+
+\begin{longtable}{|p{0.28\textwidth}| p{0.68\textwidth}|}
+\caption{Maintenance Operations, according to EASA Regulation (EU) No 1321/2014 \footref{Easa_Maintenance}}
+\label{maintenance_operation} \\
+
+\hline
+\textbf{Maintenance Activity} & \textbf{Description} \\
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Maintenance Activity} & \textbf{Description} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{2}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Scheduled maintenance &
+Planned inspections and maintenance tasks performed at defined intervals, based on flight hours, flight cycles, calendar time, landings, or the aircraft maintenance programme. \\
+\hline
+
+Unscheduled or corrective maintenance &
+Maintenance carried out to correct defects discovered during operation, pre-flight inspections, post-flight inspections, or scheduled maintenance checks. \\
+\hline
+
+Airworthiness Directive compliance &
+Mandatory maintenance or inspection actions required by the competent aviation authority to address unsafe conditions affecting the aircraft, components, or systems. \\
+\hline
+
+%Component replacement or overhaul &
+%Removal, replacement, repair, or overhaul of aircraft components such as batteries, engines, actuators, avionics units, landing gear parts, or other life-limited items. \\
+%\hline
+
+Structural repair or modification &
+Repair or modification of the aircraft structure using approved maintenance or repair data, ensuring that the aircraft remains compliant with its certified configuration. \\
+\hline
+
+Servicing tasks &
+Routine servicing activities such as refuelling or battery charging, lubrication, oil replacement, hydraulic fluid checks, tyre pressure checks, filter replacement, and cleaning. \\
+\hline
+
+Functional tests and inspections, including test flights &
+Verification that aircraft systems operate correctly after maintenance, including flight controls, propulsion systems, avionics, sensors, software configuration, safety-critical systems and a flight to asses the aircraft behaviour. \\
+\hline
+
+% Maintenance check flight &
+% A flight performed after maintenance when required to verify aircraft behaviour, system performance, or airworthiness aspects that cannot be fully confirmed through ground checks alone. \\
+% \hline
+
+\end{longtable}
+
+\subsubsection*{Continuing Airworthiness}
+As stated previously, it is the operator's responsibility to ensure continuing airworthiness of an aircraft. For operators based in the EU, this typically entails appointing an approved Continuing Airworthiness Management Organisation (CAMO) \cite{EASA_CAirworthiness}. The responsibilities of CAMO include: development and control of the maintenance program, monitoring reliability and tracking compliance with Airworthiness Directives (ADs), as well as maintaining records and coordinating with authorities.
+
+The steps towards establishing a cycle for maintaining airworthiness typically begins before the UAV is certified for operations. The competent national authority for operations based in the Netherlands is the Inspectie Leefomgeving en Transport (ILT)\footnote{\label{url:ILT}\href{https://www.ilent.nl/ilt-luchtvaartautoriteit}{Inspectie Leefomgeving en Transport - Over de ILT-Luchtvaartautoriteit} (accessed on 11.05.2026)}. The steps towards developing a maintenance cycle include developing safety and system design assurance, and then defining a continuing airworthiness concept. At this stage, the first draft of the Aircraft Maintenance Programme (AMP) is developed \cite{EASA_CAirworthiness}. The AMP shall be approved by the appointed CAMO organisation and renewed annually \footnote{\href{https://www.easa.europa.eu/en/the-agency/faqs/amp-aircraft-maintenance-programme}{EASA - Aircraft Maintenance Programme (AMP)} (accessed on 11.05.2026)}.
+
+The AMP is part of Instructions for Continuing Airworthiness (ICA), which define the scope of limitations and maintenance task required to demonstrate that a design is compliant with certification requirements\footnote{\href{https://www.leanairline.com/blog/instructions-for-continuing-airworthiness}{Instructions for Continuing Airworthiness (ICA): From Certification to Operation} (accessed on 11.05.2026)}. ICA cover both scheduled and unscheduled maintenance procedures, and are necessary for obtaining a Type Certificate (TC). The relevance of a TC shall be explained in \autoref{ch:certification}.
+
+Once the UAV is certified, CAMO takes the responsibility for scheduled maintenance enforcement, AD compliance, reliability tracking and Airworthiness Review Certificates \cite{EASA_CAirworthiness}. In case maintenance or repair procedures are required, a Maintenance, Repair, and Overhaul Organization (MRO) approved under EASA Part-145 shall be contracted to perform inspections, repairs, and modifications\footnote{\href{https://www.easa.europa.eu/en/acceptable-means-compliance-and-guidance-material-group/part-145-maintenance-organisation-approvals}{EASA Part-145 - Maintenance organisation approvals} (accessed on 11.05.2026)}. The MRO is additionally responsible for issuing certificates of release to service.
+
+
+%A graphical representation of the relations between key stakeholders in HUGO's airworthiness is shown in \autoref{fig:stakeholder_responsibilities}. The highlighted blocks signify the stakeholders directly responsible for the initial or continuing airworthiness of the UAV.
+
+%\begin{figure}[H]
+    %\centering
+    %\includegraphics[width=1\linewidth]{figures/continuing_airworthiness_stakeholders.pdf}
+    %\caption{HUGO Airworthiness Stakeholder Responsibilities}
+    %\label{fig:stakeholder_responsibilities}
+%\end{figure}
+
+
+
+
+
+
+\section{Logistics}
+\label{sec:logistics}
+Logistics represent the backbone of each project, operation, and mission, encompassing the entirety of the unseen processes and actions that bring together the required resources to result in a functional product. For the proper operation of HUGO, a few logistical aspects have to be addressed before it is ready to perform operations. This section addresses the key factors influencing the logistics of operations: required ground crew, storage facility, airfield and ground support, and the part supply chain.
+
+ % The majority of components will be ordered from certified providers, but large parts, such as the fuselage and wings, will be produced internally at a separate facility and subsequently transported to the airfield.
+
+
+%crew required for operation, storage facilities, airfield facilities, supply chain and scalability of operation.  
+
+\subsection{Ground Crew Required for Operation}
+\label{subsec:ground_crew}
+% A ground crew is required to maintain the readiness of HUGO and to set up the ground stations for monitoring. 
+According to ICAO\cite{ICAO2011UAS}, a remote crew comprises licensed crew members whose duties are crucial for the in-flight operations of a remotely-piloted
+aircraft. This includes the remote pilot in charge of manipulating flight controls, and visual observers (VO) who assist the operations by visually observing the UAV while it remains within line-of-sight. It is also expected that an ATC controller and personnel responsible for coordinating runway manoeuvres will have to be involved. Since there are no hard requirements regarding the minimum composition of the crew, at this stage of the design it is assumed that HUGO will require one pilot, one VO, and additional personnel as deemed appropriate by the airport authorities.
+
+\subsection{Storage Facility}
+\label{subsec:hangar}
+On the ground, the aircraft will require an enclosed location to be stored in for maintenance and preparations. As mentioned in \autoref{subsec:maintenance}, the initial fleet is projected to comprise five HUGOs. This necessitates the use of a large hangar to house parts and machines needed for repairs. 
+
+Den Helder Airport has hangar facilities that can accommodate Project HUGO, although the conditions for using these facilities are not specified on the airport website\footnote{\label{fn:denhelder_facilities}\href{https://denhelderairport.nl/eng/airport/#faciliteiten}{Den Helder Airport facilities} (accessed on 12.05.2026)}, Multiple external operators use the airport as a primary base of operations \footref{fn:denhelder_facilities}. Hangar availability is stated to be on request in the EHKD aerodrome information\footnote{\label{fn:ehkd_eaip}\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2005-2026_2026_05_14/eAIP/EH-AD\%202\%20EHKD\%201-en-GB.html}{EHKD - Den Helder/De Kooy} (accessed on 12.05.2026)}. The hangar is reported to be 51 m long, 31 m wide, and 11 m high, giving a floor area of approximately \(1581~\mathrm{m^2}\) \cite{DenHelderAirport2013DHANieuwsbrief}. With a maximum wingspan of 15 m for one Project HUGO aircraft, the hangar dimensions are sufficient to place up to three aircraft in line. Once the hangar is secured, it will function as the base of operation for the storage, maintenance and verification of HUGO before and after each flight. 
+
+\subsection{Airfield and Ground Support}
+\label{subsec:ground_support}
+Usage of an airfield introduces additional airfield operating costs, ATC coordination requirements, and the mapping of ground routes, taxi areas, and recovery zones. Each drone flight must be approved by De Kooy Air Traffic Control\footnote{\href{https://denhelderairport.nl/eng/flight-information/}{Flight information Den Helder Airport} (accessed on 12.05.2026)}. The departure and landing windows for HUGO will be influenced by the adjacent traffic, necessitating the assumption of multiple missed approaches or holding in the fuel budget. Additionally, Den Helder Airport charges a fee of \EUR{23.00} per landing for a fixed wing aircraft with MTOW below 1500kg\footnote{\href{https://denhelderairport.nl/wp-content/uploads/2026/01/2026-fixed-wing-miv-01-01-2026-2.pdf}{Landing fees for fixed wing aircraft at Den Helder} (accessed on 12.05.2026)}.
+Den Helder hosts off-shore flights above the North Sea\footref{fn:denhelder_facilities}, which fits HUGO's mission profile as detailed in \autoref{sec:operations}. %Fuel availability is limited to JET A1\footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Information for pilots} (accessed 12.05.2026)}; using alternative fuels such as SAF would require individual approval from the airport authorities.
+
+%The environmental policy of Den Helder is in alignment with the TU Delft's drive towards a sustainable future, making the partnership between the airport and HUGO's design team remarkably valuable. Over the past years, Den Helder has implemented LED lighting in its hangars, electric GPUs, baggage carts and tow trucks, as well as introduced a heat recovery installation system\footnote{\href{https://denhelderairport.nl/eng/duurzaamheid-op-den-helder-airport-dha/}{Sustainability at Den Helder Airport (DHA)} (accessed on 12.05.2026)}. Future plans include equipping all buildings with solar panels, heat pumps or heat recovery systems. 
+
+%\todo[inline]{Include the operational constraints and the requirements from EASA as well as the costs and the needed dimensions Apply for ATC approval, ATC location and the flight plan/plans for the route. We will be fling above water in a restricted region as per instructions and baseline info.}
+
+%\subsection{Parts and Supply Chain}
+%\label{subsec:supply_chain}
+
