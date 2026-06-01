@@ -7,3 +7,56 @@ should be specified. \\ A first version of design driving characteristics is inc
 
 \todo[inline]{Define Sections and driving characteristics for the materials}
 
+\section{Material Selection}
+
+In the Midterm report (Git footnote), materials were selected for HUGO’s primary structure, including the wings, fuselage, and empennage, as well as for the landing gear, engine pylons, and connection interfaces. In particular, aluminium alloy Al 7075-T76 was chosen for the landing gear, engine pylons, and connection ports. The wings, fuselage, and empennage will be manufactured out of CFRP. The next step is to select materials for the remaining components of HUGO, such as ribs, stringers, and interior structures, and to further specify the structure of the composite material in greater detail. 
+
+\subsection{Metal Alloys}
+Aluminium alloys, high-strength steels, and titanium alloys are the primary metals used in commercial aerospace \footnote{\href{https://www.flightmetals.com/metals-in-aerospace/}{Materials in Aerospace} (accessed on 01.06.2026)}. As mentioned in the Midterm report (Git footnote), steel is used for safety-critical structures due to its high specific strength, while titanium is applied mainly in engine systems and landing gear because of its high strength, long fatigue life, fracture toughness, creep resistance, and excellent corrosion and oxidation resistance. 
+
+While aluminium was selected for the landing gear, engine pylons, and connection ports, the landing gear material should be revisited due to high landing impact loads, where steel may be preferable. The engine pylons are also exposed to high temperatures, and given the aluminium alloy’s melting point of \SI{480}{\celsius}\footnote{\href{https://www.makeitfrom.com/material-properties/7075-T76-Aluminum}{7075-T76 Aluminum} (accessed on 01.06.2026)}, materials with higher thermal resistance should be considered.
+
+The driving material properties of the alloys considered are shown in \autoref{tab:material_properties_metals}.
+
+\begin{table}[htbp]
+\centering
+\caption{Material properties of metal alloys}
+\label{tab:material_properties_metals}
+\begin{tabular}{lccccccccc}
+\toprule
+Material & E & Fatigue & G & Shear & UTS & YTS & T$_m$ & $\rho$ & CO$_2$ \\
+& [GPa] & [MPa] & [MPa] & [MPa] & [MPa] & [MPa] &
+[$^\circ$C] & [g/cm$^3$] & [kg/kg] \\
+\midrule
+Al 7075-T76 & 70 & 190 & 26 & 330 & 560 & 480 & 480 & 3.0 & 8.3 \\
+Ti-6Al-4V & 110 & 530--630 & 40 & 600--710 & 1000--1190 & 910--1110 & 1650 & 4.4 & 38 \\
+18Ni (350) Steel & 190 & 685 & 75 & 710--1400 & 1140--2420 & 830--2300 & 1420 & 8.2 & 5.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Where E is the elastic modulus, G is the shear modulus, UTS is the ultimate tensile strength, YTS is the yield tensile strength, T$_m$ is the melting onset temperature, $\rho$ is the density, and the last column gives the embodied carbon per kilogram of material. 
+
+The first six material properties listed in Table \autoref{tab:material_properties_metals} were used to assess the suitability of each alloy for structural aerospace applications. For the landing gear, the material must be capable of resisting the high impact loads generated during touchdown without experiencing excessive deformation or yielding. A high elastic modulus contributes to structural stiffness, while high yield and ultimate tensile strengths ensure that the material can sustain large stresses without permanent deformation or failure. Fatigue strength is particularly important because landing gear components are subjected to repeated loading cycles throughout the aircraft's service life, which can lead to crack initiation and propagation. Similarly, the pylon structure experiences complex dynamic loading arising from engine thrust, aerodynamic forces, vibrations, manoeuvres, and gust loads. Consequently, adequate shear modulus and shear strength are required to resist torsional and transverse loading, while high tensile and fatigue strengths are necessary to maintain structural integrity under fluctuating stresses. 
+
+The melting onset temperature was included due to the proximity of the engine pylons to high-temperature regions within the engine environment, where thermal exposure may occur during operation. 
+
+Density was considered as a key factor in estimating the overall weight impact of each material, which is critical in aerospace applications where minimising structural mass directly improves fuel efficiency and performance. 
+
+Embodied carbon per kilogram of material was used to compare the environmental impact of the candidate alloys, accounting for emissions associated with extraction and production. In addition, recyclability will be considered as an important sustainability criterion, favouring materials that can be efficiently recovered and reused at end-of-life.
+
+\subsection{Composites}
+\todo[inline]{List the considered fibers and epoxies and their properties}
+
+
+
+\section{Comsposite Material Layout}
+\todo[inline]{Explain the fiber orientation, why it was chosen, include figures, etc.}
+
+
+
+\section{Selected Materials for HUGO Parts}
+\todo[inline]{Mention what the interior, ribs, stringers, windows, etc. will be made out of.}
+
+
+
