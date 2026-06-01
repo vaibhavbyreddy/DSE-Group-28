@@ -1,4 +1,4 @@
-% This template aims to simplify and improve the (Xe)LaTeX template provided
+    % This template aims to simplify and improve the (Xe)LaTeX template provided
 % by the TU Delft. Original template by TU Delft. Rewritten template by Daan
 % Zwaneveld (https://dzwaneveld.github.io)
 %
