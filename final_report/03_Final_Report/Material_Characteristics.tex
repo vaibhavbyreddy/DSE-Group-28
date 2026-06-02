@@ -1,56 +1,79 @@
 \chapter{Material Characteristics}
-\label{ch:material_characteristics}
+\label{ch:chapter_material_characteristics}
 
 
 \todo[inline]{From the \textit{Project Guide}:\\ The material characteristics include e.g. yield, ultimate, fatigue, etc., and should be specified for all applicable materials. In addition, the location of the applicable materials for system/subsystems
 should be specified. \\ A first version of design driving characteristics is included in the Midterm Report, a final, extended version including all relevant characteristics is given in the Final Report.}
 
 \todo[inline]{Define Sections and driving characteristics for the materials}
+\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
-\section{Material Selection}
+
+\section{Material Options}
+\label{sec:section_material_options}
 
 In the Midterm report (Git footnote), materials were selected for HUGO’s primary structure, including the wings, fuselage, and empennage, as well as for the landing gear, engine pylons, and connection interfaces. In particular, aluminium alloy Al 7075-T76 was chosen for the landing gear, engine pylons, and connection ports. The wings, fuselage, and empennage will be manufactured out of CFRP. The next step is to select materials for the remaining components of HUGO, such as ribs, stringers, and interior structures, and to further specify the structure of the composite material in greater detail. 
 
 \subsection{Metal Alloys}
+\label{sub:subsection_metal_alloys}
+
 Aluminium alloys, high-strength steels, and titanium alloys are the primary metals used in commercial aerospace \footnote{\href{https://www.flightmetals.com/metals-in-aerospace/}{Materials in Aerospace} (accessed on 01.06.2026)}. As mentioned in the Midterm report (Git footnote), steel is used for safety-critical structures due to its high specific strength, while titanium is applied mainly in engine systems and landing gear because of its high strength, long fatigue life, fracture toughness, creep resistance, and excellent corrosion and oxidation resistance. 
 
-While aluminium was selected for the landing gear, engine pylons, and connection ports, the landing gear material should be revisited due to high landing impact loads, where steel may be preferable. The engine pylons are also exposed to high temperatures, and given the aluminium alloy’s melting point of \SI{480}{\celsius}\footnote{\href{https://www.makeitfrom.com/material-properties/7075-T76-Aluminum}{7075-T76 Aluminum} (accessed on 01.06.2026)}, materials with higher thermal resistance should be considered.
+While aluminium was selected for the landing gear, engine pylons, and connection ports, the landing gear material should be revisited due to high landing impact loads, where steel may be preferable. The engine pylons are also exposed to high temperatures, and given the aluminium alloy’s melting point of \SI{480}{\celsius}\footnote{\href{https://www.makeitfrom.com/material-properties/7075-T76-Aluminum}{7075-T76 Aluminum} (accessed on 01.06.2026)}, materials with a higher melting temperature should be considered.
 
-The driving material properties of the alloys considered are shown in \autoref{tab:material_properties_metals}.
+The driving material properties of the alloys considered are shown in \autoref{tab:table_material_properties_metals}.
 
 \begin{table}[htbp]
 \centering
 \caption{Material properties of metal alloys \tablefootnote{\href{https://www.makeitfrom.com/}{Material Properties Database} (accessed on 01.06.2026)}}
-\label{tab:material_properties_metals}
+\label{tab:table_material_properties_metals}
 \begin{tabular}{lccccccccc}
 \toprule
-Material & E & Fatigue & G & Shear & UTS & YTS & T$_m$ & $\rho$ & CO$_2$ \\
-& [GPa] & [MPa] & [MPa] & [MPa] & [MPa] & [MPa] &
+Material & E & G & Shear & UTS & YTS & T$_m$ & $\rho$ & CO$_2$ \\
+& [GPa] & [GPa] & [MPa] & [MPa] & [MPa] &
 [$^\circ$C] & [g/cm$^3$] & [kg/kg] \\
 \midrule
-Al 7075-T76 & 70 & 190 & 26 & 330 & 560 & 480 & 480 & 3.0 & 8.3 \\
-Ti-6Al-4V & 110 & 530--630 & 40 & 600--710 & 1000--1190 & 910--1110 & 1650 & 4.4 & 38 \\
-18Ni (350) Steel & 190 & 685 & 75 & 710--1400 & 1140--2420 & 830--2300 & 1420 & 8.2 & 5.6 \\
+Al 7075-T76 & 70 & 26 & 330 & 560 & 480 & 480 & 3.0 & 8.3 \\
+Ti-6Al-4V & 110 & 40 & 600 - 710 & 1000 - 1190 & 910 - 1110 & 1650 & 4.4 & 38 \\
+18Ni (350) Steel & 190 & 75 & 710 - 1400 & 1140 - 2420 & 830 - 2300 & 1420 & 8.2 & 5.6 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Where E is the elastic modulus, G is the shear modulus, UTS is the ultimate tensile strength, YTS is the yield tensile strength, T$_m$ is the melting onset temperature, $\rho$ is the density, and the last column gives the embodied carbon per kilogram of material. 
 
-The first six material properties listed in Table \autoref{tab:material_properties_metals} were used to assess the suitability of each alloy for structural aerospace applications. For the landing gear, the material must be capable of resisting the high impact loads generated during touchdown without experiencing excessive deformation or yielding. A high elastic modulus contributes to structural stiffness, while high yield and ultimate tensile strengths ensure that the material can sustain large stresses without permanent deformation or failure. Fatigue strength is particularly important because landing gear components are subjected to repeated loading cycles throughout the aircraft's service life, which can lead to crack initiation and propagation. Similarly, the pylon structure experiences complex dynamic loading arising from engine thrust, aerodynamic forces, vibrations, manoeuvres, and gust loads. Consequently, adequate shear modulus and shear strength are required to resist torsional and transverse loading, while high tensile and fatigue strengths are necessary to maintain structural integrity under fluctuating stresses. 
+%The first six material properties listed in Table \autoref{tab:material_properties_metals} were used to assess the suitability of each alloy for structural aerospace applications. 
+For the landing gear, the material must be capable of resisting the high impact loads generated during touchdown without experiencing excessive deformation or yielding. A high elastic modulus contributes to structural stiffness, while high yield and ultimate tensile strengths ensure that the material can sustain large stresses without permanent deformation or failure. %Fatigue strength is particularly important because landing gear components are subjected to repeated loading cycles throughout the aircraft's service life, which can lead to crack initiation and propagation.
+Although fatigue strength can be considered in the design, it is not expected to be a governing factor. Each HUGO is anticipated to perform only four test flights per day for 20 days per year over a 15-year operational lifetime, resulting in approximately 1,200 flight cycles. This relatively low number of cycles is well below the range typically associated with fatigue-critical aerospace structures. 
 
-The melting onset temperature was included due to the proximity of the engine pylons to high-temperature regions within the engine environment, where thermal exposure may occur during operation. 
+The pylon structure experiences complex dynamic loading arising from engine thrust, aerodynamic forces, vibrations, manoeuvres, and gust loads. Consequently, adequate shear modulus and shear strength are required to resist torsional and transverse loading, while high tensile strength is necessary to maintain structural integrity under normal stresses. 
+
+The melting onset temperature was included because the engine pylons are in close proximity to high-temperature regions within the engine environment, where thermal exposure may occur during operation. 
 
 Density was considered as a key factor in estimating the overall weight impact of each material, which is critical in aerospace applications where minimising structural mass directly improves fuel efficiency and performance. 
 
 Embodied carbon per kilogram of material was used to compare the environmental impact of the candidate alloys, accounting for emissions associated with extraction and production. In addition, recyclability will be considered as an important sustainability criterion, favouring materials that can be efficiently recovered and reused at end-of-life.
 
 \subsection{Composites}
+\label{sub:subsection_composites}
+
 \todo[inline]{List the considered fibers and epoxies and their properties}
 
 
-\section{Material Trade-off}
-\todo[inline]{Perform simple trade-off to select the new landing gear material an}
+\section{Material Selection}
+\label{sec:section_material_selection}
+%\todo[inline]{Justification behind the selection of the materials}
+
+As can be observed from the values in \autoref{tab:table_material_properties_metals}, 18Ni (350) Steel performs best in terms of stiffness and strength, exhibiting the highest Young's modulus (190 GPa), ultimate tensile strength (up to 2420 MPa), and yield strength (up to 2300 MPa). Its primary disadvantage is density - at 8.2 g/cm³, it is roughly twice that of titanium and nearly three times that of aluminium, which may introduce mass penalties depending on the application. Furthermore, with a melting point of °C1420, the material properties are not expected to degrade severely in high-temperature zones such as near the engines. While Ti-6Al-4V offers a favourable strength-to-weight ratio and Al 7075-T76 excels in low-density applications, neither matches the structural performance of steel. This is further justified by a preliminary estimation of the buckling and yield performance as shown below.
+
+\todo[inline]{Include buckling and yield analysis}
+
+In terms of recyclability, a primary obstacle in the recycling of aluminium is separating it from other metals within the alloy \footnote{\href{https://www.recyclingtoday.com/news/tomra-aluminum-sorting-recycling-technology-van-de-winkel/}{Commentary: Recycling plays critical role in future aluminium production} (accessed on 02.06.2026)}. In the case of titanium, its high melting point and reactive nature create more processing challenges than aluminium \footnote{\href{https://ironandmetals.com/blog/titanium-vs-aluminum-recycling-what-you-need-to-know/}{Titanium vs Aluminum Recycling: What You Need to Know}}. When considering also the embodied carbon per kilogram of material as listed in \autoref{tab:table_material_properties_metals}, the titanium alloy performs the worst, whereas the steel has the lowest manufacturing impact.
+
+
+
+\section{Selected Materials for HUGO Systems}
+\todo[inline]{Explain the material used for internal structure (honeycomb structure), fuel tanks, battery, etc.}
 
 
 
@@ -59,8 +82,13 @@ Embodied carbon per kilogram of material was used to compare the environmental i
 
 
 
-\section{Selected Materials for HUGO Parts}
-\todo[inline]{Mention what the interior, ribs, stringers, windows, etc. will be made out of.}
 
 
 
+
+
+
+
+
+
+\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
