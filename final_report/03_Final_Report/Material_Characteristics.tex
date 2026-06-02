@@ -1,5 +1,5 @@
 \chapter{Material Characteristics}
-\label{ch:chapter_material_characteristics}
+\label{ch:material_characteristics}
 
 
 \todo[inline]{From the \textit{Project Guide}:\\ The material characteristics include e.g. yield, ultimate, fatigue, etc., and should be specified for all applicable materials. In addition, the location of the applicable materials for system/subsystems
@@ -10,23 +10,23 @@ should be specified. \\ A first version of design driving characteristics is inc
 
 
 \section{Material Options}
-\label{sec:section_material_options}
+\label{sec:material_options}
 
-In the Midterm report (Git footnote), materials were selected for HUGO’s primary structure, including the wings, fuselage, and empennage, as well as for the landing gear, engine pylons, and connection interfaces. In particular, aluminium alloy Al 7075-T76 was chosen for the landing gear, engine pylons, and connection ports. The wings, fuselage, and empennage will be manufactured out of CFRP. The next step is to select materials for the remaining components of HUGO, such as ribs, stringers, and interior structures, and to further specify the structure of the composite material in greater detail. 
+In the Midterm Report (Git footnote), materials were selected for HUGO’s primary structure, including the wings, fuselage, and empennage, as well as for the landing gear, engine pylons, and connection interfaces. In particular, aluminium alloy Al 7075-T76 was chosen for the landing gear, engine pylons, and connection ports. The wings, fuselage, and empennage will be manufactured out of CFRP. The next step is to select materials for the remaining components of HUGO, such as ribs, stringers, and interior structures, and to further specify the structure of the composite material in greater detail. 
 
 \subsection{Metal Alloys}
-\label{sub:subsection_metal_alloys}
+\label{sub:metal_alloys}
 
-Aluminium alloys, high-strength steels, and titanium alloys are the primary metals used in commercial aerospace \footnote{\href{https://www.flightmetals.com/metals-in-aerospace/}{Materials in Aerospace} (accessed on 01.06.2026)}. As mentioned in the Midterm report (Git footnote), steel is used for safety-critical structures due to its high specific strength, while titanium is applied mainly in engine systems and landing gear because of its high strength, long fatigue life, fracture toughness, creep resistance, and excellent corrosion and oxidation resistance. 
+Aluminium alloys, high-strength steels, and titanium alloys are the primary metals used in commercial aerospace \footnote{\href{https://www.flightmetals.com/metals-in-aerospace/}{Materials in Aerospace} (accessed on 01.06.2026)}. As mentioned in the Midterm Report (Git footnote), steel is used for safety-critical structures due to its high specific strength, while titanium is applied mainly in engine systems and landing gear because of its high strength, long fatigue life, fracture toughness, creep resistance, and excellent corrosion and oxidation resistance. 
 
 While aluminium was selected for the landing gear, engine pylons, and connection ports, the landing gear material should be revisited due to high landing impact loads, where steel may be preferable. The engine pylons are also exposed to high temperatures, and given the aluminium alloy’s melting point of \SI{480}{\celsius}\footnote{\href{https://www.makeitfrom.com/material-properties/7075-T76-Aluminum}{7075-T76 Aluminum} (accessed on 01.06.2026)}, materials with a higher melting temperature should be considered.
 
-The driving material properties of the alloys considered are shown in \autoref{tab:table_material_properties_metals}.
+The driving material properties of the alloys considered are shown in \autoref{tab:material_properties_metals}.
 
 \begin{table}[htbp]
 \centering
 \caption{Material properties of metal alloys \tablefootnote{\href{https://www.makeitfrom.com/}{Material Properties Database} (accessed on 01.06.2026)}}
-\label{tab:table_material_properties_metals}
+\label{tab:material_properties_metals}
 \begin{tabular}{lccccccccc}
 \toprule
 Material & E & G & Shear & UTS & YTS & T$_m$ & $\rho$ & CO$_2$ \\
@@ -55,30 +55,95 @@ Density was considered as a key factor in estimating the overall weight impact o
 Embodied carbon per kilogram of material was used to compare the environmental impact of the candidate alloys, accounting for emissions associated with extraction and production. In addition, recyclability will be considered as an important sustainability criterion, favouring materials that can be efficiently recovered and reused at end-of-life.
 
 \subsection{Composites}
-\label{sub:subsection_composites}
+\label{sub:composites}
 
-\todo[inline]{List the considered fibers and epoxies and their properties}
+\todo[inline]{List the considered prepregs and their properties}
+
+Composites are widely used in the aerospace industry for their exceptional strength-to-weight ratio. As outlined in the Midterm Report (Git footnote), carbon fiber prepreg was selected for the manufacturing of the wings, fuselage monocoque, and empennage. This Final Report details the specific prepreg type selected for these components.
+
+The HexTow IM7 carbon fiber was chosen for the prepreg. Its key properties are listed in \autoref{tab:cf_properties}.
+
+\begin{table}[htbp]
+\centering
+\caption{Properties of HexTow AS4C \tablefootnote{\href{https://www.hexcel.com/wp-content/uploads/2025/12/AS4C_Aerospace_HexTow_DataSheet1.pdf}{HexTow IM7
+Carbon Fiber} (accessed on 02.06.2026}}
+\label{tab:cf_properties}
+\begin{tabular}{lcccc}
+\toprule
+Fiber &
+Elastic Modulus &
+Tensile Strength &
+Density &
+Filament Diameter \\
+&
+[GPa] &
+[MPa] &
+[g/cm$^3$] &
+[\si{\micro\meter}] \\
+\midrule
+AS4C carbon fiber & 276 & 5670 & 1.78 & 5.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three types of resin systems were considered for the selection of carbon fibre prepregs: epoxy, bismaleimide (BMI), and cyanate ester. Epoxy resin prepregs are widely used in aerospace industry due to their established manufacturing processes and generally good chemical, thermal, and mechanical properties, and are commonly used in a broad range of structural applications \footnote{\label{fn:prepregs}\href{https://www.hgcomposites.com/info/various-types-of-carbon-fiber-prepreg-83847115.html}{Various Types of Carbon Fiber Prepreg and Usages} (accessed on 02.06.2026)}. In particular, the  HexPly 8552 woven carbon prepreg is considered.
+
+Bismaleimide (BMI) prepregs are also used in aerospace structures, particularly for aircraft panels and engine-related components, where elevated temperature capability is required. They are known for their hig-temperature performance while maintaining structural integrity \footref{fn:prepregs}. %In particular, the HexPly F655 prepreg is considered.
+
+Cyanate ester prepregs are used in specialised aerospace applications such as radomes and engine components. They are selected where resistance to elevated temperatures and harsh chemical environments is required, along with suitable mechanical performance for structural use \footref{fn:prepregs}. %In particular, the HexPly 954-2A prepreg is considered.
+
+The key properties of the three prepreg types are listed in \autoref{}. 
+
+\begin{comment}
+\begin{enumerate}
+    \item Epoxy Resin Prepreg: Epoxy resin prepreg is one of the most commonly used carbon fiber prepregs. It has excellent chemical resistance, temperature resistance, and mechanical properties. This makes it ideal for use in aerospace, automotive, and sporting goods industries. Epoxy resin prepreg is commonly used to manufacture aircraft parts, high-performance race cars, and high-end sports equipment.
+
+    %\item Vinylester resin prepreg: Vinylester resin has better impact resistance than epoxy resin. They also have higher resistance to chemicals. They are therefore ideal for products used in harsh environments.
+    
+    %\item Phenolic Resin Prepreg: Phenolic resin prepreg is a high-temperature resistant prepreg that is commonly used in the aerospace and defense industry. It is known for its ability to maintain its structural integrity at high temperatures, making it ideal for use in the manufacture of missile and rocket components. Phenolic resin prepreg is also commonly used in the manufacture of high-pressure vessels and oil drilling equipment.
+    
+    \item Bismaleimide (BMI) Resin Prepreg: Bismaleimide (BMI) resin prepreg is a high-performance composite material that is commonly used in the aerospace industry. It has excellent temperature resistance and mechanical properties, making it ideal for use in the manufacture of aircraft components. BMI resin prepreg is commonly used to manufacture aircraft panels, engine components, and satellite structures.
+    
+    \item Cyanate Ester Resin Prepreg: Cyanate ester resin prepreg is a high-performance composite material that is commonly used in the aerospace industry. It has excellent temperature resistance, mechanical properties, and chemical resistance, making it ideal for use in the manufacture of spacecraft and aerospace components. Cyanate ester resin prepreg is commonly used to manufacture satellite structures, aircraft radomes, and engine components.
+
+    %\item Thermoplastic prepreg: Thermoplastic resins (e.g. PEEK, PEI) have the property of becoming flexible by applying heat and solidifying again after cooling. This makes it possible to manufacture products with complex shapes in a short time. Thermoplastic resin prepregs can be reprocessed and are highly recyclable. 
+\end{enumerate}
+\end{comment}
 
 
 \section{Material Selection}
-\label{sec:section_material_selection}
+\label{sec:material_selection}
 %\todo[inline]{Justification behind the selection of the materials}
 
-As can be observed from the values in \autoref{tab:table_material_properties_metals}, 18Ni (350) Steel performs best in terms of stiffness and strength, exhibiting the highest Young's modulus (190 GPa), ultimate tensile strength (up to 2420 MPa), and yield strength (up to 2300 MPa). Its primary disadvantage is density - at 8.2 g/cm³, it is roughly twice that of titanium and nearly three times that of aluminium, which may introduce mass penalties depending on the application. Furthermore, with a melting point of °C1420, the material properties are not expected to degrade severely in high-temperature zones such as near the engines. While Ti-6Al-4V offers a favourable strength-to-weight ratio and Al 7075-T76 excels in low-density applications, neither matches the structural performance of steel. This is further justified by a preliminary estimation of the buckling and yield performance as shown below.
+As can be observed from the values in \autoref{tab:material_properties_metals}, 18Ni (350) Steel performs best in terms of stiffness and strength, exhibiting the highest Young's modulus (190 GPa), ultimate tensile strength (up to 2420 MPa), and yield strength (up to 2300 MPa). Its primary disadvantage is density - at 8.2 g/cm³, it is roughly twice that of titanium and nearly three times that of aluminium, which may introduce mass penalties depending on the application. Furthermore, with a melting point of \SI{1420}{\celsius}, the material properties are not expected to degrade severely in high-temperature zones such as near the engines. While Ti-6Al-4V offers a favourable strength-to-weight ratio and Al 7075-T76 excels in low-density applications, neither matches the structural performance of steel. This is further justified by a preliminary estimation of the buckling and yield performance as shown below.
 
 \todo[inline]{Include buckling and yield analysis}
 
-In terms of recyclability, a primary obstacle in the recycling of aluminium is separating it from other metals within the alloy \footnote{\href{https://www.recyclingtoday.com/news/tomra-aluminum-sorting-recycling-technology-van-de-winkel/}{Commentary: Recycling plays critical role in future aluminium production} (accessed on 02.06.2026)}. In the case of titanium, its high melting point and reactive nature create more processing challenges than aluminium \footnote{\href{https://ironandmetals.com/blog/titanium-vs-aluminum-recycling-what-you-need-to-know/}{Titanium vs Aluminum Recycling: What You Need to Know}}. When considering also the embodied carbon per kilogram of material as listed in \autoref{tab:table_material_properties_metals}, the titanium alloy performs the worst, whereas the steel has the lowest manufacturing impact.
-
-
-
-\section{Selected Materials for HUGO Systems}
-\todo[inline]{Explain the material used for internal structure (honeycomb structure), fuel tanks, battery, etc.}
+In terms of recyclability, a primary obstacle in the recycling of aluminium is separating it from other metals within the alloy \footnote{\href{https://www.recyclingtoday.com/news/tomra-aluminum-sorting-recycling-technology-van-de-winkel/}{Commentary: Recycling plays critical role in future aluminium production} (accessed on 02.06.2026)}. In the case of titanium, its high melting point and reactive nature create more processing challenges than aluminium \footnote{\href{https://ironandmetals.com/blog/titanium-vs-aluminum-recycling-what-you-need-to-know/}{Titanium vs Aluminum Recycling: What You Need to Know} (accessed on 02.06.2026)}. When considering also the embodied carbon per kilogram of material as listed in \autoref{tab:material_properties_metals}, the titanium alloy performs the worst, whereas the steel has the lowest manufacturing impact.
 
 
 
 \section{Comsposite Material Layout}
 \todo[inline]{Explain the fiber orientation, why it was chosen, include figures, etc.}
+
+\begin{enumerate}
+    \item Unidirectional (UD): strength in one direction
+
+    \item \ang{0}/\ang{90}: adds stiffness in the opposite direction
+
+    \item \ang{0}/\ang{90}/\ang{45}/\ang{-45}: closely represents isotropic material (2 stacked \ang{0}/\ang{90} sheets)
+\end{enumerate}
+
+For curved and complex shapes, orientation becomes harder to control.
+
+Adding fibers in many directions improves strength, but increases material use and production time. Keeping the total thickness low saves weight.
+
+
+
+\section{Selected Materials for HUGO Systems}
+\label{sec:selected_materials}
+
+\todo[inline]{Explain the material used for internal structure (honeycomb structure), foam, etc.}
 
 
 
