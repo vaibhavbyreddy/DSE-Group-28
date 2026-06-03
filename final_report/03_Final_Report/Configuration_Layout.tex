@@ -131,6 +131,7 @@ A power budget has been considered and an electrical system where the components
 
 
 \section{External Configuration}
+The external configuration of the aircraft will be a description of the size and placement of hatches and placement of mounted sensors. 
 \label{sec:external_configuration}
 
 - hatches, mounted sensors, 
@@ -141,21 +142,118 @@ A power budget has been considered and an electrical system where the components
 
 \subsection{Environmental Control}
 \label{sub:environmental_control}
-When talking ab
+Environmental control is the response of HUGO to different external factors such as rain or sun radiation. An analysis was established were different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
+
+As supercooled water hits the fuselage, it instantly turned into ice, increasing the weight \cite{andreev2014icing} and damaging the aerodynamic profile. Since the wings fitted on HUGO are very thin, optimised for high cruise speed, any perturbation of the aerodynamic profile may result in a catastrophic event. 
+
+There are two primary way to combat this phenomenon, either by using a passive system (coating or phase changing materials) or b an active system (heating elements). Since the wings are subjected to regular replacement and modifications, it is more efficient to use a passive system for HUGO. 
+
+\todo[inline]{add citation by Lorenzo and finish this paragraph --->Alex}
+
+
+
+\begin{comment}
+    Deicing for UAV's most used method:
+- we could use the liedat at the fron of the plane to detect ahead of time the icing conditions and either avoid them or initiate the deicing equipemtn
+
+-include an ice detecting sensor mandatory: Fiber-optic Ice Detection,  Heat of Fusion Sensor
+
+-the most common use of deicing methods employ the use of an electric system tha pulses a current through a wire and that heats up the element and melts the ice
+
+-use of coatings might be a better use since we are a little more problematic when it comes tot he desings of the wings
+
+-passive elements will be better for us since we dont need to rebuild the drones but we can coate them with: 
+                    -(prevents ice formation)Fluoropolymers applied in various forms,such as ink or aqueous dispersion
+                    - (prevents ice stagnation)Liquid-Like Surfaces - These surfaces consist of a thin polymer layer (1 5 nm) characterized by a low CAH (<5°). The low CAH is ascribable to the mobility of the flexible tethered molecules, which is correlated to the length of the polymer chains and the grafting density
+                    -(prevents ice stagnation) Phase Change Materials in the Coating System - this one looks the most usefull one since it prevents the droplet from freezing on the surface by absorbing latent hear or giving it out. it can be used in a liquid coating of inert mat
+                    - 
+-the coating work because we have carbon fibre that can be coated with a lot of materials that are inert and will only serve a transfer liquid transporter -> source this
+
+the rest is the material people's job to do as they have the source (Passive Ice Protection Systems for Unmanned Aerial
+Vehicles Applications: A Review)
+\end{comment}
 
 
 
 \section{Internal Configuration}
 \label{sec:internal_configuration}
+This section provides a comprehensive overview of the internal configuration of HUGO. It presents the proposed internal layout of the electronic, propulsion, and payload systems, followed by a detailed description of each subsystem and its main components. Based on this configuration, the section establishes the final power and mass budgets for the considered systems.
+
 %- a brief description of systems that go inside (electronic, propulsion, sensors)
 %- tables of sensors, their purpose, and location
-- figures of configs for different missions (autoref ops \& logistics)
-    idea: figures for one config in this chapter, the rest in the appendix
+% - figures of configs for different missions (autoref ops \& logistics)
+%     idea: figures for one config in this chapter, the rest in the appendix
 
 \subsection{Electronics System Design}
 \label{sub:electronics_system_design}
 
-- section about electronic system
+1. Start by outling the components that are required for the succesfull completion of the mission
+2. Make a short description of why each component is relevant for and how they are connected, it would be nice to add a table before
+3. of course the table will provide info regarding the power consumption for each electronic, mass and volume
+4 at the end state that in order to be conservative, we have added a 10\% margin error for both the mass and power so we are not surprise
+5. we build a battery, congrats!!! now explain the thought process and what is the main driving factor for the battery and that in out case is the PDU that requires the 28 V and then it distributes it further appropriately
+6. Do not forget about the fucking power unit that needs power as well
+OK?OK?OK?That is all? good now lets get to fucking writing
+
+The electrical system of HUGO is designed to provide continuous power to the sensors, actuators, and propulsion system throughout the mission. It must support a range of testing configurations, enabling different experimental setups to be evaluated during flight. As a central element of the aircraft architecture, the system must be reliable, efficiently packaged, and dimensioned to fit within the available internal volume while minimising interference with the onboard test setup.
+
+An initial configuration of the electrical system was configured in \footref{ft;midterm_rep}, used as a starting point. At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power, being provided in \autoref{tab:electric_comp}.
+\todo{include a ref for the component list}
+\begin{table}[H]
+\centering
+\caption{Electronic system component list}
+\label{tab:electric_comp}
+\begin{tabular}{|p{0.15\textwidth}|c|c|c|p{0.20\textwidth}|c|}
+\hline
+\textbf{Item} &
+\textbf{Nr.} &
+\textbf{Weight [g]} &
+\textbf{Weight comp. [g]} &
+\textbf{Dimensions [mm]} &
+\textbf{Power used[W]} \\
+\hline\hline
+
+\multicolumn{6}{|l|}{\textbf{Electrical System}} \\
+\hline
+Battery & 40 & 74.5 & 3280 & $160 \times 138 \times 75$ & -936 \\
+\hline
+Wires & -- & 0.33 kg/1000 ft & 0 & -- & -- \\
+\hline
+Rotary actuators & 6 & 105 & 630 & $41.5 \times 45.5 \times 22.0$ & 756  \\
+\hline
+Linear actuators & 3 & 200 & 600 & $380 \times 90 \times 150$ & 180  \\
+\hline
+Autopilot & 1 & 180 & 180 & $45.0 \times 68.0 \times 74.5$ & 2.5  \\
+\hline
+SATA SSD & 1 & 50 & 50 & $69.9 \times 100 \times 7$ & 2.5 used \\
+\hline
+RM 1000 Series & 1 & 120 & 120 & $150 \times 100 \times 40$ & -- \\
+\hline
+Flight companion & 1 & 160 & 160 & $45.0 \times 68.0 \times 74.5$ & 2.5  \\
+\hline
+Antennas & 2 & 62.5 & 125 & 180 & 10  \\
+\hline
+Power Distribution Unit & 1 & 2200 & 2200 & $150 \times 155 \times 105$ & -- \\
+\hline
+
+\multicolumn{5}{|l|}{Propulsion System} & \textbf{72} \\
+\hline
+
+\textbf{Total component mass} & -- & -- & 12406.9 & -- & -- \\
+\hline
+\textbf{Total power used in 1 h} & -- & -- & -- & -- & 1128.05 used \\
+\hline
+\textbf{Energy required for 45 min flight} & -- & -- & 11726.9 & -- & 846.04 W \\
+\hline
+\textbf{Energy stored in the battery for 45 min flight} & -- & -- & -- & -- & 936 W \\
+\hline
+
+\end{tabular}
+\end{table}
+
+From \autoref{tab:electric_comp} it can be seen that there are a lot of electric components that are mission-critical. The autopilot is a Vector-600 rated for acrobatic planes and equipped with a multitude of sensors. It is accompanied by a flight companion that processes all the information from the sensors as well as from the autopilot and stores it in a memory storage unit. The signal and power distribution of the electric system is evident in \autoref{fig:electronics_mapping}.
+
+
 \autoref{fig:electronics_mapping} shows the interactions between electronics system components in terms of power, signal, and fuel flow.
 
 \begin{figure}[H]
@@ -185,40 +283,42 @@ When talking ab
 To be able to measure and record the results from the experiments it is necessary to use sensors. Since an aspect of HUGO is to possibility of  customizations for a specific customer needs there is left space in the design for additional sensors.     
 Using the mission envelope  (autoref ops \& logistics) it is possible identify the following phenomenon which needs to be measured: 
 \begin{itemize}
-    \item Deflection: There are several approaches for the measurement of wing deflection. A way to measure the deflection is to record it from a fixed point on the aircraft. A stereo camera setup can be used for this. A pattern with a high contrast (typically black and white)  would be placed on the wing. By having a reference image of the undistorted pattern it is possible to measure the change in the wing (insert ref). It is also possible to use LIDAR where small dots of reflective material would be placed on the wing.  Using the fixed points and looking at the subsequent change it is possible determine how the wing deforms (insert ref). A different approach is the use of special fiber-optic cables which can measure the strain in the axial direction of the cable. By afterwards overlying the points in a FE-model of the wing it is possible to find the deflection of the wing \cite{Pak2015}.   The current systems architecture is made so it can accommodate all three different measurement techniques. This gives a potential costumer a larger freedom in choice regarding sensors.     
-    \item Loads: In this instance the measurement of the loads acting on and thorugh the wing is the area of interest. For an aircraft this would be the resultant force (most often split into lift and drag) generated by the wing.  
-    \item Strain:
+    \item Deflection: This is how much the wing is moved from the original axis. There are several approaches for the measurement of wing deflection. A way to measure the deflection is to record it from a fixed point on the aircraft. A stereo camera setup can be used for this \cite{LIU2021107161}. A pattern with a high contrast (typically black and white)  would be placed on the wing. By having a reference image of the undistorted pattern it is possible to measure the change in the wing \cite{Veerman2008}. It is also possible to use LIDAR where small dots of reflective material would be placed on the wing.  Using the fixed points and looking at the subsequent change it is possible determine how the wing deforms \cite{opt5010011}.  A different approach is the use of special fiber-optic cables which can measure the strain in the axial direction of the cable. By afterwards overlying the points in a FE-model of the wing it is possible to find the deflection of the wing \cite{Pak2015}. The current systems architecture is made so it can accommodate all three different measurement techniques. This gives a potential costumer a larger freedom in choice regarding sensors.     
+    \item Strain: A strain gage is a classical approach for measuring strain. It uses the changed resistance in a wire when mechanically deformed \footnote{\href{https://www.sciencedirect.com/topics/earth-and-planetary-sciences/strain-gage}{Strain gage}(02.06.2026)}. A typically configuration is a strain rosetta which consits three strain gages oriented 0,45,90 degrees. This makes it possible to measure the strain in all directions in the surface  \footnote{\href{https://intertechnology.com/Vishay/pdfs/TechNotes_TechTips/TN-515.pdf}{Strain gage}(02.06.2026)}.  
+    
+    \item Loads: In this instance the measurement of the loads acting on and through the wing is the area of interest. For an aircraft this would be the resultant force (most often split into lift and drag) generated by the wing.  
+    
     \item Vibrations:
-    \item Wind-gusts: 
+    \item Wind-gusts: LIDAR can be used to detect wind ahead of an aircraft. The sensors sends out laser-light and then measuring the Doppler-shift in the back-scattered light it is possible to estimate a magnitude and direction of the wind\cite{YEW2025101127}.  
 \end{itemize}
 
 
+Having identified the different sensor it is possible to find the specific sensor which can be used as can be seen in \autoref{tab:internal_config_test_measurement_sensors}.
 
-
-\begin{longtable}{|c|p{3cm}|p{5cm}|p{3cm}|p{2cm}|}
-        \caption{Sensors chosen  for the test measurements}
+\begin{longtable}{|c|p{3cm}|p{3cm}|p{2.5cm}|p{2cm}|p{2cm}|}
+        \caption{Sensors chosen for the test measurements}
         \label{tab:internal_config_test_measurement_sensors}\\
 \hline
-       \textbf{Sensor ID} & \textbf{Sensor} & \textbf{Description} & \textbf{Dimensions [m]} & \textbf{Weight [kg]} \\\hline
+       \textbf{Sensor ID} & \textbf{Sensor} & \textbf{Description} & \textbf{Dimensions [m]} & \textbf{Weight [kg]} & \textbf{Power used} \\\hline
 \endfirsthead
 \hline
-\textbf{Sensor ID} & \textbf{Sensor} & \textbf{Measurement type} & \textbf{Dimensions [m]} & \textbf{Weight [kg]} \\\hline
+\textbf{Sensor ID} & \textbf{Sensor} & \textbf{Measurement type} & \textbf{Dimensions [m]} & \textbf{Weight [kg]} & \textbf{Power [W]} \\\hline
 \endhead
 \hline
-\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
 \endfoot
 \hline
 \endlastfoot
-        HUG-SEN-01 & FBG sensor \footnote{\href{https://www.peraglobe.com/robust-flight-qualified-fbg-interrogator}{FBG} (accessed on 01.06.2026)}& Wing deflection & $0.150 \times 0.125 \times 0.0585$  & 0.700\\\hline
-        HUG-SEN-02 & Load-cell & Wing loadings & & \\\hline
-        HUG-SEN-03& Strain gage \footnote{\href{https://www.hbkworld.com/en/products/transducers/strain/experimental-testing/y-series/ry}{HBK Strain Gauge} (accessed 03.06.2026)}   & Strain & $0.0048\times 0.0087\times0.0003$ & 0.001\\\hline
-        HUG-SEN-04& LIDAR-sensor \footnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR}(02.06.2026)} \cite{Schroeder2020} & Weather detection, wing deflection & $0.35\times 0.35\times0.15$ & 0.160 \\\hline
-       HUG-SEN-05 & Camera\footnote{\href{https://www.phaseone.com/wp-content/uploads/2024/01/P5_Brochure_Display_EN_2023.pdf}{PhaseOne}(02.06.2026)}  & Deflection, Visual inspection of structural behavior & $0.075 \times 0.075 \times 0.09$ & 0.700 \\\hline
-        HUG-SEN-06& Pitot probe\footnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Accelerometer}(03.06.2026)}   & Airspeed & $0.003 \times 0.1 \times 0.003$ & 0.100 \\\hline
-       HUG-SEN-07 & Gyroscope \footnote{\href{https://www.althensensors.com/uploads/products/datasheets/asc-273-gyroscope-en.pdf}{Gyroscope}(03.06.2026)} & Attitude & $0.0025 \times 0.0029 \times 0.0019$ & $0.035$\\\hline
-       HUG-SEN-08 & Accelerometer \footnote{\href{https://www.althensensors.com/uploads/products/datasheets/egcs3-triaxial-high-sensitivity-heavy-duty-accelerometer-en.pdf}{Accelerometer}(03.06.2026)}   & Acceleration & $0.0019 \times 0.0021 \times 0.0025$ & 0.050 \\\hline
-       HUG-SEN-09& Altimeter\footnote{\href{https://ainstein.ai/us-d1-all-weather-radar-altimeter/}{Altimeter}(03.06.2026)}  & Altitude & $0.108 \times 0.079 \times 0.020$ & 0.110 \\\hline 
-        HUG-SEN-10& Customer specified & Customer specified &  &  \\\hline  
+        HUG-SEN-01 & FBG sensor \footnote{\href{https://www.peraglobe.com/robust-flight-qualified-fbg-interrogator}{FBG} (accessed on 01.06.2026)}& Wing deflection & $0.150 \times 0.125 \times 0.0585$  & 0.700 & 7.5  \\\hline
+        HUG-SEN-02 & Load-cell & Wing loadings & & & \\\hline
+        HUG-SEN-03& Strain gage \footnote{\href{https://www.hbkworld.com/en/products/transducers/strain/experimental-testing/y-series/ry}{HBK Strain Gauge} (accessed 03.06.2026)}   & Strain & $0.0048\times 0.0087\times0.0003$ & 0.001 & 0.0014 \\\hline
+        HUG-SEN-04& LIDAR-sensor \footnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR}(02.06.2026)} \cite{Schroeder2020} & Weather detection, wing deflection & $0.35\times 0.35\times0.15$ & 0.160 & 6 \\\hline
+       HUG-SEN-05 & Camera\footnote{\href{https://www.phaseone.com/wp-content/uploads/2024/01/P5_Brochure_Display_EN_2023.pdf}{PhaseOne}(02.06.2026)}  & Deflection, Visual inspection of structural behavior & $0.075 \times 0.075 \times 0.09$ & 0.700 & 16\\\hline
+        HUG-SEN-06& Pitot probe\footnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)}   & Airspeed & $0.003 \times 0.1 \times 0.003$ & 0.100 & 0.1\\\hline
+       HUG-SEN-07 & Gyroscope \footnote{\href{https://www.althensensors.com/uploads/products/datasheets/asc-273-gyroscope-en.pdf}{Gyroscope}(03.06.2026)} & Attitude & $0.0025 \times 0.0029 \times 0.0019$ & $0.035$ & 0.030 \\\hline
+       HUG-SEN-08 & Accelerometer \footnote{\href{https://www.althensensors.com/uploads/products/datasheets/egcs3-triaxial-high-sensitivity-heavy-duty-accelerometer-en.pdf}{Accelerometer}(03.06.2026)}   & Acceleration & $0.0019 \times 0.0021 \times 0.0025$ & 0.050 & \\\hline
+       HUG-SEN-09& Altimeter\footnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)}   & Altitude & $0.108 \times 0.079 \times 0.020$ & 0.110 & 0.1\\\hline
+        HUG-SEN-10& Customer specified & Customer specified & & & \\\hline
 \end{longtable}
 
 - list of sensors for different test cases (autoref ops \& logistics)\\

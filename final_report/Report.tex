@@ -31,8 +31,8 @@
     style=aiaa,
     citestyle=aiaa,
     sorting=none,
-    natbib=true
-    dashed=false
+    natbib=true,
+    dashed=false,
     giveninits=true
 ]{biblatex}
 
@@ -168,6 +168,12 @@
 %\setlist{itemsep=-2pt} % Reducing white space in lists slightly
 %\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 
+\newcounter{fnhexply}
+\newcounter{fncycom}
+\newcounter{fntoray}
+\newcommand{\footnotemarkref}[1]{%
+  \hyperlink{footnote.#1}{\textsuperscript{(\arabic{#1})}}%
+}
 
 \yyyymmdddate
 
