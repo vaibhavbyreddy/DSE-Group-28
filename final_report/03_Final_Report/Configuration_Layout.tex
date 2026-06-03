@@ -14,8 +14,8 @@ Once the available resources are identified and quantified, \autoref{sec:externa
 
 \section{Resource Allocation \& Budgets}
 \label{sec:resource_allocation_budgets}
-- identify the key budgets (reference baseline report?)
-- describe how they drive the design + values
+During the initial design phase\footnote{baseline report}\todo{ref baseline report}, the following set of technical budgets was identified for HUGO's design: centre of gravity location, communication link budget, aircraft mass, external dimensions, internal dimensions, fuel, and power available from the battery. This section provides a final overview of the available resources and the envisioned allocation scheme.
+
 
 \subsection{Centre of Gravity Location}
 % - center of gravity
@@ -23,29 +23,111 @@ Once the available resources are identified and quantified, \autoref{sec:externa
 %     *we aim at testing via movement of the fuel from the bladders by the use of a reversable pump that is connected between the 2 bladders
 %     *here we can explain that the test will be further explained in the section with the tests and so on so we dont go to much in detail 
 %     *we mention that the cg can be varied with the aid of the fuel tanks, wings and tail
-The centre of gravity was identified in an earlier analysis (during the baseline report) as a resource that must be taken into account to meet the stability requirements. While considering possible test scenarios, it was concluded that in the event of a stability experiment, an elegant way to shift the location of the CG is to vary the distribution of the fuel between two reservoirs. This method will further be emphasised in \todo{add the citation once the section for experiments is written}.
+The centre of gravity margin must be taken into account to meet the stability performance requirements. Specific location of the CG is driven by HUGO's external configuration, as well as the internal layout (i. e. electronics, propulsion system, payload). HUGO is expected to accommodate a wide variety of wing planforms, tail cones, and payload configurations, as well as operate in both stable and unstable regimes. As such, no dedicated CG range budget is defined. Rather, a CG analysis shall be performed for each configuration case to ensure that desired stability characteristics are achieved.
 
-Internal elements such as the electronic and propulsion systems are the main drivers of the CG location, along with the structure itself. In this phase, it was decided to go with a segmented approach regarding the determination of the CG position by separating the gravity centre of the fuselage from the centre of the components. The electronic and propulsion system are sized and thier elements positioned inside the plane, giving the design team an initial location of CG that the fuselage and the wings can use as referance. The advantage of this method is that during the iteration process, the CG can be shifted by moving components of the mentioned systems inside the fuselage.
+While considering possible test scenarios, it was concluded that in the event of a stability experiment, an elegant way to shift the location of the CG is to vary the distribution of the fuel between two bladders. This method will further be emphasised in \autoref{}
+\todo[inline]{add the citation once the section for experiments is written}
+\todo[inline]{It's possible that ops \& logistics will come before this chapter}
 
-Aiming at having a client base that brings its own wings to the test site and can configure HUGO to meet their internal arrangements, which means the CG range has a large variation. Moreover, the tests include experiments where the plane has to perform in unstable variations, as such, it has been decided to not to allocate a budget to the CG of the plane, but to perform for each HUGO configuration a CG analysis and simulation.
+
+In this design phase, it was decided to go with a segmented approach regarding the determination of the CG position by separating the gravity centre of the fuselage from the centre of the components. The electronic and propulsion system are sized and their elements positioned inside the plane, giving the design team an initial location of CG that the fuselage and the wings can use as reference. The advantage of this method is that during the iteration process, the CG can be shifted by moving components of the mentioned systems inside the fuselage.
+
+%Aiming at having a client base that brings its own wings to the test site and can configure HUGO to meet their internal arrangements, which means the CG range has a large variation. The tests include experiments where the plane has to perform in unstable variations. As a result, we will not allocate a budget to the CG of the plane, but we will perform a CG analysis and simulation for each HUGO configuration.
 
 \subsection{Communication Link Budget}
-Providing a reliable communication link at Mach 0.75 is a challange 
--we have the communication link from the electronic ship that is good about 200 km, we have the antenna that I forgot to add....
--we cannot use the normal comunicatin for those speeds and due to the Doppler effect that makes the signal freq be 4 times higher or lower at mach 0.75, as such we use a custom C2 communication link--> I have to explain this new communication because of the speed 
-OK LETS DO THIS
+Providing a reliable communication link at Mach 0.75 is a challenge for a drone of HUGOs' size since it cannot house complex radio systems. Since the mission profile states that the dorne must reach distances up to 110 km at MAch 0.75, a C2 \footnote{\href{https://eudroneport.com/blog/c2-links/}{C2 Communication Link} (accessed on 03.06.2026)} link protocol must be provided. This custom protocol is needed along with an efficient TX/RX combo because at 0.75 MAch, the radio waves will experience the Doppler effect. Using equation from \cite[p.477]{giancoli2020physics} calculating the Doppler effect, it was determined that the frequency can change up to 4 times the normal value.  
+
+C2 is a custom-made protocol that allows for bidirectional communication at such speeds and for a smooth video and radio transmission. Due to the speed regime and distance at witch the test take place, the custom link will be programmed and modeld to fit the test cases. For HUGO, this protocol is paired with the electronic system, developed in \autoref{sub:electronics_system_design}. At the receiving end, there is a very powerful antenna still required, but this aspect is covered by the Den Helder, as mentioned in \autoref{ch:operation_and_logistics}, it is equipped with all the necessary equipment \footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2005-2026_2026_05_14/eAIP/EH-AD\%202\%20EHKD\%201-en-GB.html}{Den Helder Info} (accessed 03.06.2026)}. The budget limitations for this system are brought by the electronic system, and due to the choice made in \autoref{sub:electronics_system_design}, HUGO is limited to VHF and UHF. 
+\begin{comment}
+    -we have the communication link from the electronic ship that is good about 200 km, we have the antenna that I forgot to add....
+     -we cannot use the normal comunicatin for those speeds and due to the Doppler effect that makes the signal freq be 4 times higher or lower at mach 0.75, as such we use a custom C2 communication link--> I have to explain this new communication because of the speed 
+    OK LETS DO THIS
+\end{comment}
 
 
-\begin{itemize}
-    %\item Centre of gravity location (CG location)
-    \item Communication link budget
-    \item Mass
-    \item Aircraft dimensions
-    \item Internal dimensions
-    %\item Thrust
-    \item Fuel budget
-    \item Power from the battery
-\end{itemize}
+\subsection{Mass Budget}
+From project technical requirements, it can be seen that there is a limit imposed on the maximum take-off weight of 50 kg (HUG-GEN-001). This is a hard limit set by the operation clients to make the model easy to transport and store if a test is suited at a better location. 
+
+Due to its unique design, there are no available resources to base a component-by-component class estimation, as such, it was decided to keep the masses of different subsystems under constant supervision and monitor the remaining mass budget after each new integration. From a previous design phase \footnote{\label{ft:midterm_rep}\href{Midterm report: https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{Midterm Report} (accessed on 03.06.2026)}, it was computed that each test would require 10 kg of fuel to ensure the flight time. 
+
+A major contributor to the mass of the aircraft is the internal configuration composed of the electronic and propulsion subsystem, the latter excluding the fuel. The contribution to the mass can be found at the end of \autoref{sec:internal_configuration}, folowing at the end of \autoref{ch:configuration_layout} to have a complete mass distribution for HUGO.
+
+
+% - we are restricted by the 50 kg limit imposed, the electronics have a mass of max 15 kg including the sensors
+% - the data is unclear due to the unique design so there is no clear mass estimation for each section
+% -it was found in the last report that the fuel will be 10 kg
+% As it stands, from requirement \todo{add the req once they are put in}, the maximum take-off weight of the drone is 50 kg. Due to its unique design and lack of information available on the market, a component by component  
+\subsection{Aircraft dimensions} 
+%---------------------------------------------------------
+%COPIED FROM THE BASELINE
+%---------------------------------------------------------
+There is a set restriction for the outer dimensions of the aircraft set by the requirement that it and all necessary equipment to operate it should fit inside a van. This is something that should be taken into consideration while designing the plane. 
+
+To ensure a more sustainable transport of the aircraft the electric Renault master E-tech L3H2 variant was chosen as reference van \footnote{\href{https://business.renault.co.uk/master-range/master-panel-van.html}{Renault Master Van}(accessed on 24.04.2026)}. 
+\begin{table}[H]
+    \centering
+    \caption{Renault Master E-Tech L3H2 Loading Specifications}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Specification} & \textbf{Value} \\
+        \hline
+        \multicolumn{2}{|l|}{\textbf{Loading Area — Panel Van L3H2}} \\
+        \hline
+        Usable length & 3733 mm \\
+        \hline
+        Usable length at 1.1 m & 3680 mm \\
+        \hline
+        Usable width & 1765 mm \\
+        \hline
+        Usable height & 1894 mm \\
+        \hline
+        \multicolumn{2}{|l|}{\textbf{Sliding Side Door(s)}} \\
+        \hline
+        Width of sliding side door(s) & 1270 mm \\
+        \hline
+        Height of sliding side door(s) & 1780 mm \\
+        \hline
+        \multicolumn{2}{|l|}{\textbf{Rear Door}} \\
+        \hline
+        Width (169 mm from floor) & 1580 mm \\
+        \hline
+        Entrance height & 1820 mm \\
+        \hline
+        Cargo threshold (min/max) & 543/557 mm \\
+        \hline
+        Loading volume & 13 m$^3$ \\
+        \hline
+    \end{tabular}
+    \label{tab:renault_master_specs}
+\end{table}
+Optimising the packing of the disassembled aircraft might become necessary on later stages in the design process. The general dimensions of the van impose an upper limit to the dimensions of the plane, on the length of the fuselage and wings.
+
+The outside dimensions are also set by the internal components that have to be housed within, including the electronic system, propulsion systems, and the sensor payload. Once the components for each system are outlined in \autoref{sec:internal_configuration}, HUGO will have a lower limit as well regarding fuselage dimensions. 
+
+\subsection{Internal Dimensions}
+Along with the systems and sensors found in the fuselage, as stated by HUG-GEN-003, HUGO has to have space for a payload of a minimum of 5 kg at a volume of 5 litres. This space will be provided once the electrical and propulsion systems are integrated and placed inside the fuselage. The dimensions of the fuselage will be adapted to ensure that all components fit.
+
+Along the internal components, inside the fuselage there will also be placed the fuel supply, and for this project, the fuel subsystem is attached to the propulsion system. Sensors for the experiments are placed along the wing as well as at the interface of the wing to the fuselage to measure bending and moments and forces. 
+
+A general schematic of the location o the inside parts can be found at \todo{addd the CAD with the cross section of the insides}
+
+\subsection{Power budget}
+The configuration chosen for HUGO uses SAF as a fuel source to provide the thrust required by the using engines that do not have an inverter to provide their own energy \footnote{\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/RC\%20ENGINES/Engines/p100_rx-bl}{JetCat P1000} (accessed on 06.03.2026)}, as such the electrical system has to provide a continuous source of energy. On top of the power required for the operation of the propulsion system, sensors, actuators, flight computer and the payload also require a continuous power supply. 
+
+In \todo{cite the operations }, it is mentioned that HUGO must be able to support a nominal mission time up to 30 minutes and an additional 15 minutes to account for missed landings or other deviations. As such, the power system has to maintain the system operational for at lest 45 minutes. 
+
+A power budget has been considered and an electrical system where the components are outlined and analysed can be seen in \autoref{sub:electronics_system_design}.
+
+% \begin{itemize}
+%     %\item Centre of gravity location (CG location)
+%     \item Communication link budget
+%     \item Mass
+%     \item Aircraft dimensions
+%     \item Internal dimensions
+%     %\item Thrust
+%     \item Fuel budget
+%     \item Power from the battery
+% \end{itemize}
 
 
 \section{External Configuration}
@@ -59,7 +141,7 @@ OK LETS DO THIS
 
 \subsection{Environmental Control}
 \label{sub:environmental_control}
-- environmental control
+When talking ab
 
 
 
@@ -100,13 +182,21 @@ OK LETS DO THIS
 
 \subsection{Sensor Interaction}
 \label{sub:sensor_interaction}
-- list of sensors for different test cases (autoref ops \& logistics)\\
-- section about the sensors and how they communicate (diagram)\\
+To be able to measure and record the results from the experiments it is necessary to use sensors. Since an aspect of HUGO is to possibility of  customizations for a specific customer needs there is left space in the design for additional sensors.     
+Using the mission envelope  (autoref ops \& logistics) it is possible identify the following phenomenon which needs to be measured: 
+\begin{itemize}
+    \item Deflection: There are several approaches for the measurement of wing deflection. A way to measure the deflection is to record it from a fixed point on the aircraft. A stereo camera setup can be used for this. A pattern with a high contrast (typically black and white)  would be placed on the wing. By having a reference image of the undistorted pattern it is possible to measure the change in the wing (insert ref). It is also possible to use LIDAR where small dots of reflective material would be placed on the wing.  Using the fixed points and looking at the subsequent change it is possible determine how the wing deforms (insert ref). A different approach is the use of special fiber-optic cables which can measure the strain in the axial direction of the cable. By afterwards overlying the points in a FE-model of the wing it is possible to find the deflection of the wing \cite{Pak2015}.   The current systems architecture is made so it can accommodate all three different measurement techniques. This gives a potential costumer a larger freedom in choice regarding sensors.     
+    \item Loads: In this instance the measurement of the loads acting on and thorugh the wing is the area of interest. For an aircraft this would be the resultant force (most often split into lift and drag) generated by the wing.  
+    \item Strain:
+    \item Vibrations:
+    \item Wind-gusts: 
+\end{itemize}
+
 
 
 
 \begin{longtable}{|c|p{3cm}|p{5cm}|p{3cm}|p{2cm}|}
-        \caption{Sensors used for test measurements}
+        \caption{Sensors chosen  for the test measurements}
         \label{tab:internal_config_test_measurement_sensors}\\
 \hline
        \textbf{Sensor ID} & \textbf{Sensor} & \textbf{Description} & \textbf{Dimensions [m]} & \textbf{Weight [kg]} \\\hline
@@ -120,22 +210,37 @@ OK LETS DO THIS
 \hline
 \endlastfoot
         HUG-SEN-01 & FBG sensor \footnote{\href{https://www.peraglobe.com/robust-flight-qualified-fbg-interrogator}{FBG} (accessed on 01.06.2026)}& Wing deflection & $0.150 \times 0.125 \times 0.0585$  & 0.700\\\hline
-        HUG-SEN-02 & Load-cell & Wing surface strain & & \\\hline
-        HUG-SEN-03& Strain rosetta  & Strain & & \\\hline
-        HUG-SEN-04& LIDAR-sensor & Weather detection, wing deflection & $0.35\times 0.35\times0.15$ &  \\\hline
-       HUG-SEN-05 & Camera\footnote{\href{https://www.phaseone.com/wp-content/uploads/2024/01/P5_Brochure_Display_EN_2023.pdf}{PhaseOne} (accessed on 01.06.2026)}  & Deflection, Visual inspection of structural behavior & $0.075 \times 0.075 \times 0.09$ & 0.700 \\\hline
-        HUG-SEN-06& Pitot probe  & Airspeed & & \\\hline
-       HUG-SEN-07 & Gyroscope  & Attitude & & \\\hline
-       HUG-SEN-08 & Accelerometer  & Acceleration & & \\\hline
-        HUG-SEN-09& Altimeter  & Altitude & & \\\hline
-        
+        HUG-SEN-02 & Load-cell & Wing loadings & & \\\hline
+        HUG-SEN-03& Strain gage \footnote{\href{https://www.hbkworld.com/en/products/transducers/strain/experimental-testing/y-series/ry}{HBK Strain Gauge} (accessed 03.06.2026)}   & Strain & $0.0048\times 0.0087\times0.0003$ & 0.001\\\hline
+        HUG-SEN-04& LIDAR-sensor \footnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR}(02.06.2026)} \cite{Schroeder2020} & Weather detection, wing deflection & $0.35\times 0.35\times0.15$ & 0.160 \\\hline
+       HUG-SEN-05 & Camera\footnote{\href{https://www.phaseone.com/wp-content/uploads/2024/01/P5_Brochure_Display_EN_2023.pdf}{PhaseOne}(02.06.2026)}  & Deflection, Visual inspection of structural behavior & $0.075 \times 0.075 \times 0.09$ & 0.700 \\\hline
+        HUG-SEN-06& Pitot probe\footnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Accelerometer}(03.06.2026)}   & Airspeed & $0.003 \times 0.1 \times 0.003$ & 0.100 \\\hline
+       HUG-SEN-07 & Gyroscope \footnote{\href{https://www.althensensors.com/uploads/products/datasheets/asc-273-gyroscope-en.pdf}{Gyroscope}(03.06.2026)} & Attitude & $0.0025 \times 0.0029 \times 0.0019$ & $0.035$\\\hline
+       HUG-SEN-08 & Accelerometer \footnote{\href{https://www.althensensors.com/uploads/products/datasheets/egcs3-triaxial-high-sensitivity-heavy-duty-accelerometer-en.pdf}{Accelerometer}(03.06.2026)}   & Acceleration & $0.0019 \times 0.0021 \times 0.0025$ & 0.050 \\\hline
+       HUG-SEN-09& Altimeter\footnote{\href{https://ainstein.ai/us-d1-all-weather-radar-altimeter/}{Altimeter}(03.06.2026)}  & Altitude & $0.108 \times 0.079 \times 0.020$ & 0.110 \\\hline 
+        HUG-SEN-10& Customer specified & Customer specified &  &  \\\hline  
 \end{longtable}
 
+- list of sensors for different test cases (autoref ops \& logistics)\\
+- section about the sensors and how they communicate (diagram)\\
+
+\subsection{Configurations}
+\label{sub:Configurations}
+
+For the different missions the only change in the internal configuration would be the sensor-setup.  
 - sketches for different mission examples (in the appendix)
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{figures_final/Sensorconfiguration.png}
+    \caption{Diagram of configuration with all possible sensors implemented}
+    \label{fig:placeholder}
+\end{figure}
 
 
 
+\subsection{Change of the centre of gravity}
+\label{sub:Changeofthecentreofgravity}
 
 
 

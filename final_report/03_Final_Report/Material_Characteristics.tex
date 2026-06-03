@@ -12,7 +12,7 @@ should be specified. \\ A first version of design driving characteristics is inc
 \section{Material Options}
 \label{sec:material_options}
 
-In the Midterm Report (Git footnote), materials were selected for HUGO’s primary structure, including the wings, fuselage, and empennage, as well as for the landing gear, engine pylons, and connection interfaces. In particular, aluminium alloy Al 7075-T76 was chosen for the landing gear, engine pylons, and connection ports. The wings, fuselage, and empennage will be manufactured out of CFRP. The next step is to select materials for the remaining components of HUGO, such as ribs, stringers, and interior structures, and to further specify the structure of the composite material in greater detail. 
+In the Midterm Report (git footnote)\todo, materials were selected for HUGO’s primary structure, including the wings, fuselage, and empennage, as well as for the landing gear, engine pylons, and connection interfaces. In particular, aluminium alloy Al 7075-T76 was chosen for the landing gear, engine pylons, and connection ports. However, this choice will be evaluated with a more detailed analysis before being confirmed. The wings, fuselage, and empennage will be manufactured out of CFRP. In this section, the particular fiber resin combination will be determined.
 
 \subsection{Metal Alloys}
 \label{sub:metal_alloys}
@@ -43,7 +43,7 @@ Ti-6Al-4V & 110 & 40 & 600 - 710 & 1000 - 1190 & 910 - 1110 & 1650 & 4.4 & 38 \\
 Where E is the elastic modulus, G is the shear modulus, UTS is the ultimate tensile strength, YTS is the yield tensile strength, T$_m$ is the melting onset temperature, $\rho$ is the density, and the last column gives the embodied carbon per kilogram of material. 
 
 %The first six material properties listed in Table \autoref{tab:material_properties_metals} were used to assess the suitability of each alloy for structural aerospace applications. 
-For the landing gear, the material must be capable of resisting the high impact loads generated during touchdown without experiencing excessive deformation or yielding. A high elastic modulus contributes to structural stiffness, while high yield and ultimate tensile strengths ensure that the material can sustain large stresses without permanent deformation or failure. %Fatigue strength is particularly important because landing gear components are subjected to repeated loading cycles throughout the aircraft's service life, which can lead to crack initiation and propagation.
+For the landing gear, the material must be capable of resisting the high impact loads generated during touchdown without experiencing excessive deformation or yielding. A high elastic modulus contributes to structural stiffness, while high yield and ultimate tensile strengths ensure that the material can sustain large stresses without permanent deformation or failure. 
 Although fatigue strength can be considered in the design, it is not expected to be a governing factor. Each HUGO is anticipated to perform only four test flights per day for 20 days per year over a 15-year operational lifetime, resulting in approximately 1,200 flight cycles. This relatively low number of cycles is well below the range typically associated with fatigue-critical aerospace structures. 
 
 The pylon structure experiences complex dynamic loading arising from engine thrust, aerodynamic forces, vibrations, manoeuvres, and gust loads. Consequently, adequate shear modulus and shear strength are required to resist torsional and transverse loading, while high tensile strength is necessary to maintain structural integrity under normal stresses. 
@@ -81,18 +81,39 @@ Filament Diameter \\
 [g/cm$^3$] &
 [\si{\micro\meter}] \\
 \midrule
-AS4C carbon fiber & 276 & 5670 & 1.78 & 5.2 \\
+IM7 carbon fiber & 276 & 5670 & 1.78 & 5.2 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Three types of resin systems were considered for the selection of carbon fibre prepregs: epoxy, bismaleimide (BMI), and cyanate ester. Epoxy resin prepregs are widely used in aerospace industry due to their established manufacturing processes and generally good chemical, thermal, and mechanical properties, and are commonly used in a broad range of structural applications \footnote{\label{fn:prepregs}\href{https://www.hgcomposites.com/info/various-types-of-carbon-fiber-prepreg-83847115.html}{Various Types of Carbon Fiber Prepreg and Usages} (accessed on 02.06.2026)}. In particular, the  HexPly 8552 woven carbon prepreg is considered due to its usage in primary aerospace structures \footnote{\href{https://www.hexcel.com/wp-content/uploads/2025/12/HexPly_8552_eu_DataSheet1.pdf}{HexPly 8552} (accessed on 02.06.2026)}.
 
-Bismaleimide (BMI) prepregs are also used in aerospace structures, particularly for aircraft panels and engine-related components, where elevated temperature capability is required. They are known for their high-temperature performance while maintaining structural integrity \footref{fn:prepregs}. %In particular, the HexPly F655 prepreg is considered.
+Bismaleimide (BMI) prepregs are also used in aerospace structures, particularly for aircraft panels and engine-related components, where elevated temperature capability is required. They are known for their high-temperature performance while maintaining structural integrity \footref{fn:prepregs}. In particular, the CYCOM 5250-4 prepreg, developed for primary aerospace structural applications, is considered \todo{add footnote} %\footnote{\href{https://www.e-aircraftsupply.com/msds/11856cytec%20cycom%205250-4%20tds.pdf?srsltid=AfmBOoohgVhUA4CUm3Pxu0xo0YGcufvnyWHlOen-2XMyMOu5qVQS0f1g}{CYCOM® 5250-4 PREPREG SYSTEM} (accessed on 03.06.2026)}.
 
-Cyanate ester prepregs are used in specialised aerospace applications such as radomes and engine components. They are selected where resistance to elevated temperatures and harsh chemical environments is required, along with suitable mechanical performance for structural use \footref{fn:prepregs}. %In particular, the HexPly 954-2A prepreg is considered.
+Cyanate ester prepregs are used in specialised aerospace applications such as radomes and engine components. They are selected where resistance to elevated temperatures and harsh chemical environments is required, along with suitable mechanical performance for structural use \footref{fn:prepregs}. In particular, the Toray RS-3/RS-3C prepreg is considered, which has demonstrated outstanding performance in airframe structures over the past three decades \todo{add footnote} %\footnote{\href{https://www.toraytac.com/media/fb396e4c-a85e-45f2-a189-533bb17039f0/CmbtRw/TAC/Documents/Data_sheets/Thermoset/UD%20tapes%20and%20prepregs/RS-3_Cyanate-Ester_PDS.pdf}{Toray RS-3/RS-3C} (accessed on 03.06.2026)}.
 
-The key properties of the three prepreg types are listed in \autoref{}. 
+The key properties of the three prepreg types are listed in \autoref{tab:prepreg_properties}. All values are given for unidirectional prepreg laminates.
+
+\begin{table}[htbp]
+\centering
+\caption{Mechanical properties of prepregs}
+\label{tab:prepreg_properties}
+\begin{tabular}{lcccccc}
+\toprule
+Prepreg & $\sigma_{t,0}$ & $E_0$ & $\sigma_{t,90}$ & $E_{90}$ & $\sigma_{c,0}$ & $E_{c,0}$ \\
+& [MPa] & [GPa] & [MPa] & [GPa] & [MPa] & [GPa] \\
+\midrule
+HexPly 8552 & 2724 & 164 & 64 & 12 & 1690 & 150 \\
+CYCOM 5250-4 & 2620 & 162 & 66 & 9.7 & 1620 & 158 \\
+Toray RS-3/RS-3C & 3330 & 161 & -- & -- & 1696 & 168 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Where $\sigma_{t,0}$ denotes the tensile strength in the $\ang{0}$ fibre direction and $E_0$ the corresponding elastic modulus. The next two parameters represent the tensile strength and elastic modulus in the $\ang{90}$ direction, respectively. The final two parameters correspond to the compressive strength and compressive modulus in the $\ang{0}$ direction.
+
+
+
 
 \begin{comment}
 \begin{enumerate}
@@ -115,7 +136,37 @@ The key properties of the three prepreg types are listed in \autoref{}.
 \label{sec:material_selection}
 %\todo[inline]{Justification behind the selection of the materials}
 
-As can be observed from the values in \autoref{tab:material_properties_metals}, 18Ni (350) Steel performs best in terms of stiffness and strength, exhibiting the highest Young's modulus (190 GPa), ultimate tensile strength (up to 2420 MPa), and yield strength (up to 2300 MPa). Its primary disadvantage is density - at 8.2 g/cm³, it is roughly twice that of titanium and nearly three times that of aluminium, which may introduce mass penalties depending on the application. Furthermore, with a melting point of \SI{1420}{\celsius}, the material properties are not expected to degrade severely in high-temperature zones such as near the engines. While Ti-6Al-4V offers a favourable strength-to-weight ratio and Al 7075-T76 excels in low-density applications, neither matches the structural performance of steel. This is further justified by a preliminary estimation of the buckling and yield performance as shown below.
+As can be observed from the values in \autoref{tab:material_properties_metals}, 18Ni (350) Steel performs best in terms of stiffness and strength, exhibiting the highest Young's modulus (190 GPa), ultimate tensile strength (up to 2420 MPa), and yield strength (up to 2300 MPa). Its primary disadvantage is density - at 8.2 g/cm³, it is roughly twice that of titanium and nearly three times that of aluminium, which may introduce mass penalties depending on the application. Furthermore, with a melting point of \SI{1420}{\celsius}, the material properties are not expected to degrade severely in high-temperature zones such as near the engines. 
+
+To evaluate the holistic influence of material selection on component design, a structural analysis of the landing gear strut was performed. The strut is subjected to landing loads comprising an axial load, derived from the aircraft's (HUGO) weight and landing load factor, and a transverse load resulting from braking deceleration. Based on a landing load factor of 4 specified during landing by CS-23 \cite{EASA_CS23_Am3_2012}, and incorporating a safety factor of 2, the design axial load was calculated as 1962 N per gear. Additionally, assuming a peak braking deceleration of 2g with the same safety factor, the design transverse load was determined to be 981 N. 
+
+The structural integrity of the strut was assessed against yield failure—combining bending and axial compression—as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the following formulae \cite[p.~256]{megson2016aircraft}, where K is the length factor, which is determined by the boundary conditions, which in the case of HUGO, is 2.0:
+\cite[p.~256]{megson2016aircraft}:
+
+\begin{equation}
+\sigma_{max} = \frac{F_{axial}}{A} + \frac{M_{bending_{max}}}{I}
+\end{equation}
+
+\begin{equation}
+P_{cr} = \frac{\pi^2 E I}{(K L)^2}
+\end{equation}
+
+Given an unbraced strut length of 15 cm, a computational design sweep was conducted across the feasible design space of outer diameters and wall thicknesses to identify the optimal geometry for three candidate materials in terms of mass. Initial unconstrained optimization yielded optimal wall thicknesses of less than 0.1 mm for steel and titanium, which are prohibited by manufacturing limitations. Consequently, a minimum wall thickness constraint of 1 mm was imposed. 
+
+The results, summarized in Table \ref{tab:strut_sizing}, demonstrate that Aluminum 7075-T76 and Titanium yield the lightest strut designs capable of withstanding the prescribed loads, whereas the Steel 18Ni(350) design incurs a significant mass penalty. Due to the low cost, and ease of manufacturing of Aluminium, it is chosen as the material for the landing gear of HUGO.
+
+\begin{table}[H]
+    \centering
+    \caption{Optimal landing gear strut sizing for candidate materials ($t_{min} = 1$ mm)}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+        \textbf{Material} & \textbf{ Outer Diameter (mm)}& \textbf{Thickness (mm)}& \textbf{Minimum Mass (g)} \\ \hline \hline
+        Al 7075-T76 & 30.45& 0.5& 19.06\\ \hline
+        Titanium & 19.95& 0.5& 20.16\\ \hline
+        Steel 18Ni(350) & 13.89& 0.5& 25.55\\ \hline
+    \end{tabular}
+    \label{tab:strut_sizing}
+\end{table}
 
 \todo[inline]{Include buckling and yield analysis}
 
