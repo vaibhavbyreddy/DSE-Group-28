@@ -48,20 +48,51 @@ Although fatigue strength can be considered in the design, it is not expected to
 
 To evaluate the holistic influence of material selection on component design, a structural analysis of the landing gear strut was performed. The strut is subjected to landing loads comprising an axial load, derived from the aircraft's (HUGO) weight and landing load factor, and a transverse load resulting from braking deceleration. Based on a landing load factor of 4 specified during landing by CS-23 \cite{EASA_CS23_Am3_2012}, and incorporating a safety factor of 2, the design axial load was calculated as 1962 N per gear. Additionally, assuming a peak braking deceleration of 2g with the same safety factor, the design transverse load was determined to be 981 N. 
 
-The structural integrity of the strut was assessed against yield failure—combining bending and axial compression—as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the following formulae \cite[p.~256]{megson2016aircraft}, where K is the length factor, which is determined by the boundary conditions, which in the case of HUGO, is 2.0:
-\cite[p.~256]{megson2016aircraft}:
+The structural integrity of the strut was assessed against yield failure—combining bending and axial compression—as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the following formulae \cite[p.~256]{megson2016aircraft}, where $K$ is the length factor determined by the boundary conditions ($K = 2.0$ for the cantilever configuration):
 
 \begin{equation}
-\sigma_{max} = \frac{F_{axial}}{A} + \frac{M_{bending_{max}}}{I}
+\sigma_{max} = \frac{F_{axial}}{A} + \frac{M_{bending_{max}} c}{I}
 \end{equation}
 
 \begin{equation}
 P_{cr} = \frac{\pi^2 E I}{(K L)^2}
 \end{equation}
 
-Given an unbraced strut length of 15 cm, a computational design sweep was conducted across the feasible design space of outer diameters and wall thicknesses to identify the optimal geometry for three candidate materials in terms of mass. Initial unconstrained optimization yielded optimal wall thicknesses of less than 0.1 mm for steel and titanium, which are prohibited by manufacturing limitations. Consequently, a minimum wall thickness constraint of 1 mm was imposed. 
+Additionally, local shell buckling (skin crippling) under combined axial and bending loads was evaluated using the NASA SP-8007 design criteria \cite{nasa_sp8007}. The allowable local buckling stresses for pure axial compression ($\sigma_{c,all}$) and pure bending ($\sigma_{b,all}$) are given by:
 
-The results, summarized in Table \ref{tab:strut_sizing}, demonstrate that Aluminum 7075-T76 and Titanium yield the lightest strut designs capable of withstanding the prescribed loads, whereas the Steel 18Ni(350) design incurs a significant mass penalty.
+\begin{equation}
+\sigma_{c,all} = \frac{\gamma_c E}{\sqrt{3(1-\mu^2)}} \frac{t}{r}
+\end{equation}
+
+\begin{equation}
+\sigma_{b,all} = \frac{\gamma_b E}{\sqrt{3(1-\mu^2)}} \frac{t}{r}
+\end{equation}
+
+where $\mu$ is the Poisson's ratio, $r$ is the cylinder radius, and $\gamma_c$ and $\gamma_b$ are empirical knockdown factors accounting for manufacturing imperfections:
+
+\begin{equation}
+\gamma_c = 1 - 0.901(1 - e^{-\phi})
+\end{equation}
+
+\begin{equation}
+\gamma_b = 1 - 0.731(1 - e^{-\phi})
+\end{equation}
+
+The geometric parameter $\phi$ is defined as:
+
+\begin{equation}
+\phi = \frac{1}{16}\sqrt{\frac{r}{t}}
+\end{equation}
+
+Structural adequacy under combined loading is satisfied if the stress ratios satisfy the linear interaction envelope:
+
+\begin{equation}
+R_c + R_b \le 1.0
+\end{equation}
+
+where $R_c = \sigma_c / \sigma_{c,all}$ and $R_b = \sigma_b / \sigma_{b,all}$ represent the applied-to-allowable stress ratios for the compression and bending components, respectively.
+
+The results, summarized in Table \ref{tab:strut_sizing}, demonstrate that Aluminum 7075-T76 and Titanium yield the lightest strut designs capable of withstanding the prescribed loads, whereas the Steel 18Ni(350) design is slightly heavier. However, the steel design results in the strut with the lowest diameter.
 
 \begin{table}[H]
     \centering
@@ -69,18 +100,18 @@ The results, summarized in Table \ref{tab:strut_sizing}, demonstrate that Alumin
     \begin{tabular}{|c|c|c|c|}
     \hline
         \textbf{Material} & \textbf{ Outer Diameter (mm)}& \textbf{Thickness (mm)}& \textbf{Minimum Mass (g)} \\ \hline \hline
-        Al 7075-T76 & 30.45& 0.5& 19.06\\ \hline
-        Titanium & 19.95& 0.5& 20.16\\ \hline
-        Steel 18Ni(350) & 13.89& 0.5& 25.55\\ \hline
+        Al 7075-T76 & 38.54& 0.31& 15.08\\ \hline
+        Steel 18Ni(350) & 18.74& 0.25& 17.64\\ \hline
+        Titanium & 25.61& 0.29& 15.22\\ \hline
     \end{tabular}
     \label{tab:strut_sizing}
 \end{table}
 
 In terms of recyclability, a primary obstacle of aluminium is separating it from other metals within the alloy \footnote{\href{https://www.recyclingtoday.com/news/tomra-aluminum-sorting-recycling-technology-van-de-winkel/}{Commentary: Recycling plays critical role in future aluminium production} (accessed on 02.06.2026)}. In the case of titanium, its high melting point and reactive nature create more processing challenges than aluminium \footnote{\href{https://ironandmetals.com/blog/titanium-vs-aluminum-recycling-what-you-need-to-know/}{Titanium vs Aluminum Recycling: What You Need to Know} (accessed on 02.06.2026)}. When considering also the embodied carbon per kilogram of material as listed in \autoref{tab:material_properties_metals}, the titanium alloy performs the worst, whereas the steel has the lowest overall environmental impact.
 
-The pylon structure experiences complex dynamic loading arising from engine thrust, aerodynamic forces, vibrations, manoeuvres, and gust loads. Consequently, adequate shear modulus and shear strength are required to resist torsional and transverse loading, while high tensile strength is necessary to maintain structural integrity under normal stresses. Although the engine pylons will experience high temperatures, information gathered from communicating with a JetCat representative informed us that the outer temperatures of the nacelle will not exceed 200$^\circ$C. This is far from the melting temperature of all the metals being considered, and is therefore not driving.
+The pylon structure experiences complex dynamic loading arising from engine thrust, aerodynamic forces, vibrations, manoeuvres, and gust loads. Consequently, adequate shear modulus and shear strength are required to resist torsional and transverse loading, while high tensile strength is necessary to maintain structural integrity under normal stresses. Information gathered from communicating with a JetCat representative informed us that the outer temperatures of the nacelle will exceed 200$^\circ$C. This is far from the melting temperature of all the metals being considered, however, material properties like Young's Modulus (E) decrease linearly with temperature increase. Additionally, creep resistance is also impacted by temperature \cite[ch.~13, p.~553]{ashby2019materials}, as when the temperature of the material approaches its melting point, its resistance to creep degrades.
 
-Aluminium 7076-T76 therefore still wins compared to the other metals, as it forms the lightest structure for our loading cases, while also being highly manufacturable. Therefore, it will remain the choice for the landing gear, engine pylons, and connection ports of HUGO.
+Aluminium 7076-T76 therefore cannot be used for the engine pylons, as its melting point is close to the nacelle temperature of the engines. Additionally, the optimal landing gear strut diameter for aluminium is 38.54 mm, which is very high, resulting in high drag and internal volume use. Titanium results in a lighter design than Steel, however, due to the high material and manufacturing cost associated with titanium, as well as it's challenges in terms of recyclability, Steel is chosen as the material for the landing gear and engine pylons. 
 
 \subsection{Composites}
 \label{sub:composites}
@@ -167,6 +198,8 @@ Where $\sigma_{t,0}$ denotes the tensile strength in the $\ang{0}$ fibre directi
 
 \subsection{Foam and Honeycomb Core Structures}
 \label{sub:Foam_Honeycomb_Core}
+
+
 
 
 \section{Comsposite Material Layout}

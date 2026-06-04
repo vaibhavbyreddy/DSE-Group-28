@@ -26,17 +26,18 @@
 %--------------------------------------------------------------------
 %
 %ALEX FUCKERY DO NOT TOUCH
+\usepackage{csquotes}
 \usepackage[
     backend=biber,
     style=aiaa,
     citestyle=aiaa,
     sorting=none,
-    natbib=true,
-    dashed=false,
+    natbib=true
+    dashed=false
     giveninits=true
 ]{biblatex}
 
-\addbibresource{reference.bib}
+\addbibresource{references.bib}
 
 \usepackage{hyperref}
 \usepackage{chngcntr}
@@ -181,8 +182,6 @@
 %%    Begin of document + Frontmatter (Roman page numbering)
 %% ----------------------------------------------------------------------
 
-\newcommand{\citeRoskamSeries}{\cite{roskamI,roskamII,roskamIII,roskamIV,roskamV}}
-
 \begin{document}
 
 \frontmatter
@@ -273,8 +272,8 @@ Vaibhav Byreddy (5237254)\\
 %% Add bibliography
 %\newpage
 %\nocite{*} % remove this later if you only want cited references
-\bibliographystyle{new-aiaa}
-%\bibliography{references}
+%\bibliographystyle{new-aiaa}
+%\bibliography{reference}
 \printbibliography
 \appendix
 
