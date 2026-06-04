@@ -12,7 +12,7 @@ should be specified. \\ A first version of design driving characteristics is inc
 \section{Material Options}
 \label{sec:material_options}
 
-In the Midterm Report (git footnote)\todo, materials were selected for HUGO’s primary structure, including the wings, fuselage, and empennage, as well as for the landing gear, engine pylons, and connection interfaces. In particular, aluminium alloy Al 7075-T76 was chosen for the landing gear, engine pylons, and connection ports. However, this choice will be evaluated with a more detailed analysis before being confirmed. The wings, fuselage, and empennage will be manufactured out of CFRP. In this section, the particular fiber resin combination will be determined.
+In the Midterm Report (git footnote)\todo, materials were selected for HUGO’s primary structure, including the wings, fuselage, and empennage, as well as for the landing gear, engine pylons, and connection interfaces. In particular, aluminium alloy Al 7075-T76 was chosen for the landing gear, engine pylons, and connection ports. However, this choice will be evaluated with a more detailed analysis before being confirmed. The wings, fuselage, and empennage will be manufactured out of CFRP. The prepreg material to be used has yet to be selected, along with the materials for the wing foam core and the honeycomb core structure of the fuselage monocoque.
 
 \subsection{Metal Alloys}
 \label{sub:metal_alloys}
@@ -48,7 +48,7 @@ Although fatigue strength can be considered in the design, it is not expected to
 
 To evaluate the holistic influence of material selection on component design, a structural analysis of the landing gear strut was performed. The strut is subjected to landing loads comprising an axial load, derived from the aircraft's (HUGO) weight and landing load factor, and a transverse load resulting from braking deceleration. Based on a landing load factor of 4 specified during landing by CS-23 \cite{EASA_CS23_Am3_2012}, and incorporating a safety factor of 2, the design axial load was calculated as 1962 N per gear. Additionally, assuming a peak braking deceleration of 2g with the same safety factor, the design transverse load was determined to be 981 N. 
 
-The structural integrity of the strut was assessed against yield failure—combining bending and axial compression—as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the following formulae \cite[p.~256]{megson2016aircraft}, where $K$ is the length factor determined by the boundary conditions ($K = 2.0$ for the cantilever configuration):
+The structural integrity of the strut was assessed against yield failure - combining bending and axial compression - as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the following formulae \cite[p.~256]{megson2016aircraft}, where $K$ is the length factor determined by the boundary conditions ($K = 2.0$ for the cantilever configuration):
 
 \begin{equation}
 \sigma_{max} = \frac{F_{axial}}{A} + \frac{M_{bending_{max}} c}{I}
@@ -109,9 +109,9 @@ The results, summarized in Table \ref{tab:strut_sizing}, demonstrate that Alumin
 
 In terms of recyclability, a primary obstacle of aluminium is separating it from other metals within the alloy \footnote{\href{https://www.recyclingtoday.com/news/tomra-aluminum-sorting-recycling-technology-van-de-winkel/}{Commentary: Recycling plays critical role in future aluminium production} (accessed on 02.06.2026)}. In the case of titanium, its high melting point and reactive nature create more processing challenges than aluminium \footnote{\href{https://ironandmetals.com/blog/titanium-vs-aluminum-recycling-what-you-need-to-know/}{Titanium vs Aluminum Recycling: What You Need to Know} (accessed on 02.06.2026)}. When considering also the embodied carbon per kilogram of material as listed in \autoref{tab:material_properties_metals}, the titanium alloy performs the worst, whereas the steel has the lowest overall environmental impact.
 
-The pylon structure experiences complex dynamic loading arising from engine thrust, aerodynamic forces, vibrations, manoeuvres, and gust loads. Consequently, adequate shear modulus and shear strength are required to resist torsional and transverse loading, while high tensile strength is necessary to maintain structural integrity under normal stresses. Information gathered from communicating with a JetCat representative informed us that the outer temperatures of the nacelle will exceed 200$^\circ$C. This is far from the melting temperature of all the metals being considered, however, material properties like Young's Modulus (E) decrease linearly with temperature increase. Additionally, creep resistance is also impacted by temperature \cite[ch.~13, p.~553]{ashby2019materials}, as when the temperature of the material approaches its melting point, its resistance to creep degrades.
+The pylon structure experiences complex dynamic loading arising from engine thrust, aerodynamic forces, vibrations, manoeuvres, and gust loads. Consequently, adequate shear modulus and shear strength are required to resist torsional and transverse loading, while high tensile strength is necessary to maintain structural integrity under normal stresses. Information gathered from communicating with a JetCat informed us that the outer temperatures of the nacelle will exceed 200$^\circ$C. This is far from the melting temperature of all the metals being considered, however, material properties like Young's Modulus (E) decrease linearly with temperature increase. Additionally, creep resistance is also impacted by temperature \cite[ch.~13, p.~553]{ashby2019materials}, as when the temperature of the material approaches its melting point, its resistance to creep degrades.
 
-Aluminium 7076-T76 therefore cannot be used for the engine pylons, as its melting point is close to the nacelle temperature of the engines. Additionally, the optimal landing gear strut diameter for aluminium is 38.54 mm, which is very high, resulting in high drag and internal volume use. Titanium results in a lighter design than Steel, however, due to the high material and manufacturing cost associated with titanium, as well as it's challenges in terms of recyclability, Steel is chosen as the material for the landing gear and engine pylons. 
+Aluminium 7076-T76 therefore cannot be used for the engine pylons, as its melting point is close to the nacelle temperature of the engines. Additionally, the optimal landing gear strut diameter for aluminium is 38.54 mm, which is very high, resulting in high drag and internal volume use. Titanium results in a lighter design than Steel, however, due to the high material and manufacturing cost associated with titanium, as well as it's challenges in terms of recyclability, steel is chosen as the material for the landing gear and engine pylons. 
 
 \subsection{Composites}
 \label{sub:composites}
@@ -198,15 +198,17 @@ Where $\sigma_{t,0}$ denotes the tensile strength in the $\ang{0}$ fibre directi
 
 \subsection{Core Material Selection}
 \label{sub:core_materials}
-As previously mentioned, the wings of HUGO will be produced using a machined foam core, with layers of pre-preg carbon sheets laid on top. The fuselage will be produced using a sandwich structure, comprising carbon laminates and an intermediate honeycomb layer.\footnote{\url{https://www.dmcrf.com/benefits-of-honeycomb-core-structures-in-aerospace-and-automotive-sectors/}} In this subsection, the material candidates for both the honeycomb and foam cores are evaluated and selected based on structural requirements and manufacturing constraints.
+As previously mentioned, the wings of HUGO will be produced using a machined foam core, with layers of pre-preg carbon sheets laid on top. The fuselage will be produced using a sandwich structure, comprising carbon laminates and an intermediate honeycomb layer \footnote{\href{https://www.dmcrf.com/benefits-of-honeycomb-core-structures-in-aerospace-and-automotive-sectors/}{Benefits of Honeycomb Core Structures in Aerospace and Automotive Sectors} (accessed on 04.06.2026)}. In this subsection, the material candidates for both the honeycomb and foam cores are evaluated and selected based on structural requirements and manufacturing constraints.
 
 \subsubsection{Foam Core Candidates}
-Structural foams used in composite manufacturing generally fall into three broad categories: Polymethacrylimide (PMI), Polyvinyl Chloride (PVC), and Extruded Polystyrene (XPS).\footnote{Campbell, F. C. (2010). \textit{Structural Composite Materials}. ASM International.} 
+Structural foams used in composite manufacturing generally fall into three broad categories: Polymethacrylimide (PMI), Polyvinyl Chloride (PVC), and Extruded Polystyrene (XPS)\footnote{Campbell, F. C. (2010). \textit{Structural Composite Materials}. ASM International. (accessed on 04.06.2026)}. 
 PMI foams are high-performance, closed-cell structures known for their exceptional thermal stability and compressive strength. PVC foams offer a good balance of mechanical properties and cost for low-temperature applications but soften rapidly under heat. XPS foams are highly cost-effective and easily machinable but possess very low mechanical strength and thermal resistance. The key properties of candidate foams are tabulated in \autoref{tab:foam_props}.
 
 \begin{table}[htpb]
     \centering
-    \caption{Key Mechanical and Thermal Properties of Candidate Foam Cores.\protect\footnote{\url{https://www.easycomposites.co.uk/rigid-foams}}}
+    \caption{Key Mechanical and Thermal Properties of Candidate Foam Cores
+\tablefootnote{\href{https://www.easycomposites.co.uk/rigid-foams}{Rigid Foams} (accessed on 04.06.2026)}}
+%\protect\footnote{\url{https://www.easycomposites.co.uk/rigid-foams}}}
     \label{tab:foam_props}
     \begin{tabular}{@{}lcccc@{}}
         \toprule
@@ -221,11 +223,12 @@ PMI foams are high-performance, closed-cell structures known for their exception
 \end{table}
 
 \subsubsection{Honeycomb Core Candidates}
-Honeycomb cores are primarily manufactured from either aluminum alloys or aramid paper (Nomex). Aluminum honeycomb provides significantly higher shear modulus and compressive strength compared to aramid cores of similar densities. However, aramid honeycomb offers superior 3D workability and formability over complex curvatures, as aluminum cell walls tend to buckle when formed over compound radii.\footnote{\url{https://www.chalcoaluminum.com/blog/aluminum-honeycomb-core-vs-aramid-honeycomb-core-2604-zmy/}} Furthermore, aluminum core requires glass-fiber isolation plies to prevent severe galvanic corrosion when bonded to carbon fiber. A comparison of evaluated honeycomb cores is provided in \autoref{tab:honeycomb_props}.
+Honeycomb cores are primarily manufactured from either aluminum alloys or aramid paper (Nomex). Aluminum honeycomb provides significantly higher shear modulus and compressive strength compared to aramid cores of similar densities. However, aramid honeycomb offers superior 3D workability and formability over complex curvatures, as aluminum cell walls tend to buckle when formed over compound radii \footnote{\href{https://www.chalcoaluminum.com/blog/aluminum-honeycomb-core-vs-aramid-honeycomb-core-2604-zmy/}{Aluminum Honeycomb Core vs Aramid Honeycomb Core: How to Choose the Right Core Material} (accessed on 04.06.2026)}. Furthermore, aluminum core requires glass-fiber isolation plies to prevent severe galvanic corrosion when bonded to carbon fiber. A comparison of evaluated honeycomb cores is provided in \autoref{tab:honeycomb_props}.
 
 \begin{table}[htpb]
     \centering
-    \caption{Mechanical Properties of Candidate Honeycomb Cores.\protect\footnote{\url{https://www.easycomposites.co.uk/honeycomb-cores}}}
+    \caption{Mechanical Properties of Candidate Honeycomb Cores
+\tablefootnote{\href{https://www.easycomposites.co.uk/honeycomb-cores}{Honeycomb Cores} (accessed on 04.06.2026)}}%\protect\footnote{\url{https://www.easycomposites.co.uk/honeycomb-cores}}}
     \label{tab:honeycomb_props}
     \begin{tabular}{@{}lcccc@{}}
         \toprule
@@ -245,10 +248,7 @@ The primary constraint driving core selection is the manufacturing process. As d
 
 For the wings, \textbf{Rohacell 71 IG-F (PMI foam)} is selected. As demonstrated in \autoref{tab:foam_props}, it is the only candidate with a maximum service temperature ($180^\circ$C) capable of surviving the autoclave cycle. Both the PVC and XPS foams would thermally yield and crush under consolidation pressure.
 
-For the fuselage sandwich structure, the \textbf{4.8mm Cell 48kg Nomex} aramid honeycomb is selected. While aluminum offers superior mechanical properties, the aramid core eliminates the risk of galvanic corrosion and provides the necessary drapeability to conform to the compound aerodynamic curvatures of the fuselage tooling without cell collapse. The 48kg variant provides sufficient compressive strength (2.40 MPa) to resist localized crushing during the high-pressure autoclave cure.
-
-
-
+For the fuselage sandwich structure, the \textbf{4.8mm Cell 48kg Nomex} aramid honeycomb is selected. While aluminum offers superior mechanical properties, the aramid core eliminates the risk of galvanic corrosion and provides the necessary out of plane flexibility to conform to the compound aerodynamic curvatures of the fuselage without buckling. The 48kg variant provides sufficient compressive strength (2.40 MPa) to resist localized crushing during the high-pressure autoclave cure.
 
 
 \section{Comsposite Material Layout}

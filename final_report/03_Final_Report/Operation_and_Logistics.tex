@@ -21,3 +21,117 @@
 
 
 \todo[inline]{pls add the antenna capabilities of the airport}
+
+\section{Mission Envelope}
+\label{sec:mission_envelope}
+
+In this section, the possible test cases to be performed by HUGO will be listed, along with the requirements for the base aircraft to perform the test and any required special accommodations.
+
+\subsubsection{\textbf{1. AFS (With Researcher Designed Control System)
+}}
+The researchers would specify the test condition (velocity, altitude, etc.), as well as a flutter-inducing method, either using the controls, turbulent zones in the atmosphere, or a specifically mounted flutter-inducing system. Then a mission would be designed to perform these experiments.
+
+The flight to the mission altitude would be performed using the aircraft's standard control system. Then, at the mission altitude and at the mission velocity, the control scheme will be switched to the researcher’s system. If the system is starting to diverge and cause instability for any reason, the aircraft will revert to the standard control scheme automatically, using sensor data or manually by the ground crew. Otherwise, the experiment will continue as planned, and data will be collected.
+
+\textit{Requirements for the base aircraft:} Wing deflection sensor
+
+\textit{Special Accommodations:} Control system addition
+
+\subsubsection{\textbf{2. GLA (With Researcher Designed Control System)}}
+Similar to the AFS method, however, the researcher may require a separate radar or Lidar sensor mounted at the front to be able to measure the gust before the aircraft flies into it. This will have to be integrated into the aircraft, as well as the control scheme itself. The test would occur similarly to the AFS test.
+
+\textit{Requirements for the base aircraft to be able to test this:} 
+\begin{enumerate}
+    \item A sensor that \textbf{can} be mounted at the front
+    \item Wing loading sensors
+    \item Fast enough actuators for what can be reasonably tested
+\end{enumerate}
+
+\textit{Special Accommodations:}
+Control System Addition
+Additional sensor (Lidar / Radar)
+
+\subsubsection{\textbf{3. Aileron reversal (With Researcher Designed Control System)}}
+
+At high flight speeds, elevator deflection can induce wing twist in aircraft with flexible wings, potentially reducing or even reversing the intended control response. Various techniques can be employed to mitigate this aeroelastic effect. In this context, the focus is on software-based compensation methods rather than the use of leading-edge control surfaces, which are discussed later.
+
+The experiment will occur in a similar manner to the AFS experiment.
+
+\textit{Requirements for the base aircraft to be able to test this:}
+\begin{enumerate}
+    \item Wing deflection sensor
+    \item Wing twist sensor
+\end{enumerate}
+
+\textit{Special Accommodations:}
+Control System Addition
+
+\subsubsection{\textbf{4. Leading Edge controls/Folding wingtips (With Researcher Designed Wing)}}
+
+Civil transport aircraft typically use trailing-edge control surfaces for gust and maneuver load alleviation, but wing flexibility can reduce their effectiveness through aeroelastic wash-out and may even cause control reversal. Future high-aspect-ratio, flexible-wing aircraft may therefore employ unconventional methods such as leading-edge control surfaces and folding wingtips (cite https://doi.org/10.2514/6.2022-4093). 
+
+LE control surfaces can be used for gust load alleviation, improving roll control effectiveness in combination with TE controls, and for flutter suppression. Folding wingtips, on the other hand, allow increasing the wing AR in flight, thereby enhancing aerodynamic efficiency while meeting airport constraints. Moreover, the folding wingtips can be released or controlled in flight to alleviate loads.
+
+Again, this test will be performed similarly to the ones mentioned previously. The integration of the leading-edge control surfaces and folding wingtip mechanism within the researcher's wing is the researcher's responsibility, as is ensuring that all structural interfaces - particularly the folding wingtip hinge and the leading-edge actuator mounts - are capable of withstanding the loads induced during testing. The rest of the experiment follows the procedure as outlined for AFS/GLA.
+
+\textit{Requirements for the base aircraft to be able to test this:}
+\begin{enumerate}
+    \item Deflection and load sensors
+    \item Swappable wing
+\end{enumerate}
+
+\textit{Special Accommodations:} Additional actuator wiring for LE controls/folding wingtip and sensor wiring
+
+\subsubsection{\textbf{5. Canard Tests (With Researcher-Designed Canard)}}
+If a researcher would like to perform any test on a canard-based aircraft, a canard can be designed and attached to the aircraft. Then, any of the previously mentioned tests (AFS, GLA, Aileron reversal, etc.) can be performed as usual. The base control system of HUGO will have to be modified to accommodate a stable flight with this configuration. Then the researcher’s control system will be used during the actual test.
+
+\textit{Requirements for the base aircraft to be able to test this:}
+\begin{enumerate}
+    \item Ability to add a canard
+    \item Ability to house the additional electronics required for the canard
+    \item Additional requirements based on the specifics of the experiment
+\end{enumerate}
+
+\textit{Special Accommodations:}
+\begin{enumerate}
+    \item Base control system that works with the specific configuration being tested
+    \item Canard sensors
+    \item Researcher’s control system addition
+    \item Additional accommodations based on the specifics of the experiment
+\end{enumerate}
+
+\subsubsection{\textbf{6. Aeroelastic Behaviour test (With Researcher Designed Wing)}}
+A researcher may want to validate models of aeroelasticity, lift distributions, and stress distributions along the wing. In order to test this, a new wing may or may not have to be created. In the case that it can be performed on the standard HUGO wing, the required sensors can be mounted at the required locations, and the test can be performed with minimal additional accommodations. In the case that a specific, high-aspect-ratio aeroelastic wing is required by the researcher, the new wing will have to be designed, built, and integrated with the aircraft.
+
+\textit{Requirements for the base aircraft to be able to test this:}
+\begin{enumerate}
+    \item Swappable wings
+    \item Ability to house the required sensors and data acquisition
+    \item Wing load sensors
+\end{enumerate}
+
+\textit{Special Accommodations:} New wing
+
+\subsubsection{\textbf{7. Truss-Braced Wing}}
+Truss-braced wings are a promising concept for future commercial aviation. At the flight speeds attainable by Hugo, a truss-braced wing configuration would require the supporting truss to be swept aft. Given that the empennage is a replaceable module, it could be modified to accommodate a truss extending forward from the empennage to the wing. Nevertheless, the implementation of a truss-braced wing would constitute a major structural modification, necessitating the design of a new wing tailored to the configuration. As a result, a dedicated wing would need to be designed, manufactured, and integrated with the aircraft before such testing could be conducted.
+
+
+\textit{Requirements for the base aircraft to be able to test this:}
+\begin{enumerate}
+    \item Swappable empennage that can accommodate a truss
+    \item Wing deflection sensor
+    \item Swappable wing that can accommodate a truss
+\end{enumerate}
+
+\textit{Special Accommodations:}
+\begin{enumerate}
+    \item Truss support for the main wing
+    \item New wing
+\end{enumerate}
+
+
+
+
+
+
+
