@@ -137,16 +137,16 @@ IM7 carbon fiber & 276 & 5670 & 1.78 & 5.2 \\
 \end{table}
 \end{comment}
 
-Epoxy resin prepregs are widely used in aerospace industry due to their established manufacturing processes and generally good chemical, thermal, and mechanical properties, and are commonly used in a broad range of structural applications \footnote{\label{fn:prepregs}\href{https://www.hgcomposites.com/info/various-types-of-carbon-fiber-prepreg-83847115.html}{Various Types of Carbon Fiber Prepreg and Usages} (accessed on 02.06.2026)}. Alternative prepreg materials, including bismaleimide (BMI) and cyanate ester, were not evaluated further for the primary structure since their key advantage is enhanced performance at elevated temperatures. These temperature conditions are not anticipated in the operational environment of HUGO's primary structure. In particular, the HexPly 8552 woven carbon prepreg was considered due to its established use in primary aerospace structures and its excellent drape and tack. CYCOM 5320-1 was also selected as a candidate material because of its widespread application in UAV and drone structures, as well as its design for out-of-autoclave (OOA) and vacuum-bag-only (VBO) manufacturing processes. Additionally, its processing characteristics are optimized for honeycomb sandwich parts. The third option, the MTM45-1 prepreg system, was included due to its flexibility in supporting both autoclave and OOA/VBO processing, enabling rapid prototyping and short production runs, as well as offering potential weight savings through its lower density.
+Epoxy resin prepregs are widely used in aerospace industry due to their established manufacturing processes and generally good chemical, thermal, and mechanical properties, and are commonly used in a broad range of structural applications \footnote{\label{fn:prepregs}\href{https://www.hgcomposites.com/info/various-types-of-carbon-fiber-prepreg-83847115.html}{Various Types of Carbon Fiber Prepreg and Usages} (accessed on 02.06.2026)}. Alternative prepreg materials, including bismaleimide (BMI) and cyanate ester, were not evaluated further for the primary structure since their key advantage is enhanced performance at elevated temperatures. These temperature conditions are not anticipated in the operational environment of HUGO's primary structure. 
 
-The key properties of the prepreg types are listed in \autoref{tab:prepreg_properties}. 
+In particular, the HexPly 8552 woven carbon prepreg was considered due to its established use in primary aerospace structures and its excellent drape and tack \footnote{\label{fn:hexply}\href{https://www.hexcel.com/wp-content/uploads/2025/12/HexPly_8552_eu_DataSheet1.pdf}{HexPly 8552} (accessed on 02.06.2026)}. CYCOM 5320-1 was also selected as a candidate material because of its widespread application in UAV and drone structures \footnote{\href{https://www.syensqo.com/en/product/cycom-5320-1}{CYCOM 5320 Markets} (accessed on 05.06.2026)}, as well as its design for out-of-autoclave (OOA) and vacuum-bag-only (VBO) manufacturing processes. Additionally, its processing characteristics are optimized for honeycomb sandwich parts \footnote{\label{fn:cycom}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cycom5320_8hs.pdf}{CYCOM 5320-1} (accessed on 05.06.2026)}. The third option, the MTM45-1 prepreg system, was included due to its flexibility in supporting both autoclave and OOA/VBO processing, enabling rapid prototyping and short production runs, as well as offering potential weight savings through its lower density \footnote{\label{fn:mtm}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cytec_mtm45-1_resine_epoxyde.pdf}{MTM45-1} (accessed on 05.06.2026)}.
+
+The key properties of the prepreg types are listed in \autoref{tab:prepreg_properties}. The fiber properties are listed in \autoref{tab:fiber_properties}.
 
 \begin{table}[htbp]
 \centering
 \caption{Mechanical properties of prepregs
-\tablefootnote{\label{fn:hexply}\href{https://www.hexcel.com/wp-content/uploads/2025/12/HexPly_8552_eu_DataSheet1.pdf}{HexPly 8552} (accessed on 02.06.2026)}
-\tablefootnote{\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cycom5320_8hs.pdf}{CYCOM 5320-1} (accessed on 05.06.2026)}
-\tablefootnote{\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cytec_mtm45-1_resine_epoxyde.pdf}{MTM45-1} (accessed on 05.06.2026)}}
+\footref{fn:hexply} \footref{fn:cycom} \footref{fn:mtm}}
 \label{tab:prepreg_properties}
 \begin{tabular}{lcccccc}
 \toprule
@@ -163,9 +163,30 @@ MTM45-1 & 904 & 63.5 & 858 & 60.9 & AS4/3K PW fabric & Both \\
 \end{tabular}
 \end{table}
 
+\begin{table}[htbp]
+\centering
+\caption{Properties of the reinforcing carbon fibres
+\tablefootnote{\href{https://www.hexcel.com/wp-content/uploads/2025/12/AS4_HexTow_DataSheet.pdf}{HexTow AS4} (accessed on 05.06.2026)}
+\tablefootnote{\href{https://www.matweb.com/search/datasheet.aspx?matguid=d295080b94d7437f88fe4d6c548a7a4d}{Solvay THORNEL T-650/35} (accessed on 05.06.2026)}}
+\label{tab:fiber_properties}
+\begin{tabular}{lccccc}
+\toprule
+Fiber &
+$E$ &
+$\sigma_{ULT}$ &
+$\varepsilon_{ULT}$ &
+$\rho$ \\
+& [GPa] & [MPa] & [\%] & [g/cm$^3$] \\
+\midrule
+AS4 (8552, MTM45-1) & 231 & 4501 & 1.8 & 1.79 \\
+T650-35 (5320-1)    & 255 & 4270 & 1.7 & 1.77 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 Where $\sigma_{TS_0}$ denotes the tensile strength in the $\ang{0}$ fibre direction and $E_0$ the corresponding elastic modulus. The next two parameters represent the tensile strength and elastic modulus in the $\ang{90}$ direction, respectively. The Fiber/Style column indicates the type of carbon fiber and the weave architecture of the prepreg, with PW referring to plain weave and 8HS to 8 harness satin. 
 
-Plain weave consists of an over-under interlacing pattern that produces a symmetric, checkerboard-like structure with high dimensional stability. However, this stability limits its drapability, making it more suitable for flat or gently curved geometries. The frequent fibre crimp can also introduce stress concentrations that may reduce long-term performance. In contrast, satin weaves such as 8HS are designed for improved formability and draping capability, allowing them to conform more easily to complex shapes. This comes at the cost of reduced stability compared to plain weave. In general, increasing the harness number improves drapability but decreases structural stability \footnote{\href{https://www.elevatedmaterials.com/carbon-fiber-weaves-what-they-are-and-why-to-use-them/}{Carbon Fiber Weaves: What they are and why to use them} (accessed on 05.06.2026)}.
+Plain weave consists of an over-under interlacing pattern that produces a symmetric, checkerboard-like structure with high dimensional stability. However, this stability limits its drapability, making it more suitable for flat or gently curved geometries. The frequent fiber crimp can also introduce stress concentrations that may reduce long-term performance. In contrast, satin weaves such as 8HS are designed for improved formability and draping capability, allowing them to conform more easily to complex shapes. This comes at the cost of reduced stability compared to plain weave. In general, increasing the harness number improves drapability but decreases structural stability \footnote{\href{https://www.elevatedmaterials.com/carbon-fiber-weaves-what-they-are-and-why-to-use-them/}{Carbon Fiber Weaves: What they are and why to use them} (accessed on 05.06.2026)}.
 
 
 \subsection{Core Material Selection}
@@ -178,8 +199,7 @@ PMI foams are high-performance, closed-cell structures known for their exception
 
 \begin{table}[htpb]
     \centering
-    \caption{Key Mechanical and Thermal Properties of Candidate Foam Cores
-\tablefootnote{\href{https://www.easycomposites.co.uk/rigid-foams}{Rigid Foams} (accessed on 04.06.2026)}}
+    \caption{Key Mechanical and Thermal Properties of Candidate Foam Cores}
 %\protect\footnote{\url{https://www.easycomposites.co.uk/rigid-foams}}}
     \label{tab:foam_props}
     \begin{tabular}{@{}lcccc@{}}
