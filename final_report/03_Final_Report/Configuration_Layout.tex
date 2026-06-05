@@ -18,6 +18,7 @@ During the initial design phase\footnote{baseline report}\todo{ref baseline repo
 
 
 \subsection{Centre of Gravity Location}
+\label{sub:cg_location}
 % - center of gravity
 %     *explain that we aimg at having a range for the cg so that we can test for both the stable and unstable configuration
 %     *we aim at testing via movement of the fuel from the bladders by the use of a reversable pump that is connected between the 2 bladders
@@ -25,19 +26,19 @@ During the initial design phase\footnote{baseline report}\todo{ref baseline repo
 %     *we mention that the cg can be varied with the aid of the fuel tanks, wings and tail
 The centre of gravity margin must be taken into account to meet the stability performance requirements. Specific location of the CG is driven by HUGO's external configuration, as well as the internal layout (i. e. electronics, propulsion system, payload). HUGO is expected to accommodate a wide variety of wing planforms, tail cones, and payload configurations, as well as operate in both stable and unstable regimes. As such, no dedicated CG range budget is defined. Rather, a CG analysis shall be performed for each configuration case to ensure that desired stability characteristics are achieved.
 
-While considering possible test scenarios, it was concluded that in the event of a stability experiment, an elegant way to shift the location of the CG is to vary the distribution of the fuel between two bladders. This method will further be emphasised in \autoref{}
+The determination of the CG for a given configuration is done by means of segmentation. In this approach, the CG of the fuselage is isolated from the rest of the components, and can be used as a first estimate for wing sizing. The final position of the CG can be adjusted during design iterations by distributing the electronics and propulsion system components inside the aircraft. For test cases focused on stability and requiring an in-flight shift in CG (such as TBD TBD \autoref{}), its position can be adjusted by varying the fuel distribution between two bladders. The details of the propulsion system design will be further discussed in \autoref{}.
+
 \todo[inline]{add the citation once the section for experiments is written}
 \todo[inline]{It's possible that ops \& logistics will come before this chapter}
 
 
-In this design phase, it was decided to go with a segmented approach regarding the determination of the CG position by separating the gravity centre of the fuselage from the centre of the components. The electronic and propulsion system are sized and their elements positioned inside the plane, giving the design team an initial location of CG that the fuselage and the wings can use as reference. The advantage of this method is that during the iteration process, the CG can be shifted by moving components of the mentioned systems inside the fuselage.
-
 %Aiming at having a client base that brings its own wings to the test site and can configure HUGO to meet their internal arrangements, which means the CG range has a large variation. The tests include experiments where the plane has to perform in unstable variations. As a result, we will not allocate a budget to the CG of the plane, but we will perform a CG analysis and simulation for each HUGO configuration.
 
 \subsection{Communication Link Budget}
-Providing a reliable communication link at Mach 0.75 is a challenge for a drone of HUGOs' size since it cannot house complex radio systems. Since the mission profile states that the dorne must reach distances up to 110 km at MAch 0.75, a C2 \footnote{\href{https://eudroneport.com/blog/c2-links/}{C2 Communication Link} (accessed on 03.06.2026)} link protocol must be provided. This custom protocol is needed along with an efficient TX/RX combo because at 0.75 MAch, the radio waves will experience the Doppler effect. Using equation from \cite[p.477]{giancoli2020physics} calculating the Doppler effect, it was determined that the frequency can change up to 4 times the normal value.  
+\label{sub:communication_link_budget}
+Based on HUGO's mission profile, specifically the maximum flight speed and maximum distance from the aerodrome, a C2 communication link must be specified as part of the Type Design \cite{SC Light-UAS}. This custom protocol is required along with an efficient transmitter/receiver combination due to the Doppler shift, which becomes significant at the airspeed of 0.75 Mach. the radio waves will experience the Doppler effect. Using the Giancoli's formula for the Doppler shift \cite[p.477]{giancoli2020physics}, is can be estimated that the shifted frequency may attain values as high as four times its initial transmission counterpart (if HUGO performs the high-speed test flight in the direction of the observer), or as low as 57\% (if flying away from the observer).
 
-C2 is a custom-made protocol that allows for bidirectional communication at such speeds and for a smooth video and radio transmission. Due to the speed regime and distance at witch the test take place, the custom link will be programmed and modeld to fit the test cases. For HUGO, this protocol is paired with the electronic system, developed in \autoref{sub:electronics_system_design}. At the receiving end, there is a very powerful antenna still required, but this aspect is covered by the Den Helder, as mentioned in \autoref{ch:operation_and_logistics}, it is equipped with all the necessary equipment \footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2005-2026_2026_05_14/eAIP/EH-AD\%202\%20EHKD\%201-en-GB.html}{Den Helder Info} (accessed 03.06.2026)}. The budget limitations for this system are brought by the electronic system, and due to the choice made in \autoref{sub:electronics_system_design}, HUGO is limited to VHF and UHF. 
+C2 is a custom-made protocol that allows for bidirectional communication at such speeds and for a smooth video and radio transmission \footnote{\href{https://eudroneport.com/blog/c2-links/}{C2 Communication Link} (accessed on 03.06.2026)}. It shall be designed to fit the considered test cases. For HUGO, the C2 is paired with the electronic system, the design of which will be discussed in \autoref{sec:internal_configuration}. Appropriate radionavigation and landing equipment for the receiving end of C2 communication is available at Den Helder aerodrome \footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2005-2026_2026_05_14/eAIP/EH-AD\%202\%20EHKD\%201-en-GB.html}{EHKD AD 2.19 Radio navigation and landing aids} (accessed 03.06.2026)}. The specific communication link budget is defined by the electronics system design and will be discussed later.
 \begin{comment}
     -we have the communication link from the electronic ship that is good about 200 km, we have the antenna that I forgot to add....
      -we cannot use the normal comunicatin for those speeds and due to the Doppler effect that makes the signal freq be 4 times higher or lower at mach 0.75, as such we use a custom C2 communication link--> I have to explain this new communication because of the speed 
@@ -46,9 +47,7 @@ C2 is a custom-made protocol that allows for bidirectional communication at such
 
 
 \subsection{Mass Budget}
-From project technical requirements, it can be seen that there is a limit imposed on the maximum take-off weight of 50 kg (HUG-GEN-001). This is a hard limit set by the operation clients to make the model easy to transport and store if a test is suited at a better location. 
-
-Due to its unique design, there are no available resources to base a component-by-component class estimation, as such, it was decided to keep the masses of different subsystems under constant supervision and monitor the remaining mass budget after each new integration. From a previous design phase \footnote{\label{ft:midterm_rep}\href{Midterm report: https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{Midterm Report} (accessed on 03.06.2026)}, it was computed that each test would require 10 kg of fuel to ensure the flight time. 
+Based on initial design considerations \footnote{baseline report}, HUGO's MTOM limit was set at 50kg (HUG-GEN-001). This is a hard limit set by the operation clients to ensure that HUGO is easy to transport and store. Due to the modular design aspect, a component-by-component weight estimation proves unfeasible. For this reason, the mass budget is split between subsystems applicable for a given configuration and monitored constantly between design iterations. Initial estimations performed in the previous design phase  \footnote{\label{ft:midterm_rep}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{Midterm Report} (accessed on 03.06.2026)} envision that a fuel mass of 10 kg will be required for the nominal test scenario, leaving 40 kg for structures and external and internal equipment.
 
 A major contributor to the mass of the aircraft is the internal configuration composed of the electronic and propulsion subsystem, the latter excluding the fuel. The contribution to the mass can be found at the end of \autoref{sec:internal_configuration}, folowing at the end of \autoref{ch:configuration_layout} to have a complete mass distribution for HUGO.
 
@@ -175,7 +174,7 @@ the rest is the material people's job to do as they have the source (Passive Ice
 Vehicles Applications: A Review)
 \end{comment}
 
-
+\todo[inline]{Resource allocation missing}
 
 \section{Internal Configuration}
 \label{sec:internal_configuration}
@@ -188,7 +187,7 @@ This section provides a comprehensive overview of the internal configuration of 
 
 \subsection{Electronics System Design}
 \label{sub:electronics_system_design}
-
+\todo[inline]{Explain why VHF/UHF}
 1. Start by outling the components that are required for the succesfull completion of the mission
 2. Make a short description of why each component is relevant for and how they are connected, it would be nice to add a table before
 3. of course the table will provide info regarding the power consumption for each electronic, mass and volume
