@@ -141,21 +141,21 @@ Epoxy resin prepregs are widely used in aerospace industry due to their establis
 
 In particular, the HexPly 8552 woven carbon prepreg was considered due to its established use in primary aerospace structures and its excellent drape and tack \footnote{\label{fn:hexply}\href{https://www.hexcel.com/wp-content/uploads/2025/12/HexPly_8552_eu_DataSheet1.pdf}{HexPly 8552} (accessed on 02.06.2026)}. CYCOM 5320-1 was also selected as a candidate material because of its widespread application in UAV and drone structures \footnote{\href{https://www.syensqo.com/en/product/cycom-5320-1}{CYCOM 5320 Markets} (accessed on 05.06.2026)}, as well as its design for out-of-autoclave (OOA) and vacuum-bag-only (VBO) manufacturing processes. Additionally, its processing characteristics are optimized for honeycomb sandwich parts \footnote{\label{fn:cycom}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cycom5320_8hs.pdf}{CYCOM 5320-1} (accessed on 05.06.2026)}. The third option, the MTM45-1 prepreg system, was included due to its flexibility in supporting both autoclave and OOA/VBO processing, enabling rapid prototyping and short production runs, as well as offering potential weight savings through its lower density \footnote{\label{fn:mtm}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cytec_mtm45-1_resine_epoxyde.pdf}{MTM45-1} (accessed on 05.06.2026)}.
 
-The key properties of the prepreg types are listed in \autoref{tab:prepreg_properties}. The fiber properties are listed in \autoref{tab:fiber_properties}.
+The key properties of the prepreg types are listed in \autoref{tab:prepreg_properties}. %The fiber properties are listed in \autoref{tab:fiber_properties}.
 
 \begin{table}[htbp]
 \centering
 \caption{Mechanical properties of prepregs
 \footref{fn:hexply} \footref{fn:cycom} \footref{fn:mtm}}
 \label{tab:prepreg_properties}
-\begin{tabular}{lcccccc}
+\begin{tabular}{lccccccc}
 \toprule
-Prepreg & $\sigma_{TS_0}$ & $E_0$ & $\sigma_{TS_{90}}$ & $E_{90}$ & Fiber/Style & Process \\
-& [MPa] & [GPa] & [MPa] & [GPa] & [-] & [-] \\
+Prepreg & $\sigma_{TS_0}$ & $E_0$ & $\sigma_{TS_{90}}$ & $E_{90}$ & Mass & Fiber/Style & Process \\
+& [MPa] & [GPa] & [MPa] & [GPa] & [g/cm$^2$] & [-] & [Autoclave / OOA] \\
 \midrule
-HexPly 8552 & 828 & 68 & 793 & 66 & AS4/3K PW fabric & Autoclave \\
-CYCOM 5320-1 & 903 & 69.1 & 896 & 68.3 & T650-35/3K 8HS & OOA/VBO \\
-MTM45-1 & 904 & 63.5 & 858 & 60.9 & AS4/3K PW fabric & Both \\
+HexPly 8552 & 1090 & 85 & 945 & 80 & 1.56 & IM7/6K PW fabric & Autoclave \\
+CYCOM 5320-1 & 903 & 69.1 & 896 & 68.3 & 1.57 & T650-35/3K 8HS & Both \\
+MTM45-1 & 904 & 63.5 & 858 & 60.9 & 1.51 & AS4/3K PW fabric & Both \\
 %Toray TC275-1 & 2724 & 164 & 64 & 12 \\
 %CYCOM 5250-4 & 2620 & 162 & 66 & 9.7 & 1620 & 158 \\
 %Toray RS-3/RS-3C & 3330 & 161 & -- & -- & 1696 & 168 \\
@@ -163,6 +163,7 @@ MTM45-1 & 904 & 63.5 & 858 & 60.9 & AS4/3K PW fabric & Both \\
 \end{tabular}
 \end{table}
 
+\begin{comment}
 \begin{table}[htbp]
 \centering
 \caption{Properties of the reinforcing carbon fibres
@@ -183,10 +184,29 @@ T650-35 (5320-1)    & 255 & 4270 & 1.7 & 1.77 \\
 \bottomrule
 \end{tabular}
 \end{table}
+\end{comment}
 
 Where $\sigma_{TS_0}$ denotes the tensile strength in the $\ang{0}$ fibre direction and $E_0$ the corresponding elastic modulus. The next two parameters represent the tensile strength and elastic modulus in the $\ang{90}$ direction, respectively. The Fiber/Style column indicates the type of carbon fiber and the weave architecture of the prepreg, with PW referring to plain weave and 8HS to 8 harness satin. 
 
 Plain weave consists of an over-under interlacing pattern that produces a symmetric, checkerboard-like structure with high dimensional stability. However, this stability limits its drapability, making it more suitable for flat or gently curved geometries. The frequent fiber crimp can also introduce stress concentrations that may reduce long-term performance. In contrast, satin weaves such as 8HS are designed for improved formability and draping capability, allowing them to conform more easily to complex shapes. This comes at the cost of reduced stability compared to plain weave. In general, increasing the harness number improves drapability but decreases structural stability \footnote{\href{https://www.elevatedmaterials.com/carbon-fiber-weaves-what-they-are-and-why-to-use-them/}{Carbon Fiber Weaves: What they are and why to use them} (accessed on 05.06.2026)}.
+
+Given that the initial HUGO fleet will consist of only five aircraft, the manufacturing strategy becomes just as important as raw material performance. While autoclave-cured prepreg systems can deliver the highest achievable laminate properties, they are typically justified only when production volumes are high enough to offset the substantial capital and operational costs associated with autoclave processing. For a low-volume programme such as HUGO, Out-of-Autoclave (OOA) and Vacuum-Bag-Only (VBO) manufacturing offer a far more practical solution.
+
+OOA manufacturing enables rapid prototyping, reduced tooling complexity, shorter production lead times, and significantly lower upfront investment. Eliminating the need to purchase or rent autoclave facilities substantially reduces programme cost while retaining the ability to produce aerospace-quality composite structures. This manufacturing flexibility is particularly valuable during early development, when design iterations are likely, and production quantities remain limited, which is the current stage at which the HUGO project is. Therefore, HexPly 8552, even though it exhibited the highest mechanical properties, is eliminated from the trade-off since it can only be cured in an autoclave.
+
+From a structural perspective, the choice of prepreg sheets must be evaluated in the context of HUGO's primary load cases. Tensile strength is not the governing parameter for the aircraft's major composite structures since the fuselage and wing skins are thin-walled, buckling-critical components where stiffness dominates structural behaviour. In this regard, CYCOM 5320-1 offers a significant advantage over MTM45-1 due to its higher elastic modulus ($\approx 9\%$), resulting in stiffer laminates and improved resistance to panel buckling. For monocoque aerospace structures, increased stiffness is generally more beneficial than additional ultimate strength that may never be fully utilised in service.
+
+Although MTM45-1 offers a marginal weight advantage of approximately 4\% at the laminate level, this benefit is outweighed by the superior stiffness of CYCOM 5320-1. For buckling-critical thin-walled structures, a 4\% reduction in areal density is a secondary gain compared to the $\approx 9\%$ modulus advantage that CYCOM 5320-1 provides in both fibre directions, since panel buckling resistance scales directly with laminate stiffness.
+
+Another important consideration is the prepreg layup process. HUGO's monocoque fuselage and aerodynamic wing surfaces consist primarily of doubly-curved geometries, where the ability of the reinforcement to conform accurately to the mould is critical. While plain weave fabrics offer good handling stability during layup, they possess relatively poor drapability. This can lead to bridging, wrinkling, and fibre waviness when applied to complex curved surfaces. Such manufacturing defects can be significantly more detrimental to structural performance than differences in constituent material properties because they introduce local stress concentrations and reduce the effective laminate stiffness and strength.
+
+In contrast, 8-harness satin (8HS) fabrics exhibit significantly superior drapability, allowing them to conform more easily to complex mould geometries and produce laminates with fewer defects. Although 8HS fabrics are somewhat less stable during dry handling due to their longer float lengths, this disadvantage exists only during the layup process. Once the laminate is cured, the concern effectively disappears, leaving only the benefits of improved fibre alignment and the superior mechanical properties associated with the fabric architecture. For highly contoured aerospace structures such as HUGO's fuselage and wings, achieving accurate mould conformity and minimising manufacturing-induced defects is arguably more important than maximizing dry-fabric handling stability.
+
+The resin system selection points toward the same conclusion. CYCOM 5320-1 was specifically developed for OOA/VBO processing and is widely used in UAV primary structures. According to the manufacturer's data \footref{fn:cycom}, the material is capable of producing autoclave-quality laminates with very low porosity despite requiring only vacuum-bag curing. This is a critical characteristic because it demonstrates that transitioning away from autoclave manufacturing does not necessarily entail a significant sacrifice in laminate quality. Instead, it allows much of the quality associated with traditional aerospace composite manufacturing to be retained while substantially simplifying the production process.
+
+%Although autoclave-cured IM7 systems can achieve approximately 15-20\% higher mechanical properties than CYCOM 5320-1 laminates, the operational requirements of HUGO do not justify this additional performance. As a Mach 0.75 UAV with relatively modest structural loads, HUGO is not expected to be strength-limited to the extent that this performance margin becomes necessary. Designing around the highest available material properties would increase manufacturing complexity and programme cost without providing a proportional benefit in operational capability or structural efficiency.
+
+Consequently, the selection of CYCOM 5320-1 represents a rational engineering optimisation rather than a compromise. The system offers sufficient mechanical performance for the anticipated load environment, superior manufacturability for low-volume production, compatibility with complex aerodynamic geometries through the use of drapable 8HS reinforcement, and the ability to produce aerospace-quality laminates without autoclave infrastructure.
 
 
 \subsection{Core Material Selection}
