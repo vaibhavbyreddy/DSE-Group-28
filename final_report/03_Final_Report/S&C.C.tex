@@ -11,7 +11,7 @@ A first version of design driving characteristics is included in the Mid-Term Re
 
 \section{Control Forces}
 \label{sec:control_forces}
-The control forces on each of the control surfaces were calculated using the Flow5 software. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled meshed in this software using the fuselage CAD model and a built-in wing generation tool. Control surface size was estimated based on the reference aircraft. The output from Flow5 will give a range of moment values for the actuators needed for the control surface deflection, which are essential for selection actuators for these subsystems. Furthermore, the Flow5 aircraft model is used together with its inertial properties coming from the CAD model to estimate dynamic stability envelope.
+The control forces on each of the control surfaces were calculated using the Flow5 software. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. Control surface size was estimated based on the reference aircraft. The output from Flow5 will give a range of moment values for the actuators needed for the control surface deflection. Furthermore, the Flow5 aircraft model is used together with its inertial properties coming from the CAD model to estimate dynamic stability characteristics of HUGO.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{}
@@ -19,28 +19,9 @@ The control forces on each of the control surfaces were calculated using the Flo
     \label{fig:flow5_overview}
 \end{figure}
 \subsection{Flight conditions}
-\autoref{} shows the control surface characteristics of the reference aircraft.
-\begin{table}[]
-    \centering
-    \begin{tabular}{c|c}
-         &  \\
-         & 
-    \end{tabular}
-    \caption{Caption}
-    \label{tab:ctrl_surfaces_ref_aircraft}
-\end{table}
-Based on this data, the following control surfaces were investigated in the Flow5 model:
-\begin{table}[]
-    \centering
-    \begin{tabular}{c|c}
-         &  \\
-         & 
-    \end{tabular}
-    \caption{Caption}
-    \label{tab:hugo_ctrl_surfaces}
-\end{table}
+The NASA DAST drone featured ailerons with 23 \% of the chord length, 0.254 m in length (around 9\% of the half-wing span) and starting right at the wing root. \cite{}\TODO{City Gilyard1983} The horizontal empennage of the DAST drone did not feature an elevator. Instead, the entire empennage tilted for pitch axis movement. \cite{} \todo{cite, this source is in midterm} The FLEXOP and X-56 aircraft featured multiple control surfaces along the wing span which could be used based on the flight velocity and desired control characteristics. The exact size of the control surfaces in these aircraft is not available, manual measurements from projected views show that the chord fraction of the ailerons was close to 25 \%. Furthermore, the FLEXOP aircraft uses a V-tail empennage configuration with 2 elevators on each side. The exact size of the elevators has not been reported, however, manual measurements suggest the chord fraction lies between 30-40\% of the horizontal tail chord length  \cite{Takarics2019} \cite{} \todo{cite sth about the X-56 and the info here}
 
-These control surfaces were tested in an approach speed regime where $V_{appr} = m \cdot s^{-1}$. At this flight velocity, the hinge moment on the ailerons is ... at the maximum deflection with both ailerons deflected in opposite directions. The resulting roll rate p is calculated at ... The turn radius is ... \\
+Based on this data, the roll characteristics were initially tested using ailerons with a 20 \% chord ratio, spanning 25 \% of the half-wing span and located at the wing center. These control surfaces were tested in an approximate approach speed regime, where $V_{appr} = 50 \ m \cdot s^{-1}$. At this flight velocity, the hinge moment on the ailerons is ... at the maximum deflection with both ailerons deflected in opposite directions. The resulting roll rate p is calculated at ... The turn radius is ... \\
 
 At the target experiment flight speed at $M = 0.75$, the required aileron deflection to reach the approach roll rate is ... This deflection generates a hinge moment of ... This value was obtained in Flow5 and then scaled using the Prandtl-Glauert compressibility correction
 \subsection{Control surface analysis verification}
