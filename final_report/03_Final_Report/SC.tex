@@ -6,7 +6,192 @@
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
 \section{Fuselage structural analysis}
-The structural analysis of the fuselage has been conducted by considering the most constraining loading cases. Namely, the pull-up manoeuvre at the maximum load factor from the flight envelope, and the main landing gear impact for maximum vertical deceleration. 
+The structural analysis of the fuselage has been conducted by considering the most constraining loading cases. Namely, the pull-up manoeuvre at the maximum load factor from the flight envelope, and the main landing gear impact for maximum vertical deceleration. For both of these, the fuselage has been discretised into a number of nodes, with each node being assigned a mass based on the estimated masses and positions of different components. The lift force of the canard is assumed to be a fraction of the total lift force:
+\begin{equation}
+    L_c=f\cdot L_{tot}
+\end{equation}
+
+In the first case, the aircraft is assumed to be accelerating vertically with a load factor $n$ and remaining in moment equilibrium.
+The free-body and kinetic diagrams of the fuselage in flight, assuming detached canard and wing, are shown in \autoref{fig:fuselage_fbd_kd_flight}. The equations of motion are then
+
+\begin{equation}
+    \Sigma F: L_c+L_w+L_t-\Sigma m_i g = \Sigma m_i a_{cg}
+\end{equation}
+
+\begin{equation}
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_O: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma x_i m_i g  = 0
+\end{equation}
+
+where $a_{cg}=(n-1)g$.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=1.0, >=stealth]
+
+ % ─────────────────────────────────────────
+% FREE BODY DIAGRAM (top)
+% ─────────────────────────────────────────
+
+% Fuselage beam
+\draw[thick] (0,0.15) -- (12,0.15);
+\draw[thick] (0,-0.15) -- (12,-0.15);
+\draw[thick] (0,0.15) arc (90:270:0.15);
+\draw[thick] (12,0.15) arc (90:-90:0.15);
+
+% 50 equally spaced nodes
+\foreach \i in {0,1,...,49} {
+    \fill[gray!60] ({12/49*\i},0) circle (1.2pt);
+}
+
+% CG indicator
+\fill[red] (6.5,0) circle (3.5pt);
+
+% Distributed weight forces
+\foreach \i/\len in {
+    0/0.7, 1/1.1, 2/0.6, 3/0.9, 4/1.3,
+    5/0.7, 6/1.4, 7/1.0, 8/0.6, 9/0.8,
+    10/1.5, 11/1.1, 12/0.5, 13/0.7, 14/1.2,
+    15/1.0, 16/0.6, 17/1.5, 18/0.8, 19/1.3,
+    20/0.5, 21/1.0, 22/1.4, 23/0.7, 24/1.1,
+    25/0.6, 26/0.8, 27/1.3, 28/0.7, 29/1.1,
+    30/0.5, 31/1.0, 32/0.6, 33/1.4, 34/0.8,
+    35/1.0, 36/1.5, 37/0.7, 38/1.1, 39/0.6,
+    40/0.8, 41/0.5, 42/1.2, 43/0.7, 44/1.0,
+    45/1.3, 46/0.6, 47/0.9, 48/1.2, 49/0.7
+} {
+    \draw[->,red!70,thin]
+        ({12/49*\i},-0.15)
+        --
+        ({12/49*\i},{-0.15-\len*0.4});
+}
+
+% Reference lines
+\draw[dashed,gray] (2.2,0.15) -- (2.2,-2.2);
+\draw[dashed,gray] (5.7,0.15) -- (5.7,-2.2);
+\draw[dashed,gray] (6.5,-0.15) -- (6.5,-2.2);
+\draw[dashed,gray] (10.8,0.15) -- (10.8,-2.2);
+
+% Canard lift and moment
+\draw[->,thick,blue]
+    (2.2,0.15) -- (2.2,1.0)
+    node[midway,right] {$L_c$};
+
+\draw[->,thick,blue]
+    (2.2,0.30) arc (120:-60:0.30)
+    node[right] {$M_c$};
+
+% Wing lift and moment (aligned)
+\draw[->,thick,blue,line width=1.5pt]
+    (5.7,0.15) -- (5.7,1.6)
+    node[midway,right] {$L_w$};
+
+\draw[->,thick,blue]
+    (5.7,0.50) arc (120:-60:0.40)
+    node[right] {$M_w$};
+
+% Tail lift
+\draw[->,thick,blue]
+    (10.8,0.15) -- (10.8,0.85)
+    node[midway,right] {$L_t$};
+
+% Weight label
+\node[red!70,right] at (12.0,-0.8) {$m_i g$};
+
+% CG label
+\node[below] at (6.5,-2.2) {$x_{cg}$};
+
+% x-axis
+\draw[->] (0,-2.2) -- (12.8,-2.2) node[right] {$x$};
+
+% Station labels
+\node[below] at (2.2,-2.2) {$x_c$};
+\node[below] at (5.7,-2.2) {$x_w$};
+\node[below] at (6.5,-2.2) {$x_{cg}$};
+\node[below] at (10.8,-2.2) {$x_t$};
+
+% Dimension lines referenced to CG
+\draw[<->] (2.2,-1.65) -- (6.5,-1.65);
+\node[above] at (4.35,-1.65) {$x_{cg}-x_c$};
+
+\draw[<->] (5.7,-1.25) -- (6.5,-1.25);
+\node[above] at (6.10,-1.25) {$x_{cg}-x_w$};
+
+\draw[<->] (6.5,-1.65) -- (10.8,-1.65);
+\node[above] at (8.65,-1.65) {$x_t-x_{cg}$};
+
+% ─────────────────────────────────────────
+        % KINETIC DIAGRAM (bottom, offset by -5.5)
+        % ─────────────────────────────────────────
+        \def\yoff{-5.5}
+
+        % Fuselage beam
+        \draw[thick] (0,\yoff+0.15) -- (12,\yoff+0.15);
+        \draw[thick] (0,\yoff-0.15) -- (12,\yoff-0.15);
+        \draw[thick] (0,\yoff+0.15) arc (90:270:0.15);
+        \draw[thick] (12,\yoff+0.15) arc (90:-90:0.15);
+
+        % 50 equally spaced nodes
+        \foreach \i in {0,1,...,49} {
+            \fill[gray!60] ({12/49*\i}, \yoff) circle (1.2pt);
+        }
+
+        % CG indicator
+        \fill[red] (6.5, \yoff) circle (3.5pt);
+
+        % Translational inertia: m*a_cg (upward at CG, right-side label)
+        \draw[->, thick, orange!80!black, line width=1.5pt]
+            (6.5, \yoff+0.15) -- (6.5, \yoff+1.5)
+            node[midway, right] {$m\,a_{cg}$};
+
+        % Rotational inertia: I_G*alpha
+        % Arc centred at (6.5, yoff+0.75), radius 0.55, counterclockwise
+        % Starting bottom-right, sweeping CCW, arrow at top-left
+        % Label placed to the left of the arc, clear of the force arrow
+        % \draw[->, thick, orange!80!black]
+        %     (6.5, \yoff+0.25) ++ (-30:0.55) arc (-30:210:0.55)
+        %     node[left] {$I_G\,\alpha$};
+
+        % Dashed reference lines (kinetic)
+        \draw[dashed, gray] (2.2,  \yoff+0.15) -- (2.2,  \yoff-2.2);
+        \draw[dashed, gray] (5.7,  \yoff+0.15) -- (5.7,  \yoff-2.2);
+        \draw[dashed, gray] (6.5,  \yoff-0.15) -- (6.5,  \yoff-2.2);
+        \draw[dashed, gray] (7.8,  \yoff+0.15) -- (7.8,  \yoff-2.2);
+        \draw[dashed, gray] (10.8, \yoff+0.15) -- (10.8, \yoff-2.2);
+
+        % x axis (kinetic)
+        \draw[->] (0,\yoff-2.2) -- (12.8,\yoff-2.2) node[right] {$x$};
+
+        % x-axis labels (kinetic)
+        \node[below] at (2.2,  \yoff-2.2) {$x_c$};
+        \node[below] at (5.7,  \yoff-2.2) {$x_w$};
+        \node[below] at (6.5,  \yoff-2.2) {$x_{cg}$};
+        \node[below] at (7.8,  \yoff-2.2) {$x_{lg}$};
+        \node[below] at (10.8, \yoff-2.2) {$x_t$};
+
+    \end{tikzpicture}
+    \caption{Free body diagram (top) and kinetic diagram (bottom) of the fuselage during flight. \textcolor{red}{More detailed description here.}}
+    \label{fig:fuselage_fbd_kd_flight}
+\end{figure}
+
+In the second case, the aircraft is assumed to both accelerate vertically upwards due to landing impact, and rotate with a rotational acceleration about the center of gravity. The lift forces in this case are found by assuming the total lift equal to weight and in moment equilibrium with weight just before impact, with canard still assumed to contribute a fraction of the total lift. Hence, the equations of motion are
+
+\begin{equation}
+    \Sigma F: L_c+L_w+L_t+F_{lg}-\Sigma m_i g=\Sigma m_i a_{cg}
+\end{equation}
+
+and 
+
+\begin{multline}
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_{cg}: \quad
+    F_{lg}(x_{lg}-x_{cg}) + F_{brake}\,l_{lg} + L_t(x_t-x_{cg}) - L_w(x_{cg}-x_w) - M_w \\
+    - L_c(x_{cg}-x_c) - M_c + \Sigma_i\,(x_i-x_{cg})\,m_i g = I_G\,\alpha
+\end{multline}
+
+Then, accelerations of particular nodes are given by 
+\begin{equation}
+    a_i=a_{cg}+\alpha (x_i-x_{cg})
+\end{equation}
+
 
 \begin{figure}[H]
     \centering
@@ -45,35 +230,72 @@ The structural analysis of the fuselage has been conducted by considering the mo
 
         % Dashed reference lines (FBD)
         \draw[dashed, gray] (2.2,  0.15) -- (2.2,  -2.2);
-        \draw[dashed, gray] (6.0,  0.15) -- (6.0,  -2.2);
-        \draw[dashed, gray] (10.8,-0.15) -- (10.8, -2.2);
+        \draw[dashed, gray] (5.7,  0.15) -- (5.7,  -2.2);
+        \draw[dashed, gray] (7.8, -0.15) -- (7.8,  -2.2);
+        \draw[dashed, gray] (10.8, 0.15) -- (10.8, -2.2);
 
-        % Lift forces
+        % Canard lift + moment
         \draw[->, thick, blue] (2.2, 0.15) -- (2.2, 1.0)
             node[midway, right] {$L_c$};
-        \draw[->, thick, blue, line width=1.5pt] (6.0, 0.15) -- (6.0, 1.6)
+        \draw[->, thick, blue]
+            (2.0, 0.3) arc (120:-60:0.3)
+            node[right] {$M_c$};
+
+        \fill[red] (6.5, 0) circle (3.5pt);
+        \draw[dashed, gray] (6.5, -0.15) -- (6.5, -2.2);
+ 
+        \node[below] at (6.5, -2.2) {$x_{cg}$};
+
+        % Wing lift + moment
+        \draw[->, thick, blue, line width=1.5pt] (5.7, 0.15) -- (5.7, 1.6)
             node[midway, right] {$L_w$};
-        \draw[->, thick, blue] (10.8,0.15) -- (10.8,0.55)
+        \draw[->, thick, blue]
+            (5.4, 0.5) arc (120:-60:0.4)
+            node[right] {$M_w$};
+
+        % Tail lift (upward, download removed for landing case clarity)
+        \draw[->, thick, blue] (10.8, 0.15) -- (10.8, 0.65)
             node[midway, right] {$L_t$};
 
+% Landing gear strut (aft of wing, x=7.8)
+        \draw[thick] (7.8, -0.15) -- (7.8, -0.7);
+        \draw[thick] (7.55, -0.7) -- (8.05, -0.7);  % axle
+        \fill[gray!40] (7.8, -0.82) circle (0.13);   % single centred wheel
+
+        % Ground reaction force (upward, green)
+        \draw[->, thick, green!60!black, line width=1.5pt]
+            (7.8, -0.95) -- (7.8, -0.15)
+            node[midway, right] {$F_{lg}$};
+
+        % Horizontal braking force (backward, i.e. negative x, green)
+        \draw[->, thick, green!60!black]
+            (7.8, -0.95) -- (8.4, -0.95)
+            node[midway, below] {$F_{brake}$};
+
+        % Ground line
+        \draw[thick, brown!60!black] (6.4, -0.95) -- (8.8, -0.95);
+        \foreach \x in {6.4, 6.7, 7.0, 7.3, 7.6, 7.9, 8.2, 8.5, 8.8} {
+            \draw[brown!60!black, thin] (\x, -0.95) -- (\x-0.15, -1.15);
+        }
+
+        
+
         % Weight label
-        \node[red!70, right] at (12.0, -0.8) {$m_ig$};
+        \node[red!70, right] at (12.0, -0.8) {$m_i g$};
 
         % x axis (FBD)
         \draw[->] (0,-2.2) -- (12.8,-2.2) node[right] {$x$};
 
         % x-axis labels (FBD)
         \node[below] at (2.2,  -2.2) {$x_c$};
-        \node[below] at (6.0,  -2.2) {$x_w$};
+        \node[below] at (5.5,  -2.2) {$x_w$};
+        \node[below] at (7.8,  -2.2) {$x_{lg}$};
         \node[below] at (10.8, -2.2) {$x_t$};
 
-        % FBD label
-        % \node[left] at (0, 0) {\small\textbf{FBD}};
-
+% ─────────────────────────────────────────
+        % KINETIC DIAGRAM (bottom, offset by -5.5)
         % ─────────────────────────────────────────
-        % KINETIC DIAGRAM (bottom, offset by -5.0)
-        % ─────────────────────────────────────────
-        \def\yoff{-5.0}
+        \def\yoff{-5.5}
 
         % Fuselage beam
         \draw[thick] (0,\yoff+0.15) -- (12,\yoff+0.15);
@@ -86,53 +308,48 @@ The structural analysis of the fuselage has been conducted by considering the mo
             \fill[gray!60] ({12/49*\i}, \yoff) circle (1.2pt);
         }
 
-        % Inertial forces m_i*a_i (upward, orange, same varying lengths)
-        \foreach \i/\len in {
-            0/0.7, 1/1.1, 2/0.6, 3/0.9, 4/1.3,
-            5/0.7, 6/1.4, 7/1.0, 8/0.6, 9/0.8,
-            10/1.5, 11/1.1, 12/0.5, 13/0.7, 14/1.2,
-            15/1.0, 16/0.6, 17/1.5, 18/0.8, 19/1.3,
-            20/0.5, 21/1.0, 22/1.4, 23/0.7, 24/1.1,
-            25/0.6, 26/0.8, 27/1.3, 28/0.7, 29/1.1,
-            30/0.5, 31/1.0, 32/0.6, 33/1.4, 34/0.8,
-            35/1.0, 36/1.5, 37/0.7, 38/1.1, 39/0.6,
-            40/0.8, 41/0.5, 42/1.2, 43/0.7, 44/1.0,
-            45/1.3, 46/0.6, 47/0.9, 48/1.2, 49/0.7
-        } {
-            \draw[->, orange!80!black, thin]
-                ({12/49*\i}, \yoff+0.15) --
-                ({12/49*\i}, {\yoff+0.15+\len*0.4});
-        }
+        % CG indicator
+        \fill[red] (6.5, \yoff) circle (3.5pt);
 
-        % Inertial force label
-        \node[orange!80!black, right] at (12.0, \yoff+0.8) {$m_i a_i$};
+        % Translational inertia: m*a_cg (upward at CG, right-side label)
+        \draw[->, thick, orange!80!black, line width=1.5pt]
+            (6.5, \yoff+0.15) -- (6.5, \yoff+1.5)
+            node[midway, right] {$m\,a_{cg}$};
+
+        % Rotational inertia: I_G*alpha
+        % Arc centred at (6.5, yoff+0.75), radius 0.55, counterclockwise
+        % Starting bottom-right, sweeping CCW, arrow at top-left
+        % Label placed to the left of the arc, clear of the force arrow
+        \draw[->, thick, orange!80!black]
+            (6.5, \yoff+0.05) ++ (-30:0.55) arc (-30:210:0.55)
+            node[left] {$I_G\,\alpha$};
+
+        % Dashed reference lines (kinetic)
+        \draw[dashed, gray] (2.2,  \yoff+0.15) -- (2.2,  \yoff-2.2);
+        \draw[dashed, gray] (5.7,  \yoff+0.15) -- (5.7,  \yoff-2.2);
+        \draw[dashed, gray] (6.5,  \yoff-0.15) -- (6.5,  \yoff-2.2);
+        \draw[dashed, gray] (7.8,  \yoff+0.15) -- (7.8,  \yoff-2.2);
+        \draw[dashed, gray] (10.8, \yoff+0.15) -- (10.8, \yoff-2.2);
 
         % x axis (kinetic)
         \draw[->] (0,\yoff-2.2) -- (12.8,\yoff-2.2) node[right] {$x$};
 
-        % Dashed reference lines (kinetic, same x positions)
-        \draw[dashed, gray] (2.2,  \yoff+0.15) -- (2.2,  \yoff-2.2);
-        \draw[dashed, gray] (6.0,  \yoff+0.15) -- (6.0,  \yoff-2.2);
-        \draw[dashed, gray] (10.8, \yoff+0.15) -- (10.8, \yoff-2.2);
-
         % x-axis labels (kinetic)
         \node[below] at (2.2,  \yoff-2.2) {$x_c$};
-        \node[below] at (6.0,  \yoff-2.2) {$x_w$};
+        \node[below] at (5.7,  \yoff-2.2) {$x_w$};
+        \node[below] at (6.5,  \yoff-2.2) {$x_{cg}$};
+        \node[below] at (7.8,  \yoff-2.2) {$x_{lg}$};
         \node[below] at (10.8, \yoff-2.2) {$x_t$};
 
-        % Kinetic diagram label
-        % \node[left] at (0, \yoff) {\small\textbf{KD}};
-
-        % Equals sign between diagrams
-        % \node at (13.2, -2.5) {\Large$=$};
-
     \end{tikzpicture}
-    \caption{Free body diagram (top) and kinetic diagram (bottom) of the fuselage. Weight forces $W_i$ are distributed downward at each node. Inertial forces $m_i a_i$ act upward at each node, with magnitudes proportional to the local mass and acceleration under D'Alembert's principle.}
-    \label{fig:fuselage_fbd_kd}
+    \caption{Free body diagram (top) and kinetic diagram (bottom) of the fuselage during landing. The ground reaction $F_{lg}$ acts upward through the landing gear at $x_{lg}$. In the kinetic diagram, nodal accelerations $a_i = a_{cg} + \dot{\omega}(x_i - x_{cg})$ combine translational and rotational contributions, so the arrow lengths vary linearly about the centre of gravity on top of the base mass distribution.}
+    \label{fig:fuselage_fbd_kd_landing}
 \end{figure}
 
 \section{Wing structural analysis}
 
+-mention structure, what we are aiming for, what we modelled, and how the wing is modelled as an ellipse since the airfoil is very similar
+-
 
 
 \section{Flutter Analysis}

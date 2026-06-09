@@ -139,6 +139,17 @@ The external configuration of the aircraft will be a description of the size and
 \label{sub:landing_gear_design}
 - landing gear section
 
+% landing gear requirements and positioning
+
+% landing gear mechanism 
+
+% landing gear mechanism modeling with spring and dashpot in parallel
+
+% landing constraints
+
+% landing gear dashpot and spring constant tuning
+
+
 \subsection{Environmental Control}
 \label{sub:environmental_control}
 Environmental control is the response of HUGO to different external factors such as rain or UV-radiation. An analysis was established were different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
@@ -297,24 +308,22 @@ Using the mission envelope  (autoref ops \& logistics) it is possible identify t
     \item Wind-gusts: LIDAR can be used to detect wind ahead of an aircraft\cite{Schroeder2020}. The sensors sends out laser-light and then measuring the Doppler-shift in the back-scattered light it is possible to estimate a magnitude and direction of the wind\cite{YEW2025101127}. 
 \end{itemize}
 
-
-Having identified the different sensor it is possible to find the specific sensor which can be used as can be seen in \autoref{tab:internal_config_test_measurement_sensors}.
-
-\begin{longtable}{|c|p{3cm}|c|p{3cm}|p{2cm}|p{2cm}|p{2cm}|}
+Having identified the different sensor it is possible to find the specific sensor which can be used as can be seen in
+\autoref{tab:internal_config_test_measurement_sensors}.
+\begin{longtable}{|c|p{3cm}|c|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
         \caption{Sensors chosen for the test measurements}
-        \label{tab:internal_config_test_measurement_sensors}\\
-\hline
-       \textbf{Sensor ID} & \textbf{Sensor} & \textbf{Nr} & \textbf{Description} & \textbf{Weight [kg]} & \textbf{Dimensions [m]} & \textbf{Power used} \\\hline
+        \label{tab:internal_config_test_measurement_sensors}\\\hline
+       \textbf{Sensor ID} & \textbf{Sensor} & \textbf{Nr} & \textbf{Description} & \textbf{Weight [kg]} & \textbf{Dimensions [m]} & \textbf{Power [W]} \\\hline
 \endfirsthead
 \hline
 \textbf{Sensor ID} & \textbf{Sensor} & \textbf{Nr} & \textbf{Measurement type} & \textbf{Weight [kg]} & \textbf{Dimensions [m]} & \textbf{Power [W]} \\\hline
 \endhead
 \hline
-\multicolumn{7}{r}{\textit{Continued on next page}} \\
+\multicolumn{7}{l}{\textit{Continued on next page}} \\
 \endfoot
 \hline
 \endlastfoot
-        HUG-SEN-01 & FBG sensor \footnote{\href{https://www.peraglobe.com/robust-flight-qualified-fbg-interrogator}{FBG} (accessed on 01.06.2026)}& 1 & Wing deflection & 0.700 & $0.150 \times 0.125 \times 0.0585$ & 7.5 \\\hline
+        HUG-SEN-01 & FBG sensor \footnote{\href{https://www.peraglobe.com/robust-flight-qualified-fbg-interrogator}{FBG} (accessed on 01.06.2026)}& 1 & Wing deflection & 0.700 & $0.150 \times 0.125 \times\ 0.0585$ & 7.5 \\\hline
         HUG-SEN-02 & 6-axis Load-cell & 1 & Wing loadings & 0.16 & & \\\hline
         HUG-SEN-03 & Strain gage \footnote{\href{https://www.hbkworld.com/en/products/transducers/strain/experimental-testing/y-series/ry}{HBK Strain Gauge} (accessed 03.06.2026)} & 4 & Strain & 0.001 & $0.0048\times 0.0087\times0.0003$ & 0.0014 \\\hline
         HUG-SEN-04 & LIDAR-sensor \footnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR}(02.06.2026)} & 1 & Weather detection, wing deflection & 0.160 & $0.055\times 0.060\times0.0387$ & 6 \\\hline
@@ -325,6 +334,8 @@ Having identified the different sensor it is possible to find the specific senso
         HUG-SEN-09 & Altimeter\footnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)} & 1 & Altitude & 0.110 & $0.108 \times 0.079 \times 0.020$ & 0.1 \\\hline
         HUG-SEN-10 & Customer specified & & Customer specified & & & \\\hline
 \end{longtable}
+
+
 - list of sensors for different test cases (autoref ops \& logistics)\\
 - section about the sensors and how they communicate (diagram)\\
 
