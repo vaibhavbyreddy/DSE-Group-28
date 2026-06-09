@@ -28,9 +28,46 @@ Performance analysis addresses the quantified performance of the primary functio
 
 \section{Noise Characteristics}
 \label{sec:noise_characteristics}
+The operation of an aircraft will inevitably lead to the generation of noise. This can be a great nuisance for area surrounding the area of operation of the aircraft. Therefor it is important to obtain an understanding of the not only the magnitude but also at what frequencies dominates the noise-spectrum. Noise is small pressure differences which travels through a medium to the receiving end. For an aircraft the primary source of noise would be the engine. This is especially true for turbine powered aircraft. \todo[inline]{insert citation} Another source would be the aerodynamic surfaces and the fuselage itself. Finally the extended landing gear during take-off and approach. Each 
+To model the noise from the turbine an empirical model was created using noise data obtained experimentally on the JetCat P80 a jet-turbine very similar to the one chosen for HUGO. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures_final/noise_levels_jet.png}
+    \caption{Noise data for JetCat p80 at three different settings (baseline is used as the noise data) \cite{Cican2023}}
+    \label{fig:placeholder}
+\end{figure}
 
 
 
+The noise-levels were obtained for the engine operating at idle, cruise and max power. This data was then fitted with a high degree polynomial to get a mathematical model. The model would use frequency as an input and output the sound pressure level (in decibels).         
+
+Insert fuselage noise model description 
+\begin{equation}
+    OASPL = 50\log\left(\frac{V}{51.44}\right) + 10\log\left(\frac{\delta b}{h^2}\cos^2(\phi)\cos^2\left(\frac{\theta}{2}\right)\right) + 101.3
+\end{equation}
+
+\begin{equation}
+    \Delta SPL = -0.03\left(\frac{R}{152.4}\right)\left|\left(\frac{f}{f_{max}}\right) - 1\right|^{3/2}
+\end{equation}
+
+\begin{equation}
+    SPL = OASPL + 10\log\left(0.613\left(\frac{f}{f_{max}}\right)^4\left(\left(\frac{f}{f_{max}}\right)^{3/2} + 0.5\right)^{-4}\right) + \Delta SPL
+\end{equation}
+
+
+\cite{Thoma2024}. 
+
+All of the models used for the noise approximation can be found in the github (insert citation). 
+Having all the different sources it is possible to add them together. 
+\begin{equation}
+    
+\end{equation} 
+To accurate the noise perceived by a bystander distance must also be taken into account. 
+Insert distance formula 
+
+Discuss flyover 
+
+Discuss mission-profile
 
 
 \section{Analysis of Emissions}

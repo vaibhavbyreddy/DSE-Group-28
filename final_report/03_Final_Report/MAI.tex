@@ -7,11 +7,45 @@
 \section{Manufacturing}
 \label{sec:manufacturing}
 
-Consider automated fiber placement (AFP) systems?
-
-The current prepreg that is selected is optimised for OOA/VBO (this is preferable for our case), but can also be cured in an autoclave. Look at the footnotes to find the datasheet
-
 \subsection{OOA procedure for prepregs}
+\label{sub:OOA}
+
+The datasheet for the selected CYCOM 5320-1 prepreg includes recommended VBO cure cycles. These are generally divided into two categories: a continuous cure cycle and a free-standing post-cure cycle. In the continuous process, the part remains on the tool for the entire duration of the cure. In contrast, the free-standing post-cure method involves removing the part from the tool after an initial cure, allowing it to cool before completing the cure in an oven. 
+
+The post-cure approach is particularly advantageous for rapid prototyping, as it frees up the mould earlier in the process. This enables the next part to be prepared while the previous one continues curing, thereby improving overall production efficiency. The recommended curing cycles are summarized in \autoref{tab:cure_cycles}.
+
+\begin{table}[H]
+\centering
+\caption{Cure cycle comparison \footref{fn:cycom}}
+\label{tab:cure_cycles}
+\begin{tabular}{lccccc}
+\toprule
+Cycle & Initial cure & Cool to $<140^\circ$F mid-cycle? & Post-cure ramp rate & Post-cure & Freestanding? \\
+\midrule
+Cycle A & 250°F / 2 hr & No & 3°F/min & 350°F / 2 hr & No \\
+Cycle B & 250°F / 2 hr & Yes (demold point) & 0.1--0.5°F/min & 350°F / 2 hr & Yes \\
+Cycle C & 200°F / 10 hr & Yes (demold point) & 0.1--0.5°F/min & 350°F / 2 hr & Yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+It is worth mentioning that the post-cure ramp rate for the freestanding cycles is significantly slower. That is deliberate since the part is unsupported, and a slow ramp minimizes thermal gradients and keeps it from distorting as the resin softens before the extra crosslinking locks in the final geometry. 
+
+An important aspect to consider is the total manufacturing time required for each cycle. The freestanding cycles allow for 2 parts to be manufactured simultaneously - while the first one is post-curing, the second begins the initial cure. This would reduce the total time compared to cycle A, since in that case the part remains in the mold for the entire curing process. However, for cycles B and C, the cooling phase and the slower ramp rates result in an overall increase in manufacturing time. To make a comparison, the total manufacturing time will be estimated, considering a single mould will be used for the wing and fuselage. Cycle A has a manufacturing tim
+
+An additonal consideration is to consider what curing temperatures the selected honeycomb core and foam core can withstand. 
+
+2 part mould
+
+\begin{comment}
+\begin{itemize}
+    \item Freestanding allows for batch post-cure
+    \item Cooling time and slower ramp rate increase overall manufacturing cycle time
+    \item A is the best for dimensional accuracy since the part remains on the mold
+\end{itemize}
+\end{comment}
+
+
 
 \subsection{Foam wings}
 
