@@ -12,20 +12,20 @@ The structural analysis of the fuselage has been conducted by considering the mo
     L_c=f\cdot L_{tot}
 \end{equation}
 
-In the first case, the aircraft is assumed to be accelerating vertically with a load factor $n$ and remaining in moment equilibrium.
+In the first case, the aircraft is assumed to be accelerating vertically due to a load factor $n$ and remaining in moment equilibrium.
 The free-body and kinetic diagrams of the fuselage in flight, assuming detached canard and wing, are shown in \autoref{fig:fuselage_fbd_kd_flight}. The equations of motion are then
 
 \begin{equation}
      \tikz[baseline=-0.6ex]{\draw[->] (0,-0.25) -- (0,0.25);}
     \quad
-    \Sigma F: L_c+L_w+L_t-\Sigma_{i=0}^n m_i g = \Sigma_{i=0}^n m_i a_{cg}
+    \Sigma F: L_c+L_w+L_t-\Sigma_{i=0}^n m_i g = \Sigma_{i=0}^n m_i a_{i}
 \end{equation}
 
 \begin{equation}
-    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_O: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma_{i=0}^n x_i m_i g  = 0
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_{cg}: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma_{i=0}^n x_i m_i g  = \Sigma_{i=0}^n x_i m_i a_i
 \end{equation}
 
-where $a_{cg}=(n-1)g$.
+where $a_i=a_{cg}=(n-1)g$.
 
 \begin{figure}[H]
     \centering
@@ -368,26 +368,301 @@ and the internal bending moment as
 
 Additionally, the 
 
-\section{Wing structural analysis}
+% \section{Wing structural analysis}
 
--mention structure, what we are aiming for, what we modelled, and how the wing is modelled as an ellipse, since the airfoil is very similar
+% -mention structure, what we are aiming for, what we modelled, and how the wing is modelled as an ellipse, since the airfoil is very similar
 
-before we beging the actual calculations, talk ablut how we modeld the wing __> modeled as an ellipse, each individual sections as well and the lift is a t c/4 from the tip!!!
-each section has a different geometry
-talk about requirements on wing tip defflection and rotation
-include the talk about the shear strsses (can be done over the weekend)
+% before we beging the actual calculations, talk ablut how we modeld the wing __> modeled as an ellipse, each individual sections as well and the lift is a t c/4 from the tip!!!
+% each section has a different geometry
+% talk about requirements on wing tip defflection and rotation
+% include the talk about the shear strsses (can be done over the weekend)
 
-talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
--
+% talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
+% -
 
 Once the structural analysis of the fuselage has been completed, the design can proceed to analyse the structural properties of the wing. The aerodynamic platform is analysed in both the most critical conditions, during landing when the force of the impact multiplies the weight, during take off conditions when the weight is at its maximum and the wing experiences maximum lift loads and lastly cruise. 
 
-This section focuses on deriving a method applicable for all wing profiles given to HUGO, to compute the structural characteristics such as internal shear, internal bending moments, torsion, deflection, wing rotation and failure determination during normal operation.
+This section focuses on deriving a method applicable for all wing profiles given to HUGO, to compute the structural characteristics such as internal shear, internal bending moments, torsion, deflection, wing rotation and failure determination during normal operation. For the purpose of this analysis, the foam interior is not taken into account for the structural calculations, leaving only the composite skin as the prime structural element. The foam core has 
 
-As it was introduced in \autoref{sec:aerodynamic_modelling}, the main wing that HUGO is equipped with, has the NASA SC(2)-0012 airfoil, which is a symmetrical airfoil
+As it was introduced in \autoref{sec:aerodynamic_modelling}, the wing that HUGO will be delivered with and for which tests have been created, the NASA SC(2)-0012 airfoil \autoref{fig:airfoil_simplified_model}, which is a symmetrical supercritical airfoil, is used to structure the analytical model. In the software, the wing is modelled as an ellipse, with the lift considered at the chorter chord point, as it would act on the actual foil as well \footnote{\hyperlink{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA-0012} (accessed on 10.06.2026)}. This makes the analysis less computationally expensive and offers an 
 
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+
+        % ------------------------
+        % Left: airfoil
+        % ------------------------
+        \begin{axis}[
+            name=airfoilplot,
+            at={(0,0)},
+            anchor=origin,
+            width=7cm,
+            height=3.2cm,
+            axis equal image,
+            xmin=0, xmax=1,
+            ymin=-0.07, ymax=0.07,
+            axis lines=none,
+            clip=false,
+            title={Airfoil}
+        ]
+            % Filled airfoil
+            \addplot[
+                fill=gray!20,
+                draw=black,
+                thick
+            ] coordinates {
+                % Upper surface
+                (0.000000, 0.000000)
+                (0.002000, 0.009120)
+                (0.005000, 0.013920)
+                (0.010000, 0.018600)
+                (0.020000, 0.024840)
+                (0.030000, 0.029160)
+                (0.040000, 0.032400)
+                (0.050000, 0.035040)
+                (0.060000, 0.037320)
+                (0.070000, 0.039390)
+                (0.080000, 0.041190)
+                (0.090000, 0.042820)
+                (0.100000, 0.044280)
+                (0.110000, 0.045600)
+                (0.120000, 0.046800)
+                (0.130000, 0.048000)
+                (0.140000, 0.049080)
+                (0.150000, 0.050040)
+                (0.160000, 0.051000)
+                (0.170000, 0.051840)
+                (0.180000, 0.052680)
+                (0.190000, 0.053400)
+                (0.200000, 0.054120)
+                (0.210000, 0.054720)
+                (0.220000, 0.055320)
+                (0.230000, 0.055920)
+                (0.240000, 0.056400)
+                (0.250000, 0.056880)
+                (0.260000, 0.057360)
+                (0.270000, 0.057720)
+                (0.280000, 0.058080)
+                (0.290000, 0.058440)
+                (0.300000, 0.058800)
+                (0.310000, 0.059040)
+                (0.320000, 0.059280)
+                (0.330000, 0.059520)
+                (0.340000, 0.059640)
+                (0.350000, 0.059760)
+                (0.360000, 0.059880)
+                (0.370000, 0.060000)
+                (0.380000, 0.060000)
+                (0.390000, 0.060000)
+                (0.400000, 0.060000)
+                (0.410000, 0.060000)
+                (0.420000, 0.059880)
+                (0.430000, 0.059760)
+                (0.440000, 0.059640)
+                (0.450000, 0.059520)
+                (0.460000, 0.059280)
+                (0.470000, 0.059040)
+                (0.480000, 0.058800)
+                (0.490000, 0.058440)
+                (0.500000, 0.058080)
+                (0.510000, 0.057720)
+                (0.520000, 0.057360)
+                (0.530000, 0.056880)
+                (0.540000, 0.056400)
+                (0.550000, 0.055800)
+                (0.560000, 0.055200)
+                (0.570000, 0.054600)
+                (0.580000, 0.053880)
+                (0.590000, 0.053160)
+                (0.600000, 0.052320)
+                (0.610000, 0.051360)
+                (0.620000, 0.050400)
+                (0.630000, 0.049320)
+                (0.640000, 0.048240)
+                (0.650000, 0.047040)
+                (0.660000, 0.045840)
+                (0.670000, 0.044580)
+                (0.680000, 0.043320)
+                (0.690000, 0.042060)
+                (0.700000, 0.040800)
+                (0.710000, 0.039540)
+                (0.720000, 0.038280)
+                (0.730000, 0.037020)
+                (0.740000, 0.035760)
+                (0.750000, 0.034500)
+                (0.760000, 0.033240)
+                (0.770000, 0.031980)
+                (0.780000, 0.030720)
+                (0.790000, 0.029460)
+                (0.800000, 0.028200)
+                (0.810000, 0.026940)
+                (0.820000, 0.025680)
+                (0.830000, 0.024420)
+                (0.840000, 0.023160)
+                (0.850000, 0.021900)
+                (0.860000, 0.020640)
+                (0.870000, 0.019380)
+                (0.880000, 0.018120)
+                (0.890000, 0.016860)
+                (0.900000, 0.015600)
+                (0.910000, 0.014340)
+                (0.920000, 0.013080)
+                (0.930000, 0.011820)
+                (0.940000, 0.010560)
+                (0.950000, 0.009300)
+                (0.960000, 0.008040)
+                (0.970000, 0.006780)
+                (0.980000, 0.005520)
+                (0.990000, 0.004260)
+                (1.000000, 0.003000)
+
+                % Lower surface back to LE
+                (1.000000, -0.003000)
+                (0.990000, -0.004260)
+                (0.980000, -0.005520)
+                (0.970000, -0.006780)
+                (0.960000, -0.008040)
+                (0.950000, -0.009300)
+                (0.940000, -0.010560)
+                (0.930000, -0.011820)
+                (0.920000, -0.013080)
+                (0.910000, -0.014340)
+                (0.900000, -0.015600)
+                (0.890000, -0.016860)
+                (0.880000, -0.018120)
+                (0.870000, -0.019380)
+                (0.860000, -0.020640)
+                (0.850000, -0.021900)
+                (0.840000, -0.023160)
+                (0.830000, -0.024420)
+                (0.820000, -0.025680)
+                (0.810000, -0.026940)
+                (0.800000, -0.028200)
+                (0.790000, -0.029460)
+                (0.780000, -0.030720)
+                (0.770000, -0.031980)
+                (0.760000, -0.033240)
+                (0.750000, -0.034500)
+                (0.740000, -0.035760)
+                (0.730000, -0.037020)
+                (0.720000, -0.038280)
+                (0.710000, -0.039540)
+                (0.700000, -0.040800)
+                (0.690000, -0.042060)
+                (0.680000, -0.043320)
+                (0.670000, -0.044580)
+                (0.660000, -0.045840)
+                (0.650000, -0.047040)
+                (0.640000, -0.048240)
+                (0.630000, -0.049320)
+                (0.620000, -0.050400)
+                (0.610000, -0.051360)
+                (0.600000, -0.052320)
+                (0.590000, -0.053160)
+                (0.580000, -0.053880)
+                (0.570000, -0.054600)
+                (0.560000, -0.055200)
+                (0.550000, -0.055800)
+                (0.540000, -0.056400)
+                (0.530000, -0.056880)
+                (0.520000, -0.057360)
+                (0.510000, -0.057720)
+                (0.500000, -0.058080)
+                (0.490000, -0.058440)
+                (0.480000, -0.058800)
+                (0.470000, -0.059040)
+                (0.460000, -0.059280)
+                (0.450000, -0.059520)
+                (0.440000, -0.059640)
+                (0.430000, -0.059760)
+                (0.420000, -0.059880)
+                (0.410000, -0.060000)
+                (0.400000, -0.060000)
+                (0.390000, -0.060000)
+                (0.380000, -0.060000)
+                (0.370000, -0.060000)
+                (0.360000, -0.059880)
+                (0.350000, -0.059760)
+                (0.340000, -0.059640)
+                (0.330000, -0.059520)
+                (0.320000, -0.059280)
+                (0.310000, -0.059040)
+                (0.300000, -0.058800)
+                (0.290000, -0.058440)
+                (0.280000, -0.058080)
+                (0.270000, -0.057720)
+                (0.260000, -0.057360)
+                (0.250000, -0.056880)
+                (0.240000, -0.056400)
+                (0.230000, -0.055920)
+                (0.220000, -0.055320)
+                (0.210000, -0.054720)
+                (0.200000, -0.054120)
+                (0.190000, -0.053400)
+                (0.180000, -0.052680)
+                (0.170000, -0.051840)
+                (0.160000, -0.051000)
+                (0.150000, -0.050040)
+                (0.140000, -0.049080)
+                (0.130000, -0.048000)
+                (0.120000, -0.046800)
+                (0.110000, -0.045600)
+                (0.100000, -0.044280)
+                (0.090000, -0.042820)
+                (0.080000, -0.041190)
+                (0.070000, -0.039390)
+                (0.060000, -0.037320)
+                (0.050000, -0.035040)
+                (0.040000, -0.032400)
+                (0.030000, -0.029160)
+                (0.020000, -0.024840)
+                (0.010000, -0.018600)
+                (0.005000, -0.013920)
+                (0.002000, -0.009120)
+                (0.000000, 0.000000)
+            };
+
+            \draw[dashed] (axis cs:0,0) -- (axis cs:1,0);
+        \end{axis}
+
+        % ------------------------
+        % Right: ellipse model
+        % ------------------------
+        \begin{axis}[
+            name=ellipseplot,
+            at={(8.4cm,0)},
+            anchor=origin,
+            width=7cm,
+            height=3.2cm,
+            axis equal image,
+            xmin=0, xmax=1,
+            ymin=-0.07, ymax=0.07,
+            axis lines=none,
+            clip=false,
+            title={Equivalent elliptical model}
+        ]
+            \addplot[
+                fill=gray!20,
+                draw=black,
+                thick,
+                domain=0:360,
+                samples=250
+            ]
+            ({0.5 + 0.5*cos(x)}, {0.06*sin(x)});
+
+            \draw[dashed] (axis cs:0,0) -- (axis cs:1,0);
+
+            \draw[->, very thick] (axis cs:0.25,0.0) -- (axis cs:0.25,0.1);
+            \node[anchor=west] at (axis cs:0.27,0.055) {$L$};
+        \end{axis}
+
+    \end{tikzpicture}
+    \caption{Airfoil geometry and simplified elliptical representation with lift applied at quarter-chord.}
+    \label{fig:airfoil_simplified_model}
+\end{figure}
 \todo[inline]{add the image with the airfoil and the elipse with the lift when the internet is not shit}
-In \autoref{sec:fuselage_structural_analysis}, the fuselage was divided into individual nodes and treated independently. The same approach is implemented for the wing, where the half span is divided into $n$ individual nodes that are treated as wing sections. Furthermore, the wing is structured as an ellipse 
+In \autoref{sec:fuselage_structural_analysis}, the fuselage was divided into individual nodes and treated independently. The same approach is implemented for the wing, where the half span is divided into $n$ individual nodes that are treated as wing sections. Using this method, the wing is divided into multiple smaller segments, division left up to the user, that are further analysed as individual sections where forces and moments act on. Each component has an initial lift and weight associated to it
 
 \section{Flutter Analysis}
 \label{sec:flutter_analysis}

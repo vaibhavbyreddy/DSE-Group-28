@@ -52,7 +52,7 @@ HUG-NLR-06 & The UAV shall be reconfigurable in a short time frame, as to allow 
 
 \end{longtable}
 
-The user requirements provide a sense of the aircraft's intended operation and the user's expectations regarding its final performance and design. As such, they cannot always be validated to ensure that the system can perform its functions successfully, i. e. they are not VALID (Verifiable, Achievable, Logical, Integral, Definite) \todo{add source for VALID.}. For this reason, system requirements are defined to describe the product's performance in a way that can be validated. From those, subsystem requirements are derived to define the specific performance on a subsystem level. Comprehensive lists of system and subsystem requirements are showcased in \autoref{tab:system_requirements} and \autoref{}, respectively.
+The user requirements provide a sense of the aircraft's intended operation and the user's expectations regarding its final performance and design. As such, they cannot always be validated to ensure that the system can perform its functions successfully, i. e. they are not VALID (Verifiable, Achievable, Logical, Integral, Definite) \todo{add source for VALID.}. For this reason, system requirements are defined to describe the product's performance in a way that can be validated. From those, subsystem requirements are derived to define the specific performance on a subsystem level. Comprehensive lists of system and subsystem requirements are showcased in \autoref{tab:system_requirements} and \autoref{tab:subsystem_requirements}, respectively.
 
 \begin{longtable}{|c|p{13.5cm}|}
 \caption{HUGO's system requirements}
@@ -80,10 +80,40 @@ HUG-GEN-01 & The aircraft shall have a maximum take-off mass less than 50 kg.\\\
 HUG-GEN-02 & The end user shall be able to install the wing compliant with the Planform Envelope. \\\hline
 HUG-GEN-03 & The end user shall be able to install at least 5 kg of payload on the provided aircraft, in addition to the wing planform itself. \\\hline
 HUG-GEN-04 & The aircraft shall be able to execute the flight profile without any customer-specific payload. \\\hline
+HUG-GEN-05 & The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \footnote{Baseline Report}. \\\hline
+HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van. \\\hline
 \multicolumn{2}{|c|}{\textbf{Manufacturing, Assembly, and Integration}}\\\hline
 HUG-MAN-01 & The manufacturing cost of a single aircraft with the Standard Wing Planform shall be less than 45000€. \\\hline
-HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufacturable using only TRL10 (Technology Readiness Level 10) manufacturing techniques. \\\hline
+HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufacturable using only Technology Readiness Level 10 manufacturing techniques. \\\hline
+HUG-MAN-03 & Every subsystem inside the aircraft wing and fuselage shall have the possibility of access, allowing for subsystem inspection. \\\hline
+HUG-MAN-04 & Every component of primary structure wing and fuselage shall have the possibility of access, allowing for component inspection. \\\hline
 
+
+\multicolumn{2}{|c|}{\textbf{Stability}} \\\hline
+HUG-STB-01 & The CG excursion of the aircraft shall allow for both statically and dynamically stable, unstable and neutrally stable flight conditions. \\\hline
+HUG-STB-02 & A CG excursion of TBD \% MAC shall be achievable in flight. \\\hline
+
+
+\multicolumn{2}{|c|}{\textbf{Controllability}} \\\hline
+HUG-CTL-01 & The aircraft shall have autonomous stabilisation systems capable of stabilizing the aircraft within the TBD range of CG locations. \\\hline
+HUG-CTL-02 & The aircraft shall be able to perform turns, climb and descent autonomously. \\\hline
+HUG-CTL-03 & The aircraft shall be controllable remotely up to the distance from the ground station as specified by HUG-COM-002. \\\hline
+
+\multicolumn{2}{|c|}{\textbf{Mission Profile}} \\\hline
+HUG-MIP-01 & The aircraft shall have a nominal mission endurance of 30 minutes, for a cruise altitude of FL270 and the cruise speed of Mach 0.4 outside of its 5 minutes experiment segment. \\\hline
+HUG-MIP-02 & The aircraft shall be capable of sustaining Mach 0.75 at an altitude of FL270 for the 5 minutes experiment segment during its nominal mission, at TBD fuel fraction for any planform inside the High-speed Envelope. \\\hline
+HUG-MIP-03 & The aircraft shall perform take-off and landing maneouvres at Den Helder airport (DHR/EHKD) unless redirected to other airports by De Kooy ATC \footnote{Midterm Report}. \\\hline
+HUG-MIP-03 & The aircraft shall be capable of performing four landing attempts at Den Helder airport, with a go-around altitude of 1500 ft, not counted in its nominal endurance of 30 minutes. \\\hline
+HUG-MIP-04 & The aircraft shall perform all maneouvres with performance compliant with SC Light-UAS 01. \cite{SC Light-UAS} \\\hline
+
+\multicolumn{2}{|c|}{\textbf{Emergency Handling}} \\\hline
+HUG-EME-01 & Isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures (failure conditions that are expected to result in one or more fatalities). \cite{SC LIGHT-UAS} \\\hline
+HUG-EME-02 & HUGO shall be protected against the catastrophic effects of lightning (expected to result in one or more fatalities). \cite{SC Light-UAS} \\\hline
+HUG-EME-03 & It shall be possible to terminate the mission in a controlled manner at any point in time, using a "return to home" command. \\\hline
+HUG-EME-04 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\\hline
+HUG-EME-05 & The fire protection system shall minimise the risk of fire initiation and propagation such that ground hazards for people and infrastructure are properly mitigated. \cite{SC Light-UAS}. \\\hline
+HUG-EME-06 & No single failure of the UAS or of any external system supporting the operation must lead to its operation outside the ground risk buffer defined by EASA SC Light-UAS regulations. \cite{SC Light-UAS} \\\hline
+HUG-EME-07 & No single-point failure of electronic components shall cause mission failure. \\\hline
 
 
 \end{longtable}
@@ -102,6 +132,49 @@ HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufac
 \textbf{ID} & \makecell{\textbf{Requirement}} \\
 \hline
 \endhead
+
+\hline
+\multicolumn{2}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+\multicolumn{2}{|c|}{\textbf{Avionics}} \\\hline
+
+\multicolumn{2}{|c|}{\textbf{Electronics}} \\\hline
+HUG-ELE-01 & The aircraft shall provide total electrical energy after losses greater than the sum of maximum payload energy consumption per mission (TBD J) and Baseline Aircraft Energy Required. \\\hline
+HUG-ELE-02 & The peak electrical power available after losses shall be greater than a sum of payload power required (TBD watts) and Peak Baseline Aircraft Power Required. \\\hline
+HUG-ELE-03 & The aircraft shall be able to transmit the measured data as well as telemetry from control, propulsion and fuel subsystems in real time from the maximum aircraft-ground station distance. \\\hline
+HUG-ELE-04 & The communication subsystem shall allow for contact with the ground station for a distance of at least 1.5 times the mission radius, up to TBD atmospheric conditions. \\\hline
+
+\multicolumn{2}{|c|}{\textbf{Landing Gear}} \\\hline
+HUG-LGR-01 & The landing gear wingtip clearance shall be greater than or equal to 7 degrees for a wingspan of 3.7 m. \\\hline
+HUG-LGR-02 & The turn over angle of the aircraft shall not exceed 55 degrees. \\\hline
+HUG-LGR-03 & The scrape angle of the aircraft tail shall be greater than 15 degrees. \\\hline
+HUG-LGR-04 & The tip over angle of the aircraft shall be greater than the scrape angle. \\\hline
+HUG-LGR-05 & The nose landing gear shall retract rearwards. \\\hline
+
+\multicolumn{2}{|c|}{\textbf{Propulsion}} \\\hline
+HUG-PRP-01 & The aircraft shall include fuel tanks for housing the fuel volume required for the entire mission, incl. missed approach and loiter time. \\\hline
+HUG-PRP-02 & Moving fuel between the fuel tanks of the aircraft shall be possible both on the ground and in flight. \\\hline
+HUG-PRP-03 & The engines shall be mounted to the fuselage, behind the main wing. \\\hline
+HUG-PRP-04 & The engines shall be attached to the fuselage via bolted joints. \\\hline
+
+\multicolumn{2}{|c|}{\textbf{Structures}} \\\hline
+HUG-STR-01 & The structure shall support limit loads, which are equal to the structural design loads, without interference with the safe operation and without detrimental permanent deformation. \cite{SC Light-UAS} \\\hline
+HUG-STR-02 & The structure shall support ultimate loads, which are equal to the limit loads multiplied by safety factor of 1.5 (unless otherwise provided), without failures.  \cite{} \\\hline
+HUG-STR-03 & The aircraft structure shall not buckle under loads lower than the ultimate loads. \\\hline
+HUG-STR-04 & The natural frequencies of the structure shall not be within 0.8 and 1.4 \cite{Prakash2016DynamicFoundation} of the blade-pass frequency of the engine \cite{Alhazmi2025CoolingFanVibration}. \\\hline
+HUG-STR-05 & The structure shall provide space and mounting for auxiliary systems. \\\hline
+HUG-STR-06 & The aircraft shall house a payload bay of at least 5 L internal volume. \\\hline
+
+\multicolumn{2}{|c|}{\textbf{Test Planform}}\\\hline
+HUG-TPL-01 & No part of the aircraft equipped with a wing planform from the  Planform Envelope shall experience transonic shocks. \\\hline
+HUG-TPL-02 & The aircraft shall house and operate with test planforms of any combination of effective aspect ratios between 19 to 27 \cite{}, non-increasing chord function, dihedral function bound between 0 and 10 degrees, thickness to chord function bound between TBD. \\\hline
+HUG-TPL-03 & The aircraft shall house and operate with test planforms total mass up to TBD. \\
+
+
 
 \end{longtable}
 

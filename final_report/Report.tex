@@ -1,81 +1,153 @@
 \documentclass{tudelft-report}
 
-%% Set up the bibliography
-\usepackage{booktabs}
-\usepackage{eurosym}
+% --------------------------------------------------------------------
+% Packages
+% --------------------------------------------------------------------
+
+% Encoding / text
+\usepackage{csquotes}
 \usepackage{textcomp}
-%\usepackage{showframe}
-\usepackage{tabularx}
-\usepackage{float}
-\usepackage{longtable}
+\usepackage{gensymb}
+\usepackage{datetime}
+\usepackage{parskip}
+\usepackage{lipsum}
+\usepackage{comment}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+
+% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{calc}
+\usepackage{siunitx}
+
+% Tables
 \usepackage{array}
 \usepackage{booktabs}
-\usepackage{geometry}
-\usepackage{caption}
-\usepackage{tikz}
-\usepackage{pdflscape}
-\usepackage{hyperref}
-\usepackage{pgfplots}
-\pgfplotsset{compat = newest}
-\usepackage{booktabs}   
+\usepackage{tabularx}
+\usepackage{longtable}
 \usepackage{makecell}
 \usepackage{tablefootnote}
-\usepackage{wrapfig}
 \usepackage{threeparttable}
-%\usepackage[numbers,sort&compress]{natbib}
-%
-%--------------------------------------------------------------------
-%
-%ALEX FUCKERY DO NOT TOUCH
-\usepackage{csquotes}
+\usepackage{multirow}
+\usepackage{blkarray}
+\usepackage{eurosym}
+
+% Figures / graphics
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{adjustbox}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+
+% TikZ / plots
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgfgantt}
+
+% Lists
+\usepackage{enumitem}
+\usepackage{easylist}
+\usepackage{multicol}
+
+% Colors / notes / changes
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{todonotes}
+\usepackage{changes}
+\usepackage{color}
+
+% Layout / titles
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{chngcntr}
+\usepackage{etoolbox}
+
+% Captions
+\usepackage[
+    labelfont={bf},
+    textfont={it},
+    tableposition=top,
+    justification=centering
+]{caption}
+
+% Nomenclature
+\usepackage[intoc]{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{Nomenclature}
+
+% Hyperlinks and references
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{varioref}
+\usepackage{cleveref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    breaklinks=true
+}
+
+% --------------------------------------------------------------------
+% Bibliography
+% --------------------------------------------------------------------
+
 \usepackage[
     backend=biber,
     style=aiaa,
     citestyle=aiaa,
     sorting=none,
-    natbib=true
-    dashed=false
+    natbib=true,
+    dashed=false,
     giveninits=true
 ]{biblatex}
 
 \addbibresource{references.bib}
 
-\usepackage{hyperref}
-\usepackage{chngcntr}
+\DeclareFieldFormat{url}{\href{#1}{\textsc{Url}}}
+\DeclareFieldFormat{doi}{\href{https://doi.org/#1}{\textsc{DOI}}}
+
+% Set only bibliography entries to 11 pt
+\renewcommand*{\bibfont}{\fontsize{11pt}{13pt}\selectfont}
+
+% --------------------------------------------------------------------
+% Custom formatting
+% --------------------------------------------------------------------
+
+\setlength{\parindent}{0pt}
+\setcounter{tocdepth}{1}
+\yyyymmdddate
+
+% Chapter title formatting
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter.}{0.5em}{}
+
+% Footnote numbering independent of chapter
 \counterwithout{footnote}{chapter}
 
-% Make footnote numbers larger
-%---------------------------
+% Larger footnote numbers
 \makeatletter
-% \patchcmd{\chapter}
-%   {\if@openright\cleardoublepage\else\clearpage\fi}
-%   {\par\vspace{10cm}}
-%   {}{}
-% \makeatother
 
-% Footnote number in the main text
 \renewcommand\@makefnmark{%
   \hbox{\@textsuperscript{(\normalfont\normalsize\@thefnmark)}}%
 }
 
-% Footnote number at the bottom of the page
 \renewcommand\@makefntext[1]{%
   \noindent
   \makebox[1.8em][r]{\@textsuperscript{\normalfont\normalsize\@thefnmark}}%
   #1%
 }
-\usepackage{todonotes}
 
-\addbibresource{references.bib}
+\makeatother
 
-% Set only bibliography entries to 11 pt
-\renewcommand*{\bibfont}{\fontsize{11pt}{13pt}\selectfont}
-
-\usepackage[intoc]{nomencl}
-\makenomenclature
-\renewcommand{\nomname}{Nomenclature}
-
-% Optional grouping of nomenclature entries
+% Nomenclature grouping
 \renewcommand{\nomgroup}[1]{%
   \item[\bfseries
   \ifstrequal{#1}{A}{Abbreviations}{%
@@ -84,122 +156,39 @@
   \ifstrequal{#1}{S}{Subscripts and Superscripts}{}}}}%
 ]}
 
-
-
-%
-%--------------------------------------------------------------------
-%
-
-\usepackage{csquotes}
-\usepackage{hyperref}
-\usepackage{pgfgantt}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue,
-    breaklinks=true
-}
-\DeclareFieldFormat{url}{\href{#1}{\textsc{Url}}}
-\DeclareFieldFormat{doi}{\href{https://doi.org/#1}{\textsc{DOI}}}
-\usepackage{varioref}
-\usepackage{cleveref}
-\usepackage{amsmath}                                % Math packages
-\usepackage{amssymb}
-\usepackage{calc}
-\usepackage{gensymb}
-\usepackage{siunitx}
-\usepackage{adjustbox}                              % Figure packages
-\usepackage[labelfont={bf}, 
-            textfont={it}, 
-            tableposition=top,
-            justification=centering]{caption}
-\usepackage{float}
-\usepackage{graphicx}
-\usepackage{wrapfig}
-\usepackage{subcaption}
-\usepackage{tikz}
-\usepackage{array}                                  % Table packages
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{multicol}
-\usepackage{multirow}
-\usepackage{enumitem}                               % Listing packages
-\usepackage{easylist}
-\usepackage{listings}
-\usepackage{footnote}
-\usepackage{color}
-\usepackage{changes}                                % Text packages
-\usepackage{comment}
-\usepackage{fancyvrb}
-\usepackage{lipsum}
-\usepackage{textcomp}
-\usepackage{url}
-\usepackage{verbatim}
-\usepackage{geometry}                               % Miscellaneous packages
-\usepackage{nomencl}
-\usepackage{pdfpages}
-\setlength{\parindent}{0pt}
-\usepackage{datetime}
-\usepackage{tabularx}
-%added this below to get rid of the gigantic numbers wasting space
-\usepackage{titlesec}
-\usepackage{booktabs} % For nicer rules
-\usepackage{pgfgantt}
-\usepackage{tikz-qtree}
-\usetikzlibrary{positioning}
-
-\usepackage[table,xcdraw]{xcolor}
-
-\usepackage{blkarray}
-
-\titleformat{\chapter}[hang]
-  {\normalfont\huge\bfseries}  % font format
-  {\thechapter.}{0.5em}{}        % number + spacing
-
-
-\usepackage{etoolbox}
-\usepackage{titlesec}
-
-
-%% Additional packages and commands
-\usepackage{parskip}
-
-
-\setcounter{tocdepth}{1} 
-%\setlist{itemsep=-2pt} % Reducing white space in lists slightly
-%\renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
-
+% Custom footnote reference command
 \newcounter{fnhexply}
 \newcounter{fncycom}
 \newcounter{fntoray}
+
 \newcommand{\footnotemarkref}[1]{%
   \protect{\color{blue}\hyperlink{Hfootnote.\arabic{#1}}{\textsuperscript{(\arabic{#1})}}}%
 }
 
-\yyyymmdddate
-
-%% ----------------------------------------------------------------------
-%%    Begin of document + Frontmatter (Roman page numbering)
-%% ----------------------------------------------------------------------
+% --------------------------------------------------------------------
+% Begin document
+% --------------------------------------------------------------------
 
 \begin{document}
 
 \frontmatter
 
-%% Define the main parameters
+% --------------------------------------------------------------------
+% Cover information
+% --------------------------------------------------------------------
 
-\title{ HUGO Final Report}
+\title{HUGO Final Report}
 \subtitle{}
+
 \author{
 \Large{DSE Group 28} \texorpdfstring{\\}{}[1em]
 \Large{Tutor: Dr.ir. Saullo Giovani Pereira Castro}\\
-\Large{Coaches: Dr. ir. Jenna Iori \& Ir. Marco Radaelli }
+\Large{Coaches: Dr. ir. Jenna Iori \& Ir. Marco Radaelli}
 \texorpdfstring{\\}{}[1em]
-\texorpdfstring{\newline}{} 
+\texorpdfstring{\newline}{}
 \large{
 \texorpdfstring{
-\begin{tabular}{@{}llp{0mm}ll@{}}
+\begin{tabular}{@{}l@{}}
 Adam Janeček (5925959) \\
 Alexandru Gheorghiu (5769132)\\
 Arturo Arends Martinez (5338247)\\
@@ -210,20 +199,26 @@ Marek Gryszka (5909880)\\
 Plamena Dimitrova (5923565)\\
 Teo Čokonaj (5954886)\\
 Vaibhav Byreddy (5237254)\\
- \end{tabular}\\\\
- }{}
- }}
-%\subject{AE3212-II Simulation, Verification \& Validation} % Cover only
-\affiliation{Delft University of Technology} % Cover only
+\end{tabular}\\\\
+}{}
+}
+}
+
+\affiliation{Delft University of Technology}
 
 \coverimage{figures_final/cover_image.png}
-\definecolor{title}{HTML}{6bafff} % Color for cover title
+\definecolor{title}{HTML}{6bafff}
 
 \makecover
+
 \newpage
 \thispagestyle{empty}
 \mbox{}
 \newpage
+
+% --------------------------------------------------------------------
+% Front matter
+% --------------------------------------------------------------------
 
 \include{Frontmatter/title}
 \include{Frontmatter/Nomenclature}
@@ -239,17 +234,15 @@ Vaibhav Byreddy (5237254)\\
 
 \cleardoublepage
 \newpage
-%\include{Main_Sections/Nomenclature}
+
 \printnomenclature[3cm]
 
-
-
-%% ----------------------------------------------------------------------
-%%    Mainmatter (Arabic page numbering)
-%% ----------------------------------------------------------------------
-
+% --------------------------------------------------------------------
+% Main matter
+% --------------------------------------------------------------------
 
 \mainmatter
+
 %\input{Main_Sections/Abstract}
 \input{03_Final_Report/Executive_Overview}
 \input{03_Final_Report/Managing}
@@ -270,19 +263,24 @@ Vaibhav Byreddy (5237254)\\
 \input{03_Final_Report/Material_Characteristics}
 \input{03_Final_Report/MAI}
 
-%% Add bibliography
-%\newpage
-%\nocite{*} % remove this later if you only want cited references
-%\bibliographystyle{new-aiaa}
-%\bibliography{reference}
+% --------------------------------------------------------------------
+% Bibliography
+% --------------------------------------------------------------------
+
+\newpage
+
+% Use this only if you want every entry from references.bib to appear,
+% including entries that are not cited in the text.
+% \nocite{*}
+
 \printbibliography
+
+% --------------------------------------------------------------------
+% Appendix
+% --------------------------------------------------------------------
+
 \appendix
 
-%% ----------------------------------------------------------------------
-%%    Appendix (Letters for chapters)
-%% ----------------------------------------------------------------------
-
 \input{03_Final_Report/Appendix_Config_Layout}
-
 
 \end{document}

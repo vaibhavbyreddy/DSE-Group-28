@@ -15,13 +15,13 @@ The forces and moments on the control surfaces were calculated using the Flow5 s
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{figures_final/HUGO_Flow5_260609.png}
-    \caption{HUGO aircraft model mesh for analysis in Flow5}
+    \caption{HUGO aircraft model mesh for analysis in Flow5, with canard attached}
     \label{fig:flow5_overview}
 \end{figure}
-\subsection{Flight conditions}
-The NASA DAST drone featured ailerons with 23 \% of the chord length, 0.254 m in span (around 9\% of the half-wing span) and starting right at the wing root. \cite{Gilyard1983} This size is smaller than other reference aircraft, which is caused by the range of velocities the aircraft operated in. \cite{} \todo{cite from midterm} The horizontal empennage of the DAST drone did not feature an elevator. Instead, the entire empennage tilted for pitch motion. \cite{} \todo{cite, this source is in midterm} The FLEXOP and X-56 aircraft featured multiple control surfaces along the wing span, which could be used based on the flight velocity and desired control characteristics. The exact size of the control surfaces in these aircraft is not available, manual measurements from projected views show that the chord fraction of the ailerons was close to 25 \%. Furthermore, the FLEXOP aircraft uses a V-tail empennage configuration with 2 elevators on each side. The exact size of the elevators has not been reported, however, manual measurements suggest the chord fraction lies between 30-40\% of the horizontal tail chord length  \cite{Takarics2019} \cite{} \todo{cite sth about the X-56 and the info here}
-
-Based on this information, the roll characteristics were initially tested using the original wing planform \todo{reference this} with ailerons having a 20 \% chord-to-length ratio, spanning 25 \% of the half-wing span and located at the wing center. These control surfaces were tested in an approximate approach speed regime, where $V_{appr} = 50 \ m \cdot s^{-1}$ at an angle of attack $\alpha=6.5 \degree$. Each aileron has been set to 20 \degree deflection. At this flight velocity, the maximum calculated hinge moment on a single aileron is $0.0408 \ N\cdot m$, with both ailerons deflected in opposite directions. The resulting roll rate p is calculated using \autoref{eq:roll_rate} for steady-state roll rate \cite{nelson1998flight}.
+\subsection{Control surface breakdown}
+The NASA DAST drone featured ailerons with 23 \% of the chord length, 0.254 m in span (around 9\% of the half-wing span) and starting right at the wing root. This size is smaller than other reference aircraft, which is caused by the range of velocities the aircraft operated in. The horizontal empennage of the DAST drone did not feature an elevator. Instead, the entire empennage tilted for pitch motion. \cite{Gilyard1983} The FLEXOP and X-56 aircraft featured multiple control surfaces along the wing span, which could be used based on the flight velocity and desired control characteristics. The exact size of the control surfaces in these aircraft is not available, manual measurements from projected views show that the chord fraction of the ailerons was close to 25 \%. Furthermore, the FLEXOP aircraft uses a V-tail empennage configuration with 2 elevators on each side. The exact size of the elevators has not been reported, however, manual measurements suggest the chord fraction lies between 30-40\% of the horizontal tail chord length  \cite{Takarics2019} \cite{} \todo{cite sth about the X-56 and the info here}
+\subsection{Ailerons}
+Based on this information, the roll characteristics were initially tested using the original wing planform \todo{reference this} with ailerons having a 20 \% chord-to-length ratio, spanning 25 \% of the half-wing span and located at the wing center. These control surfaces were tested in an approximate approach speed regime, where $V_{appr} = 50 \ m \cdot s^{-1}$ at an angle of attack $\alpha=6.5 \degree$. The air used in the analysis had a zero-altitude ISA density, i.e. $\rho = 1.225 \ kg \cdot m^-3$. Each aileron has been set to 20 \degree deflection. At this flight velocity, the maximum calculated hinge moment on a single aileron is $0.0408 \ N\cdot m$, with both ailerons deflected in opposite directions. The resulting roll rate p is calculated using \autoref{eq:roll_rate} for steady-state roll rate \cite{nelson1998flight}.
 \begin{equation}
     p = -2 \frac{V}{b} \frac{C_{l_{\delta_{a}}}}{C_{l_{p}}}\delta_a
     \label{eq:roll_rate}
@@ -47,9 +47,21 @@ Here, $V = V_{appr}$, $b = 2.66m$ is the wing span, $C_{l_{\delta_{a}}}$ is the 
 \end{table}
 Note that \autoref{eq:roll_rate} uses small-angle approximation, therefore values tend towards less accuracy as $\delta_a$ increases. \\
 
-At the target experiment flight speed at $M = 0.75$, the required aileron deflection to reach the approach roll rate has been found to be $\delta_a = \pm3.92 \degree$. Flow5 outputs a moment $M = 0.179 N \cdot m$ for a single aileron at this speed regime. This speed lies in compressibility region, therefore accounting for this in the hinge moment is needed.  This value was obtained in Flow5 and then scaled using the Prandtl-Glauert compressibility correction
+At the target experiment flight speed at $M = 0.75$, the required aileron deflection to reach the approach roll rate has been found to be $\delta_a = \pm3.92 \degree$. Flow5 outputs a moment $H_a = 0.179 \ N \cdot m$ for a single aileron at this speed regime. This speed lies in compressibility region, therefore accounting for this in the hinge moment is needed. Using the expression in \autoref{eq:hinge_moment} \cite{}, value obtained in Flow5 was then scaled using the Prandtl-Glauert compressibility correction in \autoref{eq:ch_compressibility}, analogous to the method Simpson used \cite{Simpson2016}.
+
+\begin{equation}
+    \label{eq:hinge_moment}
+    C_h =\frac{H_a}{qS_ac_a} \approx 0.0345
+\end{equation}
+\begin{equation}
+    \label{eq:ch_compressibility}
+    C_{h_{c}} = \frac{C_h}{\sqrt{1-M^2}} = \frac{0.0345}{\sqrt{1-0.75^2}} \approx0.0522
+\end{equation}
+From this, the updated aileron hinge moment $H_{a_{c}} \approx 0.27\  N \cdot m$ was obtained. This value is important for the aileron actuator selection.
 \subsection{Control surface analysis verification}
 In order to verify the control surface moments, a simulation setup in identical flight conditions was used.
+\subsection{Elevator}
+
 \subsection{Dynamic characteristics of the aircraft}
 
 \section{Centre of Gravity Limits}
