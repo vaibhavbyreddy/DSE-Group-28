@@ -6,7 +6,8 @@
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
 \section{Fuselage structural analysis}
-The structural analysis of the fuselage has been conducted by considering the most constraining loading cases. Namely, the pull-up manoeuvre at the maximum load factor from the flight envelope, and the main landing gear impact for maximum vertical deceleration. For both of these, the fuselage has been discretised into a number of nodes, with each node being assigned a mass based on the estimated masses and positions of different components. The lift force of the canard is assumed to be a fraction of the total lift force:
+\label{sec:fuselage_structural_analysis}
+The structural analysis of the fuselage has been conducted by considering the most constraining loading cases. Namely, the pull-up manoeuvre at the maximum load factor from the flight envelope, and the main landing gear impact for maximum vertical deceleration. For both of these, the fuselage has been discretised into $n$ nodes, with each node being assigned a mass based on the estimated masses (both structural and non-structural) and positions of different components. The lift force of the canard is assumed to be a fraction of the total lift force:
 \begin{equation}
     L_c=f\cdot L_{tot}
 \end{equation}
@@ -15,11 +16,13 @@ In the first case, the aircraft is assumed to be accelerating vertically with a 
 The free-body and kinetic diagrams of the fuselage in flight, assuming detached canard and wing, are shown in \autoref{fig:fuselage_fbd_kd_flight}. The equations of motion are then
 
 \begin{equation}
-    \Sigma F: L_c+L_w+L_t-\Sigma m_i g = \Sigma m_i a_{cg}
+     \tikz[baseline=-0.6ex]{\draw[->] (0,-0.25) -- (0,0.25);}
+    \quad
+    \Sigma F: L_c+L_w+L_t-\Sigma_{i=0}^n m_i g = \Sigma_{i=0}^n m_i a_{cg}
 \end{equation}
 
 \begin{equation}
-    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_O: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma x_i m_i g  = 0
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_O: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma_{i=0}^n x_i m_i g  = 0
 \end{equation}
 
 where $a_{cg}=(n-1)g$.
@@ -77,7 +80,7 @@ where $a_{cg}=(n-1)g$.
     node[midway,right] {$L_c$};
 
 \draw[->,thick,blue]
-    (2.2,0.30) arc (120:-60:0.30)
+    (2.0,0.30) arc (120:-60:0.30)
     node[right] {$M_c$};
 
 % Wing lift and moment (aligned)
@@ -86,7 +89,7 @@ where $a_{cg}=(n-1)g$.
     node[midway,right] {$L_w$};
 
 \draw[->,thick,blue]
-    (5.7,0.50) arc (120:-60:0.40)
+    (5.4,0.50) arc (120:-60:0.40)
     node[right] {$M_w$};
 
 % Tail lift
@@ -155,7 +158,7 @@ where $a_{cg}=(n-1)g$.
         \draw[dashed, gray] (2.2,  \yoff+0.15) -- (2.2,  \yoff-2.2);
         \draw[dashed, gray] (5.7,  \yoff+0.15) -- (5.7,  \yoff-2.2);
         \draw[dashed, gray] (6.5,  \yoff-0.15) -- (6.5,  \yoff-2.2);
-        \draw[dashed, gray] (7.8,  \yoff+0.15) -- (7.8,  \yoff-2.2);
+        % \draw[dashed, gray] (7.8,  \yoff+0.15) -- (7.8,  \yoff-2.2);
         \draw[dashed, gray] (10.8, \yoff+0.15) -- (10.8, \yoff-2.2);
 
         % x axis (kinetic)
@@ -165,7 +168,7 @@ where $a_{cg}=(n-1)g$.
         \node[below] at (2.2,  \yoff-2.2) {$x_c$};
         \node[below] at (5.7,  \yoff-2.2) {$x_w$};
         \node[below] at (6.5,  \yoff-2.2) {$x_{cg}$};
-        \node[below] at (7.8,  \yoff-2.2) {$x_{lg}$};
+        % \node[below] at (7.8,  \yoff-2.2) {$x_{lg}$};
         \node[below] at (10.8, \yoff-2.2) {$x_t$};
 
     \end{tikzpicture}
@@ -176,7 +179,8 @@ where $a_{cg}=(n-1)g$.
 In the second case, the aircraft is assumed to both accelerate vertically upwards due to landing impact, and rotate with a rotational acceleration about the center of gravity. The lift forces in this case are found by assuming the total lift equal to weight and in moment equilibrium with weight just before impact, with canard still assumed to contribute a fraction of the total lift. Hence, the equations of motion are
 
 \begin{equation}
-    \Sigma F: L_c+L_w+L_t+F_{lg}-\Sigma m_i g=\Sigma m_i a_{cg}
+     \tikz[baseline=-0.6ex]{\draw[->] (0,-0.25) -- (0,0.25);}
+    \quad \Sigma F: L_c+L_w+L_t+F_{lg}-\Sigma m_i g=\Sigma m_i a_{cg}
 \end{equation}
 
 and 
@@ -187,9 +191,25 @@ and
     - L_c(x_{cg}-x_c) - M_c + \Sigma_i\,(x_i-x_{cg})\,m_i g = I_G\,\alpha
 \end{multline}
 
-Then, accelerations of particular nodes are given by 
+where $l_{lg}$ is the length of the landing gear strut. Then, the acceleration of a particular node is given by 
 \begin{equation}
-    a_i=a_{cg}+\alpha (x_i-x_{cg})
+    a(x_i)=a_{cg}+\alpha (x_i-x_{cg})
+\end{equation}
+
+Finally, the internal shear force at node $i$ can then be found as 
+\begin{equation}
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0.25) -- (0,-0.25);}
+    \quad
+    V(x_i)=\Sigma_{j=0}^i \left(F_{\text{applied},j}-m_j g-m_j a_j\right)
+\end{equation}
+% \begin{equation}
+%     V(x_i)=\Sigma_{j=0}^i (F_{\text{applied},j} - m_j g -  m_j a_j)
+% \end{equation}
+
+and the internal bending moment as 
+
+\begin{equation}
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (220:-40:0.18)} \quad M(x_i)=\Sigma_{j=0}^i(M_{\text{applied},j}+(x_i-x_j)(F_{\text{applied},j}-m_j(g+a(x_j))))
 \end{equation}
 
 
@@ -346,11 +366,28 @@ Then, accelerations of particular nodes are given by
     \label{fig:fuselage_fbd_kd_landing}
 \end{figure}
 
+Additionally, the 
+
 \section{Wing structural analysis}
 
--mention structure, what we are aiming for, what we modelled, and how the wing is modelled as an ellipse since the airfoil is very similar
+-mention structure, what we are aiming for, what we modelled, and how the wing is modelled as an ellipse, since the airfoil is very similar
+
+before we beging the actual calculations, talk ablut how we modeld the wing __> modeled as an ellipse, each individual sections as well and the lift is a t c/4 from the tip!!!
+each section has a different geometry
+talk about requirements on wing tip defflection and rotation
+include the talk about the shear strsses (can be done over the weekend)
+
+talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
 -
 
+Once the structural analysis of the fuselage has been completed, the design can proceed to analyse the structural properties of the wing. The aerodynamic platform is analysed in both the most critical conditions, during landing when the force of the impact multiplies the weight, during take off conditions when the weight is at its maximum and the wing experiences maximum lift loads and lastly cruise. 
+
+This section focuses on deriving a method applicable for all wing profiles given to HUGO, to compute the structural characteristics such as internal shear, internal bending moments, torsion, deflection, wing rotation and failure determination during normal operation.
+
+As it was introduced in \autoref{sec:aerodynamic_modelling}, the main wing that HUGO is equipped with, has the NASA SC(2)-0012 airfoil, which is a symmetrical airfoil
+
+\todo[inline]{add the image with the airfoil and the elipse with the lift when the internet is not shit}
+In \autoref{sec:fuselage_structural_analysis}, the fuselage was divided into individual nodes and treated independently. The same approach is implemented for the wing, where the half span is divided into $n$ individual nodes that are treated as wing sections. Furthermore, the wing is structured as an ellipse 
 
 \section{Flutter Analysis}
 \label{sec:flutter_analysis}

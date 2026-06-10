@@ -9,17 +9,13 @@ The goals of the aerodynamic characteristics estimate is to obtain the lift and 
 
 \section{Airfoil Selection}
 \todo[inline]{Can also just yeet it into chapter introduction, not necessarily its own separate section}
-High subsonic speeds experienced by HUGO during the nominal mission necessitate the use of a supercritical airfoil to avoid large drag penalties due to shock waves and boundary layer separations induced by locally supersonic flows \cite{Whitcomb1974}. A preliminary sizing of the wing and tail surfaces performed in previous design phases identified NASA SC(2)-0012 as a suitable airfoil choice for HUGO \cite{Harris1990}, based on the performance requirements and preliminary wing design lift coefficient of 0.074 \footnote{Midterm Report}.
-
-\section{Aerosandbox Aerodynamic Model}
-\label{sec:aerosandbox_model}
-- ask Marek and Teo about how much of the midterm is still valid here.
+High subsonic speeds experienced by HUGO during the nominal mission necessitate the use of a supercritical airfoil to avoid large drag penalties due to shock waves and boundary layer separations induced by locally supersonic flows \cite{Whitcomb1974}. A preliminary sizing of the wing and tail surfaces performed in previous design phases identified NASA SC(2)-0012 as a suitable airfoil choice for HUGO \cite{Harris1990}, based on the performance requirements and preliminary wing design lift coefficient of 0.074 \footref{ft:midterm_rep}.
 
 \section{Lift Distribution}
 \label{sec:lift}
 The lift distribution was obtained using a Schrenk approximation evaluated at the positive limit load factor \cite{Schrenk1940}, excluding the portion of the planforms enclosed by the fuselage. The approach followed a methodology for obtaining load distributions for light aircraft proposed by EASA \cite{Easa LSA load calculations}, in which the design condition implies the aircraft flying at its manoeuver stall speed $V_{s_\text{n max}}$
 
-To achieve an approximation of the load distribution, the planforms were divided into \textbf{TBD} sections evaluated individually. Schrenk's method assumes that the aerodynamic loading on the planform is equal to the average of the chord distribution, as well as an equivalent elliptical lift distribution, as shown in \autoref{eq:schrenk_element_lift} \cite[p. 20]{EASA LSA}. Therefore, for each segment, an equivalent chord length $c_i$ was defined based on the spanwise position $y_i$, and a corresponding lift increment $l_{\text{Schrenk},i}$ was assigned. Sections incorporated into the fuselage were then excluded from the model, and the remaining lift was rescaled to compensate for the losses. 
+To achieve an approximation of the load distribution, the planforms were divided into \textbf{TBD} sections evaluated individually. Schrenk's method assumes that the aerodynamic loading on the planform is equal to the average of the chord distribution, and an equivalent elliptical lift distribution, as shown in \autoref{eq:schrenk_element_lift} \cite[p. 20]{EASA LSA}. Therefore, for each segment, an equivalent chord length $c_i$ was defined based on the spanwise position $y_i$, and a corresponding lift increment $l_{\text{Schrenk},i}$ was assigned. Sections incorporated into the fuselage were then excluded from the model by scaling the sections with respect to the avergae fuselage width at each section $b_0$ and the total wingspan $b$. The remaining lift was rescaled to compensate for the losses. 
 
 \begin{equation}
     \label{eq:schrenk_element_lift}
@@ -54,7 +50,7 @@ Here, $C_{D_\text{misc}}$ is miscellaneous drag due to flaps, un-retracted landi
 
 The $C_f$ is estimated as a weighted average of the laminar and turbulent flow values, and can be calculated according to Raymer  \cite[p. 282]{raymer1992aircraft}. In case the skin roughness is high, the $C_f$ value can be expected to increase. An adjusted value can be calculated by introducing a cut-off Reynold number $Re_\text{cut-off}$ for subsonic flight \cite[p. 282]{raymer1992aircraft}, for a given  characteristic length and skin roughness.
 
-The $C_{D_0}$ was further utilised to construct the drag polar (see: \autoref{}) and compute glide ratios required for fuel estimations, which \textbf{TBD}.
+The $C_{D_0}$ was further utilised to construct the drag polar (see: \autoref{}) and compute glide ratios required for fuel consumption estimations, which will be performed in \textbf{TBD}.
 \todo[inline]{Ref the section in which fuel flow is actually useful.} The total drag values were computed using a parabolic induced drag coefficient estimation $C_{D_i}=C_L^2/\pi Ae$, as proposed by Raymer. While this approach was deemed as sufficiently accurate for the proposed design, it shall be noted that, similarly to the lift calculations presented in \autoref{sec:lift}, it is based on semi-empirical formulae, and an assummption of percentage of laminar flow. For a more detailed analysis, it is once again recommended to utilise CFD-based tools \cite{raymer1992aircraft}.
 
 \begin{figure}[H]

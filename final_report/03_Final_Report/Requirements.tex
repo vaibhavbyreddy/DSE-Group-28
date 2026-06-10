@@ -1,4 +1,4 @@
-\chapter{Requirements}
+\chapter{Requirements Specification}
 \label{ch:requirements}
 
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
@@ -13,18 +13,98 @@
 
 
 
-\section{User Requirements}
+\section{Requirements Definition}
 \label{sec:user_requirements}
-- table of user requirements
+\todo[inline]{Connect the beginning of this section to the project objectives}
+As described by the project objectives, HUGO's mission is to serve as a flying lab for university researchers for whom testing with own full-sized aircraft or wind tunnels is unfeasible, as well as companies seeking to test their aerospace products. Therefore, a set of top-level requirements was defined by the Delft University of Technology (TUD) staff as part of general project guidelines \cite{ProjectGuide}. Additionally, external experts from the Netherlands Aerospace Centre (NLR) were consulted to establish a cumulative list of user requirements, which can be seen in \autoref{tab:user_requirements}.
 
 
 
+\begin{longtable}{|c|p{13.5cm}|}
+\caption{HUGO's user requirements}
+\label{tab:user_requirements} \\
+\hline
+\textbf{ID} & \makecell{\textbf{Requirement}} \\
+\hline
+\endfirsthead
 
-\section{Technical Requirements}
-\label{sec:technical_requirements}
+\hline
+\textbf{ID} & \makecell{\textbf{Requirement}} \\
+\hline
+\endhead
 
-\todo[inline]{System, subsystem requirements.}
-- table of system, subsystem requirements
+HUG-TUD-01 & The UAV shall be certifiable according to EASA standards. \\\hline
+HUG-TUD-02 & The UAV shall serve as a flying lab for universities that don't have the budget for a full-sized aircraft or wind tunnel facilities. \\\hline
+HUG-TUD-03 & The UAV shall allow companies to test aerospace componentry and achieve certification faster and and lower cost than using currently available methods. \\\hline
+HUG-TUD-04 & The UAV shall fly at airspeeds ranging from Mach 0.4 to Mach 0.75 \\\hline
+HUG-TUD-O5 & The UAV shall utilise SAF. \\\hline
+HUG-TUD-06 & The UAV's MTOM shall not exceed 50 kg. \\\hline
+HUG-TUD-07 & All regular service, required parts and tools to operate the UAV shall fit with a van-sized vehicle. \\\hline
+HUG-TUD-08 & The UAV shall have an operational life of minimum 15 years. \\\hline
+HUG-TUD-09 & The UAV shal be able to carry min. 5 kg and min. 5 L of payload to accomodate a second flight computer. \\\hline
+HUG-TUD-10 & The mission endurance of the UAV shall not be shorter than 30 minutes. \\\hline
+HUG-NLR-01 & The UAV standard configuration shall feature a HAR dry wing with AR of no less than 20. \\\hline
+HUG-NLR-02 & The UAV design shall allow for testing of a conventional cantilever wing in combination with closed-loop active load alleviation control system. \\\hline
+HUG-NLR-03 & The UAV design shall allow for testing of a strut-braced wing with a passive load alleviation system. \\\hline
+HUG-NLR-04 & The flight test instrumentation shall provide measurements of first-order bending through optical measurements and accelerometers placed inside the wing. \\\hline
+HUG-NLR-05 & The UAV shall be remotely piloted due to BVLOS flight. \\\hline
+HUG-NLR-06 & The UAV shall be reconfigurable in a short time frame, as to allow back-to-back testing with different wings on the same day.\\\hline
+
+\end{longtable}
+
+The user requirements provide a sense of the aircraft's intended operation and the user's expectations regarding its final performance and design. As such, they cannot always be validated to ensure that the system can perform its functions successfully, i. e. they are not VALID (Verifiable, Achievable, Logical, Integral, Definite) \todo{add source for VALID.}. For this reason, system requirements are defined to describe the product's performance in a way that can be validated. From those, subsystem requirements are derived to define the specific performance on a subsystem level. Comprehensive lists of system and subsystem requirements are showcased in \autoref{tab:system_requirements} and \autoref{}, respectively.
+
+\begin{longtable}{|c|p{13.5cm}|}
+\caption{HUGO's system requirements}
+\label{tab:system_requirements} \\
+\hline
+\textbf{ID} & \makecell{\textbf{Requirement}} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{ID} & \makecell{\textbf{Requirement}} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{2}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+
+\multicolumn{2}{|c|}{\textbf{General System}} \\\hline
+HUG-GEN-01 & The aircraft shall have a maximum take-off mass less than 50 kg.\\\hline
+HUG-GEN-02 & The end user shall be able to install the wing compliant with the Planform Envelope. \\\hline
+HUG-GEN-03 & The end user shall be able to install at least 5 kg of payload on the provided aircraft, in addition to the wing planform itself. \\\hline
+HUG-GEN-04 & The aircraft shall be able to execute the flight profile without any customer-specific payload. \\\hline
+\multicolumn{2}{|c|}{\textbf{Manufacturing, Assembly, and Integration}}\\\hline
+HUG-MAN-01 & The manufacturing cost of a single aircraft with the Standard Wing Planform shall be less than 45000€. \\\hline
+HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufacturable using only TRL10 (Technology Readiness Level 10) manufacturing techniques. \\\hline
+
+
+
+\end{longtable}
+
+
+
+\begin{longtable}{|c|p{13.5cm}|}
+\caption{HUGO's subsystem requirements}
+\label{tab:subsystem_requirements} \\
+\hline
+\textbf{ID} & \makecell{\textbf{Requirement}} \\
+\hline
+\endfirsthead
+
+\hline
+\textbf{ID} & \makecell{\textbf{Requirement}} \\
+\hline
+\endhead
+
+\end{longtable}
+
 \section{Compliance matrix}
 \section{Means of Compliance}
 - compliance matrix
