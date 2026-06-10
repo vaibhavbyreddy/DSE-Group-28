@@ -10,7 +10,7 @@
 \subsection{OOA procedure for prepregs}
 \label{sub:OOA}
 
-The datasheet for the selected CYCOM 5320-1 prepreg includes recommended VBO cure cycles. These are generally divided into two categories: a continuous cure cycle and a free-standing post-cure cycle. In the continuous process, the part remains on the tool for the entire duration of the cure. In contrast, the free-standing post-cure method involves removing the part from the tool after an initial cure, allowing it to cool before completing the cure in an oven. 
+The datasheet for the selected CYCOM 5320-1 prepreg includes recommended Vacuum Bag Only (VBO) cure cycles. These are generally divided into two categories: a continuous cure cycle and a free-standing post-cure cycle. In the continuous process, the part remains on the tool for the entire duration of the cure. In contrast, the free-standing post-cure method involves removing the part from the tool after an initial cure, allowing it to cool before completing the cure in an oven. 
 
 The post-cure approach is particularly advantageous for rapid prototyping, as it frees up the mould earlier in the process. This enables the next part to be prepared while the previous one continues curing, thereby improving overall production efficiency. The recommended curing cycles are summarized in \autoref{tab:cure_cycles}.
 
@@ -22,9 +22,9 @@ The post-cure approach is particularly advantageous for rapid prototyping, as it
 \toprule
 Cycle & Initial cure & Cool to $<140^\circ$F mid-cycle? & Post-cure ramp rate & Post-cure & Freestanding? \\
 \midrule
-Cycle A & $250^\circ$F / 2 hr & No & $3^\circ$F/min & $350^\circ$F / 2 hr & No \\
-Cycle B & $250^\circ$F / 2 hr & Yes (demold point) & $0.1-0.5^\circ$F/min & $350^\circ$F / 2 hr & Yes \\
-Cycle C & $200^\circ$F / 10 hr & Yes (demold point) & $0.1-0.5^\circ$F/min & $350^\circ$F / 2 hr & Yes \\
+Cycle A & $120^\circ$C / 2 hr & No & $1.5^\circ$C/min & $175^\circ$C / 2 hr & No \\
+Cycle B & $120^\circ$C / 2 hr & Yes (demold point) & $0.1-0.5^\circ$C/min & $175^\circ$C / 2 hr & Yes \\
+Cycle C & $95^\circ$C / 10 hr & Yes (demold point) & $0.1-0.5^\circ$C/min & $175^\circ$C / 2 hr & Yes \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -46,9 +46,6 @@ To achieve the temperatures required for curing, an out-of-autoclave (OOA) furna
 \subsubsection{\textbf{Foam wings}}
 
 As shown in \autoref{tab:foam_props}, the selected foam core material is Rohacell 71 IG-F (PMI), which has a maximum service temperature of $180^\circ$C ($356^\circ$F). Since this temperature exceeds the maximum curing temperature considered in all three curing cycles, the foam core does not impose any constraints on the curing process. As Cycle A is the fastest and provides the best dimensional accuracy, it is selected for the curing process.
-
-Foam cut out with cnc hot wiring
-
 
 \subsubsection{\textbf{Honeycomb fuselage}}
 
@@ -72,19 +69,63 @@ A breather cloth is then applied to provide an air evacuation pathway. Continuou
 
 Following inspection, the honeycomb core is then placed onto the outer skin with a layer of FM 309-1 film adhesive at the interface, and the inner prepreg skin is laid up over the core with a second layer of FM 309-1 between the core and inner skin. The entire assembly then undergoes a single co-bond cure, simultaneously curing the inner skin and both bondlines.
 
+\begin{figure}[htbp]
+    \centering
+    
+    \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=1.2\linewidth]{figures_final/moulds.jpg}
+        \caption{Moulds}
+        \label{fig:moulds}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=0.7\linewidth]{figures_final/joint.jpg}
+        \caption{Joints}
+        \label{fig:joint}
+    \end{subfigure}
+    
+    \caption{Moulds and joints}
+    \label{fig:moulds_joint}
+\end{figure}
+
 Since the fuselage ends at the aft opening where it interfaces with the tailcone, the honeycomb core is left exposed at that location. As a result, the edge must be sealed with a filler material to protect the core from moisture and local impacts.
 
-An important consideration is the joining of the two sections before curing. At the seam where the sandwich structures are connected, a potential weak point arises due to the discontinuity of both the prepreg skins and the honeycomb core. To reinforce this joint at the parting line, the inner skin is locally shortened, and an additional strip of prepreg is applied across the gap to improve load transfer and structural continuity. This requires access to the seam during layup, which is provided through the opening at the front of HUGO, where the windshield would normally be located, and through the rear opening where the tail cone will be attached. 
+An important consideration is the joining of the two sections before curing. At the seam where the sandwich structures are joined, a potential weak point arises from discontinuities in both the prepreg skins and the honeycomb core. To reinforce the joint at the parting line, the outer skin of the lower half is extended, while the outer skin of the upper half is recessed to create a lap joint. This lap-joint configuration increases the bonding area compared with a direct honeycomb-to-honeycomb joint, resulting in improved load transfer and joint strength. A more detailed overview of this step is given in \autoref{sec:assembly}.
 
-\subsection{Landing gear}
+\subsection{Landing gear and engine pylons}
 \label{sub:manufacturing_LG}
+
+The manufacturing of the landing gear and engine pylons remains the same as stated in the Midterm Report \footref{ft:midterm_rep}. A short overview of the process is given below.
+
+\begin{enumerate}
+\item \textbf{CNC Machining and Turning} shall be used to produce three-dimensional component profiles and axial geometries. Stress-relieved stock (e.g., T7651/T76511 plate or extrusions) shall be specified to maintain dimensional stability during and after machining.
+
+\item \textbf{Deep Hole Drilling} shall be applied to long, slender components such as piston rods, outer cylinders, and axles where high dimensional accuracy and surface quality are required.
+
+\item \textbf{Heat Treatment} shall be applied to relieve residual stresses and enhance strength. Depending on the component requirements, processes may include annealing, solution heat treatment, ageing, or homogenising.
+
+\item \textbf{Surface Treatment and Protection} shall be applied to improve corrosion and wear resistance. Protective measures against galvanic corrosion at CFRP interfaces may include anodising, conversion coatings, primers, isolation layers, fastener isolation, or sacrificial anodes.
+```
+
+\end{enumerate}
+
 
 
 \section{Assembly}
 \label{sec:assembly}
 
+The two sections of the honeycomb fuselage and tailcone shall be joined using a carbon-to-carbon lap joint combined with a honeycomb-to-honeycomb bond.
 
+The composite-to-composite bond is a secondary bond between fully cured laminates, made using a two-part paste epoxy: Henkel Hysol EA 9394. This adhesive is qualified for aerospace composite secondary bonding and cures at room temperature, eliminating the need for a final-assembly oven cycle. It is rated for service up to $\approx82^\circ$C, with shear strength reducing at elevated temperature; this is sufficient for HUGO's operating envelope.
+The honeycomb-to-honeycomb interface is prepared by pre-filling the exposed Nomex cells along a 25 mm strip on either side of the parting line with EA 9890 honeycomb edge filler. This converts the otherwise open-cell interface into a solid epoxy face suitable for paste-epoxy bonding. While foaming film core splice adhesives (e.g. FM 410-1) provide higher core-splice allowables, they require an elevated-temperature cure. For HUGO's joint loads, the potted paste epoxy approach provides sufficient continuity while permitting room-temperature assembly.
+Once the potting has gelled ($\approx$4–6 hours), EA 9394 is applied to the potted core faces. The assembly is held in place with the split-mould clamping bushes.
+Cure proceeds at room temperature for 7 days, or accelerated by heating to 60°C for 8 hours.
 
+An exception applies to the pylon-to-fuselage connection, where mechanical fastening shall be used due to structural integrity requirements. Depending on the joint design, this may involve bolts, disks, pucks, lug fittings, bosses, trunnions, support beams, or caps.
+
+The landing gear, pylon, and connection port assemblies shall use mechanical fasteners rather than bonded joints. Bolted and lockbolted joints shall be applied for rigid structural connections, while pin joints shall be used where relative motion is required, such as at torque-link and actuator attachment points. Welding is excluded, as it can alter the microstructure and reduce the mechanical properties of high-strength aluminium alloys.
 
 \section{Integration}
 \label{sec:integration}

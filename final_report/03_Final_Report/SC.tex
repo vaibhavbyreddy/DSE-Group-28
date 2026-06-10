@@ -366,10 +366,9 @@ and the internal bending moment as
     \label{fig:fuselage_fbd_kd_landing}
 \end{figure}
 
-Additionally, the 
 
-% \section{Wing structural analysis}
-
+ \section{Wing structural analysis}
+\label{sec:wing_structural_analysis}
 % -mention structure, what we are aiming for, what we modelled, and how the wing is modelled as an ellipse, since the airfoil is very similar
 
 % before we beging the actual calculations, talk ablut how we modeld the wing __> modeled as an ellipse, each individual sections as well and the lift is a t c/4 from the tip!!!
@@ -382,9 +381,11 @@ Additionally, the
 
 Once the structural analysis of the fuselage has been completed, the design can proceed to analyse the structural properties of the wing. The aerodynamic platform is analysed in both the most critical conditions, during landing when the force of the impact multiplies the weight, during take off conditions when the weight is at its maximum and the wing experiences maximum lift loads and lastly cruise. 
 
-This section focuses on deriving a method applicable for all wing profiles given to HUGO, to compute the structural characteristics such as internal shear, internal bending moments, torsion, deflection, wing rotation and failure determination during normal operation. For the purpose of this analysis, the foam interior is not taken into account for the structural calculations, leaving only the composite skin as the prime structural element. The foam core has 
+This section focuses on deriving a method applicable for all wing profiles given to HUGO, to compute the structural characteristics such as internal shear, internal bending moments, torsion, deflection, wing rotation and failure determination during normal operation. For the purpose of this analysis, the foam interior is not taken into account for the structural calculations, leaving only the composite skin as the prime structural element.
 
-As it was introduced in \autoref{sec:aerodynamic_modelling}, the wing that HUGO will be delivered with and for which tests have been created, the NASA SC(2)-0012 airfoil \autoref{fig:airfoil_simplified_model}, which is a symmetrical supercritical airfoil, is used to structure the analytical model. In the software, the wing is modelled as an ellipse, with the lift considered at the chorter chord point, as it would act on the actual foil as well \footnote{\hyperlink{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA-0012} (accessed on 10.06.2026)}. This makes the analysis less computationally expensive and offers an 
+As introduced in \autoref{sec}, the structural model is based on the NASA SC(2)-0012 airfoil shown in \autoref{fig:airfoil_simplified_model}. This symmetric supercritical airfoil is used as the reference geometry for the wing sections analysed in the structural tool. To simplify the analytical model, each wing section is approximated as a hollow ellipse with the same chord and maximum thickness as the airfoil. The lift resultant is applied at the quarter-chord point, consistent with the typical location of the aerodynamic centre for subsonic airfoils\footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}.
+
+This elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model also neglects the structural contribution of the foam core. The resulting section properties are therefore treated as simplified equivalent properties for preliminary structural sizing. For this analysis, the wing will be treated as a beam fixed at one end, deformations and deflections being based on Euler–Bernoulli beam theory as a first-order approximation.
 
 \begin{figure}[H]
     \centering
@@ -661,8 +662,42 @@ As it was introduced in \autoref{sec:aerodynamic_modelling}, the wing that HUGO 
     \caption{Airfoil geometry and simplified elliptical representation with lift applied at quarter-chord.}
     \label{fig:airfoil_simplified_model}
 \end{figure}
-\todo[inline]{add the image with the airfoil and the elipse with the lift when the internet is not shit}
-In \autoref{sec:fuselage_structural_analysis}, the fuselage was divided into individual nodes and treated independently. The same approach is implemented for the wing, where the half span is divided into $n$ individual nodes that are treated as wing sections. Using this method, the wing is divided into multiple smaller segments, division left up to the user, that are further analysed as individual sections where forces and moments act on. Each component has an initial lift and weight associated to it
+
+In \autoref{sec:fuselage_structural_analysis}, the fuselage was divided into individual nodes and treated independently. The same approach is applied to the wing, where the half-span is divided into $n$ nodes, each treated as a wing section. The resolution is left up to the user, each part having its own weight, lift and moment contribution. To get the forces acting on the entire wing, the perimeter, area and moment of inertia need to be calculated for each individual wing increment. 
+
+Since the airfoil is modelled as an ellipse, the perimeter of the sections is computed using Ramanujan's second equation for area \footnote{\href{https://en.wikipedia.org/wiki/Perimeter_of_an_ellipse}{Perimeter of an ellipse} (accessed on 10.06.2026)} \autoref{eq:perim_area}, where $a$ and $b$ are the semi-major and semi-minor axes of the ellipse. 
+
+\begin{equation}
+\begin{aligned}
+h &= \left(\frac{a-b}{a+b}\right)^2
+\qquad\qquad
+P &\approx \pi(a+b)
+\left[
+1 + \frac{3h}{10 + \sqrt{4 - 3h}}
+\right]
+\end{aligned}
+\label{eq:perim_area}
+\end{equation}
+
+The structural analysis is formulated with several parameters left available for parametric sizing, including the wing skin thickness. To determine the wing response under applied loads, the cross-sectional material area is required. This area is computed using the method provided by Niu \cite[p.~765]{niu1999airframe}. The same source is used for the expression of the second moment of area of a hollow ellipse.
+
+For the structural analysis of HUGO's wings, a computational tool was developed to evaluate the structural response of different planforms during normal operation. The tool estimates the applied torque, wing-tip deflection, wing-tip rotation, internal shear forces, internal shear stresses, and the buckling behaviour of the wing. These outputs are used to verify that the wing structure remains within acceptable limits throughout the operating envelope, including extra loads experienced during take-off or landing. 
+
+Each section is exposed to a different lift and weight, depending on the location from the root. Lift division is evaluated in \autoref{sec:lift}, while for the weight equation \autoref{eq:section_weight} is used.
+
+\begin{equation}
+    W = perimeter \cdot skin_thickness \cdot section_lengh \cdot 9.81
+    \label{eq:section_weight}
+\end{equation}
+
+Cases such as wing deflection or internal stresses require a net force obtained by subtracting from lift the weight of the wing per segment. The differance can be seen in 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/Force distribution.png}
+    \caption{Force distribution during cruise conditions and load factor 1}
+    \label{fig:force_distribution}
+\end{figure}
 
 \section{Flutter Analysis}
 \label{sec:flutter_analysis}

@@ -159,21 +159,6 @@ author = {Rui Ling Yew and Brett C. Johnson and Brant C. Gibson and Abdulghani M
                  (accessed on XX.06.2026)}}
 }
 
-@inproceedings{Takarics2019,
-   author = {Béla Takarics and Bálint Vanek},
-   doi = {10.1016/j.ifacol.2019.11.149},
-   issn = {24058963},
-   issue = {12},
-   booktitle = {IFAC-PapersOnLine},
-   keywords = {Aeroservoelasticity,Linear parameter-varying systems,Polytopic,Robust control},
-   month = {10},
-   pages = {134-139},
-   publisher = {Elsevier B.V.},
-   title = {Tensor product model-based robust flutter control design for the FLEXOP aircraft},
-   volume = {52},
-   year = {2019}
-}
-
 @techReport{Gilyard1983,
    author = {Glenn B Gilyard and John W Edwards},
    title = {REAL-TIME FLUTTER ANALYSIS OF AN ACTIVE FLUTTER-SUPPRESSION SYSTEM ON A REMOTELY PILOTED RESEARCH AIRCRAFT},
@@ -303,4 +288,38 @@ DOI = {10.3390/aerospace10020162}
    author = {Christopher David Simpson and Charles R O'neill and Gary Cheng and Shan Zhao},
    title = {CONTROL SURFACE HINGE MOMENT PREDICTION USING COMPUTATIONAL FLUID DYNAMICS},
    year = {2016}
+}
+
+@inproceedings{Takarics2019,
+   abstract = {This paper presents a flutter suppression control design methodology for the aircraft designed within the European research project, FLEXOP. The aim of the flutter suppression controller is to stabilize the aeroelastic modes and to extend the aircraft’s flutter free envelope. The first step is to develop a low order control oriented linear parameter varying (LPV) model of the aircraft. This is based on the”bottom-up” modeling approach. The key idea is to reduce the order of the subsystems that form the nonlinear aeroservoelastic model. A critical requirement of the low order model is to capture the flutter modes accurately. The second step is the control design, which is based on polytopic LPV representation. The Tensor Product (TP) type polytopic model of the aircraft is obtained with TP model transformation. TP model transformation in a numerical method based on the higher order singular value decomposition (HOSVD). It can generate various types of convex representations for LPV systems and offers a trade-off between the accuracy and the complexity of the resulting TP model. The control structure is a parameter-varying state feedback and observer. The control design specifications include asymptotic stability, robustness against parameter variations influencing the flutter modes and constraint on the control values in order to keep the control signals low. The developed control system is validated by simulation using the high-fidelity, nonlinear model.},
+   author = {Béla Takarics and Bálint Vanek},
+   doi = {10.1016/j.ifacol.2019.11.149},
+   issn = {24058963},
+   issue = {12},
+   booktitle = {IFAC-PapersOnLine},
+   keywords = {Aeroservoelasticity,Linear parameter-varying systems,Polytopic,Robust control},
+   month = {10},
+   pages = {134-139},
+   publisher = {Elsevier B.V.},
+   title = {Tensor product model-based robust flutter control design for the FLEXOP aircraft},
+   volume = {52},
+   year = {2019}
+}
+
+@techReport{Schaefer2023,
+   author = {Jacob Schaefer and Peter Suh and Matt Boucher and Jeff Ouellette and Alex Chin and Chris Miller and Jared Grauer and Greg Reich and Robert Mitchell and Pete Flick},
+   title = {Flying Beyond Flutter with the X-56A Aircraft},
+   url = {http://www.sti.nasa.gov},
+   year = {2023}
+}
+
+@book{niu1999airframe,
+  author    = {Niu, Michael C. Y.},
+  title     = {Airframe Stress Analysis and Sizing},
+  edition   = {2},
+  publisher = {Conmilit Press Ltd.},
+  address   = {Hong Kong},
+  year      = {1999},
+  isbn      = {962-7128-08-2},
+  note      = {Second published with minor corrections, March 2001}
 }
