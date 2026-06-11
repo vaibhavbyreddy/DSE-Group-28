@@ -1,11 +1,24 @@
 \chapter{Manufacturing, Assembly, and Integration}
 \label{ch:MAI}
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
+%\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
+
+The manufacturing of HUGO presents several significant challenges. The aircraft must be capable of withstanding the substantial structural loads associated with its high-subsonic flight regime and broad testing envelope. At the same time, HUGO’s modular design introduces additional complexity during assembly, as individual subassemblies must be accurately connected and integrated into the final aircraft structure.
+
+In \autoref{sec:manufacturing}, the selected manufacturing techniques are presented, while \autoref{sec:assembly} describes the corresponding assembly processes used to integrate the manufactured components into the final aircraft. The overall system integration sequence and procedure are summarized in \autoref{sec:integration}. The final version of the MAI plan for HUGO is presented in \autoref{fig:MAI_final}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures_final/MAI_final.png}
+    \caption{Final MAI plan for HUGO}
+    \label{fig:MAI_final}
+\end{figure}
 
 
 \section{Manufacturing}
 \label{sec:manufacturing}
+
+The manufacturing section first discusses the out-of-autoclave (OOA) production of the honeycomb-core fuselage and tailcone, as well as the foam-core wings and tail stabilizers. Subsequently, the manufacturing approach for the landing gear and engine pylon is presented.
 
 \subsection{OOA procedure for prepregs}
 \label{sub:OOA}
@@ -115,6 +128,8 @@ The manufacturing of the landing gear and engine pylons remains the same as stat
 \section{Assembly}
 \label{sec:assembly}
 
+The assembly section outlines the different methods employed for the fuselage assembly, the pylon-to-fuselage connections, and the landing gear assembly.
+
 \subsection{Fuselage assembly}
 \label{sub:fuselage_assembly}
 
@@ -127,23 +142,32 @@ The two mould halves are then joined and secured using the split-mould clamping 
 \subsection{Pylon-to-fuselage connections}
 \label{sub:pylon_to_fuselage}
 
-The engine pylons will be attached to the fuselage sandwich structure through the use of cylindrical metal inserts that facilitate mechanical fastening and efficient load transfer. These inserts address the inherent limitations of composite cores, which often exhibit low through-thickness stiffness, by providing reinforced attachment points for bolts or other fasteners, thereby minimizing risks of delamination, core shear, or facesheet failure under tensile, shear, or pull-through loads \footnote{\href{https://grokipedia.com/page/insert_composites#ref-1}{Insert (composites)} (accessed on 11.06.2026)}.
+Engine pylons are attached to the fuselage sandwich structure using cylindrical metal inserts that enable mechanical fastening and efficient load transfer. These inserts mitigate the inherent limitations of composite sandwich cores, particularly their low through-thickness stiffness, by providing reinforced attachment points for bolts and other fasteners. This reduces the likelihood of failure modes such as delamination, core shear, or facesheet pull-through under tensile, shear, or pull-out loading \cite{Severson2024}.
 
-The engine pylons will be attached to the fuselage sandwich structure by first drilling holes on the rear side of the fuselage where the engine pylons will go. Access for the drilling is available through the rear opening where the tailcone will be attached. Metallic sleeves spanning the full sandwich thickness are then inserted in the holes and bonded with EPOCAST 1652 A/B epoxy \footnote{\href{}{}}. The bolts will then clamp through the sleeve (not through the core), and wide-area washers are uesd spread the clamping load across the skin.
+The installation process begins with drilling holes from the aft side of the fuselage at the designated pylon attachment locations. Access for drilling is provided through the rear fuselage opening, which remains accessible prior to installation of the tailcone. Cylindrical metal inserts spanning the full sandwich thickness are then inserted into the prepared holes and bonded in place using 3M Scotch-Weld EC-3439 HT epoxy adhesive, a void-filling aerospace-grade compound designed for structural applications. The adhesive cures in approximately 60 minutes at $121^{\circ}$C without the need for applied pressure \footnote{\href{https://products.huntsman.com/products/epibond-8000-fr-a-b-qeuj1kf4}{EPIBOND® 8000 FR A/B} (accessed on 11.06.2026)}.
+
+At the interface between metal inserts and the carbon fibre skin, galvanic corrosion can occur in the presence of moisture. This risk is particularly pronounced when aluminium is used in direct contact with carbon fiber, as the large difference in electrochemical potential between the materials drives galvanic coupling and subsequent corrosion of the less noble metal. To mitigate this issue, Ti-6Al-4V will be used for the metal inserts. Titanium offers improved electrochemical compatibility with carbon fibre composites, effectively reducing or eliminating galvanic corrosion risks. In addition, its high strength and corrosion resistance make it well-suited for structural applications where durability and long-term reliability are critical \cite{Melhem2019}.
+
+Once the adhesive has cured, the bolts are installed through the metal sleeves rather than directly through the composite core. Wide-area washers are then used to distribute the clamping loads across the outer skins, thereby reducing local stress concentrations and improving overall joint durability.
 
 \subsection{Landing gear assembly}
 \label{sub:lg_assembly}
 
-The landing gear assembly shall use mechanical fasteners rather than bonded joints. Bolted and lockbolted joints shall be applied for rigid structural connections, while pin joints shall be used where relative motion is required, such as at torque-link and actuator attachment points. Welding is excluded, as it can alter the microstructure and reduce the mechanical properties of high-strength steel alloys.
+The landing gear assembly shall employ mechanical fastening rather than bonded joints. Bolted and lockbolted connections are used for rigid structural interfaces, providing reliable load transfer and ease of inspection and maintenance. In contrast, pin joints are implemented at locations requiring controlled relative motion, such as torque links and actuator attachment points, enabling necessary articulation during operation. Welding is excluded from the design due to its potential to alter the microstructure of high-strength steel alloys, which can result in reduced mechanical performance and compromised fatigue resistance.
 
 \section{Integration}
 \label{sec:integration}
 
+The integration of the remaining systems will proceed in the same manner as outlined in the Midterm Report \footref{ft:midterm_rep}. A summary of the process is given below.
 
+Aircraft system integration follows a carefully planned sequence based primarily on accessibility and system dependencies. Components that are difficult to access or that other systems rely on are installed first to avoid rework and installation conflicts later in the process.
 
+The avionics wiring harness is typically installed first, before the airframe is obstructed by interior structures or equipment. This harness forms the backbone of the aircraft’s electrical and data networks, linking critical systems such as avionics, landing gear, engines, nacelles, and various airframe components. In modern fly-by-wire aircraft, these interconnections are especially vital, as they enable continuous communication between flight control computers, sensors, and actuators.
 
+Next, the aircraft battery is installed as part of the electrical power system, followed by the installation of avionics equipment, including flight computers, sensors, and cockpit displays. These systems are then connected to the pre-installed wiring harness.
 
+After the core electrical and avionics systems are in place, the engines are installed and integrated with the fuel, hydraulic, and electrical systems. Finally, the interior is fitted. Because it can be more easily removed for maintenance or modifications, it is installed last, sealing and protecting the underlying systems.
 
-
+Following this structured sequence is essential - deviations can lead to costly rework, scheduling delays, increased expenses, and potential safety concerns.
 
 \todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}

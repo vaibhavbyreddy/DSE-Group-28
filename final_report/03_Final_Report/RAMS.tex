@@ -7,6 +7,172 @@ reliability and availability, and, for maintainable systems, an outline of sched
 
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
+HUGO is intended to act as a reusable flying laboratory for high-speed aeroelastic and aeroservoelastic testing. Therefore, its RAMS characteristics are driven by two objectives: safe termination of every test flight, and repeatable acquisition of valid experimental data. The RAMS approach is based on the actual system architecture described in \autoref{sec:internal_configuration}, the operational concept from \autoref{sec:operations}, and the risk mitigation measures from \autoref{sec:risk_mitigation}.
+
+\section{Safety-Critical Functions}
+
+A function is considered safety-critical when its loss can lead to loss of control, departure from the authorised flight area, collision risk, fire propagation, or loss of the test aircraft. The safety-critical functions identified for HUGO are listed in \autoref{tab:safety_critical_functions}.
+
+\begin{table}[H]
+    \centering
+    \caption{Safety-critical functions of HUGO}
+    \label{tab:safety_critical_functions}
+    \begin{tabularx}{\linewidth}{p{0.23\linewidth} X X}
+        \toprule
+        \textbf{Function} & \textbf{Purpose} & \textbf{Failure handling} \\
+        \midrule
+        Flight control and stabilisation &
+        Maintain controllability during take-off, cruise, experiment, return, approach, go-around, and landing. &
+        Autonomous stabilisation shall remain available throughout the flight. If the aircraft leaves the allowable envelope or the experimental control system diverges, control shall revert to the baseline control system or the flight termination procedure shall be initiated. \\
+        \midrule
+        Command and control link &
+        Maintain contact between the aircraft and the ground station over the mission radius. &
+        In case of communication loss, the aircraft shall autonomously return to the launch site. If the loss of control or communication persists for longer than the allowed limit, flight termination shall be triggered. \\
+        \midrule
+        Navigation and flight-area containment &
+        Keep the aircraft inside the approved test area and ground risk buffer. &
+        If the test area is exceeded, the aircraft shall be commanded to return to the testing location. No single failure of the UAS or an external system supporting the operation shall lead to operation outside the ground risk buffer \cite{SC_LightUAS}. \\
+        \midrule
+        Propulsion and fuel management &
+        Provide thrust and fuel for the nominal mission, including holding and go-around allowance. &
+        The fuel state shall be monitored continuously. In case of low fuel during holding, a ``MAYDAY FUEL'' call shall be made to ATC and priority landing shall be requested. \\
+        \midrule
+        Electrical power distribution &
+        Supply the flight computer, actuators, sensors, communication subsystem, propulsion electronics, and payload. &
+        Electrical power shall be sized for the nominal mission plus operational margin. No single-point failure of electronic components shall cause mission failure. \\
+        \midrule
+        Structural load path and modular interfaces &
+        Transfer loads between the wing, fuselage, empennage, landing gear, propulsion system, and payload interfaces. &
+        The structure shall support limit loads without detrimental permanent deformation and ultimate loads without failure. Modular interfaces shall be inspected after configuration changes and before flight. \\
+        \midrule
+        Fire detection and mitigation &
+        Minimise the risk of fire initiation and propagation from the fuel, battery, and propulsion subsystems. &
+        Fire detection and mitigation systems shall be installed. If an on-board fire is detected, fire-extinguishing procedures shall be initiated and the mission shall be aborted. \\
+        \midrule
+        Data acquisition and storage &
+        Record and transmit aeroelastic, flight, propulsion, and telemetry data. &
+        Data shall be transmitted continuously to the ground station and stored on-board. A backup storage plan shall be used to reduce the risk of corrupted measurement files. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\section{Redundancy Philosophy}
+
+The redundancy philosophy of HUGO is selective redundancy. Full hardware duplication is avoided where it would conflict with the 50 kg MTOM limit, but redundancy is applied to functions whose failure would either compromise safety or invalidate the mission. The design therefore uses functional, procedural, and fleet-level redundancy.
+
+\begin{table}[H]
+    \centering
+    \caption{Redundancy philosophy applied to HUGO}
+    \label{tab:redundancy_philosophy}
+    \begin{tabularx}{\linewidth}{p{0.25\linewidth} X X}
+        \toprule
+        \textbf{Subsystem or function} & \textbf{Redundancy measure} & \textbf{Rationale} \\
+        \midrule
+        Flight sensing and navigation &
+        The selected autopilot includes redundant inertial sensing. Additional air-data sensing is included because the nominal maximum airspeed exceeds the limit of the autopilot airspeed calculator. &
+        Loss of reliable attitude, altitude, or airspeed information can lead to loss of control or flight-envelope exceedance. \\
+        \midrule
+        Flight control computation &
+        A baseline control system remains available during experimental control-system tests. &
+        HUGO must be able to abandon a diverging customer control law and recover using the certified baseline control system. \\
+        \midrule
+        Communication and telemetry &
+        The communication link supports remote control and real-time telemetry. Critical flight and measurement data are also stored on-board. &
+        The aircraft must remain controllable while also protecting the scientific value of the mission in case of temporary telemetry loss. \\
+        \midrule
+        Measurement data &
+        Data are transmitted continuously and stored on a local SSD. &
+        Corrupted measurement files are mitigated by saving the continuously transmitted data and accessing backup files after the flight. \\
+        \midrule
+        Electrical energy &
+        The battery and power distribution system are sized for a 45 min electrical mission duration, covering the nominal 30 min mission and additional operational allowance. &
+        Electrical energy loss affects flight control, telemetry, sensors, and propulsion electronics. \\
+        \midrule
+        Fuel system &
+        Two fuel bladders and multiple fuel pumps are included in the propulsion system architecture. &
+        Fuel transfer supports CG management and provides operational flexibility during the mission. \\
+        \midrule
+        Ground support equipment &
+        Backup ground station equipment shall be prepared and checked before flight. &
+        Ground station failure is a safety-critical operational risk and shall not directly prevent safe recovery of the aircraft. \\
+        \midrule
+        Fleet availability &
+        The initial fleet consists of five aircraft. &
+        Fleet-level redundancy allows scheduled maintenance or repairs on one aircraft without stopping the complete test campaign. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+This philosophy is consistent with the emergency-handling requirements of \autoref{sec:requirements}: isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures, communication loss shall trigger autonomous return to the launch site, and no single-point failure of electronic components shall cause mission failure \cite{SC_LightUAS}.
+
+\section{Expected Reliability and Availability}
+
+At the current design stage, a full quantitative reliability prediction is not yet possible because detailed component failure rates and supplier reliability data are not available for all subsystems. Reliability is therefore assessed qualitatively through the technical risk assessment and the applied mitigations. The dominant reliability drivers are the flight control system, communication link, power distribution system, actuators, propulsion system, fuel system, modular structural interfaces, and measurement chain.
+
+After application of the preventive and mitigation measures in \autoref{sec:risk_mitigation}, the identified operational risks are expected to fall within the controlled or tolerated region of the risk matrix. Reliability is further improved by short service cycles for critical mechanical components, regular battery checks, backup ground equipment, continuous data transmission, and strict pre-flight and post-flight checklists.
+
+The expected operational availability is derived from the maintenance assumption used in the operations plan: each HUGO aircraft is expected to spend 50 working days per year in maintenance. Assuming 250 working days per year, the planned single-aircraft availability is therefore
+\begin{equation}
+    A_{\mathrm{planned}} = 1 - \frac{50}{250} = 0.80 .
+\end{equation}
+The initial fleet of five aircraft increases campaign availability, since one aircraft can be unavailable for maintenance while the remaining aircraft support the planned flight-test schedule.\footnote{This is a planned availability estimate only. It does not include unscheduled maintenance downtime, weather cancellations, ATC delays, or certification-related downtime.}
+
+The nominal test campaign assumes 100 operational days per year with four flights per day. For one aircraft, this corresponds to 400 flights per year. Over the required operational life of 15 years, this gives a design usage of
+\begin{equation}
+    N_{\mathrm{flights}} = 100 \cdot 4 \cdot 15 = 6000
+\end{equation}
+flights per aircraft, which shall be used as the reference life for fatigue, inspection planning, actuator replacement intervals, and structural interface checks.
+
+\section{Maintainability}
+
+HUGO is a maintainable system. Maintainability is supported by the modular architecture, the use of accessible internal subsystems, and the requirement that every subsystem inside the wing and fuselage shall be inspectable. The maintenance philosophy follows continuing-airworthiness practice: the operator remains responsible for continuing airworthiness, while a CAMO manages the Aircraft Maintenance Programme (AMP), reliability monitoring, Airworthiness Directive compliance, records, and coordination with authorities \cite{EASA_CAirworthiness}. Maintenance and repair work shall be performed by an approved MRO organisation when required.
+
+The AMP shall include both scheduled and unscheduled maintenance activities. Configuration changes made to install a new test wing, canard, payload, or control-system setup shall be treated as maintenance actions, since they affect the certified configuration of the aircraft.
+
+\begin{table}[H]
+    \centering
+    \caption{Outline of HUGO maintenance activities}
+    \label{tab:rams_maintenance}
+    \begin{tabularx}{\linewidth}{p{0.23\linewidth} X X}
+        \toprule
+        \textbf{Maintenance type} & \textbf{Activities} & \textbf{Trigger} \\
+        \midrule
+        Pre-flight servicing &
+        Mission plan review, NOTAM and TAF check, configuration check, ground station setup, external walk-around, system checks, sensor calibration, fuel loading, and battery/power check. &
+        Before each flight. \\
+        \midrule
+        Post-flight servicing &
+        Data download, on-board system check, power-down, visual inspection, flight-day debriefing, refuelling if more flights are scheduled, and recording of anomalies. &
+        After each flight. \\
+        \midrule
+        Scheduled maintenance &
+        Planned inspections of structures, modular interfaces, actuators, propulsion system, fuel system, avionics, sensors, landing gear, software configuration, and safety-critical systems. &
+        Defined by flight hours, flight cycles, calendar time, landings, and the AMP. \\
+        \midrule
+        Configuration-change maintenance &
+        Inspection and release of the aircraft after installation of a different wing, canard, payload, sensor suite, control law, or empennage configuration. &
+        Before flight with a modified test configuration. \\
+        \midrule
+        Unscheduled or corrective maintenance &
+        Troubleshooting and repair of defects found during operation, pre-flight checks, post-flight checks, scheduled inspections, or abnormal flight events. &
+        After any detected defect, anomaly, hard landing, flight-envelope exceedance, data-system failure, or structural concern. \\
+        \midrule
+        Structural repair or modification &
+        Repair or modification of the fuselage, wing interface, tail interface, landing gear attachment, propulsion mounts, or payload mounts using approved maintenance or repair data. &
+        After damage, fatigue indication, design modification, or customer-specific integration. \\
+        \midrule
+        Functional tests and release to service &
+        Verification of flight controls, propulsion, avionics, communication, sensors, software configuration, safety-critical systems, and, when required, a test flight. &
+        After maintenance affecting airworthiness or mission-critical systems. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\section{Safety Summary}
+
+The RAMS approach ensures that HUGO can perform high-speed research flights while limiting the consequences of failures. Safety is primarily achieved through operation in controlled airspace, continuous ground monitoring, autonomous recovery logic, fire protection, flight-envelope monitoring, pre-flight and post-flight procedures, and maintenance under a continuing-airworthiness framework. Reliability is improved through selective redundancy and short service cycles, while availability is maintained by the initial five-aircraft fleet and a planned maintenance allowance of 50 working days per aircraft per year.
+```
+
 
 
 

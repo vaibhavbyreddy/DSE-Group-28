@@ -27,7 +27,7 @@ The free-body and kinetic diagrams of the fuselage in flight, assuming detached 
 
 where $a_i=a_{cg}=(n-1)g$.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \begin{tikzpicture}[scale=1.0, >=stealth]
 
@@ -125,7 +125,7 @@ where $a_i=a_{cg}=(n-1)g$.
 % ─────────────────────────────────────────
         % KINETIC DIAGRAM (bottom, offset by -5.5)
         % ─────────────────────────────────────────
-        \def\yoff{-5.5}
+        \def\yoff{-3.5}
 
         % Fuselage beam
         \draw[thick] (0,\yoff+0.15) -- (12,\yoff+0.15);
@@ -142,8 +142,8 @@ where $a_i=a_{cg}=(n-1)g$.
         \fill[red] (6.5, \yoff) circle (3.5pt);
 
         % Translational inertia: m*a_cg (upward at CG, right-side label)
-        \draw[->, thick, orange!80!black, line width=1.5pt]
-            (6.5, \yoff+0.15) -- (6.5, \yoff+1.5)
+        \draw[->, thick, orange!80!black, line width=0.65pt]
+            (6.5, \yoff+0.15) -- (6.5, \yoff+0.65)
             node[midway, right] {$m\,a_{cg}$};
 
         % Rotational inertia: I_G*alpha
@@ -172,11 +172,12 @@ where $a_i=a_{cg}=(n-1)g$.
         \node[below] at (10.8, \yoff-2.2) {$x_t$};
 
     \end{tikzpicture}
-    \caption{Free body diagram (top) and kinetic diagram (bottom) of the fuselage during flight. \textcolor{red}{More detailed description here.}}
+    \caption{Free-body diagram (top) and kinetic diagram (bottom) of the fuselage during a pull-up manoeuvre.}
     \label{fig:fuselage_fbd_kd_flight}
 \end{figure}
 
-In the second case, the aircraft is assumed to both accelerate vertically upwards due to landing impact, and rotate with a rotational acceleration about the center of gravity. The lift forces in this case are found by assuming the total lift equal to weight and in moment equilibrium with weight just before impact, with canard still assumed to contribute a fraction of the total lift. Hence, the equations of motion are
+
+In the second case, the aircraft is assumed to both accelerate vertically upwards due to landing impact, and rotate with a rotational acceleration about the center of gravity. The lift forces in this case are found by assuming the total lift equal to weight and in moment equilibrium with weight just before impact, with canard still assumed to contribute a fraction of the total lift. The free-body and kinetic diagrams at the instant of the impact are shown in \autoref{fig:fuselage_fbd_kd_landing}. Hence, the equations of motion are
 
 \begin{equation}
      \tikz[baseline=-0.6ex]{\draw[->] (0,-0.25) -- (0,0.25);}
@@ -213,7 +214,7 @@ and the internal bending moment as
 \end{equation}
 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \begin{tikzpicture}[scale=1.0, >=stealth]
 
@@ -315,7 +316,7 @@ and the internal bending moment as
 % ─────────────────────────────────────────
         % KINETIC DIAGRAM (bottom, offset by -5.5)
         % ─────────────────────────────────────────
-        \def\yoff{-5.5}
+        \def\yoff{-3.5}
 
         % Fuselage beam
         \draw[thick] (0,\yoff+0.15) -- (12,\yoff+0.15);
@@ -333,7 +334,7 @@ and the internal bending moment as
 
         % Translational inertia: m*a_cg (upward at CG, right-side label)
         \draw[->, thick, orange!80!black, line width=1.5pt]
-            (6.5, \yoff+0.15) -- (6.5, \yoff+1.5)
+            (6.5, \yoff+0.15) -- (6.5, \yoff+0.65)
             node[midway, right] {$m\,a_{cg}$};
 
         % Rotational inertia: I_G*alpha
@@ -341,7 +342,7 @@ and the internal bending moment as
         % Starting bottom-right, sweeping CCW, arrow at top-left
         % Label placed to the left of the arc, clear of the force arrow
         \draw[->, thick, orange!80!black]
-            (6.5, \yoff+0.05) ++ (-30:0.55) arc (-30:210:0.55)
+            (6.3, \yoff+0.05) ++ (-30:0.55) arc (-30:210:0.30)
             node[left] {$I_G\,\alpha$};
 
         % Dashed reference lines (kinetic)
@@ -362,10 +363,60 @@ and the internal bending moment as
         \node[below] at (10.8, \yoff-2.2) {$x_t$};
 
     \end{tikzpicture}
-    \caption{Free body diagram (top) and kinetic diagram (bottom) of the fuselage during landing. The ground reaction $F_{lg}$ acts upward through the landing gear at $x_{lg}$. In the kinetic diagram, nodal accelerations $a_i = a_{cg} + \dot{\omega}(x_i - x_{cg})$ combine translational and rotational contributions, so the arrow lengths vary linearly about the centre of gravity on top of the base mass distribution.}
+    \caption{Free-body diagram (top) and kinetic diagram (bottom) of the fuselage during landing impact.}
     \label{fig:fuselage_fbd_kd_landing}
 \end{figure}
 
+Additionally, the torque on the fuselage due to the side force on the empennage has been accounted for by using
+
+\begin{equation}
+    T=\frac{h}{2}C_{L_{max}}q_{\infty}S
+\end{equation}
+
+The internal loading diagrams are shown in \autoref{fig:fuselage_internal_loads} and the required thicknesses in \autoref{fig:fuselage_thicknesses}.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/internal_loads_flight.png}
+        \caption{Pull-up manoeuvre of $9g$}
+        \label{fig:fuselage_internal_flight}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/internal_loads_landing.png}
+        \caption{Landing impact at deceleration of $4g$}
+        \label{fig:fuselage_internal_landing}
+    \end{subfigure}
+
+    \caption{Plots of internal shear force, bending moment, and torque in the fuselage as a function of position}
+    \label{fig:fuselage_internal_loads}
+\end{figure}
+
+\textcolor{red}{\cite{NASA_SP8007_2019} used for critical buckling loads: }
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/thickness_flight.png}
+        \caption{Pull-up manoeuvre of $9g$}
+        \label{fig:fuselage_flight_thickness}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/thickness_landing.png}
+        \caption{Landing impact at deceleration of $4g$}
+        \label{fig:fuselage_landing_thickness}
+    \end{subfigure}
+    \caption{Plots of the required thickness of the fuselage cylinder as a function of position}
+    \label{fig:fuselage_thicknesses}
+\end{figure}
 
  \section{Wing structural analysis}
 \label{sec:wing_structural_analysis}
@@ -379,17 +430,17 @@ and the internal bending moment as
 % talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
 % -
 
-Once the structural analysis of the fuselage has been completed, the design can proceed to analyse the structural properties of the wing. The aerodynamic platform is analysed in both the most critical conditions, during landing when the force of the impact multiplies the weight, during take off conditions when the weight is at its maximum and the wing experiences maximum lift loads and lastly cruise. 
+Once the structural analysis of the fuselage has been completed, the design can proceed to analyse the structural properties of the wing. The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
 
 This section focuses on deriving a method applicable for all wing profiles given to HUGO, to compute the structural characteristics such as internal shear, internal bending moments, torsion, deflection, wing rotation and failure determination during normal operation. For the purpose of this analysis, the foam interior is not taken into account for the structural calculations, leaving only the composite skin as the prime structural element.
 
-For the purpose of this analysis, the distribution of forces and reactions on the wing have been computed for the following cases: 
-\begin{itemize}
-    \item Manoeuvre loading at cruise conditions and load factor 9 and angle of attack $8 \deg$,
-    \item Cruise and Test conditions at load factor 1 and angle of attack $1 \deg$
-    \item Landing conditions at weight load factor is 4, angle of attack $10 \deg$, at $50 m/s$.
+From the requirements, especially HUG-STR-07, it has been determined that the extreme loading scenario of the wing planform occurs during the loading manoeuvre that stresses the airframe up to 6 times the normal amount. During landing, the impact would produce an inertial load of 4, smaller then the previous 6, and in cruise conditions, the load factor remains at 1. Taking this into account, for the purpose of this model, only the extreme loading case will be analysed.
+% \begin{itemize}
+%     \item Maneuver loading at cruise conditions and load factor 6 (HUG-TPL-04) and angle of attack $8 \deg$,
+%     \item Cruise and Test conditions at load factor 1 and angle of attack $1 \deg$
+%     \item Landing conditions at weight load factor is 4, angle of attack $10 \deg$, at $50 m/s$.
     
-\end{itemize}
+% \end{itemize}
 
 As introduced in \autoref{sec}, the structural model is based on the NASA SC(2)-0012 airfoil shown in \autoref{fig:airfoil_simplified_model}. This symmetric supercritical airfoil is used as the reference geometry for the wing sections analysed in the structural tool. To simplify the analytical model, each wing section is approximated as a hollow ellipse with the same chord and maximum thickness as the airfoil. The lift resultant is applied at the quarter-chord point, consistent with the typical location of the aerodynamic centre for subsonic airfoils\footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}.
 
@@ -691,7 +742,7 @@ The structural analysis is formulated with several parameters left available for
 
 For the structural analysis of HUGO's wings, a computational tool was developed to evaluate the structural response of different planforms during normal operation. The tool estimates the applied torque, wing-tip deflection, wing-tip rotation, internal shear forces, internal shear stresses, and the buckling behaviour of the wing. These outputs are used to verify that the wing structure remains within acceptable limits throughout the operating envelope, including extra loads experienced during take-off or landing. 
 
-Each section is exposed to a different lift and weight, depending on the location from the root. Lift division is evaluated in \autoref{sec:lift}, while for the weight equation \autoref{eq:section_weight} is used. \begin{equation} W = perimeter \cdot t_{skin} \cdot l_{section} \cdot 9.81 \label{eq:section_weight} \end{equation} \begin{wrapfigure}[8]{r}{0.4\textwidth} \centering \includegraphics[width=0.43\textwidth]{figures_final/Force distribution.png} \caption{Force distribution during cruise conditions and load factor 1} \label{fig:force_distribution} \end{wrapfigure} Cases such as wing deflection or internal stresses require a net force obtained by subtracting the wing weight from the lift for each segment. The resulting force distribution is shown in \autoref{fig:force_distribution}.
+Each section is exposed to a different lift and weight, depending on the location from the root. Lift division is evaluated in \autoref{sec:lift}, while for the weight equation \autoref{eq:section_weight} is used. \begin{equation} W = perimeter \cdot t_{skin} \cdot l_{section} \cdot 9.81 \label{eq:section_weight} \end{equation} \begin{wrapfigure}[13]{r}{0.4\textwidth} \centering \includegraphics[width=0.43\textwidth]{figures_final/Force distribution.png} \caption{Force distribution during cruise conditions and load factor 1} \label{fig:force_distribution} \end{wrapfigure} Cases such as wing deflection or internal stresses require a net force obtained by subtracting the wing weight from the lift for each segment. The resulting force distribution is shown in \autoref{fig:force_distribution}.
 
 For the chosen airfoil, the torque is given by the combination of the lift produced by the wing and the aerodynamic moment of the airfoil itself. The torque is computed by multiplying the choarter chord length by the lift of the section, and then summing the contributions one by one until the root chord is reached \autoref{eq:t_sec_cumulative}, where $i$ is the previous segment.
 \begin{equation}
@@ -703,9 +754,43 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
 \end{aligned}
 \end{equation}
 
-At $1 \deg $angle of attack, the airfoil has a moment coefficient that tends towards \footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA_0012} (accessed on 10.06.2026)} 0 as such, for the cruise and test conditions, the torque graphs will look the same. The torques distribution for the 
+At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA_0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_maneuver}.
+
+Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the folowing. The internal moment and shear forces acting on the cross-section of the wing are presented in 
+
+
+
+
+
+
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Wing_structure/Wing tip deflection during maneuver loading.png}
+        \caption{Wing tip twist at load factor 6 and $8^\circ$ angle of attack}
+        \label{fig:wing-tip_twist}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Wing_structure/Torque distribution on the wing Maneuver.png}
+        \caption{Torsion distribution along the wing at load factor 6 and $8^\circ$ angle of attack}
+        \label{fig:torsion_maneuver}
+    \end{subfigure}
+
+    \caption{Wing twist and torsion distribution during maneuver loading}
+    \label{fig:maneuver_twist_torsion}
+\end{figure}
+\todo[inline]{Make sure we mention somewhere that we have a 4.5 mm thickness}
+It can be observed that the twist goes up $9.1 \deg$ for a loading factor of 6, which satisfies the requierment HUG-STR-08. 
+
+To ensure that the wing will not break during the critical loading case, the deflection along the span of the wing is considered and simulated.
+
+The torsion of the wing is further used to compute the wing twist, and in this scenario, the manoeuvre at a loading factor of 6 is the critical case, the deflection being seen in \autoref{fig:wing-tip_twist}. The equation used to determine the twist is taken from \cite[p.~578]{}(Eq. 18.4) 
 
 
 \section{Flutter Analysis}
-\label{sec:flutter_analysis}
 \todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}

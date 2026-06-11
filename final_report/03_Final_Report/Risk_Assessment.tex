@@ -82,6 +82,8 @@ Operation risks refer to hazardous scenarios which can occur both on the ground 
         HUG-RSK-OP-16 &  Corrupted measurement files  & 2 & 4 \\ \hline
         HUG-RSK-OP-17 &  Insufficient power to continue tests for the day  & 2 & 5 \\ \hline
         HUG-RSK-OP-18 & Violation of regulations and procedures & 2 & 5 \\ \hline
+        HUG-RSK-OP-19 & Sensor errors & 4 & 4 \\ \hline
+        HUG-RSK-OP-20 & Loss of power during flight  & 2 & 5 \\ \hline
     \end{tabular}
     \label{tab:operation_risks}
 \end{table}
@@ -102,11 +104,26 @@ The tolerance level of both development and operational risks can be determined 
 
 \todo[inline]{Write-up about the initial risk matrix and how preventive measures/contingency scenarios need to be developed to make sure that HUGO can operate safely.}
 
+
+
+
+
+
+
+
+
+
+
 \section{Risk Mitigation and Contingency Management}
 \label{sec:risk_mitigation_contingency_management}
 
+Preventive measures and mitigation strategies developed for the newly identified risks, along with their expected effect on the likelihood or severity, are described in \autoref{tab:risk_preventive_measures} and \autoref{tab:risk_mitigation_scenarios}, respectively. Preventive measures are defined as actions that can be taken before during the development, manufacturing, and operations preparation to reduce the likelihood of the risks occurring. Mitigation strategies refer to the actions that can be taken once the risks manifest themselves to reduce the severity of impact they have on both the UAV and its surroundings.
 
-\begin{longtable}{|c|p{12.5cm}|c|}
+It shall be noted that mitigation strategies cannot be identified for all the risks. This is the case for the development risks associated with certification (HUG-RSK-DEV-06, HUG-RSK-DEV-07), as well as operational risks dependent on the airport authorities (HUG-RSK-OP-13). In these cases, special emphasis was put on preventive measures.
+
+
+
+\begin{longtable}{|c|p{12cm}|c|}
 \caption{Risk preventive measures}
 \label{tab:risk_preventive_measures} \\
 
@@ -116,7 +133,7 @@ The tolerance level of both development and operational risks can be determined 
 \endfirsthead
 
 \hline
-\textbf{Risk ID} & \textbf{Preventive Measure(s)} & \textbf{$\Delta p$} \\
+\textbf{Risk ID} & \centering\textbf{Preventive Measure(s)} & \textbf{$\Delta p$} \\
 \hline\hline
 \endhead
 
@@ -126,11 +143,11 @@ The tolerance level of both development and operational risks can be determined 
 
 \hline
 \endlastfoot
-HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is in line with the predictions made for the theoretical. & -2  \\ \hline
-         HUG-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1  \\ \hline
-         HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2  \\ \hline
-         HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1  \\ \hline
-         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO.
+HUG-RSK-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is in line with the predictions made for the theoretical. & -2  \\ \hline
+         HUG-RSK-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1  \\ \hline
+         HUG-RSK-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2  \\ \hline
+         HUG-RSK-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1  \\ \hline
+         HUG-RSK-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO.
          
          Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 \\ \hline
         
@@ -140,14 +157,14 @@ HUG-RSK-DEV-06 & Ensuring that the documentation is complete, and all design det
 HUG-RSK-DEV-07 & Maintaining contact with EASA and other authorities to resolve any potential issues regarding certification.
 & -1 \\ \hline
 
-HUG-OP-03 & Adequate theoretical and practical training of crew.
+HUG-RSK-OP-03 & Adequate theoretical and practical training of crew.
          
          Development of procedures, checklists, flight tests and simulations validated by a competent third party. & -1 \\ \hline
-         HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
-         HUG-OP-05 & Implementing alerting systems in case values approaching the envelope boundaries are detected. Apply master warnings once predefined critical margins are exceeded. & -1 \\ \hline
-         HUG-OP-07 & Operate within ATC-controlled airspaces below FL290, with adequate vertical separation of 2000' & 0 \\ \hline 
-         HUG-OP-08 & Install fire detection and mitigation systems in HUGO. & -1 \\\hline
-         HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
+         HUG-RSK-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
+         HUG-RSK-OP-05 & Implementing alerting systems in case values approaching the envelope boundaries are detected. Apply master warnings once predefined critical margins are exceeded. & -1 \\ \hline
+         HUG-RSK-OP-07 & Operate within ATC-controlled airspaces below FL290, with adequate vertical separation of 2000' & 0 \\ \hline 
+         HUG-RSK-OP-08 & Install fire detection and mitigation systems in HUGO. & -1 \\\hline
+         HUG-RSK-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
          
 HUG-RSK-OP-11 & Regular check-ups on crew, establishing reliable communication channels, predefining absence regulations, scheduling holidays and foreseen leaves in advance.
 & -2 \\ \hline
@@ -182,7 +199,7 @@ Regularly checking the condition of the battery
 
 
 
-\begin{longtable}{|c|p{12.5cm}|c|}
+\begin{longtable}{|c|p{12cm}|c|}
 \caption{Risk mitigation strategies}
 \label{tab:risk_mitigation_scenarios} \\
 
@@ -192,7 +209,7 @@ Regularly checking the condition of the battery
 \endfirsthead
 
 \hline
-\textbf{Risk ID} & \textbf{Mitigation Strategy} & \textbf{$\Delta s$} \\
+\textbf{Risk ID} & \centering\textbf{Mitigation Strategy} & \textbf{$\Delta s$} \\
 \hline\hline
 \endhead
 
@@ -203,22 +220,22 @@ Regularly checking the condition of the battery
 \hline
 \endlastfoot
 
- HUG-OP-01 & \multirow{2}{*}{\parbox{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a flight termination system shall be triggered.}} & \multirow{2}{*}{-1} \\ 
+ HUG-RSK-OP-01 & \multirow{2}{*}{\parbox{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a flight termination system shall be triggered.}} & \multirow{2}{*}{-1} \\ 
         \cline{1-1}
-        HUG-OP-02 & & \\ 
+        HUG-RSK-OP-02 & & \\ 
         \hline
-        HUG-OP-04 & For problems during flight that include breaking of parts or components, HUGO shall immediately decelerate to a safe speed (TBD). Subsequently, flight termination system shall be triggered. & -1 \\ 
+        HUG-RSK-OP-04 & For problems during flight that include breaking of parts or components, HUGO shall immediately decelerate to a safe speed (TBD). Subsequently, flight termination system shall be triggered. & -1 \\ 
         \hline
-        HUG-OP-05 & If returning to the envelope is not deemed feasbile, flight termination shall be performed as described for HUG-OP-O1. & -1 \\\hline
-        HUG-OP-06 & If the test area is exceeded, the drone will be ordered to immediately return to the testing location. & -2 \\ \hline
-        HUG-OP-08 & Initiate fire extinguishing procedures in case on-board fire is detected/ & -1 \\\hline
-        HUG-OP-09 & If a mechanical error onboard the drone during the test flight is detected, possible extent shall be assessed. Depending on the root cause of the error and severity of consequences, one of the following shall be implemented:
+        HUG-RSK-OP-05 & If returning to the envelope is not deemed feasbile, flight termination shall be performed as described for HUG-RSK-OP-O1. & -1 \\\hline
+        HUG-RSK-OP-06 & If the test area is exceeded, the drone will be ordered to immediately return to the testing location. & -2 \\ \hline
+        HUG-RSK-OP-08 & Initiate fire extinguishing procedures in case on-board fire is detected/ & -1 \\\hline
+        HUG-RSK-OP-09 & If a mechanical error onboard the drone during the test flight is detected, possible extent shall be assessed. Depending on the root cause of the error and severity of consequences, one of the following shall be implemented:
         \begin{enumerate}
         \item The drone will be ordered to immediately return. 
         \item The flight termination system shall be triggered. 
         \end{enumerate} 
         & -1 \\ \hline
-        HUG-OP-10 & In case of deteriorating weather conditions, the drone will be ordered to return and land as soon as possible. & -1 \\ \hline
+        HUG-RSK-OP-10 & In case of deteriorating weather conditions, the drone will be ordered to return and land as soon as possible. & -1 \\ \hline
         
 HUG-RSK-OP-11 &
 Appointing pilots/crew members who can be called upon in case of emergency.
