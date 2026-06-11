@@ -8,10 +8,11 @@ A first version of design driving characteristics is included in the Mid-Term Re
 
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
+This section investigates controllability and stability analyses on the HUGO aircraft. Newly developed software, Flow5, is used to demonstrate HUGO's capability of operation in various flight regimes and outputs several important values for the design, such as control surface actuator moments. The forces and moments on the control surfaces were calculated using the Flow5 software on a reference wing and tail planform used with HUGO. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled and meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. 
 
 \section{Control Forces}
 \label{sec:control_forces}
-The forces and moments on the control surfaces were calculated using the Flow5 software. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled and meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. Control surface size was estimated based on the reference aircraft. The output from Flow5 gives a range of moment values for the actuators needed for the control surface deflections. Furthermore, the Flow5 aircraft model is used together with its inertial properties coming from the CAD model to estimate dynamic stability characteristics of HUGO.
+The size of the control surfaces was estimated based on the reference aircraft. The output from Flow5 gives a range of moment values for the actuators needed for the control surface deflections. Furthermore, the Flow5 aircraft model is used together with its inertial properties coming from the CAD model to estimate static and dynamic stability characteristics of HUGO.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\linewidth]{figures_final/HUGO_Flow5_260609.png}
@@ -76,7 +77,62 @@ From this, the updated aileron hinge moment $H_{a_{c}} \approx 0.27\  N \cdot m$
 \subsection{Elevator}
 
 \subsection{Dynamic characteristics of the aircraft}
-Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the aircraft within its flight envelope. Both longitudinal and lateral eigenmotions were studied for both the canard and non-canard configuration.
+Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the aircraft within its flight envelope. Both longitudinal and lateral eigenmotions were investigated for both the canard and non-canard configuration using the Flow5 software. The aircraft was re-modeled based on the CAD model and included identical geometric, mass and inertial properties. \autoref{fig:flow5_overview} shows the aircraft properties used in this simulation. \autoref{} shows the modal responses in the longitudinal stability direction, \autoref{} shows characteristic modes for the lateral stability direction. These modal responses were captured at an approach speed of $V = 50 \  m \cdot s^{-1}$ and an angle of attack of 
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/short_period_response.pdf}
+        \caption{Short-period mode}
+        \label{fig:short_period_response}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/phugoid_response.pdf}
+        \caption{Phugoid mode}
+        \label{fig:phugoid_response}
+    \end{subfigure}
+
+    \caption{Longitudinal dynamic stability modes of HUGO}
+    \label{fig:longitudinal_dynamic_modes}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/roll_damping_response.pdf}
+        \caption{Roll damping mode}
+        \label{fig:roll_damping_response}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/dutch_roll_response.pdf}
+        \caption{Dutch-roll mode}
+        \label{fig:dutch_roll_response}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures/spiral_response.pdf}
+        \caption{Spiral mode}
+        \label{fig:spiral_response}
+    \end{subfigure}
+
+    \caption{Lateral-directional dynamic stability modes of HUGO}
+    \label{fig:lateral_directional_dynamic_modes}
+\end{figure}
+
+\subsubsection{Longitudinal stability study}
+To study 
+\subsubsection{Lateral stability study}
+
+Longitudinal 
 
 \section{Centre of Gravity Limits}
 \label{sec:centre_of_gravity_limits}

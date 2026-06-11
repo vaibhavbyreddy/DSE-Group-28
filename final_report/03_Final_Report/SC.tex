@@ -383,6 +383,14 @@ Once the structural analysis of the fuselage has been completed, the design can 
 
 This section focuses on deriving a method applicable for all wing profiles given to HUGO, to compute the structural characteristics such as internal shear, internal bending moments, torsion, deflection, wing rotation and failure determination during normal operation. For the purpose of this analysis, the foam interior is not taken into account for the structural calculations, leaving only the composite skin as the prime structural element.
 
+For the purpose of this analysis, the distribution of forces and reactions on the wing have been computed for the following cases: 
+\begin{itemize}
+    \item Manoeuvre loading at cruise conditions and load factor 9 and angle of attack $8 \deg$,
+    \item Cruise and Test conditions at load factor 1 and angle of attack $1 \deg$
+    \item Landing conditions at weight load factor is 4, angle of attack $10 \deg$, at $50 m/s$.
+    
+\end{itemize}
+
 As introduced in \autoref{sec}, the structural model is based on the NASA SC(2)-0012 airfoil shown in \autoref{fig:airfoil_simplified_model}. This symmetric supercritical airfoil is used as the reference geometry for the wing sections analysed in the structural tool. To simplify the analytical model, each wing section is approximated as a hollow ellipse with the same chord and maximum thickness as the airfoil. The lift resultant is applied at the quarter-chord point, consistent with the typical location of the aerodynamic centre for subsonic airfoils\footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}.
 
 This elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model also neglects the structural contribution of the foam core. The resulting section properties are therefore treated as simplified equivalent properties for preliminary structural sizing. For this analysis, the wing will be treated as a beam fixed at one end, deformations and deflections being based on Euler–Bernoulli beam theory as a first-order approximation.
@@ -683,36 +691,21 @@ The structural analysis is formulated with several parameters left available for
 
 For the structural analysis of HUGO's wings, a computational tool was developed to evaluate the structural response of different planforms during normal operation. The tool estimates the applied torque, wing-tip deflection, wing-tip rotation, internal shear forces, internal shear stresses, and the buckling behaviour of the wing. These outputs are used to verify that the wing structure remains within acceptable limits throughout the operating envelope, including extra loads experienced during take-off or landing. 
 
-Each section is exposed to a different lift and weight, depending on the location from the root. Lift division is evaluated in \autoref{sec:lift}, while for the weight equation \autoref{eq:section_weight} is used.
+Each section is exposed to a different lift and weight, depending on the location from the root. Lift division is evaluated in \autoref{sec:lift}, while for the weight equation \autoref{eq:section_weight} is used. \begin{equation} W = perimeter \cdot t_{skin} \cdot l_{section} \cdot 9.81 \label{eq:section_weight} \end{equation} \begin{wrapfigure}[8]{r}{0.4\textwidth} \centering \includegraphics[width=0.43\textwidth]{figures_final/Force distribution.png} \caption{Force distribution during cruise conditions and load factor 1} \label{fig:force_distribution} \end{wrapfigure} Cases such as wing deflection or internal stresses require a net force obtained by subtracting the wing weight from the lift for each segment. The resulting force distribution is shown in \autoref{fig:force_distribution}.
 
+For the chosen airfoil, the torque is given by the combination of the lift produced by the wing and the aerodynamic moment of the airfoil itself. The torque is computed by multiplying the choarter chord length by the lift of the section, and then summing the contributions one by one until the root chord is reached \autoref{eq:t_sec_cumulative}, where $i$ is the previous segment.
 \begin{equation}
-    W = perimeter \cdot skin_thickness \cdot section_lengh \cdot 9.81
-    \label{eq:section_weight}
+\label{eq:t_sec_cumulative}
+\begin{aligned}
+    T_{\mathrm{sec}} &= L_{\mathrm{sec}} \cdot \frac{\mathrm{chord}}{4}
+    \qquad &
+    T_{i+1} &= \sum_{j=0}^{i} T_j
+\end{aligned}
 \end{equation}
 
-Cases such as wing deflection or internal stresses require a net force obtained by subtracting from lift the weight of the wing per segment. The differance can be seen in 
+At $1 \deg $angle of attack, the airfoil has a moment coefficient that tends towards \footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA_0012} (accessed on 10.06.2026)} 0 as such, for the cruise and test conditions, the torque graphs will look the same. The torques distribution for the 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures_final/Force distribution.png}
-    \caption{Force distribution during cruise conditions and load factor 1}
-    \label{fig:force_distribution}
-\end{figure}
 
 \section{Flutter Analysis}
 \label{sec:flutter_analysis}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}

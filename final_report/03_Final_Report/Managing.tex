@@ -1,4 +1,4 @@
-\chapter{Management}
+\chapter{Outline of product development}
 \label{ch:management}
 
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
@@ -18,6 +18,28 @@
 \label{sec:engineering_design_and_analysis}
 
 \todo[inline]{In this Section, we briefly describe the steps required to reach the more detailed design.}
+
+To fulfil its mission as a versatile flight test vehicle, the aircraft is expected to house a range of wing planforms, later referred to as the \textit{planform envelope}. This will allow it to perform a wide range of missions, with example ones listed in \autoref{sec:mission_envelope}. However, the need to house multiple wing geometries is driving the system design. 
+
+Thus, the goals of engineering analysis for the final work package are to design HUGO's fuselage and its associated subsystems, ensuring they accommodate the specified range of planforms, and to develop a standard planform to use when the client does not provide one.
+
+To that end, several analyses described in the Midterm Report \footnote{Midterm Report}: drag estimation, fuel mass fraction computation, and the matching diagram can be re-implemented. For this work package, a structural analysis of both wings and the fuselage is conducted to obtain a complete estimate of aircraft weight. Furthermore, aileron sizing is conducted for each examined planform, and preliminary structural design of the fuselage is performed.
+
+As multiple possible planforms are considered, including multiple possible airfoils, the approach to aerodynamic analysis differs from the one of the Midterm Report \footnote{Midterm Report}. Instead of defining an airfoil and conducting a lifting line analysis to obtain the properties of the three-dimensional wing directly, there is an envelope of possible airfoils defined implicitly by ranges of values of lift slope, maximum lift and moment coefficients. Then, the properties of the three-dimensional wing are deduced from those coefficients using semi-empirical formulae.
+
+Another challenge posed by the planform envelope is that it is a continuous design space spanning several parameters. Evaluating all combinations of those parameters at high resolution is not feasible. As such, a list of parameter combinations considered most constraining is justified in \todo{autoref}
+
+To allow for general-purpose testing of control systems, the standard planform of HUGO needs to be free of aeroelastic instability. To ensure that, an aeroelastic analysis of the planform is conducted  \todo{autoref}.
+
+The influence of assumptions made during the design process on the ability of HUGO to meet its requirements and on the performance of the system needs to be assessed by means of a sensitivity study. This is addressed in \todo{autoref}
+
+% 0) The goals for the engineering analysis are to assess whether HUGO can house its specified planforms and to develop the standard planform to be used for control system tests.
+
+% 1) Mention Drag Estimation, the Matching Diagram and the fuel fraction analyses are being reused
+
+% 2) Mention moving away from aerosandbox due to working with airfoils implicitly defined through a range of coefficients
+
+% 3) Mention new 
 
 
 

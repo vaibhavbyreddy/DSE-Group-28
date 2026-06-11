@@ -1,7 +1,7 @@
-\chapter{Technical Risk Assessment}
+\chapter{Technical Risk Assessment \& Certification}
 \label{ch:risk_assessment}
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
+\todo[inline]{Chapter introduction pending.}
 
 \section{Resource Allocation \& Budget Breakdown}
 \label{sec:resource_allocation_budget_breakdown}
@@ -10,6 +10,271 @@
 
 \section{Identification of Technical Risks}
 \label{sec:technical_risks_identification}
+Throughout the development of HUGO, key technical risks were identified by evaluating the likelihood of occurrence $p$ and severity of impact $s$ \cite{Lanzafame2024}. Both of the criteria were evaluated on a scale from 1 to 5, with 1 being the lowest score and 5 being the highest. Details regarding the allocation of both scores are explained in \autoref{tab:risk_map_scores}.
+
+\begin{table}[H]
+    \centering
+        \caption{Likelihood/Severity scores used in risk assessment \cite{MITRECorporation2012}}
+    \begin{tabular}{|c|c|p{12cm}|}
+    \hline
+        \textbf{Score} & \textbf{Likelihood} & \textbf{Severity} \\ \hline\hline
+         1 & $0\%< p<1\%$ & Negligible \\   \hline
+         2 & $1\%<p<30\%$ & Marginal (insignificant impact, can be managed by applying standard procedures) \\   \hline
+         3 & $30\%<p<50\%$& Considerable (significant impact, can be managed by additional/contingency procedures) \\   \hline
+         4 & $50\%<p<70\%$& Critical (possible injury or minor damage to property or HUGO, has to be addressed by contingency/emergency procedures) \\   \hline
+         5 & $70\%<p<100\%$& Catastrophic (possible death or serious injury, severe damage to property, loss of HUGO, has to be addressed by contingency/emergency procedures) \\   \hline
+    \end{tabular}
+    \label{tab:risk_map_scores}
+\end{table}
+
+Given the complexity of the project, it was decided that development risks related to the design process shall be evaluated separately from those which can occur during operations of the finished product. Development risk encompass all design steps from the moment the DSE begins, up until the point when a HUGO is manufactured and ready for operation. An overview of their expected likelihood and severity is showcased in \autoref{tab:development_risks}.
+
+\begin{table}[H]
+    \centering
+    \caption{Development risk assessment}
+    \begin{tabular}{|c|p{9cm}|c|c|}
+    \hline
+       \textbf{Risk ID}  & \makecell{\textbf{Risk Description}} & \textbf{Likelihood} & \multicolumn{1}{|c|}{\textbf{Severity}} \\ \hline \hline
+        HUG-RSK-DEV-01 & Discrepancies between the values used for the dimensions, weight and performance of components and the actual values. & 4 & 4 \\ \hline
+        HUG-RSK-DEV-02 & Exceeding the time budget. & 2 & 3 \\ \hline
+        HUG-RSK-DEV-03 & System Model Errors (inadequate Validation \& Verification).       & 3 & 5 \\ \hline
+        HUG-RSK-DEV-04 & Inconsistent documentation (errors in keeping of records, documents and calculations) & 2 & 4 \\ \hline
+        HUG-RSK-DEV-05 & Supply Chain issues (component shipping delay) & 2 & 4 \\ \hline 
+        HUG-RSK-DEV-06 & Certification duration exceeding 3 years & 2 & 3 \\ \hline
+        HUG-RSK-DEV-07 & Rejection of Certification/DOA application  & 2 & 5 \\ \hline
+        HUG-RSK-DEV-08 & Obtaining a numerically feasible design that is impossible to manufacture & 3 & 5 \\\hline
+    \end{tabular}
+    \label{tab:development_risks}
+\end{table}
+
+Operation risks refer to hazardous scenarios which can occur both on the ground and in the air. According to the JARUS guidelines for risk assessment of UAVs, they can be identified and classified based on the following criteria \cite{Jarus_main}:
+\begin{itemize}
+    \item The extent to which third parties or property on the ground could be endangered by the activity;
+    \item The complexity, performance and operational characteristics of the unmanned aircraft involved;
+    \item The purpose of the flight, UAS type, probability of collision with other aircraft, class of airspace;
+    \item The type, scale, and complexity of the UAS operation or activity, including, where relevant, the size and type of the traffic handled by the responsible organisation or person;
+    \item The extent to which the persons affected by the risks involved in the UAS operation are able to assess and exercise control over those risks.
+\end{itemize}
+
+\autoref{tab:operation_risks} lists the operation risks identified for HUGO, along with their respective assigned likelihood and severity scores.
+
+\begin{table}[H]
+    \centering
+    \caption{Operation risk assessment}
+    \begin{tabular}{|c|p{9cm}|c|c|}
+    \hline
+       \textbf{Risk ID}  & \textbf{Risk Description} & \textbf{Likelihood} & \textbf{Severity} \\ \hline \hline
+        HUG-RSK-OP-01 & Loss of control during flight while connection with the drone is maintained & 2 & 4 \\ \hline
+        HUG-RSK-OP-02 & Loss of communication with the drone during the test phase & 2 & 4 \\ \hline
+        HUG-RSK-OP-03 & Human Error & 3 & 3 \\ \hline
+        HUG-RSK-OP-04 & Unscheduled sudden disassembly during flight & 2 & 5 \\ \hline
+        HUG-RSK-OP-05 & Exceeding the flight envelope & 2 & 3 \\ \hline
+        HUG-RSK-OP-06 & Exceeding the flight limit area & 2 & 5 \\ \hline
+        HUG-RSK-OP-07 & Air-collisions & 1 & 5 \\ \hline
+        HUG-RSK-OP-08 & Fuel-fire & 1 & 5 \\ \hline
+        HUG-RSK-OP-09 & Mechanical failure of components & 3 & 4 \\ \hline
+        HUG-RSK-OP-10 & Rapid deterioration of weather conditions during flight & 2 & 3 \\\hline 
+        HUG-RSK-OP-11 &  Unavailability of ground crew  & 4 & 5 \\ \hline
+        HUG-RSK-OP-12 &  Ground station equipment failure  & 2 & 5 \\ \hline
+        HUG-RSK-OP-13 &  Fuel shortage at Den Helder airport for HUGO  & 2 & 4 \\ \hline
+        HUG-RSK-OP-14 &  Fuel shortage while holding  & 2 & 5 \\ \hline
+        HUG-RSK-OP-15 &  Runway congestion/lack of ATC clearance  & 2 & 3 \\ \hline
+        HUG-RSK-OP-16 &  Corrupted measurement files  & 2 & 4 \\ \hline
+        HUG-RSK-OP-17 &  Insufficient power to continue tests for the day  & 2 & 5 \\ \hline
+        HUG-RSK-OP-18 & Violation of regulations and procedures & 2 & 5 \\ \hline
+    \end{tabular}
+    \label{tab:operation_risks}
+\end{table}
+
+The tolerance level of both development and operational risks can be determined by analysing the corresponding risk matrix (\autoref{fig:initial_risk_matrix}). Based on the position of each risk in the matrix, it can be assigned one of the following tolerance levels:
+\begin{enumerate}
+    \item \textbf{Low/controlled (green):} The combined likelihood and severity of the risk make it acceptable, and their impact of the project is deemed as acc.
+    \item \textbf{Moderate/tolerated (yellow): } The combined likelihood and severity of the risk make it tolerable under the condition that appropriate preventive measures are applied and contingency procedures are clearly outlined and followed in case the risks manifests itself.
+    \item \textbf{Extreme/unacceptable (red): } The combined likelihood and severity of the risk make it impossible for the design or operations of HUGO to proceed. Unless extensive preventive measures and contingency procedures are developed and adhered to, the success of the project cannot be ensured.
+\end{enumerate}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/placeholder4.jpg}
+    \caption{Initial risk matrix}
+    \label{fig:initial_risk_matrix}
+\end{figure}
+
+\todo[inline]{Write-up about the initial risk matrix and how preventive measures/contingency scenarios need to be developed to make sure that HUGO can operate safely.}
+
+\section{Risk Mitigation and Contingency Management}
+\label{sec:risk_mitigation_contingency_management}
+
+
+\begin{longtable}{|c|p{12.5cm}|c|}
+\caption{Risk preventive measures}
+\label{tab:risk_preventive_measures} \\
+
+\hline
+\textbf{Risk ID} & \centering{\textbf{Preventive Measure(s)}} & \centering{\textbf{$\Delta p$}} \tabularnewline
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Risk ID} & \textbf{Preventive Measure(s)} & \textbf{$\Delta p$} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+HUG-DEV-01 &  Engineering margins can be used to ensure the behaviour of the physical system is in line with the predictions made for the theoretical. & -2  \\ \hline
+         HUG-DEV-02 & Adapting adequate Project Management and Project Planning strategies to minimise avoidable delays due to poor organisation. & -1  \\ \hline
+         HUG-DEV-03 & Extensive V\&V applied, accounting for model uncertainty and errors. & -2  \\ \hline
+         HUG-DEV-04 & Continuous back-up and synchronisation across platforms, clear organisational structure. & -1  \\ \hline
+         HUG-DEV-05 & Formulation of detailed manufacturing/production plans for HUGO.
+         
+         Detailed analysis of production chain for vital components, identification of back-up manufacturers and suppliers. & -1 \\ \hline
+        
+HUG-RSK-DEV-06 & Ensuring that the documentation is complete, and all design details comply with relevant regulations and means of compliance.
+& -1 \\ \hline
+
+HUG-RSK-DEV-07 & Maintaining contact with EASA and other authorities to resolve any potential issues regarding certification.
+& -1 \\ \hline
+
+HUG-OP-03 & Adequate theoretical and practical training of crew.
+         
+         Development of procedures, checklists, flight tests and simulations validated by a competent third party. & -1 \\ \hline
+         HUG-OP-04 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
+         HUG-OP-05 & Implementing alerting systems in case values approaching the envelope boundaries are detected. Apply master warnings once predefined critical margins are exceeded. & -1 \\ \hline
+         HUG-OP-07 & Operate within ATC-controlled airspaces below FL290, with adequate vertical separation of 2000' & 0 \\ \hline 
+         HUG-OP-08 & Install fire detection and mitigation systems in HUGO. & -1 \\\hline
+         HUG-OP-09 & Short service cycles and monitoring of the condition of critical components. & -1 \\ \hline
+         
+HUG-RSK-OP-11 & Regular check-ups on crew, establishing reliable communication channels, predefining absence regulations, scheduling holidays and foreseen leaves in advance.
+& -2 \\ \hline
+
+HUG-RSK-OP-12 & Regular maintenance and equipment checks. Preparing backup equipment.
+& -1 \\ \hline
+
+HUG-RSK-OP-13 & Having personnel on standby to supply sustainable aviation fuel (SAF) as soon as a fuel shortage is assessed.
+& -1 \\ \hline
+
+HUG-RSK-OP-14 & Implementing a alerting system and constant monitoring of the fuel system.
+& -1 \\ \hline
+
+HUG-RSK-OP-15 & Pre-scheduling flights with De Kooy ATC and maintaining communications according to airport regulations.
+& -1 \\ \hline
+
+HUG-RSK-OP-16 & Implement continuous data transmission, prepare a backup storage plan for in-flight measurements.
+& -1 \\ \hline
+
+HUG-RSK-OP-17 & \begin{comment}Monitoring the battery condition after each flight day.
+\end{comment}
+Regularly checking the condition of the battery
+& -1 \\
+
+\end{longtable}
+
+
+
+
+
+
+
+
+
+\begin{longtable}{|c|p{12.5cm}|c|}
+\caption{Risk mitigation strategies}
+\label{tab:risk_mitigation_scenarios} \\
+
+\hline
+\textbf{Risk ID} & \centering{\textbf{Mitigation Strategy}} & \centering{\textbf{$\Delta s$}} \tabularnewline
+\hline\hline
+\endfirsthead
+
+\hline
+\textbf{Risk ID} & \textbf{Mitigation Strategy} & \textbf{$\Delta s$} \\
+\hline\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+ HUG-OP-01 & \multirow{2}{*}{\parbox{11cm}{For any loss of connection or control that happens for a duration longer than 10 s, a flight termination system shall be triggered.}} & \multirow{2}{*}{-1} \\ 
+        \cline{1-1}
+        HUG-OP-02 & & \\ 
+        \hline
+        HUG-OP-04 & For problems during flight that include breaking of parts or components, HUGO shall immediately decelerate to a safe speed (TBD). Subsequently, flight termination system shall be triggered. & -1 \\ 
+        \hline
+        HUG-OP-05 & If returning to the envelope is not deemed feasbile, flight termination shall be performed as described for HUG-OP-O1. & -1 \\\hline
+        HUG-OP-06 & If the test area is exceeded, the drone will be ordered to immediately return to the testing location. & -2 \\ \hline
+        HUG-OP-08 & Initiate fire extinguishing procedures in case on-board fire is detected/ & -1 \\\hline
+        HUG-OP-09 & If a mechanical error onboard the drone during the test flight is detected, possible extent shall be assessed. Depending on the root cause of the error and severity of consequences, one of the following shall be implemented:
+        \begin{enumerate}
+        \item The drone will be ordered to immediately return. 
+        \item The flight termination system shall be triggered. 
+        \end{enumerate} 
+        & -1 \\ \hline
+        HUG-OP-10 & In case of deteriorating weather conditions, the drone will be ordered to return and land as soon as possible. & -1 \\ \hline
+        
+HUG-RSK-OP-11 &
+Appointing pilots/crew members who can be called upon in case of emergency.
+& -1 \\ \hline
+
+HUG-RSK-OP-12 &
+Using the backup equipment, requesting assistance from available airport facilities.
+& -1 \\ \hline
+
+HUG-RSK-OP-14 &
+Sending a "MAYDAY FUEL" emergency signal to the ATC to ensure priority landing.
+& -3 \\ \hline
+
+HUG-RSK-OP-15 &
+Requesting take-off with ATC, asking for clarification on when a take-off window will become available. Including a buffer in the test day planning to account for delay take-off and landings.
+& -2 \\ \hline
+
+HUG-RSK-OP-16 &
+Accessing the backup files, saving the continuously transmitted data during operations.
+& -2 \\
+
+\end{longtable}
+
+
+Applying the preventive measures and mitigation strategies to the newly identified risks results in a mitigated risk list shown in \autoref{tab:risk_assessment_mitigated}. The corresponding mitigated risk matrix is shown in \autoref{fig:final_risk_matrix}. As can be seen, all of the new risks fall within the "controlled" or "tolerated", and therefore are deemed acceptable, provided that all of the identified preventive measures and mitigation strategies are implemented.
+
+
+\begin{minipage}[t]{0.4\textwidth}
+    \vspace{30pt}
+    \centering
+    \captionof{table}{Final development and operational risk assessment}
+    \label{tab:risk_assessment_mitigated}
+    \small
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Risk-ID} & \textbf{Likelihood} & \textbf{Severity} \\ \hline
+        HUG-RSK-DEV-06 & 1 & 3\\ \hline
+        HUG-RSK-DEV-07 & 1 & 5\\ \hline
+        HUG-RSK-OP-11 & 1 & 4\\ \hline
+        HUG-RSK-OP-12 & 1 & 4\\ \hline
+        HUG-RSK-OP-13 & 1 & 4\\ \hline
+        HUG-RSK-OP-14 & 1 & 1 \\ \hline
+        HUG-RSK-OP-15 & 1 & 1 \\ \hline
+        HUG-RSK-OP-16 & 1 & 2 \\ \hline
+        HUG-RSK-OP-17 & 1 & 5 \\ \hline
+    \end{tabular}
+\end{minipage}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/placeholder2.jpg}
+    \caption{Mitigated risk matrix}
+    \label{fig:final_risk_matrix}
+\end{figure}
+
 
 
 
@@ -34,4 +299,4 @@
 
 
 
-\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
+\todo[inline]{Chapter conclusion pending.}
