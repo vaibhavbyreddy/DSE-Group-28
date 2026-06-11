@@ -43,6 +43,7 @@ Given the complexity of the project, it was decided that development risks relat
         HUG-RSK-DEV-06 & Certification duration exceeding 3 years & 2 & 3 \\ \hline
         HUG-RSK-DEV-07 & Rejection of Certification/DOA application  & 2 & 5 \\ \hline
         HUG-RSK-DEV-08 & Obtaining a numerically feasible design that is impossible to manufacture & 3 & 5 \\\hline
+        HUG-RSK-DEV-09 & Galvanic corrosion occuring in aluminium-CFRP joints & 4 & 5 \\\hline
     \end{tabular}
     \label{tab:development_risks}
 \end{table}
@@ -71,7 +72,7 @@ Operation risks refer to hazardous scenarios which can occur both on the ground 
         HUG-RSK-OP-05 & Exceeding the flight envelope & 2 & 3 \\ \hline
         HUG-RSK-OP-06 & Exceeding the flight limit area & 2 & 5 \\ \hline
         HUG-RSK-OP-07 & Air-collisions & 1 & 5 \\ \hline
-        HUG-RSK-OP-08 & Fuel-fire & 1 & 5 \\ \hline
+        HUG-RSK-OP-08 & On-board fire & 1 & 5 \\ \hline
         HUG-RSK-OP-09 & Mechanical failure of components & 3 & 4 \\ \hline
         HUG-RSK-OP-10 & Rapid deterioration of weather conditions during flight & 2 & 3 \\\hline 
         HUG-RSK-OP-11 &  Unavailability of ground crew  & 4 & 5 \\ \hline
@@ -83,7 +84,8 @@ Operation risks refer to hazardous scenarios which can occur both on the ground 
         HUG-RSK-OP-17 &  Insufficient power to continue tests for the day  & 2 & 5 \\ \hline
         HUG-RSK-OP-18 & Violation of regulations and procedures & 2 & 5 \\ \hline
         HUG-RSK-OP-19 & Sensor errors & 4 & 4 \\ \hline
-        HUG-RSK-OP-20 & Loss of power during flight  & 2 & 5 \\ \hline
+        HUG-RSK-OP-20 & Loss of power during flight  & 1 & 4 \\ \hline
+        HUG-RSK-OP-21 & Moisture entrapment in the fuselage honeycomb & 3 & 4 \\\hline
     \end{tabular}
     \label{tab:operation_risks}
 \end{table}
@@ -157,6 +159,10 @@ HUG-RSK-DEV-06 & Ensuring that the documentation is complete, and all design det
 HUG-RSK-DEV-07 & Maintaining contact with EASA and other authorities to resolve any potential issues regarding certification.
 & -1 \\ \hline
 
+HUG-RSK-DEV-08 & Binding the optimisation tools to values corresponding to feasbile designs, validating the results before freezing the design. & -1 \\\hline
+
+HUG-RSK-DEV-09 & Using titanium for the contact surfaces instead of aluminium, due to its improved electrochemical compatibility with carbon fiber composites. & -2 \\\hline
+
 HUG-RSK-OP-03 & Adequate theoretical and practical training of crew.
          
          Development of procedures, checklists, flight tests and simulations validated by a competent third party. & -1 \\ \hline
@@ -188,6 +194,12 @@ HUG-RSK-OP-17 & \begin{comment}Monitoring the battery condition after each fligh
 \end{comment}
 Regularly checking the condition of the battery
 & -1 \\
+
+HUG-RSK-OP-18 & Implementing quality control of procedures and regular employee checks/training. & -1 \\\hline
+
+HUG-RSK-OP-19 & Following pre-flight checklist to ensure that the sensors are calibrated, mounting spare sensors for redundancy. & -2 \\\hline
+
+HUG-RSK-OP-21 & Sealing the exposed edges with designated filler. & -1 \\\hline
 
 \end{longtable}
 
@@ -256,6 +268,9 @@ Requesting take-off with ATC, asking for clarification on when a take-off window
 HUG-RSK-OP-16 &
 Accessing the backup files, saving the continuously transmitted data during operations.
 & -2 \\
+
+HUG-RSK-OP-17 &
+
 
 \end{longtable}
 

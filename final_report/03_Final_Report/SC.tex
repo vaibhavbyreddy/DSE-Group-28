@@ -396,6 +396,8 @@ The internal loading diagrams are shown in \autoref{fig:fuselage_internal_loads}
     \label{fig:fuselage_internal_loads}
 \end{figure}
 
+In order to ensure that the fuselage does not fail in shear, yield, fracture, or buckling under these internal loads, the internal normal and shear stresses have been found by superimposing the internal loads in a particular loading scenario. That resulted in \autoref{fig:fuselage_thicknesses}, showing the minimum required thickness at each station. The critical normal buckling stress  
+
 \textcolor{red}{\cite{NASA_SP8007_2019} used for critical buckling loads: }
 
 \begin{figure}[H]
@@ -756,34 +758,18 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
 
 At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA_0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_maneuver}.
 
-Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the folowing. The internal moment and shear forces acting on the cross-section of the wing are presented in 
-
-
-
-
+Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in 
 
 
 
 \begin{figure}[H]
-    \centering
-
-    \begin{subfigure}{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{figures_final/Wing_structure/Wing tip deflection during maneuver loading.png}
+        \includegraphics[width=0.5\linewidth]{figures_final/Wing_structure/Wing tip deflection during maneuver loading.png}
         \caption{Wing tip twist at load factor 6 and $8^\circ$ angle of attack}
         \label{fig:wing-tip_twist}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{0.48\textwidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures_final/Wing_structure/Torque distribution on the wing Maneuver.png}
-        \caption{Torsion distribution along the wing at load factor 6 and $8^\circ$ angle of attack}
-        \label{fig:torsion_maneuver}
-    \end{subfigure}
-
-    \caption{Wing twist and torsion distribution during maneuver loading}
-    \label{fig:maneuver_twist_torsion}
 \end{figure}
+
+
 \todo[inline]{Make sure we mention somewhere that we have a 4.5 mm thickness}
 It can be observed that the twist goes up $9.1 \deg$ for a loading factor of 6, which satisfies the requierment HUG-STR-08. 
 

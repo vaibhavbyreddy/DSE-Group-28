@@ -78,11 +78,11 @@ HUG-GEN-01 & The aircraft shall have a maximum take-off mass less than 50 kg.\\\
 HUG-GEN-02 & The end user shall be able to install the wing compliant with the Planform Envelope. \\\hline
 HUG-GEN-03 & The end user shall be able to install at least 5 kg of payload on the provided aircraft, in addition to the wing planform itself. \\\hline
 HUG-GEN-04 & The aircraft shall be able to execute the flight profile without any customer-specific payload. \\\hline
-HUG-GEN-05 & The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \footnote{Baseline Report}. \\\hline
-HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van. \\\hline
+HUG-GEN-05 & The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \footnote{\label{rep:midterm_rep}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)}. \\\hline
+HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van \footnote{\href{https://bedrijfswagens.renault.nl/master-bedrijfswagen/master.html?bodyTypeCode=PT1261_gesloten_bestel&CAMPAIGN=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&ORIGIN=paid_search&utm_source=google&utm_source_platform=SA360&utm_medium=cpc&utm_campaign=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&utm_id=23043794109&gclsrc=aw.ds&gad_source=1&gad_campaignid=23043828444&gbraid=0AAAAAC0pnE4OIhTuGrHobEVsuI4Ct-vkz&gclid=CjwKCAjwuanRBhBSEiwAY5y6V0Nv8q7vbgl489RraAw-uvJhci8UrWxul1qhh9Pk0YAceLV7-VfgihoC6zMQAvD_BwE}{Renault Master} (accessed on 11.06.2026)}. \\\hline
 \multicolumn{2}{|c|}{\textbf{Manufacturing, Assembly, and Integration}}\\\hline
 HUG-MAN-01 & The manufacturing cost of a single aircraft with the Standard Wing Planform shall be less than 45000€. \\\hline
-HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufacturable using only Technology Readiness Level 10 manufacturing techniques. \\\hline
+HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufacturable using only Technology Readiness Level 10 \footnote{\href{https://en.wikipedia.org/wiki/Technology_readiness_level}{Technology readiness level} (accessed on 11.06.2026)} manufacturing techniques. \\\hline
 HUG-MAN-03 & Every subsystem inside the aircraft wing and fuselage shall have the possibility of access, allowing for subsystem inspection. \\\hline
 HUG-MAN-04 & Every component of primary structure wing and fuselage shall have the possibility of access, allowing for component inspection. \\\hline
 
@@ -100,17 +100,17 @@ HUG-CTL-03 & The aircraft shall be controllable remotely up to the distance from
 \multicolumn{2}{|c|}{\textbf{Mission Profile}} \\\hline
 HUG-MIP-01 & The aircraft shall have a nominal mission endurance of 30 minutes, for a cruise altitude of FL270 and the cruise speed of Mach 0.4 outside of its 5 minutes experiment segment. \\\hline
 HUG-MIP-02 & The aircraft shall be capable of sustaining Mach 0.75 at an altitude of FL270 for the 5 minutes experiment segment during its nominal mission, at TBD fuel fraction for any planform inside the High-speed Envelope. \\\hline
-HUG-MIP-03 & The aircraft shall perform take-off and landing maneouvres at Den Helder airport (DHR/EHKD) unless redirected to other airports by De Kooy ATC \footnote{Midterm Report}. \\\hline
+HUG-MIP-03 & The aircraft shall perform take-off and landing maneouvres at Den Helder airport (DHR/EHKD) unless redirected to other airports by De Kooy ATC \footref{rep:midterm_rep}. \\\hline
 HUG-MIP-03 & The aircraft shall be capable of performing four landing attempts at Den Helder airport, with a go-around altitude of 1500 ft, not counted in its nominal endurance of 30 minutes. \\\hline
-HUG-MIP-04 & The aircraft shall perform all maneouvres with performance compliant with SC Light-UAS 01. \cite{SC Light-UAS} \\\hline
+HUG-MIP-04 & The aircraft shall perform all maneouvres with performance compliant with SC Light-UAS 01. \cite{easa_light_uas_crd_is3} \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Emergency Handling}} \\\hline
-HUG-EME-01 & Isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures (failure conditions that are expected to result in one or more fatalities). \cite{SC LIGHT-UAS} \\\hline
-HUG-EME-02 & HUGO shall be protected against the catastrophic effects of lightning (expected to result in one or more fatalities). \cite{SC Light-UAS} \\\hline
+HUG-EME-01 & Isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures (failure conditions that are expected to result in one or more fatalities). \cite{easa_light_uas_crd_is3}\\\hline
+HUG-EME-02 & HUGO shall be protected against the catastrophic effects of lightning (expected to result in one or more fatalities). \cite{easa_light_uas_crd_is3} \\\hline
 HUG-EME-03 & It shall be possible to terminate the mission in a controlled manner at any point in time, using a "return to home" command. \\\hline
 HUG-EME-04 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\\hline
-HUG-EME-05 & The fire protection system shall minimise the risk of fire initiation and propagation such that ground hazards for people and infrastructure are properly mitigated. \cite{SC Light-UAS}. \\\hline
-HUG-EME-06 & No single failure of the UAS or of any external system supporting the operation must lead to its operation outside the ground risk buffer defined by EASA SC Light-UAS regulations. \cite{SC Light-UAS} \\\hline
+HUG-EME-05 & The fire protection system shall minimise the risk of fire initiation and propagation such that ground hazards for people and infrastructure are properly mitigated. \cite{easa_light_uas_crd_is3}. \\\hline
+HUG-EME-06 & No single failure of the UAS or of any external system supporting the operation must lead to its operation outside the ground risk buffer defined by EASA SC Light-UAS regulations.\cite{easa_light_uas_crd_is3} \\\hline
 HUG-EME-07 & No single-point failure of electronic components shall cause mission failure. \\\hline
 
 
@@ -141,8 +141,8 @@ HUG-EME-07 & No single-point failure of electronic components shall cause missio
 \multicolumn{2}{|c|}{\textbf{Avionics}} \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Electronics}} \\\hline
-HUG-ELE-01 & The aircraft shall provide total electrical energy after losses greater than the sum of maximum payload energy consumption per mission (TBD J) and Baseline Aircraft Energy Required. \\\hline
-HUG-ELE-02 & The peak electrical power available after losses shall be greater than a sum of payload power required (TBD watts) and Peak Baseline Aircraft Power Required. \\\hline
+HUG-ELE-01 & The aircraft shall provide total electrical power after losses greater than the sum of maximum payload energy consumption per mission (60 W) and Baseline Aircraft Energy Required. \\\hline
+HUG-ELE-02 & The peak electrical power available after losses shall be greater than a sum of payload power required (900 watts) and Peak Baseline Aircraft Power Required. \\\hline
 HUG-ELE-03 & The aircraft shall be able to transmit the measured data as well as telemetry from control, propulsion and fuel subsystems in real time from the maximum aircraft-ground station distance. \\\hline
 HUG-ELE-04 & The communication subsystem shall allow for contact with the ground station for a distance of at least 1.5 times the mission radius, up to TBD atmospheric conditions. \\\hline
 

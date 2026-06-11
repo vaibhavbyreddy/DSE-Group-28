@@ -1,6 +1,6 @@
 \chapter{Operations and Logistics}
 \label{ch:operation_and_logistics}
-As explained in \autoref{ch:risk_assessment}, HUGO can be classified as a high risk UAV, which limits the range of feasible airspaces in which it is allowed to fly. A research of airports within the Netherlands  identified Den Helder (DHR/EHKD)\footnote{\href{https://denhelderairport.nl/eng/}{Den Helder Airport} (accessed on 22.05.2026)} as a feasible operations centre for HUGO, given its proximity to the North Sea, and adjacent controlled airspace which complies with the EASA requirements regarding high-risk UAV operations \cite{EASA Initial Airworthiness}. 
+As explained in \autoref{ch:risk_assessment}, HUGO can be classified as a high risk UAV, which limits the range of feasible airspaces in which it is allowed to fly. A research of airports within the Netherlands  identified Den Helder (DHR/EHKD)\footnote{\href{https://denhelderairport.nl/eng/}{Den Helder Airport} (accessed on 22.05.2026)} as a feasible operations centre for HUGO, given its proximity to the North Sea, and adjacent controlled airspace which complies with the EASA requirements regarding high-risk UAV operations \cite{EASAInitialAirworthiness2025}. 
 
 This chapter presents the operational and logistical framework required to bring HUGO into service following completion of the design and certification process. In \autoref{sec:operations}, the intended use of the system is described, covering the concept of operations, mission objectives, mission phases, and maintenance provisions. Then, \autoref{sec:logistics} addresses the supporting resources needed for sustained operation, including: ground personnel, deployment logistics, facility and location requirements, consumables, spare parts, and supply-chain considerations. Additionally, an overview of exemplary missions which can be performed by HUGO are described in \autoref{sec:mission_envelope}.
 
@@ -16,13 +16,13 @@ HUGO's main objective is to monitor and control aeroservoelastic phenomena in hi
 \begin{wrapfigure}{r}{0.4\textwidth}
     \centering
     \includegraphics[width=0.9\linewidth]{figures_final/Flight_area.png}
-    \caption{Flight area highlighted on Netherlands AIP chart - flight area highlighted for clarity, taken from the Netherlands AIP  \footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2002-2026\_2026\_02\_19/index.html}{AIRAC AMDT 02/2026} (accessed on 12.05.2026)}}
+    \caption{Flight area highlighted on Netherlands AIP chart - flight area highlighted for clarity, taken from the Netherlands AIP\footref{fn:flight_area}}
     \label{fig:flight_area}
 \end{wrapfigure}
 
 As mentioned previously HUGO shall perform its operations in an airspace adjacent to EHKD. Den Helder is a joint civilian and military airport, and as such permits special operations. It also has a 1.27 km runway with on call emergency services, which are beneficial for a test aircraft with potentially high take-off speeds. In the considered case, a departure from runway 21 and via FOXTROT airway is the desired maneouvre \footnote{\href{https://nl.ivao.aero/downloads/specops_loa/ehkd.pdf}{Den Helder Departure Map} (accessed on 11.05.2026)}. From there, HUGO shall follow the departure regulations until it reaches a distance of approximately 6 km from the airfield over the North Sea. Once it is clear of ground, it shall start climbing to test altitude and route towards the testing area at ATC discretion. The test will take place over the North Sea, and HUGO will follow the preplanned path.
 
-Once the take-off area is free, HUGO can proceed to the test site shown in \autoref{fig:flight_area}. The site was chosen to be close to Den Helder airport to comply with the fuel and endurance requirements (REQUIREMENT CODES GO HERE). The maximum distance in a straight line in the highlighted area is estimated to span 110 km, which allows for the 5 minute test flight to be successfully performed.
+Once the take-off area is free, HUGO can proceed to the test site shown in \autoref{fig:flight_area}\footnote{\label{fn:flight_area}\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2002-2026\_2026\_02\_19/index.html}{AIRAC AMDT 02/2026} (accessed on 12.05.2026)}. The site was chosen to be close to Den Helder airport to comply with the fuel and endurance requirements (REQUIREMENT CODES GO HERE). The maximum distance in a straight line in the highlighted area is estimated to span 110 km, which allows for the 5 minute test flight to be successfully performed.
 
 
 
@@ -147,7 +147,7 @@ As stated previously, it is the operator's responsibility to ensure continuing a
 
 The steps towards establishing a cycle for maintaining airworthiness typically begins before the UAV is certified for operations. The competent national authority for operations based in the Netherlands is the Inspectie Leefomgeving en Transport (ILT) \footnote{\label{url:ILT}\href{https://www.ilent.nl/ilt-luchtvaartautoriteit}{Inspectie Leefomgeving en Transport - Over de ILT-Luchtvaartautoriteit} (accessed on 11.05.2026)}. The steps towards developing a maintenance cycle include developing safety and system design assurance, and then defining a continuing airworthiness concept. At this stage, the first draft of the Aircraft Maintenance Programme (AMP) is developed \cite{EASA_CAirworthiness}. The AMP shall be approved by the appointed CAMO organisation and renewed annually \footnote{\href{https://www.easa.europa.eu/en/the-agency/faqs/amp-aircraft-maintenance-programme}{EASA - Aircraft Maintenance Programme (AMP)} (accessed on 11.05.2026)}.
 
-The AMP is part of Instructions for Continuing Airworthiness (ICA), which define the scope of limitations and maintenance task required to demonstrate that a design is compliant with certification requirements \footnote{\href{https://www.leanairline.com/blog/instructions-for-continuing-airworthiness}{Instructions for Continuing Airworthiness (ICA): From Certification to Operation} (accessed on 11.05.2026)}. ICA cover both scheduled and unscheduled maintenance procedures, and are necessary for obtaining a Type Certificate (TC). The relevance of a TC shall be explained in \autoref{ch:certification}.
+The AMP is part of Instructions for Continuing Airworthiness (ICA), which define the scope of limitations and maintenance task required to demonstrate that a design is compliant with certification requirements \footnote{\href{https://www.leanairline.com/blog/instructions-for-continuing-airworthiness}{Instructions for Continuing Airworthiness (ICA): From Certification to Operation} (accessed on 11.05.2026)}. ICA cover both scheduled and unscheduled maintenance procedures, and are necessary for obtaining a Type Certificate.
 
 Once the UAV is certified, CAMO takes the responsibility for scheduled maintenance enforcement, AD compliance, reliability tracking and Airworthiness Review Certificates \cite{EASA_CAirworthiness}. In case maintenance or repair procedures are required, a Maintenance, Repair, and Overhaul Organization (MRO) approved under EASA Part-145 shall be contracted to perform inspections, repairs, and modifications \footnote{\href{https://www.easa.europa.eu/en/acceptable-means-compliance-and-guidance-material-group/part-145-maintenance-organisation-approvals}{EASA Part-145 - Maintenance organisation approvals} (accessed on 11.05.2026)}. The MRO is additionally responsible for issuing certificates of release to service.
 
@@ -183,91 +183,66 @@ Den Helder hosts off-shore flights above the North Sea \footref{fn:denhelder_fac
 \label{sec:mission_envelope}
 Since the operational area, flight day timeline and the logistics are determined, it is possible to sketch a mission envelope encompassing feasible test scenarios for HUGO. The standard configuration of HUGO is expected to successfully perform four aeroelastic experiments: AFS, GLA, and aileron reversal control, as well as testing a scaled version of the wing mounted onto the canard port. Additionally, should a client provide their own wing planform for the test, additional envisioned missions include testing of leading edge controls, aeroelastic behaviour of the structure, and a high subsonic truss-braced configuration. This section outlines the details of those exemplary tests, along with associated requirements for the standard configuration and required special accommodations.
 
-\autoref{}
 
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c|c}
-       HUG-TST-01  &  \\\hline
-       HUG-TST-02 & \\\hline
-       HUG-TST-03 & \\\hline
-       HUG-TST-04 & \\\hline
-       HUG
-         & 
-    \end{tabular}
-    \caption{Exemplary mission description}
-    \label{tab:mission_envelope_description}
-\end{table}
-
-
-\subsection{AFS (External Control System)}
-In this mission, the preliminary test condition (velocity, altitude, desired duration) shall be specified by the client, along with a flutter-inducing method. The latter can  be achieved either by using the controls, turbulent zones in the atmosphere, or a specifically mounted flutter-inducing system. The mission profile and details shall be then chosen as to perform the experiment while complying with relevant airspace regulations.
+\subsection{AFS Control with an External Control System (HUG-TST-01)}
+The test of a conventional cantilever wing with an active load alleviation control system was specifically requested by NLR (HUG-NLR-02). In this mission, the preliminary test condition (velocity, altitude, desired duration) shall be specified by the client, along with a flutter-inducing method. The latter can  be achieved either by using the controls, turbulent zones in the atmosphere, or a specifically mounted flutter-inducing system. The mission profile and details shall be then chosen as to perform the experiment while complying with relevant airspace regulations.
 
 The flight to the mission altitude shall be performed using the aircraft's standard control system. Then, once the test condition has been reached, the control scheme will be switched to the researcher’s system. If the system begins to diverge and cause instability for any reason, the aircraft shall automatically revert to the standard control scheme as specified in \autoref{sec:risk_mitigation_contingency_management} (HUG-RSK-OP-05). Otherwise, the experiment will continue as planned, and data will be collected.
 
 
-\textit{Requirements for the base aircraft:} Wing deflection sensor
+\subsection{GLA Control with External Control System (HUG-TST-02)}
+The principle of the GLA control test is identical to that of HUG-TST-01, however, the researcher may require a separate LIDAR sensor to be mounted at the front of the UAV to be able to measure the gust before the contact occurs. This will have to be integrated into the aircraft, as well as the control scheme itself.
 
-\textit{Special Accommodations:} Control system addition
+\subsection{Aileron Reversal Control with External Control System (HUG-TST-03)}
 
-\subsubsection{\textbf{2. GLA (With Researcher Designed Control System)}}
-Similar to the AFS method, however, the researcher may require a separate radar or Lidar sensor mounted at the front to be able to measure the gust before the aircraft flies into it. This will have to be integrated into the aircraft, as well as the control scheme itself. The test would occur similarly to the AFS test.
-
-\textit{Requirements for the base aircraft to be able to test this:} A sensor that \textbf{can} be mounted at the front; Wing loading sensors; Fast enough actuators for what can be reasonably tested
-
-\textit{Special Accommodations:}
-Control System Addition
-Additional sensor (Lidar / Radar)
-
-\subsubsection{\textbf{3. Aileron reversal (With Researcher Designed Control System)}}
-
-At high flight speeds, elevator deflection can induce wing twist in aircraft with flexible wings, potentially reducing or even reversing the intended control response. Various techniques can be employed to mitigate this aeroelastic effect. In this context, the focus is on software-based compensation methods rather than the use of leading-edge control surfaces, which are discussed later.
-
-The experiment will occur in a similar manner to the AFS experiment.
-
-\textit{Requirements for the base aircraft to be able to test this:} Wing deflection sensor; Wing twist sensor
-
-\textit{Special Accommodations:}
-Control System Addition
-
-\subsubsection{\textbf{4. Leading Edge controls/Folding wingtips (With Researcher Designed Wing)}}
-
-Civil transport aircraft typically use trailing-edge control surfaces for gust and maneuver load alleviation, but wing flexibility can reduce their effectiveness through aeroelastic wash-out and may even cause control reversal. Future high-aspect-ratio, flexible-wing aircraft may therefore employ unconventional methods such as leading-edge control surfaces and folding wingtips \cite{Sanghi2022}. 
-
-LE control surfaces can be used for gust load alleviation, improving roll control effectiveness in combination with TE controls, and for flutter suppression. Folding wingtips, on the other hand, allow increasing the wing AR in flight, thereby enhancing aerodynamic efficiency while meeting airport constraints. Moreover, the folding wingtips can be released or controlled in flight to alleviate loads.
-
-Again, this test will be performed similarly to the ones mentioned previously. The integration of the leading-edge control surfaces and folding wingtip mechanism within the researcher's wing is the researcher's responsibility, as is ensuring that all structural interfaces - particularly the folding wingtip hinge and the leading-edge actuator mounts - are capable of withstanding the loads induced during testing. The rest of the experiment follows the procedure as outlined for AFS/GLA.
-
-\textit{Requirements for the base aircraft to be able to test this:} Deflection and load sensors; Swappable wing
-
-\textit{Special Accommodations:} Additional actuator wiring for LE controls/folding wingtip and sensor wiring
-
-\subsubsection{\textbf{5. Canard Tests (With Researcher-Designed Canard)}}
-If a researcher would like to perform any test on a canard-based aircraft, a canard can be designed and attached to the aircraft. Then, any of the previously mentioned tests (AFS, GLA, Aileron reversal, etc.) can be performed as usual. The base control system of HUGO will have to be modified to accommodate a stable flight with this configuration. Then the researcher’s control system will be used during the actual test.
-
-\textit{Requirements for the base aircraft to be able to test this:} Ability to add a canard; Ability to house the additional electronics required for the canard; Additional requirements based on the specifics of the experiment
-
-\textit{Special Accommodations:} Base control system that works with the specific configuration being tested; Canard sensors; Researcher’s control system addition; Additional accommodations based on the specifics of the experiment
-
-\subsubsection{\textbf{6. Aeroelastic Behaviour test (With Researcher Designed Wing)}}
-A researcher may want to validate models of aeroelasticity, lift distributions, and stress distributions along the wing. In order to test this, a new wing may or may not have to be created. In the case that it can be performed on the standard HUGO wing, the required sensors can be mounted at the required locations, and the test can be performed with minimal additional accommodations. In the case that a specific, high-aspect-ratio aeroelastic wing is required by the researcher, the new wing will have to be designed, built, and integrated with the aircraft.
-
-\textit{Requirements for the base aircraft to be able to test this:} Swappable wings; Ability to house the required sensors and data acquisition; Wing load sensors
-
-\textit{Special Accommodations:} New wing
-
-\subsubsection{\textbf{7. Truss-Braced Wing}}
-Truss-braced wings are a promising concept for future commercial aviation. At the flight speeds attainable by Hugo, a truss-braced wing configuration would require the supporting truss to be swept aft. Given that the empennage is a replaceable module, it could be modified to accommodate a truss extending forward from the empennage to the wing. Nevertheless, the implementation of a truss-braced wing would constitute a major structural modification, necessitating the design of a new wing tailored to the configuration. As a result, a dedicated wing would need to be designed, manufactured, and integrated with the aircraft before such testing could be conducted.
+At high flight speeds, elevator deflection can induce wing twist in aircraft with flexible wings, potentially reducing or even reversing the intended control response. Various techniques can be utilised to mitigate this aeroelastic effect. In this context, the focus is on software-based compensation methods rather than the use of leading-edge control surfaces, which are discussed later. The preparation and proceedings of the test are expected to be analogous to HUG-TST-01.
 
 
-\textit{Requirements for the base aircraft to be able to test this:} Swappable empennage that can accommodate a truss; Wing deflection sensor; Swappable wing that can accommodate a truss
+\subsection{Leading Edge Controls/Folding Wingtips with External Wing (HUG-TST-04)}
 
-\textit{Special Accommodations:} Truss support for the main wing; New wing
+Civil transport aircraft typically use trailing edge control surfaces for gust and maneuver load alleviation, but wing flexibility can reduce their effectiveness through aeroelastic wash-out and may even cause control reversal. Future high-aspect-ratio, flexible-wing aircraft may therefore employ unconventional methods such as leading edge control surfaces and folding wingtips \cite{Sanghi2022}. 
+
+Leading edge control surfaces can be used for gust load alleviation, improving roll control effectiveness in combination with TE controls, and for flutter suppression. Folding wingtips, on the other hand, allow increasing the wing AR in flight, thereby enhancing aerodynamic efficiency while meeting airport constraints. Moreover, the folding wingtips can be released or controlled in flight to alleviate loads. The integration of the leading-edge control surfaces and folding wingtip mechanism within the client's wing is the client's responsibility, as is ensuring that all structural interfaces, particularly the folding wingtip hinge and the leading-edge actuator mounts, are capable of withstanding the loads induced during testing. The rest of the experiment follows standard operational procedures outlined in \autoref{sec:operations}.
+
+
+
+\subsection{Canard Tests with External Canard (HUG-TST-05)}
+Should a client wish to perform any test on a canard-based aircraft, a canard can be designed and mounted at the designated port. The base control system of HUGO will have to be modified to accommodate a stable flight with this configuration. Then, the researcher’s control system will be used during the actual test based on the same principles as HUG-TST-04.
+
+
+
+\subsection{Aeroelastic Behaviour Test with External Wing (HUG-TST-06)}
+It is expected that some clients may wish to validate models of aeroelasticity, lift distributions, and stress distributions along the wing. This can be achieved with the standard HUGO planform by mounting the required sensors at applicable locations, in case of which the tests can be performed with minimal accommodations. In case the tested wing is expected to have specific properties which do not match the standard configuration, a new profile shall be designed, manufactured, and integrated into the UAV.
+
+
+\subsection{Truss-Braced Wing (HUG-TST-07)}
+Truss-braced wings are a promising concept for future commercial aviation, and the inclusion of them in the mission envelope of HUGO was specifically requested by NLR (HUG-NLR-03). Considering the maximum flight speed, the configuration would require the supporting truss to be swept aft. Given that the empennage is a replaceable module, it could be modified to accommodate a truss extending forward from the empennage to the wing. Nevertheless, the implementation of a truss-braced wing would constitute a major structural modification, necessitating the design of a new wing tailored to the configuration. As a result, a dedicated wing would need to be designed, manufactured, and integrated with the aircraft before such testing could be conducted.
+
+
+
+
+
+
 
 \subsection{Standard Configuration Requirements and Special Accommodations}
-Each of the discussed test 
+The discussed tests require the use of specific sensors in the standard configuration, i. e. the fuselage and standard planform in case of tests of client-designed control systems. Additionally, the use of the client's planform, sensors equipment may require special accommodations. \autoref{tab:mission_envelope_requirements_accomodations} lists the required equipment for the standard configuration, as well as additional accommodations that have to be made to ensure the client-designed elements are successfully integrated for the given test. The choice of sensors for the standard configuration motivated by these considerations will be further discussed in \autoref{sec:internal_configuration}.
 
+\begin{table}[H]
+    \centering
+        \caption{Standard configuration requirements and special accommodations}
+    \begin{tabular}{|c|p{6.75cm}|p{6.75cm}|}
+    \hline
+         \textbf{Test ID} & \centering\textbf{Standard Configuration Requirements} & \makecell{\textbf{Special Accommodations}} \\\hline\hline
+        HUG-TST-01 & Wing deflection sensor & Integration of the client's control system\\ \hline
+        HUG-TST-02 & A sensor that can be mounted at the front of the fuselage, wind loading sensor, actuators with sufficient reaction speed & Integration of client-designed control system, LIDAR-sensor \\ \hline
+        HUG-TST-03 & Wing deflection sensor, wing twist sensor & Integration of the client's control system \\ \hline
+        HUG-TST-04 & Wing deflection sensor, wing load sensor, swappable wing & Actuator wiring for LE controls/folding wingtip, sensor wiring \\ \hline
+        HUG-TST-05 & Canard port, additional requirements depend on the specifics of the test & Integration of the client's control system, canard-mounted sensors, additional accommodations depend on the specifics of the test, new wing \\ \hline
+        HUG-TST-06 & Swappable wing, wing load sensor & Integration of the client's planform and provided sensors \\ \hline
+        HUG-TST-07 & Wing deflection sensor, swappable empennage and wing capable of accommodating a truss & truss support for the main wing, new wing \\ \hline
+    \end{tabular}
+    \label{tab:mission_envelope_requirements_accomodations}
+\end{table}
 
-\todo[inline]{Chapter conclusion pending.}
 
 
