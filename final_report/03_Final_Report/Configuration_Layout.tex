@@ -255,7 +255,7 @@ Because the landing gear positioning was done for the idealized fuselage, it was
 
 The landing gear mechanism itself can be seen in \textbf{add drawings from Vibhav}. \textbf{fig 1} shows the extended landing gear, and \textbf{fix 2} show the stowed landing gear. The landing gear mechanism... \todo{Vibhav please briefly describe how the mechanism works here. 2-3 sentences should be enough.}. when extended, the landing gear will experience mostly vertical loads, resulting in vertical compression. To accommodate the compression, the landing gear will utilise a spring and dashpot in parallel.
 
-During landing, the main landing gear must be able to withstand the impact loads. EASA states that the landing gear support structure must be able to withstand the loads transferred by the landing gear with a safety factor of 1.5. To balance the load discipated by the landing gear and the load transferred to the supporting structure, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
+During landing, the main landing gear must be able to withstand the impact loads. The EASA guidelines were originally interpereted to require a high risk UAS to withstand a 4g load. Later, it was determined that the requirement was simply for the structure to withstand 1.5 times the load transfered by the landing gear. Due to time constraints, the optimal trade off between loads withstood by the fuselage versus the landing gear could not be explored, but should be looked into in further design. To meet both force and displacement constraints, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
 
 Using the python control library, the landing gear displacement and force responses to the aforementioned loads could be simulated. Using the spring and dashpot in parallel the following state space can be constructed:
 
@@ -272,9 +272,9 @@ Using the python control library, the landing gear displacement and force respon
     + \begin{bmatrix} 0 \\ 0 \end{bmatrix} \mathbf{u} \label{eq:output_equation}
 \end{align}
 
-where \autoref{eq:output_equation} represents the displacement and force respectively, L is the 
+where \autoref{eq:output_equation} represents the displacement and force respectively, L is the lift at landing, m is the mass on the landing gear, and g is the acceleration due to gravity.
 
-As previously mentioned, the displacement and force constraints will be applied to the state space model. Additionally, the system is also constrained to never be over-damped. If the system were over-damped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring (K) and dashpot constants (C), the landing gear can be tuned to meet all requirements.
+As previously mentioned, the displacement and force constraints will be applied to the state space model. Additionally, the system is also constrained to never be over-damped. If the system were over-damped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring and dashpot constants, the landing gear can be tuned to meet all requirements.
 
 \begin{figure}[H]
     \centering
@@ -283,13 +283,16 @@ As previously mentioned, the displacement and force constraints will be applied 
     \label{fig:CK_tuning}
 \end{figure}
 
-In \autoref{fig:CK_tuning} a 60 by 60 grid of C and K parameters on a logarithmic scale are analysed showing the different constraints. Most importantly, under the required loads, it can be seen that there is a feasible design space (in green) of C and K for which all constraints are met. The optimal combination also allows for close to critical damping at C=432.281 and K=3113.84.
+In \autoref{fig:CK_tuning} a 60 by 60 grid of C and K parameters on a logarithmic scale are analysed showing the different constraints. Most importantly, under the required loads, it can be seen that there is a feasible design space (in green) of C and K for which all constraints are met. The effect of C and K on the peak force and displacement, and the damping ratio are also plotted. It can thus be seen that the optimal combination also allows for close to critical damping at C = 432.281 and K = 3113.84.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures_final/lg_response.png}
+    \caption{Landing gear response with C = 432.281 and K = 3113.84}
+    \label{fig:lg_response}
+\end{figure}
 
-
-
-
-
+Using the state space model from \autoref{eq:state_equation} and \autoref{eq:output_equation}, the landing gear response can be seen in \autoref{fig:lg_response}, meeting all constraints. 
 
     
 \subsection{Environmental Control}
