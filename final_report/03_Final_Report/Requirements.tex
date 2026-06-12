@@ -139,15 +139,16 @@ HUG-EME-07 & No single-point failure of electronic components shall cause missio
 \endlastfoot
 
 \multicolumn{2}{|c|}{\textbf{Avionics}} \\\hline
+HUG-AVI-01 & The avionics subsystem shall allow for continuous contact with the ground station for a distance of no less than 165 km, up to ISA FL270 atmospheric conditions. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Electronics}} \\\hline
-HUG-ELE-01 & The aircraft shall provide total electrical power after losses greater than the sum of maximum payload energy consumption per mission (60 W) and Baseline Aircraft Energy Required. \\\hline
-HUG-ELE-02 & The peak electrical power available after losses shall be greater than a sum of payload power required (900 watts) and Peak Baseline Aircraft Power Required. \\\hline
+HUG-ELE-01 & The electronic subsystem shall provide no less than 60 W of power after losses reserved for the payload at nominal mission conditions. \\\hline
+HUG-ELE-02 & The electronic subbsystem shall provide peak power of no less than 900 W at nominal mission conditions. \\\hline
 HUG-ELE-03 & The aircraft shall be able to transmit the measured data as well as telemetry from control, propulsion and fuel subsystems in real time from the maximum aircraft-ground station distance. \\\hline
-HUG-ELE-04 & The communication subsystem shall allow for contact with the ground station for a distance of at least 1.5 times the mission radius, up to TBD atmospheric conditions. \\\hline
+
 
 \multicolumn{2}{|c|}{\textbf{Landing Gear}} \\\hline
-HUG-LGR-01 & The landing gear wingtip clearance shall be greater than or equal to 7 degrees for a wingspan of 3.7 m. \\\hline
+HUG-LGR-01 & The landing gear wingtip clearance shall be greater than or equal to 7 degrees. \\\hline
 HUG-LGR-02 & The turn over angle of the aircraft shall not exceed 55 degrees. \\\hline
 HUG-LGR-03 & The scrape angle of the aircraft tail shall be greater than 15 degrees. \\\hline
 HUG-LGR-04 & The tip over angle of the aircraft shall be greater than the scrape angle. \\\hline
@@ -160,20 +161,26 @@ HUG-PRP-03 & The engines shall be mounted to the fuselage, behind the main wing.
 HUG-PRP-04 & The engines shall be attached to the fuselage via bolted joints. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Structures}} \\\hline
-HUG-STR-01 & The structure shall support limit loads, which are equal to the structural design loads, without interference with the safe operation and without detrimental permanent deformation. \cite{SC Light-UAS} \\\hline
+HUG-STR-01 & The structure shall support limit loads, which are equal to the structural design loads, without interference with the safe operation and without detrimental permanent deformation. \cite{\cite{easa_light_uas_crd_is3}} \\\hline
 HUG-STR-02 & The structure shall support ultimate loads, which are equal to the limit loads multiplied by safety factor of 1.5 (unless otherwise provided), without failures.  \cite{} \\\hline
 HUG-STR-03 & The aircraft structure shall not buckle under loads lower than the ultimate loads. \\\hline
 HUG-STR-04 & The natural frequencies of the structure shall not be within 0.8 and 1.4 \cite{Prakash2016DynamicFoundation} of the blade-pass frequency of the engine \cite{Alhazmi2025CoolingFanVibration}. \\\hline
 HUG-STR-05 & The structure shall provide space and mounting for auxiliary systems. \\\hline
 HUG-STR-06 & The aircraft shall house a payload bay of at least 5 L internal volume. \\\hline
-HUG-STR-07 & The aircraft shall perform a manoeuver at a load factor of maximum 6.\\\hline
+HUG-STR-07 & The structure shall sustain manoeuvres at load factors up to 6.\\\hline
 HUG-STR-08 & The wing shall not twist more than $10 \deg$ at the wingtip.\\\hline
-HUF-STR-09 & The wing shall not deflect more than 15 \% of the span. \\\hline
+HUF-STR-09 & The wingtip shall not deflect more than 15 \% of the total span under any conditions. \\\hline
+
+
 
 \multicolumn{2}{|c|}{\textbf{Test Planform}}\\\hline
-HUG-TPL-01 & No part of the aircraft equipped with a wing planform from the  Planform Envelope shall experience transonic shocks. \\\hline
-HUG-TPL-02 & The aircraft shall house and operate with test planforms of any combination of effective aspect ratios between 19 to 27 \cite{}, non-increasing chord function, dihedral function bound between 0 and 10 degrees, thickness to chord function bound between TBD. \\\hline
-HUG-TPL-03 & The aircraft shall house and operate with test planforms total mass up to TBD. \\\hline
+HUG-TPL-01 & No part of the aircraft equipped with a wing planform from the Planform Envelope shall experience transonic shocks. \\\hline
+HUG-TPL-02 & The test planform shall have an effective aspect ratio between 19 and 27 \cite{}. \\\hline
+%HUG-TPL-03 & The aircraft shall house and operate with test planforms with  non-increasing chord function. \\\hline
+HUG-TPL-03 & The test planform shall  shall house and operate with test planforms of any combination of dihedral function bound between 0 and 10 degrees.\\\hline
+HUG-TPL-04 & The aircraft s hall house and operate with test planforms of any combination of thickness to chord function bound between TBD. \\\hline
+HUG-TPL-05 & The test planform shall have a total mass of no more than TBD. \\\hline
+HUG-TPL-06 & The required empennage horizontal area shall be less than 0.4 of the main wing area for all planforms in the Planform Envelope. \\\hline
 
 
 
