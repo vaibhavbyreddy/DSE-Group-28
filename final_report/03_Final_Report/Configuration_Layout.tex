@@ -137,19 +137,159 @@ The external configuration of the aircraft will be a description of the size and
 
 \subsection{Landing Gear Design}
 \label{sub:landing_gear_design}
-- landing gear section
 
-% landing gear requirements and positioning
+The landing gear design is an important component of the external configuration. It is important for taxiing, takeoff, and landing, and must be stowed away during cruise to minimize the area exposed to the airflow to reduce drag. Airplane Design by Roskam has guidelines to design landing gear for aircraft. These include the scrape angle, turn over angle, wing tip clearance, and total mass on the main versus front landing gear.
+
+HUGO's modular design requires an in-depth analysis of the landing gear positioning as certain landing gear positions would lie outside of the acceptable design space. For example, the modular wing and tail cannot house the landing gear as prospective clients would then need to design landing gear mechanisms, slowing down testing and reducing HUGO's attractiveness as a testbed. 
+
+To model the landing gear in the perliminary design phase, the FlexHop aircraft 
+
+
+\begin{longtable}{|p{0.23\linewidth}|p{0.18\linewidth}|p{0.49\linewidth}|}
+\caption{Landing gear optimization constraints and their justification}
+\label{tab:lg_constraints} \\
+\hline
+\textbf{Constraint} & \textbf{Inequality} & \textbf{Reason} \\
+\hline
+\endfirsthead
+
+\caption[]{Landing gear optimization constraints and their justification -- continued} \\
+\hline
+\textbf{Constraint} & \textbf{Inequality} & \textbf{Reason} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Scrape angle (near) &
+$\theta_{\mathrm{scr,near}} \geq \theta_{\min}$ &
+Requirement from Roskam to prevent tail strikes during take-off and landing rotation. \\
+\hline
+
+Scrape angle (far) &
+$\theta_{\mathrm{scr,far}} \geq \theta_{\min}$ &
+Requirement from Roskam to ensure adequate tail clearance at take off and landing rotation. \\
+\hline
+
+Beta angle &
+$\beta > \theta$ &
+Requirement from Roskam to prevent the aircraft from tipping backwards during takeoff and landing rotation. \\
+\hline
+
+Turn-over angle &
+$\psi < 55^\circ$ &
+Ground stability requirement from Roskam to prevent lateral overturning during ground manoeuvres. \\
+\hline
+
+Wing-tip clearance &
+$\phi > 8^\circ$ &
+Requirement from Roskam to avoid wing-tip strikes. \\
+\hline
+
+Keel clearance &
+$h_{\mathrm{keel}} > 0$ &
+Ground clearance requirement to prevent fuselage contact with the ground. \\
+\hline
+
+Main landing gear ahead of tail cone &
+$x_{\mathrm{MLG}} < x_{\mathrm{tail\,cone}}$ &
+Optimizer-specific constraint. The tail cone is interchangeable and therefore cannot be used as a landing gear attachment location. \\
+\hline
+
+Main landing gear behind centre of gravity &
+$x_{\mathrm{MLG}} > x_{\mathrm{CG}}$ &
+Optimizer-specific constraint ensuring physically meaningful solutions. Otherwise the optimizer may place the main landing gear ahead of the centre of gravity. \\
+\hline
+
+Minimum landing gear track &
+$Y_{\mathrm{LG}} \geq R_{\mathrm{fuselage}}$ &
+Optimizer-specific constraint ensuring sufficient lateral space for landing gear retraction within the fuselage. \\
+\hline
+
+Minimum landing gear protrusion &
+$h_{\mathrm{LG}} \geq 0.01\,\mathrm{m}$ &
+Optimizer-specific constraint ensuring the landing gear protrudes at least 1 cm below the fuselage and preventing degenerate solutions. \\
+\hline
+
+Nose gear ahead of centre of gravity &
+$x_{\mathrm{NLG}} < x_{\mathrm{CG}}$ &
+Physical stability constraint ensuring a valid tricycle landing gear arrangement. If both landing gear stations are behind the centre of gravity, the aircraft will tip forward. \\
+\hline
+
+\end{longtable}
+
+\autoref{tab:lg_constraints} contains both the general constraints prescribed by Roskam,
+
+General landing gear requirements:
+
+theta ~= 15 degrees (tip-back angle)
+beta > theta
+psi < 55 degrees (turn-over angle)
+phi > 8 degrees (lateral ground clearance)
+
+Optimiser Objective using SLSQP:
+%sqrt(l_landing_gear**2 + Y_lg**2)
+
+Optimizer constraints: 
+
+Scrape angle near
+scrape angle far
+beta
+turnover
+wing tip clearance 
+keel clearance
+main lg in front of tail cone
+lg behind cg
+%Y_lg min (so it isnt inside the fuselage)
+nose gear in front of cg
+
+Reasons:
+
+general operational constraints from Roskam
+general operational constraints from Roskam
+general operational constraints from Roskam
+general operational constraints from Roskam
+general operational constraints from Roskam
+so that the landing gear always pertrudes at least 1cm underneath the fuselage. Helps constrain optimiser to obtain meaningful results
+because the tail cone is swapable so we cannot put the main lg there.
+the angle made by the optimiser and cg can be made by placing the mlg in front or behind the cg. This way we have meaningful results
+the horizontal track of the landing gear must be at least the radius of the fuselage to allow for mechanism retraction 
+nose gear has to be in front of the CG otherwise it the nose and main lg are behind the cg it will just fall forwards (boeing style)
+
+Assumptions made:
+
+the fuselage was cylindrical. 
+tail upsweep was always 15 degrees.
+
+Procedure of use:
+
+Midterm estimation of landing gear positioning from felxhop reference aircraft data. given our specific constraints, the optimiser would place the landing gear along the idealised fuselage. This would let us know if the design space was fiesable, and thus serve as a first guess for the detailed design stage. 
+
+Then, a subsequent script was used to check the aforementioned constraints for the CAD model with the non-idealised fuselage. If they were not met, the landing gear positioning would be refined until the constraints were met in an iterative loop.
 
 % landing gear mechanism 
+\todo{Alex, please write this section since you designed the mechanism. I will get the numbers from Marek that I think are relevant.}
+
+The landing gear mechanism was then designed to accommodate the required horizontal track of the main landing gear. It was identified that side-pods were required to accommodate this distance and to allow for retraction. Additionally, it was identified that the landing gear could only compress as much as ...TBD... cm without striking the keel of the aircraft. Additionally, the landing gear had to be able to withstand a landing load of 2.67g upon landing from the special conditions for high risk UAVs, and CS-23 aerobatic. As HUGO is expected to land at high speeds (\~ 36 m/s), it is assumed all force would be in one of the two main landing gear struts. 
 
 % landing gear mechanism modeling with spring and dashpot in parallel
-
-% landing constraints
+To identify if these constraints were met, the landing gear were modeled as a spring and dashpot in series using the control.matlab module. Assuming a step input as a function of the landing speed and angle, the force applied and resultant compression of the landing gear mechanism can be simulated. With the force and displacement constraint, as well as the added condition of no over-damping to prevent excessive gs on the landing gear strut, a parameter sweep can be performed to identify the optimal combination of dash-pot and spring constants. The parameter sweep for HUGO can be seen in ...CITE DIAGRAM HERE... .
 
 % landing gear dashpot and spring constant tuning
 
 
+
+
+
+
+
+
+    
 \subsection{Environmental Control}
 \label{sub:environmental_control}
 Environmental control is the response of HUGO to different external factors such as rain or UV-radiation. An analysis was established were different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
@@ -303,7 +443,7 @@ Using the mission envelope  (autoref ops \& logistics) it is possible identify t
     A different approach is the use of special fiber-optic cables which can measure the strain in the axial direction of the cable. By afterwards overlying the points in a FE-model of the wing it is possible to find the deflection of the wing \cite{Pak2015}. The current systems architecture is made so it can accommodate the different measurement techniques. This gives a potential costumer a larger freedom in choice regarding sensors.  
     \end{comment} 
     
-    \item Strain: A strain gage is a typical approach for measuring strain. It uses the changed resistance in a wire when mechanically deformed \footnote{\href{https://www.sciencedirect.com/topics/earth-and-planetary-sciences/strain-gage}{Strain gage}(02.06.2026)}. A typically configuration is a strain rosetta which consits three strain gages oriented 0,45,90 degrees. This makes it possible to measure the strain in all directions in the surface   \footnote{\href{https://intertechnology.com/Vishay/pdfs/TechNotes_TechTips/TN-515.pdf}{Strain gage}(02.06.2026)}.  
+    \item Strain: A strain gage is a typical approach for measuring strain. It uses the changed resistance in a wire when mechanically deformed \footnote{\href{https://www.sciencedirect.com/topics/earth-and-planetary-sciences/strain-gage}{Strain gage}(02.06.2026)}. A typically configuration is a strain rosetta which consits three strain gages oriented 0,60,120 degrees. This makes it possible to measure the strain in all directions in the surface   \footnote{\href{https://intertechnology.com/Vishay/pdfs/TechNotes_TechTips/TN-515.pdf}{Strain gage}(02.06.2026)}.  
     
     \item Loads: In this instance the measurement of the loads acting on and through the wing is the area of interest. For an aircraft this would be the resultant force (split into lift and drag) generated by the wing. These load-cells are sensors which can measure a load in a specific direction. Six-axis load cells can also measure the moment-generated in all three axial directions. These load-cells are preferable to the three axis as the load measurements are 
     \item Wind-gusts: LIDAR can be used to detect wind ahead of an aircraft\cite{Schroeder2020}. The sensors sends out laser and then measuring the Doppler-shift in the back-scattered light it is possible to estimate a magnitude and direction of the upcoming wind \cite{YEW2025101127}. 
@@ -331,7 +471,7 @@ A possible issue with this configurations is the risk of the tip of the wing mov
 
 Diagram of the point of view. Image of the reference dots used. 
 
--Camera. The camera-system chosen was the DJI O4 Air Unit Pro. Here it was especially the form-factor of the system which would enable installation in the very restricted space of the horizontal tail and the high frame-rate and resolution . This would enable a large view of the wings. 
+-Camera. The camera-system chosen was the DJI O4 Air Unit Pro. Here it was especially the form-factor of the system which would enable installation in the very restricted space of the horizontal tail and the high frame-rate and resolution . With a field of view being 155 \degree this would enable a large view of the wings. 
 The maximum resolution would be 3840×2880 at 60fps and the resolution at the maximum frame rate would be 3840×2160 120fps.  
 
 The chosen load-cell was the six-axis M3564E1. This enables the measurement    
@@ -343,6 +483,7 @@ Since it must act as the structural link the overload capacity (the total load t
 
 Insert the max load experienced. 
 As each sensor has a max. Two load-cells must be used to share the loads to ensure it stays  below the overload capacity for each sensor. 
+
 The two load-cells would bolted on the top of the fuselage. Then the wings would be bolted on top. The mounting points would be M5 bored through holes (outer ring). Insert technical drawing of the configuration. 
 The configuration was deemed viable after communication with the manufacturer.  
 
@@ -351,16 +492,13 @@ All of the load-calculations are based on the information
 
 Load-cells are sensitive to changes in temperature. The relative small size of the chosen load-cells makes them sensitive to changes  with the chosen sensors having a optimal working range between $10^{\circ}\,C $ and $70^{\circ}\,C $. Therefore the temperature of volume around the installed load-cells should be controlled to keep the temperature stable within this range and constant. For the load-cells to work it need to be connected to an amplifier. M8126\tablefootnote{\href{https://www.srisensor.com/uploads/M8126-Users-Manual-V1.4-Eng11.pdf}{M8126}(03.06.2026)} is an amplifier specifically designed for the load-cells. It will take the analog input signal and transform it to a digital signal. 
 
--Strain gauges
-show schematics 
-With an accuracy of about ±1.5\%.
-
-Strain gauges are sensors which produces a analog signal which must be read by an amplifier. The electrical signal is also generated by the amplifier. An important aspect is the installation an fastening of the sensor to the measured surface. The exact location on the wing should also be cataloged to ensure precision in the latter data-processing. They are placed onto the wings at different intervals which at higher density towards the wing tip. QuantumX Bridge Amplifier has 16 channels which in turn enable 16 strain gauges to be mounted of the wing. 
+The chosen strain gauges is a Series Y:RY4 from HBK\tablefootnote{\href{https://www.hbkworld.com/en/products/transducers/strain/experimental-testing/y-series/ry}{HBK Strain Gauge} (accessed 03.06.2026)}. An important aspect is the installation an fastening of the sensor to the measured surface. The exact location on the wing should also be cataloged to ensure precision in the latter data-processing. Temperature issues and compensation. The strain gauges would be glued on the wing using  C80 (cyanoacrylate adhesive) and the wiring would be lead to the same small cutout for the LIDAR. 
+a sensor which produces a analog signal which must be read by an amplifier. The electrical signal is also generated by the amplifier. They are placed onto the wings at different intervals which at higher density towards the wing tip. QuantumX Bridge Amplifier has 16 channels which in turn enable 16 strain gauges to be mounted of the wing. 
 This enables the placement of eight strain-gauges on each wing. The specific location of each sensor can be seen in the diagram (insert image of diagram) 
 
 
 -Aviation sensors:
-A multiuse pitot probe footnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)} is mounted in the front of the aircraft. This sensor can measure the airspeed, height, sideslip and angle of attack. It would be connected to the Hyperion Micro Air Data Computer. 
+A multiuse pitot  \footnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)} is mounted in the front of the aircraft. This sensor can measure the airspeed, height, sideslip and angle of attack. It would be connected to the Hyperion Micro Air Data Computer. 
 
 
 \begin{comment}
@@ -379,8 +517,8 @@ Final configuration of sensors (Insert large diagram)
         \hline
         \textbf{Sensor} & \textbf{Nr} & \textbf{Weight [kg]} & \textbf{Dimensions [mm]} & \textbf{Power [W]} & \textbf{Accuracy} & \textbf{Sampling rate [Hz]} & \textbf{Data rate [Mbit/s]} \\
         \hline\hline
-        6-axis Load-cell \tablefootnote{\href{https://www.srisensor.com/uploads/M3564E1.pdf}{SR load-cell} (accessed 9.06.2026)} & 2 & 0.16 & $71 \times 10 \times 69$ & See Amp & ±1.5\% & 2000 & See Amp\\\hline
-        Strain gage \tablefootnote{\href{https://www.hbkworld.com/en/products/transducers/strain/experimental-testing/y-series/ry}{HBK Strain Gauge} (accessed 03.06.2026)} & 16 & 0.001 & $7\times 0.5 \times 7$ & See Amp & ±1.5\% & 20000 & See Amp \\\hline
+        6-axis Load-cell \tablefootnote{\href{https://www.srisensor.com/uploads/M3564E1.pdf}{SR load-cell} (accessed 9.06.2026)} & 2 & 0.16 & $71 \times 10 \times 69$ & See M8126 & ±1.5\% & 2000 & See M8126\\\hline
+        Strain gage  & 16 & 0.001 & $7\times 0.5 \times 7$ & See Amp & ±1.5\% & 20000 & See Amp \\\hline
         LIDAR-sensor \tablefootnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR}(02.06.2026)} & 3 & 0.160 & $55 \times 60 \times 38.7$ & 6 & ±2.5-5\% & 10 & 22.2 \\\hline
         Camera\tablefootnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (05.06.2026)} & 1 & 0.478 & $25.55 \times 20 \times 23.30$ & 15.6 & n.a. & 120 & 130 \\\hline
         Pitot probe\tablefootnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)} & 1 & 0.100 & $6.35 \times 100 \times 6.35$ & 0.1 & ±1\% &100 & See Amp \\\hline

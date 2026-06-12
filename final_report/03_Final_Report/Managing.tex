@@ -8,6 +8,8 @@
 \label{sec:trade-off_summary}
 \todo[inline]{In this Section, we briefly describe the trade-off performed in the Midterm Report.}
 
+- Arturo
+
 
 \section{Final Concept Design}
 \label{sec:final_concept_design}
@@ -23,7 +25,7 @@ To fulfill its mission as a versatile flight test vehicle, the aircraft is expec
 
 Thus, the goals of engineering analysis for the final work package are to design HUGO's fuselage and its associated subsystems, ensuring they accommodate the specified range of planforms, and to develop a standard planform to use when the client does not provide one.
 
-To that end, several analyses described in the Midterm Report \footnote{Midterm Report}: drag estimation, fuel mass fraction computation, and the matching diagram can be re-implemented. For this work package, a structural analysis of both wings and the fuselage is conducted to obtain a complete estimate of aircraft weight. Furthermore, aileron sizing is conducted for each examined planform, and preliminary structural design of the fuselage is performed.
+To that end, several analyses described in the Midterm Report \footnote{Midterm Report}: drag estimation, tail sizing, fuel mass fraction computation, and the matching diagram can be re-implemented. For this work package, a structural analysis of both wings and the fuselage is conducted to obtain a complete estimate of aircraft weight. Furthermore, aileron sizing is conducted for each examined planform, and preliminary structural design of the fuselage is performed.
 
 As multiple possible planforms are considered, including multiple possible airfoils, the approach to aerodynamic analysis differs from the one of the Midterm Report \footnote{Midterm Report}. Instead of defining an airfoil and conducting a lifting line analysis to obtain the properties of the three-dimensional wing directly, there is an envelope of possible airfoils defined implicitly by ranges of values of lift slope, maximum lift and moment coefficients. Then, the properties of the three-dimensional wing are deduced from those coefficients using semi-empirical formulae.
 
@@ -45,25 +47,44 @@ The influence of assumptions made during the design process on the ability of HU
 \section{Boundaries of the Planform Envelope}
 \label{sec:Planform envelope boundaries}
 
+The envelope of planforms that HUGO can house needs quantification, both for the user to serve as specifications for wing design, and for further development. The planform researcher has an incentive to test a wing of particular shape, not of particular size (as long as the difference in Reynolds and Froude numbers can be accounted for). As such, they are supposed to select an aspect ratio, as well as taper, dihedral, sweep and thickness-to-chord profiles (those quantities need not be constant along the wing), and wing cross sections along the span, provided the airfoil coefficients of those cross sections fit within the specified range. The wing area and structural thicknesses are deduced from the provided specifications. 
+
+\autoref{tab:planform_envelope} provides the range of allowed planform parameters. A planform is considered compatible with HUGO if it is described by any combination of the parameters within their ranges. To assess whether HUGO can accommodate those possible planforms, the most constraining values of each parameter are identified and planforms represented by  
+
 \todo{a nice introduction sentence}
 \todo{Find citations to substantiate the reasoning}
+
+The planform envelope 
 
 \begin{table}[]
     \centering
     \caption{Overview of the Planform envelope. For each parameter, the full range of it considered compatible with HUGO is provided, along with critical values that the requirements need to be assessed for.}
     \begin{tabular}{|c|c|c||c|c|c|}\hline
          \textbf{Parmeter}& \textbf{Range} & \textbf{Critical Values}&\textbf{Parmeter}& \textbf{Range} & \textbf{Critical Values}  \\\hline
-         $AR$ & [5; 27]  & 5, 10, 17, 27 & $\lambda$ & [0.1; 1] & 1 \\\hline
-         $\Lambda$ & [0; 20$^\circ$]  & 0, 20$^\circ$ & $t/c$ & [0.08, 0.18] & 0.08, 0.12, 0.18 \\\hline
+         $AR$ & [5; 27]  & 5, 10, 17, 27 & $\lambda$ & $f(y)\in[0.1; 1]$ & 1 \\\hline
+         $\Lambda_{c/4}$ & [0; 20$^\circ$]  & 0, 20$^\circ$ & $t/c$ & [0.08, 0.18] & 0.08, 0.12, 0.18 \\\hline
          $C_{l_{\textbf{max}}}$ & [1, $\infty$)  & 1 & $C_{m_{ac}}$ & [-0.15, 0.1] & -0.15, 0.1 \\\hline
          $C_{l_{0}}$ & [0, $\infty$)  & 0 & $C_{l_{\alpha}}$ & [2$\pi$, $\infty$) & 2$\pi$ \\\hline
-         Empennage types & Canard and/or tail  & Canard or tail & - & - & - \\\hline
+         Empennage types & Canard and/or tail  & Canard or tail & $\Gamma$ & [0, 8$^\circ$] & 0 \\\hline
     \end{tabular}
     
     \label{tab:planform_envelope}
 \end{table}
 
 \section{The standard planform}
+\begin{table}[]
+    \centering
+    \caption{The geometry of the standard planform}
+    \begin{tabular}{|c|c||c|c||c|c||c|c|}\hline
+         \textbf{Parameter}&\textbf{Value}&\textbf{Parameter}&\textbf{Value}&\textbf{Parameter}&\textbf{Value}&\textbf{Parameter}&\textbf{Value}  \\\hline
+         $AR$& 27 & $\lambda$ & 0.5 & $\Lambda$ & 15$^\circ$ & $\Gamma$ & 0\\\hline
+         $b$ & 2.667 m & $t/c$ & 0.12 & airfoil & NASA SC(2)-0012 & Empennage & T-tail\\\hline
+    \end{tabular}
+    
+    \label{tab:standard_wing_planform}
+\end{table}
+
+The geometry of the standard planform, to be used when the client does not provide one of their own, is presented in \autoref{tab:standard_wing_planform}. The planform is based on the one obtained in the Midterm Report \footnote{Midterm Report}. For safety reasons, it shall be ensured that the standard planform does not experience aeroelastic instability in any of the operating conditions. This is evaluated in \todo{autoref}.
 
 
 
