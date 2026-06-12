@@ -138,11 +138,11 @@ The external configuration of the aircraft will be a description of the size and
 \subsection{Landing Gear Design}
 \label{sub:landing_gear_design}
 
-The landing gear design is an important component of the external configuration. It is important for taxiing, takeoff, and landing, and must be stowed away during cruise to minimize the area exposed to the airflow to reduce drag. Airplane Design by Roskam has guidelines to design landing gear for aircraft. These include the scrape angle, turn over angle, wing tip clearance, and total mass on the main versus front landing gear.
+The landing gear design is an important component of the external configuration. It is important for taxiing, take-off, and landing, and must be able to withstand landing conditions. Furthermore, it must be stowed away during cruise to minimize the area exposed to the airflow to reduce drag. Airplane Design by Roskam has guidelines to design landing gear for aircraft. These include the scrape angle, turn over angle, wing tip clearance, and total mass on the main versus front landing gear.
 
-HUGO's modular design requires an in-depth analysis of the landing gear positioning as certain landing gear positions would lie outside of the acceptable design space. For example, the modular wing and tail cannot house the landing gear as prospective clients would then need to design landing gear mechanisms, slowing down testing and reducing HUGO's attractiveness as a testbed. 
+HUGO's modular design requires an in-depth analysis of the landing gear positioning as certain landing gear positions would lie outside of the acceptable design space. For example, the modular wing and tail cannot house the landing gear as prospective clients would then need to design landing gear mechanisms, slowing down testing and reducing HUGO's commercial attractiveness. 
 
-To model the landing gear in the perliminary design phase, the FlexHop aircraft 
+To model the landing gear in the preliminary design phase, the fuselage was modelled as a cylinder with three sections; the nose cone, the main fuselage, and the tail cone. The tail cone was additionally modelled as a cylinder with different diameter circles as the base connected to the main fuselage, and the smaller diameter circle in the most aft part of the tail cone. Then, the FlexHop aircraft as a reference for the sizing of the simplified fuselage. Then, using SciPy's Sequential Least Squares Programming (SLSQP) optimizer, the position of the nose and main landing gears could be found to meet the necessary constraints (listed in \autoref{tab:lg_constraints}). 
 
 
 \begin{longtable}{|p{0.23\linewidth}|p{0.18\linewidth}|p{0.49\linewidth}|}
@@ -223,65 +223,67 @@ Physical stability constraint ensuring a valid tricycle landing gear arrangement
 
 \end{longtable}
 
-\autoref{tab:lg_constraints} contains both the general constraints prescribed by Roskam,
+The optimiser could vary the longitudinal position of the nose and main landing gear, as well as the horizontal separation of the main landing gear ($Y_{lg}$), and the landing gear length ($l_{lg}$). The objective was to meet all the constraints while minimizing the main landing gear separation (as measured from the midline to the main landing gear), as well as the landing gear height (measured from the centreline of the fuselage). If these were not minimised, the landing gear length could become unbounded, requiring larger and larger horizontal separations, which the fuselage could not accommodate. The chosen objective function can be seen in \autoref{eq:objective_func}
 
-General landing gear requirements:
+\begin{equation}\label{eq:objective_func}
+    \sqrt{l_{lg}^2 + Y_{lg}^2}
+\end{equation}
 
-theta ~= 15 degrees (tip-back angle)
-beta > theta
-psi < 55 degrees (turn-over angle)
-phi > 8 degrees (lateral ground clearance)
 
-Optimiser Objective using SLSQP:
-%sqrt(l_landing_gear**2 + Y_lg**2)
+The final landing gear position using FlexHop as a reference is reported in \autoref{tab:optimized_landing_gear}.
 
-Optimizer constraints: 
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Optimized landing gear position as measured from the nose}
+    \label{tab:optimized_landing_gear}
+    \begin{tabularx}{0.48\textwidth}{|@{}X c@{}|}
+        \hline
+        \textbf{Parameter} & \textbf{Dimension}  \\
+        \hline \hline
+        Nose gear x pos & 0.272 m \\
+        Fuselage gear x pos & 2.570 m \\
+        Fuselage gear y pos & 0.231 m \\
+        Height & 0.167 m \\
+        \hline
+    \end{tabularx}
+\end{table}
 
-Scrape angle near
-scrape angle far
-beta
-turnover
-wing tip clearance 
-keel clearance
-main lg in front of tail cone
-lg behind cg
-%Y_lg min (so it isnt inside the fuselage)
-nose gear in front of cg
+In the detailed design stage, this initial estimate was used to determine if the landing gear could be housed within the main fuselage, or if it needed to be extended with pods to meet the main landing gear separation constraint. As the landing gear separation was wider than the fuselage diameter, it was determined HUGO would need pods to house the landing gear as well as a mechanism capable of extending the landing gear further outwards. 
 
-Reasons:
+Because the landing gear positioning was done for the idealized fuselage, it was then important to verify if the requirements were still met in the real fuselage. The position of the landing gear from the preliminary design served as the starting point of the iteration loop in which the landing gear data was extracted from the CAD model, and refined until the constraints were met. The final landing gear positioning is given in \textbf{Picture from Vibhav}. %\autoref{}
 
-general operational constraints from Roskam
-general operational constraints from Roskam
-general operational constraints from Roskam
-general operational constraints from Roskam
-general operational constraints from Roskam
-so that the landing gear always pertrudes at least 1cm underneath the fuselage. Helps constrain optimiser to obtain meaningful results
-because the tail cone is swapable so we cannot put the main lg there.
-the angle made by the optimiser and cg can be made by placing the mlg in front or behind the cg. This way we have meaningful results
-the horizontal track of the landing gear must be at least the radius of the fuselage to allow for mechanism retraction 
-nose gear has to be in front of the CG otherwise it the nose and main lg are behind the cg it will just fall forwards (boeing style)
+The landing gear mechanism itself can be seen in \textbf{add drawings from Vibhav}. \textbf{fig 1} shows the extended landing gear, and \textbf{fix 2} show the stowed landing gear. The landing gear mechanism... \todo{Vibhav please briefly describe how the mechanism works here. 2-3 sentences should be enough.}. when extended, the landing gear will experience mostly vertical loads, resulting in vertical compression. To accommodate the compression, the landing gear will utilise a spring and dashpot in parallel.
 
-Assumptions made:
+During landing, the main landing gear must be able to withstand the impact loads. EASA states that the landing gear support structure must be able to withstand the loads transferred by the landing gear with a safety factor of 1.5. To balance the load discipated by the landing gear and the load transferred to the supporting structure, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
 
-the fuselage was cylindrical. 
-tail upsweep was always 15 degrees.
+Using the python control library, the landing gear displacement and force responses to the aforementioned loads could be simulated. Using the spring and dashpot in parallel the following state space can be constructed:
 
-Procedure of use:
+\begin{equation}
+    \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+    = \begin{bmatrix} \text{displacement} \\ \text{velocity} \end{bmatrix}, \qquad
+    \mathbf{u}(t) = \left(g - \frac{L}{m}\right) \cdot \mathbf{1}(t)
+\end{equation}
 
-Midterm estimation of landing gear positioning from felxhop reference aircraft data. given our specific constraints, the optimiser would place the landing gear along the idealised fuselage. This would let us know if the design space was fiesable, and thus serve as a first guess for the detailed design stage. 
+\begin{align}
+    \dot{\mathbf{x}} &= \begin{bmatrix} 0 & 1 \\ -k/m & -c/m \end{bmatrix}\mathbf{x}
+    + \begin{bmatrix} 0 \\ 1 \end{bmatrix} \mathbf{u} \label{eq:state_equation}\\[6pt]
+    \mathbf{y} &= \begin{bmatrix} 1 & 0 \\ k & c \end{bmatrix}\mathbf{x}
+    + \begin{bmatrix} 0 \\ 0 \end{bmatrix} \mathbf{u} \label{eq:output_equation}
+\end{align}
 
-Then, a subsequent script was used to check the aforementioned constraints for the CAD model with the non-idealised fuselage. If they were not met, the landing gear positioning would be refined until the constraints were met in an iterative loop.
+where \autoref{eq:output_equation} represents the displacement and force respectively, L is the 
 
-% landing gear mechanism 
-\todo{Alex, please write this section since you designed the mechanism. I will get the numbers from Marek that I think are relevant.}
+As previously mentioned, the displacement and force constraints will be applied to the state space model. Additionally, the system is also constrained to never be over-damped. If the system were over-damped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring (K) and dashpot constants (C), the landing gear can be tuned to meet all requirements.
 
-The landing gear mechanism was then designed to accommodate the required horizontal track of the main landing gear. It was identified that side-pods were required to accommodate this distance and to allow for retraction. Additionally, it was identified that the landing gear could only compress as much as ...TBD... cm without striking the keel of the aircraft. Additionally, the landing gear had to be able to withstand a landing load of 2.67g upon landing from the special conditions for high risk UAVs, and CS-23 aerobatic. As HUGO is expected to land at high speeds (\~ 36 m/s), it is assumed all force would be in one of the two main landing gear struts. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures_final/landing_gear_parameter_space.png}
+    \caption{Parameter sweep of spring and dashpot constant}
+    \label{fig:CK_tuning}
+\end{figure}
 
-% landing gear mechanism modeling with spring and dashpot in parallel
-To identify if these constraints were met, the landing gear were modeled as a spring and dashpot in series using the control.matlab module. Assuming a step input as a function of the landing speed and angle, the force applied and resultant compression of the landing gear mechanism can be simulated. With the force and displacement constraint, as well as the added condition of no over-damping to prevent excessive gs on the landing gear strut, a parameter sweep can be performed to identify the optimal combination of dash-pot and spring constants. The parameter sweep for HUGO can be seen in ...CITE DIAGRAM HERE... .
-
-% landing gear dashpot and spring constant tuning
-
+In \autoref{fig:CK_tuning} a 60 by 60 grid of C and K parameters on a logarithmic scale are analysed showing the different constraints. Most importantly, under the required loads, it can be seen that there is a feasible design space (in green) of C and K for which all constraints are met. The optimal combination also allows for close to critical damping at C=432.281 and K=3113.84.
 
 
 
@@ -474,8 +476,8 @@ Diagram of the point of view. Image of the reference dots used.
 -Camera. The camera-system chosen was the DJI O4 Air Unit Pro. Here it was especially the form-factor of the system which would enable installation in the very restricted space of the horizontal tail and the high frame-rate and resolution . With a field of view being 155 \degree this would enable a large view of the wings. 
 The maximum resolution would be 3840×2880 at 60fps and the resolution at the maximum frame rate would be 3840×2160 120fps.  
 
-The chosen load-cell was the six-axis M3564E1. This enables the measurement    
-This configuration of the load-cell is different than a traditional sensor configuration as the load-cells will be the connection between the wing and the fuselage. 
+The chosen load-cell was the six-axis M3564E1 . This enables the measurement all loads and torques generated by the wing.     
+This configuration of the load-cell is different than a traditional sensor configuration as the load-cells will be the connection between the wing and the fuselage.  
 Since it must act as the structural link the overload capacity (the total load the sensor can carry) is a very important characteristic of the sensor. For the specific sensor the overload capacity was 200 percent of the maximum measurable load. For M3564E1 that would be:
 \begin{equation}
     L_{max}=\SI{2500}{\newton} \cdot3= \SI{7500}{\newton}
@@ -518,7 +520,9 @@ Final configuration of sensors (Insert large diagram)
         \textbf{Sensor} & \textbf{Nr} & \textbf{Weight [kg]} & \textbf{Dimensions [mm]} & \textbf{Power [W]} & \textbf{Accuracy} & \textbf{Sampling rate [Hz]} & \textbf{Data rate [Mbit/s]} \\
         \hline\hline
         6-axis Load-cell \tablefootnote{\href{https://www.srisensor.com/uploads/M3564E1.pdf}{SR load-cell} (accessed 9.06.2026)} & 2 & 0.16 & $71 \times 10 \times 69$ & See M8126 & ±1.5\% & 2000 & See M8126\\\hline
-        Strain gage  & 16 & 0.001 & $7\times 0.5 \times 7$ & See Amp & ±1.5\% & 20000 & See Amp \\\hline
+        Strain gage  & 16 & 0.001 & $7\times 0.5 \times 7$ & See Q. X
+Bridge & ±1.5\% & 20000 & See Q. X
+Bridge  \\\hline
         LIDAR-sensor \tablefootnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR}(02.06.2026)} & 3 & 0.160 & $55 \times 60 \times 38.7$ & 6 & ±2.5-5\% & 10 & 22.2 \\\hline
         Camera\tablefootnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (05.06.2026)} & 1 & 0.478 & $25.55 \times 20 \times 23.30$ & 15.6 & n.a. & 120 & 130 \\\hline
         Pitot probe\tablefootnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)} & 1 & 0.100 & $6.35 \times 100 \times 6.35$ & 0.1 & ±1\% &100 & See Amp \\\hline

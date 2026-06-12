@@ -49,12 +49,21 @@ The influence of assumptions made during the design process on the ability of HU
 
 The envelope of planforms that HUGO can house needs quantification, both for the user to serve as specifications for wing design, and for further development. The planform researcher has an incentive to test a wing of particular shape, not of particular size (as long as the difference in Reynolds and Froude numbers can be accounted for). As such, they are supposed to select an aspect ratio, as well as taper, dihedral, sweep and thickness-to-chord profiles (those quantities need not be constant along the wing), and wing cross sections along the span, provided the airfoil coefficients of those cross sections fit within the specified range. The wing area and structural thicknesses are deduced from the provided specifications. 
 
-\autoref{tab:planform_envelope} provides the range of allowed planform parameters. A planform is considered compatible with HUGO if it is described by any combination of the parameters within their ranges. To assess whether HUGO can accommodate those possible planforms, the most constraining values of each parameter are identified and planforms represented by  
+\autoref{tab:planform_envelope} provides the range of allowed planform parameters. A planform is considered compatible with HUGO if it is described by any combination of the parameters within their ranges. To assess whether HUGO can accommodate those possible planforms, the most constraining values of each parameter are identified, and planforms represented by combinations of those critical values are analysed for compliance with requirements. Overall, there are $4\cdot2\cdot2\cdot3\cdot2 = 96$ planforms considered the critical points of the planform envelope. As for the justification of the parameter ranges and critical values:
+\begin{itemize}
+    \item $AR$: the lower bound corresponds to low-$AR$ aerobatic aircraft \todo{cite}, while the upper bound is as considered in previous reports \footnote{Baseline}\footnote{Midterm}. As increasing the $AR$ improves the aerodynamic efficiency while increasing wing weight, a single value of this parameter cannot be considered constraining. Therefore, four values from across the range are included as critical.
+    \item $\lambda$: any taper profile that results in the wing not widening while moving inboard, but preventing it from becoming excessively thin, is considered acceptable. In the considered range, the most constraining case, when both aerodynamics and structural performance are negatively impacted, is when $\lambda$ is 1 \todo{cite a class II weight estimation and something from aero I}.
+    \item $\Lambda_{c/4}$: positive sweeps up to slightly above the Midterm Report value \footnote{Midterm Report}. The extremum values of sweep are taken as critical, as for maximum sweep the effective airspeed is reduced, and the aerodynamic centre is most aft, and for the minimum sweep the aerodynamic centre is most fore. The former is challenging for tail sizing for stability and main wing performance, while for the latter, empennage sizing for controllability is compromised. 
+    \item $t/c$: The range encompasses thin and potentially unstable wings and high-thickness profiles similar to those at wing roots of large aircraft. As for the critical points, parasitic drag increases with $t/c$, but the wing weight decreases significantly. Thus, three values across the parameter range are selected for evaluation.
+    \item $C_{l_\text{max}}$: To ensure sufficient low-speed performance, a minimum value of this parameter is established.
+    \item $C_{m_{ac}}$: The extrema values of this parameter are most constraining for sizing the empennage for controllability and, as such, taken as critical points. The minimum $C_{m_{ac}}$ accounts for high camber sections such as NACA 4415 with $C_{m_{ac}}$ of around -0.12. \footnote{\label{foot:NACA_4415}\href{http://airfoiltools.com/airfoil/details?airfoil=naca4415-il}{Airfoil Tools, NACA 4415}}, while the upper bound accounts for reflexed airfoils such as Eppler E184 \footnote{\label{foot:Eppler_E184}\href{http://airfoiltools.com/airfoil/details?airfoil=e184-il}{Airfoil Tools, Eppler E184}} with $C_{m_{ac}}$ of -0.02.
+    \item $C_{l_0}$: The impact of this parameter is secondary - provided $C_{l_\alpha}$ and $C_{l_{\mathrm{max}}}$ are satisfactory, it only changes the angle of attack required for a given amount of lift. Hence, values above or close to zero are allowed, with zero taken as the critical value.
+    \item $C_{l_\alpha}$: The lift slope for thin airfoil is typically close to $2\pi$ and this value is taken as critical.
+    \item Empennage type: both replaceable tail cone and canard port are available at the aircraft, and they may be used simultaneously. As the moment arms of both the tail and the canard are fixed, cases when only the canard or only the tail are present are taken as constraining.
+    \item $\Gamma$: The lower bound of dihedral at zero is set not to worsen the wing tip clearance, and the upper bound is where the lift reduction from dihedral becomes approximately 1\%. Due to its secondary influence, $\Gamma$ is excluded from the analysis, with a value of 0 used for landing gear clearance computations.
+\end{itemize}
 
-\todo{a nice introduction sentence}
-\todo{Find citations to substantiate the reasoning}
-
-The planform envelope 
+Not every combination of wing cross section and sweep is expected to reach Mach 0.75. However, provided that shocks do not develop up to that speed, a planform whose cross section coefficients are within the stated range is supposed to be able to reach Mach 0.75. Also, there is a possibility that a planform whose parameters are outside of the stated ranges is compatible with HUGO.
 
 \begin{table}[]
     \centering
@@ -64,7 +73,7 @@ The planform envelope
          $AR$ & [5; 27]  & 5, 10, 17, 27 & $\lambda$ & $f(y)\in[0.1; 1]$ & 1 \\\hline
          $\Lambda_{c/4}$ & [0; 20$^\circ$]  & 0, 20$^\circ$ & $t/c$ & [0.08, 0.18] & 0.08, 0.12, 0.18 \\\hline
          $C_{l_{\textbf{max}}}$ & [1, $\infty$)  & 1 & $C_{m_{ac}}$ & [-0.15, 0.1] & -0.15, 0.1 \\\hline
-         $C_{l_{0}}$ & [0, $\infty$)  & 0 & $C_{l_{\alpha}}$ & [2$\pi$, $\infty$) & 2$\pi$ \\\hline
+         $C_{l_{0}}$ & [0, $\infty$)  & 0 & $C_{l_{\alpha}}$ & $[\sim2\pi,\ \infty)$ & 2$\pi$ \\\hline
          Empennage types & Canard and/or tail  & Canard or tail & $\Gamma$ & [0, 8$^\circ$] & 0 \\\hline
     \end{tabular}
     
@@ -72,7 +81,7 @@ The planform envelope
 \end{table}
 
 \section{The standard planform}
-\begin{table}[]
+\begin{table}[h]
     \centering
     \caption{The geometry of the standard planform}
     \begin{tabular}{|c|c||c|c||c|c||c|c|}\hline
@@ -84,7 +93,7 @@ The planform envelope
     \label{tab:standard_wing_planform}
 \end{table}
 
-The geometry of the standard planform, to be used when the client does not provide one of their own, is presented in \autoref{tab:standard_wing_planform}. The planform is based on the one obtained in the Midterm Report \footnote{Midterm Report}. For safety reasons, it shall be ensured that the standard planform does not experience aeroelastic instability in any of the operating conditions. This is evaluated in \todo{autoref}.
+The geometry of the standard planform, to be used when the client does not provide one of their own, is presented in \autoref{tab:standard_wing_planform}. The planform is based on the one obtained in the Midterm Report \footnote{Midterm Report}. For safety reasons, it shall be ensured that the standard planform does not experience aeroelastic instability in all operating conditions up to Mach 0.75. This is evaluated in \todo{autoref}.
 
 
 

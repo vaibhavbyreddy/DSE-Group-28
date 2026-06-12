@@ -3,18 +3,265 @@
 
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
+This profitability and market study serves as an important decision gate for the project. The objective is not merely to generate a commercial business plan, but to establish the project's economic safety factor. By quantifying development (CAPEX), operational costs (OPEX), and realistic revenue constraints, we can objectively evaluate engineering trade-offs. For instance, if the financial model demonstrates resilience to high development costs, it justifies integrating complex, high-value features (such as heavy modular payload interfaces or premium micro-turbines) without compromising the project's viability.
 
-\todo[inline]{Copy-paste from previous reports.}
+\section{Market Analysis \& Value Proposition}
+\label{sec:market_value_prop}
 
+\subsection{Market Segmentation}
 
+The target market is divided into three key segments seeking high-fidelity aeroelastic and flight dynamics data:
 
+\begin{itemize}
+    \item \textbf{Research Centres (The Beachhead):} National institutes like the NLR or DLR require robust, predictable platforms for high-accuracy validation.
+    \item \textbf{Universities:} Academic laboratories (e.g., TU Delft) researching active flutter suppression.
+    \item \textbf{Aerospace \& Defence Companies:} Companies needing to accelerate development cycles of new UAV payloads in real-life conditions prior to certification.
+\end{itemize}
 
+\subsection{The Value Proposition (Cost Comparison)}
 
+Currently, researchers testing at Mach 0.75 face two incumbent methods:
 
+\begin{itemize}
+    \item \textbf{Transonic Wind Tunnels (e.g., DNW-HST):} Suffer from wall-interference and scaling issues. Testing in similar sized wind tunnels in these speed regimes costs around \texteuro{}40,000 per occupancy day \footnote{\label{foot:schrijer}In personal communication with Ferdinand Schrijer on 04/05/2026.}, with additional costs for `Wind-On Time'. This still would not allow for realistic testing of complex flutter dynamics and control systems.
 
+    \item \textbf{Manned Flight Testing:} Chartering a fast-jet costs several thousand euros per day~\cite{evojets} and requires the EASA Supplemental Type Certificate (STC) process for external payloads~\cite{easa_initial_airworthiness}, adding additional cost and taking over a year. Similar to wind tunnels, this still would not allow for realistic testing of complex flutter dynamics and control systems.
+\end{itemize}
 
+Project HUGO disrupts this by offering a certified, modular testbed. At \textbf{\texteuro{}25,000 per flight day + setup costs}, HUGO undercuts the total programmatic cost of the alternatives, while providing real, clean atmospheric data.
 
+\subsection{Market Volume (TAM/SAM/SOM)}
 
+Based on the budgets of major Dutch aerospace testing facilities (NLR, DNW, TU Delft), the Serviceable Addressable Market (SAM) was estimated at \texteuro{}71M in the baseline report. Assuming the testing regime of HUGO is roughly 20\% of the total market \footref{foot:schrijer}, the Serviceable Obtainable Market (SOM) is \textbf{\texteuro{}14.2M annually}. Although 20\% could be seen as ambitious, the fact that HUGO offers the ability for researchers to test their novel control systems and wing designs for much lower cost and lead time will likely create induced demand and a market expansion.
 
+\section{Financial Baseline \& Cost Breakdown}
+\label{sec:financial_baseline}
+
+The financial viability of this project relies on a clear understanding of the baseline Capital Expenditures (CAPEX) required to launch the service, as well as the Operational Expenditures (OPEX) and unit economics required to sustain it. The figures presented in Table~\ref{tab:opex_capex} are derived from a comprehensive bottom-up cost model. The mathematical breakdown of each category is detailed below.
+
+\begin{table}[H]
+    \centering
+    \caption{OPEX and CAPEX Breakdown}
+    \label{tab:opex_capex}
+    \begin{tabular}{@{}lr@{}}
+        \toprule
+        \textbf{Category} & \textbf{Amount} \\
+        \midrule
+        R\&D Total (CAPEX)                 & \texteuro{}2,750,000 \\
+        Certification Total (CAPEX)         & \texteuro{}50,000 \\
+        GCS \& Equipment (CAPEX)             & \texteuro{}50,000 \\
+        Fleet Production Cost (CAPEX)       & \texteuro{}250,000 \\
+        Permanent R\&D Staff (Annual OPEX)   & \texteuro{}320,000 \\
+        Overhead/Management (Annual OPEX)   & \texteuro{}155,000 \\
+        Direct Cost Per Flight Day          & \texteuro{}4,500 \\
+        Gross Margin Per Flight Day         & \texteuro{}20,500 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Capital Expenditures (CAPEX)}
+
+\begin{itemize}
+    \item \textbf{R\&D Total (\texteuro{}2,750,000):} This figure encompasses the 3-year development phase prior to commercial operations. It is driven primarily by labour costs, assuming a dedicated 10-person engineering team at an average annual salary, including the employer tax burden, of \texteuro{}80,000 per engineer~\cite{payscale_aerospace}, totalling \texteuro{}2.4 million over three years. The remaining \texteuro{}300,000 is allocated to physical prototyping and material testing.
+
+    \item \textbf{Certification Total (\texteuro{}50,000):} Modelled as a flat upfront capital expense. Officially, the Design Organisational Approval (DOA) licence costs \texteuro{}11k and certification has a flat rate of \texteuro{}7k. However, the certification cost was set to \texteuro{}50k, as this provisions for the assumed consulting fees and other miscellaneous costs associated with securing EASA Specific Category flight permits, and DOA prior to commercial deployment.
+
+    \item \textbf{GCS \& Equipment (\texteuro{}50,000):} This represents the assumed costs of the fixed hardware investment for the mobile command centre, telemetry antennas, and field-support equipment required to operate the testbed safely.
+
+    \item \textbf{Fleet Production Cost (\texteuro{}250,000):} This represents the cost of producing the initial fleet of aircraft which will generate actual revenue. At an estimated cost of \texteuro{}45,000 per UAV, as per the project requirements, with an initial fleet of 5 aircraft, this comes out to \texteuro{}250,000, rounded to the nearest \texteuro{}50,000 to account for unexpected costs.
+\end{itemize}
+
+\subsection{Operational Expenditures (Annual OPEX)}
+
+\begin{itemize}
+    \item \textbf{Permanent R\&D Staff (\texteuro{}320,000):} Once the core development phase concludes, a permanent engineering team is required to integrate client payloads, analyse flight data, and maintain the platform. Some of these staff will also need to be experienced, trusted and approved DOA certification engineers; however, it is assumed that the average salary of the permanent engineering staff is \texteuro{}80,000~\cite{payscale_aerospace}.
+
+    \item \textbf{Overhead/Management (\texteuro{}155,000):} This covers the fixed administrative and facility costs of the business. It includes the salary for one full-time Operations Manager (\texteuro{}80,000)~\cite{payscale_aerospace} and facility leasing costs. The facility budget assumes a base rent of \texteuro{}50,000, subject to an assumed 1.5x overhead multiplier to account for utilities, facility maintenance, and general office and workshop expenses, resulting in \texteuro{}75,000 in total facility overhead.
+\end{itemize}
+
+\subsection{Unit Economics (Per Flight Day)}
+
+\begin{itemize}
+    \item \textbf{Direct Cost Per Flight Day (\texteuro{}4,500):} This is the variable cost incurred each time the UAV is deployed for a client. It consists of:
+    \begin{itemize}
+        \item \textbf{Logistics \& Transport:} \texteuro{}1,000 (accounting for assumed runway usage fees, transport and set-up costs)
+        \item \textbf{Fuel \& Electricity:} \texteuro{}1,000 (accounting for the high consumption of micro-turbines)
+        \item \textbf{Maintenance Reserve:} \texteuro{}500
+        \item \textbf{Crew Costs:} \texteuro{}2,000 (calculated assuming a 4-person operational crew working a 10-hour flight day at a rate of \texteuro{}50/hour)
+    \end{itemize}
+
+    \item \textbf{Gross Margin Per Flight Day (\texteuro{}20,500):} Based on the targeted commercial rate of \texteuro{}25,000 per test day, subtracting the \texteuro{}4,500 direct operating costs yields a gross margin of \texteuro{}20,500 (an 82\% margin per flight). This margin is crucial for paying off the initial CAPEX debt and to cover the annual fixed OPEX.
+\end{itemize}
+
+\section{Profitability and Return Analysis}
+\label{sec:profitability}
+
+To service the \texteuro{}14.2M SOM, Project HUGO assumes a fleet of 5 UAVs. Accounting for Dutch weather constraints and maintenance downtime, each UAV is conservatively projected to fly 20 days per year (100 total fleet flight days).
+
+\begin{itemize}
+    \item \textbf{Revenue Generation:} 100 flight days at \texteuro{}25,000 yields \textbf{\texteuro{}2.5M in annual revenue} (Note: this captures exactly 17.6\% of the calculated \texteuro{}14.2M SOM, validating the market scaling assumption). This does not consider the cost of set-up or the production of a new wing, for instance, which would happen prior to the test day itself. In this stage of the analysis, it is considered that the costs associated with this will be passed on to the customer directly, at no margin. However, in reality, this would add to the revenue generated by this project.
+
+    \item \textbf{CAPEX \& Financing:} The upfront Capital Expenditure is estimated at \textbf{\texteuro{}3.45 Million}, encompassing a 3-year development cycle, a 10-person engineering team (\texteuro{}2.4M labour), physical prototyping (\texteuro{}300k), fixed certification fees (\texteuro{}50k), Design Organisation Approval (\texteuro{}10k), and Ground Control Station infrastructure (\texteuro{}50k), alongside the initial procurement of the 5-airframe fleet (\texteuro{}250k). This capital requirement is conservatively modelled via a venture debt structure at a \textbf{10\% interest rate amortised over a 5-year term}, fully accounting for capitalised interest compounded during the pre-revenue R\&D phase.
+
+    \item \textbf{Break-Even:} Despite the heavy debt burden in the first 5 years, the high gross margin per flight day allows the project to aggressively pay down the principal, achieving complete operational break-even within the 10-year lifecycle.
+\end{itemize}
+
+% --------------------------------------------------------------------
+% Figure 1 -- Cumulative operational profit by year
+% Uncomment and update the path once the plot is available.
+% --------------------------------------------------------------------
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures_final/cumulative_operational_profit.png}
+%     \caption{Cumulative operational profit by year}
+%     \label{fig:cumulative_profit}
+% \end{figure}
+
+The ability to pay off the debt in the first 5 years is the constraining factor for profitability, as can be seen in the cumulative operational profit plot. The amortisation is an additional cost initially, at a 10\% interest rate, to be paid off 5 years after operations begin. As a worst-case scenario, this debt was assumed to be taken at the start of the project, where the interest rate was adding to the debt in the 3 years where revenue is not being generated. In reality, some proportion of the funds would be raised using non-dilutive funding and equity funding, which would decrease the amortisation, increasing the profitability and returns.
+
+\section{Sensitivity Analysis \& Economic Limits}
+\label{sec:sensitivity}
+
+The analysis so far was based on initial figures estimated in Section~\ref{sec:financial_baseline}. This is considered the baseline. However, it is important to know which of these factors affects the project's financial feasibility the most. In order to determine this, a sensitivity analysis was performed on several metrics, to find minimums or maximums that make this project viable.
+
+The sensitivity analysis was performed by applying a multiplier to each cost individually, ranging from 0.25x to 2.0x with a step size of 0.25. From interpolating these results, a maximum or minimum required for feasibility was computed for each category. The feasibility was determined to be the amount of EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortisation) required to pay off the amortisation at the very least. The graphs of these sensitivity analyses are presented in the appendix. By comparing these extreme values to the baseline values, a margin of safety can be computed. These values are listed in Table~\ref{tab:sensitivity}.
+
+\begin{table}[H]
+    \centering
+    \caption{Sensitivity Analysis Results}
+    \label{tab:sensitivity}
+    \begin{tabular}{@{}lrrr@{}}
+        \toprule
+        \textbf{Category} & \textbf{Baseline Value} & \textbf{Viability Limit} & \textbf{Margin of Safety} \\
+        \midrule
+        R\&D Total (CAPEX)      & \texteuro{}2,750,000 & \texteuro{}4,014,832 & +45.99\% \\
+        Fixed Operations        & \texteuro{}475,000     & \texteuro{}979,101     & +106.13\% \\
+        Variable Operations     & \texteuro{}4,500       & \texteuro{}8,941       & +98.69\% \\
+        Total Fleet Flights     & 100 flights        & 78 flights         & $-$22.00\% \\
+        Price per Flight Day    & \texteuro{}25,000      & \texteuro{}20,559      & $-$17.76\% \\
+        Total Revenue           & \texteuro{}2,500,000 & \texteuro{}2,055,899 & $-$17.76\% \\
+        Interest Rate           & 10\%               & 17\%               & +70\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+From this we can see that the factors with the least margin are the number of flight days per year, and the price per flight day. An analysis was also performed on the certification cost and the inflation rate; however, both of these had a diminutive impact on the profitability of the project, and were not a factor. However, the R\&D costs and the certification costs are far from being constraining. Thus, even taking an extra year for R\&D, which would add \texteuro{}800,000 in R\&D costs, the project would still be viable. This frees up the design process to make decisions and choose options with a slightly lower TRL (Technology Readiness Level).
+
+\subsection{Note on Assumptions}
+
+For some of the costs, assumptions had to be made as real costs could not be found. In these cases, conservative values were assumed. Table~\ref{tab:assumptions} lists the assumed values and the category of costs that they contribute to.
+
+\begin{table}[H]
+    \centering
+    \caption{Assumed Cost Values and Their Contributions}
+    \label{tab:assumptions}
+    \begin{tabular}{@{}llrr@{}}
+        \toprule
+        \textbf{Assumed Cost} & \textbf{Amount} & \textbf{Category} & \textbf{Contribution} \\
+        \midrule
+        Certification Overhead   & \texteuro{}32,000 & Initial CAPEX & 1.1\% \\
+        GCS and Equipment        & \texteuro{}50,000 & Initial CAPEX & 1.8\% \\
+        Facility Rent            & \texteuro{}50,000 & Fixed OPEX    & 10.5\% \\
+        Logistics and Transport  & \texteuro{}1,000  & Variable OPEX & 22.2\% \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The uncertainty in the logistics and transport fees has the largest impact among the assumed values. However, the sensitivity analysis shows that the variable operations can even double, while the project remains viable. The facility rent was also assumed quite high, as large commercial and workshop space on or near the airfield can be quite expensive. However, this too only affects the fixed OPEX, which has a margin of safety of over 100\%. The other two assumptions have a negligible impact on their categories.
+
+\section{Sensitivity Analysis Sweeps}
+\label{sec:appendix_sensitivity}
+
+The following sweeps support the results summarised in Table~\ref{tab:sensitivity}.
+
+\begin{itemize}
+    \item \textbf{R\&D Cost Sweep:} Max R\&D for Profitability: \texteuro{}4,014,832
+    \item \textbf{Annual Revenue Sweep:} Min Revenue for Profitability: \texteuro{}2,055,899
+    \item \textbf{Fixed Operations Costs Sweep:} Max Fixed Ops for Profitability: \texteuro{}979,101
+    \item \textbf{Per Flight Operations Costs Sweep:} Max Variable Ops for Profitability: \texteuro{}8,941
+    \item \textbf{Flights per Year Sweep:} Min Flights for Profitability: 78
+    \item \textbf{Price Per Flight Sweep:} Min Price for Profitability: \texteuro{}20,559
+    \item \textbf{Interest Rate Sweep}
+\end{itemize}
+
+% --------------------------------------------------------------------
+% Appendix figures -- sensitivity sweep plots
+% Uncomment each block once the corresponding plot is available.
+% --------------------------------------------------------------------
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures_final/rd_cost_sweep.png}
+%     \caption{R\&D Cost Sweep --- Max R\&D for Profitability: \texteuro{}4,014,832}
+%     \label{fig:rd_sweep}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures_final/revenue_sweep.png}
+%     \caption{Annual Revenue Sweep --- Min Revenue for Profitability: \texteuro{}2,055,899}
+%     \label{fig:revenue_sweep}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures_final/fixed_ops_sweep.png}
+%     \caption{Fixed Operations Costs Sweep --- Max Fixed Ops for Profitability: \texteuro{}979,101}
+%     \label{fig:fixed_ops_sweep}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures_final/variable_ops_sweep.png}
+%     \caption{Per Flight Operations Costs Sweep --- Max Variable Ops for Profitability: \texteuro{}8,941}
+%     \label{fig:variable_ops_sweep}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures_final/flights_per_year_sweep.png}
+%     \caption{Flights per Year Sweep --- Min Flights for Profitability: 78}
+%     \label{fig:flights_sweep}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures_final/price_per_flight_sweep.png}
+%     \caption{Price Per Flight Sweep --- Min Price for Profitability: \texteuro{}20,559}
+%     \label{fig:price_sweep}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{figures_final/interest_rate_sweep.png}
+%     \caption{Interest Rate Sweep}
+%     \label{fig:interest_sweep}
+% \end{figure}
+
+% --------------------------------------------------------------------
+% Bibliography entries needed in references.bib (biblatex / aiaa style):
+%
+% NOTE: The entry for "schrijer_comm" has been removed below since it 
+% was converted into an inline footnote in the text above.
+%
+% @misc{evojets,
+%     title        = {Charter Flight Costs: Pricing Basics},
+%     howpublished = {\url{https://www.evojets.com/charter-flight-costs-pricing-basics/}},
+%     year         = {2025}
+% }
+%
+% @misc{easa_initial_airworthiness,
+%     author = {{EASA}},
+%     title  = {Initial Airworthiness and Environmental Protection},
+%     pages  = {274--284},
+%     year   = {2023}
+% }
+%
+% @misc{payscale_aerospace,
+%     title        = {Aerospace Engineer Salary in the Netherlands},
+%     howpublished = {\url{https://www.payscale.com/research/NL/Job=Aerospace_Engineer/Salary}},
+%     year         = {2025}
+% }
+% --------------------------------------------------------------------
 
 \todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}

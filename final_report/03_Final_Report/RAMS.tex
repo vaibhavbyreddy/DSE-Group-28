@@ -138,11 +138,13 @@ This philosophy is consistent with the emergency-handling requirements of \autor
 \section{Expected Reliability and Availability}
 \label{sec:reliability_availability}
 
-The dominant contributors are the components that either:
+Consider the most critical components for HUGO's operation.
 
-Have relatively high failure rates
+reliability/availability calculation source: https://www.reliabilityengineersacademy.com/articles/fc13d06a-bc39-44bf-9d23-f48d0d413960
 
-Cause loss of vehicle when they fail
+Given that fatigue was excluded as a critical design consideration in \autoref{sec:material_options}, and that the structural analyses in \autoref{sec:wing_structural_analysis} and \autoref{sec:fuselage_structural_analysis} indicate sufficient strength to withstand the maximum internal stresses, a reliability value of 0.99 was assigned to the wing, fuselage, and landing gear structures.
+
+
 
 \begin{comment}
 At the current design stage, a full quantitative reliability prediction is not yet possible because detailed component failure rates and supplier reliability data are not available for all subsystems. Reliability is therefore assessed qualitatively through the technical risk assessment and the applied mitigations. The main concerns in reliability are in the flight control system, communication link, power distribution system, actuators, propulsion system, fuel system and modular interfaces.

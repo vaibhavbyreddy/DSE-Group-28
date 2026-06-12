@@ -1,9 +1,447 @@
-\chapter{Structural characteristics}
+\chapter{Structural Design Analysis}
 \label{ch:structural_characteristics}
 
 \todo[inline]{From the \textit{Project Guide}: \\Structural characteristics include e.g. loading diagrams, stresses, bending, flutter, lowest natural frequencies, design loads, etc.\\ A first version of design driving characteristics is included in the Mid-Term Report, a final, extended version including all relevant characteristics is given in the Final Report.}
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
+
+\section{Aerodynamic Characteristics Estimate}
+\label{sec:aerodynamic_characteristics_estimate}
+The goals of the aerodynamic characteristics estimate is to obtain the lift and induced drag of the aircraft required for the later calculation of the $L/D$ ratio, the lift curve slopes of all the lifting surfaces (both individually and combined with other lifting surfaces), and the lift distribution along the span to be used for determining the structural loads. This section describes the airfoil selection along with methods used for lift and drag estimations.
+
+\subsection{Airfoil Selection}
+\label{sub:airfoil_selection}
+High subsonic speeds experienced by HUGO during the nominal mission necessitate the use of a supercritical airfoil to avoid large drag penalties due to shock waves and boundary layer separations induced by locally supersonic flows \cite{Whitcomb1974}. A preliminary sizing of the wing and tail surfaces performed in previous design phases identified NASA SC(2)-0012 (see: \autoref{fig:airfoil_simplified_model}) as a suitable airfoil choice for HUGO \cite{Harris1990}, based on the performance requirements and preliminary wing design lift coefficient of 0.074 \footref{ft:midterm_rep}.
+
+The structural model uses a simplified, elliptical airfoil approximation based on the SC(2)-0012 parameters. The wing cross-section is assumed to be hollow, with the same chord length and maximum thickness to chord ratio as the reference airfoil. The lift resultant is applied at the quarter-chord point, consistent with the typical location of the aerodynamic centre for subsonic airfoils\footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}.
+
+The elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model also neglects the structural contribution of the foam core. The resulting section properties are therefore treated as a conservative, simplified model that can be used for preliminary structural sizing. 
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+
+        % ------------------------
+        % Left: airfoil
+        % ------------------------
+        \begin{axis}[
+            name=airfoilplot,
+            at={(0,0)},
+            anchor=origin,
+            width=7cm,
+            height=3.2cm,
+            axis equal image,
+            xmin=0, xmax=1,
+            ymin=-0.07, ymax=0.07,
+            axis lines=none,
+            clip=false,
+            title={Airfoil}
+        ]
+            % Filled airfoil
+            \addplot[
+                fill=gray!20,
+                draw=black,
+                thick
+            ] coordinates {
+                % Upper surface
+                (0.000000, 0.000000)
+                (0.002000, 0.009120)
+                (0.005000, 0.013920)
+                (0.010000, 0.018600)
+                (0.020000, 0.024840)
+                (0.030000, 0.029160)
+                (0.040000, 0.032400)
+                (0.050000, 0.035040)
+                (0.060000, 0.037320)
+                (0.070000, 0.039390)
+                (0.080000, 0.041190)
+                (0.090000, 0.042820)
+                (0.100000, 0.044280)
+                (0.110000, 0.045600)
+                (0.120000, 0.046800)
+                (0.130000, 0.048000)
+                (0.140000, 0.049080)
+                (0.150000, 0.050040)
+                (0.160000, 0.051000)
+                (0.170000, 0.051840)
+                (0.180000, 0.052680)
+                (0.190000, 0.053400)
+                (0.200000, 0.054120)
+                (0.210000, 0.054720)
+                (0.220000, 0.055320)
+                (0.230000, 0.055920)
+                (0.240000, 0.056400)
+                (0.250000, 0.056880)
+                (0.260000, 0.057360)
+                (0.270000, 0.057720)
+                (0.280000, 0.058080)
+                (0.290000, 0.058440)
+                (0.300000, 0.058800)
+                (0.310000, 0.059040)
+                (0.320000, 0.059280)
+                (0.330000, 0.059520)
+                (0.340000, 0.059640)
+                (0.350000, 0.059760)
+                (0.360000, 0.059880)
+                (0.370000, 0.060000)
+                (0.380000, 0.060000)
+                (0.390000, 0.060000)
+                (0.400000, 0.060000)
+                (0.410000, 0.060000)
+                (0.420000, 0.059880)
+                (0.430000, 0.059760)
+                (0.440000, 0.059640)
+                (0.450000, 0.059520)
+                (0.460000, 0.059280)
+                (0.470000, 0.059040)
+                (0.480000, 0.058800)
+                (0.490000, 0.058440)
+                (0.500000, 0.058080)
+                (0.510000, 0.057720)
+                (0.520000, 0.057360)
+                (0.530000, 0.056880)
+                (0.540000, 0.056400)
+                (0.550000, 0.055800)
+                (0.560000, 0.055200)
+                (0.570000, 0.054600)
+                (0.580000, 0.053880)
+                (0.590000, 0.053160)
+                (0.600000, 0.052320)
+                (0.610000, 0.051360)
+                (0.620000, 0.050400)
+                (0.630000, 0.049320)
+                (0.640000, 0.048240)
+                (0.650000, 0.047040)
+                (0.660000, 0.045840)
+                (0.670000, 0.044580)
+                (0.680000, 0.043320)
+                (0.690000, 0.042060)
+                (0.700000, 0.040800)
+                (0.710000, 0.039540)
+                (0.720000, 0.038280)
+                (0.730000, 0.037020)
+                (0.740000, 0.035760)
+                (0.750000, 0.034500)
+                (0.760000, 0.033240)
+                (0.770000, 0.031980)
+                (0.780000, 0.030720)
+                (0.790000, 0.029460)
+                (0.800000, 0.028200)
+                (0.810000, 0.026940)
+                (0.820000, 0.025680)
+                (0.830000, 0.024420)
+                (0.840000, 0.023160)
+                (0.850000, 0.021900)
+                (0.860000, 0.020640)
+                (0.870000, 0.019380)
+                (0.880000, 0.018120)
+                (0.890000, 0.016860)
+                (0.900000, 0.015600)
+                (0.910000, 0.014340)
+                (0.920000, 0.013080)
+                (0.930000, 0.011820)
+                (0.940000, 0.010560)
+                (0.950000, 0.009300)
+                (0.960000, 0.008040)
+                (0.970000, 0.006780)
+                (0.980000, 0.005520)
+                (0.990000, 0.004260)
+                (1.000000, 0.003000)
+
+                % Lower surface back to LE
+                (1.000000, -0.003000)
+                (0.990000, -0.004260)
+                (0.980000, -0.005520)
+                (0.970000, -0.006780)
+                (0.960000, -0.008040)
+                (0.950000, -0.009300)
+                (0.940000, -0.010560)
+                (0.930000, -0.011820)
+                (0.920000, -0.013080)
+                (0.910000, -0.014340)
+                (0.900000, -0.015600)
+                (0.890000, -0.016860)
+                (0.880000, -0.018120)
+                (0.870000, -0.019380)
+                (0.860000, -0.020640)
+                (0.850000, -0.021900)
+                (0.840000, -0.023160)
+                (0.830000, -0.024420)
+                (0.820000, -0.025680)
+                (0.810000, -0.026940)
+                (0.800000, -0.028200)
+                (0.790000, -0.029460)
+                (0.780000, -0.030720)
+                (0.770000, -0.031980)
+                (0.760000, -0.033240)
+                (0.750000, -0.034500)
+                (0.740000, -0.035760)
+                (0.730000, -0.037020)
+                (0.720000, -0.038280)
+                (0.710000, -0.039540)
+                (0.700000, -0.040800)
+                (0.690000, -0.042060)
+                (0.680000, -0.043320)
+                (0.670000, -0.044580)
+                (0.660000, -0.045840)
+                (0.650000, -0.047040)
+                (0.640000, -0.048240)
+                (0.630000, -0.049320)
+                (0.620000, -0.050400)
+                (0.610000, -0.051360)
+                (0.600000, -0.052320)
+                (0.590000, -0.053160)
+                (0.580000, -0.053880)
+                (0.570000, -0.054600)
+                (0.560000, -0.055200)
+                (0.550000, -0.055800)
+                (0.540000, -0.056400)
+                (0.530000, -0.056880)
+                (0.520000, -0.057360)
+                (0.510000, -0.057720)
+                (0.500000, -0.058080)
+                (0.490000, -0.058440)
+                (0.480000, -0.058800)
+                (0.470000, -0.059040)
+                (0.460000, -0.059280)
+                (0.450000, -0.059520)
+                (0.440000, -0.059640)
+                (0.430000, -0.059760)
+                (0.420000, -0.059880)
+                (0.410000, -0.060000)
+                (0.400000, -0.060000)
+                (0.390000, -0.060000)
+                (0.380000, -0.060000)
+                (0.370000, -0.060000)
+                (0.360000, -0.059880)
+                (0.350000, -0.059760)
+                (0.340000, -0.059640)
+                (0.330000, -0.059520)
+                (0.320000, -0.059280)
+                (0.310000, -0.059040)
+                (0.300000, -0.058800)
+                (0.290000, -0.058440)
+                (0.280000, -0.058080)
+                (0.270000, -0.057720)
+                (0.260000, -0.057360)
+                (0.250000, -0.056880)
+                (0.240000, -0.056400)
+                (0.230000, -0.055920)
+                (0.220000, -0.055320)
+                (0.210000, -0.054720)
+                (0.200000, -0.054120)
+                (0.190000, -0.053400)
+                (0.180000, -0.052680)
+                (0.170000, -0.051840)
+                (0.160000, -0.051000)
+                (0.150000, -0.050040)
+                (0.140000, -0.049080)
+                (0.130000, -0.048000)
+                (0.120000, -0.046800)
+                (0.110000, -0.045600)
+                (0.100000, -0.044280)
+                (0.090000, -0.042820)
+                (0.080000, -0.041190)
+                (0.070000, -0.039390)
+                (0.060000, -0.037320)
+                (0.050000, -0.035040)
+                (0.040000, -0.032400)
+                (0.030000, -0.029160)
+                (0.020000, -0.024840)
+                (0.010000, -0.018600)
+                (0.005000, -0.013920)
+                (0.002000, -0.009120)
+                (0.000000, 0.000000)
+            };
+
+            \draw[dashed] (axis cs:0,0) -- (axis cs:1,0);
+        \end{axis}
+
+        % ------------------------
+        % Right: ellipse model
+        % ------------------------
+        \begin{axis}[
+            name=ellipseplot,
+            at={(8.4cm,0)},
+            anchor=origin,
+            width=7cm,
+            height=3.2cm,
+            axis equal image,
+            xmin=0, xmax=1,
+            ymin=-0.07, ymax=0.07,
+            axis lines=none,
+            clip=false,
+            title={Equivalent elliptical model}
+        ]
+            \addplot[
+                fill=gray!20,
+                draw=black,
+                thick,
+                domain=0:360,
+                samples=250
+            ]
+            ({0.5 + 0.5*cos(x)}, {0.06*sin(x)});
+
+            \draw[dashed] (axis cs:0,0) -- (axis cs:1,0);
+
+            \draw[->, very thick] (axis cs:0.25,0.0) -- (axis cs:0.25,0.1);
+            \node[anchor=west] at (axis cs:0.27,0.055) {$L$};
+        \end{axis}
+
+    \end{tikzpicture}
+    \caption{Airfoil geometry and simplified elliptical representation with lift applied at quarter-chord.}
+    \label{fig:airfoil_simplified_model}
+\end{figure}
+
+
+\subsection{Lift Distribution}
+\label{sub:lift}
+The lift distribution was obtained using a Schrenk approximation evaluated at the positive limit load factor \cite{Schrenk1940}, excluding the portion of the planforms enclosed by the fuselage. The approach followed a methodology for obtaining load distributions for light aircraft proposed by EASA \cite{EASALSALoadCalculation}, in which the design condition implies the aircraft flying at its manoeuvre stall speed $V_{s_\text{n max}}$
+
+To achieve an approximation of the load distribution, the planforms were divided into $n$ individually evaluated sections. Schrenk's method assumes that the aerodynamic loading on the planform is equal to the average of the chord distribution, and an equivalent elliptical lift distribution, as shown in \autoref{eq:schrenk_element_lift} \cite[p. 20]{EASALSALoadCalculation}. Therefore, for each segment, an equivalent chord length $c_i$ was defined based on the spanwise position $y_i$, and a corresponding lift increment $l_{\text{Schrenk},i}$ was assigned. Sections incorporated into the fuselage were then excluded from the model by scaling the sections with respect to the average fuselage width at each section $b_0$ and the total wingspan $b$. The remaining lift was rescaled to compensate for the losses. 
+
+\begin{equation}
+    \label{eq:schrenk_element_lift}
+l_{\text{Schrenk},i} = \frac{1}{2}\rho V_{s_\text{n max}}^2C_{L_\text{n max}}\cdot\frac{1}{2}
+\left(c_i+\frac{4}{\pi}c_{\mathrm{MAC}}\sqrt{1-\left(\frac{y_i-\frac{b_0}{2}}
+{\frac{b-b_0}{2}}\right)^2}\right)
+\end{equation}
+
+The resulting lift distribution is presented in \autoref{fig:force_distribution} together with an analysis of the weight contribution. Applying the modified Schrenk's method is deemed as a conservative approach, as it is expected to slightly overestimate the loads acting on the planform root. It is additionally consistent with methodologies proposed by Raymer \cite{raymer1992aircraft} and Roskam \cite{roskamVI} for the design of subsonic to high-subsonic regime aircraft, and has been verified as sufficiently accurate to be used for the preliminary structural analysis of UAVs when compared to CFD methods \cite{Kamal2019}. It shall be noted, however, that the method is only accurate for planforms with low sweep angles, and does not account for complex aeroelastic phenomena, such as coupling, flutter, gusts, and load reliefs due to deformations. Therefore, the use of CFD-based models is recommended for the development of a detailed design.
+
+%https://www.akademiabaru.com/doc/ARFMTSV64_N2_P283_292.pdf
+
+
+
+
+
+\subsection{Drag Estimation}
+\label{sub:drag}
+The parasite drag ($C_{D_0}$) estimation was performed using the drag build-up method described by Raymer \cite{raymer1992aircraft}. The subsonic parasite drag of each component was estimated separately, and then summed to obtain the total $C_{D_0}$. The component drag was defined as a product of the wetted area $S_\text{wet}$, calculated flat-plate skin-friction drag coefficient $C_f$, form factor $FF$ that estimates the pressure drag due to viscous separation, and interference component $Q$ that estimates the increase in drag due to the interference between the different components, as shown in \autoref{eq:CD0} \cite[p. 281]{raymer1992aircraft}.
+\begin{equation}
+    (C_{D_0})_\text{subsonic} = \frac{\sum(C_{f_c} \cdot FF_c \cdot Q_c \cdot S_{wet_c})}{S_\text{ref}} + C_{D_\text{misc}} + C_{D_{L\&P}}
+    \label{eq:CD0}
+\end{equation}
+
+Here, $C_{D_\text{misc}}$ is miscellaneous drag due to flaps, un-retracted landing gear etc., and $C_{D_{L\&P}}$ is an estimate of the drag due to leakages and protuberances. $S_{wet}$ is the wetted area, and $S_{ref}$ is the reference area. The subscript $c$ refers to a single component.
+
+The $C_f$ is estimated as a weighted average of the laminar and turbulent flow values, and can be calculated according to Raymer  \cite[p. 282]{raymer1992aircraft}. In case the skin roughness is high, the $C_f$ value can be expected to increase. An adjusted value can be calculated by introducing a cut-off Reynold number $Re_\text{cut-off}$ for subsonic flight \cite[p. 282]{raymer1992aircraft}, for a given  characteristic length and skin roughness. The $C_{D_0}$ was further utilised to compute the glide ratios required for fuel consumption estimations. 
+
+The total drag values were computed using a parabolic induced drag coefficient estimation $C_{D_i}=C_L^2/\pi Ae$, as proposed by Raymer. While this approach was deemed as sufficiently accurate for the proposed design, it shall be noted that, similarly to the lift calculations presented in \autoref{sec:lift}, it is based on semi-empirical formulae, and an assumption of percentage of laminar flow. For a more detailed analysis, it is once again recommended to utilise CFD-based tools \cite{raymer1992aircraft}.
+
+
+ \section{Wing structural analysis}
+\label{sec:wing_structural_analysis}
+% -mention structure, what we are aiming for, what we modelled, and how the wing is modelled as an ellipse, since the airfoil is very similar
+
+% before we beging the actual calculations, talk ablut how we modeld the wing __> modeled as an ellipse, each individual sections as well and the lift is a t c/4 from the tip!!!
+% each section has a different geometry
+% talk about requirements on wing tip defflection and rotation
+% include the talk about the shear strsses (can be done over the weekend)
+
+% talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
+% -
+The structural model of the wing was developed to model the internal loads and their associated deformations, i. e. the wing twist and tip deflection. An analysis of the flight envelope and related structural requirements (HUG-STR-07) has shown that HUGO shall be able to sustain load factors of up to 6 during manoeuvres. This edge case has been chosen as the point of analysis for the model, as it are expected to yield limiting load and stress values which can further be used for material selection and to verify compliance with design requirements.
+
+%The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
+
+\subsection{Discretisation and Assumptions}
+As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain spanwise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. Additionally, it is assumed that the structure is a thin-walled carbon composite profile, disregarding potential fillings. These assumptions were deemed as conservative, as they acco
+
+
+The wing has been divided into individual smaller sections in accordance with the discretisation used in \autoref{sec:aerodynamic_modelling}, each section treated independently as a smaller wing, analysed and superimposed to obtain span-wise distributions of forces and stresses.
+The resolution is left up to the user, each part having its own weight, lift and moment contribution. To get the forces acting on the entire wing, the perimeter, area and moment of inertia need to be calculated for each individual wing increment. 
+
+Since the airfoil is modelled as an ellipse, the perimeter of the sections is computed using Ramanujan's second equation for area \footnote{\href{https://en.wikipedia.org/wiki/Perimeter_of_an_ellipse}{Perimeter of an ellipse} (accessed on 10.06.2026)} \autoref{eq:perim_area}, where $a$ and $b$ are the semi-major and semi-minor axes of the ellipse. 
+
+\begin{equation}
+\begin{aligned}
+h &= \left(\frac{a-b}{a+b}\right)^2
+\qquad\qquad
+P &\approx \pi(a+b)
+\left[
+1 + \frac{3h}{10 + \sqrt{4 - 3h}}
+\right]
+\end{aligned}
+\label{eq:perim_area}
+\end{equation}
+
+The structural analysis is formulated with several parameters left available for parametric sizing, including the wing skin thickness. To determine the wing response under applied loads, the cross-sectional material area is required. This area is computed using the method provided by Niu \cite[p.~765]{niu1999airframe}. The same source is used for the expression of the second moment of area of a hollow ellipse.
+
+For the structural analysis of HUGO's wings, a computational tool was developed to evaluate the structural response of different planforms during normal operation. The tool estimates the applied torque, wing-tip deflection, wing-tip rotation, internal shear forces, internal shear stresses, and the buckling behaviour of the wing. These outputs are used to verify that the wing structure remains within acceptable limits throughout the operating envelope, including extra loads experienced during take-off or landing. 
+
+Each section is exposed to a different lift and weight, depending on the location from the root. Lift division is evaluated in \autoref{sec:lift}, while for the weight equation \autoref{eq:section_weight} is used.
+
+\begin{equation}
+W = perimeter \cdot t_{skin} \cdot l_{section} \cdot 9.81 \label{eq:section_weight}
+\end{equation}
+
+\begin{wrapfigure}[13]{r}{0.4\textwidth} 
+\centering 
+\includegraphics[width=0.43\textwidth]{figures_final/Force distribution.png}
+\caption{Force distribution during cruise conditions and load factor 1} \label{fig:force_distribution}
+\end{wrapfigure} 
+
+Cases such as wing deflection or internal stresses require a net force obtained by subtracting the wing weight from the lift for each segment. The resulting force distribution is shown in \autoref{fig:force_distribution}.
+
+For the chosen airfoil, the torque is given by the combination of the lift produced by the wing and the aerodynamic moment of the airfoil itself. The torque is computed by multiplying the quarter chord length by the lift of the section, and then summing the contributions one by one until the root chord is reached \autoref{eq:t_sec_cumulative}, where $i$ is the previous segment.
+\begin{equation}
+\label{eq:t_sec_cumulative}
+\begin{aligned}
+    T_{\mathrm{sec}} &= L_{\mathrm{sec}} \cdot \frac{\mathrm{chord}}{4}
+    \qquad &
+    T_{i+1} &= \sum_{j=0}^{i} T_j
+\end{aligned}
+\end{equation}
+
+At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_manoeuvre}.
+
+Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures_final/Wing_structure/Internal Shear Force and Moment Diagrames.png}
+    \caption{Internal shear force and moment spanwise distribution}
+    \label{fig:internal_shear_and_moments}
+\end{figure}
+
+Once the torque, internal moments and shears are computed and tested, it is time to verify the compatibility of the structure with the criteria specified in \autoref{ch:requirements}, namely HUG-STR-08 and HUF-STR-09 that refer to the wing tip deflection and deflection. The equation used to determine the twist follows from \cite[p.~578]{megson2016aircraft}(Eq. 18.4) and requires the integration of the slope at each point to obtain the rotation. This equation assumes that the wing is a closed-sectioned beam, assumption that is valid in HUGOs' wings case since there are no ribs present for the moment to dictate their necessity. This equation also neglects the presence of normal shear stresses. Their presence reduces the twist in a real scenario due to their action of opposing the torque.
+
+Determining the wing tip deflection required, to first compute the internal moment distribution, followed by the implementation of the equation extranted from \cite[p.~599]{Hibbeler2018}(Eq. 12-5), where is assumed that the deflection is linear and minimal and does not take into account the bending of the beam. As stated by R.C. Hibbeler "the slope of the elastic curve, which is determined from $\frac{dv}{dx}$, will be very small, and its square will be negligible compared with unity." \cite{Hibbeler2018}. By modelling the simulation using this assumption, the values are correct only for small deflections; larger cases require solving more complex equations, left for future development of HUGO.
+
+Running the simulation on the test case with the wing planform chosen for delivery can be seen in \autoref{fig:rot_def}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/Wing_structure/rotation_and_vertical_deflection.png}
+    \caption{Wing tip rotation and deflection under the load factor 6 case}
+    \label{fig:rot_def}
+\end{figure}
+\todo[inline]{Make sure we mention somewhere that we have a 4.5 mm thickness}
+During the extreme case, the wing twists $ 4.78 \deg$ and deflects 0.39 m ($14.5\% of the span$), as such the wing stays within the margins imposed by the requirements.
+
+Once the wing has proven that is passed the requirements, the model has to ensure that the structure will not suffer a catastrophic event during operation. The loads produce internal stresses that have to be examined, especially for the critical case, to ensure that the material does not fail. The considered stresses are: shear stress due to torsion, shear stress due to internal forces and normal stress from bending.
+
+Shear stresses caused by bending and shear can be summed into a net total shear acting on the internal cross-section. Torsional shear stresses and shear stresses caused by the internal loads have been calculated using \autoref{} taken from \cite[p.~569]{megson2016aircraft}. 
+
+\begin{minipage}{0.30\textwidth}
+\begin{equation}
+\tau = \frac{q}{t} = \frac{T}{2tA_m}
+\label{eq}
+\end{equation}
+\end{minipage}
+\hfill
+\begin{minipage}{0.30\textwidth}
+\begin{equation}
+\resizebox{\linewidth}{!}{$
+\displaystyle
+q_s= -\frac{V_y I_{yy}}{I_{xx}} \int_{0}^{s} t y , \mathrm{d}s' - q_{s0}$}
+\label{eq}
+\end{equation}
+\end{minipage}
+
+
+
+
+
 
 \section{Fuselage structural analysis}
 \label{sec:fuselage_structural_analysis}
@@ -425,369 +863,27 @@ In order to ensure that the fuselage does not fail in shear, yield, fracture, or
 \todo[inline]{Include work done on abuse loads and sizing of the sandwich panel}
 
 
- \section{Wing structural analysis}
-\label{sec:wing_structural_analysis}
-% -mention structure, what we are aiming for, what we modelled, and how the wing is modelled as an ellipse, since the airfoil is very similar
-
-% before we beging the actual calculations, talk ablut how we modeld the wing __> modeled as an ellipse, each individual sections as well and the lift is a t c/4 from the tip!!!
-% each section has a different geometry
-% talk about requirements on wing tip defflection and rotation
-% include the talk about the shear strsses (can be done over the weekend)
-
-% talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
-% -
-
-Once the structural analysis of the fuselage has been completed, the design can proceed to analyse the structural properties of the wing. The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
-
-This section focuses on deriving a method applicable for all wing profiles given to HUGO, to compute the structural characteristics such as internal shear, internal bending moments, torsion, deflection, wing rotation and failure determination during normal operation. For the purpose of this analysis, the foam interior is not taken into account for the structural calculations, leaving only the composite skin as the prime structural element.
-
-From the requirements, especially HUG-STR-07, it has been determined that the extreme loading scenario of the wing planform occurs during the loading manoeuvre that stresses the airframe up to 6 times the normal amount. During landing, the impact would produce an inertial load of 4, smaller than the previous 6, and in cruise conditions, the load factor remains at 1. Taking this into account, for the purpose of this model, only the extreme loading case will be analysed.
-% \begin{itemize}
-%     \item manoeuvre loading at cruise conditions and load factor 6 (HUG-TPL-04) and angle of attack $8 \deg$,
-%     \item Cruise and Test conditions at load factor 1 and angle of attack $1 \deg$
-%     \item Landing conditions at weight load factor is 4, angle of attack $10 \deg$, at $50 m/s$.
-    
-% \end{itemize}
-
-As introduced in \autoref{sec}, the structural model is based on the NASA SC(2)-0012 airfoil shown in \autoref{fig:airfoil_simplified_model}. This symmetric supercritical airfoil is used as the reference geometry for the wing sections analysed in the structural tool. To simplify the analytical model, each wing section is approximated as a hollow ellipse with the same chord and maximum thickness as the airfoil. The lift resultant is applied at the quarter-chord point, consistent with the typical location of the aerodynamic centre for subsonic airfoils\footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}.
-
-This elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model also neglects the structural contribution of the foam core. The resulting section properties are therefore treated as simplified equivalent properties for preliminary structural sizing. For this analysis, the wing will be treated as a beam fixed at one end, deformations and deflections being based on Euler–Bernoulli beam theory as a first-order approximation.
-
-\begin{figure}[H]
-    \centering
-    \begin{tikzpicture}
-
-        % ------------------------
-        % Left: airfoil
-        % ------------------------
-        \begin{axis}[
-            name=airfoilplot,
-            at={(0,0)},
-            anchor=origin,
-            width=7cm,
-            height=3.2cm,
-            axis equal image,
-            xmin=0, xmax=1,
-            ymin=-0.07, ymax=0.07,
-            axis lines=none,
-            clip=false,
-            title={Airfoil}
-        ]
-            % Filled airfoil
-            \addplot[
-                fill=gray!20,
-                draw=black,
-                thick
-            ] coordinates {
-                % Upper surface
-                (0.000000, 0.000000)
-                (0.002000, 0.009120)
-                (0.005000, 0.013920)
-                (0.010000, 0.018600)
-                (0.020000, 0.024840)
-                (0.030000, 0.029160)
-                (0.040000, 0.032400)
-                (0.050000, 0.035040)
-                (0.060000, 0.037320)
-                (0.070000, 0.039390)
-                (0.080000, 0.041190)
-                (0.090000, 0.042820)
-                (0.100000, 0.044280)
-                (0.110000, 0.045600)
-                (0.120000, 0.046800)
-                (0.130000, 0.048000)
-                (0.140000, 0.049080)
-                (0.150000, 0.050040)
-                (0.160000, 0.051000)
-                (0.170000, 0.051840)
-                (0.180000, 0.052680)
-                (0.190000, 0.053400)
-                (0.200000, 0.054120)
-                (0.210000, 0.054720)
-                (0.220000, 0.055320)
-                (0.230000, 0.055920)
-                (0.240000, 0.056400)
-                (0.250000, 0.056880)
-                (0.260000, 0.057360)
-                (0.270000, 0.057720)
-                (0.280000, 0.058080)
-                (0.290000, 0.058440)
-                (0.300000, 0.058800)
-                (0.310000, 0.059040)
-                (0.320000, 0.059280)
-                (0.330000, 0.059520)
-                (0.340000, 0.059640)
-                (0.350000, 0.059760)
-                (0.360000, 0.059880)
-                (0.370000, 0.060000)
-                (0.380000, 0.060000)
-                (0.390000, 0.060000)
-                (0.400000, 0.060000)
-                (0.410000, 0.060000)
-                (0.420000, 0.059880)
-                (0.430000, 0.059760)
-                (0.440000, 0.059640)
-                (0.450000, 0.059520)
-                (0.460000, 0.059280)
-                (0.470000, 0.059040)
-                (0.480000, 0.058800)
-                (0.490000, 0.058440)
-                (0.500000, 0.058080)
-                (0.510000, 0.057720)
-                (0.520000, 0.057360)
-                (0.530000, 0.056880)
-                (0.540000, 0.056400)
-                (0.550000, 0.055800)
-                (0.560000, 0.055200)
-                (0.570000, 0.054600)
-                (0.580000, 0.053880)
-                (0.590000, 0.053160)
-                (0.600000, 0.052320)
-                (0.610000, 0.051360)
-                (0.620000, 0.050400)
-                (0.630000, 0.049320)
-                (0.640000, 0.048240)
-                (0.650000, 0.047040)
-                (0.660000, 0.045840)
-                (0.670000, 0.044580)
-                (0.680000, 0.043320)
-                (0.690000, 0.042060)
-                (0.700000, 0.040800)
-                (0.710000, 0.039540)
-                (0.720000, 0.038280)
-                (0.730000, 0.037020)
-                (0.740000, 0.035760)
-                (0.750000, 0.034500)
-                (0.760000, 0.033240)
-                (0.770000, 0.031980)
-                (0.780000, 0.030720)
-                (0.790000, 0.029460)
-                (0.800000, 0.028200)
-                (0.810000, 0.026940)
-                (0.820000, 0.025680)
-                (0.830000, 0.024420)
-                (0.840000, 0.023160)
-                (0.850000, 0.021900)
-                (0.860000, 0.020640)
-                (0.870000, 0.019380)
-                (0.880000, 0.018120)
-                (0.890000, 0.016860)
-                (0.900000, 0.015600)
-                (0.910000, 0.014340)
-                (0.920000, 0.013080)
-                (0.930000, 0.011820)
-                (0.940000, 0.010560)
-                (0.950000, 0.009300)
-                (0.960000, 0.008040)
-                (0.970000, 0.006780)
-                (0.980000, 0.005520)
-                (0.990000, 0.004260)
-                (1.000000, 0.003000)
-
-                % Lower surface back to LE
-                (1.000000, -0.003000)
-                (0.990000, -0.004260)
-                (0.980000, -0.005520)
-                (0.970000, -0.006780)
-                (0.960000, -0.008040)
-                (0.950000, -0.009300)
-                (0.940000, -0.010560)
-                (0.930000, -0.011820)
-                (0.920000, -0.013080)
-                (0.910000, -0.014340)
-                (0.900000, -0.015600)
-                (0.890000, -0.016860)
-                (0.880000, -0.018120)
-                (0.870000, -0.019380)
-                (0.860000, -0.020640)
-                (0.850000, -0.021900)
-                (0.840000, -0.023160)
-                (0.830000, -0.024420)
-                (0.820000, -0.025680)
-                (0.810000, -0.026940)
-                (0.800000, -0.028200)
-                (0.790000, -0.029460)
-                (0.780000, -0.030720)
-                (0.770000, -0.031980)
-                (0.760000, -0.033240)
-                (0.750000, -0.034500)
-                (0.740000, -0.035760)
-                (0.730000, -0.037020)
-                (0.720000, -0.038280)
-                (0.710000, -0.039540)
-                (0.700000, -0.040800)
-                (0.690000, -0.042060)
-                (0.680000, -0.043320)
-                (0.670000, -0.044580)
-                (0.660000, -0.045840)
-                (0.650000, -0.047040)
-                (0.640000, -0.048240)
-                (0.630000, -0.049320)
-                (0.620000, -0.050400)
-                (0.610000, -0.051360)
-                (0.600000, -0.052320)
-                (0.590000, -0.053160)
-                (0.580000, -0.053880)
-                (0.570000, -0.054600)
-                (0.560000, -0.055200)
-                (0.550000, -0.055800)
-                (0.540000, -0.056400)
-                (0.530000, -0.056880)
-                (0.520000, -0.057360)
-                (0.510000, -0.057720)
-                (0.500000, -0.058080)
-                (0.490000, -0.058440)
-                (0.480000, -0.058800)
-                (0.470000, -0.059040)
-                (0.460000, -0.059280)
-                (0.450000, -0.059520)
-                (0.440000, -0.059640)
-                (0.430000, -0.059760)
-                (0.420000, -0.059880)
-                (0.410000, -0.060000)
-                (0.400000, -0.060000)
-                (0.390000, -0.060000)
-                (0.380000, -0.060000)
-                (0.370000, -0.060000)
-                (0.360000, -0.059880)
-                (0.350000, -0.059760)
-                (0.340000, -0.059640)
-                (0.330000, -0.059520)
-                (0.320000, -0.059280)
-                (0.310000, -0.059040)
-                (0.300000, -0.058800)
-                (0.290000, -0.058440)
-                (0.280000, -0.058080)
-                (0.270000, -0.057720)
-                (0.260000, -0.057360)
-                (0.250000, -0.056880)
-                (0.240000, -0.056400)
-                (0.230000, -0.055920)
-                (0.220000, -0.055320)
-                (0.210000, -0.054720)
-                (0.200000, -0.054120)
-                (0.190000, -0.053400)
-                (0.180000, -0.052680)
-                (0.170000, -0.051840)
-                (0.160000, -0.051000)
-                (0.150000, -0.050040)
-                (0.140000, -0.049080)
-                (0.130000, -0.048000)
-                (0.120000, -0.046800)
-                (0.110000, -0.045600)
-                (0.100000, -0.044280)
-                (0.090000, -0.042820)
-                (0.080000, -0.041190)
-                (0.070000, -0.039390)
-                (0.060000, -0.037320)
-                (0.050000, -0.035040)
-                (0.040000, -0.032400)
-                (0.030000, -0.029160)
-                (0.020000, -0.024840)
-                (0.010000, -0.018600)
-                (0.005000, -0.013920)
-                (0.002000, -0.009120)
-                (0.000000, 0.000000)
-            };
-
-            \draw[dashed] (axis cs:0,0) -- (axis cs:1,0);
-        \end{axis}
-
-        % ------------------------
-        % Right: ellipse model
-        % ------------------------
-        \begin{axis}[
-            name=ellipseplot,
-            at={(8.4cm,0)},
-            anchor=origin,
-            width=7cm,
-            height=3.2cm,
-            axis equal image,
-            xmin=0, xmax=1,
-            ymin=-0.07, ymax=0.07,
-            axis lines=none,
-            clip=false,
-            title={Equivalent elliptical model}
-        ]
-            \addplot[
-                fill=gray!20,
-                draw=black,
-                thick,
-                domain=0:360,
-                samples=250
-            ]
-            ({0.5 + 0.5*cos(x)}, {0.06*sin(x)});
-
-            \draw[dashed] (axis cs:0,0) -- (axis cs:1,0);
-
-            \draw[->, very thick] (axis cs:0.25,0.0) -- (axis cs:0.25,0.1);
-            \node[anchor=west] at (axis cs:0.27,0.055) {$L$};
-        \end{axis}
-
-    \end{tikzpicture}
-    \caption{Airfoil geometry and simplified elliptical representation with lift applied at quarter-chord.}
-    \label{fig:airfoil_simplified_model}
-\end{figure}
-
-In \autoref{sec:fuselage_structural_analysis}, the fuselage was divided into individual nodes and treated independently. The same approach is applied to the wing, where the half-span is divided into $n$ nodes, each treated as a wing section. The resolution is left up to the user, each part having its own weight, lift and moment contribution. To get the forces acting on the entire wing, the perimeter, area and moment of inertia need to be calculated for each individual wing increment. 
-
-Since the airfoil is modelled as an ellipse, the perimeter of the sections is computed using Ramanujan's second equation for area \footnote{\href{https://en.wikipedia.org/wiki/Perimeter_of_an_ellipse}{Perimeter of an ellipse} (accessed on 10.06.2026)} \autoref{eq:perim_area}, where $a$ and $b$ are the semi-major and semi-minor axes of the ellipse. 
-
-\begin{equation}
-\begin{aligned}
-h &= \left(\frac{a-b}{a+b}\right)^2
-\qquad\qquad
-P &\approx \pi(a+b)
-\left[
-1 + \frac{3h}{10 + \sqrt{4 - 3h}}
-\right]
-\end{aligned}
-\label{eq:perim_area}
-\end{equation}
-
-The structural analysis is formulated with several parameters left available for parametric sizing, including the wing skin thickness. To determine the wing response under applied loads, the cross-sectional material area is required. This area is computed using the method provided by Niu \cite[p.~765]{niu1999airframe}. The same source is used for the expression of the second moment of area of a hollow ellipse.
-
-For the structural analysis of HUGO's wings, a computational tool was developed to evaluate the structural response of different planforms during normal operation. The tool estimates the applied torque, wing-tip deflection, wing-tip rotation, internal shear forces, internal shear stresses, and the buckling behaviour of the wing. These outputs are used to verify that the wing structure remains within acceptable limits throughout the operating envelope, including extra loads experienced during take-off or landing. 
-
-Each section is exposed to a different lift and weight, depending on the location from the root. Lift division is evaluated in \autoref{sec:lift}, while for the weight equation \autoref{eq:section_weight} is used. \begin{equation} W = perimeter \cdot t_{skin} \cdot l_{section} \cdot 9.81 \label{eq:section_weight} \end{equation} \begin{wrapfigure}[13]{r}{0.4\textwidth} \centering \includegraphics[width=0.43\textwidth]{figures_final/Force distribution.png} \caption{Force distribution during cruise conditions and load factor 1} \label{fig:force_distribution} \end{wrapfigure} Cases such as wing deflection or internal stresses require a net force obtained by subtracting the wing weight from the lift for each segment. The resulting force distribution is shown in \autoref{fig:force_distribution}.
-
-For the chosen airfoil, the torque is given by the combination of the lift produced by the wing and the aerodynamic moment of the airfoil itself. The torque is computed by multiplying the quarter chord length by the lift of the section, and then summing the contributions one by one until the root chord is reached \autoref{eq:t_sec_cumulative}, where $i$ is the previous segment.
-\begin{equation}
-\label{eq:t_sec_cumulative}
-\begin{aligned}
-    T_{\mathrm{sec}} &= L_{\mathrm{sec}} \cdot \frac{\mathrm{chord}}{4}
-    \qquad &
-    T_{i+1} &= \sum_{j=0}^{i} T_j
-\end{aligned}
-\end{equation}
-
-At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_manoeuvre}.
-
-Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
-
-Once the torque, internal moments and shears are computed and tested, it is time to verify the compatibility of the structure with the criteria specified in \autoref{ch:requirements}, namely HUG-
-The equation used to determine the twist is taken from \cite[p.~578]{}(Eq. 18.4) 
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures_final/Wing_structure/Internal Shear Force and Moment Diagrames.png}
-    \caption{Internal shear force and moment spanwise distribution}
-    \label{fig:internal_shear_and_moments}
-\end{figure}
 
 
 
 
 
 
-\todo[inline]{Make sure we mention somewhere that we have a 4.5 mm thickness}
-It can be observed that the twist goes up $9.1 \deg$ for a loading factor of 6, which satisfies the requierment HUG-STR-08. 
 
-To ensure that the wing will not break during the critical loading case, the deflection along the span of the wing is considered and simulated.
+
+
+
+
+
 
 
 
 
 \section{Flutter Analysis}
+
+
+
+
+
+
 \todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
