@@ -369,14 +369,14 @@ The structural analysis is formulated with several free variables for parametric
 
 %The structural wing model was developed to estimate the applied torque, wing-tip deflection, wing-tip rotation, internal shear forces, internal shear stresses, and the buckling behaviour of the wing. These outputs are used to verify that the wing structure remains within acceptable limits throughout the operating envelope, including extra loads experienced during take-off or landing. 
 
-
+\begin{wrapfigure}[13]{r}{0.43\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures_final/Wing_structure/Force Distribution Wing.png}
+    \caption{Force distribution for straight flight at load factor of 6}
+    \label{fig:force_distribution}
+\end{wrapfigure}
 The distributed weight of each section is evaluated with \autoref{eq:section_weight} based on the skin thickness $t_\text{skin}$, discretised panel length $l_\text{section}$, and the previously computed geometry. Combined with the Schrenk distributed lift formula introduced in \autoref{sec:aerodynamic_characteristics_estimate}, it can be utilised to determine the net force acting on the wing, which serves as an input for the internal load calculations. \autoref{fig:force_distribution} showcases the distributed lift, weight, and the resultant net force.
 
-\begin{wrapfigure}[13]{r}{0.4\textwidth} 
-\centering 
-\includegraphics[width=0.43\textwidth]{figures_final/Wing_structure/Force Distribution Wing.png}
-\caption{Force distribution for straight flight at load factor of 6} \label{fig:force_distribution}
-\end{wrapfigure} 
 
 \begin{equation}
 W = P \cdot t_\text{skin} \cdot l_\text{section} \cdot g_0 \label{eq:section_weight}
@@ -397,15 +397,23 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
 \end{aligned}
 \end{equation}
 
-At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_manoeuvre}.
+
+\begin{wrapfigure}[13]{l}{0.43\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures_final/Wing_structure/Torque distribution on the wing Cruise.png}
+    \caption{Force distribution for straight flight at load factor of 6}
+    \label{fig:torsion_dist}
+\end{wrapfigure}
+
+At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_dist}.
 
 Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures_final/Wing_structure/Internal Shear Force and Moment Diagrames.png}
-    \caption{Internal shear force and moment spanwise distribution}
-    \label{fig:internal_shear_and_moments}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.8\linewidth]{figures_final/Wing_structure/Internal Shear Force and Moment Diagrames.png}
+%     \caption{Internal shear force and moment spanwise distribution}
+%     \label{fig:internal_shear_and_moments}
+% \end{figure}
 
 Once the torque, internal moments and shears are computed and tested, it is time to verify the compatibility of the structure with the criteria specified in \autoref{ch:requirements}, namely HUG-STR-08 and HUF-STR-09 that refer to the wing tip deflection and deflection. The equation used to determine the twist follows from \cite[p.~578]{megson2016aircraft}(Eq. 18.4) and requires the integration of the slope at each point to obtain the rotation. This equation assumes that the wing is a closed-sectioned beam, assumption that is valid in HUGOs' wings case since there are no ribs present for the moment to dictate their necessity. This equation also neglects the presence of normal shear stresses. Their presence reduces the twist in a real scenario due to their action of opposing the torque.
 
@@ -413,12 +421,12 @@ Determining the wing tip deflection required, to first compute the internal mome
 
 Running the simulation on the test case with the wing planform chosen for delivery can be seen in \autoref{fig:rot_def}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures_final/Wing_structure/rotation_and_vertical_deflection.png}
-    \caption{Wing tip rotation and deflection under the load factor 6 case}
-    \label{fig:rot_def}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\linewidth]{figures_final/Wing_structure/rotation_and_vertical_deflection.png}
+%     \caption{Wing tip rotation and deflection under the load factor 6 case}
+%     \label{fig:rot_def}
+% \end{figure}
 \todo[inline]{Make sure we mention somewhere that we have a 4.5 mm thickness}
 During the extreme case, the wing twists $ 4.78 \deg$ and deflects 0.39 m ($14.5\% of the span$), as such the wing stays within the margins imposed by the requirements.
 
