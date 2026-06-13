@@ -465,19 +465,21 @@ When the wing bends, the top section is in compression while the bottom section 
     \label{fig:normal_dist}
 \end{wrapfigure}
 
-The normal stress distribution from \autoref{fig:normal_dist} shows a distinct reversal towards the root, where the wing is integrated inside the fuselage. This is because as we approach the internal midpoint of the plane, where the 2 wings are joined, no forces act anymore inside the fuselage, and the moment remains constant for the remainder of the wing. At the same time, the cross-sectional area increases, leading to an increase in the moment of inertia and a decrease in the normal stress. The normal shear stress attains a maximum of 317 MPa, at the point where the wing is first connected to the fuselage, whitch is still under the yield stress of the material.
+The normal stress distribution shown in \autoref{fig:normal_dist} decreases towards the wing root, where the wing is integrated into the fuselage. This behaviour occurs because the bending moment becomes approximately constant once the load-bearing wing section enters the fuselage. At the same time, the cross-sectional area increases towards the root, which increases the second moment of area and therefore reduces the bending stress. The maximum normal stress is 317 MPa and occurs at the first connection point between the wing and the fuselage. This value remains below the yield stress of the material.
+
 
 The last analysis considered verifies that the wing does not buckle. Composite materials are known to be brittle and lose their structural properties once they buckle. To prevent a lost in integrity, the model tests if the wing buckles by comparing the buckling stress with the maximum internal shear stress. 
 \todo{ask on moday about the book and citation because I cant find it}
-HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} from \cite{} is used to calculate the bcukling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table in \cite{}, for b being the length of the half-span of the wing and a the chord length at the root, C is 4. 
+HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} from \cite{} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table in \cite{}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:final_mat_sel}.
 
 \begin{equation}
     \sigma_{cr} = C \frac{\pi^2 E}{12(1-\nu^2)} \left(\frac{t}{b}\right)^2
     \label{eq:buckling}
 \end{equation}
 
-For the current wing, the buckling stress is 
-
+For the current wing, the buckling stress is 704.44 MPa, while the largest internal stress in the wing during the extreme manoeuvre is 317.855 MPa.
+Once the wing has been verified to comply with the requirements and to resist the most demanding load case, the fuselage has to be designed to accommodate the testing platforms.
+%\todo[inline]{add a nice ending to the chapter?}
 % \begin{align}
 % \tau &= \frac{q}{t} = \frac{T}{2tA_m}
 % &
@@ -492,7 +494,7 @@ For the current wing, the buckling stress is
 
 
 
---the 4.5 mm for my analysis obtained and imposed by the bending at 15\% criteria
+%--the 4.5 mm for my analysis obtained and imposed by the bending at 15\% criteria
 
 
 \section{Fuselage structural analysis}
