@@ -401,19 +401,19 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
 \begin{wrapfigure}[13]{l}{0.43\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures_final/Wing_structure/Torque distribution on the wing Cruise.png}
-    \caption{Force distribution for straight flight at load factor of 6}
+    \caption{Torsion distribution at load factor of 6}
     \label{fig:torsion_dist}
 \end{wrapfigure}
 
 At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_dist}.
 
 Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.8\linewidth]{figures_final/Wing_structure/Internal Shear Force and Moment Diagrames.png}
-%     \caption{Internal shear force and moment spanwise distribution}
-%     \label{fig:internal_shear_and_moments}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures_final/Wing_structure/Internal Shear Force and Moment Diagrames.png}
+    \caption{Internal shear force and moment spanwise distribution}
+    \label{fig:internal_shear_and_moments}
+\end{figure}
 
 Once the torque, internal moments and shears are computed and tested, it is time to verify the compatibility of the structure with the criteria specified in \autoref{ch:requirements}, namely HUG-STR-08 and HUF-STR-09 that refer to the wing tip deflection and deflection. The equation used to determine the twist follows from \cite[p.~578]{megson2016aircraft}(Eq. 18.4) and requires the integration of the slope at each point to obtain the rotation. This equation assumes that the wing is a closed-sectioned beam, assumption that is valid in HUGOs' wings case since there are no ribs present for the moment to dictate their necessity. This equation also neglects the presence of normal shear stresses. Their presence reduces the twist in a real scenario due to their action of opposing the torque.
 
@@ -421,29 +421,53 @@ Determining the wing tip deflection required, to first compute the internal mome
 
 Running the simulation on the test case with the wing planform chosen for delivery can be seen in \autoref{fig:rot_def}
 
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.5\linewidth]{figures_final/Wing_structure/rotation_and_vertical_deflection.png}
-%     \caption{Wing tip rotation and deflection under the load factor 6 case}
-%     \label{fig:rot_def}
-% \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/Wing_structure/rotation_and_vertical_deflection.png}
+    \caption{Wing tip rotation and deflection under the load factor 6 case}
+    \label{fig:rot_def}
+\end{figure}
 \todo[inline]{Make sure we mention somewhere that we have a 4.5 mm thickness}
-During the extreme case, the wing twists $ 4.78 \deg$ and deflects 0.39 m ($14.5\% of the span$), as such the wing stays within the margins imposed by the requirements.
+During the extreme case, the wing twists $ 3.37 \deg$ and deflects 0.257m ($8.0\% $ of the span), as such the wing stays well within the limits imposed by the requirements.
 
-Once the wing has proven that is passed the requirements, the model has to ensure that the structure will not suffer a catastrophic event during operation. The loads produce internal stresses that have to be examined, especially for the critical case, to ensure that the material does not fail. The considered stresses are: shear stress due to torsion, shear stress due to internal forces and normal stress from bending.
+Once the wing has been shown to meet the design requirements, the model must also verify that it remains structurally safe during operation. The applied loads generate internal stresses within the wing, which are evaluated for the most critical loading case to confirm that the material stays within its allowable limits. The stresses considered in this analysis are torsional shear stress, transverse shear stress due to internal forces, and normal stress due to bending.
 
+\begin{wrapfigure}[15]{r}{0.43\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures_final/Wing_structure/shear_stress_total.png}
+    \caption{Shear stress distribution due to torque and internal shear forces at a 6 loading factor}
+    \label{fig:shear_dist}
+\end{wrapfigure}
 Shear stresses caused by bending and shear can be summed into a net total shear acting on the internal cross-section. Torsional shear stresses and shear stresses caused by the internal loads have been calculated using \autoref{eq:shear_eq} taken from \cite[p.~569]{megson2016aircraft}. 
-
-\begin{alignat}{3}
-\tau_{torsion} &= \frac{q}{t} = \frac{T}{2tA_m}
-\qquad&
+\begin{equation}
+    \tau_{torsion}= \frac{q}{t} = \frac{T}{2tA_m}
+\end{equation}
+\begin{alignat}{2}
 q &= -\frac{V_y I_{yy}}{I_{xx}}\int_{0}^{s} t y , \mathrm{d}s' + q_{s0}
 \qquad&
 \tau_{internal loads} &= \frac{q}{t}
 \label{eq:shear_eq}
 \end{alignat}
 
-After both the shear components are computed, they are summed and the results can be seen in \autoref{}
+After both the shear components are computed, they are summed, and the results can be seen in \autoref{fig:shear_dist}, reaching a maximum of 15.586 MPa. The material has a yield stress of 896 MPa \autoref{sec:final_mat_sel}, a much larger value than the maximum shear stress present in the wing material; as such, this loading case will not cause a shear failure.
+
+When the wing bends, the top section is in compression while the bottom section in tension, the internal moments from the forces induce a normal stress in the material. To compute its distribution, \autoref{eq:normal_stress} was used from \cite[p.~496]{megson2016aircraft}, whitch represents a simplified version of equation 16.17 from the book.
+
+\begin{equation}
+    \sigma = \frac{M \cdot y_{max}}{I_x}
+    \label{eq:normal_stress}
+\end{equation}.
+
+\begin{wrapfigure}[15]{r}{0.43\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures_final/Wing_structure/normal_stress.png}
+    \caption{Normal stress distribution due to forces acting on the wing at 6 loading factor}
+    \label{fig:normal_dist}
+\end{wrapfigure}
+
+The normal stress distribution from \autoref{} shows a distinct reversal towards the root, where the wing is integrated inside the fuselage. This is because as we approach the internal midpoint of the plane, where the 2 wings are joined, no forces act anymore inside the fuselage, and the moment remains constant for the remainder of the wing. At the same time, the cross-sectional area increases, leading to an increase in the moment of inertia and a decrease in the normal stress. The normal shear stress attains a maximum of 317 MPa, at the point where the wing is first connected to the fuselage, whitch is still under the yield stress of the material.
+
+
 
 % \begin{align}
 % \tau &= \frac{q}{t} = \frac{T}{2tA_m}
