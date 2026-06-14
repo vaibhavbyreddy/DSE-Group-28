@@ -145,11 +145,11 @@ The most critical electronic components for HUGO's operation were considered. Th
 \end{equation}
 Where $\lambda$ is the failure rate and $t$ is the elapsed time.
 
-The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the electric components are tabulated in \autoref{}.
+The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the electronic components are tabulated in \autoref{tab:component_reliability}.
 
 \begin{table}[H]
 \centering
-\caption{System component reliability and failure rate summary}
+\caption{Electronic component reliability}
 \label{tab:component_reliability}
 \small
 \setlength{\tabcolsep}{3.5pt}
@@ -169,10 +169,20 @@ SATA SSD & $6.86 \cdot 10^{-8}$ & 1 & $1.46 \cdot 10^7$ & 900 & 0.998 & \footnot
 \end{tabular}
 \end{table}
 
-It can be observed that the reliability of both the battery cell and the battery pack appears unacceptably low; however, this result arises from the assumption that a single battery is used over the entire system lifetime, which is not realistic. Given a mean time between failures of 125 hours, approximately 900/125 $\approx$ 8 battery replacements are required over the system’s lifetime. This will be accounted for in the maintenance strategy.
+It can be observed that the reliability of both the battery cell and the battery pack appears unacceptably low. However, this result arises from the assumption that a single battery is used over the entire system lifetime, which is not realistic. Given a mean time between failures of 125 hours, approximately 900/125 $\approx$ 8 battery replacements are required over the system’s lifetime. This will be accounted for in the maintenance strategy.
 
 Given that fatigue was excluded as a critical design consideration in \autoref{sec:material_options}, and that the structural analyses in \autoref{sec:wing_structural_analysis} and \autoref{sec:fuselage_structural_analysis} indicate sufficient strength to withstand the maximum internal stresses, a reliability value of 0.99 was assigned to the wing, fuselage, and landing gear structures.
 
+Bird strike was initially considered as a potential failure mode due to HUGO’s relatively small size. However, FAA data indicate that approximately 70\% of bird strikes occur between 0 and 500 feet above ground level. Over the past 30 years, only 31 strikes involving commercial aircraft have been recorded at altitudes between 20,000 and 32,000 feet \footnote{\href{https://www.faa.gov/airports/airport_safety/wildlife/faq}{Q: At what altitude do most bird strikes occur?} (accessed on 14.06.2026)}. Given HUGO’s small cross-sectional area compared to a commercial airliner and its cruise altitude of FL270, the probability of a bird strike during cruise is several orders of magnitude lower than the electronic component failure rates previously tabulated. Consequently, the primary exposure to bird strike risk occurs during climb and descent through the low-altitude flight regime, which represents only a small portion of the overall mission time.
+
+To estimate the expected availability, the mean time to repair (MTTR) is required. A MTTR of 1 hour is assumed for the battery pack, as it is routinely swapped. For the remaining electronic components, the availability calculation includes time for detection, diagnosis, and active repair. Therefore, an MTTR of 8 hours is assumed as a conservative baseline (one working day), with a note that this assumes on-site spares availability. 
+
+The inherent availability is then calculated by using \autoref{eq:availability}. It excludes the delays due to maintenance, supply chain, etc \cite{milhdbk470a}.
+
+\begin{equation}
+    A_i = \frac{MTBF}{MTBF + MTTR}
+    \label{eq:availability}
+\end{equation}
 
 
 \begin{comment}

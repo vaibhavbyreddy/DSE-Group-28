@@ -51,7 +51,7 @@ V is the aircraft speed, b is the span of the aerodynamic surface (wing or tail)
     \Delta SPL = -0.03\left(\frac{R}{152.4}\right)\left|\left(\frac{f}{f_{max}}\right) - 1\right|^{3/2}
 \end{equation}
 
-Where $f_{max}=$ and R is the distance to the observer.  
+Where $f_{max}= \frac{0.1\,V}{\delta}$ and R is the distance to the observer.  
 \begin{equation}
     SPL = OASPL + 10\log\left(0.613\left(\frac{f}{f_{max}}\right)^4\left(\left(\frac{f}{f_{max}}\right)^{3/2} + 0.5\right)^{-4}\right) + \Delta SPL
 \end{equation}
@@ -114,6 +114,8 @@ Then total loudness were calculated for both scenarios and the instance of the m
 \section{Analysis of Emissions}
 \label{sec:emission_analysis}
 -describe powetrain (jet turbine) 
+HUGO is powered by two Jet-cat 100 turbines. As mentioned in the requirements (insert reference) it is expected that these turbines will be entirely powered by SAF. Operating a jetturbine using SAF will still generate certain emission 
+
 
 -describe model for emission
 

@@ -343,18 +343,41 @@ This section provides a comprehensive overview of the internal configuration of 
 
 \subsection{Electronics System Design}
 \label{sub:electronics_system_design}
-\todo[inline]{Explain why VHF/UHF}
-1. Start by outling the components that are required for the succesfull completion of the mission
-2. Make a short description of why each component is relevant for and how they are connected, it would be nice to add a table before
-3. of course the table will provide info regarding the power consumption for each electronic, mass and volume
-4 at the end state that in order to be conservative, we have added a 10\% margin error for both the mass and power so we are not surprise
-5. we build a battery, congrats!!! now explain the thought process and what is the main driving factor for the battery and that in out case is the PDU that requires the 28 V and then it distributes it further appropriately
-6. Do not forget about the fucking power unit that needs power as well
-OK?OK?OK?That is all? good now lets get to fucking writing
+% \todo[inline]{Explain why VHF/UHF}
+% 1. Start by outling the components that are required for the succesfull completion of the mission
+% 2. Make a short description of why each component is relevant for and how they are connected, it would be nice to add a table before
+% 3. of course the table will provide info regarding the power consumption for each electronic, mass and volume
+% 4 at the end state that in order to be conservative, we have added a 10\% margin error for both the mass and power so we are not surprise
+% 5. we build a battery, congrats!!! now explain the thought process and what is the main driving factor for the battery and that in out case is the PDU that requires the 28 V and then it distributes it further appropriately
+% 6. Do not forget about the fucking power unit that needs power as well
+% OK?OK?OK?That is all? good now lets get to fucking writing
 
-The electrical system of HUGO is designed to provide continuous power to the sensors, actuators, and propulsion system throughout the mission. It must support a range of testing configurations, enabling different experimental setups to be evaluated during flight. As a central element of the aircraft architecture, the system must be reliable, efficiently packaged, and dimensioned to fit within the available internal volume while minimising interference with the onboard test setup.
+The electrical system of HUGO is designed to provide continuous power to the sensors, actuators, and propulsion system throughout the mission. It must support a range of testing configurations, enabling different experimental setups to be evaluated during flight. As a central element of the aircraft architecture, the system must be reliable, efficiently packaged, and dimensioned to fit within the available internal volume while minimising interference with the onboard test setup.An initial configuration of the electrical system was configured in the previous design stage\footref{ft:midterm_rep} that was used as a starting point. 
 
-An initial configuration of the electrical system was configured in the previous design stage\footref{ft:midterm_rep} that was used as a starting point. At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power, being provided in \autoref{tab:electric_comp}.
+From \autoref{tab:electric_comp} it can be seen that there are a lot of electric components that are mission-critical. For the purpose of this application, autopilot VECTOR-600 was chosen as the subsystem control unit, incorporating many of the basic air sensors needed to conduct the flight. Working along a flight companion(FC), that processes all the information from the sensors as well as from the autopilot, storing the data in a memory unit use it for flight calculations and ultimately transmits it back to the base of operations. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual Inertial Measurement Unit (IMU), redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, Global Navigation Satellite System (GNSS) receiver for gps signal. The signal and power distribution of the electric system is evident in \autoref{fig:electronics_mapping}. 
+
+The autopilot communicates directly with the electronic control unit (ECU) of the engine system, providing the required speed commands and operating modes. The ECU also communicates with the companion computer, allowing engine-condition data to be stored for later processing by the experimental team. In this architecture, the flight controller coordinates the onboard communication flow and ensures that control and monitoring signals remain available during the high-speed testing phase.
+
+For the external communication link, the RM 3000 Series communication unit was selected as a suitable component for HUGO, as it can operate in either the very high frequency (VHF) or ultra-high frequency (UHF) bands. VHF and UHF are considered because they are standard frequency ranges for aviation communication systems \footnote{\href{https://www.icao.int/sites/default/files/FSMP/Doc.9718-Vol-I-AdvanceUneditedVersion-2021.pdf}{ICAO Doc 9718: Handbook on Radio Frequency Spectrum Requirements for Civil Aviation} (accessed on 15.06.2026)}. Since HUGO has a maximum operating range of 300 km, VHF operation is preferred because it offers better range performance for a given transmit power and is widely used for aviation communication. Den Helder Airport is rated for commercial aviation operations and is therefore expected to have the infrastructure required for communication in aviation VHF bands.
+
+In \autoref{fig:electronics_mapping} it can be seen that the battery does not directly supply the components, but a power distribution unit (PDU) is responsible for power allocation. For HUGO, the chosen unit operates at minimum 24 V\footnote{\href{https://www.brancaro.com/product/power-distribution-unit/}{Power Distribution Unit} (accessed 02.06.2026)} input, and has multiple ports to supply power at different voltages.
+
+% \autoref{fig:electronics_mapping} shows the interactions between electronics system components in terms of power, signal, and fuel flow.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures_final/electronic_system.pdf}
+    \caption{Electronics system mapping}
+    \label{fig:electronics_mapping}
+\end{figure}
+
+Once all the components of the electronic system essential for flying and testing have been brought together, their individual power consumption and weight are computed \autoref{tab:electric_comp}. The total power consumed by all the electronic components, including the sensor payload represent the power budget that is used to size the battery. HUGO will only operate for a maximum of 45 minutes in the most extreme scenario, utilising a 846.06 W \autoref{tab:electronic_system} of power. This is a power requirement, and it represents the base value and an additional $10\%$ power increase to account for any error margins or extra usage from the components. After an analysis of possible sensor platforms, it was determined that the power consumed by the payload is estimated at 50 W.
+
+With the total required power estimated at approximately 900 W and a minimum bus voltage of 24 V, the battery pack can be sized. To reduce packaging volume and allow the pack geometry to be adapted to HUGO, a custom battery pack is selected using Molicel INR21700 cells\footnote{\href{https://www.nkon.nl/en/molicel-inr21700-m65a-6500mah-26a.html}{Molicel INR21700} (accessed on 02.06.2026)}.
+
+An 8-cell series configuration provides a nominal voltage of 28.8 V. To meet the required current demand, five cells are placed in parallel, resulting in an 8S5P configuration. At the nominal voltage, the required current for a 900 W load is approximately 31.3 A. This corresponds to about 6.3 A per cell, which is within the operating capability of the selected cells, at 6.5 A. The resulting pack can therefore supply approximately 936 W at nominal voltage, leaving a small power margin above the estimated requirement.
+
+At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power consumptions are provided in \autoref{tab:electric_comp}.
 \todo{include a ref for the component list, tried on Sunday not sure if it works, i dont want to break the git}
 \begin{table}[H]
 \centering
@@ -408,32 +431,52 @@ Power Distribution Unit & 1 & 2200 & 2200 & $150 \times 155 \times 105$ & -- \\
 \end{tabular}
 \end{table}
 
-From \autoref{tab:electric_comp} it can be seen that there are a lot of electric components that are mission-critical. For the purpose of this application, autopilot VECTOR-600 was chosen as the subsystem control unit, incorporating many of the basic air sensors needed to conduct the flight. Working along a flight companion(FC), that processes all the information from the sensors as well as from the autopilot, storing the data in a memory unit use it for flight calculations and ultimately transmits it back to the base of operations. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual Inertial Measurement Unit (IMU), redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, Global Navigation Satellite System (GNSS) receiver for gps signal. The signal and power distribution of the electric system is evident in \autoref{fig:electronics_mapping}. 
-
-The autopilot communicates directly with the electronic control unit (ECU) of the engine system, providing the required speed commands and operating modes. The ECU also communicates with the companion computer, allowing engine-condition data to be stored for later processing by the experimental team. In this architecture, the flight controller coordinates the onboard communication flow and ensures that control and monitoring signals remain available during the high-speed testing phase.
-
-For the external communication link, the RM 3000 Series communication unit was selected as a suitable component for HUGO, as it can operate in either the very high frequency (VHF) or ultra-high frequency (UHF) bands. VHF and UHF are considered because they are standard frequency ranges for aviation communication systems \footnote{\href{https://www.icao.int/sites/default/files/FSMP/Doc.9718-Vol-I-AdvanceUneditedVersion-2021.pdf}{ICAO Doc 9718: Handbook on Radio Frequency Spectrum Requirements for Civil Aviation} (accessed on 15.06.2026)}. Since HUGO has a maximum operating range of 300 km, VHF operation is preferred because it offers better range performance for a given transmit power and is widely used for aviation communication. Den Helder Airport is rated for commercial aviation operations and is therefore expected to have the infrastructure required for communication in aviation VHF bands.
-
-In \autoref{fig:electronics_mapping} it can be seen that the battery does not directly supply the components, but a power distribution unit (PDU) is responsible for power allocation. For HUGO, the chosen unit operates at 24V\footnote{\href{https://www.brancaro.com/product/power-distribution-unit/}{Power Distribution Unit} (accessed 02.06.2026)}, and has multiple ports to supply power at different voltages.
-
-% \autoref{fig:electronics_mapping} shows the interactions between electronics system components in terms of power, signal, and fuel flow.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{figures_final/electronic_system.pdf}
-    \caption{Electronics system mapping}
-    \label{fig:electronics_mapping}
-\end{figure}
-
-Once all the components of the electronic system essential for flying and testing have been brought together, their individual power consumption and weight are computed \autoref{tab:electric_comp}. The total power consumed by all the electronic components, including the sensor payload represent the power budget that is used to size the battery. HUGO will only operate for a maximum of 45 minutes in the most extreme scenario, utilising a 846.06 W \autoref{tab:electronic_system} of power. This is a power requirement, and it represents the base value and an additional $10\%$ power increase to account for any error margins or extra usage from the components. After an analysis of possible sensor platforms, it was determined that the power consumed by the payload is estimated at 50 W.
-
-Having the total power required, around 900 W at 24V, the battery can be sized. To save space and ensure it was decidet to build a custom batery out of battery cells\footnote{}
-
-
 \todo[inline]{modifie on monday the power req to not include a value also the order of the paragraphs need changes}
+
+
 \subsection{Propulsion System Design}
 \label{sub:propulsion_system_design}
-- section about propulsion system (think we can take it from the midterm for this one\\
+%- section about propulsion system (think we can take it from the midterm for this one\\
+The electric system works in close relation with the propulsion system, one representing the nervos system and the other the motor one for HUGO. In this subsection, the propulsion configuration of HUGO is analysed and expanded on. Systems related to propulsion, including the turbojet engine, fuel tanks, fuel management, and distribution systems, are included in this category. The propulsion system is integrated into the fuselage group to allow for wing versatility, provide clean airflow over the wing and prevent aerodynamic interference of the engine with the wings. 
+
+In the previous design process\footref{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{Midterm Report} (accessed on 02.06.2026)}, it was identified that the initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. Furthermore, small turbojet engines on the market can be easily integrated due to their known characteristics and availability of the supporting subsystems. Therefore, based on the approximate thrust requirements of from the previus engine consideration, a pair of Jetcat P100-RX-BL engines \footnote{\href{https://www.jetcat.de/de/productdetails/produkte/jetcat/produkte/RC\%20ENGINES/Engines/p100_rx-bl}{Jetcat P100-RX-BL engine} (accessed on 19.05.2026)} are selected as the candidate engines for HUGO and are used as a reference component in \autoref{tab:prop_system}.
+
+
+\begin{table}[H]
+    \centering
+    \caption{Propulsion system components and approximate weight and volumes}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Component} & \textbf{Weight [g]} & \textbf{Dimensions [mm]}  \\
+        \hline\hline
+        Engine: JetCat P100-RX-BL (X2) & 1080 & 97 (diameter) x 241 (length)\\
+        \hline
+        ECU (V10.0) (X2) & 26 & 55 x 36 x 18 (length x width x height) \\
+        \hline
+        Fuel tanks & 1.14 & N/A (fuel bag, 3 gal capacity)\\
+        \hline
+        Fuel pump (Bus-system BL) (X2)& 110 & 31.5 (diameter) x 77 (length)\\
+        \hline
+        Fuel filter (Standard Inline) (X2)& 15 & 20 (diameter) x 45 (length) \\
+        \hline
+        Fuel hoses & 170 & 8 x 4 x 2000 (outer x inner diameter x length) \\
+        \hline
+    \end{tabular}
+    \label{tab:prop_system}
+\end{table}
+
+\todo[inline]{IMP to ask about the fuel bags so we have consitency}
+
+The turbojet engine needs additional components to become operational. An Engine Control Unit (ECU) is necessary to control combustion. The fuel system consists of the fuel pump, fuel filter, shut-off valve and fuel distribution hoses \footnote {\href{https://www.jetcat.de/en/products/produkte/jetcat/kategorien/Zubehoer}{JetCat fuel system accessories} (accessed on 18.5.2026)}. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem is shown in \autoref{fig:fuel_system_mapping}. The weight and dimensions of the power distribution system were estimated based on a universal Battery Management System (BMS) \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
+System} (accessed on 18.5.2026)}. Furthermore, 3m of Polytetrafluoroethylene (PTFE) tube for fuel distribution is added and two, 3 gal fuel bag will be used for fuel storage \footnote{\href{https://ptfetubeshop.com/en/product/ptfe-tube-4-mm-x-8-mm/?srsltid=AfmBOopcWd4OwpWvWxhcXm5ZaT8P1H2EP4Aw9Il2Rezb7qgHZba8-M9b}{PTFE tube 4 mm x 8 mm} (accessed on 19.5.2026)}. 
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\linewidth]{figures_final/HUGO propulsion system control feedback diagram.png}
+%     \caption{HUGO propulsion system diagram}
+%     \label{fig:prop_diagram}
+% \end{figure}
+
 \autoref{fig:fuel_system_mapping} showcases the interaction between propulsion system components in terms of power, signal, and fuel flow.
 
 
@@ -444,11 +487,13 @@ Having the total power required, around 900 W at 24V, the battery can be sized. 
     \label{fig:fuel_system_mapping}
 \end{figure}
 
+While exploring options for different experiments for HUGO, a stability test was proposed, where HUGO would be required to change in flight its CG, essentially shifting in an unstable configuration. To tackle this problem of redistributing weight during flight, it was proposed to design a fuel system that would move fuel from one tank to another during flight for the purpose of experimentation. For this reason, HUGO has 2 fuel removable fuel bladders and 3 fuel pumps, and the entire fuel subsystem is strongly connected to both the propulsion and electronic systems, as observed in \autoref{fig:fuel_system_mapping}. The experiment is described in more detail in \autoref{sub:Changeofthecentreofgravity}.
+
 
 \subsection{Sensor Interaction}
 \label{sub:sensor_interaction}
-To be able to measure and record the results from the experiments it is necessary to use sensors. Since an aspect of HUGO is to possibility of  customizations for a specific customer needs there is left space in the design for additional sensors.     
-Using the mission envelope  (autoref ops \& logistics) it is possible identify the following phenomenon which needs to be measured: 
+To be able to measure and record the results from the experiments, it is necessary to use sensors. Since an aspect of HUGO is the possibility of customisations for a specific customer's needs, there is space left in the design for additional sensors.     
+Using the mission envelope  (autoref ops \& logistics) it is possible to identify the following phenomenon which needs to be measured: 
 \begin{itemize}
     \item Deflection and twist: This is how much the wing is moved and rotated relative to the original axis. There are several approaches for the measurement of wing deflection. A way to measure the deflection is to record it from a fixed point on the aircraft. 
     \begin{comment}
@@ -563,7 +608,7 @@ Bridge  \\\hline
         \textbf{Amplifier} & \textbf{Nr} & \textbf{Weight [kg]} & \textbf{Dimensions [mm]} & \textbf{Power [W]} & \textbf{Signal to noise ratio} & \textbf{Data rate [Mbit/s]} \\
         \hline\hline
         M8126  & 1 & 0.700 & $150 \times 125 \times 58.5$ & 4.5 & 1/10000 & 2.76\\\hline
-        Micro Air Data Computer & 1 & 0.16 & $66 \times 79 \times 41$ & 1.5 & \sim 1/5000  &1.83 \\\hline
+        Micro Air Data Computer & 1 & 0.16 & $66 \times 79 \times 41$ & 1.5 & $\sim$ 1/5000  &1.83 \\\hline
         QuantumX Bridge\tablefootnote{\href{https://assets.hbkworld.com/adobe/assets/deliver/urn:aaid:aem:65d123ca-53f3-487f-99c2-9bbc99c34e4b/QuantumX-MX1601B-Data-Sheet-B03882.pdf}{QuantumX}(03.06.2026)}  & 1 & 0.16 & $52.5 \times 200 \times 122$  & 13 & 1/2500 & 7.68 \\\hline
     \end{tabular}
 \end{table}
@@ -585,14 +630,9 @@ Bridge  \\\hline
 Having identified all the sensors and their subsystems it is now possible to make the final detailed configuration for the sensors. Knowing the power requirements and the magnitude of the data-outputs it is possible to size the memory system and data-transfer. 
 
 
-\subsection{Access hatches}
-\label{sub:Access hatches}
-
-
-
 \subsection{Change of the center of gravity}
 \label{sub:Changeofthecentreofgravity}
-
+\todo[inline]{Consider moving this to the experiment section}
 range= 1303.797393364929-1416.095971563981
 
 
