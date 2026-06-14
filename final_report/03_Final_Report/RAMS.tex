@@ -138,9 +138,38 @@ This philosophy is consistent with the emergency-handling requirements of \autor
 \section{Expected Reliability and Availability}
 \label{sec:reliability_availability}
 
-Consider the most critical components for HUGO's operation.
+The most critical electronic components for HUGO's operation were considered. The formula used for estimating the reliability is given by \autoref{eq:reliability} \footnote{\href{https://www.reliabilityengineersacademy.com/articles/fc13d06a-bc39-44bf-9d23-f48d0d413960}{Equipment Reliability Performance Calculation} (accessed on 14.06.2026)}. It follows the exponential distribution since electronic components do not experience traditional wear-out until long after their intended lifespan.
+\begin{equation}
+    R(t) = e^{-\lambda t}
+    \label{eq:reliability}
+\end{equation}
+Where $\lambda$ is the failure rate and $t$ is the elapsed time.
 
-reliability/availability calculation source: https://www.reliabilityengineersacademy.com/articles/fc13d06a-bc39-44bf-9d23-f48d0d413960
+The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the electric components are tabulated in \autoref{}.
+
+\begin{table}[H]
+\centering
+\caption{System component reliability and failure rate summary}
+\label{tab:component_reliability}
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lccccccl}
+\toprule
+Component & $\lambda$ & Quantity & MTBF & Lifetime & Reliability & Source \\
+& [1/hr] & [-] & [h] & [h] &[-] \\
+\midrule
+Battery cell & 0.001 & 40 & 1000 & 900 & 0.407 & \footnote{\href{https://www.molicel.com/inr-21700-m65a/}{INR-21700-M65A battery} (accessed on 12.06.2026)} \\
+Battery pack (8s5p) & 0.008 & 1 & 125 & 900 & 0.00075 & Estimated with cell data \\
+Autopilot & $5.13 \cdot 10^{-5}$ & 1 & 19500 & 900 & 0.955 & \footnote{\href{https://www.uavnavigation.com/company/news-events/fmeca-reliability-autopilot-test-VECTOR-600}{UAV Navigation confirms the high reliability of its VECTOR-600 autopilot with an independent company study} (accesed on 12.06.2026)} \\
+Servo motors (actuators) & $5 \cdot 10^{-5}$ & 9 & 20000 & 900 & 0.956 & \footnote{\href{https://www.a-m-c.com/servomotor-lifespan/}{Servo Lifespan: How Long Does Servo Motor Last} (accessed on 12.06.2026)} \\
+Power distribution system & $8.8 \cdot 10^{-8}$ & 1 & $1.14 \cdot 10^7$ & 900  & 1.000 & \cite{Imani2022} \\
+SATA SSD & $6.86 \cdot 10^{-8}$ & 1 & $1.46 \cdot 10^7$ & 900 & 0.998 & \footnote{\href{https://www.pugetsystems.com/labs/articles/samsung-sata-ssd-s-amazing-reliability-772/
+}{Samsung SATA SSD’s Amazing Reliability} (accessed on 12.06.2026)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+It can be observed that the reliability of both the battery cell and the battery pack appears unacceptably low; however, this result arises from the assumption that a single battery is used over the entire system lifetime, which is not realistic. Given a mean time between failures of 125 hours, approximately 900/125 $\approx$ 8 battery replacements are required over the system’s lifetime. This will be accounted for in the maintenance strategy.
 
 Given that fatigue was excluded as a critical design consideration in \autoref{sec:material_options}, and that the structural analyses in \autoref{sec:wing_structural_analysis} and \autoref{sec:fuselage_structural_analysis} indicate sufficient strength to withstand the maximum internal stresses, a reliability value of 0.99 was assigned to the wing, fuselage, and landing gear structures.
 

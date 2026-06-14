@@ -64,15 +64,14 @@ Having all the different sources it is possible to add them together.
 \begin{equation}
     SPL_{total}=10 \log \sum^{i=N_{sources}}_{i=1}10^{\frac{SPL_i}{10}}
 \end{equation} 
-To accurate the noise perceived by a bystander distance must also be taken into account when calculating the noise. The aircraft is modelled as a point source with the sound uniformly propagates. This means that the sound pressure level will change based on the inverse square level:
+To accurate the noise perceived by a bystander distance must also be taken into account when calculating the noise. The aircraft is modelled as a point source with the sound uniformly propagates. This means that the sound pressure level will change based on the inverse square level \footnote{\href{https://personalpages.manchester.ac.uk/staff/richard.baker/BasicAcoustics/4_inverse_square_law.html}{inverse square law}(Accessed on 08.06.2026)}:
 \begin{equation}
     SPL_{r2}=SPL_{r_1}+20\log(\frac{r_1}{r_2})
 \end{equation}
 
-The final issue with modelling sound is the nature of the human ear. 
 
 It has been chosen to specify the noise-spectrum  based on two different scenarios: 
-The first being a flyover where the airplane starts somewhere in front of the observer and then passes over to continue behind the observer. For this analysis the height and the speed of the aircraft remains constant throughout the manoeuvrer. Here in this case it is important to take the doppler effect into account. 
+The first being a flyover where the airplane starts somewhere in front of the observer and then passes over to continue behind the observer. For this analysis the height and the speed of the aircraft remains constant throughout the manoeuvrer.
 (Insert diagram of aircraft) 
 
 The second is using the flight-profile of a potential mission for the aircraft. In this scenario the observer would be placed directly underneath the aircraft. This is done to approximate the overall noise experienced on the ground closest to the aircraft.  The code for the scenarios and calculations can be found in the GitHub (insert citation).   
@@ -97,6 +96,20 @@ The second is using the flight-profile of a potential mission for the aircraft. 
     \caption{Overall caption}
     \label{fig:noise}
 \end{figure}
+
+Finally having all the diagrams it is possible to calculate the total perceived loudness by using the following expression (the equations are taken from \cite[p.~302-304]{kinsler2000fundamentals}:
+\begin{equation}
+    L_{\text{total}} = 10\log_{10}\left(\sum_i 10^{L_{\text{band},i}/10}\right)    
+\end{equation}
+
+\begin{equation}
+    L_{\text{band},i} = L_{\text{spectrum},i} + 10\log_{10}(\Delta f)   
+\end{equation}
+This can then be inserted 
+\begin{equation}
+L_{\text{total}} = 10\log_{10}\left(\sum_i \Delta f \cdot 10^{L_{\text{spectrum},i}/10}\right)
+\end{equation}
+Then total loudness were calculated for both scenarios and the instance of the maximum value of noise was chosen. both the spectrums for both cases were cal
 
 \section{Analysis of Emissions}
 \label{sec:emission_analysis}
