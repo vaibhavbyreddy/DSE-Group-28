@@ -64,17 +64,18 @@ Having all the different sources it is possible to add them together.
 \begin{equation}
     SPL_{total}=10 \log \sum^{i=N_{sources}}_{i=1}10^{\frac{SPL_i}{10}}
 \end{equation} 
-To accurate the noise perceived by a bystander distance must also be taken into account when calculating the noise. The aircraft is modeled as a point source with the sound uniformly propagates. This means that the sound pressure level will change based on the inverse square level:
+To accurate the noise perceived by a bystander distance must also be taken into account when calculating the noise. The aircraft is modelled as a point source with the sound uniformly propagates. This means that the sound pressure level will change based on the inverse square level:
 \begin{equation}
     SPL_{r2}=SPL_{r_1}+20\log(\frac{r_1}{r_2})
 \end{equation}
-   
+
+The final issue with modelling sound is the nature of the human ear. 
 
 It has been chosen to specify the noise-spectrum  based on two different scenarios: 
-The first being a flyover where the airplane starts somewhere in front of the observer and then passes over to continue behind the observer. For this analysis the height and the speed of the aircraft remains constant throughout the maneuver. 
+The first being a flyover where the airplane starts somewhere in front of the observer and then passes over to continue behind the observer. For this analysis the height and the speed of the aircraft remains constant throughout the manoeuvrer. Here in this case it is important to take the doppler effect into account. 
 (Insert diagram of aircraft) 
 
-The second is using the flight-profile of a potential mission for the aircraft. In this scenario the observer would be placed directly underneath the aircraft. This is done to approximate the overall noise experienced on the ground closest to the aircraft. The code for the scenarios and calculations can be found in the GitHub (insert citation).   
+The second is using the flight-profile of a potential mission for the aircraft. In this scenario the observer would be placed directly underneath the aircraft. This is done to approximate the overall noise experienced on the ground closest to the aircraft.  The code for the scenarios and calculations can be found in the GitHub (insert citation).   
 
 (Insert diagram )
 
