@@ -369,7 +369,7 @@ The structural analysis is formulated with several free variables for parametric
 
 %The structural wing model was developed to estimate the applied torque, wing-tip deflection, wing-tip rotation, internal shear forces, internal shear stresses, and the buckling behaviour of the wing. These outputs are used to verify that the wing structure remains within acceptable limits throughout the operating envelope, including extra loads experienced during take-off or landing. 
 
-\begin{wrapfigure}[13]{r}{0.43\textwidth}
+\begin{wrapfigure}[16]{r}{0.43\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures_final/Wing_structure/Force Distribution Wing.png}
     \caption{Force distribution for straight flight at load factor of 6}
@@ -382,7 +382,6 @@ The distributed weight of each section is evaluated with \autoref{eq:section_wei
 W = P \cdot t_\text{skin} \cdot l_\text{section} \cdot g_0 \label{eq:section_weight}
 \end{equation}
 
-\todo[inline]{Update the figure}
 
 
 
@@ -397,6 +396,7 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
 \end{aligned}
 \end{equation}
 
+\newpage
 
 \begin{wrapfigure}[13]{l}{0.43\textwidth}
     \centering
@@ -404,7 +404,6 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
     \caption{Torsion distribution at load factor of 6}
     \label{fig:torsion_dist}
 \end{wrapfigure}
-
 At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_dist}.
 
 Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
@@ -469,8 +468,7 @@ The normal stress distribution shown in \autoref{fig:normal_dist} decreases towa
 
 
 The last analysis considered verifies that the wing does not buckle. Composite materials are known to be brittle and lose their structural properties once they buckle. To prevent a lost in integrity, the model tests if the wing buckles by comparing the buckling stress with the maximum internal shear stress. 
-\todo{ask on moday about the book and citation because I cant find it}
-HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} from \cite{} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table in \cite{}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:final_mat_sel}.
+HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from \cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in \cite[p.~458]{niu1999airframe}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:final_mat_sel}.
 
 \begin{equation}
     \sigma_{cr} = C \frac{\pi^2 E}{12(1-\nu^2)} \left(\frac{t}{b}\right)^2
