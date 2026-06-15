@@ -272,9 +272,14 @@ For the electronic components, a corrective maintenance (CM) strategy is general
 
 In addition to the above maintenance strategies, routine servicing of HUGO is carried out before and after each flight. Pre-flight servicing includes mission plan review, configuration verification, ground station setup, system functionality checks, sensor calibration, fuel loading, and battery and power system checks. Post-flight servicing consists of data download, onboard system diagnostics, visual inspection, and refuelling when additional flights are planned. Furthermore, supplementary inspections are required following the installation or replacement of key components such as wings, canards, payloads, sensors, or empennage configurations to ensure continued airworthiness and system integrity.
 
-Based on the established maintenance strategies, a maintenance diagram was developed to summarize the required maintenance activities, as shown in \autoref{}.
+Based on the established maintenance strategies, a maintenance diagram was developed to summarize the required maintenance activities, as shown in \autoref{fig:maintenance_diagram}.
 
-
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures_final/Maintenance.drawio.png}
+    \caption{HUGO subsystem-level integrated maintenance logic diagram}
+    \label{fig:maintenance_diagram}
+\end{figure}
 
 
 
@@ -350,6 +355,14 @@ HUGO is a maintainable system. Maintainability is supported by the modular archi
 
 \section{Safety Summary}
 
-The RAMS approach ensures that HUGO can perform high-speed research flights while limiting the consequences of failures. Safety is primarily achieved through operation in controlled airspace, continuous ground monitoring, autonomous recovery logic, flight-envelope monitoring, pre-flight and post-flight procedures, and maintenance under a continuing-airworthiness framework. Reliability is improved through selective redundancy and short service cycles, while availability is maintained by the initial five-aircraft fleet and a planned maintenance allowance of 50 working days per aircraft per year.
+The RAMS approach ensures that HUGO can perform high-speed research flights while limiting the consequences of failures. Safety is primarily achieved through operation in controlled airspace, continuous ground monitoring, autonomous recovery logic, flight-envelope monitoring, pre-flight and post-flight procedures, and maintenance under a continuing-airworthiness framework. %Reliability is improved through selective redundancy and short service cycles, while availability is maintained by the initial five-aircraft fleet and a planned maintenance allowance of 50 working days per aircraft per year.
+
+At the subsystem level, safety is reinforced through life-limited operation of critical components. The lithium-ion battery pack represents the primary wear-out failure mechanism and is therefore replaced preventively after 1000 charge-discharge cycles, well before the onset of rapid degradation. This strategy effectively removes the dominant age-related failure mode from operation.
+
+Reliability is maintained through a combination of preventive maintenance and condition-based monitoring. Flight-critical electronic systems, including the autopilot, servos, power distribution system (PDS), and solid-state drive (SSD), exhibit predominantly random failure behaviour and are supported by comprehensive pre-flight and post-flight diagnostics. Airframe reliability is preserved through regular visual inspections and non-destructive testing, ensuring structural integrity throughout the aircraft's service life.
+
+Availability is maximised through rapid fault recovery and modular maintenance practices. Although the unmaintained system reliability decreases to approximately 0.872 over its operational lifetime, high inherent availability is maintained by limiting corrective maintenance actions to a mean time to repair (MTTR) of two hours or less for electronic subsystems. This minimises downtime and sustains operational readiness.
+
+Operational resilience is further enhanced through a five-aircraft fleet architecture. A planned maintenance allowance of 50 working days per aircraft per year accommodates inspections, payload reconfiguration, and preventive maintenance while ensuring mission continuity through fleet-level redundancy. Together, these measures provide a robust balance of safety, reliability, availability, and maintainability throughout the operational life of the system.
 
 \todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}

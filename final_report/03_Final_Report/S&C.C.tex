@@ -6,15 +6,15 @@ A first version of design driving characteristics is included in the Mid-Term Re
 
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
-This section investigates controllability and stability analyses on the HUGO aircraft. Newly developed software, Flow5, is used to demonstrate HUGO's capability of operation in various flight regimes and outputs several important values for the design, such as control surface actuator moments and eigenmotion characteristics. The forces and moments on the control surfaces were calculated using the Flow5 software on a reference wing and tail planform used with HUGO. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled and meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. Furthermore, the mass distribution and inertial properties were reconstructed in Flow5 based on the CAD model and the determined configuration layout.
+This section investigates controllability and stability analyses on the HUGO aircraft. Newly developed software, Flow5, is used to demonstrate HUGO's capability of operation in various flight regimes and outputs several important values for the design, such as control surface actuator moments and eigenmotion characteristics. The forces and moments on the control surfaces were calculated using the Flow5 software on a reference wing and tail planform from \autoref{}. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled and meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. Furthermore, the mass distribution and inertial properties were reconstructed in Flow5 based on the CAD model and the determined configuration layout.
 
 \section{Control Forces}
 \label{sec:control_forces}
-The size of the control surfaces was estimated based on the reference aircraft. The output from Flow5 gives a range of moment values for the actuators needed for the control surface deflections. Furthermore, the Flow5 aircraft model is used together with the inertial properties to estimate static and dynamic stability characteristics of HUGO.
+The size of the control surfaces was estimated based on the reference aircraft and literature. The output from Flow5 gives a range of moment values for the actuators needed for the control surface deflections.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\linewidth]{figures_final/HUGO_Flow5_260609.png}
-    \caption{HUGO aircraft model mesh for analysis in Flow5, with canard attached}
+    \includegraphics[width=0.9\linewidth]{figures_final/HUGO_flow5.png}
+    \caption{HUGO aircraft model mesh for analysis in Flow5}
     \label{fig:flow5_overview}
 \end{figure}
 \subsection{Control surface breakdown}
@@ -31,11 +31,9 @@ The NASA DAST drone featured ailerons with 23 \% of the chord length, 0.254 m in
         Wing reference area, \(S\) & \(0.439~\mathrm{m^2}\) \\
         Mean aerodynamic chord, \(\bar{c}\) & \(0.123~\mathrm{m}\) \\
         Wing airfoil & NASA SC(2)-0012 \\
-        Horizontal tail area, \(S_h\) & \todo{insert value} \\
-        Vertical tail area, \(S_v\) & \todo{insert value} \\
-        Canard area, \(S_c\) & \todo{insert value, or state not used for no-canard configuration} \\
-        Mass, \(m\) & \todo{insert CAD mass value} \\
-        Centre of gravity, \(x_{cg}\) & \todo{insert value, measured from nose or chosen reference point} \\
+        Horizontal tail area, \(S_h\) & \(0.125~\mathrm{m^2}\) \\
+        Vertical tail area, \(S_v\) & \(0.085~\mathrm{m^2}\) \\
+        Mass, \(m\) & \(46.76~\mathrm{kg}\) \\
         \hline
     \end{tabular}
 \end{table}

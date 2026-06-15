@@ -981,7 +981,25 @@ The aerodynamic matrices have been derived by applying strip theory to the unste
 
 % where $s$ is the wing half-span.
 
-The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \textcolor{red}{reference table} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. Both of these are above the maximum speed at the testing altitude.
+The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \autoref{tab:flutter_parameters} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. Both of these are above the maximum speed at the testing altitude.
+
+\begin{table}[H]
+\centering
+\caption{Aircraft parameters used for flutter analysis.}
+\label{tab:flutter_parameters}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
+\midrule
+Wing mass                                  & 4.47  & kg \\
+Aspect ratio                          & 27.0  & -- \\
+Wing span                             & 3.2   & m \\
+Quarter-chord sweep angle             & 15.0  & $^\circ$ \\
+Taper ratio                           & 0.3   & -- \\
+Skin thickness                 & 2.5 & mm \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[H]
     \centering
@@ -996,12 +1014,20 @@ The flutter model has been verified by comparing results with those obtained by 
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/Flutter/flutter_results.png}
-        \caption{Wing properties from \textcolor{red}{reference table}}
+        \caption{Wing properties from \autoref{tab:flutter_parameters}}
         \label{fig:flutter_results_damped}
     \end{subfigure}
 
-    \caption{Comparison of the verification case and the flutter analysis results.}
+    \caption{Flutter frequency and damping diagrams}
     \label{fig:flutter_comparison}
+\end{figure}
+
+Finally, the flutter speed at $8230.0m$ altitude as a function of wing skin thickness is shown in \autoref{fig:flutter_thicknesses}. The plot makes sense, since flutter speed is approximately proportional to the the natural frequency \cite{dowell1977flutter}, and natural frequency has a square-root dependence on structural stiffness. The results from \autoref{fig:flutter_thicknesses} have direct implications on wing design, since flutter speed at this altitude has to be larger than $229.31 \frac{m}{s}$ according to the requirements. Therefore, the minimum wing skin thickness is $2.5mm$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures_final/Flutter/thickness_flutter.png}
+    \caption{Flutter speed as a function of wing skin thickness}
+    \label{fig:flutter_thicknesses}
 \end{figure}
 
 

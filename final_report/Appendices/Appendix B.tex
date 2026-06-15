@@ -22,9 +22,18 @@
 \end{figure}
 \end{landscape}
 
+\clearpage
+\begingroup
+\pdfpagewidth=420mm
+\pdfpageheight=297mm
+\paperwidth=420mm
+\paperheight=297mm
+
 \includepdf[
     pages=1,
-    fitpaper=true,
+    width=420mm,
+    height=297mm,
+    keepaspectratio,
     pagecommand={
         \thispagestyle{plain}
         \phantomsection
@@ -32,14 +41,21 @@
         \label{fig:FFD}
         \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}{Functional Flow Diagram}}
     }
-]{figures_final/Functional Flow Diagram Final (1).pdf}
+]{figures_final/Functional Flow Diagram Final (2).pdf}
 
-\clearpage
+\endgroup
+
+\begingroup
+\pdfpagewidth=420mm
+\pdfpageheight=297mm
+\paperwidth=420mm
+\paperheight=297mm
 
 \includepdf[
     pages=1,
-    fitpaper=true,
-        angle=-90,
+    width=420mm,
+    height=297mm,
+    keepaspectratio,
     pagecommand={
         \thispagestyle{plain}
         \phantomsection
@@ -47,4 +63,7 @@
         \label{fig:FBS}
         \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}{Functional Breakdown Structure}}
     }
-]{figures_final/Functional Breakdown Structure (1).pdf}
+]{figures_final/Functional Breakdown Structure Final.pdf}
+
+\endgroup
+\clearpage

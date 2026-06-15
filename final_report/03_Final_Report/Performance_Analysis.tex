@@ -11,13 +11,31 @@ Performance analysis addresses the quantified performance of the primary functio
 \section{Flight Profile}
 \label{sec:flight_profile}
 
+The flight profile for HUGO is shown in \autoref{fig:flight_profile}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{02_Midterm_Report/figures/Mission Profile 2.drawio.png}
+    \caption{HUGO flight profile}
+    \label{fig:flight_profile}
+\end{figure}
 
 
 \section{Payload-Range Analysis}
 \label{sec:payload-range_diagram}
 
+Since HUGO is a test platform with specified requirements for flight speed and endurance under defined test conditions, these can be expressed as range requirements across different phases of the flight to allow for the estimation of the required fuel. In this way, the fuel required for HUGO to complete its mission can be estimated. This approach ensures that the fuel tanks are sized such that, even when fully filled, they do not limit the allowable payload.
 
+The procedure used for sizing the range follows the method presented in Vos \cite{Vos}. An equivalent range $R_{eq}$ is defined, consisting of several contributions. These include the nominal mission segments: the test segment flown at 0.75 Mach ($R_{0.75}$) and the range flown at 0.4 Mach ($R_{0.4}$) during the various flight phases. In addition, the go-around range $R_{go-around}$ is included and multiplied by a factor of 4, reflecting the expectation that HUGO may require up to four landing attempts \footnote{Established in conversation with M.T.H. (Malcom) Brown}. Finally, the equivalent range accounts for losses in all segments, where energy is not converted into useful mission range during climb, descent, or turning phases.
+
+\begin{equation}
+    R_{eq} = R_{0.75} + R_{0.4} + 4 R_{go-around}
+    \label{eq:range}
+\end{equation}
+
+Considering that the max
+
+fuel required for standard planform is 7.03 kg
 
 
 \section{Climb Performance}
@@ -59,7 +77,9 @@ Where $f_{max}= \frac{0.1\,V}{\delta}$ and R is the distance to the observer.
 
 \cite{Thoma2024}. 
 
-All of the models used for the noise approximation can be found in the github (insert citation). 
+It is also necessary to calculate the ontributions of the landing gear to the noise generated at landing. (Von karman shedding \cite{MIT13021Lecture15})  
+
+All of the models used for the noise approximation can be found in the Github (insert citation). 
 Having all the different sources it is possible to add them together. 
 \begin{equation}
     SPL_{total}=10 \log \sum^{i=N_{sources}}_{i=1}10^{\frac{SPL_i}{10}}
@@ -68,6 +88,9 @@ To accurate the noise perceived by a bystander distance must also be taken into 
 \begin{equation}
     SPL_{r2}=SPL_{r_1}+20\log(\frac{r_1}{r_2})
 \end{equation}
+
+Use of A-weighting \cite{enwiki:1351161945}
+
 Certain simplifications and approximations: (write about them) 
 
 It has been chosen to specify the noise-spectrum  based on two different scenarios: 
@@ -118,14 +141,14 @@ Then total loudness were calculated for both scenarios and the instance of the m
     \begin{subfigure}{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/SPLflight.png}
-        \caption{Caption}
+        \caption{Loudness for flight profile}
         \label{fig:noiseflight}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/SPLflyover.png}
-        \caption{Caption}
+        \caption{Loudness for flyover}
         \label{fig:noiseflyover}
     \end{subfigure}
     \caption{Overall caption}
@@ -133,13 +156,13 @@ Then total loudness were calculated for both scenarios and the instance of the m
 \end{figure}
 
 Discussion about results 
-Implementation of validation. 
+Implementation of validation. Describe the noise function.  
 
 
 \section{Analysis of Emissions}
 \label{sec:emission_analysis}
 
-HUGO is powered by two Jet-cat 100 turbines. As mentioned in the requirements (insert reference) it is expected that these turbines will be entirely powered by SAF. Operating a jet-turbine using SAF will still generate certain emissions. These emission were modelled using the data based on the combustion of Jet A1 fuel (\cite{Gaillot2023}). Then by inputting the combusted fuel it was possible to calculate the total emissions from a mission. This is assuming the flight follows the flight profile. Since some emissions are more effective greenhouse gases than others each GWP (global warming potential) value was assigned the emission. This uses the warming potential of carbon-dioxide as baseline and every other gas is measured relative to that. So now it is possible to breakdown the distribution of the different emission and the overall impact (insert diagrams here). These values can be used in the subsequent LCA-analysis of HUGO. 
+HUGO is powered by two Jet-cat 100 turbines. As mentioned in the requirements (insert reference) it is expected that these turbines will be entirely powered by SAF. Operating a jet-turbine using SAF will still generate certain emissions. These emission were modelled using the data based on the combustion of Jet A1 fuel (\cite{Gaillot2023}). Then by inputting the combusted fuel it was possible to calculate the total emissions from a mission. This is assuming the flight follows the flight profile. Since some emissions are more effective greenhouse gases than others each GWP (global warming potential) value was assigned the emission. This uses the warming potential of carbon-dioxide as baseline and every other gas is measured relative to that. So now it is possible to breakdown the distribution of the different emission and the overall impact (insert diagrams here). This analysis will be used in the subsequent LCA-analysis of HUGO. 
 
 
 

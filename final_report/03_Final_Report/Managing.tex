@@ -1,12 +1,12 @@
 \chapter{Outline of Design Activities} \todo[inline]{think about the title}
 \label{ch:management}
 
-The first stage of HUGO's design process defined the requirements and scope of the project, leading to the development of four distinct configurations. To narrow this solution space to a single, optimal design, a rigorous trade-off analysis was performed. This section summarises the characteristics of the four configurations, details the trade-off procedure, and introduces the final configuration that forms the basis of this report.
+The first stage of HUGO's design process defined the requirements and scope of the project, leading to the development of four distinct configurations. To narrow this solution space to a single, optimal design, a rigorous trade-off analysis was performed. This chapter summarises the characteristics of the four configurations, outlines the trade-off procedure, and further details the final configuration that forms the basis of this report.
 
 \section{Trade-Off Summary}
 \label{sec:trade-off_summary}
 
-Given the strict requirements and ambitions of the project, the design of HUGO rapidly converged towards a lightweight, fixed-wing drone with varying degrees of modularity. Therefore, four different configurations were developed to accommodate, depicted in \autoref{fig:hugo-configurations}, were developed to allow researchers to perform different sets of experiments, in different manners. 
+Given the strict requirements and ambitions of the project, the design of HUGO rapidly converged towards a lightweight, fixed-wing drone with varying degrees of modularity. Thus, four different configurations were developed to accommodate, depicted in \autoref{fig:hugo-configurations}, were developed to allow researchers to perform different sets of experiments, in different manners. 
 
 HUG-CFG-301 (\autoref{fig:hug-cfg-301}) is a low-wing concept with static wing mounts and the ability to install a canard. HUG-CFG-302 (\autoref{fig:hug-cfg-302}) is instead a high-wing drone, with static wing mounts and no canard mounting port. HUG-CFG-303 (\autoref{fig:hug-cfg-303}) maintains the high-wing and static wing mounts, and further adds the ability to mount a canard. Lastly, HUG-CFG-304 (\autoref{fig:hug-cfg-304}) has a high-wing configuration with variable mounting locations for the main wing, as well as a static canard port.
 
@@ -43,6 +43,10 @@ HUG-CFG-301 (\autoref{fig:hug-cfg-301}) is a low-wing concept with static wing m
     \caption{Initial HUGO configuration concepts}
     \label{fig:hugo-configurations}
 \end{figure}
+
+
+The first step in the trade-off analysis process was the determination of trade-off criteria, namely: cost, versatility, reliability, and sustainability. The weight assigned to each criterion was determined using the analytic hierarchy process approach. The process compares each of the trade-off criteria pairwise, on a scale from 1 to 9. The normalised priority vector is then calculated, giving the relative weight amongst compared parameters. The selected criteria and their calculated weights can be seen in \autoref{tab:trade_off_matrix}. 
+
 
 \begin{table}[H]
 \centering
@@ -134,6 +138,9 @@ HUG-CFG-304
 \end{tabular}
 \end{center}
 
+From \autoref{tab:trade_off_matrix}, it can be seen that HUG-CFG-303 scores the highest, and is therefore selected as the optimal design. Thus, HUGO will be designed to be a high-wing drone with static wing mounting points and will be capable of mounting a canard wing.
+
+
 \section{Final Concept Design}
 \label{sec:final_concept_design}
 \todo[inline]{In this Section, we briefly present the configuration that is going to be designed in more detail in this report.}
@@ -212,7 +219,7 @@ As explained previously, a Standard Planform shall be defined for HUGO for the p
     \caption{The geometry of the standard planform}
     \begin{tabular}{|c||c|c|c|c|c|c|c|c|}\hline
          \textbf{Parameter}& $AR$ & $b$ & $\lambda$& $t/c$ & $\Lambda_{c/4}$ & airfoil & $\Gamma$ & Empennage  \\\hline
-         \textbf{Value} & 27 & $3.2$ m & 0.3 & $0.12$ & 15$^\circ$ & NASA SC(2)-0012 & $0^\circ$ & T-tail\\\hline
+         \textbf{Value} & 27 & $3.4$ m & 0.3 & $0.12$ & 15$^\circ$ & NASA SC(2)-0012 & $0^\circ$ & T-tail\\\hline
     \end{tabular}
     
     \label{tab:standard_wing_planform}

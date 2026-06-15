@@ -129,207 +129,6 @@ A power budget has been considered and an electrical system where the components
 % \end{itemize}
 
 
-\section{External Configuration}
-The external configuration of the aircraft will be a description of the size and placement of hatches and placement of mounted sensors. 
-\label{sec:external_configuration}
-
-- hatches, mounted sensors, 
-
-\subsection{Landing Gear Design}
-\label{sub:landing_gear_design}
-
-The landing gear design is an important component of the external configuration. It is important for taxiing, take-off, and landing, and must be able to withstand landing conditions. Furthermore, it must be stowed away during cruise to minimize the area exposed to the airflow to reduce drag. Airplane Design by Roskam has guidelines to design landing gear for aircraft. These include the scrape angle, turn over angle, wing tip clearance, and total mass on the main versus front landing gear.
-
-HUGO's modular design requires an in-depth analysis of the landing gear positioning as certain landing gear positions would lie outside of the acceptable design space. For example, the modular wing and tail cannot house the landing gear as prospective clients would then need to design landing gear mechanisms, slowing down testing and reducing HUGO's commercial attractiveness. 
-
-To model the landing gear in the preliminary design phase, the fuselage was modelled as a cylinder with three sections; the nose cone, the main fuselage, and the tail cone. The tail cone was additionally modelled as a cylinder with different diameter circles as the base connected to the main fuselage, and the smaller diameter circle in the most aft part of the tail cone. Then, the FlexHop aircraft as a reference for the sizing of the simplified fuselage. Then, using SciPy's Sequential Least Squares Programming (SLSQP) optimizer, the position of the nose and main landing gears could be found to meet the necessary constraints (listed in \autoref{tab:lg_constraints}). 
-
-
-\begin{longtable}{|p{0.23\linewidth}|p{0.18\linewidth}|p{0.49\linewidth}|}
-\caption{Landing gear optimization constraints and their justification}
-\label{tab:lg_constraints} \\
-\hline
-\textbf{Constraint} & \textbf{Inequality} & \textbf{Reason} \\
-\hline
-\endfirsthead
-
-\caption[]{Landing gear optimization constraints and their justification -- continued} \\
-\hline
-\textbf{Constraint} & \textbf{Inequality} & \textbf{Reason} \\
-\hline
-\endhead
-
-\hline
-\multicolumn{3}{r}{\textit{Continued on next page}} \\
-\endfoot
-
-\hline
-\endlastfoot
-
-Scrape angle (near) &
-$\theta_{\mathrm{scr,near}} \geq \theta_{\min}$ &
-Requirement from Roskam to prevent tail strikes during take-off and landing rotation. \\
-\hline
-
-Scrape angle (far) &
-$\theta_{\mathrm{scr,far}} \geq \theta_{\min}$ &
-Requirement from Roskam to ensure adequate tail clearance at take off and landing rotation. \\
-\hline
-
-Beta angle &
-$\beta > \theta$ &
-Requirement from Roskam to prevent the aircraft from tipping backwards during takeoff and landing rotation. \\
-\hline
-
-Turn-over angle &
-$\psi < 55^\circ$ &
-Ground stability requirement from Roskam to prevent lateral overturning during ground manoeuvres. \\
-\hline
-
-Wing-tip clearance &
-$\phi > 8^\circ$ &
-Requirement from Roskam to avoid wing-tip strikes. \\
-\hline
-
-Keel clearance &
-$h_{\mathrm{keel}} > 0$ &
-Ground clearance requirement to prevent fuselage contact with the ground. \\
-\hline
-
-Main landing gear ahead of tail cone &
-$x_{\mathrm{MLG}} < x_{\mathrm{tail\,cone}}$ &
-Optimizer-specific constraint. The tail cone is interchangeable and therefore cannot be used as a landing gear attachment location. \\
-\hline
-
-Main landing gear behind centre of gravity &
-$x_{\mathrm{MLG}} > x_{\mathrm{CG}}$ &
-Optimizer-specific constraint ensuring physically meaningful solutions. Otherwise the optimizer may place the main landing gear ahead of the centre of gravity. \\
-\hline
-
-Minimum landing gear track &
-$Y_{\mathrm{LG}} \geq R_{\mathrm{fuselage}}$ &
-Optimizer-specific constraint ensuring sufficient lateral space for landing gear retraction within the fuselage. \\
-\hline
-
-Minimum landing gear protrusion &
-$h_{\mathrm{LG}} \geq 0.01\,\mathrm{m}$ &
-Optimizer-specific constraint ensuring the landing gear protrudes at least 1 cm below the fuselage and preventing degenerate solutions. \\
-\hline
-
-Nose gear ahead of centre of gravity &
-$x_{\mathrm{NLG}} < x_{\mathrm{CG}}$ &
-Physical stability constraint ensuring a valid tricycle landing gear arrangement. If both landing gear stations are behind the centre of gravity, the aircraft will tip forward. \\
-\hline
-
-\end{longtable}
-
-The optimiser could vary the longitudinal position of the nose and main landing gear, as well as the horizontal separation of the main landing gear ($Y_{lg}$), and the landing gear length ($l_{lg}$). The objective was to meet all the constraints while minimizing the main landing gear separation (as measured from the midline to the main landing gear), as well as the landing gear height (measured from the centreline of the fuselage). If these were not minimised, the landing gear length could become unbounded, requiring larger and larger horizontal separations, which the fuselage could not accommodate. The chosen objective function can be seen in \autoref{eq:objective_func}
-
-\begin{equation}\label{eq:objective_func}
-    \sqrt{l_{lg}^2 + Y_{lg}^2}
-\end{equation}
-
-
-The final landing gear position using FlexHop as a reference is reported in \autoref{tab:optimized_landing_gear}.
-
-\begin{table}[H]
-    \centering
-    \small
-    \caption{Optimized landing gear position as measured from the nose}
-    \label{tab:optimized_landing_gear}
-    \begin{tabularx}{0.48\textwidth}{|@{}X c@{}|}
-        \hline
-        \textbf{Parameter} & \textbf{Dimension}  \\
-        \hline \hline
-        Nose gear x pos & 0.272 m \\
-        Fuselage gear x pos & 2.570 m \\
-        Fuselage gear y pos & 0.231 m \\
-        Height & 0.167 m \\
-        \hline
-    \end{tabularx}
-\end{table}
-
-In the detailed design stage, this initial estimate was used to determine if the landing gear could be housed within the main fuselage, or if it needed to be extended with pods to meet the main landing gear separation constraint. As the landing gear separation was wider than the fuselage diameter, it was determined HUGO would need pods to house the landing gear as well as a mechanism capable of extending the landing gear further outwards. 
-
-Because the landing gear positioning was done for the idealized fuselage, it was then important to verify if the requirements were still met in the real fuselage. The position of the landing gear from the preliminary design served as the starting point of the iteration loop in which the landing gear data was extracted from the CAD model, and refined until the constraints were met. The final landing gear positioning is given in \textbf{Picture from Vibhav}. %\autoref{}
-
-The landing gear mechanism itself can be seen in \textbf{add drawings from Vibhav}. \textbf{fig 1} shows the extended landing gear, and \textbf{fix 2} show the stowed landing gear. The landing gear mechanism... \todo{Vibhav please briefly describe how the mechanism works here. 2-3 sentences should be enough.}. when extended, the landing gear will experience mostly vertical loads, resulting in vertical compression. To accommodate the compression, the landing gear will utilise a spring and dashpot in parallel.
-
-During landing, the main landing gear must be able to withstand the impact loads, and the shock absorber deformation must be kept within allowable limits. As the landing gear needs to dissipate a predetermined downwards speed, the lower the impact load, the larger the deflection required. The initial maximum deflection required is 7.7 cm. This is how much the landing gear, sized to meet the geometric constraints, can deform so that the fuselage does not impact the ground. The initial guess for the force has been taken from now-deprecated EASA CS-23 regulations \todo{cite}, limiting the landing gear force to 4g. Current regulations do not provide a target impact load \todo{cite}. In case there was no feasible design space within the initial guess loading and displacement constraints, they would have had to be adjusted with consequences for either the landing gear (if the displacement is adjusted), or the fuselage (if the load is adjusted).
-% During landing, the main landing gear must be able to withstand the impact loads. The EASA guidelines were originally interpereted to require a high risk UAS to withstand a 4g load. Later, it was determined that the requirement was simply for the structure to withstand 1.5 times the load transfered by the landing gear. Due to time constraints, the optimal trade off between loads withstood by the fuselage versus the landing gear could not be explored, but should be looked into in further design. To meet both force and displacement constraints, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
-
-Using the python control library, the landing gear displacement and force responses to the aforementioned loads could be simulated. Using the spring and dashpot in parallel the following state space can be constructed:
-
-\begin{equation}
-    \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
-    = \begin{bmatrix} \text{displacement} \\ \text{velocity} \end{bmatrix}, \qquad
-    \mathbf{u}(t) = \left(g - \frac{L}{m}\right) \cdot \mathbf{1}(t)
-\end{equation}
-
-\begin{align}
-    \dot{\mathbf{x}} &= \begin{bmatrix} 0 & 1 \\ -k/m & -c/m \end{bmatrix}\mathbf{x}
-    + \begin{bmatrix} 0 \\ 1 \end{bmatrix} \mathbf{u} \label{eq:state_equation}\\[6pt]
-    \mathbf{y} &= \begin{bmatrix} 1 & 0 \\ k & c \end{bmatrix}\mathbf{x}
-    + \begin{bmatrix} 0 \\ 0 \end{bmatrix} \mathbf{u} \label{eq:output_equation}
-\end{align}
-
-where \autoref{eq:output_equation} represents the displacement and force respectively, L is the lift at landing, m is the mass on the landing gear, and g is the acceleration due to gravity.
-
-As previously mentioned, the displacement and force constraints will be applied to the state space model. Additionally, the system is also constrained to never be over-damped. If the system were over-damped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring and dashpot constants, the landing gear can be tuned to meet all requirements.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\linewidth]{figures_final/landing_gear_parameter_space.png}
-    \caption{Parameter sweep of spring and dashpot constant}
-    \label{fig:CK_tuning}
-\end{figure}
-
-In \autoref{fig:CK_tuning} a 60 by 60 grid of C and K parameters on a logarithmic scale are analysed showing the different constraints. Most importantly, under the required loads, it can be seen that there is a feasible design space (in green) of C and K for which all constraints are met. The effect of C and K on the peak force and displacement, and the damping ratio are also plotted. It can thus be seen that the optimal combination also allows for close to critical damping at C = 432.281 and K = 3113.84.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{figures_final/lg_response.png}
-    \caption{Landing gear response with C = 432.281 and K = 3113.84}
-    \label{fig:lg_response}
-\end{figure}
-
-Using the state space model from \autoref{eq:state_equation} and \autoref{eq:output_equation}, the landing gear response can be seen in \autoref{fig:lg_response}, meeting all constraints. 
-
-    
-\subsection{Environmental Control}
-\label{sub:environmental_control}
-Environmental control is the response of HUGO to different external factors such as rain or UV-radiation. An analysis was established were different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
-
-As supercooled water hits the fuselage, it instantly turns into ice, increasing the weight \cite{andreev2014icing} and damaging the aerodynamic profile. Since the wings fitted on HUGO are very thin, optimised for high cruise speed, any perturbation of the aerodynamic profile may result in a catastrophic event. 
-
-There are two primary way to combat this phenomenon, either by using a passive system (coating or phase changing materials) or b an active system (heating elements). Since the wings are subjected to regular replacement and modifications, it is more efficient to use a passive system for HUGO. 
-
-A coating that could help HUGO delay the formation of ice on the wings involves coating them with a poly-siloxane elastomer coating that sticks to resin \cite{facco2025passive}. It delays the formation of ice on the wings as well as offering a very low ice adhesion, effectively protecting the wing from ice. Despite its weak mechanical properties, HUGO is not meant to fly for many missions with the same set of wings, as such it does not require withstanding a lot of cycles. 
-
-%\todo[inline]{add citation by Lorenzo and finish this paragraph --->Alex}
-
-
-
-\begin{comment}
-    Deicing for UAV's most used method:
-- we could use the liedat at the fron of the plane to detect ahead of time the icing conditions and either avoid them or initiate the deicing equipemtn
-
--include an ice detecting sensor mandatory: Fiber-optic Ice Detection,  Heat of Fusion Sensor
-
--the most common use of deicing methods employ the use of an electric system tha pulses a current through a wire and that heats up the element and melts the ice
-
--use of coatings might be a better use since we are a little more problematic when it comes tot he desings of the wings
-
--passive elements will be better for us since we dont need to rebuild the drones but we can coate them with: 
-                    -(prevents ice formation)Fluoropolymers applied in various forms,such as ink or aqueous dispersion
-                    - (prevents ice stagnation)Liquid-Like Surfaces - These surfaces consist of a thin polymer layer (1 5 nm) characterized by a low CAH (<5°). The low CAH is ascribable to the mobility of the flexible tethered molecules, which is correlated to the length of the polymer chains and the grafting density
-                    -(prevents ice stagnation) Phase Change Materials in the Coating System - this one looks the most usefull one since it prevents the droplet from freezing on the surface by absorbing latent hear or giving it out. it can be used in a liquid coating of inert mat
-                    - 
--the coating work because we have carbon fibre that can be coated with a lot of materials that are inert and will only serve a transfer liquid transporter -> source this
-
-the rest is the material people's job to do as they have the source (Passive Ice Protection Systems for Unmanned Aerial
-Vehicles Applications: A Review)
-\end{comment}
 
 %\todo[inline]{Resource allocation missing}
 
@@ -464,10 +263,9 @@ In the previous design process\footnote{\href{https://github.com/Teo-Cokonaj/DSE
     \label{tab:prop_system}
 \end{table}
 
-\todo[inline]{IMP to ask about the fuel bags so we have consitency}
 
-The turbojet engine needs additional components to become operational. An Engine Control Unit (ECU) is necessary to control combustion. The fuel system consists of the fuel pump, fuel filter, shut-off valve and fuel distribution hoses \footnote {\href{https://www.jetcat.de/en/products/produkte/jetcat/kategorien/Zubehoer}{JetCat fuel system accessories} (accessed on 18.5.2026)}. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem is shown in \autoref{fig:fuel_system_mapping}. The weight and dimensions of the power distribution system were estimated based on a universal Battery Management System (BMS) \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
-System} (accessed on 18.5.2026)}. Furthermore, 3m of Polytetrafluoroethylene (PTFE) tube for fuel distribution is added and two, 3 gal fuel bag will be used for fuel storage \footnote{\href{https://ptfetubeshop.com/en/product/ptfe-tube-4-mm-x-8-mm/?srsltid=AfmBOopcWd4OwpWvWxhcXm5ZaT8P1H2EP4Aw9Il2Rezb7qgHZba8-M9b}{PTFE tube 4 mm x 8 mm} (accessed on 19.5.2026)}. 
+The turbojet engine needs additional components to become operational. An Engine Control Unit (ECU) is necessary to control combustion. The fuel system consists of the fuel pump, 2 fuel tanks, fuel filter, shut-off valve and fuel distribution hoses \footnote {\href{https://www.jetcat.de/en/products/produkte/jetcat/kategorien/Zubehoer}{JetCat fuel system accessories} (accessed on 18.5.2026)}. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem is shown in \autoref{fig:fuel_system_mapping}. The weight and dimensions of the power distribution system were estimated based on a universal Battery Management System (BMS) \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
+System} (accessed on 18.5.2026)}. Furthermore, 3m of Polytetrafluoroethylene (PTFE) tube for fuel distribution is added and two, fuel bags will be used for fuel storage. The fuel requirement is at least 7.03 kg as explained in \autoref{sec:flight_profile}. At a density of 0.8 kg/L \footnote{\href{https://aviationbenefits.org/media/167233/fact-sheet_13_saf-metrics-and-conversions_4.pdf}{SUSTAINABLE AVIATION FUEL METRICS} (accessed on 15.06.2026)}, the volume required for sustaining HUGO for a mission is 8.75 L. For the purpose of performing CG translation experiments, HUGO will be fitted with two 5L fuel bags that can be moved inside the fuselage to allow for CG shifts depending on the planforms provided by clients.
 
 % \begin{figure}[H]
 %     \centering
@@ -628,7 +426,7 @@ Having the entire system it is now possible to finalize the configuration and id
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{figures_final/placeholder4.jpg}
+    \includegraphics[width=0.5\linewidth]{figures_final/placeholder4.jpg}
     \caption{Caption}
     \label{fig:placeholder}
 \end{figure}
@@ -640,3 +438,218 @@ range= 1303.797393364929-1416.095971563981
 
 
 \todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
+
+\section{External Configuration}
+\label{sec:external_configuration}
+Once the internal components of HUGO have been identified and their positions within the fuselage have been fixed, the required external fuselage dimensions can be defined. These dimensional requirements are then used to size the UAV body around the internal layout.
+This section analyses the external geometry and main fuselage characteristics of HUGO in more detail. Particular attention is given to the placement of key structural features, including access doors, wing interfaces, and landing gear integration.
+
+\subsection{Fuselage Dimensions}
+\label{sub:fuselage_dimensions}
+The general layout of the fuselage has been constructed around the idea of fitting the internal components while providing a clean outer structure that produces the least amount of drag to enable flight in the 0.75 Mach regime.  
+
+- hatches, mounted sensors, 
+
+\subsection{Landing Gear Design}
+\label{sub:landing_gear_design}
+
+The landing gear design is an important component of the external configuration. It is important for taxiing, take-off, and landing, and must be able to withstand landing conditions. Furthermore, it must be stowed away during cruise to minimize the area exposed to the airflow to reduce drag. Airplane Design by Roskam has guidelines to design landing gear for aircraft. These include the scrape angle, turn over angle, wing tip clearance, and total mass on the main versus front landing gear.
+
+HUGO's modular design requires an in-depth analysis of the landing gear positioning as certain landing gear positions would lie outside of the acceptable design space. For example, the modular wing and tail cannot house the landing gear as prospective clients would then need to design landing gear mechanisms, slowing down testing and reducing HUGO's commercial attractiveness. 
+
+To model the landing gear in the preliminary design phase, the fuselage was modelled as a cylinder with three sections; the nose cone, the main fuselage, and the tail cone. The tail cone was additionally modelled as a cylinder with different diameter circles as the base connected to the main fuselage, and the smaller diameter circle in the most aft part of the tail cone. Then, the FlexHop aircraft as a reference for the sizing of the simplified fuselage. Then, using SciPy's Sequential Least Squares Programming (SLSQP) optimizer, the position of the nose and main landing gears could be found to meet the necessary constraints (listed in \autoref{tab:lg_constraints}). 
+
+
+\begin{longtable}{|p{0.23\linewidth}|p{0.18\linewidth}|p{0.49\linewidth}|}
+\caption{Landing gear optimization constraints and their justification}
+\label{tab:lg_constraints} \\
+\hline
+\textbf{Constraint} & \textbf{Inequality} & \textbf{Reason} \\
+\hline
+\endfirsthead
+
+\caption[]{Landing gear optimization constraints and their justification -- continued} \\
+\hline
+\textbf{Constraint} & \textbf{Inequality} & \textbf{Reason} \\
+\hline
+\endhead
+
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+Scrape angle (near) &
+$\theta_{\mathrm{scr,near}} \geq \theta_{\min}$ &
+Requirement from Roskam to prevent tail strikes during take-off and landing rotation. \\
+\hline
+
+Scrape angle (far) &
+$\theta_{\mathrm{scr,far}} \geq \theta_{\min}$ &
+Requirement from Roskam to ensure adequate tail clearance at take off and landing rotation. \\
+\hline
+
+Beta angle &
+$\beta > \theta$ &
+Requirement from Roskam to prevent the aircraft from tipping backwards during takeoff and landing rotation. \\
+\hline
+
+Turn-over angle &
+$\psi < 55^\circ$ &
+Ground stability requirement from Roskam to prevent lateral overturning during ground manoeuvres. \\
+\hline
+
+Wing-tip clearance &
+$\phi > 8^\circ$ &
+Requirement from Roskam to avoid wing-tip strikes. \\
+\hline
+
+Keel clearance &
+$h_{\mathrm{keel}} > 0$ &
+Ground clearance requirement to prevent fuselage contact with the ground. \\
+\hline
+
+Main landing gear ahead of tail cone &
+$x_{\mathrm{MLG}} < x_{\mathrm{tail\,cone}}$ &
+Optimizer-specific constraint. The tail cone is interchangeable and therefore cannot be used as a landing gear attachment location. \\
+\hline
+
+Main landing gear behind centre of gravity &
+$x_{\mathrm{MLG}} > x_{\mathrm{CG}}$ &
+Optimizer-specific constraint ensuring physically meaningful solutions. Otherwise the optimizer may place the main landing gear ahead of the centre of gravity. \\
+\hline
+
+Minimum landing gear track &
+$Y_{\mathrm{LG}} \geq R_{\mathrm{fuselage}}$ &
+Optimizer-specific constraint ensuring sufficient lateral space for landing gear retraction within the fuselage. \\
+\hline
+
+Minimum landing gear protrusion &
+$h_{\mathrm{LG}} \geq 0.01\,\mathrm{m}$ &
+Optimizer-specific constraint ensuring the landing gear protrudes at least 1 cm below the fuselage and preventing degenerate solutions. \\
+\hline
+
+Nose gear ahead of centre of gravity &
+$x_{\mathrm{NLG}} < x_{\mathrm{CG}}$ &
+Physical stability constraint ensuring a valid tricycle landing gear arrangement. If both landing gear stations are behind the centre of gravity, the aircraft will tip forward. \\
+\hline
+
+\end{longtable}
+
+The optimiser could vary the longitudinal position of the nose and main landing gear, as well as the horizontal separation of the main landing gear ($Y_{lg}$), and the landing gear length ($l_{lg}$). The objective was to meet all the constraints while minimizing the main landing gear separation (as measured from the midline to the main landing gear), as well as the landing gear height (measured from the centreline of the fuselage). If these were not minimised, the landing gear length could become unbounded, requiring larger and larger horizontal separations, which the fuselage could not accommodate. The chosen objective function can be seen in \autoref{eq:objective_func}
+
+\begin{equation}\label{eq:objective_func}
+    \sqrt{l_{lg}^2 + Y_{lg}^2}
+\end{equation}
+
+
+The final landing gear position using FlexHop as a reference is reported in \autoref{tab:optimized_landing_gear}.
+
+\begin{table}[H]
+    \centering
+    \small
+    \caption{Optimized landing gear position as measured from the nose}
+    \label{tab:optimized_landing_gear}
+    \begin{tabularx}{0.48\textwidth}{|@{}X c@{}|}
+        \hline
+        \textbf{Parameter} & \textbf{Dimension}  \\
+        \hline \hline
+        Nose gear x pos & 0.272 m \\
+        Fuselage gear x pos & 2.570 m \\
+        Fuselage gear y pos & 0.231 m \\
+        Height & 0.167 m \\
+        \hline
+    \end{tabularx}
+\end{table}
+
+In the detailed design stage, this initial estimate was used to determine if the landing gear could be housed within the main fuselage, or if it needed to be extended with pods to meet the main landing gear separation constraint. As the landing gear separation was wider than the fuselage diameter, it was determined HUGO would need pods to house the landing gear as well as a mechanism capable of extending the landing gear further outwards. 
+
+Because the landing gear positioning was done for the idealized fuselage, it was then important to verify if the requirements were still met in the real fuselage. The position of the landing gear from the preliminary design served as the starting point of the iteration loop in which the landing gear data was extracted from the CAD model, and refined until the constraints were met. The final landing gear positioning is given in \textbf{Picture from Vibhav}. %\autoref{}
+
+The landing gear mechanism itself can be seen in \textbf{add drawings from Vibhav}. \textbf{fig 1} shows the extended landing gear, and \textbf{fix 2} show the stowed landing gear. The landing gear mechanism... \todo{Vibhav please briefly describe how the mechanism works here. 2-3 sentences should be enough.}. when extended, the landing gear will experience mostly vertical loads, resulting in vertical compression. To accommodate the compression, the landing gear will utilise a spring and dashpot in parallel.
+
+During landing, the main landing gear must be able to withstand the impact loads, and the shock absorber deformation must be kept within allowable limits. As the landing gear needs to dissipate a predetermined downwards speed, the lower the impact load, the larger the deflection required. The initial maximum deflection required is 7.75 cm. This is how much the landing gear, sized to meet the geometric constraints, can deform so that the fuselage does not impact the ground. The initial guess for the force has been taken from now-deprecated EASA CS-23 regulations \todo{cite}, limiting the landing gear force to 4g. Current regulations do not provide a target impact load \todo{cite}. In case there was no feasible design space within the initial guess loading and displacement constraints, they would have had to be adjusted with consequences for either the landing gear (if the displacement is adjusted), or the fuselage (if the load is adjusted).
+% During landing, the main landing gear must be able to withstand the impact loads. The EASA guidelines were originally interpereted to require a high risk UAS to withstand a 4g load. Later, it was determined that the requirement was simply for the structure to withstand 1.5 times the load transfered by the landing gear. Due to time constraints, the optimal trade off between loads withstood by the fuselage versus the landing gear could not be explored, but should be looked into in further design. To meet both force and displacement constraints, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
+
+Using the python control library, the landing gear displacement and force responses to the aforementioned loads could be simulated using a linear time invariant system (LTI). Using the spring and dashpot in parallel the following state space can be constructed:
+
+\begin{equation}
+    \mathbf{x} = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}
+    = \begin{bmatrix} \text{displacement} \\ \text{velocity} \end{bmatrix}, \qquad
+    \mathbf{u}(t) = \left(g - \frac{L}{m}\right) \cdot \mathbf{1}(t)
+\end{equation}
+
+\begin{align}
+    \dot{\mathbf{x}} &= \begin{bmatrix} 0 & 1 \\ -k/m & -c/m \end{bmatrix}\mathbf{x}
+    + \begin{bmatrix} 0 \\ 1 \end{bmatrix} \mathbf{u} \label{eq:state_equation}\\[6pt]
+    \mathbf{y} &= \begin{bmatrix} 1 & 0 \\ k & c \end{bmatrix}\mathbf{x}
+    + \begin{bmatrix} 0 \\ 0 \end{bmatrix} \mathbf{u} \label{eq:output_equation}
+\end{align}
+
+where \autoref{eq:output_equation} represents the displacement and force respectively, L is the lift at landing, m is the mass on the landing gear, and g is the acceleration due to gravity.
+
+As previously mentioned, the displacement and damping constraints will be applied to the state space model. If the system were over-damped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring and dashpot constants, the landing gear can be tuned to meet all requirements.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{figures_final/landing_gear_parameter_space.png}
+    \caption{Parameter sweep of spring and dashpot constant}
+    \label{fig:CK_tuning}
+\end{figure}
+
+In \autoref{fig:CK_tuning} a 100 by 100 grid of C and K parameters on a logarithmic scale are analysed for a mass of 50 kg, and a downward velocity of 2 m/s. The green area shows the feasible combinations of C and K that do not exceed the displacement or damping constraints. Then, values of C and K were tried manually to minimise the total displacement of the landing gear, and to keep the peak force below 10g. Through trial and error the values of C = 781.115 and K = 48168.2 were chosen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures_final/lg_response.png}
+    \caption{Landing gear response with C = 781.115 and K = 48168.2}
+    \label{fig:lg_response}
+\end{figure}
+
+The landing gear response for a landing speed of 2m/s and 3m/s (2m/s * safety factor) is shown in \autoref{fig:lg_response}. For a landing speed of 2 m/s, the peak force was found to be 2.50433 kN (orange), at a displacement of 4.54 cm (blue). Applying a safety factor of 1.5 to the peak force obtained gives 3.756 kN (red) which must be withstood by the structure. Because the velocity and maximum displacement are linearly proportional in an linear time invariant system, this is equivalent to having simulated a downward velocity of 3 m/s (the previous velocity times the safety factor, shown in green).
+
+\subsection{verification of landing gear procedure}
+
+The landing gear was originally positioned using sciPy minimise. The implementation of the code was checked independently by 3 people as to prevent the accidental inclusion of bugs. In addition, an additional script that checked constraints given landing gear size parameters was used to check that this too met the previous requirements. The implementation of which, was also checked by 3 people to prevent the inclusion of bugs as well.
+
+The same implementation check was used for the LTI system modelling the landing gear as a spring and dashpot. Because the landing gear was modelled as an LTI system, lsim utilises an analytical solver. Consequently, the time step of 0.01s chosen for the simulation has no impact on convergence. 
+
+The plotting of the parameter sweep was done using Claude. As input, it took the displacement and damping constraints, and the landing gear simulator using the control library. To ensure the graphs were depicting the computed results accurately, points along the boundary and bounds of the graph were selected, and then simulated using the control function. All points selected matched the graph produced by Claude with the exception of the points within the over-damped section. This is because if a combination of C and K values were over-damped, Claude would not continue the analysis to determine if it met the remaining constraints. A manual check was performed on the chosen values of C and K, and indeed those values produced over-damping. As such, the graphs produced were considered verified.
+
+    
+\subsection{Environmental Control}
+\label{sub:environmental_control}
+Environmental control is the response of HUGO to different external factors such as rain or UV-radiation. An analysis was established were different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
+
+As supercooled water hits the fuselage, it instantly turns into ice, increasing the weight \cite{andreev2014icing} and damaging the aerodynamic profile. Since the wings fitted on HUGO are very thin, optimised for high cruise speed, any perturbation of the aerodynamic profile may result in a catastrophic event. 
+
+There are two primary way to combat this phenomenon, either by using a passive system (coating or phase changing materials) or b an active system (heating elements). Since the wings are subjected to regular replacement and modifications, it is more efficient to use a passive system for HUGO. 
+
+A coating that could help HUGO delay the formation of ice on the wings involves coating them with a poly-siloxane elastomer coating that sticks to resin \cite{facco2025passive}. It delays the formation of ice on the wings as well as offering a very low ice adhesion, effectively protecting the wing from ice. Despite its weak mechanical properties, HUGO is not meant to fly for many missions with the same set of wings, as such it does not require withstanding a lot of cycles. 
+
+%\todo[inline]{add citation by Lorenzo and finish this paragraph --->Alex}
+
+
+
+\begin{comment}
+    Deicing for UAV's most used method:
+- we could use the liedat at the fron of the plane to detect ahead of time the icing conditions and either avoid them or initiate the deicing equipemtn
+
+-include an ice detecting sensor mandatory: Fiber-optic Ice Detection,  Heat of Fusion Sensor
+
+-the most common use of deicing methods employ the use of an electric system tha pulses a current through a wire and that heats up the element and melts the ice
+
+-use of coatings might be a better use since we are a little more problematic when it comes tot he desings of the wings
+
+-passive elements will be better for us since we dont need to rebuild the drones but we can coate them with: 
+                    -(prevents ice formation)Fluoropolymers applied in various forms,such as ink or aqueous dispersion
+                    - (prevents ice stagnation)Liquid-Like Surfaces - These surfaces consist of a thin polymer layer (1 5 nm) characterized by a low CAH (<5°). The low CAH is ascribable to the mobility of the flexible tethered molecules, which is correlated to the length of the polymer chains and the grafting density
+                    -(prevents ice stagnation) Phase Change Materials in the Coating System - this one looks the most usefull one since it prevents the droplet from freezing on the surface by absorbing latent hear or giving it out. it can be used in a liquid coating of inert mat
+                    - 
+-the coating work because we have carbon fibre that can be coated with a lot of materials that are inert and will only serve a transfer liquid transporter -> source this
+
+the rest is the material people's job to do as they have the source (Passive Ice Protection Systems for Unmanned Aerial
+Vehicles Applications: A Review)
+\end{comment}

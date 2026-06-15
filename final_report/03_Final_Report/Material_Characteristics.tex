@@ -1,6 +1,6 @@
 \chapter{Material Characteristics and Manufacturing}
 \label{ch:material_characteristics}
-
+\todo[inline]{Chapter currently being proofread by Hanna}
 
 %\todo[inline]{From the \textit{Project Guide}:\\ The material characteristics include e.g. yield, ultimate, fatigue, etc., and should be specified for all applicable materials. In addition, the location of the applicable materials for system/subsystems should be specified. \\ A first version of design driving characteristics is included in the Midterm Report, a final, extended version including all relevant characteristics is given in the Final Report.}
 
@@ -16,16 +16,22 @@ In \autoref{sec:material_options}, the materials considered for the metal compon
 \section{Material Characteristics Analysis}
 \label{sec:material_options}
 
-In the midterm design phase, a trade-off was performed to identify suitable aerospace materials for the main structural elements of HUGO \foonote{Midterm Report}. In particular, CFRP was chosen as the primary material for the fuselage and lifting surfaces, and Al 7075-T76 for the landing gear, pylons, and connection surfaces. In this Section, these choices will be evaluated in more detail based on 
+In the midterm design phase, a trade-off was performed to identify suitable aerospace materials for the main structural elements of HUGO \footnote{Midterm Report}. In particular, CFRP was chosen as the primary material for the fuselage and lifting surfaces, and Al 7075-T76 for the landing gear, pylons, and connection surfaces. In this Section, these choices will be evaluated in more detail, focusing on the specific metal alloy applications and internal composition of the composite structures. 
 
 
+\todo[inline]{Include a table that lists the materials used for the primary structures in the introductory part of the section}
 
-was chosen for the landing gear, engine pylons, and connection ports. However, this choice will be evaluated with a more detailed analysis before being confirmed. The wings, fuselage, and empennage will be manufactured out of CFRP. The prepreg material to be used has yet to be selected, along with the materials for the wing foam core and the honeycomb core structure of the fuselage monocoque.
+
 
 \subsection{Metal Alloys}
 \label{sub:metal_alloys}
 
-Aluminium alloys, high-strength steels, and titanium alloys are the primary metals used in commercial aerospace \footnote{\href{https://www.flightmetals.com/metals-in-aerospace/}{Materials in Aerospace} (accessed on 01.06.2026)}. As mentioned in the Midterm Report \footref{ft:midterm_rep}, steel is used for safety-critical structures due to its high specific strength, while titanium is applied mainly in engine systems and landing gear because of its high strength, long fatigue life, fracture toughness, creep resistance, and excellent corrosion and oxidation resistance. 
+%Aluminium alloys, high-strength steels, and titanium alloys are the primary metals used in commercial aerospace \footnote{\href{https://www.flightmetals.com/metals-in-aerospace/}{Materials in Aerospace} (accessed on 01.06.2026)}. As mentioned in the Midterm Report \footref{ft:midterm_rep}, steel is used for safety-critical structures due to its high specific strength, while titanium is applied mainly in engine systems and landing gear because of its high strength, long fatigue life, fracture toughness, creep resistance, and excellent corrosion and oxidation resistance. 
+
+
+
+
+
 
 While aluminium was selected for the landing gear, engine pylons, and connection ports, the landing gear material should be revisited due to high landing impact loads, where steel may be preferable. The engine pylons are also exposed to high temperatures, and given the aluminium alloy’s melting point of \SI{480}{\celsius} \footnote{\href{https://www.makeitfrom.com/material-properties/7075-T76-Aluminum}{7075-T76 Aluminum} (accessed on 01.06.2026)}, materials with a higher melting temperature should be considered.
 
@@ -62,14 +68,19 @@ The driving material properties of the alloys considered are shown in \autoref{t
 Where E is the elastic modulus, G is the shear modulus, $\tau$ is the shear strength, $\sigma_{ULT}$ is the ultimate tensile strength, $\sigma_Y$ is the yield tensile strength, $T_m$ is the melting onset temperature, $\rho$ is the density, and the last column gives the embodied carbon per kilogram of material. 
 
 %The first six material properties listed in Table \autoref{tab:material_properties_metals} were used to assess the suitability of each alloy for structural aerospace applications. 
-For the landing gear, the material must be capable of resisting the high impact loads generated during touchdown without experiencing excessive deformation or yielding. A high elastic modulus contributes to structural stiffness, while high yield and ultimate tensile strengths ensure that the material can sustain large stresses without permanent deformation or failure. 
-Although fatigue strength can be considered in the design, it is not expected to be a governing factor. Each HUGO is anticipated to perform only four test flights per day for 20 days per year over a 15-year operational lifetime, resulting in approximately 1,200 flight cycles. Inspection of the S–N curve for 18Ni (350) maraging steel \cite{Rack1974FatigueMaraging} shows that the highest stress levels investigated correspond to a fatigue life of approximately 10$^4$ cycles. As HUGO is expected to experience only 1,200 operational cycles over its service life, fatigue failure is not expected to occur before end-of-life. A similar assessment can be made for Al 7075-T76, for which the highest tested stress levels correspond to fatigue lives exceeding 10$^5$ cycles \cite{Zalnezhad2012}, and for Ti-6Al-4V, whose S–N data indicate fatigue lives approaching 10$^4$ cycles at the highest stress amplitudes considered \cite{Janecek2015}. Therefore, fatigue is not expected to be a limiting design factor for any of the candidate materials under the anticipated operating conditions.
+For the landing gear, the material must be capable of resisting the high impact loads generated during touchdown without experiencing excessive deformation or yielding. An evaluation of the expected landing impacts experienced by HUGO, explained in more detail in \autoref{landing gear}, shows that the landing gear structure can experience up to 3.76 kN of force during each landing manoeuvre.  
+ A high elastic modulus contributes to structural stiffness, while high yield and ultimate tensile strengths ensure that the material can sustain large stresses without permanent deformation or failure. 
+Although fatigue strength can be considered in the design, it is not expected to be a governing factor.
+
+Each HUGO is anticipated to perform only four test flights per day for 20 days per year over a 15-year operational lifetime, resulting in approximately 1,200 flight cycles. Inspection of the S–N curve for 18Ni (350) maraging steel \cite{Rack1974FatigueMaraging} shows that the highest stress levels investigated correspond to a fatigue life of approximately 10$^4$ cycles. As HUGO is expected to experience only 1,200 operational cycles over its service life, fatigue failure is not expected to occur before end-of-life. A similar assessment can be made for Al 7075-T76, for which the highest tested stress levels correspond to fatigue lives exceeding 10$^5$ cycles \cite{Zalnezhad2012}, and for Ti-6Al-4V, whose S–N data indicate fatigue lives approaching 10$^4$ cycles at the highest stress amplitudes considered \cite{Janecek2015}. Therefore, fatigue is not expected to be a limiting design factor for any of the candidate materials under the anticipated operating conditions.
 
 
-To evaluate the holistic influence of material selection on component design, a structural analysis of the landing gear strut was performed. The strut is subjected to landing loads comprising an axial load, derived from the aircraft's (HUGO) weight and landing load factor, and a transverse load resulting from braking deceleration. Based on a landing load factor of 4 specified during landing by CS-23 \cite{EASA_CS23_Am3_2012}, and incorporating a safety factor of 2, the design axial load was calculated as 1962 N per gear. Additionally, assuming a peak braking deceleration of 2g with the same safety factor, the design transverse load was determined to be 981 N. 
+%To evaluate the holistic influence of material selection on component design, a structural analysis of the landing gear strut was performed. The strut is subjected to landing loads comprising an axial load, derived from the aircraft's (HUGO) weight and landing load factor, and a transverse load resulting from braking deceleration. Based on a landing load factor of 4 specified during landing by CS-23 \cite{EASA_CS23_Am3_2012}, and incorporating a safety factor of 2, the design axial load was calculated as 1962 N per gear. Additionally, assuming a peak braking deceleration of 2g with the same safety factor, the design transverse load was determined to be 981 N. 
 
-The structural integrity of the strut was assessed against yield failure - combining bending and axial compression - as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the following formulae \cite[p.~256]{megson2016aircraft}, where $K$ is the length factor determined by the boundary conditions ($K = 2.0$ for the cantilever configuration):
+The structural integrity of the strut was assessed against yield failure - combining bending and axial compression - as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the methodology proposed by Megson \cite[p. 256]{megson2016aircraft} for a cantilever configuration.
+%where $K$ is the length factor determined by the boundary conditions ($K = 2.0$ for the cantilever configuration):
 
+\begin{comment}
 \begin{equation}
 \sigma_{max} = \frac{F_{axial}}{A} + \frac{M_{bending_{max}} c}{I}
 \end{equation}
@@ -77,8 +88,17 @@ The structural integrity of the strut was assessed against yield failure - combi
 \begin{equation}
 P_{cr} = \frac{\pi^2 E I}{(K L)^2}
 \end{equation}
+\end{comment}
 
-Additionally, local shell buckling (skin crippling) under combined axial and bending loads was evaluated using the NASA SP-8007 design criteria \cite{nasa_sp8007}. The allowable local buckling stresses for pure axial compression ($\sigma_{c,all}$) and pure bending ($\sigma_{b,all}$) are given by:
+Additionally, local shell buckling (skin crippling) under combined axial and bending loads was evaluated using the NASA SP-8007 design criteria \cite{nasa_sp8007}, using knockdown factors to account for manufacturing imperfections. The allowable buckling stresses were defined for pure axial compression $\sigma_{c}$ and pure bending $\sigma_{b}$. Structural adequacy under combined loading is satisfied if the stress ratios satisfy the linear interaction envelope described by \autoref{eq:linear_interaction_envelope} \cite[p. 31]{nasa_sp8007}.
+
+\begin{equation}
+\label{eq:linear_interaction_envelope}
+    \frac{(\sigma_c)_\text{total}}{(\sigma_c)_\text{allowable}} + \frac{(\sigma_b)_\text{total}}{(\sigma_b)_\text{allowable}} \le 1.0
+\end{equation}
+
+\begin{comment}
+The allowable local buckling stresses for pure axial compression ($\sigma_{c,all}$) and pure bending ($\sigma_{b,all}$) are given by:
 
 \begin{equation}
 \sigma_{c,all} = \frac{\gamma_c E}{\sqrt{3(1-\mu^2)}} \frac{t}{r}
@@ -103,45 +123,41 @@ The geometric parameter $\phi$ is defined as:
 \begin{equation}
 \phi = \frac{1}{16}\sqrt{\frac{r}{t}}
 \end{equation}
-
-Structural adequacy under combined loading is satisfied if the stress ratios satisfy the linear interaction envelope:
-
+\end{comment}
+\begin{comment}
 \begin{equation}
+\label{eq:linear_interaction_envelope}
 R_c + R_b \le 1.0
 \end{equation}
+\end{comment}
 
-where $R_c = \sigma_c / \sigma_{c,all}$ and $R_b = \sigma_b / \sigma_{b,all}$ represent the applied-to-allowable stress ratios for the compression and bending components, respectively.
+%where $R_c = \sigma_c / \sigma_{c,all}$ and $R_b = \sigma_b / \sigma_{b,all}$ represent the applied-to-allowable stress ratios for the compression and bending components, respectively.
+The landing strut outer diameter $d_\text{outer}$, wall thickness $t$, and corresponding minimum mass $m$ values obtained from the analysis for Al 7075-T76 and Steel 18Ni(350) are summarized in \autoref{tab:strut_sizing}. It can be seen that although the steel struts result in a slightly higher mass than the other considered materials, their outer diameter is 51\% lower than aluminium and 27\% lower than titanium while providing a similar structural performance.
 
-The results, summarized in Table \autoref{tab:strut_sizing}, demonstrate that Aluminum 7075-T76 and Titanium yield the lightest strut designs capable of withstanding the prescribed loads, whereas the Steel 18Ni(350) design is slightly heavier. However, the steel design results in the strut with the lowest diameter.
+%The results demonstrate that Aluminum 7075-T76 and Titanium yield the lightest strut designs capable of withstanding the prescribed loads, whereas the Steel 18Ni(350) design is slightly heavier. However, the steel design results in the strut with the lowest diameter.
 
 \begin{table}[H]
     \centering
-    \caption{Optimal landing gear strut sizing for candidate materials ($t_{min}=1$ mm)}
+    \caption{Optimal landing gear strut sizing for candidate materials} %($t_{min}=1$ mm)}
     \label{tab:strut_sizing}
-    \begin{tabular}{|p{3.5cm}|p{2.5cm}|p{2cm}|p{2cm}|}
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        \textbf{Material} &
-        \textbf{Outer Diameter [mm]} &
-        \textbf{Thickness [mm]} &
-        \textbf{Minimum Mass [g]} \\
-        \hline\hline
-        Al 7075-T76
-        & 38.54 & 0.31 & 15.08 \\
-        \hline
-        Steel 18Ni(350)
-        & 18.74 & 0.25 & 17.64 \\
-        \hline
-        Titanium
-        & 25.61 & 0.29 & 15.22 \\
-        \hline
+        \textbf{Material} & \textbf{$d_\text{outer}$[mm]} & \textbf{$t$ [mm]} & \textbf{$m$ [g]} \\\hline\hline
+        Al 7075-T76 & 38.54 & 0.31 & 15.08 \\\hline
+        Steel 18Ni(350) & 18.74 & 0.25 & 17.64 \\\hline
+        Titanium & 25.61 & 0.29 & 15.22 \\\hline
     \end{tabular}
 \end{table}
 
-Beyond structural performance, material selection must also account for environmental impact over the component's lifecycle. In terms of recyclability, a primary obstacle of aluminium is separating it from other metals within the alloy \footnote{\href{https://www.recyclingtoday.com/news/tomra-aluminum-sorting-recycling-technology-van-de-winkel/}{Commentary: Recycling plays critical role in future aluminium production} (accessed on 02.06.2026)}. In the case of titanium, its high melting point and reactive nature create more processing challenges than aluminium \footnote{\href{https://ironandmetals.com/blog/titanium-vs-aluminum-recycling-what-you-need-to-know/}{Titanium vs Aluminum Recycling: What You Need to Know} (accessed on 02.06.2026)}. When considering also the embodied carbon per kilogram of material as listed in \autoref{tab:material_properties_metals}, the titanium alloy performs the worst, whereas the steel has the lowest overall environmental impact.
 
-A final consideration, as previously mentioned, is the proximity of the engine pylons to the high temperatures generated during engine operation. Information gathered from communicating with a JetCat informed us that the outer temperatures of the nacelle will exceed 200$^\circ$C. This is far from the melting temperature of all the metals being considered, however, material properties like Young's Modulus (E) decrease linearly with temperature increase. Additionally, creep resistance is also impacted by temperature \cite[ch.~13, p.~553]{ashby2019materials}, as when the temperature of the material approaches its melting point, its resistance to creep degrades.
+In case of the engine pylons, high temperatures related to the engine operation prove to be a key material selection factor. Notably, the elastic modulus and creep resistance of materials tend to decrease linearly with increasing temperature \cite{ashby2019materials}. In HUGO's case, it can be expected that the outer nacelle temperatures during operation exceed $200^\circ$C \footnote{In communication with JetCat}. Based on the $T_m$ values listed in \autoref{tab:material_properties_metals}, it can be seen that Al 7075-T76 is not a feasible choice for the considered structure. An evaluation of recyclability of the steel and titanium alloys showed preference for the former. Therefore, \textbf{18Ni(350) Steel} was selected as the material for both landing gear struts and engine pylons, while keeping \textbf{Al 7075-T76} as the primary material for connection ports.
 
-Aluminium 7076-T76 therefore cannot be used for the engine pylons, as its melting point is close to the nacelle temperature of the engines. Additionally, the optimal landing gear strut diameter for aluminium is 38.54 mm, which is very high, resulting in high drag and internal volume use. Titanium results in a lighter design than steel, however, due to the high material and manufacturing cost associated with titanium, as well as it's challenges in terms of recyclability, \textbf{Steel 18Ni(350)} is chosen as the material for the landing gear and engine pylons. 
+%Beyond structural performance, material selection must also account for environmental impact over the component's lifecycle. In terms of recyclability, a primary obstacle of aluminium is separating it from other metals within the alloy \footnote{\href{https://www.recyclingtoday.com/news/tomra-aluminum-sorting-recycling-technology-van-de-winkel/}{Commentary: Recycling plays critical role in future aluminium production} (accessed on 02.06.2026)}. In the case of titanium, its high melting point and reactive nature create more processing challenges than aluminium \footnote{\href{https://ironandmetals.com/blog/titanium-vs-aluminum-recycling-what-you-need-to-know/}{Titanium vs Aluminum Recycling: What You Need to Know} (accessed on 02.06.2026)}. When considering also the embodied carbon per kilogram of material as listed in \autoref{tab:material_properties_metals}, the titanium alloy performs the worst, whereas the steel has the lowest overall environmental impact.
+
+
+%A final consideration, as previously mentioned, is the proximity of the engine pylons to the high temperatures generated during engine operation. Information gathered from communicating with a JetCat informed us that the outer temperatures of the nacelle will exceed 200$^\circ$C. This is far from the melting temperature of all the metals being considered, however, material properties like Young's Modulus (E) decrease linearly with temperature increase. Additionally, creep resistance is also impacted by temperature \cite[ch.~13, p.~553]{ashby2019materials}, as when the temperature of the material approaches its melting point, its resistance to creep degrades.
+
+%Aluminium 7076-T76 therefore cannot be used for the engine pylons, as its melting point is close to the nacelle temperature of the engines. Additionally, the optimal landing gear strut diameter for aluminium is 38.54 mm, which is very high, resulting in high drag and internal volume use. Titanium results in a lighter design than steel, however, due to the high material and manufacturing cost associated with titanium, as well as it's challenges in terms of recyclability, \textbf{Steel 18Ni(350)} is chosen as the material for the landing gear and engine pylons. 
 
 \subsection{Composites}
 \label{sub:composites}
