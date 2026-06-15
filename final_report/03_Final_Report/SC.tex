@@ -933,20 +933,28 @@ In order to ensure that the fuselage does not fail in shear, yield, fracture, or
 
 \section{Flutter Analysis}
 
--Why is flutter analysis relevant
+Since the aircraft has to reach the required maximum speed in a safe way, it has to be ensured that no aeroelastic instabilities occur before this speed. Hence, a preliminary flutter analysis has been performed by using the binary aeroelastic model as described in \cite{wright2008introduction}. 
 
--Model selected for preliminary analysis
-\cite{wright2008introduction}
+The model assumes the wing to be a cantilevered beam with first bending and first torsion as degrees of freedom. The general aeroelastic equations of motions for determining the stability of the system are given by \cite{wright2008introduction}:
 
--Assumptions from model
+\[
+\mathbf{A}\mathbf{\ddot{q}}
++(\rho V \mathbf{B}+\mathbf{D})\mathbf{\dot{q}}
++(\rho V^2 \mathbf{C}+\mathbf{E})\mathbf{q}
+=\mathbf{0}
+\]
+
+where $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{E}$ are structural mass, aerodynamic damping and stiffness, and structural damping and stiffness matrices, respectively. 
 
 -A and E matrix derivation
 
 -D matrix
+-Rayleigh damping
 
 -B and C matrix derivation
+The aerodynamic matrices have been derived by applying strip theory to simplified unsteady aerodynamic forces.
 
--Results
+-VandV
 
 -Data analysis and significance of results
 
