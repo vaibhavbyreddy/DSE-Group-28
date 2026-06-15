@@ -340,13 +340,13 @@ The total drag values were computed using a parabolic induced drag coefficient e
 
 % talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
 % -
-The structural model of the wing was developed to model the internal loads and their associated deformations, i. e. the wing twist and tip deflection. An analysis of the flight envelope and related structural requirements (HUF-STR-10) has shown that HUGO shall be able to sustain ultimate load factors of up to 9 during manoeuvres. This edge case has been chosen as the point of analysis for the model, as it are expected to yield limiting load and stress values which can further be used for material selection and to verify compliance with design requirements.
+The structural model of the wing was developed to model the internal loads and their associated deformations, i. e. the wing twist and tip deflection. An analysis of the flight envelope and related structural requirements (HUF-STR-9) has shown that HUGO shall be able to sustain ultimate load factors of up to 9 during manoeuvres. This edge case has been chosen as the point of analysis for the model, as it are expected to yield limiting load and stress values which can further be used for material selection and to verify compliance with design requirements. Ultimate loads represent an extreme case that the airframe must sustain rarely in its life. There are loads at which the wing will be more often exposed, at which it must comply with requirements regarding deflection and rotation of the wing tip. As stated by HUF-STR-08 and HUF-STR-09, the tip must remain within the allowed constraints at a load factor of 6. With the exception of the wing tip deformations, the rest of the structural analysis is performed for the ultimate case scenario.
 
 %The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
 
 \subsection{Discretisation and Assumptions}
 As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain spanwise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed as conservative, as they do not account for the additional stiffness provided by any core materials, as the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
-\todo[inline]{Write about why the assumptions are acceptable}
+%\todo[inline]{Write about why the assumptions are acceptable}
 
 
 Each wing segment has its own weight, lift and moment contribution. To compute the applied and internal loads along the entire wing, it is necessary to first evaluate the individual cross-section perimeter $P$ (see: \autoref{eq:perim_area} \footnote{\href{https://en.wikipedia.org/wiki/Perimeter_of_an_ellipse}{Perimeter of an ellipse} (accessed on 10.06.2026)}), as well as surface area and moment of inertia contributions, where $a$ and $b$ are the semi-major and semi-minor axes of the ellipse. 
@@ -372,7 +372,7 @@ The structural analysis is formulated with several free variables for parametric
 \begin{wrapfigure}[16]{r}{0.43\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures_final/Wing_structure/Force Distribution Wing.png}
-    \caption{Force distribution for straight flight at load factor of 6}
+    \caption{Force distribution for straight flight at load factor of 9}
     \label{fig:force_distribution}
 \end{wrapfigure}
 The distributed weight of each section is evaluated with \autoref{eq:section_weight} based on the skin thickness $t_\text{skin}$, discretised panel length $l_\text{section}$, and the previously computed geometry. Combined with the Schrenk distributed lift formula introduced in \autoref{sec:aerodynamic_characteristics_estimate}, it can be utilised to determine the net force acting on the wing, which serves as an input for the internal load calculations. \autoref{fig:force_distribution} showcases the distributed lift, weight, and the resultant net force.
@@ -401,10 +401,10 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
 \begin{wrapfigure}[13]{l}{0.43\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures_final/Wing_structure/Torque distribution on the wing Cruise.png}
-    \caption{Torsion distribution at load factor of 6}
+    \caption{Torsion distribution at load factor of 9}
     \label{fig:torsion_dist}
 \end{wrapfigure}
-At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_dist}.
+At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 9, with the distribution presented in \autoref{fig:torsion_dist}.
 
 Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
 \begin{figure}[H]
@@ -414,11 +414,11 @@ Torque will influence the twist of the wing tip, but to determine the deflection
     \label{fig:internal_shear_and_moments}
 \end{figure}
 
-Once the torque, internal moments and shears are computed and tested, it is time to verify the compatibility of the structure with the criteria specified in \autoref{ch:requirements}, namely HUG-STR-08 and HUF-STR-09 that refer to the wing tip deflection and deflection. The equation used to determine the twist follows from \cite[p.~578]{megson2016aircraft}(Eq. 18.4) and requires the integration of the slope at each point to obtain the rotation. This equation assumes that the wing is a closed-sectioned beam, assumption that is valid in HUGOs' wings case since there are no ribs present for the moment to dictate their necessity. This equation also neglects the presence of normal shear stresses. Their presence reduces the twist in a real scenario due to their action of opposing the torque.
+Once the torque, internal moments and shears are computed and tested, it is time to verify the compatibility of the structure with the criteria specified in \autoref{ch:requirements}, namely HUG-STR-08 and HUF-STR-09 that refer to the wing tip deflection and deflection. The equation used to determine the twist follows from Megson\cite[p.~578]{megson2016aircraft}(Eq. 18.4) and requires the integration of the slope at each point to obtain the rotation. This equation assumes that the wing is a closed-sectioned beam, assumption that is valid in HUGOs' wings case since there are no ribs present for the moment to dictate their necessity. This equation also neglects the presence of normal shear stresses. Their presence reduces the twist in a real scenario due to their action of opposing the torque.
 
-Determining the wing tip deflection required, to first compute the internal moment distribution, followed by the implementation of the equation extranted from \cite[p.~599]{Hibbeler2018}(Eq. 12-5), where is assumed that the deflection is linear and minimal and does not take into account the bending of the beam. As stated by R.C. Hibbeler "the slope of the elastic curve, which is determined from $\frac{dv}{dx}$, will be very small, and its square will be negligible compared with unity." \cite{Hibbeler2018}. By modelling the simulation using this assumption, the values are correct only for small deflections; larger cases require solving more complex equations, left for future development of HUGO.
+Determining the wing tip deflection required, to first compute the internal moment distribution, followed by the implementation of the equation extracted from Hibbeler\cite[p.~599]{Hibbeler2018}(Eq. 12-5), where is assumed that the deflection is linear and minimal and does not take into account the bending of the beam. As stated by R.C. Hibbeler "the slope of the elastic curve, which is determined from $\frac{dv}{dx}$, will be very small, and its square will be negligible compared with unity." \cite{Hibbeler2018}. By modelling the simulation using this assumption, the values are correct only for small deflections; larger cases require solving more complex equations, left for future development of HUGO.
 
-Running the simulation on the test case with the wing planform chosen for delivery can be seen in \autoref{fig:rot_def}
+Simulating the test case as specified by the requirements at a load factor of 6, this time, with the wing planform chosen for delivery, yields the results seen in \autoref{fig:rot_def}
 
 \begin{figure}[H]
     \centering
@@ -426,23 +426,23 @@ Running the simulation on the test case with the wing planform chosen for delive
     \caption{Wing tip rotation and deflection under the load factor 6 case}
     \label{fig:rot_def}
 \end{figure}
-\todo[inline]{Make sure we mention somewhere that we have a 4.5 mm thickness}
-During the extreme case, the wing twists $ 3.37 \deg$ and deflects 0.257m ($8.0\% $ of the span), as such the wing stays well within the limits imposed by the requirements.
 
-Once the wing has been shown to meet the design requirements, the model must also verify that it remains structurally safe during operation. The applied loads generate internal stresses within the wing, which are evaluated for the most critical loading case to confirm that the material stays within its allowable limits. The stresses considered in this analysis are torsional shear stress, transverse shear stress due to internal forces, and normal stress due to bending.
+During the extreme case, the wing twists $ 6.08 \deg$ and deflects 0.354 m ($11.1\% $ of the span). These values show that the wing is within limits, and that it could sustain even larger loads wile remaining in limits.
+
+Once the wing has been shown to meet the design requirements, the model must also verify that it remains structurally safe during operation at the ultimate load factor. The applied loads generate internal stresses within the wing, which are evaluated for the most critical loading case to confirm that the material stays within its allowable limits. The stresses considered in this analysis are torsional shear stress, transverse shear stress due to internal forces, and normal stress due to bending.
 
 \begin{wrapfigure}[15]{r}{0.43\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures_final/Wing_structure/shear_stress_total.png}
-    \caption{Shear stress distribution due to torque and internal shear forces at a 6 loading factor}
+    \caption{Shear stress distribution due to torque and internal shear forces at a 9 loading factor}
     \label{fig:shear_dist}
 \end{wrapfigure}
-Shear stresses caused by bending and shear can be summed into a net total shear acting on the internal cross-section. Torsional shear stresses and shear stresses caused by the internal loads have been calculated using \autoref{eq:shear_eq} taken from \cite[p.~569]{megson2016aircraft}. 
+Shear stresses caused by bending and shear can be summed into a net total shear acting on the internal cross-section. Torsional shear stresses and shear stresses caused by the internal loads have been calculated using \autoref{eq:shear_eq} taken from Megson\cite[p.~569]{megson2016aircraft}. 
 \begin{equation}
     \tau_{torsion}= \frac{q}{t} = \frac{T}{2tA_m}
 \end{equation}
 \begin{alignat}{2}
-q &= -\frac{V_y I_{yy}}{I_{xx}}\int_{0}^{s} t y , \mathrm{d}s' + q_{s0}
+q &= -\frac{V_y I_{yy}}{I_{xx}}\int_{0}^{s} t y  \mathrm{d}s' + q_{s0}
 \qquad&
 \tau_{internal loads} &= \frac{q}{t}
 \label{eq:shear_eq}
@@ -450,7 +450,7 @@ q &= -\frac{V_y I_{yy}}{I_{xx}}\int_{0}^{s} t y , \mathrm{d}s' + q_{s0}
 
 After both the shear components are computed, they are summed, and the results can be seen in \autoref{fig:shear_dist}, reaching a maximum of 15.586 MPa. The material has a yield stress of 896 MPa \autoref{sec:final_mat_sel}, a much larger value than the maximum shear stress present in the wing material; as such, this loading case will not cause a shear failure.
 
-When the wing bends, the top section is in compression while the bottom section in tension, the internal moments from the forces induce a normal stress in the material. To compute its distribution, \autoref{eq:normal_stress} was used from \cite[p.~496]{megson2016aircraft}, whitch represents a simplified version of equation 16.17 from the book.
+When the wing bends, the top section is in compression while the bottom section in tension, the internal moments from the forces induce a normal stress in the material. To compute its distribution, \autoref{eq:normal_stress} was used from Megson\cite[p.~496]{megson2016aircraft}, whitch represents a simplified version of equation 16.17 from the book.
 
 \begin{equation}
     \sigma = \frac{M \cdot y_{max}}{I_x}
@@ -468,7 +468,7 @@ The normal stress distribution shown in \autoref{fig:normal_dist} decreases towa
 
 
 The last analysis considered verifies that the wing does not buckle. Composite materials are known to be brittle and lose their structural properties once they buckle. To prevent a lost in integrity, the model tests if the wing buckles by comparing the buckling stress with the maximum internal shear stress. 
-HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from \cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in \cite[p.~458]{niu1999airframe}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:final_mat_sel}.
+HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from Dowell\cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in Dowell\cite[p.~458]{niu1999airframe}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:final_mat_sel}.
 
 \begin{equation}
     \sigma_{cr} = C \frac{\pi^2 E}{12(1-\nu^2)} \left(\frac{t}{b}\right)^2
