@@ -9,12 +9,12 @@ The final, more detailed, version of the final design is included in the Final R
 
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
-This chapter outlines the structure of the external and internal layout of HUGO, emphasising the components needed to achieve research missions and their location within the airframe. \autoref{sec:resource_allocation_budget_breakdown} presents the resource allocation and budget breakdown, identifying the key budgets that constrain the dimensional requirements of the fuselage and wings and describing the methodology used for their definition and allocation.
+This chapter outlines the structure of the external and internal layout of HUGO, emphasising the components needed to achieve research missions and their location within the airframe. \autoref{sec:resource_allocation_budgets} presents the resource allocation and budget breakdown, identifying the key budgets that constrain the dimensional requirements of the fuselage and wings and describing the methodology used for their definition and allocation.
 Once the available resources are identified and quantified, \autoref{sec:external_configuration} goes into more detail regarding the outside characteristics of the frame, including the placement of the landing gear, outside sensors, instruments and landing gear. Moving towards the internal components, \autoref{sec:internal_configuration} outlines the systems that keep HUGO alive and functioning, such as the electronics, power system and sensors. Once all the details that give life to HUGO have been identified, the design team can move further towards analysing the performance of the flights.
 
 \section{Resource Allocation \& Budgets}
 \label{sec:resource_allocation_budgets}
-During the initial design phase\footnote{baseline report}\todo{ref baseline report}, the following set of technical budgets was identified for HUGO's design: centre of gravity location, communication link budget, aircraft mass, external dimensions, internal dimensions, fuel, and power available from the battery. This section provides a final overview of the available resources and the envisioned allocation scheme.
+During the initial design phase\footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report} (accessed on 02.06.2026)}, the following set of technical udgets was identified for HUGO's design: centre of gravity location, communication link budget, aircraft mass, external dimensions, internal dimensions, fuel, and power available from the battery. This section provides a final overview of the available resources and the envisioned allocation scheme. Numerical values for the budgets are not provided, because this section focuses on identifying important resources and the influences on them. In the following sections of this chapter, numerical values for the budgets are identified and the methods of identification are explained.
 
 
 \subsection{Centre of Gravity Location}
@@ -69,7 +69,7 @@ To ensure a more sustainable transport of the aircraft the electric Renault mast
     \begin{tabular}{|l|c|}
         \hline
         \textbf{Specification} & \textbf{Value} \\
-        \hline
+        \hline\hline
         \multicolumn{2}{|l|}{\textbf{Loading Area — Panel Van L3H2}} \\
         \hline
         Usable length & 3733 mm \\
@@ -108,12 +108,12 @@ Along with the systems and sensors found in the fuselage, as stated by HUG-GEN-0
 
 Along the internal components, inside the fuselage there will also be placed the fuel supply, and for this project, the fuel subsystem is attached to the propulsion system. Sensors for the experiments are placed along the wing as well as at the interface of the wing to the fuselage to measure bending and moments and forces. 
 
-A general schematic of the location o the inside parts can be found at \todo{addd the CAD with the cross section of the insides}
+%A general schematic of the location o the inside parts can be found at \todo{addd the CAD with the cross section of the insides}
 
 \subsection{Power budget}
 The configuration chosen for HUGO uses SAF as a fuel source to provide the thrust required by the using engines that do not have an inverter to provide their own energy \footnote{\href{https://www.jetcat.de/en/productdetails/produkte/jetcat/produkte/RC\%20ENGINES/Engines/p100_rx-bl}{JetCat P1000} (accessed on 06.03.2026)}, as such the electrical system has to provide a continuous source of energy. On top of the power required for the operation of the propulsion system, sensors, actuators, flight computer and the payload also require a continuous power supply. 
 
-In \todo{cite the operations }, it is mentioned that HUGO must be able to support a nominal mission time up to 30 minutes and an additional 15 minutes to account for missed landings or other deviations. As such, the power system has to maintain the system operational for at lest 45 minutes. 
+In \autoref{sec:operations}, it is mentioned that HUGO must be able to support a nominal mission time up to 30 minutes and an additional 15 minutes to account for missed landings or other deviations. As such, the power system has to maintain the system operational for at lest 45 minutes. 
 
 A power budget has been considered and an electrical system where the components are outlined and analysed can be seen in \autoref{sub:electronics_system_design}.
 
@@ -255,7 +255,8 @@ Because the landing gear positioning was done for the idealized fuselage, it was
 
 The landing gear mechanism itself can be seen in \textbf{add drawings from Vibhav}. \textbf{fig 1} shows the extended landing gear, and \textbf{fix 2} show the stowed landing gear. The landing gear mechanism... \todo{Vibhav please briefly describe how the mechanism works here. 2-3 sentences should be enough.}. when extended, the landing gear will experience mostly vertical loads, resulting in vertical compression. To accommodate the compression, the landing gear will utilise a spring and dashpot in parallel.
 
-During landing, the main landing gear must be able to withstand the impact loads. The EASA guidelines were originally interpereted to require a high risk UAS to withstand a 4g load. Later, it was determined that the requirement was simply for the structure to withstand 1.5 times the load transfered by the landing gear. Due to time constraints, the optimal trade off between loads withstood by the fuselage versus the landing gear could not be explored, but should be looked into in further design. To meet both force and displacement constraints, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
+During landing, the main landing gear must be able to withstand the impact loads, and the shock absorber deformation must be kept within allowable limits. As the landing gear needs to dissipate a predetermined downwards speed, the lower the impact load, the larger the deflection required. The initial maximum deflection required is 7.7 cm. This is how much the landing gear, sized to meet the geometric constraints, can deform so that the fuselage does not impact the ground. The initial guess for the force has been taken from now-deprecated EASA CS-23 regulations \todo{cite}, limiting the landing gear force to 4g. Current regulations do not provide a target impact load \todo{cite}. In case there was no feasible design space within the initial guess loading and displacement constraints, they would have had to be adjusted with consequences for either the landing gear (if the displacement is adjusted), or the fuselage (if the load is adjusted).
+% During landing, the main landing gear must be able to withstand the impact loads. The EASA guidelines were originally interpereted to require a high risk UAS to withstand a 4g load. Later, it was determined that the requirement was simply for the structure to withstand 1.5 times the load transfered by the landing gear. Due to time constraints, the optimal trade off between loads withstood by the fuselage versus the landing gear could not be explored, but should be looked into in further design. To meet both force and displacement constraints, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
 
 Using the python control library, the landing gear displacement and force responses to the aforementioned loads could be simulated. Using the spring and dashpot in parallel the following state space can be constructed:
 
@@ -330,7 +331,7 @@ the rest is the material people's job to do as they have the source (Passive Ice
 Vehicles Applications: A Review)
 \end{comment}
 
-\todo[inline]{Resource allocation missing}
+%\todo[inline]{Resource allocation missing}
 
 \section{Internal Configuration}
 \label{sec:internal_configuration}
@@ -366,7 +367,7 @@ In \autoref{fig:electronics_mapping} it can be seen that the battery does not di
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{figures_final/electronic_system.pdf}
+    \includegraphics[width=0.8\linewidth]{figures_final/electronic_system.pdf}
     \caption{Electronics system mapping}
     \label{fig:electronics_mapping}
 \end{figure}
@@ -377,8 +378,8 @@ With the total required power estimated at approximately 900 W and a minimum bus
 
 An 8-cell series configuration provides a nominal voltage of 28.8 V. To meet the required current demand, five cells are placed in parallel, resulting in an 8S5P configuration. At the nominal voltage, the required current for a 900 W load is approximately 31.3 A. This corresponds to about 6.3 A per cell, which is within the operating capability of the selected cells, at 6.5 A. The resulting pack can therefore supply approximately 936 W at nominal voltage, leaving a small power margin above the estimated requirement.
 
-At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power consumptions are provided in \autoref{tab:electric_comp}.
-\todo{include a ref for the component list, tried on Sunday not sure if it works, i dont want to break the git}
+At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power consumptions are provided in \autoref{tab:electric_comp}, and the file that was used to converge all the values is in at\footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/excel-files/Electronic\%20Components\%20\%26\%20Reliability\%20Study.xlsx}{Electronic Components \& Reliability Study} (15.06.2026)}.
+
 \begin{table}[H]
 \centering
 \caption{Electronic system component list}
@@ -431,15 +432,13 @@ Power Distribution Unit & 1 & 2200 & 2200 & $150 \times 155 \times 105$ & -- \\
 \end{tabular}
 \end{table}
 
-\todo[inline]{modifie on monday the power req to not include a value also the order of the paragraphs need changes}
-
 
 \subsection{Propulsion System Design}
 \label{sub:propulsion_system_design}
 %- section about propulsion system (think we can take it from the midterm for this one\\
 The electric system works in close relation with the propulsion system, one representing the nervos system and the other the motor one for HUGO. In this subsection, the propulsion configuration of HUGO is analysed and expanded on. Systems related to propulsion, including the turbojet engine, fuel tanks, fuel management, and distribution systems, are included in this category. The propulsion system is integrated into the fuselage group to allow for wing versatility, provide clean airflow over the wing and prevent aerodynamic interference of the engine with the wings. 
 
-In the previous design process\footref{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{Midterm Report} (accessed on 02.06.2026)}, it was identified that the initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. Furthermore, small turbojet engines on the market can be easily integrated due to their known characteristics and availability of the supporting subsystems. Therefore, based on the approximate thrust requirements of from the previus engine consideration, a pair of Jetcat P100-RX-BL engines \footnote{\href{https://www.jetcat.de/de/productdetails/produkte/jetcat/produkte/RC\%20ENGINES/Engines/p100_rx-bl}{Jetcat P100-RX-BL engine} (accessed on 19.05.2026)} are selected as the candidate engines for HUGO and are used as a reference component in \autoref{tab:prop_system}.
+In the previous design process\footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{Midterm Report} (accessed on 02.06.2026)}, it was identified that the initially selected VULCAN engine is in an early development stage, and the figures regarding its overall propulsive efficiency are uncertain. Furthermore, small turbojet engines on the market can be easily integrated due to their known characteristics and availability of the supporting subsystems. Therefore, based on the approximate thrust requirements of from the previus engine consideration, a pair of Jetcat P100-RX-BL engines \footnote{\href{https://www.jetcat.de/de/productdetails/produkte/jetcat/produkte/RC\%20ENGINES/Engines/p100_rx-bl}{Jetcat P100-RX-BL engine} (accessed on 19.05.2026)} are selected as the candidate engines for HUGO and are used as a reference component in \autoref{tab:prop_system}.
 
 
 \begin{table}[H]
@@ -503,7 +502,7 @@ Using the mission envelope  (\autoref{ch:operations_logistics}) it is possible t
     A different approach is the use of special fiber-optic cables which can measure the strain in the axial direction of the cable. By afterwards overlying the points in a FE-model of the wing it is possible to find the deflection of the wing \cite{Pak2015}. The current systems architecture is made so it can accommodate the different measurement techniques. This gives a potential costumer a larger freedom in choice regarding sensors.  
     \end{comment} 
     
-    \item Strain: A strain gage is a typical approach for measuring strain. It uses the changed resistance in a wire when mechanically deformed \footnote{\href{https://www.sciencedirect.com/topics/earth-and-planetary-sciences/strain-gage}{Strain gage}(02.06.2026)}. A typically configuration is a strain rosetta which consists three strain gages oriented 0,60,120 degrees. This makes it possible to measure the strain in all directions in the surface   \footnote{\href{https://intertechnology.com/Vishay/pdfs/TechNotes_TechTips/TN-515.pdf}{Strain gage}(02.06.2026)}.  
+    \item Strain: A strain gage is a typical approach for measuring strain. It uses the changed resistance in a wire when mechanically deformed \footnote{\href{https://www.sciencedirect.com/topics/earth-and-planetary-sciences/strain-gage}{Strain gage}(02.06.2026)}. A typically configuration is a strain rosetta which consists three strain gages oriented 0,60,120 degrees. This makes it possible to measure the strain in all directions in the surface   \footnote{\href{https://intertechnology.com/Vishay/pdfs/TechNotes_TechTips/TN-515.pdf}{Rosetta strain gage}(02.06.2026)}.  
     
     \item Loads: In this instance the measurement of the loads acting on and through the wing is the area of interest. For an aircraft this would be the resultant force (split into lift and drag) generated by the wing. These load-cells are sensors which can measure a load in a specific direction. Six-axis load cells can also measure the moment-generated in all three axial directions. These load-cells are preferable to the three axis as the load measurements are from those are influenced by the moments. 
     \item Wind-gusts: LIDAR can be used to detect wind ahead of an aircraft\cite{Schroeder2020}. The sensors sends out laser and then measuring the Doppler-shift in the back-scattered light it is possible to estimate a magnitude and direction of the upcoming wind \cite{YEW2025101127}. 
@@ -530,7 +529,7 @@ To increase the accuracy and precision certain modifications can be made on the 
 
 Diagram of the point of view. Image of the reference dots used. 
 
--Camera. The camera-system chosen was the DJI O4 Air Unit Pro. Here it was especially the form-factor of the system which would enable installation in the very restricted space of the horizontal tail and the high frame-rate and resolution . With a field of view being 155 \degree this would enable a large view of the wings. 
+-Camera. The camera-system chosen was the DJI O4 Air Unit Pro \footnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (05.06.2026)}. Here it was especially the form-factor of the system which would enable installation in the very restricted space of the horizontal tail and the high frame-rate and resolution . With a field of view being 155 \degree this would enable a large view of the wings. 
 The maximum resolution would be 3840×2880 at 60fps and the resolution at the maximum frame rate would be 3840×2160 120fps.  
 
 The chosen load-cell was the six-axis M3564E1 \tablefootnote{\href{https://www.srisensor.com/uploads/M3564E1.pdf}{SR load-cell} (accessed 9.06.2026)} . This enables the measurement all loads and torques generated by the wing.     
@@ -540,10 +539,13 @@ Since it must act as the structural link the overload capacity (the total load t
     L_{max}=\SI{2500}{\newton} \cdot3= \SI{7500}{\newton}
 \end{equation}
 
-Insert the max load experienced. 
-As each sensor has a max. Two load-cells must be used to share the loads to ensure it stays  below the overload capacity for each sensor. 
+It is now possible to make a preliminary conservative load estimation by using the requirement of the total mass of 50 kg the maximum experienced load will be:
+\begin{equation}
+    L_{max}=n_{max}\cdot m_{aircraft}\cdot g=9\cdot\SI{50}{\kg} \cdot \SI{9.81}{\frac{\m}{\s^2}}=  \SI{4414.15}{\newton}
+\end{equation}
+This estimate is conservative as load-alleviating effect of the wing mass is ignored. This means that one load- sensor would be able to carry the load at maximum wing loading. It was still decided to use two load-cells as the combined maximum measurable load would be $\SI{5000}{\newton}$. This means that even for the highest limit load the sensors would be able to measure the loads. 
 
-The two load-cells would be screwed into an external holder. Since the outer ring uses three M5 bolts the outer holder would have three M5 sized hole to accommodate. This holder would have a circular cut-out enabling the bolts going through the inner circle clearance. Then these would be first be bolted on the topside then a mounting plate would be put on top and then a second series of bolts would be mounted to keep it in place. The most important part of the entire setup is that it most be the load-cell alone which transfers the loads from the wings to the fuselage and vice-versa. 
+The two load-cells would be screwed into an external holder. Since the outer ring uses three M5 bolts the outer holder would have three M5 sized hole to accommodate them . This holder would have a circular cut-out enabling the bolts going through the inner circle clearance. Then these would be first be bolted on the topside then a mounting plate would be put on top and then a second series of bolts would be mounted to keep it in place. The most important part of the entire setup is that it most be the load-cell alone which transfers the loads from the wings to the fuselage and vice-versa. 
 
 \begin{figure}[H]
     \centering
@@ -551,8 +553,7 @@ The two load-cells would be screwed into an external holder. Since the outer rin
     \caption{Side-view with and without cut-out of the loadsensor installation}
     \label{fig:placeholder}
 \end{figure}
-Insert technical drawing of the configuration. 
-The configuration was deemed viable after communication with the manufacturer of the load-cell (SRI-X sunrise instruments).  
+The configuration was deemed viable after communication with the manufacturer of the load-cell (SRI-X sunrise instruments). For use the loading cell would be mounted with its holder inside of the fuselage. Then wings would  be mounted on top. A small access panel would have to be made for to screw the nuts on top of the six m5 bolts extruding from the load-cell.  
 
 (calculate the load-bearing capacity of the M5 screws) 
 All of the load-calculations are based on the information  
@@ -585,12 +586,12 @@ Final configuration of sensors (Insert large diagram)
         \textbf{Sensor} & \textbf{Nr} & \textbf{Weight [kg]} & \textbf{Dimensions [mm]} & \textbf{Power [W]} & \textbf{Accuracy} & \textbf{Sampling rate [Hz]} & \textbf{Data rate [Mbit/s]} \\
         \hline\hline
         6-axis Load-cell \tablefootnote{\href{https://www.srisensor.com/uploads/M3564E1.pdf}{SR load-cell} (accessed 9.06.2026)} & 2 & 0.16 & $71 \times 10 \times 69$ & See M8126 & ±1.5\% & 2000 & See M8126\\\hline
-        Strain gage  & 16 & 0.001 & $7\times 0.5 \times 7$ & See Q. X
+        Strain gage  & 16 & 0.005 & $7\times 0.5 \times 7$ & See Q. X
 Bridge & ±1.5\% & 20000 & See Q. X
 Bridge  \\\hline
         LIDAR-sensor \tablefootnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR}(02.06.2026)} & 3 & 0.160 & $55 \times 60 \times 38.7$ & 6 & ±2.5-5\% & 10 & 22.2 \\\hline
         Camera\tablefootnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (05.06.2026)} & 1 & 0.478 & $25.55 \times 20 \times 23.30$ & 15.6 & n.a. & 120 & 130 \\\hline
-        Pitot probe\tablefootnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)} & 1 & 0.100 & $6.35 \times 100 \times 6.35$ & 0.1 & ±1\% &100 & See Amp \\\hline
+        Pitot probe\tablefootnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot}(03.06.2026)} & 1 & 0.100 & $6.35 \times 100 \times 6.35$ & 0.1 & ±1\% &100 & See M. A. D. Computer \\\hline
     \end{tabular}
 \end{table}
 
@@ -603,9 +604,9 @@ Bridge  \\\hline
         \hline
         \textbf{Amplifier} & \textbf{Nr} & \textbf{Weight [kg]} & \textbf{Dimensions [mm]} & \textbf{Power [W]} & \textbf{Signal to noise ratio} & \textbf{Data rate [Mbit/s]} \\
         \hline\hline
-        M8126  & 1 & 0.700 & $150 \times 125 \times 58.5$ & 4.5 & 1/10000 & 2.76\\\hline
-        Micro Air Data Computer & 1 & 0.16 & $66 \times 79 \times 41$ & 1.5 & $\sim$ 1/5000  &1.83 \\\hline
-        QuantumX Bridge\tablefootnote{\href{https://assets.hbkworld.com/adobe/assets/deliver/urn:aaid:aem:65d123ca-53f3-487f-99c2-9bbc99c34e4b/QuantumX-MX1601B-Data-Sheet-B03882.pdf}{QuantumX}(03.06.2026)}  & 1 & 0.16 & $52.5 \times 200 \times 122$  & 13 & 1/2500 & 7.68 \\\hline
+        M8126  & 1 & 0.2 & $100 \times 100 \times 27$ & 4.5 & 1/10000 & 2.76\\\hline
+        Micro Air Data Computer & 1 & 0.18 & $66 \times 79 \times 41$ & 1.5 & $\sim$ 1/5000  &1.83 \\\hline
+        QuantumX Bridge\tablefootnote{\href{https://assets.hbkworld.com/adobe/assets/deliver/urn:aaid:aem:65d123ca-53f3-487f-99c2-9bbc99c34e4b/QuantumX-MX1601B-Data-Sheet-B03882.pdf}{QuantumX}(03.06.2026)}  & 1 & 0.980 & $52.5 \times 200 \times 122$  & 13 & 1/2500 & 7.68 \\\hline
     \end{tabular}
 \end{table}
 
@@ -618,12 +619,19 @@ Having the entire system it is now possible to finalize the configuration and id
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures_final/sensorconfig.png}
-    \caption{Caption}
+    \caption{Overview of the sensor and their connections}
     \label{fig:placeholder}
 \end{figure}
 
+(insert diagram of the configurations) 
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures_final/placeholder4.jpg}
+    \caption{Caption}
+    \label{fig:placeholder}
+\end{figure}
 
 \subsection{Change of the center of gravity}
 \label{sub:Changeofthecentreofgravity}

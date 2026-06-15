@@ -1,4 +1,4 @@
-\chapter{Structural Design Analysis}
+\chapter{Structural Analysis and Design}
 \label{ch:structural_characteristics}
 
 \todo[inline]{From the \textit{Project Guide}: \\Structural characteristics include e.g. loading diagrams, stresses, bending, flutter, lowest natural frequencies, design loads, etc.\\ A first version of design driving characteristics is included in the Mid-Term Report, a final, extended version including all relevant characteristics is given in the Final Report.}
@@ -340,12 +340,12 @@ The total drag values were computed using a parabolic induced drag coefficient e
 
 % talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
 % -
-The structural model of the wing was developed to model the internal loads and their associated deformations, i. e. the wing twist and tip deflection. An analysis of the flight envelope and related structural requirements (HUG-STR-07) has shown that HUGO shall be able to sustain load factors of up to 6 during manoeuvres. This edge case has been chosen as the point of analysis for the model, as it are expected to yield limiting load and stress values which can further be used for material selection and to verify compliance with design requirements.
+The structural model of the wing was developed to model the internal loads and their associated deformations, i. e. the wing twist and tip deflection. An analysis of the flight envelope and related structural requirements (HUF-STR-10) has shown that HUGO shall be able to sustain ultimate load factors of up to 9 during manoeuvres. This edge case has been chosen as the point of analysis for the model, as it are expected to yield limiting load and stress values which can further be used for material selection and to verify compliance with design requirements.
 
 %The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
 
 \subsection{Discretisation and Assumptions}
-As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain spanwise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. Additionally, it is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed as conservative, as they do not account for the additional stiffness provided by any core materials TBD TBD TBD
+As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain spanwise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed as conservative, as they do not account for the additional stiffness provided by any core materials, as the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
 \todo[inline]{Write about why the assumptions are acceptable}
 
 
@@ -932,31 +932,77 @@ In order to ensure that the fuselage does not fail in shear, yield, fracture, or
 
 
 \section{Flutter Analysis}
-
+\label{sec:flutter_analysis}
 Since the aircraft has to reach the required maximum speed in a safe way, it has to be ensured that no aeroelastic instabilities occur before this speed. Hence, a preliminary flutter analysis has been performed by using the binary aeroelastic model as described in \cite{wright2008introduction}. 
 
-The model assumes the wing to be a cantilevered beam with first bending and first torsion as degrees of freedom. The general aeroelastic equations of motions for determining the stability of the system are given by \cite{wright2008introduction}:
+The model assumes the wing to be a cantilevered beam with first bending ($q_b$) and first torsion ($q_t$) as degrees of freedom and with elastic axis at 50\% of the chord. The general aeroelastic equations of motions for determining the stability of the system are given by \autoref{eq:general_aeroelastic_eqs} \cite{wright2008introduction}:
 
-\[
-\mathbf{A}\mathbf{\ddot{q}}
-+(\rho V \mathbf{B}+\mathbf{D})\mathbf{\dot{q}}
-+(\rho V^2 \mathbf{C}+\mathbf{E})\mathbf{q}
+\begin{equation}
+\mathbf{A}\,\ddot{\mathbf{q}}
++(\rho V \mathbf{B}+\mathbf{D})\,\dot{\mathbf{q}}
++(\rho V^2 \mathbf{C}+\mathbf{E})\,\mathbf{q}
 =\mathbf{0}
-\]
+\label{eq:general_aeroelastic_eqs}
+\end{equation}
 
-where $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{E}$ are structural mass, aerodynamic damping and stiffness, and structural damping and stiffness matrices, respectively. 
+where $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{E}$ are structural mass, aerodynamic damping and stiffness, and structural damping and stiffness matrices, respectively. The flutter diagrams are then created by calculating the eigenvalues of this system at a range of flight conditions (altitudes and airspeeds) and plotting the frequencies and damping ratios of the two modes. 
 
 -A and E matrix derivation
 
--D matrix
--Rayleigh damping
+-D matrix (Rayleigh damping)
 
--B and C matrix derivation
-The aerodynamic matrices have been derived by applying strip theory to simplified unsteady aerodynamic forces.
 
--VandV
+The aerodynamic matrices have been derived by applying strip theory to the unsteady aerodynamic forces on an oscillating airfoil \cite{wright2008introduction}. This has been simplified by only retaining the pitch damping oscillatory aerodynamic derivative as a constant value of $-1.2$, which is a valid assumption for a wide range of reduced frequencies when the elastic axis is at $50\%$ of the chord \cite{hancock1985teaching, wright2008introduction}. This greatly simplifies the aerodynamic matrices, as it makes them uncoupled from reduced frequency. Additionally, the Prandtl-Glauert compressibility correction and sweep correction have been applied to aerodynamic matrices.
 
--Data analysis and significance of results
+% \begin{equation}
+% \begin{aligned}
+% dL &= \frac{1}{2}\rho V^2 c\,C_{L_{\alpha}}
+% \left(
+% \frac{y^2 \dot{q}_b}{s^2V}
+% +\frac{y}{s}q_t
+% \right)dy
+% \qquad
+% &
+% dM &= \frac{1}{2}\rho V^2 c^2\,dy
+% \left[
+% e\,C_{L_{\alpha}}
+% \left(
+% \frac{y^2 \dot{q}_b}{s^2V}
+% +\frac{y}{s}q_t
+% \right)
+% +M_{\dot{\theta}}\,c
+% \left(
+% \frac{y\dot{q}_t}{4sV}
+% \right)
+% \right]
+% \end{aligned}
+% \label{eq:10.12}
+% \end{equation}
+
+% where $s$ is the wing half-span.
+
+The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \textcolor{red}{reference table} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. Both of these are above the maximum speed at the testing altitude.
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Flutter/verification_damped.png}
+        \caption{Wing properties from \cite{wright2008introduction}}
+        \label{fig:flutter_verification_damped}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Flutter/flutter_results.png}
+        \caption{Wing properties from \textcolor{red}{reference table}}
+        \label{fig:flutter_results_damped}
+    \end{subfigure}
+
+    \caption{Comparison of the verification case and the flutter analysis results.}
+    \label{fig:flutter_comparison}
+\end{figure}
 
 
 

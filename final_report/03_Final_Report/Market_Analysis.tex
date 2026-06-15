@@ -1,9 +1,11 @@
 \chapter{Market Analysis}
 \label{ch:market_anaysis}
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
+\todo[inline]{This chapter was initially proofread by Hanna}
 
 This profitability and market study serves as an important decision gate for the project. The objective is not merely to generate a commercial business plan, but to establish the project's economic safety factor. By quantifying development (CAPEX), operational costs (OPEX), and realistic revenue constraints, we can objectively evaluate engineering trade-offs. For instance, if the financial model demonstrates resilience to high development costs, it justifies integrating complex, high-value features (such as heavy modular payload interfaces or premium micro-turbines) without compromising the project's viability.
+
+
 
 \section{Market Analysis \& Value Proposition}
 \label{sec:market_value_prop}
@@ -13,7 +15,7 @@ This profitability and market study serves as an important decision gate for the
 The target market is divided into three key segments seeking high-fidelity aeroelastic and flight dynamics data:
 
 \begin{itemize}
-    \item \textbf{Research Centres (The Beachhead):} National institutes like the NLR or DLR require robust, predictable platforms for high-accuracy validation.
+    \item \textbf{Research Centres in The Netherlands (The Beachhead):} National institutes like the NLR or DLR require robust, predictable platforms for high-accuracy validation.
     \item \textbf{Universities:} Academic laboratories (e.g., TU Delft) researching active flutter suppression.
     \item \textbf{Aerospace \& Defence Companies:} Companies needing to accelerate development cycles of new UAV payloads in real-life conditions prior to certification.
 \end{itemize}
@@ -37,25 +39,24 @@ Based on the budgets of major Dutch aerospace testing facilities (NLR, DNW, TU D
 \section{Financial Baseline \& Cost Breakdown}
 \label{sec:financial_baseline}
 
-The financial viability of this project relies on a clear understanding of the baseline Capital Expenditures (CAPEX) required to launch the service, as well as the Operational Expenditures (OPEX) and unit economics required to sustain it. The figures presented in Table~\ref{tab:opex_capex} are derived from a comprehensive bottom-up cost model. The mathematical breakdown of each category is detailed below.
+The financial viability of this project relies on a clear understanding of the baseline Capital Expenditures (CAPEX) required to launch the service, as well as the Operational Expenditures (OPEX) and unit economics required to sustain it. The figures presented in \autoref{tab:opex_capex} are derived from a comprehensive bottom-up cost model. The mathematical breakdown of each category is detailed below.
 
 \begin{table}[H]
     \centering
     \caption{OPEX and CAPEX Breakdown}
     \label{tab:opex_capex}
-    \begin{tabular}{@{}lr@{}}
-        \toprule
-        \textbf{Category} & \textbf{Amount} \\
-        \midrule
-        R\&D Total (CAPEX)                 & \texteuro{}2,750,000 \\
-        Certification Total (CAPEX)         & \texteuro{}50,000 \\
-        GCS \& Equipment (CAPEX)             & \texteuro{}50,000 \\
-        Fleet Production Cost (CAPEX)       & \texteuro{}250,000 \\
-        Permanent R\&D Staff (Annual OPEX)   & \texteuro{}320,000 \\
-        Overhead/Management (Annual OPEX)   & \texteuro{}155,000 \\
-        Direct Cost Per Flight Day          & \texteuro{}4,500 \\
-        Gross Margin Per Flight Day         & \texteuro{}20,500 \\
-        \bottomrule
+    \begin{tabular}{|l|c|c|}
+        \hline
+        \multicolumn{1}{|c|}{\textbf{Category}} & \textbf{Type} & \textbf{Expenditure} \\
+        \hline\hline
+        R\&D Total & CAPEX                 & \texteuro{}2,750,000 \\\hline
+        Certification Total & CAPEX         & \texteuro{}50,000 \\\hline
+        GCS \& Equipment & CAPEX              & \texteuro{}50,000 \\\hline
+        Fleet Production Cost & CAPEX       & \texteuro{}250,000 \\\hline
+        Permanent R\&D Staff & Annual OPEX   & \texteuro{}320,000 \\\hline
+        Overhead/Management & Annual OPEX   & \texteuro{}155,000 \\\hline
+        Direct Cost Per Flight Day   & $-$        & \texteuro{}4,500 \\\hline
+        Gross Margin Per Flight Day  & $-$       & \texteuro{}20,500 \\\hline
     \end{tabular}
 \end{table}
 
@@ -131,7 +132,7 @@ The ability to pay off the debt in the first 5 years is the constraining factor 
 
 The analysis so far was based on initial figures estimated in Section~\ref{sec:financial_baseline}. This is considered the baseline. However, it is important to know which of these factors affects the project's financial feasibility the most. In order to determine this, a sensitivity analysis was performed on several metrics, to find minimums or maximums that make this project viable.
 
-The sensitivity analysis was performed by computing the maximum or minimum cost required for feasibility in each category. The feasibility was determined to be the amount of EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortisation) required to pay off the amortisation at the very least. By comparing these extreme values to the baseline values, a margin of safety can be computed. These values are listed in Table~\ref{tab:sensitivity}.
+The sensitivity analysis was performed by computing the maximum or minimum cost required for feasibility in each category. The feasibility was determined to be the amount of Earnings Before Interest, Taxes, Depreciation, and Amortisation (EBITDA) required to pay off the amortisation at the very least. By comparing these extreme values to the baseline values, a margin of safety can be computed. These values are listed in Table~\ref{tab:sensitivity}.
 
 \begin{table}[H]
     \centering
@@ -257,4 +258,3 @@ The uncertainty in the logistics and transport fees has the largest impact among
 % }
 % --------------------------------------------------------------------
 
-\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}

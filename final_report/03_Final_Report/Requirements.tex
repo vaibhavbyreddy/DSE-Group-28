@@ -7,8 +7,60 @@
 
 \section{Project Objectives}
 \label{sec:project_objectives}
+\todo[inline]{Currently copied from midterm for tuning}
 
--Arturo
+The project objectives are formulated according to the SMART method: they are specific, measurable, actionable, relevant, and time-bound. They serve as a roadmap for planning and execution, defining the tangible deliverables and outcomes required within a project’s timeline, budget, and scope.
+
+
+%The project objectives are split into five main categories: financial, quality, performance, business, and compliance. 
+
+\section{Financial Objectives}
+The financial objectives focus on budget management.
+%\todo[inline]{These ones look like requirements, they do not seem like objectives but like steps}
+\begin{enumerate}
+    %\item The annual storage cost shall not exceed \EUR{TBD}, per the Den Helder hangar rental agreement. 
+    \item The total manufacturing cost per aircraft configuration shall not exceed \texteuro{45000} \footref{url:baseline_report}.
+    \item The aircraft shall have a maximum operational cost of \texteuro{2000} per flight day \footref{url:baseline_report}.
+    %\item The aircraft shall have an engine maintenance interval of up to 50 hours \footref{url:baseline_report}.
+\end{enumerate}
+
+\section{Quality Objectives}
+The quality objectives define standards for the deliverables.
+
+\begin{enumerate}
+    %\item Data shall be downloaded and stored efficiently after each test flight.
+    %\item A HUGO configuration shall undergo a thorough inspection of all internal and external systems and the external structure before and after each test flight.
+    \item A HUGO configuration shall undergo 50 days of maintenance per year \footref{url:baseline_report}.
+    % \item The maximum relative difference for verification analysis shall be less than 1\%.
+    \item The configuration trade-off shall evaluate the candidate architectures against weighted criteria, with a consistency ratio below 0.1 for the Analytic
+    Hierarchy Process (AHP) weighting (\autoref{sec:trade-off_weight_factors}).
+\end{enumerate}
+
+\section{Performance Objectives}
+The performance objectives focus on the results and effectiveness of the project.
+
+\begin{enumerate}
+    \item The initial HUGO fleet shall comprise of five aircraft to ensure continuous operational availability across 100 operational days per year with 4 flight tests per day \footref{url:baseline_report}.
+    \item The selected configuration shall withstand manoeuvre load factors ranging from −3 to +6 (\autoref{sec:flight_envelope}).
+    \item The aircraft shall enable continuous flight and collection of flight test data at 0.75 Mach for at least 5 minutes \footref{url:baseline_report}.
+    \item The selected configuration shall carry sufficient fuel for the nominal mission of 30 minutes and four landing attempts \footref{url:baseline_report}.
+\end{enumerate}
+
+\section{Business Objectives}
+The business requirements align with the strategic goals of market entry and client acquisition.
+\begin{enumerate}
+    \item The Netherlands shall serve as the primary market for initial operations, with Den Helder Airport as the designated base of operations \footref{url:baseline_report}.
+    \item HUGO shall be capable of serving customers from at least four market segments: universities and academic laboratories, research centres, aerospace companies, and defence organisations \footref{url:baseline_report}.
+    %\item The design shall support rapid reconfiguration between client-test campaigns to minimise aircraft-on-ground time between contracts.
+\end{enumerate}
+
+\section{Compliance Objectives}
+The compliance objectives ensure adherence to regulations and standards.
+
+\begin{enumerate}
+    \item Each HUGO configuration shall comply with the environmental performance requirements set out in Annex~III of Regulation (EU) 2018/1139 of the European Parliament and of the Council (\autoref{sec:environmental_protection}).
+    \item Each HUGO configuration shall comply with the the CS 23 Aerobatic Airplanes requirements and Special Condition for Light Unmanned Aircraft Systems - High Risk (\autoref{sec:CS-23 and SC-UAS}).
+\end{enumerate}
 
 
 
@@ -145,7 +197,7 @@ HUG-ELE-01 & The electronic subsystem shall allow for continuous contact with th
 HUG-ELE-02 & The electronic subsystem shall fit inside the fuselage. \\\hline
 HUG-ELE-03 & The electronic subsystem shall provide no less than TBD of storage for measurements taken throughout the test segment of the mission. \\\hline 
 HUG-ELE-04 & The electronic subsystem shall provide no less than 60 W of power after losses reserved for the payload at nominal mission conditions. \\\hline
-HUG-ELE-05 & The electronic subsystem shall provide peak power of no less than 900 W at nominal mission conditions. \\\hline
+HUG-ELE-05 & The electronic subsystem shall provide power even in peak conditions to HUGO for the entire flight duration. \\ \hline
 
 
 
@@ -169,9 +221,10 @@ HUG-STR-02 & The structure shall support ultimate loads, which are equal to the 
 HUG-STR-04 & The natural frequencies of the structure shall remain outside the range of 0.8 to 1.4 of the blade-pass frequency of the engine  \cite{Prakash2016DynamicFoundation, Alhazmi2025CoolingFanVibration}. \\\hline
 HUG-STR-05 & The structure shall provide space and mounting points for auxiliary systems. \\\hline
 HUG-STR-06 & The aircraft shall house a payload bay of at least 5 L internal volume. \\\hline
-HUG-STR-07 & The structure shall sustain manoeuvres at load factors up to 6.\\\hline
+HUG-STR-07 & The structure shall sustain manoeuvres at limit loads factors up to 6 \cite{easa_light_uas_crd_is3}.\\\hline
 HUG-STR-08 & The wing shall not twist more than $10 \deg$ at the wingtip.\\\hline
 HUF-STR-09 & The wingtip shall not deflect more than 15 \% of the total span under any conditions. \\\hline
+HUF-STR-10 & The structure shall sustain ultimate loads up to a load factor of 9. \cite{easa_light_uas_crd_is3}\\\hline
 
 
 

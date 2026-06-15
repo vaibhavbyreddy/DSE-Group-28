@@ -1,2 +1,50 @@
 \chapter{Project Planning Diagrams}
 \label{app:project_planning_diagrames}
+
+\begin{landscape}
+\begin{figure}[H]
+\hspace*{-1.75cm}  
+    \centering
+    \includegraphics[width=1.1\linewidth]{02_Midterm_Report/figures/Simpleprojectdesignanddevelopment.jpg}
+    \caption{Project Design \& Development Logic}
+    \label{fig:proj_design}
+\end{figure}
+\end{landscape}
+
+
+\begin{landscape}
+\begin{figure}[H]
+\hspace*{-1.75cm}  
+    \centering
+    \includegraphics[width=1.1\linewidth]{figures_final/CostBreakDown.jpg}
+    \caption{Cost breakdown structure }
+    \label{fig:proj_design}
+\end{figure}
+\end{landscape}
+
+\includepdf[
+    pages=1,
+    fitpaper=true,
+    pagecommand={
+        \thispagestyle{plain}
+        \phantomsection
+        \refstepcounter{figure}
+        \label{fig:FFD}
+        \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}{Functional Flow Diagram}}
+    }
+]{figures_final/Functional Flow Diagram Final (1).pdf}
+
+\clearpage
+
+\includepdf[
+    pages=1,
+    fitpaper=true,
+        angle=-90,
+    pagecommand={
+        \thispagestyle{plain}
+        \phantomsection
+        \refstepcounter{figure}
+        \label{fig:FBS}
+        \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}{Functional Breakdown Structure}}
+    }
+]{figures_final/Functional Breakdown Structure (1).pdf}
