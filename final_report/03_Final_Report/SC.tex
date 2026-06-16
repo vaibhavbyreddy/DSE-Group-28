@@ -7,7 +7,7 @@
 \section{Aerodynamic Characteristics Estimate}
 \label{sec:aerodynamic_characteristics_estimate}
 The goals of the aerodynamic characteristics estimate is to obtain the lift and induced drag of the aircraft required for the later calculation of the $L/D$ ratio, the lift curve slopes of all the lifting surfaces (both individually and combined with other lifting surfaces), and the lift distribution along the span to be used for determining the structural loads. This section describes the airfoil selection along with methods used for lift and drag estimations.
-
+\todo[inline]{Add the fact that we ran all the simulations before creating this section and we reached the conclusio after multimple iterations that the parameters that meet all the requirements are as follows...and state them}
 \subsection{Airfoil Selection}
 \label{sub:airfoil_selection}
 High subsonic speeds experienced by HUGO during the nominal mission necessitate the use of a supercritical airfoil to avoid large drag penalties due to shock waves and boundary layer separations induced by locally supersonic flows \cite{Whitcomb1974}. A preliminary sizing of the wing and tail surfaces performed in previous design phases identified NASA SC(2)-0012 (see: \autoref{fig:airfoil_simplified_model}) as a suitable airfoil choice for HUGO \cite{Harris1990}, based on the performance requirements and preliminary wing design lift coefficient of 0.074 \footref{ft:midterm_rep}.
@@ -340,16 +340,16 @@ The resulting lift distribution is presented in \autoref{fig:force_distribution}
 
 % talk about what we want to calculate and why, mention the steps and at the end talk about the material properties and that the wing will not fail for our case
 % -
-The structural model of the wing was developed to model the internal loads and their associated deformations, i. e. the wing twist and tip deflection. An analysis of the flight envelope and related structural requirements (HUF-STR-10) has shown that HUGO shall be able to sustain ultimate load factors of up to 9 during manoeuvres. This edge case has been chosen as the point of analysis for the model, as it are expected to yield limiting load and stress values which can further be used for material selection and to verify compliance with design requirements. Ultimate loads represent an extreme case that the airframe must sustain rarely in its life. There are loads at which the wing will be more often exposed, at which it must comply with requirements regarding deflection and rotation of the wing tip. As stated by HUF-STR-07, HUF-STR-08 and HUF-STR-10, the tip must remain within the allowed constraints at and the wing shall not buckle a load factor of 6. With the exception of the wing tip deformations, the rest of the structural analysis is performed for the ultimate case scenario.
+The structural model of the wing was developed to simulate the internal loads and their associated deformations, i. e. the wing twist and tip deflection. An analysis of the flight envelope and related structural requirements (HUG-STR-10) has shown that HUGO shall be able to sustain ultimate load factors of up to 9 during manoeuvres. This edge case has been chosen as the point of analysis for the model, as it are expected to yield limiting load and stress values which can further be used for material selection and to verify compliance with design requirements. Ultimate loads represent an extreme case that the airframe must sustain rarely in its life. There are loads at which the wing will be more often exposed, at which it must comply with requirements regarding deflection and rotation of the wing tip. As stated by HUF-STR-07, HUF-STR-08 and HUF-STR-10, the tip must remain within the allowed constraints at and the wing shall not buckle a load factor of 6. With the exception of the wing tip deformations, the rest of the structural analysis is performed for the ultimate case scenario.
 
 %The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
 
 \subsection{Discretisation and Assumptions}
-As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain spanwise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed as conservative, as they do not account for the additional stiffness provided by any core materials, as the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
+As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain span-wise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed conservative, as they do not account for the additional stiffness provided by any core materials, as the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
 %\todo[inline]{Write about why the assumptions are acceptable}
 
 
-Each wing segment has its own weight, lift and moment contribution. To compute the applied and internal loads along the entire wing, it is necessary to first evaluate the individual cross-section perimeter $P$ (see: \autoref{eq:perim_area} \footnote{\href{https://en.wikipedia.org/wiki/Perimeter_of_an_ellipse}{Perimeter of an ellipse} (accessed on 10.06.2026)}), as well as surface area and moment of inertia contributions, where $a$ and $b$ are the semi-major and semi-minor axes of the ellipse. 
+Each wing segment has its own weight, lift and moment contribution. To compute the applied and internal loads along the entire wing, it is necessary to first evaluate the individual cross-section perimeter $P$ \autoref{eq:perim_area} \footnote{\href{https://arxiv.org/pdf/math/0506384}{Ramanujan’s Perimeter of an Ellipse} (accessed on 16.06.2026)}, as well as surface area and moment of inertia contributions, where $a$ and $b$ are the semi-major and semi-minor axes of the ellipse. 
 
 \begin{equation}
 \begin{aligned}
@@ -363,7 +363,7 @@ P &\approx \pi(a+b)
 \label{eq:perim_area}
 \end{equation}
 
-The structural analysis is formulated with several free variables for parametric sizing, incl. the wing skin thickness. To determine the wing response under applied loads, the cross-sectional area of the thin-walled material section can be computed according to Niu \cite[p.~765]{niu1999airframe}, along with the second moment of area of a hollow ellipse.
+The structural analysis is formulated with several free variables for parametric sizing, including the wing skin thickness. To determine the wing response under applied loads, the cross-sectional area of the thin-walled material section can be computed according to Niu \cite[p.~765]{niu1999airframe}, along with the second moment of area of a hollow ellipse.
 
 
 
@@ -375,7 +375,7 @@ The structural analysis is formulated with several free variables for parametric
     \caption{Force distribution for straight flight at load factor of 9}
     \label{fig:force_distribution}
 \end{wrapfigure}
-The distributed weight of each section is evaluated with \autoref{eq:section_weight} based on the skin thickness $t_\text{skin}$, discretised panel length $l_\text{section}$, and the previously computed geometry. Combined with the Schrenk distributed lift formula introduced in \autoref{sec:aerodynamic_characteristics_estimate}, it can be utilised to determine the net force acting on the wing, which serves as an input for the internal load calculations. \autoref{fig:force_distribution} showcases the distributed lift, weight, and the resultant net force.
+The distributed weight of each section is evaluated with \autoref{eq:section_weight} based on the skin thickness $t_\text{skin}$, discretised panel length $l_\text{section}$, and the previously computed geometry. Combined with the Schrenk distributed lift formula introduced in \autoref{sec:aerodynamic_characteristics_estimate}, it can be utilised to determine the net force acting on the wing, serving as an input for the internal load calculations. \autoref{fig:force_distribution} showcases the distributed lift, weight, and the resultant net force.
 
 
 \begin{equation}
@@ -383,6 +383,15 @@ W = P \cdot t_\text{skin} \cdot l_\text{section} \cdot g_0 \label{eq:section_wei
 \end{equation}
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/sensitivity-study/extra wing weight sensitivity.png}
+    \caption{Effect of wing weight to wing structural weight ratio on total mass in the standard planform configuration}
+    \label{fig:sensitivity_wing}
+\end{figure}
+
+
+The wing weight to wing structural weight ratio was also an assumption made to calculate the total mass in the standard planform configuration. As shown in \autoref{fig:sensitivity_wing}, the wing weight to wing structural weight ratio is linearly related to the total mass in the standard planform configuration. This is expected behaviour as the ratio is applied linearly, and the overall effect for the examined parameter ranges by approximately 3kg, which is deemed sufficiently small.
 
 
 \subsection{Internal Load Distrbution}
@@ -422,7 +431,7 @@ Simulating the test case as specified by the requirements at a load factor of 6,
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures_final/Wing_structure/rotation_and_vertical_deflection.png}
+    \includegraphics[width=0.8\linewidth]{figures_final/Wing_structure/rotation_and_vertical_deflection.png}
     \caption{Wing tip rotation and deflection under the load factor 6 case}
     \label{fig:rot_def}
 \end{figure}
@@ -497,9 +506,11 @@ Once the wing has been verified to comply with the requirements and to resist th
 
 \section{Fuselage structural analysis}
 \label{sec:fuselage_structural_analysis}
-The structural analysis of the fuselage has been conducted by modelling the fuselage as a beam and considering the most constraining loading cases. Namely, the pull-up manoeuvre at the maximum load factor from the flight envelope, and the main landing gear impact for maximum vertical deceleration. For both of these, the fuselage has been discretised into $n$ nodes, with each node being assigned a mass based on the estimated positions and masses (both structural and non-structural) of different components. The lift force of the canard was assumed to be a fraction of the total lift force:
+The structural analysis of the fuselage has been conducted by modelling the fuselage as a beam and considering the most constraining loading cases. Namely, the pull-up manoeuvre at the maximum load factor from the flight envelope, and the main landing gear impact for maximum vertical deceleration. For both of these, the fuselage has been discretised into $n$ nodes, with each node being assigned a mass based on the estimated positions and masses (both structural and non-structural) of different components. The lift force of the canard was assumed to be a fraction of the total lift force (\autoref{eq:canard_lift_fraction}).
+
 \begin{equation}
     L_c=f\cdot L_{tot}
+    \label{eq:canard_lift_fraction}
 \end{equation}
 
 In the first case, the aircraft is assumed to be accelerating vertically due to a load factor $n$ and remaining in moment equilibrium.
@@ -667,14 +678,12 @@ where $a_i=a_{cg}=(n-1)g$.
 \end{figure}
 
 
-In the second case, the aircraft is assumed to both accelerate vertically upwards due to landing impact, and rotate with a rotational acceleration about the center of gravity. The lift forces in this case are found by assuming the total lift equal to weight (just before impact) and the aircraft in moment equilibrium (just before impact), with canard still assumed to contribute a fraction of the total lift. The free-body and kinetic diagrams at the instant of the impact are shown in \autoref{fig:fuselage_fbd_kd_landing}. The horizontal force between the ground and landing gear $F_{brake}$ is assumed a quarter of the normal contact force \cite{niu1999airframe}. Hence, the equations of motion are
+In the second case, the aircraft is assumed to both accelerate vertically upwards due to landing impact, and rotate with a rotational acceleration about the center of gravity. The lift forces in this case are found by assuming the total lift equal to weight (just before impact) and the aircraft in moment equilibrium (just before impact), with canard still assumed to contribute a fraction of the total lift (\autoref{eq:canard_lift_fraction}). The free-body and kinetic diagrams at the instant of the impact are shown in \autoref{fig:fuselage_fbd_kd_landing}. The horizontal force between the ground and landing gear $F_{brake}$ is assumed a quarter of the normal contact force \cite{niu1999airframe}. Hence, the equations of motion are
 
 \begin{equation}
      \tikz[baseline=-0.6ex]{\draw[->] (0,-0.25) -- (0,0.25);}
     \quad \Sigma F: L_c+L_w+L_t+F_{lg}-\Sigma m_i g=\Sigma m_i a_{cg}
 \end{equation}
-
-and 
 
 \begin{multline}
     \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_{cg}: \quad
@@ -883,9 +892,32 @@ The resulting internal loading diagrams for the two above cases are shown in \au
     \label{fig:fuselage_internal_loads}
 \end{figure}
 
-Subsequently, in order to ensure that the fuselage does not fail in yield, fracture, or buckling under these internal loads, the internal normal and shear stresses have been calculated by superimposing the internal loads and assuming a thin-walled circular cross-section. That resulted in \autoref{fig:fuselage_thicknesses}, showing the minimum required thickness at each station, where the minimum thickness was set at $0.1mm$. The critical normal buckling stress  
+Subsequently, the internal normal and shear stresses have been calculated by superimposing the internal loads and assuming a thin-walled circular cross-section. Since this section is doubly symmetric, the normal stress due to internal bending moment $M$, the shear stress due to internal transverse shear force $V$, and the shear stress due to internal torque $T$ were found using \autoref{eq:stresses_fuselage} \cite{roark1966formulas}. Standard formulas for properties of thin-walled circular and semi-circular sections from \cite{roark1966formulas} and \cite{bruhn1973analysis} have been used.
 
-\textcolor{red}{\cite{NASA_SP8007_2019} used for critical buckling loads: }
+\begin{equation}
+\begin{aligned}
+\sigma_{\text{bending}} &= \frac{My}{I}
+\qquad
+\tau_{\text{transverse shear}} &= \frac{VQ}{It}
+\qquad
+\tau_{\text{torque, max}} &= \frac{2Tr_o}{\pi (r_o^4-r_i^4)}
+\end{aligned}
+\label{eq:stresses_fuselage}
+\end{equation}
+
+The calculated stresses were subsequently used to determine the minimum thickness by imposing maximum allowed normal and shear stresses associated with yield, fracture, and buckling. The critical normal buckling stress was calculated using \autoref{eq:buckling_fuselage_global} \cite{roark1966formulas} with a knockdown factor shown in \autoref{eq:knockdown_buckling} \cite{NASA_SP8007_2019}.
+
+\begin{equation}
+    \sigma_{\text{crit, buckling}}=\frac{Et}{\sqrt{3(1-\nu^2)}r}
+    \label{eq:buckling_fuselage_global}
+\end{equation}
+
+\begin{equation}
+    \gamma = 1-0.901(1-e^{-\frac{1}{16}\sqrt{\frac{R}{t}}})
+    \label{eq:knockdown_buckling}
+\end{equation}
+
+These constraints resulted in \autoref{fig:fuselage_thicknesses}, showing the minimum required thickness at each station, where the lower bound for the thickness was set at $0.1$mm. Clearly, these limits are lower than the manufacturing limits as described in \autoref{sec:manufacturing}, so these results are not constraining for fuselage sizing. 
 
 \begin{figure}[H]
     \centering
@@ -900,14 +932,12 @@ Subsequently, in order to ensure that the fuselage does not fail in yield, fract
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/thickness_landing.png}
-        \caption{Landing impact at deceleration of $4g$}
+        \caption{Landing impact at deceleration of $8g$}
         \label{fig:fuselage_landing_thickness}
     \end{subfigure}
     \caption{Plots of the required thickness of the fuselage cylinder as a function of position}
     \label{fig:fuselage_thicknesses}
 \end{figure}
-
-\todo[inline]{Finish talking about the final fuselage skin thickness results; how they compare to manufacturable minimums}
 
 \todo[inline]{Include work done on abuse loads and sizing of the sandwich panel}
 
@@ -946,10 +976,14 @@ where $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{E}$ ar
 
 -A and E matrix derivation
 
--D matrix (Rayleigh damping)
+The structural damping matrix $\mathbf{D}$ has been obtained by employing \autoref{eq:Rayleigh_damping} with coefficients $\alpha$ and $\beta$ as defined by \citeauthor{hellen2013finite} \cite{hellen2013finite}. The damping ratios of $1\%$ critical per mode were used \cite{wright2008introduction}.
 
+\begin{equation}
+    \mathbf{D} = \alpha \mathbf{A} +\beta \mathbf{E}
+    \label{eq:Rayleigh_damping}
+\end{equation}
 
-The aerodynamic matrices have been derived by applying strip theory to the unsteady aerodynamic forces on an oscillating airfoil \cite{wright2008introduction}. This has been simplified by only retaining the pitch damping oscillatory aerodynamic derivative as a constant value of $-1.2$, which is a valid assumption for a wide range of reduced frequencies when the elastic axis is at $50\%$ of the chord \cite{hancock1985teaching, wright2008introduction}. This greatly simplifies the aerodynamic matrices, as it makes them uncoupled from reduced frequency. Additionally, the Prandtl-Glauert compressibility correction and sweep correction have been applied to aerodynamic matrices.
+Furthermore, the aerodynamic matrices have been derived by applying strip theory to the unsteady aerodynamic forces on an oscillating airfoil \cite{wright2008introduction}. This has been simplified by only retaining the pitch damping oscillatory aerodynamic derivative as a constant value of $-1.2$, which is a valid assumption for a wide range of reduced frequencies when the elastic axis is at $50\%$ of the chord \cite{hancock1985teaching, wright2008introduction}. This greatly simplified the aerodynamic matrices, as it made them uncoupled from reduced frequency. Additionally, the Prandtl-Glauert compressibility correction and sweep correction have been applied to aerodynamic matrices.
 
 % \begin{equation}
 % \begin{aligned}
@@ -976,9 +1010,9 @@ The aerodynamic matrices have been derived by applying strip theory to the unste
 % \label{eq:10.12}
 % \end{equation}
 
-% where $s$ is the wing half-span.
 
-The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \autoref{tab:flutter_parameters} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. Both of these are above the maximum speed at the testing altitude.
+
+The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \autoref{tab:flutter_parameters} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. Both of these are above the required maximum speed at the testing altitude.
 
 \begin{table}[H]
 \centering
@@ -1019,13 +1053,13 @@ Skin thickness                 & 2.5 & mm \\
     \label{fig:flutter_comparison}
 \end{figure}
 
-Finally, the flutter speed at $8230.0m$ altitude as a function of wing skin thickness is shown in \autoref{fig:flutter_thicknesses}. The plot makes sense, since flutter speed is approximately proportional to the the natural frequency \cite{dowell1977flutter}, and natural frequency has a square-root dependence on structural stiffness. The results from \autoref{fig:flutter_thicknesses} have direct implications on wing design, since flutter speed at this altitude has to be larger than $229.31 \frac{m}{s}$ according to the requirements. Therefore, the minimum wing skin thickness is $2.5mm$.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\linewidth]{figures_final/Flutter/thickness_flutter.png}
-    \caption{Flutter speed as a function of wing skin thickness}
-    \label{fig:flutter_thicknesses}
-\end{figure}
+% Finally, the flutter speed at $8230.0m$ altitude as a function of wing skin thickness is shown in \autoref{fig:flutter_thicknesses}. The plot makes sense, since flutter speed is approximately proportional to the the natural frequency \cite{dowell1977flutter}, and natural frequency has a square-root dependence on structural stiffness. The results from \autoref{fig:flutter_thicknesses} have direct implications on wing design, since flutter speed at this altitude has to be larger than $229.31 \frac{m}{s}$ according to the requirements. Therefore, the minimum wing skin thickness is $2.5mm$.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.7\linewidth]{figures_final/Flutter/thickness_flutter.png}
+%     \caption{Flutter speed as a function of wing skin thickness}
+%     \label{fig:flutter_thicknesses}
+% \end{figure}
 
 
 

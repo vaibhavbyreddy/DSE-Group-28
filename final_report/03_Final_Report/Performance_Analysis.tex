@@ -8,10 +8,25 @@ Performance analysis addresses the quantified performance of the primary functio
 \todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
 
+%The design of HUGO, a flying test laboratory intended for the investigation of aeroelastic phenomena at high-subsonic flight speeds, is strongly driven by performance requirements. 
+To ensure that HUGO can safely and effectively fulfill its mission objectives, a comprehensive performance analysis is required. This analysis establishes the relationship between the operational requirements of the test planform and the resulting design choices, including fuel capacity, wing and engine sizing, environmental impact, and operational feasibility.
+
+This chapter first defines the representative mission profile in \autoref{sec:flight_profile}, describing the flight phases and test conditions that HUGO is expected to encounter. Subsequently, a fuel mass fraction estimation is performed in \autoref{sec:payload-range_diagram} to determine the fuel required to complete the mission. The resulting performance requirements are then translated into wing loading and thrust-to-weight constraints through a matching diagram analysis in \autoref{sec:climb_performance}, which forms the basis for the selection of the standard aircraft planform. In addition, the acoustic impact of HUGO is assessed in \autoref{sec:noise_characteristics} through a noise analysis that considers both propulsion and airframe noise sources during representative operating scenarios. Finally, an emissions analysis is conducted \autoref{sec:emission_analysis} to quantify the environmental impact of a typical mission and provide input for the subsequent life-cycle assessment of the aircraft.
+
+
+
+
 \section{Flight Profile}
 \label{sec:flight_profile}
 
-The flight profile for HUGO is shown in \autoref{fig:flight_profile}.
+The flight profile for HUGO is shown in \autoref{fig:flight_profile}. Following the completion of either the pre-flight or post-flight inspection procedures, the aircraft departs from Den Helder Airport and initiates its take-off sequence. After take-off, the aircraft enters its initial climb phase and proceeds to cruise toward the designated test location.
+
+Upon reaching the test area, the aircraft performs a further climb to the required test altitude of 27,000 ft. The test is then conducted at a speed of Mach 0.75 for a duration of five minutes. Throughout the remainder of the mission profile, the aircraft operates at speeds not exceeding Mach 0.40.
+
+Once the test sequence has been completed, the aircraft begins its descent from the test altitude and transitions into the return cruise phase toward Den Helder Airport. Upon arrival, an approach and landing attempt are carried out. To account for operational contingencies, additional loiter time is included in the mission profile in the event that the initial landing attempt is unsuccessful and a subsequent approach is required.
+
+This flight profile ensures that all mission phases - including departure, transit, testing, return, and potential go-around procedures - are adequately represented in the operational timeline and performance assessment.
+
 
 \begin{figure}[H]
     \centering
@@ -21,10 +36,11 @@ The flight profile for HUGO is shown in \autoref{fig:flight_profile}.
 \end{figure}
 
 
-\section{Payload-Range Analysis}
+%\section{Payload-Range Analysis}
+\section{Fuel Mass Fraction Estimation}
 \label{sec:payload-range_diagram}
 
-Since HUGO is a test platform with specified requirements for flight speed and endurance under defined test conditions, these can be expressed as range requirements across different phases of the flight to allow for the estimation of the required fuel. In this way, the fuel required for HUGO to complete its mission can be estimated. This approach ensures that the fuel tanks are sized such that, even when fully filled, they do not limit the allowable payload.
+Since HUGO is a test platform with specified requirements for flight speed and endurance under defined test conditions, these can be expressed as range requirements across different phases of the flight to allow for the estimation of the required fuel. By employing this payload-range analysis, the fuel required for HUGO to complete its mission can be estimated. This approach ensures that the fuel tanks are sized such that, even when fully filled, they do not limit the allowable payload.
 
 The procedure used for sizing the range follows the method presented in Vos \cite{Vos}. An equivalent range $R_{eq}$ is defined, consisting of several contributions. These include the nominal mission segments: the test segment flown at 0.75 Mach ($R_{0.75}$) and the range flown at 0.4 Mach ($R_{0.4}$) during the various flight phases. In addition, the go-around range $R_{go-around}$ is included and multiplied by a factor of 4, reflecting the expectation that HUGO may require up to four landing attempts \footnote{Established in conversation with M.T.H. (Malcom) Brown}. Finally, the equivalent range accounts for losses in all segments, where energy is not converted into useful mission range during climb, descent, or turning phases.
 
@@ -33,33 +49,76 @@ The procedure used for sizing the range follows the method presented in Vos \cit
     \label{eq:range}
 \end{equation}
 
-Each range segment is subsequently estimated using the procedures proposed by Vos \cite{Vos}. For this purpose, the flight altitude must be specified. In previous analyses, the maximum operating altitude was limited to FL270 while cruising at 0.75 Mach. Because this altitude is below the optimum for jet aircraft operating at 0.4 Mach \cite{Koutz1952Loitering}, it is conservatively assumed that this flight condition is also conducted at FL270. The go-around altitude is constrained to 1500 ft \footnote{\href{https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_3.html?utm_source=chatgpt.com}{FAA air traffic control regulations} (accessed on 22.05.2026)}. Since no requirement constrains the go-around speed, it is selected to achieve maximum range. A turning flight is assumed during the go-around with a rate 1 turn, $\omega_{turn} = \pi/60\ \text{rad/s}$ and $T_{turn} = 120\ \text{s}$. An equivalent range of 650 km is calculated for the standard planform.
+Each range segment is subsequently estimated using the procedures proposed by Vos \cite{Vos}. For this purpose, the flight altitude must be specified. In previous analyses, the maximum operating altitude was limited to FL270 while cruising at 0.75 Mach. Because this altitude is below the optimum for jet aircraft operating at 0.4 Mach \cite{Koutz1952Loitering}, it is conservatively assumed that this flight condition is also conducted at FL270. The go-around altitude is constrained to 1500 ft \footnote{\href{https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap4_section_3.html?utm_source=chatgpt.com}{FAA air traffic control regulations} (accessed on 22.05.2026)}. Since no requirement constrains the go-around speed, it is selected to achieve maximum range. A turning flight is assumed during the go-around with a rate 1 turn, $\omega_{turn} = \pi/60\ \text{rad/s}$ and $T_{turn} = 120\ \text{s}$. An equivalent range of 650 km was calculated for the standard planform during one of the four planned 45-minute test flights.
 
 %After having specified the turn rate, the turn load factor $n_{load}$ and the go-around speed $V_{go-around}$ can be obtained by equating the horizontal force generated by banking the aircraft and the centripetal force.
 
-To obtain the fuel mass fraction, the lift-to-drag ratio $L/D$, the total propulsion efficiency $\eta_i$, and the fuel energy density $e_f$ are required. The optimal (maximum) lift-to-drag ratio is estimated by assuming a maximum endurance condition and taking the derivative of $C_L/C_D$
+To obtain the fuel mass fraction, the lift-to-drag ratio $L/D$, the total propulsion efficiency $\eta_i$, and the fuel energy density $e_f$ are required, as can be seen in \autoref{eq:fuel_fraction} \cite{Vos}. The subscript $i$ corresponds to each different flight segment as specified previously.
 
+\begin{equation}
+\label{eq:fuel_fraction}
+    \left(\frac{m_\text{final}}{m_\text{initial}}\right)_i = 1-\exp\frac{-R_ig_0}{\eta_i (L/D)_i e_f}
+\end{equation}
 
+The maximum lift-to-drag ratio is estimated by assuming a maximum endurance condition, taking the derivative of $C_L/C_D$, and setting it equal to zero. The total propulsion efficiency can be obtained from literature, as can the fuel energy density.
 
+With all required parameters known for each flight segment, the fuel fraction can be estimated by summing the fuel fractions of the individual segments. Consequently, the total fuel required for the standard planform is 6.884kg. To verify the implementation of the method, the fuel mass fraction of a test aircraft with an equivalent range to HUGO - using a single glide ratio and a fixed engine efficiency value - has been computed both using the method described above and the original equations from Vos \cite{Vos}.
 
-
-
-Standard planform
-$R_{eq}$= 605 km
-
-fuel required for standard planform is 6.884 kg
-
-
-\section{Climb Performance}
+\section{Matching Diagram for Wing and Engine Sizing}
 \label{sec:climb_performance}
 
+To specify the wing loading and thrust necessary for the aircraft, it is standard practice to construct a matching diagram, which combines several key performance constraints. This is done according to procedures outlined by Vos \cite{Vos}, but adapted for the aerobatic CS-23 and high-speed requirements of the designed aircraft.
 
+The landing runway length, imposes a limit on the feasible design space by using the lift equation to relate the maximum wing loading to the minimum landing distance. This condition is evaluated at zero thrust, since the engines are idle during landing. As a result, the constraint appears in the matching diagram as a straight line at a fixed $W/S$.
+
+Next is the cruise speed constraint, as well as the requirement to provide sufficient thrust in the Mach 0.75 condition, with half of the fuel weight considered. Since both constraints depend on thrust, they appear as curves spanning a range of $W/S$ and $T/W$ combinations. The cruise speed constraint is based on the assumption that cruise represents the maximum operating speed, flown at cruise altitude in steady, symmetric, level flight.
+
+Additionally, climb performance is considered, with required rate-of-climb and climb gradients specified in CS-23 taken as the governing constraints. However, since no specific rate-of-climb requirement is defined for HUGO, this constraint is omitted. For the climb gradient requirements specified in the certification documents, the aircraft is often assumed to be in either take-off or landing configuration, with landing gear either extended or retracted. In configurations with deployed flaps and landing gear, the drag coefficient increases and the Oswald factor $e$ is affected. However, due to the replaceable wing requirement, HUGO cannot be designed assuming high-lift devices, meaning all constraints are evaluated for a clean wing configuration. As a result, only the landing gear position is considered. Since HUGO is equipped with retractable landing gear, the climb gradient constraints are evaluated in the gear-up configuration. The CS-23 specifies a climb gradient requirement for all engines operative (AEO) and one engine inoperative (OEI).
+
+Finally, the take-off field length constraint is included in the analysis. As with the climb performance evaluation, the effect of flaps is not considered, but the landing gear is deployed. Both the take-off and landing field length requirements are constrained by the available runway length at Den Helder Airport Den Helder Airport \footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Den Helder - Information for pilots} (accessed on 22.05.2026)}. 
+
+All of the above-mentioned constraints are summarized in \autoref{tab: Matching diagram constraints}.
+
+\begin{table}[h]
+\centering
+\caption{Matching diagram constraints}
+\label{tab: Matching diagram constraints}
+\begin{tabular}
+{|c|c|c|c|c|c|}
+    \hline
+    \textbf{ID} & \textbf{Costraint} & \textbf{Value} & \textbf{LG Position} & \textbf{Altitude} & \textbf{Fuel Burned} \\
+    \hline\hline
+    HUG-CON-01 & Runway length & 1275 m& down & 0 ft & 0\% \\
+    \hline
+    HUG-CON-02 & Cruise speed & Mach 0.4 & up & 27000 ft & 0\% \\
+    \hline
+    HUG-CON-03 & Maximum speed & Mach 0.75 & up & 27000 ft & 50\% \\
+    \hline
+    HUG-CON-04 & Climb gradient OEI & 0.01 & up & 0 ft & 0\% \\
+    \hline
+    HUG-CON-05 & Climb gradient AEO & 0.04 & up & 0 ft& 0\% \\
+    \hline
+    HUG-CON-06 & Take-off field length & 1275 m & down & 0 ft & 0\% \\
+    \hline
+    \end{tabular}
+\end{table}
+
+Once the matching diagram was generated, instead of selecting the optimal design point (corresponding to the highest wing loading and lowest thrust-to-weight ratio), multiple aircraft planforms were assessed based on whether they lie within the feasible design space. As shown in \autoref{fig:MD}, the design space is primarily constrained by the landing field length requirement and the maximum speed constraint at Mach 0.75. It lies to the left of the runway-length $W/S$ line and within the region above the maximum speed $T/W$ curve.
+
+It is expected that the maximum-speed $T/W$ constraint is the most restrictive, due to the high subsonic cruise conditions used in the test segments. In these conditions, the aircraft must generate sufficient thrust to overcome both parasite drag and compressibility-related drag rise associated with operating near Mach 0.75, while also maintaining steady, level flight at cruise altitude. This leads to a comparatively high required thrust-to-weight ratio across a wide range of wing loadings, effectively shifting the constraint curve upward and limiting the feasible design space more strongly than other performance requirements. Consequently, the selected design point is used to define the standard planform for the subsequent detailed design phase.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{figures_final/MD.png}
+    \caption{Matching diagram for the standard planform}
+    \label{fig:MD}
+\end{figure}
 
 
 \section{Noise Characteristics}
 \label{sec:noise_characteristics}
-The operation of the aircraft will inevitably lead to the generation of noise. Noise is small pressure differences which travels through a medium to the listener. This can be a great nuisance for the area surrounding the aircraft. Therefore it is important to obtain an understanding of the not only the magnitude but also at what frequencies the highest noise-level occurs. For an aircraft the primary source of noise would be the engine. This is especially true for turbine powered aircraft. Another source would be the aerodynamic surfaces and the fuselage itself. Finally the extended landing gear during take-off and approach. 
-To model the noise from the turbine an empirical model was created using noise data obtained experimentally on the JetCat P80 a jet-turbine very similar to the one chosen for HUGO. 
+The operation of the aircraft will inevitably lead to the generation of noise. This can be a great nuisance for the area surrounding the aircraft. Therefore it is important to obtain an understanding of the not only the magnitude but also at what frequencies the highest noise-level occurs. For an aircraft the primary source of noise would be the engine. This is especially true for turbine powered aircraft. Another source would be the aerodynamic surfaces and the fuselage itself. To model the noise from the turbine an empirical model was created using noise data obtained experimentally on the JetCat P80 a jet-turbine very similar to the one chosen for HUGO. The thrust and dimensions of both turbine are very similar and JetCat P100 is based on JetCat P80  
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{figures_final/noise_levels_jet.png}
@@ -67,13 +126,13 @@ To model the noise from the turbine an empirical model was created using noise d
     \label{fig:placeholder}
 \end{figure}
 
-
-The noise-levels were obtained for the engine operating at idle, cruise and max power. This data was then fitted with a high degree polynomial to get a mathematical model. The model would use frequency as an input and output the sound pressure level (in decibels). The data and the regression models can be found at the github (insert citation).         
+The noise-levels were obtained for the engine operating at idle, cruise and max power. First the data was extracted from the graphs using a plot-digitizer\footnote{\href{https://web.eecs.utk.edu/~dcostine/personal/PowerDeviceLib/DigiTest/index.html}{plot-digitizer}(Accessed on 08.06.2026)}:
+This data was then fitted with a high degree polynomial to get a mathematical model. The model would use frequency as an input and output the sound pressure level (in decibels). The data and the regression models can be found at the Github (insert citation).         
 
 The noise generated by the airframe during  Insert fuselage noise model description. The following is a model to approximate the noise from the airframe \cite{Thoma2024}
 The turbulent boundary layer of air over the different wing surfaces creates noise. The magnitude of the nose can be calculated using 
 \begin{equation}
-    OASPL = 50\log\left(\frac{V}{51.44}\right) + 10\log\left(\frac{\delta b}{h^2}\cos^2(\phi)\cos^2\left(\frac{\theta}{2}\right)\right) + 101.3
+    OASPL = 50\log_{10}\left(\frac{V}{51.44}\right) + 10\log_{10}\left(\frac{\delta b}{h^2}\cos^2(\phi)\cos^2\left(\frac{\theta}{2}\right)\right) + 101.3
 \end{equation}
 V is the aircraft speed, b is the span of the aerodynamic surface (wing or tail), $\delta = 0.37 \frac{S}{b} \left(\frac{VS}{b\nu}\right)^{-0.2}$, h is the altitude of the aircraft, $\nu$ is the kinematic viscosity of the air, S is the area of the aerodynamic surface, $\phi$ and $\theta$ are the lateral and longitudinal angles relative to the observer.      
 
@@ -83,29 +142,40 @@ V is the aircraft speed, b is the span of the aerodynamic surface (wing or tail)
 
 Where $f_{max}= \frac{0.1\,V}{\delta}$ and R is the distance to the observer.  
 \begin{equation}
-    SPL = OASPL + 10\log\left(0.613\left(\frac{f}{f_{max}}\right)^4\left(\left(\frac{f}{f_{max}}\right)^{3/2} + 0.5\right)^{-4}\right) + \Delta SPL
+    SPL = OASPL + 10\log_{10}\left(0.613\left(\frac{f}{f_{max}}\right)^4\left(\left(\frac{f}{f_{max}}\right)^{3/2} + 0.5\right)^{-4}\right) + \Delta SPL
 \end{equation}
 
 
 \cite{Thoma2024}. 
 
-All of the models used for the noise approximation can be found in the Github (insert citation). 
+ 
 Having all the different sources it is possible to add them together.  
 \begin{equation}
-    SPL_{total}=10 \log \sum^{i=N_{sources}}_{i=1}10^{\frac{SPL_i}{10}}
+    SPL_{total}=10 \log_{10} \sum^{i=N_{sources}}_{i=1}10^{\frac{SPL_i}{10}}
 \end{equation} 
 To accurate the noise perceived by a bystander distance must also be taken into account when calculating the noise. The aircraft is modelled as a point source with the sound uniformly propagates. This means that the sound pressure level will change based on the inverse square level \footnote{\href{https://personalpages.manchester.ac.uk/staff/richard.baker/BasicAcoustics/4_inverse_square_law.html}{inverse square law}(Accessed on 08.06.2026)}:
 \begin{equation}
-    SPL_{r2}=SPL_{r_1}+20\log(\frac{r_1}{r_2})
+    SPL_{r2}=SPL_{r_1}+20\log_{10}(\frac{r_1}{r_2})
 \end{equation}
 
-Use of A-weighting \cite{enwiki:1351161945}
+The human ear does not perceive sound at different frequency equally. To be able to predict how loud the aircraft would sound to a human-observer A-weighting was used. This acts a filter and filters around sounds at very low frequencies. This is done to emulate the human ear \footnote{\href{https://en.wikipedia.
+org / w / index . php ? title = A - weighting & oldid = 1351161945}{A-weighting}(Accessed on 15.06.2026)}: 
 
-Certain simplifications and approximations: (write about them) 
+\begin{equation}
+    R_A(f) = \frac{12194^2 f^4}{\left(f^2 + 20.6^2\right) \sqrt{\left(f^2 + 107.7^2\right)\left(f^2 + 737.9^2\right)} \left(f^2 + 12194^2\right)}
+\end{equation}
+
+\begin{equation}
+    A(f) = 20\log_{10}\left(R_A(f)\right) - 20\log_{10}\left(R_A(1000)\right)
+\end{equation}
+
+All of code used for the noise approximation can be found in the Github (insert citation). A linear easing function was used between the different flight-modes as any noise increase and decrease would not be instantaneous. 
+
+Certain simplifications and approximations: (write about them). Due to the relative small dimensions of the landing gear and since that they would be retracted for most of the flight the noise contributions were neglected. The sound-propagation was also assumed to be unaffected by any atmospheric conditions   
 
 It has been chosen to specify the noise-spectrum  based on two different scenarios: 
 The first being a flyover where the airplane starts somewhere in front of the observer and then passes over to continue behind the observer. For this analysis the height and the speed of the aircraft remains constant throughout the manoeuvrer.
-(Insert diagram of aircraft) 
+(see \autoref{fig:flight_profile}) 
 
 The second is using the flight-profile of a potential mission for the aircraft. In this scenario the observer would be placed directly underneath of the aircraft at all time. This means that the height of the aircraft would be the distance from the observer. This is done to approximate the overall noise experienced on the ground closest to the aircraft.  The code for the scenarios and calculations can be found in the GitHub (insert citation).   
 
@@ -130,7 +200,7 @@ The second is using the flight-profile of a potential mission for the aircraft. 
     \label{fig:noise}
 \end{figure}
 
-Finally having all the diagrams it is possible to calculate the total perceived loudness by using the following expression (the equations are taken from \cite[p.~302-304]{kinsler2000fundamentals}:
+Finally having all the spectrum diagrams it is possible to calculate the total perceived loudness by using the following expression (the equations are taken from \cite[p.~302-304]{kinsler2000fundamentals}:
 \begin{equation}
     L_{\text{total}} = 10\log_{10}\left(\sum_i 10^{L_{\text{band},i}/10}\right)    
 \end{equation}
@@ -164,37 +234,70 @@ Then total loudness were calculated for both scenarios and the instance of the m
     \label{fig:noise}
 \end{figure}
 
-Discussion about results. Having  Implementation of validation. Describe the noise function. The validation of the noise-data was done with a comparison to experimental data. Since the size of the aircraft and its power-train is closer to RC-aircraft the comparison using measured noise-data from turbine-powered RC-aircraft. The values obtained were used calculated for 100 ft 
+Discussion about results. As can be seen in for the typical flight highest noise level will be at take-off and the approach with a peak at the first failed approach and the subsequent manoeuvrer to loitering.       
+
+The validation of the noise-data was done with a comparison to experimental data. Since the size of the aircraft and its power-train is closer to RC-aircraft the comparison using measured noise-data from turbine-powered RC-aircraft. The data obtained were used to construct a range noise measured at a distance of 100 ft.  
+This data was then reproduced using the model in a single engine configuration and at the same distance. 
 
 
-Max sound level 88 dB-A
-Sound level for cruise Leq 72.8 dB-A
-Lowest idle sound level: 65.1 dB-A
-
-Standard engine setting was used as the baseline. 
-
-Lmax 80-90
-Leq 68-71
-(measured at 100 ft) 
-
+\begin{table}[H]
+    \centering
+    \caption{Comparison of noise-data single turbine aircraft
+\tablefootnote{\url{https://www.modelaviation.com/basicsofnoise}}}
+    \label{tab:foam_props}
+    \begin{tabular}{|p{3cm}|p{3cm}|p{3 cm}|}
+        \hline
+        \textbf{Engine settings} &
+        \textbf{$L_{Experiment}$ \textbf{[dB]}}  &
+         \textbf{$L_{Model}$ \textbf{[dB]}}\\
+        \hline\hline
+        Standard
+        & 68-71 & 65.1-72.8  \\
+        \hline
+        Max 
+        & 80-90 & 88 \\
+        \hline
+    \end{tabular}
+\end{table}
+Looking at \autoref{tab:foam_props} means the calculated data is within the noise-range of the measured RC-aircraft. Since the exact configuration of the measured RC-aircraft remains unknown the values were used to create a range to act as a sanity check for the modelled values.      
 
 
 \section{Analysis of Emissions}
 \label{sec:emission_analysis}
 
-HUGO is powered by two Jet-cat 100 turbines. As mentioned in the requirements (insert reference) it is expected that these turbines will be entirely powered by SAF. Operating a jet-turbine using SAF will still generate certain emissions. These emission were modelled using the data based on the combustion of Jet A1 fuel (\cite{Gaillot2023}). Then by inputting the combusted fuel it was possible to calculate the total emissions from a mission. This is assuming the flight follows the flight profile. Since some emissions are more effective greenhouse gases than others each GWP (global warming potential) value was assigned the emission. This uses the warming potential of carbon-dioxide as baseline and every other gas is measured relative to that. So now it is possible to breakdown the distribution of the different emission and the overall impact (insert diagrams here). This analysis will be used in the subsequent LCA-analysis of HUGO. 
+HUGO is powered by two Jet-cat 100 turbines. As mentioned in the requirements (insert reference) it is expected that these turbines will be entirely powered by SAF. Operating a jet-turbine using SAF will still generate certain emissions. These emission were modelled using the data based on the combustion of Jet A1 fuel \cite{Gaillot2023}. Then by inputting the combusted fuel it was possible to calculate the total emissions from a mission. This is assuming the flight follows the flight profile. Since some emissions are more effective greenhouse gases than others each GWP (global warming potential) value was assigned the emission. This uses the warming potential of carbon-dioxide as baseline and every other gas is measured relative to that. So now it is possible to breakdown the distribution of the different emission and the overall impact (insert diagrams here).  
+
+\begin{table}[h]
+\centering
+\caption{Emission indices, GWP, and effective climate impact per kg of fuel burned}
+\label{tab:emissions}
+\begin{tabular}{|p{3cm}|p{3cm}|p{3 cm}|p{3 cm}|}
+ \hline
+\textbf{Species} & Emission Index \textbf{[kg\,kg$^{-1}_\text{fuel}$]} & $GWP_{20}$ [--] & Climate Impact \textbf{[kg\,CO$_2$eq\,kg$^{-1}_\text{fuel}$}] \\
+\hline\hline
+CO$_2$              & $3.16$                & $1$      & $3.160$                   \\ \hline
+H$_2$O              & $1.23$                & $0.22$   & $0.271$                   \\ \hline
+NMVOCs              & $3.80\times10^{-4}$   & $14.0$   & $5.32\times10^{-3}$       \\ \hline
+SO$_4^{2-}$         & $6.54\times10^{-7}$   & $-832$   & $-5.44\times10^{-4}$      \\ \hline
+CO                  & $3.00\times10^{-3}$   & $9$      & $2.70\times10^{-2}$       \\ \hline
+Soot                & $3.00\times10^{-5}$   & $4288$   & $0.129$                   \\ \hline
+Contrails \& Cirrus & $3.16$                & $2.32$   & $7.331$                   \\ \hline  \hline
+
+\textbf{Total}      &                       &          & $\mathbf{10.923}$         \\
+  \hline
+\end{tabular}
+\end{table}
+
+Then it is possible by using the fuel burned during a typically flight (see \autoref{fig:flight_profile}) 
+to calculate the total emissions of one flight.   
+The codes for the model can be found at (insert link) 
+Insert graph of the total emissions during flight. This analysis will be used in the subsequent LCA-analysis of HUGO.
+
+This chapter translated the operational requirements of HUGO into quantifiable performance metrics that directly influence the aircraft design. Based on a representative mission profile, the fuel requirements, wing and propulsion system sizing constraints, acoustic footprint, and operational emissions were evaluated. The analyses indicate that the selected configuration is capable of fulfilling the prescribed mission requirements while operating within the constraints imposed by the test environment and airport infrastructure.
+
+The resulting aircraft configuration serves as the baseline design for the subsequent analyses. In particular, the wing loading, propulsion characteristics, mass distribution, and flight envelope established in this chapter directly affect the aircraft's handling qualities and dynamic response. Therefore, the next chapter investigates the stability and control characteristics of HUGO, assessing whether the selected configuration can provide the levels of controllability, maneuverability, and stability required for safe operation and for conducting aeroelastic flight testing at high-subsonic speeds.
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
+%\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}

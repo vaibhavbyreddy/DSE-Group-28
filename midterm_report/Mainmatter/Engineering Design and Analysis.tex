@@ -371,9 +371,9 @@ The go-around altitude is constrained at 1500 feet \footnote{\href{https://www.f
 %     \end{cases}
 % \end{equation}
 % Where $m$ is the aircraft mass, $\omega_{turn}$ is the turn rate. Using a rate 1 turn, $\omega_{turn} = \pi/60\ \text{rad/s}$ and $T_{turn} = 120\ \text{s}$. Thus, knowing the lift coefficient, the equations can be solved for $n_{turn}$ and $V_{go-around}$. The optimal glide ratio and lift coefficient are found as:
-% \begin{equation}
-%     \left( \frac{L}{D} \right)_{max} = \frac{\sqrt 3}{4}\sqrt{\frac{\pi ARe}{C_{D, 0}}};\ C_{L_{opt}} = \sqrt{{\frac13\pi ARe}{C_{D, 0}}}
-% \end{equation}
+\begin{equation}
+     \left( \frac{L}{D} \right)_{max} = \frac{\sqrt 3}{4}\sqrt{\frac{\pi ARe}{C_{D, 0}}};\ C_{L_{opt}} = \sqrt{{\frac13\pi ARe}{C_{D, 0}}}
+ \end{equation}
 Once the distances and glide ratios are established for each flight segment, the required fuel can be calculated according to \autoref{eq:fuel_fraction} \cite{Vos} using the total propulsion system efficiency $\eta_i$ and fuel energy density $e_f$.
 %Knowing the ranges and glide ratios for the flight segments, the fuel required can be computed for each segment:
 \begin{equation}

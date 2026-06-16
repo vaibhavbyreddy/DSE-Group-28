@@ -8,6 +8,13 @@
 
 :Outline of Design Activities:
 
+- analysis is split into mostly independent fixed group, planform envelope and standard planform analyses. 
+
+- Fixed is the sizing of lg, fuselage and its interior and engines, then it is checked against housing all compatible planforms in the planform envelope analysis. 
+
+- Further examination is conducted on the standard planform, the planform that is provided to the customer if they do not bring their own wing. 
+
+- The analyses are verified by a combination of comparisons with reference, cross-verification with flow 5 and sensitivity studies, as well as hand calculations and sanity checks.
 
 -Planning:
 
@@ -27,7 +34,7 @@
     - similar content to the midterm, except that now we also define exemplary missions that can be performed by HUGO.
 
 
--V and V:
+-V and V: Talked with Hania initially, ad we may merge it with Chapter 3, ignore 4 now - Marek
 
 
 -Reliability, Availability, Maintainability and Safety:
@@ -35,11 +42,57 @@
 
 -Configuration layout and system characteristics:
 
+We identified the resources first and budgets, outlined the factors that influence them and the most important parameters that have to be taken into account. We could not provide numbers for the budget at the begining outside the requirements that did not provide numnerical values for parts such as electronics stability and so on. 
+Moving to internal configuration: 
+    - electronic system has been configured, sized and proportioned in accordance with the mission necessities
+    - we have an autopilot that can perform the majority of the aerodynamic measurments accompanied by a flight companion that performs calculations and collects data from all the other sensors
+    -we store the data and tranmit it as well usint VHF waves
+    -for the power budget we build a battery that uses 40 individual cells to supply 936 W for 45 minutes covering the flight and the additional 3 landing attempts. 
+    -the power system takes into account the presence of the sensors, while the sensors use 51.7 W, the electronic components unse 841 W, for a combined 892.7, which is within the range of the battery.
+    -propulsion system was also sized, having all the components brought toghther and analysed 
+    -the fuel was computed and integrated into the numbers, the fuel subsystem utilising 2 fuel bags that amount to 10L of fuel for the mission
+    -the fule bagas are used for the CG translation experiment where we move the CG from a stable configuration to an unstable one and that is why are are using larger fuel tanks, and the fuel tanks can be movable inside the fuselage depending on the platform that potential clients may bring  
+    -we are using the 2 Jetcat PBJ 100 engines that are mounted to the aft section of the fuselage
 
--Material characteristics:
+Sensors-Carl
 
+Landing gear-Gui
+
+- Landing gear was sized for tip back angle, turn over angle, wing strike angle, nose landing gear controlability, landing gear strut length, and main landing gear horizontal track. 
+
+- Optimised using scipy optimise for an ideal cylyndrical fuselage based on the dumensions from FlexOp
+
+- Landing gear was then implemented in CAD with non idealised fuselage, and the constraints checked iteratively until all were met.
+
+- Landing gear was simulated as a spring and dashpot in parallel to absorb landing shocks using the python control library. Main constraint was to minimise landing gear vertical displacement (compression) due to downward velocity at landing, and prevent over-damping as to dissipate the applied force over a longer period of time. A final choice of C = 
+    
+
+-Material characteristics + MAI (they are now one section):
+    Materials were selected to ensure reliable performance in the high-subsonic regime, including resistance to aeroelastic effects such as flutter, while keeping manufacturing costs low for limited production volumes.
+
+    -Steel alloy was chosen for the landing gear and engine pylon due to its high melting temperature and ability to achieve the required strength with smaller strut diameters. Aluminium alloy was used for the connection ports, where loads and thermal demands are comparatively low.
+
+    -A sandwich composite panel was selected for the fuselage and tailcone, using a prepreg system suitable for out-of-autoclave (OOA) curing. This reduces manufacturing cost and cycle time, making it appropriate for low-rate production. Although aluminium could offer higher intrinsic strength, the aramid core avoids galvanic corrosion and provides sufficient compliance to conform to fuselage curvature without buckling. The 48 kg core variant was selected for adequate compressive strength to resist local crushing during cure.
+
+    -For the wings and tail stabilisers, a PMI foam core was used due to its cost-effectiveness and suitable mechanical performance for low-temperature curing cycles.
+
+    Once the material has been selected, the next step is to come up with the MAI plan. The manufacturing and assembly of the plan are just as important as the material selection for the final product quality and material characteristics.
+
+    - The selected prepreg is optimised for OOA/VBO curing cycle. A continuous curing cycle was selected, during which the part remains on the mould. It also provided the lowest manufacturing time and the best dimensional accuracy. The honeycomb fuselage and tailcone are manufactured by first curing the outerskins in a separate curing cycle to achieve the desired aerodynamic finish, then the honeycomb core and inner skin are layered on each half with films of adhesive and the final assembly (both moulds held together undergoes a final curing cycle. The manufacturing of the foam wings consists of CNC machining the foam and preparing it for the layering of the prepreg with adhesive film. It then undergoes the same curing cycle. The landing gear and engine pylons are CNC-machined, heat-treated, and undergo an application of a protective surface coating.
+
+    -The assembly process for the honeycomb structures consists of connecting the two mould halves that would then undergo a final curing cycle to produce the monocoque structure. After the outer skins have been cured and the honeycomb core and inner skin have been layered on them, the outer skins have to be connected by an adhesive film by overlapping their edges as a lap joint. An adhesive film layer is also applied at the honeycomb interfaces, essentially connecting the two mould halves, and the assembly undergoes the final curing cycle.
+
+    -the pylon to fuselage connections will utilise metal inserts that will be inserted in holes drilled in the sandwich structure. The exposed honeycomb core will be sealed at those locations with an epoxy that bonds the metal inserts to the inside of the fuselage structure. Titanium is used due to its improved electrochemical compatibility with carbon fiber composites.
+
+    -the landing gear assembly uses bolted connections for the rigid interfaces and pin joints where relative motion is required
+
+    The integration is the same as for the midterm. Accessibility and system dependencies are driving. 
 
 -Structural analysis:
+Wing structure
+    -we wrote code for the wing that tests its limitations in terms of structural rigidity and flutter analysis, as they were the driving parameters for the sizing iteration process
+    -the wing was tested to meet the deflection, buckling requirements and to ensure that all the stresses do not go over the material limits such as shear, normal and torsional stresses
+    - the deflection and buckling req are validated for a load factor as 6 as stated buy the regulations, while the structural characteristics are tested for a load factor of 9.
 
 
 -Perfromance analysis:
@@ -48,7 +101,7 @@
 -Stability and control:
 
 
--Manufacturing, assembly and integration:
+%-Manufacturing, assembly and integration:
 
 
 -Susteainability:

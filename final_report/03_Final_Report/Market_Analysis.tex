@@ -132,24 +132,31 @@ The ability to pay off the debt in the first 5 years is the constraining factor 
 
 The analysis so far was based on initial figures estimated in Section~\ref{sec:financial_baseline}. This is considered the baseline. However, it is important to know which of these factors affects the project's financial feasibility the most. In order to determine this, a sensitivity analysis was performed on several metrics, to find minimums or maximums that make this project viable.
 
-The sensitivity analysis was performed by computing the maximum or minimum cost required for feasibility in each category. The feasibility was determined to be the amount of Earnings Before Interest, Taxes, Depreciation, and Amortisation (EBITDA) required to pay off the amortisation at the very least. By comparing these extreme values to the baseline values, a margin of safety can be computed. These values are listed in Table~\ref{tab:sensitivity}.
+The sensitivity analysis was performed by computing the maximum or minimum cost required for feasibility in each category. The feasibility was determined to be the amount of Earnings Before Interest, Taxes, Depreciation, and Amortisation (EBITDA) required to pay off the amortisation at the very least. By comparing these extreme values to the baseline values, a margin of safety can be computed. These values are listed in Table \autoref{tab:sensitivity}.
 
 \begin{table}[H]
     \centering
     \caption{Sensitivity Analysis Results}
     \label{tab:sensitivity}
-    \begin{tabular}{@{}lrrr@{}}
-        \toprule
+    \renewcommand{\arraystretch}{1.15}
+    \begin{tabular}{|l|c|c|c|}
+        \hline
         \textbf{Category} & \textbf{Baseline Value} & \textbf{Viability Limit} & \textbf{Margin of Safety} \\
-        \midrule
-        R\&D Total (CAPEX)      & \texteuro{}2,750,000 & \texteuro{}4,014,832 & +45.99\% \\
-        Fixed Operations        & \texteuro{}475,000     & \texteuro{}979,101     & +106.13\% \\
-        Variable Operations     & \texteuro{}4,500       & \texteuro{}8,941       & +98.69\% \\
-        Total Fleet Flights     & 100 flights        & 78 flights         & $-$22.00\% \\
-        Price per Flight Day    & \texteuro{}25,000      & \texteuro{}20,559      & $-$17.76\% \\
-        Total Revenue           & \texteuro{}2,500,000 & \texteuro{}2,055,899 & $-$17.76\% \\
-        Interest Rate           & 10\%               & 17\%               & +70\% \\
-        \bottomrule
+        \hline \hline
+        R\&D Total (CAPEX)   & \texteuro{}2,750,000 & \texteuro{}4,014,832 & +45.99\% \\
+        \hline
+        Fixed Operations     & \texteuro{}475,000   & \texteuro{}979,101   & +106.13\% \\
+        \hline
+        Variable Operations  & \texteuro{}4,500     & \texteuro{}8,941     & +98.69\% \\
+        \hline
+        Total Fleet Flights  & 100 flights          & 78 flights           & $-$22.00\% \\
+        \hline
+        Price per Flight Day & \texteuro{}25,000    & \texteuro{}20,559    & $-$17.76\% \\
+        \hline
+        Total Revenue        & \texteuro{}2,500,000 & \texteuro{}2,055,899 & $-$17.76\% \\
+        \hline
+        Interest Rate        & 10\%                 & 17\%                 & +70\% \\
+        \hline
     \end{tabular}
 \end{table}
 
@@ -159,21 +166,28 @@ From this we can see that the factors with the least margin are the number of fl
 
 For some of the costs, assumptions had to be made as real costs could not be found. In these cases, conservative values were assumed. Table~\ref{tab:assumptions} lists the assumed values and the category of costs that they contribute to.
 
+```latex
 \begin{table}[H]
     \centering
     \caption{Assumed Cost Values and Their Contributions}
     \label{tab:assumptions}
-    \begin{tabular}{@{}llrr@{}}
-        \toprule
+    \renewcommand{\arraystretch}{1.15}
+    \begin{tabular}{|l|c|c|c|}
+        \hline
         \textbf{Assumed Cost} & \textbf{Amount} & \textbf{Category} & \textbf{Contribution} \\
-        \midrule
-        Certification Overhead   & \texteuro{}32,000 & Initial CAPEX & 1.1\% \\
-        GCS and Equipment        & \texteuro{}50,000 & Initial CAPEX & 1.8\% \\
-        Facility Rent            & \texteuro{}50,000 & Fixed OPEX    & 10.5\% \\
-        Logistics and Transport  & \texteuro{}1,000  & Variable OPEX & 22.2\% \\
-        \bottomrule
+        \hline \hline
+        Certification Overhead  & \texteuro{}32,000 & Initial CAPEX & 1.1\% \\
+        \hline
+        GCS and Equipment       & \texteuro{}50,000 & Initial CAPEX & 1.8\% \\
+        \hline
+        Facility Rent           & \texteuro{}50,000 & Fixed OPEX    & 10.5\% \\
+        \hline
+        Logistics and Transport & \texteuro{}1,000  & Variable OPEX & 22.2\% \\
+        \hline
     \end{tabular}
 \end{table}
+```
+
 
 The uncertainty in the logistics and transport fees has the largest impact among the assumed values. However, the sensitivity analysis shows that the variable operations can even double, while the project remains viable. The facility rent was also assumed quite high, as large commercial and workshop space on or near the airfield can be quite expensive. However, this too only affects the fixed OPEX, which has a margin of safety of over 100\%. The other two assumptions have a negligible impact on their categories.
 
