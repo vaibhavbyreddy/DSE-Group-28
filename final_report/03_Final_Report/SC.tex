@@ -295,9 +295,9 @@ The elliptical approximation increases the estimated second moment of area compa
 
 \subsection{Lift Distribution}
 \label{sub:lift}
-The lift distribution was obtained using a Schrenk approximation evaluated at the positive limit load factor \cite{Schrenk1940}, excluding the portion of the planforms enclosed by the fuselage. The approach followed a methodology for obtaining load distributions for light aircraft proposed by EASA \cite{EASALSALoadCalculation}, in which the design condition implies the aircraft flying at its manoeuvre stall speed $V_{s_\text{n max}}$
+The lift distribution was obtained by using the modified Schrenk lift distribution as described in \cite{EASALSALoadCalculation}. Essentially, the Schrenk lift distribution \cite{Schrenk1940} has been  modified by shifting the lift from the part of the wing which is within the fuselage towards the tip. This yields conservative results since the resulting bending moment is higher. The approach followed a methodology for obtaining load distributions for light aircraft proposed by EASA \cite{EASALSALoadCalculation}, in which the design condition implies the aircraft flying at its manoeuvre stall speed $V_{s_\text{n max}}$ compliant with the flight envelope \footref{ft:midterm_rep}.
 
-To achieve an approximation of the load distribution, the planforms were divided into $n$ individually evaluated sections. Schrenk's method assumes that the aerodynamic loading on the planform is equal to the average of the chord distribution, and an equivalent elliptical lift distribution, as shown in \autoref{eq:schrenk_element_lift} \cite[p. 20]{EASALSALoadCalculation}. Therefore, for each segment, an equivalent chord length $c_i$ was defined based on the spanwise position $y_i$, and a corresponding lift increment $l_{\text{Schrenk},i}$ was assigned. Sections incorporated into the fuselage were then excluded from the model by scaling the sections with respect to the average fuselage width at each section $b_0$ and the total wingspan $b$. The remaining lift was rescaled to compensate for the losses. 
+To achieve the desired load distribution, the planforms have been divided into $n$ individually evaluated sections. Schrenk's method assumes that the aerodynamic loading on the planform is equal to the average of the chord distribution, and an equivalent elliptical lift distribution, as shown in \autoref{eq:schrenk_element_lift} \cite[p. 20]{EASALSALoadCalculation}. Therefore, for each segment, an equivalent chord length $c_i$ has been defined based on the spanwise position $y_i$, and a corresponding lift increment $l_{\text{Schrenk},i}$ has been assigned. Sections incorporated into the fuselage were then excluded from the model by scaling the sections with respect to the average fuselage width at each section $b_0$ and the total wingspan $b$. The remaining lift was rescaled to compensate for the losses. 
 
 \begin{equation}
     \label{eq:schrenk_element_lift}
@@ -313,20 +313,20 @@ The resulting lift distribution is presented in \autoref{fig:force_distribution}
 
 
 
+%This section should, if necessary, be moved to another chapter.
+% \subsection{Drag Estimation}
+% \label{sub:drag}
+% The parasite drag ($C_{D_0}$) estimation was performed using the drag build-up method described by Raymer \cite{raymer1992aircraft}. The subsonic parasite drag of each component was estimated separately, and then summed to obtain the total $C_{D_0}$. The component drag was defined as a product of the wetted area $S_\text{wet}$, calculated flat-plate skin-friction drag coefficient $C_f$, form factor $FF$ that estimates the pressure drag due to viscous separation, and interference component $Q$ that estimates the increase in drag due to the interference between the different components, as shown in \autoref{eq:CD0} \cite[p. 281]{raymer1992aircraft}.
+% \begin{equation}
+%     (C_{D_0})_\text{subsonic} = \frac{\sum(C_{f_c} \cdot FF_c \cdot Q_c \cdot S_{wet_c})}{S_\text{ref}} + C_{D_\text{misc}} + C_{D_{L\&P}}
+%     \label{eq:CD0}
+% \end{equation}
 
-\subsection{Drag Estimation}
-\label{sub:drag}
-The parasite drag ($C_{D_0}$) estimation was performed using the drag build-up method described by Raymer \cite{raymer1992aircraft}. The subsonic parasite drag of each component was estimated separately, and then summed to obtain the total $C_{D_0}$. The component drag was defined as a product of the wetted area $S_\text{wet}$, calculated flat-plate skin-friction drag coefficient $C_f$, form factor $FF$ that estimates the pressure drag due to viscous separation, and interference component $Q$ that estimates the increase in drag due to the interference between the different components, as shown in \autoref{eq:CD0} \cite[p. 281]{raymer1992aircraft}.
-\begin{equation}
-    (C_{D_0})_\text{subsonic} = \frac{\sum(C_{f_c} \cdot FF_c \cdot Q_c \cdot S_{wet_c})}{S_\text{ref}} + C_{D_\text{misc}} + C_{D_{L\&P}}
-    \label{eq:CD0}
-\end{equation}
+% Here, $C_{D_\text{misc}}$ is miscellaneous drag due to flaps, un-retracted landing gear etc., and $C_{D_{L\&P}}$ is an estimate of the drag due to leakages and protuberances. $S_{wet}$ is the wetted area, and $S_{ref}$ is the reference area. The subscript $c$ refers to a single component.
 
-Here, $C_{D_\text{misc}}$ is miscellaneous drag due to flaps, un-retracted landing gear etc., and $C_{D_{L\&P}}$ is an estimate of the drag due to leakages and protuberances. $S_{wet}$ is the wetted area, and $S_{ref}$ is the reference area. The subscript $c$ refers to a single component.
+% The $C_f$ is estimated as a weighted average of the laminar and turbulent flow values, and can be calculated according to Raymer  \cite[p. 282]{raymer1992aircraft}. In case the skin roughness is high, the $C_f$ value can be expected to increase. An adjusted value can be calculated by introducing a cut-off Reynold number $Re_\text{cut-off}$ for subsonic flight \cite[p. 282]{raymer1992aircraft}, for a given  characteristic length and skin roughness. The $C_{D_0}$ was further utilised to compute the glide ratios required for fuel consumption estimations. 
 
-The $C_f$ is estimated as a weighted average of the laminar and turbulent flow values, and can be calculated according to Raymer  \cite[p. 282]{raymer1992aircraft}. In case the skin roughness is high, the $C_f$ value can be expected to increase. An adjusted value can be calculated by introducing a cut-off Reynold number $Re_\text{cut-off}$ for subsonic flight \cite[p. 282]{raymer1992aircraft}, for a given  characteristic length and skin roughness. The $C_{D_0}$ was further utilised to compute the glide ratios required for fuel consumption estimations. 
-
-The total drag values were computed using a parabolic induced drag coefficient estimation $C_{D_i}=C_L^2/\pi Ae$, as proposed by Raymer. While this approach was deemed as sufficiently accurate for the proposed design, it shall be noted that, similarly to the lift calculations presented in \autoref{sec:lift}, it is based on semi-empirical formulae, and an assumption of percentage of laminar flow. For a more detailed analysis, it is once again recommended to utilise CFD-based tools \cite{raymer1992aircraft}.
+% The total drag values were computed using a parabolic induced drag coefficient estimation $C_{D_i}=C_L^2/\pi Ae$, as proposed by Raymer. While this approach was deemed as sufficiently accurate for the proposed design, it shall be noted that, similarly to the lift calculations presented in \autoref{sec:lift}, it is based on semi-empirical formulae, and an assumption of percentage of laminar flow. For a more detailed analysis, it is once again recommended to utilise CFD-based tools \cite{raymer1992aircraft}.
 
 
  \section{Wing structural analysis}
@@ -497,7 +497,7 @@ Once the wing has been verified to comply with the requirements and to resist th
 
 \section{Fuselage structural analysis}
 \label{sec:fuselage_structural_analysis}
-The structural analysis of the fuselage has been conducted by considering the most constraining loading cases. Namely, the pull-up manoeuvre at the maximum load factor from the flight envelope, and the main landing gear impact for maximum vertical deceleration. For both of these, the fuselage has been discretised into $n$ nodes, with each node being assigned a mass based on the estimated masses (both structural and non-structural) and positions of different components. The lift force of the canard is assumed to be a fraction of the total lift force:
+The structural analysis of the fuselage has been conducted by modelling the fuselage as a beam and considering the most constraining loading cases. Namely, the pull-up manoeuvre at the maximum load factor from the flight envelope, and the main landing gear impact for maximum vertical deceleration. For both of these, the fuselage has been discretised into $n$ nodes, with each node being assigned a mass based on the estimated positions and masses (both structural and non-structural) of different components. The lift force of the canard was assumed to be a fraction of the total lift force:
 \begin{equation}
     L_c=f\cdot L_{tot}
 \end{equation}
@@ -512,12 +512,12 @@ The free-body and kinetic diagrams of the fuselage in flight, assuming detached 
 \end{equation}
 
 \begin{equation}
-    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_{cg}: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma_{i=0}^n x_i m_i g  = \Sigma_{i=0}^n x_i m_i a_i
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_{x=0}: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma_{i=0}^n x_i m_i g  = \Sigma_{i=0}^n x_i m_i a_i
 \end{equation}
 
 where $a_i=a_{cg}=(n-1)g$.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{tikzpicture}[scale=1.0, >=stealth]
 
@@ -559,10 +559,10 @@ where $a_i=a_{cg}=(n-1)g$.
 }
 
 % Reference lines
-\draw[dashed,gray] (2.2,0.15) -- (2.2,-2.2);
-\draw[dashed,gray] (5.7,0.15) -- (5.7,-2.2);
-\draw[dashed,gray] (6.5,-0.15) -- (6.5,-2.2);
-\draw[dashed,gray] (10.8,0.15) -- (10.8,-2.2);
+\draw[dashed,gray] (2.2,0.15) -- (2.2,-1.2);
+\draw[dashed,gray] (5.7,0.15) -- (5.7,-1.2);
+\draw[dashed,gray] (6.5,-0.15) -- (6.5,-1.2);
+\draw[dashed,gray] (10.8,0.15) -- (10.8,-1.2);
 
 % Canard lift and moment
 \draw[->,thick,blue]
@@ -591,16 +591,16 @@ where $a_i=a_{cg}=(n-1)g$.
 \node[red!70,right] at (12.0,-0.8) {$m_i g$};
 
 % CG label
-\node[below] at (6.5,-2.2) {$x_{cg}$};
+\node[below] at (6.5,-1.2) {$x_{cg}$};
 
 % x-axis
-\draw[->] (0,-2.2) -- (12.8,-2.2) node[right] {$x$};
+\draw[->] (0,-1.2) -- (12.8,-1.2) node[right] {$x$};
 
 % Station labels
-\node[below] at (2.2,-2.2) {$x_c$};
-\node[below] at (5.7,-2.2) {$x_w$};
-\node[below] at (6.5,-2.2) {$x_{cg}$};
-\node[below] at (10.8,-2.2) {$x_t$};
+\node[below] at (2.2,-1.2) {$x_c$};
+\node[below] at (5.7,-1.2) {$x_w$};
+\node[below] at (6.5,-1.2) {$x_{cg}$};
+\node[below] at (10.8,-1.2) {$x_t$};
 
 % Dimension lines referenced to CG
 % \draw[<->] (2.2,-1.65) -- (6.5,-1.65);
@@ -615,7 +615,7 @@ where $a_i=a_{cg}=(n-1)g$.
 % ─────────────────────────────────────────
         % KINETIC DIAGRAM (bottom, offset by -5.5)
         % ─────────────────────────────────────────
-        \def\yoff{-3.5}
+        \def\yoff{-2.5}
 
         % Fuselage beam
         \draw[thick] (0,\yoff+0.15) -- (12,\yoff+0.15);
@@ -645,21 +645,21 @@ where $a_i=a_{cg}=(n-1)g$.
         %     node[left] {$I_G\,\alpha$};
 
         % Dashed reference lines (kinetic)
-        \draw[dashed, gray] (2.2,  \yoff+0.15) -- (2.2,  \yoff-2.2);
-        \draw[dashed, gray] (5.7,  \yoff+0.15) -- (5.7,  \yoff-2.2);
-        \draw[dashed, gray] (6.5,  \yoff-0.15) -- (6.5,  \yoff-2.2);
+        \draw[dashed, gray] (2.2,  \yoff+0.15) -- (2.2,  \yoff-1.2);
+        \draw[dashed, gray] (5.7,  \yoff+0.15) -- (5.7,  \yoff-1.2);
+        \draw[dashed, gray] (6.5,  \yoff-0.15) -- (6.5,  \yoff-1.2);
         % \draw[dashed, gray] (7.8,  \yoff+0.15) -- (7.8,  \yoff-2.2);
-        \draw[dashed, gray] (10.8, \yoff+0.15) -- (10.8, \yoff-2.2);
+        \draw[dashed, gray] (10.8, \yoff+0.15) -- (10.8, \yoff-1.2);
 
         % x axis (kinetic)
-        \draw[->] (0,\yoff-2.2) -- (12.8,\yoff-2.2) node[right] {$x$};
+        \draw[->] (0,\yoff-1.2) -- (12.8,\yoff-1.2) node[right] {$x$};
 
         % x-axis labels (kinetic)
-        \node[below] at (2.2,  \yoff-2.2) {$x_c$};
-        \node[below] at (5.7,  \yoff-2.2) {$x_w$};
-        \node[below] at (6.5,  \yoff-2.2) {$x_{cg}$};
+        \node[below] at (2.2,  \yoff-1.2) {$x_c$};
+        \node[below] at (5.7,  \yoff-1.2) {$x_w$};
+        \node[below] at (6.5,  \yoff-1.2) {$x_{cg}$};
         % \node[below] at (7.8,  \yoff-2.2) {$x_{lg}$};
-        \node[below] at (10.8, \yoff-2.2) {$x_t$};
+        \node[below] at (10.8, \yoff-1.2) {$x_t$};
 
     \end{tikzpicture}
     \caption{Free-body diagram (top) and kinetic diagram (bottom) of the fuselage during a pull-up manoeuvre.}
@@ -667,7 +667,7 @@ where $a_i=a_{cg}=(n-1)g$.
 \end{figure}
 
 
-In the second case, the aircraft is assumed to both accelerate vertically upwards due to landing impact, and rotate with a rotational acceleration about the center of gravity. The lift forces in this case are found by assuming the total lift equal to weight and in moment equilibrium with weight just before impact, with canard still assumed to contribute a fraction of the total lift. The free-body and kinetic diagrams at the instant of the impact are shown in \autoref{fig:fuselage_fbd_kd_landing}. Hence, the equations of motion are
+In the second case, the aircraft is assumed to both accelerate vertically upwards due to landing impact, and rotate with a rotational acceleration about the center of gravity. The lift forces in this case are found by assuming the total lift equal to weight (just before impact) and the aircraft in moment equilibrium (just before impact), with canard still assumed to contribute a fraction of the total lift. The free-body and kinetic diagrams at the instant of the impact are shown in \autoref{fig:fuselage_fbd_kd_landing}. The horizontal force between the ground and landing gear $F_{brake}$ is assumed a quarter of the normal contact force \cite{niu1999airframe}. Hence, the equations of motion are
 
 \begin{equation}
      \tikz[baseline=-0.6ex]{\draw[->] (0,-0.25) -- (0,0.25);}
@@ -687,24 +687,8 @@ where $l_{lg}$ is the length of the landing gear strut. Then, the acceleration o
     a(x_i)=a_{cg}+\alpha (x_i-x_{cg})
 \end{equation}
 
-Finally, the internal shear force at node $i$ can then be found as 
-\begin{equation}
-    \tikz[baseline=-0.6ex]{\draw[->] (0,0.25) -- (0,-0.25);}
-    \quad
-    V(x_i)=\Sigma_{j=0}^i \left(F_{\text{applied},j}-m_j g-m_j a_j\right)
-\end{equation}
-% \begin{equation}
-%     V(x_i)=\Sigma_{j=0}^i (F_{\text{applied},j} - m_j g -  m_j a_j)
-% \end{equation}
 
-and the internal bending moment as 
-
-\begin{equation}
-    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (220:-40:0.18)} \quad M(x_i)=\Sigma_{j=0}^i(M_{\text{applied},j}+(x_i-x_j)(F_{\text{applied},j}-m_j(g+a(x_j))))
-\end{equation}
-
-
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \begin{tikzpicture}[scale=1.0, >=stealth]
 
@@ -857,13 +841,26 @@ and the internal bending moment as
     \label{fig:fuselage_fbd_kd_landing}
 \end{figure}
 
-Additionally, the torque on the fuselage due to the side force on the empennage has been accounted for by using
+Finally, the internal shear force at node $i$ (for any of the above loading cases) can then be found as 
+\begin{equation}
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0.25) -- (0,-0.25);}
+    \quad
+    V(x_i)=\Sigma_{j=0}^i \left(F_{\text{applied},j}-m_j g-m_j a_j\right)
+\end{equation}
+
+and the internal bending moment as 
+
+\begin{equation}
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (220:-40:0.18)} \quad M(x_i)=\Sigma_{j=0}^i(M_{\text{applied},j}+(x_i-x_j)(F_{\text{applied},j}-m_j(g+a(x_j))))
+\end{equation}
+
+Additionally, the torque on the fuselage due to the side force on the vertical tail has been accounted for by using
 
 \begin{equation}
     T=\frac{h}{2}C_{L_{max}}q_{\infty}S
 \end{equation}
 
-The internal loading diagrams are shown in \autoref{fig:fuselage_internal_loads} and the required thicknesses in \autoref{fig:fuselage_thicknesses}.
+The resulting internal loading diagrams for the two above cases are shown in \autoref{fig:fuselage_internal_loads}.
 
 \begin{figure}[H]
     \centering
@@ -878,7 +875,7 @@ The internal loading diagrams are shown in \autoref{fig:fuselage_internal_loads}
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/internal_loads_landing.png}
-        \caption{Landing impact at deceleration of $4g$}
+        \caption{Landing impact at deceleration of $8g$}
         \label{fig:fuselage_internal_landing}
     \end{subfigure}
 
@@ -886,7 +883,7 @@ The internal loading diagrams are shown in \autoref{fig:fuselage_internal_loads}
     \label{fig:fuselage_internal_loads}
 \end{figure}
 
-In order to ensure that the fuselage does not fail in shear, yield, fracture, or buckling under these internal loads, the internal normal and shear stresses have been found by superimposing the internal loads in a particular loading scenario. That resulted in \autoref{fig:fuselage_thicknesses}, showing the minimum required thickness at each station. The critical normal buckling stress  
+Subsequently, in order to ensure that the fuselage does not fail in yield, fracture, or buckling under these internal loads, the internal normal and shear stresses have been calculated by superimposing the internal loads and assuming a thin-walled circular cross-section. That resulted in \autoref{fig:fuselage_thicknesses}, showing the minimum required thickness at each station, where the minimum thickness was set at $0.1mm$. The critical normal buckling stress  
 
 \textcolor{red}{\cite{NASA_SP8007_2019} used for critical buckling loads: }
 

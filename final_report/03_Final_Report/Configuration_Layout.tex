@@ -446,18 +446,29 @@ This section analyses the external geometry and main fuselage characteristics of
 
 \subsection{Fuselage Dimensions}
 \label{sub:fuselage_dimensions}
-The general layout of the fuselage has been constructed around the idea of fitting the internal components while providing a clean outer structure that produces the least amount of drag to enable flight in the 0.75 Mach regime.  
+The general layout of the fuselage has been constructed around the idea of fitting the internal components while providing a clean outer structure that produces the least amount of drag, enabling flight in the 0.75 Mach regime. 
+To produce as little drag as possible, the fuselage has a streamlined form, with integrated podded landing gear. A general layout of the exterior can be seen in \autoref{fig:ext_hugo}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/External_Fig/Exterios_Config.png}
+    \caption{External View of HUGO}
+    \label{fig:ext_hugo}
+\end{figure}
+
+Two hatches are present on top of the fuselage, giving access to the interior configurations of the fuel tank placement and battery. Behind the last access door, the engines are positioned so as not to interfere with the wing planform. 
+
+More important for the outer configuration is the placement of the sensors that provide important data to the research teams
 - hatches, mounted sensors, 
 
 \subsection{Landing Gear Design}
 \label{sub:landing_gear_design}
 
-The landing gear design is an important component of the external configuration. It is important for taxiing, take-off, and landing, and must be able to withstand landing conditions. Furthermore, it must be stowed away during cruise to minimize the area exposed to the airflow to reduce drag. Airplane Design by Roskam has guidelines to design landing gear for aircraft. These include the scrape angle, turn over angle, wing tip clearance, and total mass on the main versus front landing gear.
+The landing gear design is an important component of the external configuration. It is crucial for taxiing, take-off, and landing, and must be able to withstand landing conditions. Furthermore, it must be stowed away during cruise to minimize the area exposed to the airflow to reduce drag. Airplane Design by Roskam \cite{roskamVI} \todo{which roskam to cite? I put the one in refs alredy} has guidelines on aircraft landing gear design. These include the scrape angle, turnover angle, wing tip clearance, and total mass on the main versus front landing gear.
 
-HUGO's modular design requires an in-depth analysis of the landing gear positioning as certain landing gear positions would lie outside of the acceptable design space. For example, the modular wing and tail cannot house the landing gear as prospective clients would then need to design landing gear mechanisms, slowing down testing and reducing HUGO's commercial attractiveness. 
+HUGO's modular design requires an in-depth analysis of the landing gear positioning as many common landing gear positions would lie outside of the acceptable design space. For example, the modular wing and tail cannot house the landing gear as prospective clients would then need to design landing gear mechanisms, slowing down the testing and reducing HUGO's commercial attractiveness. 
 
-To model the landing gear in the preliminary design phase, the fuselage was modelled as a cylinder with three sections; the nose cone, the main fuselage, and the tail cone. The tail cone was additionally modelled as a cylinder with different diameter circles as the base connected to the main fuselage, and the smaller diameter circle in the most aft part of the tail cone. Then, the FlexHop aircraft as a reference for the sizing of the simplified fuselage. Then, using SciPy's Sequential Least Squares Programming (SLSQP) optimizer, the position of the nose and main landing gears could be found to meet the necessary constraints (listed in \autoref{tab:lg_constraints}). 
+To model the landing gear in the midterm design phase, the fuselage was assumed cylindrical, with three sections: the nose cone, the main fuselage, and the tail cone. The tail cone was additionally modelled as a cylinder with different diameter circles as the base connected to the main fuselage, and the smaller diameter circle in the most aft part of the tail cone. \todo{remove: unnecessary detail, cylinder with diff diameter circles ain't a cylinder} Then, the FlexOp aircraft as a reference for the sizing of the simplified fuselage. Then, using SciPy's Sequential Least Squares Programming (SLSQP) optimizer, the position of the nose and main landing gears could be found to meet the necessary constraints (listed in \autoref{tab:lg_constraints}). 
 
 
 \begin{longtable}{|p{0.23\linewidth}|p{0.18\linewidth}|p{0.49\linewidth}|}
@@ -538,7 +549,7 @@ Physical stability constraint ensuring a valid tricycle landing gear arrangement
 
 \end{longtable}
 
-The optimiser could vary the longitudinal position of the nose and main landing gear, as well as the horizontal separation of the main landing gear ($Y_{lg}$), and the landing gear length ($l_{lg}$). The objective was to meet all the constraints while minimizing the main landing gear separation (as measured from the midline to the main landing gear), as well as the landing gear height (measured from the centreline of the fuselage). If these were not minimised, the landing gear length could become unbounded, requiring larger and larger horizontal separations, which the fuselage could not accommodate. The chosen objective function can be seen in \autoref{eq:objective_func}
+The optimiser could vary the longitudinal position of the nose and main landing gear, as well as the horizontal separation of the main landing gear ($Y_{lg}$), and the landing gear length ($l_{lg}$). The objective was to meet all the constraints while minimising the Euclidean norm of the main landing gear separation (as measured from the midline to the main landing gear), and the landing gear height (measured from the centreline of the fuselage). If these were not minimised, the landing gear length could become unbounded, requiring larger and larger horizontal separations, which the fuselage could not accommodate. The chosen objective function can be seen in \autoref{eq:objective_func}
 
 \begin{equation}\label{eq:objective_func}
     \sqrt{l_{lg}^2 + Y_{lg}^2}
@@ -566,11 +577,11 @@ The final landing gear position using FlexHop as a reference is reported in \aut
 
 In the detailed design stage, this initial estimate was used to determine if the landing gear could be housed within the main fuselage, or if it needed to be extended with pods to meet the main landing gear separation constraint. As the landing gear separation was wider than the fuselage diameter, it was determined HUGO would need pods to house the landing gear as well as a mechanism capable of extending the landing gear further outwards. 
 
-Because the landing gear positioning was done for the idealized fuselage, it was then important to verify if the requirements were still met in the real fuselage. The position of the landing gear from the preliminary design served as the starting point of the iteration loop in which the landing gear data was extracted from the CAD model, and refined until the constraints were met. The final landing gear positioning is given in \textbf{Picture from Vibhav}. %\autoref{}
+Because the landing gear positioning was done for the idealized fuselage, it was important to verify if the requirements were still met in the real fuselage. The position of the landing gear from the preliminary design served as the starting point of the iteration loop in which the landing gear data was extracted from the CAD model, and refined until the constraints were met. The final landing gear positioning is given in \textbf{Picture from Vibhav}. \todo{don't wewant a table} %\autoref{}
 
-The landing gear mechanism itself can be seen in \textbf{add drawings from Vibhav}. \textbf{fig 1} shows the extended landing gear, and \textbf{fix 2} show the stowed landing gear. The landing gear mechanism... \todo{Vibhav please briefly describe how the mechanism works here. 2-3 sentences should be enough.}. when extended, the landing gear will experience mostly vertical loads, resulting in vertical compression. To accommodate the compression, the landing gear will utilise a spring and dashpot in parallel.
+The landing gear mechanism itself can be seen in \textbf{add drawings from Vibhav}. \textbf{fig 1} shows the extended landing gear, and \textbf{fix 2} show the stowed landing gear. The landing gear mechanism... \todo{Vibhav please briefly describe how the mechanism works here. 2-3 sentences should be enough.}. When extended, the landing gear will experience mostly vertical loads, resulting in vertical compression. To accommodate the compression, the landing gear will utilise a spring and dashpot in parallel.
 
-During landing, the main landing gear must be able to withstand the impact loads, and the shock absorber deformation must be kept within allowable limits. As the landing gear needs to dissipate a predetermined downwards speed, the lower the impact load, the larger the deflection required. The initial maximum deflection required is 7.75 cm. This is how much the landing gear, sized to meet the geometric constraints, can deform so that the fuselage does not impact the ground. The initial guess for the force has been taken from now-deprecated EASA CS-23 regulations \todo{cite}, limiting the landing gear force to 4g. Current regulations do not provide a target impact load \todo{cite}. In case there was no feasible design space within the initial guess loading and displacement constraints, they would have had to be adjusted with consequences for either the landing gear (if the displacement is adjusted), or the fuselage (if the load is adjusted).
+During landing, the main landing gear must be able to withstand the impact loads, and the shock absorber deformation must be kept within allowable limits. As the landing gear needs to dissipate a predetermined downwards speed, the lower the impact load, the larger the deflection required. The maximum allowable deflection to avoid fuselage impacting the ground is 7.75 cm, based on the landing gear geometry. For this maximum deflection, g-loads transferred to the structure are obtained. In case there was no feasible design space within the initial guess displacement constraints, the landing gear would have had to be enlarged.
 % During landing, the main landing gear must be able to withstand the impact loads. The EASA guidelines were originally interpereted to require a high risk UAS to withstand a 4g load. Later, it was determined that the requirement was simply for the structure to withstand 1.5 times the load transfered by the landing gear. Due to time constraints, the optimal trade off between loads withstood by the fuselage versus the landing gear could not be explored, but should be looked into in further design. To meet both force and displacement constraints, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
 
 Using the python control library, the landing gear displacement and force responses to the aforementioned loads could be simulated using a linear time invariant system (LTI). Using the spring and dashpot in parallel the following state space can be constructed:
@@ -590,7 +601,7 @@ Using the python control library, the landing gear displacement and force respon
 
 where \autoref{eq:output_equation} represents the displacement and force respectively, L is the lift at landing, m is the mass on the landing gear, and g is the acceleration due to gravity.
 
-As previously mentioned, the displacement and damping constraints will be applied to the state space model. If the system were over-damped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring and dashpot constants, the landing gear can be tuned to meet all requirements.
+Displacement and damping constraints will be applied to the state space model. If the system were overdamped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring and dashpot constants, the landing gear can be tuned to meet all requirements.
 
 \begin{figure}[H]
     \centering
