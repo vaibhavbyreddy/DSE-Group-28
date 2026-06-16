@@ -14,7 +14,19 @@ The purpose of the stability and control analysis is to verify that HUGO can rem
 
 
 
-\section{Tail Sizing}
+\section{Horizontal Stabilizer Sizing}
+
+To satisfy HUG-STB-01, the horizontal stabiliser should cause stability close to marginal for the default value of the CG (when the fuel is distributed equally between the tanks), so that fuel movement either to the front or aft causes the CG excursion required for the stability regime of interest. This can be achieved when sizing a tail to the minimum area required for the combination of stability and controllability. For canard configurations, however, increasing the stabiliser size improves controllability, decreasing stability at the same time, which makes the condition both stability and controllability more challenging to achieve. As such, it is decided to demonstrate compliance with HUG-STB-01 using a t-tail empennage. Consequently, configurations containing a canard are sized for controllability, while configurations not containing one are sized for both stability and controllability. 
+
+\section{Horizontal Stabiliser Sizing using Semi-Empirical Formulae}
+Assuming constant aerodynamic coefficients, the following equations for the surface areas required for stability $(S_h/S)_{\text{min, st}}$ and controllability $(S_h/S)_{\text{min, ct}}$ can be obtained:
+
+\begin{equation}
+    \left(\frac{S_h}{S}\right)_{\text{min, st}} = \frac{\bar{x}_{cg}-\bar{x}_{ac} + 0.05}{\frac{C_{L\alpha_h}}{C_{L\alpha_{A-h}}} \left( 1 - \frac{d\varepsilon}{d\alpha} \right) \frac{l_h}{\bar{c}} \left( \frac{V_h}{V} \right)^2};\ \ \ \ \left(\frac{S_h}{S}\right)_{\text{min, ct}} = \frac{\bar{x}_{cg} + \frac{C_{m_{ac}}}{C_{L_{A-h}}} - \bar{x}_{ac}}{\frac{C_{L_h}}{C_{L_{A-h}}} \frac{l_h}{\bar{c}} \left( \frac{V_h}{V} \right)^2}
+\end{equation}
+
+Where 0.05 is a common value of stability margin during aircraft preliminary design \cite{stat-stab-margin}, $\bar{x}_{cg}$ and $\bar{x}_{ac}$ are the entire aircraft CG position and the aerodynamic centre of the aircraft-less-horizontal-stabiliser as a fraction of the MAC, $V_h/V$ is the ratio of airspeeds at the horizontal stabiliser to those at the main wing (equal to one for both canard and t-tail; due to their low interference with the main wing, effectiv clean airflow is seen by them).
+
 
 \subsection{Effect of Horizontal Stabilizer Aspect Ratio on Total Mass in
 the Standard Planform Configuration}
@@ -109,7 +121,7 @@ Here, $V = V_{appr}$, $b = 3.4\ m$ is the wing span, $C_{l_{\delta_{a}}}$ is the
     \label{tab:delta_a_alpha}
 \end{table}
 
-To estimate the aileron moment loads at the target experiment flight speed of $M = 0.75 \approx 230 \ m \cdot s^{-1}$ at FL270 ISA altitude, it has been set that the maximum roll rate, achieved in the approach regime, shall be achieved. The required aileron deflection to reach the required roll rate has been found to be $\delta_a = \pm3.89 \degree$ using \autoref{eq:roll_rate}. Flow5 outputs a moment $H_a = 0.1791 \ N \cdot m$ for a single aileron at this speed regime. This speed lies in compressibility region, therefore accounting for this in the hinge moment is needed. Using the expression in \autoref{eq:hinge_moment} \cite{}, value obtained in Flow5 was then scaled using the Prandtl-Glauert compressibility correction in \autoref{eq:ch_compressibility}, analogous to the method Simpson used \cite{Simpson2016}.
+To estimate the aileron moment loads at the target experiment flight speed of $M = 0.75 \approx 230 \ m \cdot s^{-1}$ at FL270 ISA altitude, it has been set that the maximum roll rate, achieved in the approach regime, shall be achieved. The required aileron deflection to reach the required roll rate has been found to be $\delta_a = \pm3.89 \degree$ using \autoref{eq:roll_rate}. Flow5 outputs a moment $H_a = 0.1791 \ N \cdot m$ for a single aileron at this speed regime. This speed lies in compressibility region, therefore accounting for this in the hinge moment is needed. Using the expression in \autoref{eq:hinge_moment} \cite{}, value obtained in Flow5 was then scaled using the Prandtl-Glauert compressibility correction in \autoref{eq:ch_compressibility}, analogous to the method Simpson used \cite{Simpson2016}. \todo{update this image below}
 
 \begin{figure}[H]
     \centering
@@ -310,27 +322,27 @@ Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the
     \caption{Lateral-directional dynamic stability modes of HUGO during approach}
     \label{fig:lateral_directional_dynamic_modes}
 \end{figure}
-Furthermore, HUGO's physical responses to perturbation velocities $u$, $v$ and $w$ of magnitude $1 \ m\cdot s^{-1}$ were studied, since no gust requirements have been specified. These disturbances represent gusts in the x, y, and z directions (defined in \autoref{fig:flow5_overview}), respectively. This demonstrates that the aircraft behaves dynamically stable when disturbed from a steady flight. The responses are reported in two time intervals in \autoref{fig:u_dist}, \autoref{fig:v_dist} and \autoref{fig:w_dist}.
+Furthermore, HUGO's physical responses to perturbation velocities $u$, $v$ and $w$ of magnitude $1 \ m\cdot s^{-1}$ were studied, since no gust requirements have been specified. These disturbances represent gusts in the x, y, and z directions (defined in \autoref{fig:flow5_overview}), respectively. In the cruise condition, HUGO seems to have an almost marginally stable phugoid motion, which is then reflected also in the disturbance response plots. Nevertheless, the mode is still stable and can easily be damped by the used of an automatic control system discussed in previous chapters. The disturbance plots demonstrate that the aircraft behaves dynamically stable when disturbed from a steady flight. The responses are reported in two time intervals in \autoref{fig:u_dist}, \autoref{fig:v_dist} and \autoref{fig:w_dist}.
 
 \begin{figure}[H]
     \centering
 
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures_final/placeholder4.jpg}
-        \caption{Short-period mode, 5-second interval}
-        \label{fig:u_dist_5}
+        \includegraphics[width=\linewidth]{figures_final/eigenmotions/uw_cruise.png}
+        \caption{$u$ (blue) and $w$ (green) velocity disturbance responses to a steady flight in cruise}
+        \label{fig:uw_cruise}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures_final/placeholder4.jpg}
-        \caption{Phugoid mode, 10-minute interval}
-        \label{fig:u_dist_600}
+        \includegraphics[width=\linewidth]{figures_final/eigenmotions/v_cruise.png}
+        \caption{$v$ velocity disturbance response to a steady flight in cruise}
+        \label{fig:v_cruise}
     \end{subfigure}
 
-    \caption{Longitudinal dynamic stability modes of HUGO}
-    \label{fig:u_dist}
+    \caption{Unit velocity disturbances during cruise}
+    \label{fig:cruise_disturbances}
 \end{figure}
 
 \begin{figure}[H]
@@ -338,45 +350,21 @@ Furthermore, HUGO's physical responses to perturbation velocities $u$, $v$ and $
 
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures_final/placeholder4.jpg}
-        \caption{Short-period mode, 5-second interval}
-        \label{fig:v_dist_5}
+        \includegraphics[width=\linewidth]{figures_final/eigenmotions/uw_approach.png}
+        \caption{$u$ (blue) and $w$ (green) velocity disturbance responses to a steady flight in approach}
+        \label{fig:uw_approach}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
-        \includegraphics[width=\linewidth]{figures_final/placeholder4.jpg}
-        \caption{Phugoid mode, 10-minute interval}
-        \label{fig:v_dist_600}
+        \includegraphics[width=\linewidth]{figures_final/eigenmotions/v_approach.png}
+        \caption{$v$ velocity disturbance response to a steady flight in approach}
+        \label{fig:v_approach}
     \end{subfigure}
 
-    \caption{Longitudinal dynamic stability modes of HUGO}
-    \label{fig:v_dist}
+    \caption{Unit velocity disturbances during approach}
+    \label{fig:approach_disturbances}
 \end{figure}
-
-\begin{figure}[H]
-    \centering
-
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures_final/placeholder4.jpg}
-        \caption{Short-period mode, 5-second interval}
-        \label{fig:w_dist_5}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\linewidth}
-        \centering
-        \includegraphics[width=\linewidth]{figures_final/placeholder4.jpg}
-        \caption{Phugoid mode, 10-minute interval}
-        \label{fig:w_dist_600}
-    \end{subfigure}
-
-    \caption{Longitudinal dynamic stability modes of HUGO}
-    \label{fig:w_dist}
-\end{figure}
-
-\section{Centre of Gravity Limits}
-\label{sec:centre_of_gravity_limits}
 
 \todo[inline]{Stability \& Controllability, scissor plot etc.}
 

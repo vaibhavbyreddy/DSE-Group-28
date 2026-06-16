@@ -301,12 +301,12 @@ To achieve the desired load distribution, the planforms have been divided into $
 
 \begin{equation}
     \label{eq:schrenk_element_lift}
-l_{\text{Schrenk},i} = \frac{1}{2}\rho V_{s_\text{n max}}^2C_{L_\text{n max}}\cdot\frac{1}{2}
+l_{\text{Schrenk},i} = \frac{1}{2}\rho V_{s_\text{n max}}^2C_{L_\text{max}}\cdot\frac{1}{2}
 \left(c_i+\frac{4}{\pi}c_{\mathrm{MAC}}\sqrt{1-\left(\frac{y_i-\frac{b_0}{2}}
 {\frac{b-b_0}{2}}\right)^2}\right)
 \end{equation}
 
-The resulting lift distribution is presented in \autoref{fig:force_distribution} together with an analysis of the weight contribution. Applying the modified Schrenk's method is deemed as a conservative approach, as it is expected to slightly overestimate the loads acting on the planform root. It is additionally consistent with methodologies proposed by Raymer \cite{raymer1992aircraft} and Roskam \cite{roskamVI} for the design of subsonic to high-subsonic regime aircraft, and has been verified as sufficiently accurate to be used for the preliminary structural analysis of UAVs when compared to CFD methods \cite{Kamal2019}. It shall be noted, however, that the method is only accurate for planforms with low sweep angles, and does not account for complex aeroelastic phenomena, such as coupling, flutter, gusts, and load reliefs due to deformations. Therefore, the use of CFD-based models is recommended for the development of a detailed design.
+With $C_{L_{\text{max}}}$ being the wing positive maximum lift coefficient determined as $0.9C_{l_{\text{max}}}\cos\Lambda_{c/4}$ \cite[p. 153]{torenbeek2013synthesis}. The resulting lift distribution is presented in \autoref{fig:force_distribution} together with an analysis of the weight contribution. Applying the modified Schrenk's method is deemed as a conservative approach, as it is expected to slightly overestimate the loads acting on the planform root. It is additionally consistent with methodologies proposed by Raymer \cite{raymer1992aircraft} and Roskam \cite{roskamVI} for the design of subsonic to high-subsonic regime aircraft, and has been verified as sufficiently accurate to be used for the preliminary structural analysis of UAVs when compared to CFD methods \cite{Kamal2019}. It shall be noted, however, that the method is only accurate for planforms with low sweep angles, and does not account for complex aeroelastic phenomena, such as coupling, flutter, gusts, and load reliefs due to deformations. Therefore, the use of CFD-based models is recommended for the development of a detailed design.
 
 %https://www.akademiabaru.com/doc/ARFMTSV64_N2_P283_292.pdf
 

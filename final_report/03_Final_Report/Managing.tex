@@ -147,7 +147,7 @@ From \autoref{tab:trade_off_matrix}, it can be seen that HUG-CFG-303 scores the 
 
 Following the configuration trade-off, HUG-CFG-303 was selected as the final concept to be developed in this report. The selected high wing configuration comes with static modular wing mounting port, a canard mounting port, a T-tail, two jet engines mounted on the fuselage, and a retractable landing gear. The main mission of HUGO is to serve as a reusable flight test platform for high-speed aeroelastic and aeroservoelastic research. Therefore, the final concept is not designed around a single wing planform, but the ability to accommodate a range of various planforms.\\
 The main wing is mounted to a fixed structural interface on top of the fuselage, which simplifies the load path and reduces the complexity of certification, inspection, and maintenance. The high-wing arrangement also provides favourable ground clearance for high aspect ratio wings and leaves a large amount of fuselage space. The canard port is a modular feature of the final concept, which is not required to be present in all possible test configurations. The port can covered to minimize aerodynamic disturbances. When installed, the canard allows HUGO to support additional experimental configurations. The empennage is configured as a T-tail to keep the horizontal tail away from the main wing wake and to provide sufficient pitch control authority for a considered planform envelope. The landing gear is integrated into the fuselage group rather than the wing, so that any other wings provided by customers do not need to include landing gear structure. Similarly, the propulsion system is mounted on and inside the fuselage to keep the wing interface independent of the installed test planform.\\
-There are, therefore, two groups in the HUGO configuration: fixed and modular components. The fixed group of components, consisting of the fuselage, propulsion system, landing gear, avionics, and common safety and mission critical systems stays unchanged for all possible configurations. The second is the modular group, consisting of the  wing, canard, and replaceable empennage components. In the further design procedure, the fixed group is designed to support the full range of missions, while envelopes for modular components and their standard versions for testing are defined.
+There are, therefore, two groups in the HUGO configuration: fixed and modular components. The fixed group of components, consisting of the fuselage, propulsion system, landing gear, avionics, and common safety and mission critical systems stays unchanged for all possible configurations. The second is the modular group, consisting of the wing, canard, and replaceable empennage components. In the further design procedure, the fixed group is designed to support the full range of missions, while envelopes for modular components and their standard versions for testing are defined.
 
 \section{Engineering Design and Analysis}
 \label{sec:engineering_design_and_analysis}
@@ -160,9 +160,9 @@ Several analyses described in the Midterm Report \footnote{\label{foot:midterm}\
 
 Considering the wide scope of possible array designs, featuring more than one possible airfoil, the approach to aerodynamic analysis differs from the one of the Midterm Report \footref{rep:midterm_rep}. Instead of defining an airfoil and conducting a lifting line analysis to obtain the properties of the three-dimensional wing directly, an envelope of possible airfoils is defined implicitly by ranges of values of lift slope, maximum lift and moment coefficients. The properties of the three-dimensional wing are deduced from those coefficients using semi-empirical formulae.
 
-An additional challenge posed by the Planform Envelope is that it is a continuous design space spanning several parameters. Evaluating all combinations of those parameters at high resolution is not feasible. As such, a list of parameter combinations considered most constraining is justified in \todo{autoref}.
+An additional challenge posed by the Planform Envelope is that it is a continuous design space spanning several parameters. Evaluating all combinations of those parameters at high resolution is not feasible. As such, a list of parameter combinations considered most constraining is justified in \autoref{sec:Planform envelope boundaries}.
 
-To allow for general-purpose testing of control systems, the standard planform of HUGO needs to be free of aeroelastic instability. To ensure that, an aeroelastic analysis of the planform is conducted  \todo{autoref}. The standard planform also serves as the benchmark for evaluating the performance of the aircraft in \autoref{ch:performance_analysis}. The influence of assumptions made during the design process on the ability of HUGO to meet its requirements and on the performance of the system needs to be assessed by means of a sensitivity study. This is addressed in \todo{autoref}.
+To allow for general-purpose testing of control systems, the standard planform of HUGO needs to be free of aeroelastic instability. To ensure that, an aeroelastic analysis of the planform is conducted  \autoref{sec:flutter_analysis}. The standard planform also serves as the benchmark for evaluating the performance of the aircraft in \autoref{ch:performance_analysis}. The particular methods employed in the design of HUGO need to be verified, and the effect of all assumptions therein is to be quantified via sensitivity studies. \autoref{sec:VnV} contains an outline of how each method is verified, with further detail given further in the report, together with particular method descriptions.
 
 % 0) The goals for the engineering analysis are to assess whether HUGO can house its specified planforms and to develop the standard planform to be used for control system tests.
 
@@ -184,7 +184,7 @@ The Planform Envelope requires quantification - both for the user (to serve as s
     \item $\lambda$: any taper profile that results in the wing not widening while moving inboard, but preventing it from becoming excessively thin, is considered acceptable. In the considered range, the most constraining case, when both aerodynamics and structural performance are negatively impacted, is when $\lambda$ is 1 \cite[p.401-405, p.438]{raymer1992aircraft, AndersonAerodynamics}.
     \item $\Lambda_{c/4}$: positive sweeps up to slightly above the Midterm Report value \footref{ft:midterm_rep}. The extremum values of sweep are taken as critical, as for maximum sweep the effective airspeed is reduced, and the aerodynamic centre is most aft, and for the minimum sweep the aerodynamic centre is most fore. The former is challenging for tail sizing for stability and main wing performance, while for the latter, empennage sizing for controllability is compromised. 
     \item $t/c$: The range encompasses thin and potentially unstable wings and high-thickness profiles similar to those at wing roots of large aircraft \footnote{\label{foot:reference_tc_values}\href{https://m-selig.ae.illinois.edu/ads/aircraft.html}{David Lednicer, The Incomplete Guide to Airfoil Usage} (accessed on )}. As for the critical points, parasitic drag increases with $t/c$ \cite[p.283]{raymer1992aircraft}, but the wing weight decreases significantly \cite[p.401-405]{raymer1992aircraft}. Thus, three values across the parameter range are selected for evaluation.
-    \item $C_{l_\text{max}}$: To ensure sufficient low-speed performance, a minimum value of this parameter is established as 1, which is below the $C_{l_\text{max}}$ of most aifoils \footnote{\label{foot:NACA_4415}\href{http://airfoiltools.com/airfoil/details?airfoil=naca4415-il}{Airfoil Tools, NACA 4415} (accessed on )}\footnote{\label{foot:NACA_24112}\href{http://airfoiltools.com/airfoil/details?airfoil=naca24112-jf}{Airfoil Tools, NACA 24112} (accessed on )}.
+    \item $C_{l_\text{max}}$: To ensure sufficient low-speed performance, a minimum value of this parameter is established as 1, which is below the $C_{l_\text{max}}$ of most aifoils \footnote{\label{foot:NACA_4415}\href{http://airfoiltools.com/airfoil/details?airfoil=naca4415-il}{Airfoil Tools, NACA 4415} (accessed on 11.06.2026)}\footnote{\label{foot:NACA_24112}\href{http://airfoiltools.com/airfoil/details?airfoil=naca24112-jf}{Airfoil Tools, NACA 24112} (accessed on 11.06.2026)}.
     \item $C_{m_{ac}}$: The extrema values of this parameter are most constraining for sizing the empennage for controllability and, as such, taken as critical points. The minimum $C_{m_{ac}}$ accounts for high camber sections such as NACA 4415 with $C_{m_{ac}}$ of around -0.12 \footref{foot:NACA_4415}, while the upper bound accounts for reflexed airfoils such as NACA 24112  with $C_{m_{ac}}$ of up to 0.03 \footref{foot:NACA_24112}.
     \item $C_{l_0}$: The impact of this parameter is secondary - provided $C_{l_\alpha}$ and $C_{l_{\mathrm{max}}}$ are satisfactory, it only changes the angle of attack required for a given amount of lift. Hence, any non-negative vlue of the parameter is allowed, with zero taken as the critical value.
     \item $C_{l_\alpha}$: The lift slope for thin airfoil is typically close to $2\pi$ and this value is taken as critical.
@@ -215,7 +215,7 @@ The Planform Envelope requires quantification - both for the user (to serve as s
 Not every combination of wing cross section and sweep is expected to reach Mach 0.75. However, provided that shocks do not develop up to that speed, a planform whose cross section coefficients are within the stated range is supposed to be able to reach Mach 0.75. Also, there is a possibility that a planform whose parameters are outside of the stated ranges is compatible with HUGO.
 
 \section{The Standard Planform}
-As explained previously, a Standard Planform shall be defined for HUGO for the purposes of tests which do not require a wing provided by the client. \autoref{tab:standard_wing_planform} lists the parameters chosen for the standard UAV configuration. The planform is based on the the midterm design phase analysis results \footref{foot:midterm}. It has been adapted for slightly larger aircraft mass and aeroelastic stability\todo{autoref}, which required adjusting the span and the taper ratio, respectively.
+As explained previously, a standard planform shall be defined for HUGO for the purposes of tests which do not require a wing provided by the client. \autoref{tab:standard_wing_planform} lists the parameters chosen for the standard UAV configuration. The planform is based on the midterm design phase analysis results \footref{foot:midterm}. It has been adapted for a slightly larger aircraft mass and aeroelastic stability (\autoref{sec:flutter_analysis}), which required adjusting the span and the taper ratio, respectively.
 
 \begin{table}[H]
     \centering
@@ -229,21 +229,138 @@ As explained previously, a Standard Planform shall be defined for HUGO for the p
 \end{table}
 
 \section{Preliminary Design Workflow}
-There are. 
+There are two similar, but independent analyses that need to be conducted in parallel - the planform envelope analysis and the standard planform analysis. The planform envelope analysis concerns each planform identified as critical in \autoref{sec:Planform envelope boundaries} combined with a provided fixed group. It allows for assessing whether a given HUGO fixed group meets the performance requirements for all planforms.
 
-The planform envelope analysis analyses each planform identified as critical in \autoref{sec:Planform envelope boundaries} combined with a provided fixed group. It allows for assessing whether a given HUGO fixed group meets the performance requirements for all planforms.
+The standard planform analysis performs more in-depth checks, such as flutter analysis and noise and emissions estimations for the standard planform. This is to ensure that the standard planform is safe to operate and has known performance, as well as to establish the nominal environmental impact of the aircraft.
 
-Finally, the standard planform analysis (\todo {figure}) performs more in-depth checks, such as flutter analysis and noise/emissions estimations for the standard planform. This confirms that the standard planform is safe to operate and quantifies its performance, as well as establishes the nominal environmental impact of the aircraft.
+These two analyses require common prior steps such as final material selection and in-depth fuselage group design involving selection of internal components and structural sizing of the fuselage and the landing gear. In order to understand the design analysis and sizing process, the workflow diagram of the final phase of the project is shown in \autoref{fig:workflow_diagram}.
 
-In order to understand the verification and validation procedures, the workflow diagram of the final phase of the project is shown in \autoref{fig:workflow_diagram}. It outlines the analysis and sizing procedures that were performed and their interconnections.
-
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\linewidth]{figures_final/Final workflow diagram.jpg}
+    \includegraphics[width=0.9\linewidth]{figures_final/Final workflow diagram.jpg}
     \caption{Workflow diagram}
     \label{fig:workflow_diagram}
 \end{figure}
 
 
 
+\section{Verification and Validation}[H]
+\label{sec:VnV}
+
+% \todo[inline]{From the \textit{Project Guide}\\ The Validation \& Verification Procedures enter the project in two ways:\\ In the first place all used numerical and/or computer models need to be verified (according to the definitions and procedures covered in the course AE3205 – Simulation, Verification and Validation) before these models can actually be used during both the conceptual and detailed design. The verification procedures and results need to be included in both the Midterm and the Final report.\\ In the second place, the Validation \& Verification Procedures describe how the proof will be obtained that the product or system meets the requirements imposed on it. It distinguishes between test, analysis, simulation, review of design (documentation) and similarity (i.e. a comparable design has been developed and operated successfully) as methods to obtain that proof.}
+
+Each design analysis and sizing step from \autoref{fig:workflow_diagram} has been accompanied with a verification and/or validation procedure (\autoref{tab:analysis_modules}) to ensure that the methods are implemented correctly and are applicable to the design. Approaches such as sanity checks, sensitivity studies quantifying the effect of input parameters on outputs, as well as code verification via unit tests, have been employed. In addition, results have been verified by hand and compared with results from reference models where possible. Aeroelastic analysis, the matching diagram, the noise estimation and fuel mass fraction analysis have been verified against examples present in their respective references. Additionally, cross-verification between the semi-empirical formulae involved and panel method solver Flow5 \todo{footref flow 5} has been conducted.
+
+
+
+\begin{table}[p]
+\centering
+\caption{Overview of analysis and sizing modules, including inputs, outputs, and verification and validation methods.}
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{3.0cm}|p{3.5cm}|p{3.0cm}|p{3.5cm}|}
+\hline
+\textbf{Name} & \textbf{Inputs} & \textbf{Outputs} & \textbf{Verification and Validation} \\
+\hline
+
+Empennage sizing &
+Fuselage group, wing planform &
+Vertical tail planform and canard or horizontal tail planform &
+Comparison with Flow 5, sensitivity study on empennage aspect ratios \\
+\hline
+
+Landing gear sizing &
+Vertical landing speed, MTOM &
+Stiffness and damping characteristics, dimensions of landing gear components &
+Hand calculations (equations of motion) \\
+\hline
+
+Global fuselage structural analysis and design &
+High-level fuselage dimensions, material, load scenarios, mass distribution &
+Minimum fuselage skin thickness &
+Sanity checks, code verification, hand calculations (equations of motion, internal loads) \\
+\hline
+
+Local fuselage structural analysis and design (abuse loads) &
+High-level fuselage dimensions, fuselage skin thickness, material, fuselage mass per unit length &
+Minimum fuselage skin thickness &
+Sensitivity studies on deflection \\
+\hline
+
+CG movement through pumping fuel &
+Fuel mass per tank, tank locations, OEW &
+Available CG excursion &
+Code verification, hand calculations (CG excursion) \\
+\hline
+
+Wing structural analysis and design &
+Planform, loading scenario, fuselage diameter &
+Minimum wing skin thickness &
+Code verification, hand calculations (internal loads, deflection) \\
+\hline
+
+Lift distribution calculation &
+Planform, loading scenario, fuselage diameter &
+Lift distribution &
+Code verification, sanity checks \\
+\hline
+
+Drag estimation &
+Flight condition, component dimensions &
+Parasitic drag per component &
+Code verification, sanity checks \\
+\hline
+
+Aileron sizing &
+Planform, characteristic speeds, roll rate requirements &
+Aileron size and position &
+Comparison with Flow 5, sanity checks \\
+\hline
+
+Planform mass estimation &
+Planform, wing skin thickness, material &
+Wing mass &
+Comparison with mass estimation from CAD \\
+\hline
+
+Aeroelastic analysis &
+Flight condition, planform, wing bending and torsional rigidities &
+Flutter and divergence speed &
+Comparison with reference model, sanity checks, code verification \\
+\hline
+
+Matching diagram &
+Entire aircraft, flight conditions &
+T/W ratio, wing loading &
+Comparison with reference from midterm \\
+\hline
+
+Estimation of required fuel mass &
+Entire aircraft &
+Required vs.\ actual fuel mass &
+Code verification, comparison with reference analytical model \\
+\hline
+
+Landing gear clearance &
+Entire aircraft &
+Required vs.\ actual clearances &
+Code verification \\
+\hline
+
+Noise estimation &
+Aircraft dimensions, turbine noise data, flight profile &
+Noise spectrum, total noise &
+Code verification, sanity check, validation with similar RC aircraft \\
+\hline
+
+Emissions estimation &
+Statistical data for aircraft emissions, fuel burn, flight profile &
+Total GWP-value of mission &
+Code verification, validation with reference values \\
+\hline
+
+\end{tabular}
+
+\label{tab:analysis_modules}
+\end{table}
 

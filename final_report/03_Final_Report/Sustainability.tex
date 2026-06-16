@@ -1,17 +1,12 @@
 \chapter{Sustainability}
 \label{ch:sustainability}
-
-\todo[inline]{From the \textit{Project Guide}: \\ It addresses both the way sustainability is taken into account in the design
-and the way the product or system contributes to sustainability.}
-
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
-
-
+The economic aspect of any engineering project is vital for the feasibility of the system. This is understanding the external economic factors and how they might impact the design. Just as important is to look at how the system affects its surrounding. This is done by thoroughly describing the sustainability of the design. In this analysis sustainability has been split into several sub-categories. In \autoref{sec:environmental_sustainability} the environmental sustainability which describes the systems impact on the environment, both the direct connected to the operation and less direct by the research it might enable. \autoref{sec:social_sustainability} describe the social sustainability. This is taking a more anthropological approach and focus how it impacts people in its vicinity and society in general. Then in \autoref{sec:economic sustainability} the economic sustainability is introduce. This acts as an extension of the market analysis the ascertain that system can operate without a net-loss. Finally in \autoref{sec:LCA} the approach to the  LCA (life-cycle assessment)  is described. This assessment was performed to be able to quantify the impact of the system. 
 \section{Environmental Sustainability}
 \label{sec:environmental_sustainability}
 
-The main environmental benefit of this project would be the research the platform would enable. One of the main focuses of the research conducted by HUGO would be the study of high aspect ratio wings. In some modern airliners almost 80 \% of the drag  during the climb-phase is lift induced drag and during cruise that number is around 40\%. This lift induced drag can be alleviated by increasing the aspect ratio of the wing \cite{MA2024100983}. Modern airliners have already introduced methods to artificiality increasing the aspect ratio with foldable wing-tips and winglets. It has been estimated that the implementation of larger aspect ratio wings could reduced the fuel-burn of future aircraft with up to 10 \%\cite{MA2024100983} . Increasing the aspect ratio  dramatically changes the behaviour of the wing with one of the major areas affected being aeroelastic behaviour\cite{AFONSO201740}. As wings with a higher aspect ration are more susceptible to flutter, the wing needs to be reinforced \footnote{\href{https://www.dlr.de/en/ae/latest/technical-articles/preliminary-aeroelastic-stability-assessment-of-high-aspect-ratio-wing-aircraft}{Flutter} (accessed on 12.06.2026)}.
-The addition of structural re-enforcement in the wing leads to more weight which in turn increases the fuel consumption thereby potential outweighing the benefits of the decrease of drag. There are two major benefits by understanding aeroelastic behaviour: firstly, it enables the implementation of much higher aspect ratio wing and secondly it enables the design of control-systems which can alleviate the loads thereby potentially lead to weight-reduction (as less structural reinforcement is necessary) \cite{AN202048}.  
+The main environmental benefit of this project would be the research the platform would enable. One of the main focuses of the research conducted by HUGO would be the study of high aspect ratio wings. In some modern airliners almost 80 \% of the drag  during the climb-phase is lift induced drag and during cruise that number is around 40\%. This lift induced drag can be alleviated by increasing the aspect ratio of the wing \cite{MA2024100983}. Some methods have already been implemented to artificiality increasing the aspect ratio with foldable wing-tips and winglets. It has been estimated that the implementation of larger aspect ratio wings could reduced the fuel-burn of future aircraft with up to 10 \%\cite{MA2024100983} . Increasing the aspect ratio  dramatically changes the behaviour of the wing with one of the major areas affected being aeroelastic behaviour\cite{AFONSO201740}. As wings with a higher aspect ration are more susceptible to flutter, the wing needs to be reinforced \footnote{\href{https://www.dlr.de/en/ae/latest/technical-articles/preliminary-aeroelastic-stability-assessment-of-high-aspect-ratio-wing-aircraft}{Flutter} (accessed on 12.06.2026)}.
+The addition of structural re-enforcement in the wing leads to more weight thereby potential reducing the benefits of the decrease of drag. Therefore there is a great need of research of aeroelasticity  
+There are two major benefits by understanding aeroelastic behaviour: firstly, it enables the implementation and safe operation very high aspect ratio wing and secondly it enables the design of control-systems which can alleviate the loads thereby potentially lead to weight-reduction (as less structural reinforcement is necessary). \cite{AN202048}.  
 
 The aircraft was designed with versatility in mind. By enabling the changing of wing-platforms it is possible to broadens the usability of the aircraft. As there are currently several approaches to the future wing platforms there were also made mountings on the fuselage for struts supporting the wing. Increasing the design freedom further. This means that a small modification on an existing airframe can be done instead of the construction on an entirely new aircraft  This means much less resources has to be used for the production and the subsequent amount of waste-material is less.   
 
@@ -29,7 +24,7 @@ As described in the certification, logistics and manufacturing section (see refe
  
 With its speed, relative small size and low production cost the drone can also be modified to be used as a weapon. This was something that under no circumstance should happen. Therefore early one it was decided that the ownership of every produced drone should be kept to management of HUGO. It would not be possible for anyone to buy the drone itself. In that way it is ensured that the drone would only be used for scientific purposes.  
 
-Throughout the potential noise generated by HUGO was discussed. It was decided that if the noise generated by the aircraft exceed 88 decibels for any bystanders (within a vicinity of 50 meters), modifications would be implemented to mitigate the noise. The 88 decibels were chosen based on the rules stipulated in the . Technically HUGO is not required to follow this (see)  but it was decided to use it as a bound to ensure a responsible operation of the aircraft. The noise of the aircraft was modelled and calculated for the mission profile. 
+Throughout the potential noise generated by HUGO was discussed. It was decided that if the noise generated by the aircraft exceed 88 decibels for any bystanders (see HUG-GEN-07) within a vicinity of 50 meters. If this was the case modifications would be implemented to mitigate the noise. The 88 decibels were chosen based on the lower bounds setup in EU environmental legislation (see ICAO Annex 16, Volume I chapter 14 section 4). Technically HUGO is not legally required to follow this (see)  but it was decided to do so to ensure a responsible operation of the aircraft. The noise of the aircraft was modelled and calculated for the mission profile. 
 
 Certain emissions generated by the jet-turbine is unhealthy for humans. This would be emissions such as sod and carbon-monoxide. Part of the choice of the airport and most of the operation being over the ocean was driven by the intention to minimise the proximity to high population areas.     
 
@@ -51,8 +46,6 @@ This product remain unique positioned in the market. It has the potential to dis
 
 A detailed market analysis was made for the system which can be found (\autoref{ch:market_anaysis}) the overall conclusion was that the production and subsequent operation of HUGO would be able to generate a profit for the operators.  
 
-
-
 \section{Life Cycle Assessment}
 \label{sec:LCA}
            
@@ -66,11 +59,12 @@ The open-source software openLCA was used for the construction of the LCA of HUG
 Describe the approaches for missing components 
 Certain components and materials was not present in the BCA database. In some cases a similar component was chosen and in other information was sourced and a entirely new process was defined. In all of those case it is listed in the description together with the sources used.  
 
-Insert openLCA diagram: 
-
  For the production of the aircraft the inputs would be all the subsystems: electrical, wings, fuselage, empennage, turbine, landing gear and pylons. The combination of these lead to the output of an aircraft. This is then used as input for the operation of the aircraft. For the operation fuel, transportation, maintenance and electricity was also used as input. For the End of life operation it was the scraps from the aircraft which was inputs. 
 
 Using the preliminary LCA it was possible to identify that operations-phase and more specifically the production and the combustion of the fuel. The first choice of fuel was a SAF HEFA based on soybean imported from Brazil. After performing a preliminary LCA it became apparent that the emissions connected to the production of soybeans would be larger than the emissions captured by the soybeans. This is due to the extensive deforestation in Brazil done to make room for soybean production\footnote{\href{https://www.sei.org/features/brazilian-soy-exports-and-deforestation/}{Brazil} (accessed on 12.06.2026)}. Therefore it was decided to switch to rapeseed oil which can be locally production in Europe on existing fields. The same method for the refinement of the produce into SAF was utilised. 
+
+
+
 
 Finally using this principle it was possible to create a LCA consisting of 4343 individual processes and with 52547 process links. 
 
