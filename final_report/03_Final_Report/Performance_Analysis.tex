@@ -2,10 +2,10 @@
 \label{ch:performance_analysis}
 
 
-\todo[inline]{From the \textit{Project Guide:}\\
-Performance analysis addresses the quantified performance of the primary functions of the design, and is a major means to show compliance of the design with the requirements imposed on it. Typical analyses are flight profile diagrams, payload-range diagrams, climb performance, noise characteristics, emissions, pointing accuracy, coverage, visiting frequency, mission duration, mass and power need, etc. Standard, discipline specific analysis techniques are used. A first estimate is produced as part of the concept selection process and presented in the Midterm Report; the final and complete version is included in the Final Report.}
+%\todo[inline]{From the \textit{Project Guide:}\\
+%Performance analysis addresses the quantified performance of the primary functions of the design, and is a major means to show compliance of the design with the requirements imposed on it. Typical analyses are flight profile diagrams, payload-range diagrams, climb performance, noise characteristics, emissions, pointing accuracy, coverage, visiting frequency, mission duration, mass and power need, etc. Standard, discipline specific analysis techniques are used. A first estimate is produced as part of the concept selection process and presented in the Midterm Report; the final and complete version is included in the Final Report.}
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
+%\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
 
 %The design of HUGO, a flying test laboratory intended for the investigation of aeroelastic phenomena at high-subsonic flight speeds, is strongly driven by performance requirements. 
@@ -19,18 +19,18 @@ This chapter first defines the representative mission profile in \autoref{sec:fl
 \section{Flight Profile}
 \label{sec:flight_profile}
 
-The flight profile for HUGO is shown in \autoref{fig:flight_profile}. Following the completion of either the pre-flight or post-flight inspection procedures, the aircraft departs from Den Helder Airport and initiates its take-off sequence. After take-off, the aircraft enters its initial climb phase and proceeds to cruise toward the designated test location.
+The flight profile for HUGO is shown in \autoref{fig:flight_profile}. The nominal flight duration is 30 minutes, with an allowed 15-minute contingency margin for 3 missed approaches, as mentioned in \autoref{sec:operations}.  Following the completion of either the pre-flight or post-flight inspection procedures, the aircraft departs from Den Helder Airport and initiates its take-off sequence. After take-off, the aircraft enters its initial climb phase and proceeds to cruise toward the designated test location.
 
-Upon reaching the test area, the aircraft performs a further climb to the required test altitude of 27,000 ft. The test is then conducted at a speed of Mach 0.75 for a duration of five minutes. Throughout the remainder of the mission profile, the aircraft operates at speeds not exceeding Mach 0.40.
+Upon reaching the test area, the aircraft performs a further climb to the required test altitude of 27,000 ft. The test is then conducted at a speed of Mach 0.75 for a duration of five minutes. Throughout the remainder of the nominal mission profile (25 minutes), or extended profile including missed approaches (40 minutes), the aircraft operates at speeds not exceeding Mach 0.40.
 
 Once the test sequence has been completed, the aircraft begins its descent from the test altitude and transitions into the return cruise phase toward Den Helder Airport. Upon arrival, an approach and landing attempt are carried out. To account for operational contingencies, additional loiter time is included in the mission profile in the event that the initial landing attempt is unsuccessful and a subsequent approach is required.
 
-This flight profile ensures that all mission phases - including departure, transit, testing, return, and potential go-around procedures - are adequately represented in the operational timeline and performance assessment.
+%This flight profile ensures that all mission phases - including departure, transit, testing, return, and potential go-around procedures - are adequately represented in the operational timeline and performance assessment.
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\linewidth]{02_Midterm_Report/figures/Mission Profile 2.drawio.png}
+    \includegraphics[width=0.9\linewidth]{02_Midterm_Report/figures/Mission Profile 2.drawio.png}
     \caption{HUGO flight profile}
     \label{fig:flight_profile}
 \end{figure}
@@ -40,7 +40,7 @@ This flight profile ensures that all mission phases - including departure, trans
 \section{Fuel Mass Fraction Estimation}
 \label{sec:payload-range_diagram}
 
-Since HUGO is a test platform with specified requirements for flight speed and endurance under defined test conditions, these can be expressed as range requirements across different phases of the flight to allow for the estimation of the required fuel. By employing this payload-range analysis, the fuel required for HUGO to complete its mission can be estimated. This approach ensures that the fuel tanks are sized such that, even when fully filled, they do not limit the allowable payload.
+Since HUGO is a test platform with specified requirements for flight speed and endurance under defined test conditions, these can be expressed as range requirements across different phases of the flight to allow for the estimation of the required fuel. By employing this range analysis, the fuel required for HUGO to complete its mission can be estimated. This approach ensures that the fuel tanks are sized such that, even when fully filled, they do not limit the allowable payload.
 
 The procedure used for sizing the range follows the method presented in Vos \cite{Vos}. An equivalent range $R_{eq}$ is defined, consisting of several contributions. These include the nominal mission segments: the test segment flown at 0.75 Mach ($R_{0.75}$) and the range flown at 0.4 Mach ($R_{0.4}$) during the various flight phases. In addition, the go-around range $R_{go-around}$ is included and multiplied by a factor of 4, reflecting the expectation that HUGO may require up to four landing attempts \footnote{Established in conversation with M.T.H. (Malcom) Brown}. Finally, the equivalent range accounts for losses in all segments, where energy is not converted into useful mission range during climb, descent, or turning phases.
 
@@ -69,13 +69,13 @@ With all required parameters known for each flight segment, the fuel fraction ca
 
 To specify the wing loading and thrust necessary for the aircraft, it is standard practice to construct a matching diagram, which combines several key performance constraints. This is done according to procedures outlined by Vos \cite{Vos}, but adapted for the aerobatic CS-23 and high-speed requirements of the designed aircraft.
 
-The landing runway length, imposes a limit on the feasible design space by using the lift equation to relate the maximum wing loading to the minimum landing distance. This condition is evaluated at zero thrust, since the engines are idle during landing. As a result, the constraint appears in the matching diagram as a straight line at a fixed $W/S$.
+The landing runway length imposes a limit on the feasible design space by using the lift equation to relate the maximum wing loading to the minimum landing distance. This condition is evaluated at zero thrust, since the engines are idle during landing. As a result, the constraint appears in the matching diagram as a straight line at a fixed $W/S$.
 
 Next is the cruise speed constraint, as well as the requirement to provide sufficient thrust in the Mach 0.75 condition, with half of the fuel weight considered. Since both constraints depend on thrust, they appear as curves spanning a range of $W/S$ and $T/W$ combinations. The cruise speed constraint is based on the assumption that cruise represents the maximum operating speed, flown at cruise altitude in steady, symmetric, level flight.
 
 Additionally, climb performance is considered, with required rate-of-climb and climb gradients specified in CS-23 taken as the governing constraints. However, since no specific rate-of-climb requirement is defined for HUGO, this constraint is omitted. For the climb gradient requirements specified in the certification documents, the aircraft is often assumed to be in either take-off or landing configuration, with landing gear either extended or retracted. In configurations with deployed flaps and landing gear, the drag coefficient increases and the Oswald factor $e$ is affected. However, due to the replaceable wing requirement, HUGO cannot be designed assuming high-lift devices, meaning all constraints are evaluated for a clean wing configuration. As a result, only the landing gear position is considered. Since HUGO is equipped with retractable landing gear, the climb gradient constraints are evaluated in the gear-up configuration. The CS-23 specifies a climb gradient requirement for all engines operative (AEO) and one engine inoperative (OEI).
 
-Finally, the take-off field length constraint is included in the analysis. As with the climb performance evaluation, the effect of flaps is not considered, but the landing gear is deployed. Both the take-off and landing field length requirements are constrained by the available runway length at Den Helder Airport Den Helder Airport \footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Den Helder - Information for pilots} (accessed on 22.05.2026)}. 
+Finally, the take-off field length constraint is included in the analysis. As with the climb performance evaluation, the effect of flaps is not considered, but the landing gear is deployed. Both the take-off and landing field length requirements are constrained by the available runway length at Den Helder Airport \footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Den Helder - Information for pilots} (accessed on 22.05.2026)}. 
 
 All of the above-mentioned constraints are summarized in \autoref{tab: Matching diagram constraints}.
 
@@ -179,8 +179,6 @@ The first being a flyover where the airplane starts somewhere in front of the ob
 
 The second is using the flight-profile of a potential mission for the aircraft. In this scenario the observer would be placed directly underneath of the aircraft at all time. This means that the height of the aircraft would be the distance from the observer. This is done to approximate the overall noise experienced on the ground closest to the aircraft.  The code for the scenarios and calculations can be found in the GitHub (insert citation).   
 
-(Insert diagram )
-
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.49\linewidth}
@@ -240,6 +238,9 @@ The validation of the noise-data was done with a comparison to experimental data
 This data was then reproduced using the model in a single engine configuration and at the same distance. 
 
 
+Looking at \autoref{tab:foam_props} means the calculated data is within the noise-range of the measured RC-aircraft. Since the exact configuration of the measured RC-aircraft remains unknown the values were used to create a range to act as a sanity check for the modelled values.      
+
+
 \begin{table}[H]
     \centering
     \caption{Comparison of noise-data single turbine aircraft
@@ -259,7 +260,6 @@ This data was then reproduced using the model in a single engine configuration a
         \hline
     \end{tabular}
 \end{table}
-Looking at \autoref{tab:foam_props} means the calculated data is within the noise-range of the measured RC-aircraft. Since the exact configuration of the measured RC-aircraft remains unknown the values were used to create a range to act as a sanity check for the modelled values.      
 
 
 \section{Analysis of Emissions}
@@ -296,6 +296,7 @@ Insert graph of the total emissions during flight. This analysis will be used in
 This chapter translated the operational requirements of HUGO into quantifiable performance metrics that directly influence the aircraft design. Based on a representative mission profile, the fuel requirements, wing and propulsion system sizing constraints, acoustic footprint, and operational emissions were evaluated. The analyses indicate that the selected configuration is capable of fulfilling the prescribed mission requirements while operating within the constraints imposed by the test environment and airport infrastructure.
 
 The resulting aircraft configuration serves as the baseline design for the subsequent analyses. In particular, the wing loading, propulsion characteristics, mass distribution, and flight envelope established in this chapter directly affect the aircraft's handling qualities and dynamic response. Therefore, the next chapter investigates the stability and control characteristics of HUGO, assessing whether the selected configuration can provide the levels of controllability, maneuverability, and stability required for safe operation and for conducting aeroelastic flight testing at high-subsonic speeds.
+
 
 
 

@@ -1,7 +1,7 @@
 \chapter{Requirements Specification}
 \label{ch:requirements}
 
-\todo[inline]{Chapter introduction pending.}
+\todo[inline]{merge chapter with project planning and preparation.}
 
 
 
@@ -12,17 +12,26 @@
 The project objectives are formulated according to the SMART method: they are specific, measurable, actionable, relevant, and time-bound. They serve as a roadmap for planning and execution, defining the tangible deliverables and outcomes required within a project’s timeline, budget, and scope.
 
 \subsection{Financial Objectives}
-The financial objectives focus on budget management.
-%\todo[inline]{These ones look like requirements, they do not seem like objectives but like steps}
+The financial objectives focus on the economics of the project and the viability of this venture.
+
 \begin{enumerate}
-    %\item The annual storage cost shall not exceed \EUR{TBD}, per the Den Helder hangar rental agreement. 
-    \item The total manufacturing cost per aircraft configuration shall not exceed \texteuro{45000} \footref{url:baseline_report}.
-    \item The aircraft shall have a maximum operational cost of \texteuro{2000} per flight day \footref{url:baseline_report}.
-    %\item The aircraft shall have an engine maintenance interval of up to 50 hours \footref{url:baseline_report}.
+
+    \item Affordability: The total manufacturing cost per unit shall not exceed \texteuro{45000} \footref{url:baseline_report}.
+    
+    \item Market capture: Companies should be able to test new components and achieve certification faster and for a lower cost compared to current testing methods.
+    
+    \item Academic research: The product must be accessible as a flying laboratory for universities with limited budgets.
 \end{enumerate}
 
 \subsection{Quality Objectives}
-The quality objectives define standards for the deliverables.
+The quality objectives define minimum standards fo
+
+High-Tempo Longevity: Guarantee a 15-year operational lifecycle under a rigorous stress tempo of 4 flights per day, 100 days per year.
+
+Total Inspectability: Ensure 100% accessible primary structures and internal subsystems to allow rapid field maintenance, inspection, and reconfiguration.
+
+Fault Tolerance: Design for high reliability, ensuring no single-point electronic or mechanical failure (e.g., control surface loss) results in mission failure, catastrophic loss, or ground hazards.
+
 
 \begin{enumerate}
     %\item Data shall be downloaded and stored efficiently after each test flight.
@@ -65,7 +74,6 @@ The compliance objectives ensure adherence to regulations and standards.
 
 \section{Requirements Definition}
 \label{sec:user_requirements}
-\todo[inline]{Connect the beginning of this section to the project objectives}
 As described by the project objectives, HUGO's mission is to serve as a flying lab for university researchers for whom testing with own full-sized aircraft or wind tunnels is unfeasible, as well as companies seeking to test their aerospace products. Therefore, a set of top-level requirements was defined by the Delft University of Technology (TUD) staff as part of general project guidelines \cite{Castro2026}. Additionally, external experts from the Netherlands Aerospace Centre (NLR) were consulted to establish a cumulative list of user requirements, which can be seen in \autoref{tab:user_requirements}. This list will be revisited in \autoref{sec:compliance_matrix_feasibility_analysis} and assessed using a compliance matrix to ensure that HUGO can fulfil all of its intended purposes.
 
 
@@ -85,13 +93,13 @@ As described by the project objectives, HUGO's mission is to serve as a flying l
 
 HUG-TUD-01 & The UAV shall be certifiable according to EASA standards. \\\hline
 HUG-TUD-02 & The UAV shall serve as a flying lab for universities that don't have the budget for a full-sized aircraft or wind tunnel facilities. \\\hline
-HUG-TUD-03 & The UAV shall allow companies to test aerospace componentry and achieve certification faster and and lower cost than using currently available methods. \\\hline
+HUG-TUD-03 & The UAV shall allow companies to test aerospace componentry and achieve certification faster and lower cost than using currently available methods. \\\hline
 HUG-TUD-04 & The UAV shall fly at airspeeds ranging from Mach 0.4 to Mach 0.75 \\\hline
 HUG-TUD-05 & The UAV shall utilise SAF. \\\hline
 HUG-TUD-06 & The UAV's MTOM shall not exceed 50 kg. \\\hline
 HUG-TUD-07 & All regular service, required parts and tools to operate the UAV shall fit with a van-sized vehicle. \\\hline
 HUG-TUD-08 & The UAV shall have an operational life of minimum 15 years. \\\hline
-HUG-TUD-09 & The UAV shal be able to carry min. 5 kg and min. 5 L of payload to accomodate a second flight computer. \\\hline
+HUG-TUD-09 & The UAV shall be able to carry min. 5 kg and min. 5 L of payload to accommodate a second flight computer. \\\hline
 HUG-TUD-10 & The mission endurance of the UAV shall not be shorter than 30 minutes. \\\hline
 HUG-NLR-01 & The UAV standard configuration shall feature a HAR dry wing with AR of no less than 20. \\\hline
 HUG-NLR-02 & The UAV design shall allow for testing of a conventional cantilever wing in combination with closed-loop active load alleviation control system. \\\hline
@@ -130,8 +138,9 @@ HUG-GEN-01 & The aircraft shall have a maximum take-off mass less than 50 kg.\\\
 HUG-GEN-02 & The end user shall be able to install the wing compliant with the Planform Envelope. \\\hline
 HUG-GEN-03 & The end user shall be able to install at least 5 kg of payload on the provided aircraft, in addition to the wing planform itself. \\\hline
 HUG-GEN-04 & The aircraft shall be able to execute the flight profile without any customer-specific payload. \\\hline
-HUG-GEN-05 & The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \footnote{\label{rep:midterm_rep}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)}. \\\hline
-HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van \footnote{\href{https://bedrijfswagens.renault.nl/master-bedrijfswagen/master.html?bodyTypeCode=PT1261_gesloten_bestel&CAMPAIGN=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&ORIGIN=paid_search&utm_source=google&utm_source_platform=SA360&utm_medium=cpc&utm_campaign=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&utm_id=23043794109&gclsrc=aw.ds&gad_source=1&gad_campaignid=23043828444&gbraid=0AAAAAC0pnE4OIhTuGrHobEVsuI4Ct-vkz&gclid=CjwKCAjwuanRBhBSEiwAY5y6V0Nv8q7vbgl489RraAw-uvJhci8UrWxul1qhh9Pk0YAceLV7-VfgihoC6zMQAvD_BwE}{Renault Master} (accessed on 11.06.2026)}. \\\hline
+HUG-GEN-05 & The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \footref{url:baseline_report} %\footref{foot:midterm}%\footnote{\label{rep:midterm_rep}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)}.
+\\\hline
+HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van \footnote{\href{https://bedrijfswagens.renault.nl/master-bedrijfswagen/master.html?bodyTypeCode=PT1261_gesloten_bestel&CAMPAIGN=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&ORIGIN=paid_search&utm_source=google&utm_source_platform=SA360&utm_medium=cpc&utm_campaign=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&utm_id=23043794109&gclsrc=aw.ds&gad_source=1&gad_campaignid=23043828444&gbraid=0AAAAAC0pnE4OIhTuGrHobEVsuI4Ct-vkz&gclid=CjwKCAjwuanRBhBSEiwAY5y6V0Nv8q7vbgl489RraAw-uvJhci8UrWxul1qhh9Pk0YAceLV7-VfgihoC6zMQAvD_BwE}{Renault Master} (accessed on 11.06.2026)}. \\\hline HUG-GEN-07 & The aircraft shall not be louder than 88 dB(A) during any point of operation. \\\hline
 \multicolumn{2}{|c|}{\textbf{Manufacturing, Assembly, and Integration}}\\\hline
 HUG-MAN-01 & The manufacturing cost of a single aircraft with the Standard Wing Planform shall be less than 45000€. \\\hline
 HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufacturable using only Technology Readiness Level 10 \footnote{\href{https://en.wikipedia.org/wiki/Technology_readiness_level}{Technology readiness level} (accessed on 11.06.2026)} manufacturing techniques. \\\hline
@@ -204,6 +213,7 @@ HUG-LGR-02 & The turn over angle of the aircraft shall not exceed 55 degrees. \\
 HUG-LGR-03 & The scrape angle of the aircraft tail shall be greater than 15 degrees. \\\hline
 HUG-LGR-04 & The tip over angle of the aircraft shall be greater than the scrape angle. \\\hline
 HUG-LGR-05 & The nose landing gear shall retract rearwards. \\\hline
+HUG-LGR-06 & Each component of the aft landing gear must withstand landing with downwards velocity of $2m/s$ multiplied by a safety factor of 1.5. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Propulsion}} \\\hline
 HUG-PRP-01 & The aircraft shall include fuel tanks for housing the fuel volume required for the entire mission, incl. missed approach and loiter time. \\\hline
@@ -240,54 +250,6 @@ HUG-TPL-06 & The required empennage horizontal area shall be less than 0.4 of th
 
 \end{longtable}
 
-\section{Compliance Matrix \& Feasibility Analysis}
-\label{sec:compliance_matrix_feasibility_analysis}
-\todo[inline]{It may be more appropriate for this matrix to be placed towards the end of the report, not the beginning}
-\todo[inline]{The Requirements Compliance Matrix is a table containing all user requirements and indicates with a tick mark, when a requirement is met. It may specify the actual value that the design
-meets, but must specify the actual value the design meets, if the design does not meet the requirement. The rationale why the design does not meet the requirement, or which modifications would be required in order to meet the requirement is explained in the accompanying text (Feasibility Analysis). The Requirements Compliance Matrix \& Feasibility Analysis are presented in the Final Report.}
-
-The user requirement compliance matrix is shown in \autoref{tab:compliance_matrix}, including the rationale behind why specific requirements were met, and final values from the design wherever applicable. Additionally, numbers of the document's sections in which more information regarding the compliance with specific requirements can be found have been specified for the reader's convenience.
-
-\begin{longtable}{|c|c|p{8cm}|c|}
-\caption{Requirement compliance matrix}
-\label{tab:compliance_matrix} \\
-\hline
-\textbf{ID} & \textbf{Met?} & \makecell{\textbf{Explanation}} & \textbf{Section No.}\\
-\hline
-\endfirsthead
-
-\hline
-\textbf{ID} & \textbf{Met?} & \makecell{\textbf{Explanation}} & \textbf{Section No.} \\
-\hline
-\endhead
-
-
-\multicolumn{4}{r}{\textit{Continued on next page.}} \\
-\endfoot
-
-
-\endlastfoot
-
-HUG-TUD-01 & $\checkmark$ & &  \ref{sec:certification} \\\hline
-HUG-TUD-02 & & &  Market Analysis \\\hline
-HUG-TUD-03 & & & TBD \\\hline
-HUG-TUD-04 & $\checkmark$ & & Ops \& Logistics maybe? \\\hline
-HUG-TUD-05 & & & Propulsion ? \\\hline
-HUG-TUD-06 & & & Structures ? \\\hline
-HUG-TUD-07 & $\checkmark$ & & \ref{sec:resource_allocation_budgets} \\\hline
-HUG-TUD-08 & & & ? \\\hline
-HUG-TUD-09 & & & Internal layout ?  \\\hline
-HUG-TUD-10 & & & ops \& logistics or electronics?  \\\hline
-HUG-NLR-01 & & & planform envelope \\\hline
-HUG-NLR-02 & $\checkmark$ & & \ref{sec:mission_envelope} \\\hline
-HUG-NLR-03 & $\checkmark$ & & \ref{sec:mission_envelope} \\\hline
-HUG-NLR-04 & $\checkmark$ & & \ref{sec:internal_configuration} \\\hline
-HUG-NLR-05 & $\checkmark$ & & \ref{sec:internal_configuration} \\\hline
-HUG-NLR-06 & & & structures or ops \\\hline
-
-\end{longtable}
-
-\todo[inline]{Write the Feasibility Analysis in case some of the user requirements are not met.}
 
 
 
@@ -302,5 +264,3 @@ HUG-NLR-06 & & & structures or ops \\\hline
 
 
 
-
-\todo[inline]{Chapter conclusion pending.}

@@ -1,0 +1,88 @@
+\chapter{Preliminary Design Summary}
+\label{ch:preliminary_design_summary}
+
+
+\section{Preliminary Design Overview}
+\label{sec:project_done}
+
+
+
+
+
+\section{Compliance Matrix \& Feasibility Analysis}
+\label{sec:compliance_matrix_feasibility_analysis}
+
+The user requirement compliance matrix is shown in \autoref{tab:compliance_matrix}, including the rationale behind why specific requirements were met, and final values from the design wherever applicable. Additionally, numbers of the document's sections in which more information regarding the compliance with specific requirements can be found have been specified for the reader's convenience.
+
+\begin{longtable}{|c|c|p{10cm}|c|}
+\caption{Requirement compliance matrix}
+\label{tab:compliance_matrix} \\
+\hline
+\textbf{ID} & \textbf{Met?} & \makecell{\textbf{Explanation}} & \textbf{Section(s)}\\
+\hline
+\endfirsthead
+
+\hline
+\textbf{ID} & \textbf{Met?} & \makecell{\textbf{Explanation}} & \textbf{Section(s)} \\
+\hline
+\endhead
+
+
+\multicolumn{4}{r}{\textit{Continued on next page.}} \\
+\endfoot
+
+
+\endlastfoot
+
+HUG-TUD-01 & $\checkmark$ & HUGO's certifiability has been confirmed by an analysis of EASA regulations regarding Type Certificates and Design Organisation.  &  \ref{sec:type_certificate}, \ref{sec: DOA} \\\hline
+HUG-TUD-02 & $\checkmark$ & The cost of an occupancy day of a transonic wind tunnel can be estimated at approximately \EUR{40,000}. The price set for a test day with HUGO is \EUR{25,000} + setup costs. &  \ref{sec:market_value_prop} \\\hline
+HUG-TUD-03 & No & While the design allows for testing of aerospace componentry, it has not been concluded whether it influences the time and resources required for certification using currently available methods. & \ref{sec:mission_envelope} \\\hline
+HUG-TUD-04 & $\checkmark$ & During the nominal mission, HUGO performs cruise manoeuvres at Mach 0.4, with a dedicated 5-min test segment at Mach 0.75. & \ref{sec:operations}, \ref{sec:climb_performance} \\\hline
+HUG-TUD-05 & $\checkmark$ & HUGO's propulsion system utilises SAF. & \ref{sec:environmental_sustainability}, \ref{sec:internal_configuration} \\\hline
+HUG-TUD-06 & $\checkmark$ & HUGO's MTOW for the standard configuration is $46.76$ kg  & \ref{sec:project_done} \\\hline
+HUG-TUD-07 & $\checkmark$ & All structural components have been sized to fit inside a Renault Master E-Tech L3H2 vehicle. & \ref{sec:resource_allocation_budgets}, \ref{sec:project_done} \\\hline
+HUG-TUD-08 & $\checkmark$ & The landing gear and fuselage are expected to withstand more than $10^4$ loading cycles.  & \ref{sec:metal_alloys}, \ref{sec:composites} \\\hline
+HUG-TUD-09 & $\checkmark$ & The internal configuration of HUGO features a 5 L payload bay capable of accomodating a 5 kg payload in the rear section of the fuselage. & \ref{sec:resource_allocation_budgets}, \ref{sec:internal_configuration} \\\hline
+HUG-TUD-10 & $\checkmark$ & The nominal flight duration is specified at 30 mins, with additional 15 minute endurance dedicated to missed approaches. & \ref{sec:operations}, \ref{sec:flight_profile}  \\\hline
+HUG-NLR-01 & $\checkmark$ & The Planform Envelope includes AR values between 5 and 27, allowing for successful tests of planforms with AR higher than 20. & \ref{sec:Planform envelope boundaries} \\\hline
+HUG-NLR-02 & $\checkmark$ & Implemented in HUG-TST-01 and HUG-TST-02. & \ref{sec:mission_envelope} \\\hline
+HUG-NLR-03 & $\checkmark$ & Implemented in HUG-TST-07. & \ref{sec:mission_envelope} \\\hline
+HUG-NLR-04 & No & The standard configuration features a LIDAR sensor for optical measurements and accelerometers incorporated into the autopilot. & \ref{sec:internal_configuration} \\\hline
+HUG-NLR-05 & $\checkmark$ & The communication system allows for remote control, and specific personnel shall be dedicated to pilot the UAV during operations. & \ref{sec:logistics}, \ref{sec:internal_configuration} \\\hline
+HUG-NLR-06 & $\checkmark$ & The flight day plan accounts for four test flights with swappable planforms. & \ref{sec:operations} \\\hline
+
+\end{longtable}
+
+At the current stage of the design, not all user requirements have been complied with. However, this does not mean that the objectives behind the requirements cannot be achieved with the current standard configuration. In particular, the influence of testing with HUGO on the time and costs required for certification of aircraft has not been confirmed. It is expected that further communication with EASA throughout the detailed design phase, combined with an in-depth analysis of applicable regulations, could lead to a solution which complies with HUG-TUD-03. However, it shall be noted that the certification time and cost is highly dependent on the certified product and its related documentation, and that the contribution of a planform test to the overall required resources may not be significant.
+
+Another user requirement which is not met by the standard HUGO configuration is HUG-NLR-04, which specifies the inclusion of accelerometers in the wings. The standard planform design does not allow for incorporating accelerometers into the structure due to the low wing thickness and concerns related to manufacturability. However, strain gauges and load cells are implemented into the interface between the wings and the fuselage to measure loads, and an accelerometer is incorporated in the autopilot, as specified in \autoref{sec:internal_configuration}. While these measures do not strictly follow the requirement, they are expected to yield satisfactory results, i. e. measure the loads acting on the wing and their associated deformations, specifically during flutter. Additionally, it is possible for clients to provide planforms with built-in accelerometers. 
+
+
+
+
+
+\section{Project Design \& Development Logic}
+\label{sec:pdd_logic}
+
+It is important to keep an outlook for the future of the project and the subsequent development of the aircraft after the design has been completed. To create a more comprehensible diagram, the project design and development were broken down into five different phases \cite{Spitz2001}: 
+
+\begin{enumerate}
+    \item \textbf{Development:} Takes the preliminary design as input and evaluate the viability of the design. If it is deemed inviable, it is checked whether or not the issues can be solved. If not the project is ended, otherwise the preliminary design is altered until it is viable.   
+    \item \textbf{Prototyping and testing:} Each subsystem is designed, manufactured, verified, and validated in isolation. Then, all the subsystems are integrated into a fully functional UAV (Unmanned Aerial Vehicle). The UAV is tested on the ground and in the air to validate the design as a whole.
+    \item \textbf{Manufacturing and Certification:} The finalized, validated design is taken into production. In the beginning, the aircraft design is certified by EASA. If it passes certification, the production can begin. If it does not, the design is reiterated. This involves the procurement of off-the-shelf components, and working with manufacturers and suppliers. 
+    %for the airframe and other custom components. The final product will then be sent to be certified, along with the required documentation.
+    \item \textbf{Operations:} The bulk of the life of an aircraft. Technicians and pilots must be hired and trained. %Operation manuals must be written and procedures must be put into place.Then, the operation certification can be acquired from EASA. 
+    HUGO will perform tests required by the client, and undergo necessary design modifications and certification steps requested by the competent authority.
+    %the normal operations can begin, including building the aircraft, modifying it to fit the experiment being run by the client, certifying this new configuration if necessary and performing the flight test.
+    \item \textbf{End-of-life:} The airframe must be decommissioned responsibly, recycled, or scrapped. The useful components, such as the avionics and actuators, can be repurposed. All other parts must be recycled or disposed of.%if recycling is not possible.
+\end{enumerate}
+The Project Design \& Development Logic diagram can be seen in \autoref{fig:proj_design} in \autoref{app:project_planning_diagrames}.
+
+\todo[inline]{In this Section, we write about the Project Design \& Development Logic.}
+
+
+\section{Cost Breakdown Structure}
+\label{sec:cost_breakdown_structure}
+
+\todo[inline]{From the \textit{Project Guide:}\\ The Cost Break-down Structure (CBS) contains the cost elements of the post-DSE project
+activities. It has the shape of \textbf{an AND tree} and serves to identify all elements that contribute to the overall development and production cost of the product or system, for which a preliminary design has been produced during the DSE. It reflects the cost related to the activities defined in \textbf{the PD\&D logic}. It is the basis of the cost estimate for the product of system.\\ Typical examples of “standard” CBS’s may be found in literature. The CBS is included in the Final Report.}

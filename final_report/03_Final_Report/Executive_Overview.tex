@@ -1,8 +1,55 @@
 \chapter{Executive Overview}
 \label{ch:executive_overview}
--Vaibhav
 
 
+\section{Mission Objective and Value Proposition}
+
+The High-speed Unmanned General-purpose Observatory (HUGO) is a reusable, modular and adaptable 50 kg transonic flying laboratory designed to bridge the gap between wind-tunnel testing and full-scale flight testing. Developed to accelerate the validation of next-generation aerospace technologies, HUGO provides a modular, low-cost platform for testing high-aspect-ratio (HAR) wings \cite{AFONSO201740, MA2024100983}, Active Flutter Suppression (AFS) \cite{Gilyard1983, Takarics2019}, and Gust Load Alleviation (GLA) systems \cite{Sanghi2022} in real-world atmospheric conditions.
+
+Currently, researchers and industry professionals face significant financial and technical barriers when testing at Mach 0.75. Traditional transonic wind tunnels suffer from wall-interference and scaling limitations \cite{Stenfelt2015}, often costing upwards of €40,000 per occupancy day \footnote{\label{foot:schrijer-exec}In personal communication with Ferdinand Schrijer on 04.05.2026.}. Conversely, manned flight testing introduces severe safety risks and requires lengthy, expensive certification processes \cite{Spitz2001}. 
+
+Project HUGO disrupts this paradigm by offering a certified, reconfigurable testbed that operates on Sustainable Aviation Fuel (SAF) to minimize altitude emissions \cite{Gaillot2023}. At a targeted commercial rate of €25,000 per flight day, HUGO significantly reduces the programmatic costs of aeroelastic research while delivering high-fidelity, free-flight data.
+
+To evaluate the commercial feasibility of HUGO, a market volume analysis was conducted. While the Total Addressable Market (TAM) encompasses the broader global expenditure on aerospace testing and validation, HUGO's initial beachhead strategy specifically targets the domestic Dutch testing ecosystem. Based on the collective testing budgets of major institutions such as the Netherlands Aerospace Centre (NLR), the German-Dutch Wind Tunnels (DNW), and TU Delft, the Serviceable Available Market (SAM) is valued at €71 million \todo{cite mid term report} annually. By providing a direct alternative to the high-speed aeroelastic testing traditionally performed in wind tunnels, HUGO aims to capture roughly 20\% \footref{foot:schrijer-exec} of this regional market, yielding a Serviceable Obtainable Market (SOM) of €14.2 million per year. Furthermore, the drastic reduction in testing costs and lead times is expected to induce latent demand, expanding the overall market boundaries by allowing smaller academic and commercial entities to conduct research that was previously cost-prohibitive.
+
+\section{Final Configuration and Modularity}
+
+Following a rigorous Analytic Hierarchy Process (AHP) trade-off, HUG-CFG-303 was selected as the optimal configuration. This high-wing configuration features static wing mounting points, a T-tail, and a modular canard port, providing maximum experimental versatility without the structural penalties associated with more complex airframes with multiple wing mounting points. 
+
+To fulfill its role as a universal testbed, HUGO is designed around a defined ``Planform Envelope.'' This allows clients to test wings with aspect ratios ranging from 5 to 27, sweeps up to 20$^{\circ}$, and various dihedral and thickness profiles, all while ensuring stable and controllable flight characteristics \cite{nelson1998flight}. For missions that do not require a custom client wing, HUGO employs a Standard Planform featuring a NASA SC(2)-0012 supercritical airfoil \cite{Harris1990}, optimized for stable, high-subsonic operations. This is paired with a standard HUGO empennage, which is a T-tail. 
+
+Additionally, HUGO features a canard mounting point, which is covered to prevent an aerodynamic penalty when not being used. This allows HUGO to be configured with a canard on client request, in order to be able to test aircraft configurations which feature a canard. An additional benefit of this feature is that it allows for the testing of highly experimental planform at a smaller scale on these ports, without having to design, manufacture and test a new main planform.
+
+\section{Engineering Design and Performance Outcomes}
+
+The technical execution of HUGO ensures that the aircraft can perform demanding test profiles while adhering to the strict user and operational requirements:
+
+\begin{itemize}
+    \item \textbf{Structural Integrity:} The primary structure utilizes out-of-autoclave CYCOM 5320-1 carbon fiber epoxy prepreg \cite{CENTEA2015132}. The fuselage features a Nomex honeycomb core \cite{Boukharouba2014}, while the lifting surfaces utilize a Polymethacrylimide (PMI) foam core. Structural analysis confirms the airframe withstands the ultimate load factor of 9g, with a maximum normal bending stress of 696 MPa—well below the material's yield limit. The airframe has also been analyzed to withstand the handling and abuse loads involved with the operations of HUGO. Furthermore, aeroelastic modelling confirms flutter and static divergence occur well above the Mach 0.75 operating speed \cite{wright2008introduction}.
+    \item \textbf{Propulsion and Power:} Thrust is provided by twin fuselage-mounted JetCat P100-RX-BL micro-turbines, fed by a dynamic fuel management system utilizing two 8.4L fuel bladders. This allows us to dynamically shift the CG during flight in orfer to change the stability of the aircraft to run different experiments. Electrical power is supplied by a custom 8S5P Molicel INR21700 battery pack \cite{Tsung-Hsun2026, Ganjeizadeh2014}, delivering 936 W to sustain the entire avionics, sensor, and propulsion network for the maximum 45-minute flight window.
+    \item \textbf{Performance:} Payload-range analysis validates that HUGO can successfully complete its 30-minute nominal mission—including a 5-minute Mach 0.75 test segment at FL270, while holding sufficient fuel reserves for loitering and up to four missed approach attempts \cite{Koutz1952Loitering}.
+\end{itemize}
+
+\section{Operations, Certification, and Safety (RAMS)}
+
+Operations and Logistics are a crucial part in the development of a successful mission. Together they cover all aspects of HUGO's day-to-day usage. For a mission to be successful, HUGO must operate in a controlled airspace, fly over 100km in a straight line, and to perform a test at Mach 0.75 for at leasts 5 minutes. Given its classification as a High-Risk Unmanned Aircraft System under EASA Special Conditions \cite{easa_light_uas_crd_is3}, HUGO's operational and safety framework is designed for maximum reliability. Operations are based at Den Helder Airport (EHKD), capitalizing on its 1.27 km runway, emergency services, and direct access to ATC-controlled airspace over the North Sea \cite{DenHelderAirport2013DHANieuwsbrief}. 
+
+To facilitate the operations and reduce transport costs, HUGO is to be stored in a hangar in the area adjacent to Den Helder airport. Although not a commercial airport, Den Helder is the main gateway to off-shore platforms in the North Sea, thus daily traffic is expected. As such, the test flight plans will be coordinated with De Kooy Air Traffic Control. HUGO's propulsion system uses Sustainable Aviation Fuel (SAF), which will need to be stored in the hangar and brought to the airport for each flight day as Den Helder airport does not offer SAF refuelling services. Lastly, the handling of HUGO; transport, flight, and ground support will be performed by trained personnel.
+
+In consultation with, and with guidance from EASA, HUGO was classified under SC-Light-UAS High risk. Successful certification of an Unmanned Aerial Vehicle (UAV) with such a high degree of modularity would require constant and expensive recertification, making this project infeasible. However, through the simultaneous application for a type certificate and a Design Organisation Approval (DOA), HUGO will be allowed to undergo major changes without requiring full recertification. Though more versatile, it is a process that will require an initial investment of \euro{10,170} for the certification, and then a yearly fee of \euro{11,050} for the maintenance of the Type Certificate. For compliance, a team of engineers will therefore have to apply for the DOA, and be responsible for approving any major changes proposed by a client.
+
+Safety is ensured through a selective redundancy philosophy and a rigorous condition-based maintenance (CBM) or time-based maintenance (TBM) schedule. Critical systems, including the VECTOR-600 autopilot and power distribution, are monitored continuously \cite{Imani2022}. In the event of communication loss or envelope exceedance, autonomous stabilization and flight termination protocols guarantee safe recovery. The overall system reliability is calculated to ensure the initial fleet of five aircraft can easily sustain 100 operational test days per year \cite{Mencik2016, Lanzafame2024}.
+
+\section{Sustainability Integration}
+
+
+
+
+
+
+
+
+\begin{comment}
 
 -Please Enter your section overview here: Summary of outcomes and their impact. Not too much explanation of procedure and how you got to the outcomes.
 
@@ -60,11 +107,13 @@ Landing gear-Gui
 
 - Landing gear was sized for tip back angle, turn over angle, wing strike angle, nose landing gear controlability, landing gear strut length, and main landing gear horizontal track. 
 
-- Optimised using scipy optimise for an ideal cylyndrical fuselage based on the dumensions from FlexOp
+- Optimised using scipy optimise for an ideal cylyndrical fuselage based on the dimensions from FlexOp
 
 - Landing gear was then implemented in CAD with non idealised fuselage, and the constraints checked iteratively until all were met.
 
-- Landing gear was simulated as a spring and dashpot in parallel to absorb landing shocks using the python control library. Main constraint was to minimise landing gear vertical displacement (compression) due to downward velocity at landing, and prevent over-damping as to dissipate the applied force over a longer period of time. A final choice of C = 
+- The mechanism was designed to allow for the meeting of the previously mentioned constraints, and to stow away teh landing gear for flight. (might be nice to put the picture from the LG section here).
+
+- Landing gear was simulated as a spring and dashpot in parallel to absorb landing shocks using the python control library. Main constraint was to minimise landing gear vertical displacement (compression) due to downward velocity at landing, and prevent over-damping as to dissipate the applied force over a longer period of time. A final choice of C = 781.115 and K = 48168.2, for a maximum allowable displacement of 6.84 cm at a downward velocity of 2m/s with an added safety factor of 1.5 as prescribed by EASA in SC-UAS High Risk. The effect of transverse loads on the landing gear during landing were taken into account during the material selection.
     
 
 -Material characteristics + MAI (they are now one section):
@@ -108,3 +157,5 @@ Wing structure
 
 
 -Config and layout for different mission  concepts:
+
+\end{comment}

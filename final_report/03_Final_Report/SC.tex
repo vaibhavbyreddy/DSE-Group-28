@@ -345,7 +345,7 @@ The structural model of the wing was developed to simulate the internal loads an
 %The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
 
 \subsection{Discretisation and Assumptions}
-As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain span-wise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed conservative, as they do not account for the additional stiffness provided by any core materials, as the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
+As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain span-wise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed conservative, as they do not account for the additional stiffness provided by any core materials, since the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
 %\todo[inline]{Write about why the assumptions are acceptable}
 
 
@@ -369,12 +369,12 @@ The structural analysis is formulated with several free variables for parametric
 
 %The structural wing model was developed to estimate the applied torque, wing-tip deflection, wing-tip rotation, internal shear forces, internal shear stresses, and the buckling behaviour of the wing. These outputs are used to verify that the wing structure remains within acceptable limits throughout the operating envelope, including extra loads experienced during take-off or landing. 
 
-\begin{wrapfigure}[16]{r}{0.43\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{figures_final/Wing_structure/Force Distribution Wing.png}
-    \caption{Force distribution for straight flight at load factor of 9}
-    \label{fig:force_distribution}
-\end{wrapfigure}
+% \begin{wrapfigure}[16]{r}{0.43\textwidth}
+%     \centering
+%     \includegraphics[width=\linewidth]{figures_final/Wing_structure/Force Distribution Wing.png}
+%     \caption{Force distribution for straight flight at load factor of 9}
+%     \label{fig:force_distribution}
+% \end{wrapfigure}
 The distributed weight of each section is evaluated with \autoref{eq:section_weight} based on the skin thickness $t_\text{skin}$, discretised panel length $l_\text{section}$, and the previously computed geometry. Combined with the Schrenk distributed lift formula introduced in \autoref{sec:aerodynamic_characteristics_estimate}, it can be utilised to determine the net force acting on the wing, serving as an input for the internal load calculations. \autoref{fig:force_distribution} showcases the distributed lift, weight, and the resultant net force.
 
 
@@ -383,12 +383,38 @@ W = P \cdot t_\text{skin} \cdot l_\text{section} \cdot g_0 \label{eq:section_wei
 \end{equation}
 
 
+% Add this in the preamble if not already included:
+% \usepackage{subcaption}
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures_final/sensitivity-study/extra wing weight sensitivity.png}
-    \caption{Effect of wing weight to wing structural weight ratio on total mass in the standard planform configuration}
-    \label{fig:sensitivity_wing}
+
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Wing_structure/Force Distribution Wing.png}
+        \caption{Force distribution for straight flight at a load factor of 9}
+        \label{fig:force_distribution}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/sensitivity-study/extra wing weight sensitivity.png}
+        \caption{Effect of wing weight to wing structural weight ratio on total mass in the standard planform configuration}
+        \label{fig:sensitivity_wing}
+    \end{subfigure}
+
+    \caption{Wing load distribution and structural mass sensitivity for the standard planform configuration}
+    \label{fig:wing_load_sensitivity}
 \end{figure}
+
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.5\linewidth]{figures_final/sensitivity-study/extra wing weight sensitivity.png}
+%     \caption{Effect of wing weight to wing structural weight ratio on total mass in the standard planform configuration}
+%     \label{fig:sensitivity_wing}
+% \end{figure}
 
 
 The wing weight to wing structural weight ratio was also an assumption made to calculate the total mass in the standard planform configuration. As shown in \autoref{fig:sensitivity_wing}, the wing weight to wing structural weight ratio is linearly related to the total mass in the standard planform configuration. This is expected behaviour as the ratio is applied linearly, and the overall effect for the examined parameter ranges by approximately 3kg, which is deemed sufficiently small.
@@ -405,7 +431,7 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
 \end{aligned}
 \end{equation}
 
-\newpage
+
 
 \begin{wrapfigure}[13]{l}{0.43\textwidth}
     \centering
@@ -413,9 +439,9 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
     \caption{Torsion distribution at load factor 9}
     \label{fig:torsion_dist}
 \end{wrapfigure}
-At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)} as such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 9, with the distribution presented in \autoref{fig:torsion_dist}.
+At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)}. As an airfoil is exposed to larger Mach speed regimes, the magnitude and position of $x_{cm}$ will shift due to compresibility effects, but for the purpose of this report, $x_{cm}$ is assumed to remain constant for both flight regimes at $x_{ac}$ location along the chord. As such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_dist}.
 
-Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the normal forces introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
+Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the bending moments introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{figures_final/Wing_structure/Internal Shear Force and Moment Diagrames.png}
@@ -438,7 +464,7 @@ Simulating the test case as specified by the requirements at a load factor of 6,
 
 During the extreme case, the wing twists $ 6.08 \deg$ and deflects 0.354 m ($11.1\% $ of the span). These values show that the wing is within limits, and that it could sustain even larger loads wile remaining in limits.
 
-Once the wing has been shown to meet the design requirements, the model must also verify that it remains structurally safe during operation at the ultimate load factor. The applied loads generate internal stresses within the wing, which are evaluated for the most critical loading case to confirm that the material stays within its allowable limits. The stresses considered in this analysis are torsional shear stress, transverse shear stress due to internal forces, and normal stress due to bending.
+Once the wing has been shown to meet the design requirements, the model must also verify that it remains structurally safe during operation at the ultimate load factor. The applied loads generate internal stresses within the wing, which are evaluated for the ultimate loading case to confirm that the material stays within its allowable limits. The stresses considered in this analysis are torsional shear stress, transverse shear stress due to internal forces, and normal stress due to bending.
 
 \begin{wrapfigure}[15]{r}{0.43\textwidth}
     \centering
@@ -457,14 +483,14 @@ q &= -\frac{V_y I_{yy}}{I_{xx}}\int_{0}^{s} t y  \mathrm{d}s' + q_{s0}
 \label{eq:shear_eq}
 \end{alignat}
 
-After both the shear components are computed, they are summed, and the results can be seen in \autoref{fig:shear_dist}, reaching a maximum of  42.788 MPa. The material has a yield stress of 896 MPa \autoref{sec:final_mat_sel}, a much larger value than the maximum shear stress present in the wing material; as such, this loading case will not cause a shear failure.
+After both the shear components are computed, they are summed, and the results can be seen in \autoref{fig:shear_dist}, reaching a maximum of  42.788 MPa. The material has a yield stress of 896 MPa \autoref{sec:Material_Selection}, a much larger value than the maximum shear stress present in the wing material; as such, this loading case will not cause a shear failure.
 
 When the wing bends, the top section is in compression while the bottom section in tension, the internal moments from the forces induce a normal stress in the material. To compute its distribution, \autoref{eq:normal_stress} was used from Megson\cite[p.~496]{megson2016aircraft}, whitch represents a simplified version of equation 16.17.
 
 \begin{equation}
     \sigma = \frac{M \cdot y_{max}}{I_x}
     \label{eq:normal_stress}
-\end{equation}.
+\end{equation}
 
 \begin{wrapfigure}[15]{r}{0.43\textwidth}
     \centering
@@ -477,7 +503,7 @@ The normal stress distribution shown in \autoref{fig:normal_dist} decreases towa
 
 
 The last analysis considered verifies that the wing does not buckle to a load factor of 6. The ultimate load is not tested because buckling is not considered a structural critical case, the wing being able to buckle at certain loads. It is considered a structural problem when the phenomenon becoms catastrophic. Composite materials are known to be brittle and lose their structural properties once they buckle. To prevent a loss of integrity, the model tests if the wing buckles by comparing the buckling stress with the maximum internal shear stress. Is a force that exceeds the maximum load factor of 6 is reached, the wing will lose part of its properties, but will still be able to return the UAV for maintenance. 
-HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from Dowell\cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in Dowell\cite[p.~458]{niu1999airframe}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:final_mat_sel}.
+HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from Dowell\cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in Dowell\cite[p.~458]{niu1999airframe}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:Mat_sel}.
 
 \begin{equation}
     \sigma_{cr} = C \frac{\pi^2 E}{12(1-\nu^2)} \left(\frac{t}{b}\right)^2
@@ -972,9 +998,42 @@ The model assumes the wing to be a cantilevered beam with first bending ($q_b$) 
 \label{eq:general_aeroelastic_eqs}
 \end{equation}
 
-where $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{E}$ are structural mass, aerodynamic damping and stiffness, and structural damping and stiffness matrices, respectively. The flutter diagrams are then created by calculating the eigenvalues of this system at a range of flight conditions (altitudes and airspeeds) and plotting the frequencies and damping ratios of the two modes. 
+where $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{E}$ are structural mass, aerodynamic damping and stiffness, and structural damping and stiffness matrices, respectively. Lagrange's equation is used to derive each of the five matrices. The flutter diagrams are then created by calculating the eigenvalues of this system at a range of flight conditions (altitudes and airspeeds) and plotting the frequencies and damping ratios of the two modes. 
 
--A and E matrix derivation
+
+The mass and stiffness matrices, $\mathbf{A}$ and $\mathbf{E}$, are obtained from the kinetic and potential energy, represented by \autoref{eq: kinetic_energy} and \autoref{eq: potential_energy}, respectively \cite{wright2008introduction}.
+
+\begin{equation}
+T = \int_{\text{Wing}} \frac{1}{2} dm \dot{z}^2 = \frac{m}{2} \int_{0}^{s} \int_{0}^{c} \left( \left(\frac{y}{s}\right)^2 \dot{q}_b + \left(\frac{y}{s}\right)(x - x_f) \dot{q}_t \right)^2 dx dy 
+\label{eq: kinetic_energy}
+\end{equation}
+
+\begin{equation}
+U = \frac{1}{2} \int_{0}^{s} EI \left(\frac{2q_b}{s^2}\right)^2 \mathrm{d}y + \frac{1}{2} \int_{0}^{s} GJ \left(\frac{q_t}{s}\right)^2 \mathrm{d}y
+\label{eq: potential_energy}
+\end{equation}
+
+Lagrange's equation is then applied for both the bending and torsion modes \cite{wright2008introduction}. However, Wright's solutions to the resulting integrals were not employed in this analysis, since HUGO's wing is tapered. This makes the chord of the wing a function of span. Thus, in the case of kinetic energy, numerical integration was performed for each chord length along the span of the half wing. Regarding the potential energy, the contribution of chord length to the area moment of inertia $\mathbf{I}$ is also numerically integrated along the span. The resulting mass matrix is \autoref{eq: A_matrix}, and the resulting stiffness matrix is shown by \autoref{eq: E_matrix}.
+
+\begin{equation}
+A = \begin{bmatrix} 
+m \int_{0}^{s} \left(\frac{y}{s}\right)^4 c \, \mathrm{d}y & 
+m \int_{0}^{s} \left( \left(\frac{y}{s}\right)^3 \frac{c^2}{2} - \left(\frac{y}{s}\right)^3 x_f c \right) \mathrm{d}y \\[1.5em]
+m \int_{0}^{s} \left( \left(\frac{y}{s}\right)^3 \frac{c^2}{2} - \left(\frac{y}{s}\right)^3 x_f c \right) \mathrm{d}y & 
+m \int_{0}^{s} \left( \left(\frac{y}{s}\right)^2 \frac{c^3}{3} - \left(\frac{y}{s}\right)^2 c^2 x_f + \left(\frac{y}{s}\right)^2 x_f^2 c \right) \mathrm{d}y 
+\end{bmatrix}
+\label{eq: A_matrix}
+\end{equation}
+
+\begin{equation}
+E = \begin{bmatrix} 
+\int_{0}^{s} \frac{4EI}{s^4} \, \mathrm{d}y & 
+0 \\[1.5em]
+0 & 
+\int_{0}^{s} \frac{GJ}{s^2} \, \mathrm{d}y 
+\end{bmatrix}
+\label{eq: E_matrix}
+\end{equation}
 
 The structural damping matrix $\mathbf{D}$ has been obtained by employing \autoref{eq:Rayleigh_damping} with coefficients $\alpha$ and $\beta$ as defined by \citeauthor{hellen2013finite} \cite{hellen2013finite}. The damping ratios of $1\%$ critical per mode were used \cite{wright2008introduction}.
 
@@ -1018,17 +1077,17 @@ The flutter model has been verified by comparing results with those obtained by 
 \centering
 \caption{Aircraft parameters used for flutter analysis.}
 \label{tab:flutter_parameters}
-\begin{tabular}{lcc}
+\begin{tabular}{|l|c|c|}
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
-\midrule
-Wing mass                                  & 4.47  & kg \\
-Aspect ratio                          & 27.0  & -- \\
-Wing span                             & 3.2   & m \\
-Quarter-chord sweep angle             & 15.0  & $^\circ$ \\
-Taper ratio                           & 0.3   & -- \\
-Skin thickness                 & 2.5 & mm \\
-\bottomrule
+\hline \hline
+Wing mass                                  & 4.47  & kg \\\textbf{}
+Aspect ratio                          & 27.0  & -- \\\textbf{}
+Wing span                             & 3.2   & m \\\textbf{}
+Quarter-chord sweep angle             & 15.0  & $^\circ$ \\\textbf{}
+Taper ratio                           & 0.3   & -- \\\textbf{}
+Skin thickness                 & 2.5 & mm \\\textbf{}
+
 \end{tabular}
 \end{table}
 

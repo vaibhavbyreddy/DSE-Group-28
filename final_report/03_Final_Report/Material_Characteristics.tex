@@ -6,22 +6,27 @@
 %\todo[inline]{Define Sections and driving characteristics for the materials}
 %\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
+To ensure that HUGO can be manufactured within the required cost, structural, and operational constraints, a detailed definition of material characteristics and manufacturing processes is required. This chapter establishes the relationship between structural requirements identified in the preceding design and the resulting material selection and production methods.
 
-\todo[inline]{new chapter introduction pending}
+In \autoref{sec:metal_alloys} and \autoref{sec:composites}, the candidate materials for metal components, composite skins, and core structures are presented, and the final material selections are justified based on structural performance, manufacturability, and operational constraints. Subsequently, an overview of the selected materials is included in \autoref{sec:final_utilised_materials} in terms of their application within HUGO’s primary structures, linking each material to its specific location in the airframe. Then, manufacturing approaches for the primary composite structures are defined in \autoref{sec:manufacturing}, including out-of-autoclave curing strategies, mould production, fuselage and wing fabrication, and landing gear manufacturing processes. Finally, assembly and system integration procedures are described in \autoref{sec:assembly} and \autoref{sec:integration}, outlining how individual components are joined and integrated into the final aircraft configuration.
+
+%\todo[inline]{new chapter introduction pending}
+\begin{comment}
 The materials selected for HUGO must enable the manufacturing of components capable of operating at high-subsonic speeds and withstanding aeroelastic phenomena. Additionally, given the limited manufacturing budget, they should support low-volume production and require minimal upfront investment in tooling and processes.
 
 In \autoref{sec:material_options}, the materials considered for the metal components, carbon fibre skins, and fuselage and wing cores are presented, and the final selection is justified.
 
 
 In the midterm design phase, a trade-off was performed to identify suitable aerospace materials for the main structural elements of HUGO \footnote{Midterm Report}. In particular, CFRP was chosen as the primary material for the fuselage and lifting surfaces, and Al 7075-T76 for the landing gear, pylons, and connection surfaces. In this section, these choices will be evaluated in more detail, focusing on the specific metal alloy applications and internal composition of the composite structures. 
+\end{comment}
 
 \section{Metal Alloys}
-\label{sub:metal_alloys}
+\label{sec:metal_alloys}
 
 %Aluminium alloys, high-strength steels, and titanium alloys are the primary metals used in commercial aerospace \footnote{\href{https://www.flightmetals.com/metals-in-aerospace/}{Materials in Aerospace} (accessed on 01.06.2026)}. As mentioned in the Midterm Report \footref{ft:midterm_rep}, steel is used for safety-critical structures due to its high specific strength, while titanium is applied mainly in engine systems and landing gear because of its high strength, long fatigue life, fracture toughness, creep resistance, and excellent corrosion and oxidation resistance. 
 
 
-While aluminium was selected for the landing gear, engine pylons, and connection ports, the landing gear material should be revisited due to high landing impact loads, where steel may be preferable. The engine pylons are also exposed to high temperatures, and given the aluminium alloy’s melting point of \SI{480}{\celsius} \footnote{\href{https://www.makeitfrom.com/material-properties/7075-T76-Aluminum}{7075-T76 Aluminum} (accessed on 01.06.2026)}, materials with a higher melting temperature should be considered. The driving material properties of the alloys considered are shown in \autoref{tab:material_properties_metals}.
+While aluminium was selected for the landing gear, engine pylons, and connection ports in the Midterm Report \footref{foot:midterm}, the landing gear material should be revisited due to high landing impact loads, where steel may be preferable. The engine pylons are also exposed to high temperatures, and given the aluminium alloy’s melting point of \SI{480}{\celsius} \footnote{\href{https://www.makeitfrom.com/material-properties/7075-T76-Aluminum}{7075-T76 Aluminum} (accessed on 01.06.2026)}, materials with a higher melting temperature should be considered. The driving material properties of the alloys considered are shown in \autoref{tab:material_properties_metals}.
 
 \begin{table}[H]
     \centering
@@ -51,7 +56,8 @@ While aluminium was selected for the landing gear, engine pylons, and connection
     \end{tabular}
 \end{table}
 
-Where E is the elastic modulus, G is the shear modulus, $\tau$ is the shear strength, $\sigma_{ULT}$ is the ultimate tensile strength, $\sigma_Y$ is the yield tensile strength, $T_m$ is the melting onset temperature, $\rho$ is the density, and the last column gives the embodied carbon per kilogram of material. 
+%Where E is the elastic modulus, G is the shear modulus, $\tau$ is the shear strength, $\sigma_{ULT}$ is the ultimate tensile strength, $\sigma_Y$ is the yield tensile strength, $T_m$ is the melting onset temperature, $\rho$ is the density, and 
+The last column gives the embodied carbon per kilogram of material. 
 
 %The first six material properties listed in Table \autoref{tab:material_properties_metals} were used to assess the suitability of each alloy for structural aerospace applications. 
 The landing gear struts must be capable of resisting the high impact loads generated during touchdown without experiencing excessive deformation or yielding. An evaluation of the expected landing impacts experienced by HUGO, explained in more detail in \autoref{sub:landing_gear_design}, shows that the landing gear structure can experience up to 3.76 kN of force during each landing manoeuvre.  
@@ -146,14 +152,14 @@ Therefore, fatigue is not expected to be a limiting design factor for any of the
 
 %Aluminium 7076-T76 therefore cannot be used for the engine pylons, as its melting point is close to the nacelle temperature of the engines. Additionally, the optimal landing gear strut diameter for aluminium is 38.54 mm, which is very high, resulting in high drag and internal volume use. Titanium results in a lighter design than steel, however, due to the high material and manufacturing cost associated with titanium, as well as it's challenges in terms of recyclability, \textbf{Steel 18Ni(350)} is chosen as the material for the landing gear and engine pylons. 
 
-\section{Composites}
-\label{sub:composites}
+\section{Composites and Core Materials}
+\label{sec:composites}
 
 %Composites are widely used in the aerospace industry for their exceptional strength-to-weight ratio. 
-An analysis of aerospace industry trends and comparable missions conducted in the previous design phases \footref{ft:midterm_rep} has led to the choice of a carbon fibre epoxy resin prepreg as the primary material for HUGO's fuselage monocoque and lifting surfaces \footnote{\label{fn:prepregs}\href{https://www.hgcomposites.com/info/various-types-of-carbon-fiber-prepreg-83847115.html}{Various Types of Carbon Fibre Prepreg and Usages} (accessed on 02.06.2026)}. It was additionally established that the wing structure shall feature a foam core, and the fuselage shall comprise a honeycomb sandwich structure. 
+An analysis of aerospace industry trends and comparable missions conducted in the previous design phases \footref{foot:midterm} has led to the choice of a carbon fibre epoxy resin prepreg as the primary material for HUGO's fuselage monocoque and lifting surfaces \footnote{\label{fn:prepregs}\href{https://www.hgcomposites.com/info/various-types-of-carbon-fiber-prepreg-83847115.html}{Various Types of Carbon Fibre Prepreg and Usages} (accessed on 02.06.2026)}. It was additionally established that the wing structure shall feature a foam core, and the fuselage shall comprise a honeycomb sandwich structure. 
 
-\subsection{Outer Skin Material Selection}
-\autoref{tab:prepreg_properties} lists the mechanical properties of epoxy resin prepreg materials used in large aerospace structures  \footnote{\label{fn:hexply}\href{https://www.hexcel.com/wp-content/uploads/2025/12/HexPly_8552_eu_DataSheet1.pdf}{HexPly 8552} (accessed on 02.06.2026)}\footnote{\label{fn:mtm}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cytec_mtm45-1_resine_epoxyde.pdf}{MTM45-1} (accessed on 05.06.2026)}, as well as UAVs \footnote{\href{https://www.syensqo.com/en/product/cycom-5320-1}{CYCOM 5320-1 Applications} (accessed on 05.06.2026)}. The fibre orientations for each property are specified by subscripts in their respective column headers, and the shear modulus $G$ and Poisson's ratio $v_{12}$ are evaluated for in-plane shear and tension, respectively. Additionally, it shall be noted that $v_{12}$ for the MTM45-1 prepreg was assumed to be identical to that of HexPly 8552, as no corresponding data was available for MTM45-1, and  both materials utilise a AS4/3K plain-weave reinforcement and possess a similar fibre volume fraction of approximately 55\%.
+\subsection{Composite Skin Material Selection}
+\autoref{tab:prepreg_properties} lists the mechanical properties of epoxy resin prepreg materials used in large aerospace structures  \footnote{\label{fn:hexply}\href{https://www.hexcel.com/wp-content/uploads/2025/12/HexPly_8552_eu_DataSheet1.pdf}{HexPly 8552} (accessed on 02.06.2026)}\footnote{\label{fn:mtm}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cytec_mtm45-1_resine_epoxyde.pdf}{MTM45-1} (accessed on 05.06.2026)}, as well as UAVs \footnote{\href{https://www.syensqo.com/en/product/cycom-5320-1}{CYCOM 5320-1 Applications} (accessed on 05.06.2026)}. The fibre orientations for each property are specified by subscripts in their respective column headers, and the shear modulus $G$ and Poisson's ratio $v_{12}$ are evaluated for in-plane shear and tension, respectively. Additionally, it shall be noted that $v_{12}$ for the MTM45-1 prepreg was assumed to be identical to that of HexPly 8552, as no corresponding data was available for MTM45-1, and both materials utilise a AS4/3K plain-weave reinforcement and possess a similar fibre volume fraction of approximately 55\%.
 
 
 %Epoxy resin prepregs are widely used in aerospace industry due to their established manufacturing processes and generally good chemical, thermal, and mechanical properties \footnote{\label{fn:prepregs}\href{https://www.hgcomposites.com/info/various-types-of-carbon-fiber-prepreg-83847115.html}{Various Types of Carbon Fiber Prepreg and Usages} (accessed on 02.06.2026)}. Alternative prepreg materials, including bismaleimide (BMI) and cyanate ester, were not evaluated further for the primary structure since their key advantage is enhanced performance at elevated temperatures. These temperature conditions are not anticipated in the operational environment of HUGO's primary structure.
@@ -182,7 +188,7 @@ An analysis of aerospace industry trends and comparable missions conducted in th
 
 %In \autoref{tab:prepreg_properties}, $\sigma_{TS_0}$ and $E_0$ denote the tensile strength and elastic modulus in the $\ang{0}$ fibre direction, respectively, while $\sigma_{TS_{90}}$ and $E_{90}$ represent the corresponding properties in the $\ang{90}$ direction. The next two columns give the in-plane shear modulus, $G_{12}$, and Poisson's ratio, $\nu_{12}$.
 
-Information about prepreg fibre, weave pattern, and manufacturing processes for each prepreg is provided in \autoref{tab:prepreg_properties2}, with PW referring to plain weave and 8HS to 8 harness satin. The main manufacturability focus during this analysis was put on whether a given prepreg can be manufactured using autoclave, or Out-of-Autoclave (OOA) processes, including Vacuum-Bag-Only (VBO) \cite{CENTEA2015132}.
+Information about prepreg fibre, weave pattern, and manufacturing processes for each prepreg is provided in \autoref{tab:prepreg_properties2}, with PW referring to plain weave and 8HS to 8 harness satin. The main manufacturability focus during this analysis was put on whether a given prepreg can be manufactured using autoclave, or OOA processes, including VBO \cite{CENTEA2015132}.
 
 \begin{table}[H]
     \centering
@@ -202,15 +208,13 @@ Satin weaves are preferable for complex geometries, such as HUGO's fuselage and 
 
 %Plain weave consists of an over–under interlacing pattern that produces a symmetric, dimensionally stable structure, but its high fibre crimp reduces drapability and can introduce stress concentrations. As a result, it is better suited to flat or gently curved geometries. In contrast, satin weaves such as 8HS offer improved formability and draping for complex shapes, at the expense of reduced structural stability \footnote{\href{https://www.elevatedmaterials.com/carbon-fiber-weaves-what-they-are-and-why-to-use-them/}{Carbon Fibre Weaves: What they are and why to use them} (accessed on 05.06.2026)}.
 
-%Given that the initial HUGO fleet consists of only five aircraft, the manufacturing strategy is as critical as material selection. While autoclave-cured prepregs deliver the highest laminate properties, their high capital and operational costs are only justified at high production volumes. For this low-volume programme, Out-of-Autoclave (OOA) and Vacuum-Bag-Only (VBO) processes are more appropriate due to their lower cost, faster turnaround, and reduced tooling complexity.
-
-%OOA manufacturing enables rapid prototyping, shorter lead times, and significantly lower upfront investment while still achieving aerospace-quality laminates. This flexibility is especially valuable during early design iterations. Consequently, HexPly 8552 was excluded despite comparable stiffness to CYCOM 5320-1, as its autoclave requirement conflicts with the selected low-cost, low-volume production strategy.
-
+%For the five-aircraft HUGO fleet, manufacturing strategy is as critical as material selection. Autoclave-cured prepregs require high capital and operating costs and are only viable at high production volumes. For this low-volume programme, OOA and VBO processes are preferred due to lower cost, rapid prototyping capability, and simpler tooling. Accordingly, HexPly 8552 was excluded despite its comparable stiffness to CYCOM 5320-1, as its autoclave processing is incompatible with the chosen low-cost, low-volume approach.
 
 Analysis of loading cases and stresses experienced by the fuselage and lifting surfaces, explained in more detail in \autoref{ch:structural_characteristics}, has shown that structural stiffness shall be prioritised over tensile strength, since HUGO’s thin-walled fuselage and wing skins are buckling-critical. Moreover, fatigue estimations showed that it shall not be considered as a critical design factor. Based on a study of composites under cyclic loading by Boukharouba et al. \cite{Boukharouba2014} and the expected maximum normal stresses occuring without the fuselage, the structure can be expected to undergo between $10^4$ and $10^5$ loading cycles before failure. Further improvements can be achieved through increased skin-core adhesive content and greater skin thickness, both of which enhance fatigue resistance \cite{Jen2009Adhesive, Jen2009SheetThickness}. Based on the assumption that HUGO is meant to operate with client-provided planforms which will undergo limited numbers of loading cycles, fatigue was not considered as a design-driving parameter.
 
 
-A comparison of manufacturing methods and material properties points towards \textbf{CYCOM 5320-1} as the optimal material choice for the fuselage, wing, and empennage structures. In spite of its relatively high density, the material offers a 9\% increase in elastic modulus and 51\% increase in shear modulus compared to MTM45-1, and can be manufactured with VBO methods, which makes it preferable to HexPly 8552. Moreover, CYCOM 5320-1 has been successfully implemented in UAV structures, and its processing characteristics are optimized for honeycomb sandwich parts \footnote{\label{fn:cycom}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cycom5320_8hs.pdf}{CYCOM 5320-1} (accessed on 05.06.2026)}.
+A comparison of manufacturing methods and material properties points towards \textbf{CYCOM 5320-1} as the optimal material choice for the fuselage, wing, and empennage structures. In spite of its relatively high density, the material offers a 9\% increase in elastic modulus and 51\% increase in shear modulus compared to MTM45-1, and can be manufactured with VBO methods, which makes it preferable to HexPly 8552. Moreover, CYCOM 5320-1 has been successfully implemented in UAV structures, and its processing characteristics are optimized for honeycomb sandwich parts 
+\footnote{\label{fn:cycom}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cycom5320_8hs.pdf}{CYCOM 5320-1} (accessed on 05.06.2026)}.%\footnote{\label{fn:cycom}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cycom5320_8hs.pdf}{CYCOM 5320-1} (accessed on 05.06.2026)}.
 
 
 %Fatigue was not considered a critical design factor for the wings, as they are expected to experience significantly fewer loading cycles than the estimated 1,200 cycles over HUGO's operational lifetime. Each research wing is anticipated to undergo only a limited number of test campaigns, resulting in a negligible fatigue exposure. For the fuselage, literature on similar sandwich structures shows that fatigue behaviour strongly depends on loading level r, defined as the ratio of cyclic to static failure displacement. At a high loading level of r = 0.85, failure occurs within a few hundred cycles, whereas at r = 0.70, failure is reported between 10,000 and 100,000 cycles, and at r = 0.60, specimens survive beyond 10$^6$ cycles without failure, as reported in \cite{Boukharouba2014}. Limiting operational loads below r = 0.70 therefore provides a large safety margin for HUGO. The preliminary structural analysis predicts that the maximum normal stress of approximately 30 MPa within the fuselage. Consequently, the corresponding loading level is expected to remain well below 0.7.
@@ -235,7 +239,7 @@ PMI foams are high-performance, closed-cell structures known for their exception
 \begin{table}[H]
     \centering
     \caption{Key mechanical and thermal properties of candidate foam cores
-\tablefootnote{\url{https://www.easycomposites.co.uk/rigid-foams}{Rigid foams}}}
+\tablefootnote{\href{https://www.easycomposites.co.uk/rigid-foams}{Rigid foams} (accessed on 04.06.2026)}}
     \label{tab:foam_props}
     \begin{tabular}{|p{4cm}|p{1.8cm}|p{1.8cm}|p{1.5cm}|p{1.8cm}|}
         \hline
@@ -257,7 +261,7 @@ PMI foams are high-performance, closed-cell structures known for their exception
     \end{tabular}
 \end{table}
 
-Where $\sigma_{CS}$ is the compressive strength and $T_{max}$ is the maximum service temperature.
+%Where $\sigma_{CS}$ is the compressive strength and $T_{max}$ is the maximum service temperature.
 
 Honeycomb cores are primarily manufactured from either aluminum alloys or aramid paper (Nomex). Aluminum honeycomb provides significantly higher shear modulus and compressive strength compared to aramid cores of similar densities. However, aramid honeycomb offers superior 3D workability and formability over complex curvatures, as aluminum cell walls tend to buckle when formed over compound radii \footnote{\href{https://www.chalcoaluminum.com/blog/aluminum-honeycomb-core-vs-aramid-honeycomb-core-2604-zmy/}{Aluminum Honeycomb Core vs Aramid Honeycomb Core: How to Choose the Right Core Material} (accessed on 04.06.2026)}. Furthermore, aluminum core requires glass-fibre isolation plies to prevent severe galvanic corrosion when bonded to carbon fibre. A comparison of evaluated honeycomb cores is provided in \autoref{tab:honeycomb_props}.
 
@@ -347,7 +351,7 @@ Adding fibers in many directions improves strength, but increases material use a
 
 %\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
 
-\subsection{Manufacturing}
+\section{Manufacturing}
 \label{sec:manufacturing}
 The manufacturing of HUGO presents several significant challenges. The aircraft must be capable of withstanding the substantial structural loads associated with its high-subsonic flight regime and broad testing envelope. At the same time, HUGO’s modular design introduces additional complexity during assembly, as individual subassemblies must be accurately connected and integrated into the final aircraft structure. 
 
@@ -401,7 +405,7 @@ In terms of dimensional accuracy, Cycle A offers the best performance because th
 
 Another important consideration is the maximum temperature that the selected honeycomb and foam core materials can withstand during curing. Furthermore, the mould temperature requirements differ substantially between the curing cycles. For the freestanding cycles, the moulds are only exposed to temperatures of approximately $95-120^\circ$C during the initial cure. In contrast, Cycle A requires the moulds to withstand the full cure temperature of $175^\circ$C, which may increase tooling costs and impose stricter material and design requirements on the moulds.
 
-To achieve the temperatures required for curing, an out-of-autoclave (OOA) furnace will be rented. Suitable furnaces are commercially available with sufficient internal volume to accommodate both the fuselage and wing composite components. Rental costs are estimated to be between \texteuro{7,000-12,000}  for a period of 3-5 months\footnote{\href{https://www.airtec-gmbh.de/wp-content/uploads/2023/10/Renting-an-industrial-furnace.pdf}{Technical data: AHT 890-ek tempering furnace} (accessed on 10.06.2026)}, which is a realistic time frame for the manufacturing and remains within the allocated manufacturing budget of \texteuro{45,000} \footnote{\label{url:baseline_report}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report} (accessed on 21.05.2026)}.
+To achieve the temperatures required for curing, OOA furnace will be rented. Suitable furnaces are commercially available with sufficient internal volume to accommodate both the fuselage and wing composite components. Rental costs are estimated to be between \texteuro{7,000-12,000}  for a period of 3-5 months \footnote{\href{https://www.airtec-gmbh.de/wp-content/uploads/2023/10/Renting-an-industrial-furnace.pdf}{Technical data: AHT 890-ek tempering furnace} (accessed on 10.06.2026)}, which is a realistic time frame for the manufacturing and remains within the allocated manufacturing budget of \texteuro{45,000} \footref{foot:baseline}.
 
 
 
@@ -413,7 +417,7 @@ The mould manufacturing process begins with the machining of a male plug that re
 
 A high-temperature epoxy tooling gelcoat is then applied to the prepared plug surface. This gelcoat provides the mould with a highly accurate surface finish, which ultimately determines the quality of the outer skin of the manufactured part. Subsequently, multiple layers of carbon fibre fabric and epoxy are laminated over the gelcoat. The mould laminate is built up to a thickness of approximately 5 mm and is reinforced with a stiffening framework structure to ensure adequate rigidity and prevent distortion or sagging during curing.
 
-After lay-up, the mould laminate undergoes an initial low-temperature cure while still supported by the plug. Once cured sufficiently, the mould is demoulded and subjected to a freestanding post-cure cycle in the oven. This post-cure process increases the mould's glass transition temperature (T$_g$) to a value above the cure temperature of the composite parts ($350^\circ$F), ensuring dimensional stability and durability during production. The moulds will require only minimal post-processing, consisting of trimming excess material from the edges, sanding the surface, and applying the final sealer and release agent layers.
+After lay-up, the mould laminate undergoes an initial low-temperature cure while still supported by the plug. Once cured sufficiently, the mould is demoulded and subjected to a freestanding post-cure cycle in the oven. This post-cure process increases the mould's $T_g$ to a value above the cure temperature of the composite parts ($175^\circ$C), ensuring dimensional stability and durability during production. The moulds will require only minimal post-processing, consisting of trimming excess material from the edges, sanding the surface, and applying the final sealer and release agent layers.
 
 The two mould halves will incorporate split-mould clamping bushes to ensure precise alignment during assembly and to prevent any relative misalignment between the upper and lower sections. In addition, these bushes help reduce wear on the mould, provide sufficient clamping force, and maintain dimensional accuracy throughout the curing process \footnote{\href{https://www.easycomposites.co.uk/learning/precision-split-moulds-using-tooling-prepreg}{Making Precision Split-Moulds using Tooling Prepreg \& Mould Bushes} (accessed on 11.06.2026)}.
 
@@ -464,7 +468,7 @@ Following adhesive application, the required number of CYCOM 5320-1 prepreg plie
 \subsection{Landing gear and engine pylons}
 \label{sub:manufacturing_LG}
 
-The manufacturing of the landing gear and engine pylons remains the same as stated in the Midterm Report \footref{ft:midterm_rep}. A short overview of the process is given below.
+The manufacturing of the landing gear and engine pylons remains the same as stated in the Midterm Report \footref{foot:midterm}. A short overview of the process is given below.
 
 \begin{enumerate}
 \item \textbf{CNC Machining and Turning} shall be used to produce three-dimensional component profiles and axial geometries. Stress-relieved stock (e.g., T7651/T76511 plate or extrusions) shall be specified to maintain dimensional stability during and after machining.
@@ -479,7 +483,7 @@ The manufacturing of the landing gear and engine pylons remains the same as stat
 
 
 
-\subsection{Assembly}
+\section{Assembly}
 \label{sec:assembly}
 
 The assembly section outlines the different methods employed for the fuselage assembly, the pylon-to-fuselage connections, and the landing gear assembly.
@@ -509,10 +513,10 @@ Once the adhesive has cured, the bolts are installed through the metal sleeves r
 
 The landing gear assembly shall employ mechanical fastening rather than bonded joints. Bolted and lockbolted connections are used for rigid structural interfaces, providing reliable load transfer and ease of inspection and maintenance. In contrast, pin joints are implemented at locations requiring controlled relative motion, such as torque links and actuator attachment points, enabling necessary articulation during operation. Welding is excluded from the design due to its potential to alter the microstructure of high-strength steel alloys, which can result in reduced mechanical performance and compromised fatigue resistance.
 
-\subsection{Integration}
+\section{Integration}
 \label{sec:integration}
 
-The integration of the remaining systems will proceed in the same manner as outlined in the Midterm Report \footref{ft:midterm_rep}. A summary of the process is given below.
+The integration of the remaining systems will proceed in the same manner as outlined in the Midterm Report \footref{foot:midterm}. A summary of the process is given below.
 
 Aircraft system integration follows a carefully planned sequence based primarily on accessibility and system dependencies. Components that are difficult to access or that other systems rely on are installed first to avoid rework and installation conflicts later in the process.
 
@@ -523,3 +527,7 @@ Next, the aircraft battery is installed as part of the electrical power system, 
 After the core electrical and avionics systems are in place, the engines are installed and integrated with the fuel, hydraulic, and electrical systems. Finally, the interior is fitted. Because it can be more easily removed for maintenance or modifications, it is installed last, sealing and protecting the underlying systems.
 
 Following this structured sequence is essential - deviations can lead to costly rework, scheduling delays, increased expenses, and potential safety concerns.
+
+This chapter defined the material selection and manufacturing strategy for HUGO, linking structural requirements to material properties and practical production constraints. Metals, composites, and core materials were selected based on their mechanical performance, environmental resistance, and manufacturability within a low-volume aerospace production context. In addition, the manufacturing and assembly methods were defined to ensure that the selected materials can be reliably transformed into a flight-ready airframe.
+
+The next chapter addresses the structural design of HUGO, where the selected materials and manufacturing constraints are used to define and verify the primary load-bearing structures of the aircraft.

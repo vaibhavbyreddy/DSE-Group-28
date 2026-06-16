@@ -1,5 +1,66 @@
-\chapter{Project Planning Diagrams}
+\chapter{Project Planning and Management Tools}
 \label{app:project_planning_diagrames}
+This appendix contains an overview of the project management tools used throughout the DSE. \autoref{sec:pm_task_distribution} describes the approach to task distribution and progress monitoring adapted by the team members. The SE tools used for requirement discovery, i. e. FFD and FBS, are showcased in \autoref{fig:FFD} and \autoref{fig:FBS}, respectively.
+
+\section{PM Task Distribution Sheet}
+\label{sec:pm_task_distribution}
+
+The adapted PM task distribution sheet was used throughout all design phases, namely: project planning, baseline, midterm, and final. In the beginning of each phase, a list of individual tasks were based on the FBS and project guidelines, and specific group members would be assigned to complete them. Towards the end of a given phase, an additional team member would be assigned to check the completion of a given task, or proofread the relevant report section if the outcome of a task was a written deliverable. The progression of each task was monitored through the use of a colour scheme, as well as an unreviewed/reviewed marker based on whether the completion of a task had been checked or not and the source from which a task was derived (see: \autoref{tab:pm_task_distribution_legend}). During later design phases, additional markers were added, such as relevant chapter in the corresponding report, allocated page budget, or task-specific deadlines.
+
+\begin{wraptable}{r}{0.42\textwidth}
+\centering
+\small
+\caption{PM task distribution sheet legend}
+\begin{tabular}{|c|p{4.3cm}|}
+\hline
+\cellcolor{red!50} & Not done \\\hline
+\cellcolor{orange!50} & Pending \\\hline
+\cellcolor{yellow!50} & Done, not reported \\\hline
+\cellcolor{green!50} & Done, reported \\\hline
+\textbf{U} & Unreviewed \\\hline
+\textbf{R} & Reviewed \\\hline
+{\color{red}Aaa} & Deliverable from Source 1\\\hline
+{\color{blue}Aaa} & Deliverable from Source 2 \\\hline
+{\color{black}Aaa} & Additional deliverable defined by the PM \\\hline
+\end{tabular}
+
+\label{tab:pm_task_distribution_legend}
+\end{wraptable}
+
+
+\autoref{tab:pm_task_distribution} showcases a use case of the PM task distribution sheet for a team of three members working on a report. As can be seen, five tasks have been defined, two of which were derived from Source 1 (e. g. a project guide), another two from Source 2 (e. g. an appendix defining additional deliverables), and one defined by the PM to support the completion of necessary deliverables (e. g. a literature research or request for communication with external experts). All tasks with related chapters in the report have been assigned a "Chapter" marker, a "Pages" marker for the page budget, an "A3?" marker for the allocated page size. Additionally, "Done by" and "Checked by" markers were added to define the people working on each task and verifying it post-completion, respectively. and a "Category" marker based on the individual task deadline. An analysis of the use case shows that out of the five tasks, two have been completed (with one being additionally reviewed by the assigned "Checked by" team member), one has been done (but its results have not been reported), one has been started but remains unfinished at the time of analysis, and one has not yet been addressed by the assigned "Done by" person.
+
+\begin{table}[H]
+\centering
+\caption{Exemplary use of the PM task distribution sheet}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+
+
+\multicolumn{8}{|c|}{\textbf{Report XXX (due Mon 01.01, 6 PM)}} \\\hline
+\textbf{Task} & \textbf{Done by} & \textbf{Checked by} &
+\textbf{Chapter} & \textbf{Pages} & \textbf{Status} &
+\textbf{A3?} & \textbf{Category} \\
+\hline
+
+
+\textcolor{red}{Task 1} & Person 1 & Person 2 & Chapter 1 & 8 & \cellcolor{green!50}U & No & I \\\hline
+\textcolor{red}{Task 2} & Person 2 & Person 3 & Chapter 1 & 2 & \cellcolor{green!50} R & Yes & II \\\hline
+Task 3 & Person 1, Person 3 & Person 3 & N/A & N/A & \cellcolor{yellow!50}U & N/A & I \\\hline
+\textcolor{blue}{Task 4} & Person 2, Person 3 & Person 1 & Chapter 2 & 3 & \cellcolor{orange!50}U & No & II \\\hline
+\textcolor{blue}{Task 5} & Person 2 & Person 3 & Chapter 2 & 1 & \cellcolor{red!50}U & No & III \\\hline
+
+\end{tabular}
+
+\label{tab:pm_task_distribution}
+\end{table}
+
+Throughout the duration of the project, the task distribution sheet was available to all team members. Changes to task completion status and assigned team members were implemented personally by the PM. To ensure timely progression and completion of work, the sheet was mandatorily revisited during the evening debrief at the end of each working day, and the progression of each task was reported.
+
+
+Implementation of the described PM system resulted in a transparent and agile work system in which continuous overview of all activities and their progress was provided. The use of a simple, colour-coded tabular system proved to be a time-effective, clear solution. The utilised method was preferred over over other management and scheduling tools, such as a high-resolution Gantt Chart, which required significantly more resources to be developed, maintained or updated, and which failed to account for dynamic changes in the work distribution.
+
+
 
 \begin{landscape}
 \begin{figure}[H]
@@ -22,28 +83,28 @@
 \end{figure}
 \end{landscape}
 
-\clearpage
-\begingroup
-\pdfpagewidth=420mm
-\pdfpageheight=297mm
-\paperwidth=420mm
-\paperheight=297mm
+% \clearpage
+% \begingroup
+% \pdfpagewidth=420mm
+% \pdfpageheight=297mm
+% \paperwidth=420mm
+% \paperheight=297mm
 
-\includepdf[
-    pages=1,
-    width=420mm,
-    height=297mm,
-    keepaspectratio,
-    pagecommand={
-        \thispagestyle{plain}
-        \phantomsection
-        \refstepcounter{figure}
-        \label{fig:FFD}
-        \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}{Functional Flow Diagram}}
-    }
-]{figures_final/Functional Flow Diagram Final (2).pdf}
+% \includepdf[
+%     pages=1,
+%     fitpaper=true,
+%     pagecommand={
+%         \thispagestyle{plain}
+%         \phantomsection
+%         \refstepcounter{figure}
+%         \label{fig:FFD}
+%         \addcontentsline{lof}{figure}{\protect\numberline{\thefigure}{FFD}}
+%     }
+% ]{figures_final/FFD.pdf}
 
-\endgroup
+% \endgroup
+
+\includepdf[pages=-,fitpaper=true, width=420mm, keepaspectratio]{figures_final/FFD-finale.pdf}
 
 \begingroup
 \pdfpagewidth=420mm
