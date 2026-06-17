@@ -3,6 +3,8 @@
 
 \todo[inline]{From the \textit{Project Guide}: \\Structural characteristics include e.g. loading diagrams, stresses, bending, flutter, lowest natural frequencies, design loads, etc.\\ A first version of design driving characteristics is included in the Mid-Term Report, a final, extended version including all relevant characteristics is given in the Final Report.}
 
+\todo[inline]{write an introduction by also referencing each section and what its purpose is}
+
 
 \section{Aerodynamic Characteristics Estimate}
 \label{sec:aerodynamic_characteristics_estimate}
@@ -345,7 +347,7 @@ The structural model of the wing was developed to simulate the internal loads an
 %The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
 
 \subsection{Discretisation and Assumptions}
-As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain span-wise load and stress distributions. Additionally, the wing is be treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed conservative, as they do not account for the additional stiffness provided by any core materials, since the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
+As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain span-wise load and stress distributions. Additionally, the wing is treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed conservative, since they do not account for the additional stiffness provided by any core materials, since the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
 %\todo[inline]{Write about why the assumptions are acceptable}
 
 
@@ -997,7 +999,7 @@ The model assumes the wing to be a cantilevered beam with first bending ($q_b$) 
 \label{eq:general_aeroelastic_eqs}
 \end{equation}
 
-where $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{E}$ are structural mass, aerodynamic damping and stiffness, and structural damping and stiffness matrices, respectively. Lagrange's equation is used to derive each of the five matrices. The flutter diagrams are then created by calculating the eigenvalues of this system at a range of flight conditions (altitudes and airspeeds) and plotting the frequencies and damping ratios of the two modes. 
+where $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, $\mathbf{D}$ and $\mathbf{E}$ are structural mass, aerodynamic damping and stiffness, and structural damping and stiffness matrices, respectively. Lagrange's equations were used to derive the matrices. The flutter diagrams were then created by calculating the eigenvalues of the system at a range of flight conditions (altitudes and airspeeds) and plotting the frequencies and damping ratios of the two modes. 
 
 
 The mass and stiffness matrices, $\mathbf{A}$ and $\mathbf{E}$, are obtained from the kinetic and potential energy, represented by \autoref{eq: kinetic_energy} and \autoref{eq: potential_energy}, respectively \cite{wright2008introduction}.
@@ -1012,10 +1014,10 @@ U = \frac{1}{2} \int_{0}^{s} EI \left(\frac{2q_b}{s^2}\right)^2 \mathrm{d}y + \f
 \label{eq: potential_energy}
 \end{equation}
 
-Lagrange's equation is then applied for both the bending and torsion modes \cite{wright2008introduction}. However, Wright's solutions to the resulting integrals were not employed in this analysis, since HUGO's wing is tapered. This makes the chord of the wing a function of span. Thus, in the case of kinetic energy, numerical integration was performed for each chord length along the span of the half wing. Regarding the potential energy, the contribution of chord length to the area moment of inertia $\mathbf{I}$ is also numerically integrated along the span. The resulting mass matrix is \autoref{eq: A_matrix}, and the resulting stiffness matrix is shown by \autoref{eq: E_matrix}.
+Lagrange's equation is then applied for both the bending and torsion degrees of freedom, according to \citeauthor{wright2008introduction} \cite{wright2008introduction}. However, their solutions to the resulting integrals were not employed in this analysis, since HUGO's wing is tapered. This makes the chord of the wing a function of span. Thus, in the case of kinetic energy, numerical integration was performed for each chord length along the span of the half wing. Regarding the potential energy, the contribution of chord length to the area moment of inertia $\mathbf{I}$ is also numerically integrated along the span. The resulting mass matrix is \autoref{eq: A_matrix}, and the resulting stiffness matrix is shown by \autoref{eq: E_matrix}.
 
 \begin{equation}
-A = \begin{bmatrix} 
+\mathbf{A} = \begin{bmatrix} 
 m \int_{0}^{s} \left(\frac{y}{s}\right)^4 c \, \mathrm{d}y & 
 m \int_{0}^{s} \left( \left(\frac{y}{s}\right)^3 \frac{c^2}{2} - \left(\frac{y}{s}\right)^3 x_f c \right) \mathrm{d}y \\[1.5em]
 m \int_{0}^{s} \left( \left(\frac{y}{s}\right)^3 \frac{c^2}{2} - \left(\frac{y}{s}\right)^3 x_f c \right) \mathrm{d}y & 
@@ -1025,7 +1027,7 @@ m \int_{0}^{s} \left( \left(\frac{y}{s}\right)^2 \frac{c^3}{3} - \left(\frac{y}{
 \end{equation}
 
 \begin{equation}
-E = \begin{bmatrix} 
+\mathbf{E} = \begin{bmatrix} 
 \int_{0}^{s} \frac{4EI}{s^4} \, \mathrm{d}y & 
 0 \\[1.5em]
 0 & 
@@ -1042,6 +1044,47 @@ The structural damping matrix $\mathbf{D}$ has been obtained by employing \autor
 \end{equation}
 
 Furthermore, the aerodynamic matrices have been derived by applying strip theory to the unsteady aerodynamic forces on an oscillating airfoil \cite{wright2008introduction}. This has been simplified by only retaining the pitch damping oscillatory aerodynamic derivative as a constant value of $-1.2$, which is a valid assumption for a wide range of reduced frequencies when the elastic axis is at $50\%$ of the chord \cite{hancock1985teaching, wright2008introduction}. This greatly simplified the aerodynamic matrices, as it made them uncoupled from reduced frequency. Additionally, the Prandtl-Glauert compressibility correction and sweep correction have been applied to aerodynamic matrices.
+
+\begin{equation}
+\mathbf{B} =
+\frac{\cos\Lambda_{c/4}}{\sqrt{1-M^2}}
+\begin{bmatrix}
+\dfrac{a_w}{2}
+\displaystyle\int_{0}^{s}
+\left(\frac{y}{s}\right)^4 c \,\mathrm{d}y
+&
+0
+\\[1.5em]
+-\dfrac{e a_w}{2}
+\displaystyle\int_{0}^{s}
+\left(\frac{y}{s}\right)^3 c^2 \,\mathrm{d}y
+&
+-\dfrac{M_{\dot{\theta}}}{8}
+\displaystyle\int_{0}^{s}
+\left(\frac{y}{s}\right)^2 c^3 \,\mathrm{d}y
+\end{bmatrix}
+\label{eq:B_matrix}
+\end{equation}
+
+\begin{equation}
+\mathbf{C} =
+\frac{\cos\Lambda_{c/4}}{\sqrt{1-M^2}}
+\begin{bmatrix}
+0
+&
+\dfrac{a_w}{2}
+\displaystyle\int_{0}^{s}
+\left(\frac{y}{s}\right)^3 c \,\mathrm{d}y
+\\[1.5em]
+0
+&
+-\dfrac{e a_w}{2}
+\displaystyle\int_{0}^{s}
+\left(\frac{y}{s}\right)^2 c^2 \,\mathrm{d}y
+\end{bmatrix}
+\label{eq:C_matrix}
+\end{equation}
+
 
 % \begin{equation}
 % \begin{aligned}
@@ -1070,7 +1113,7 @@ Furthermore, the aerodynamic matrices have been derived by applying strip theory
 
 
 
-The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \autoref{tab:flutter_parameters} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. Both of these are above the required maximum speed at the testing altitude.
+The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \autoref{tab:flutter_parameters} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. Both of these are above the required maximum speed at the testing altitude. The skin thickness of $2.5mm$ (as shown in \autoref{tab:flutter_parameters}) is also the minimum skin thickness for no flutter within the flight envelope, so the flutter analysis is driving the wing design in this case.
 
 \begin{table}[H]
 \centering
@@ -1080,12 +1123,13 @@ The flutter model has been verified by comparing results with those obtained by 
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
 \hline \hline
-Wing mass                                  & 4.47  & kg \\\textbf{}
+Wing mass                             & 4.47  & kg \\\textbf{}
 Aspect ratio                          & 27.0  & -- \\\textbf{}
 Wing span                             & 3.2   & m \\\textbf{}
 Quarter-chord sweep angle             & 15.0  & $^\circ$ \\\textbf{}
-Taper ratio                           & 0.3   & -- \\\textbf{}
-Skin thickness                 & 2.5 & mm \\\textbf{}
+Taper ratio                           & 0.3   & -- \\
+% Skin thickness                 & 2.5 & mm \\\textbf{}
+\hline
 
 \end{tabular}
 \end{table}

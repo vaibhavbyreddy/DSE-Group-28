@@ -4,13 +4,13 @@
 
 \section{Mission Objective and Value Proposition}
 
-The High-speed Unmanned General-purpose Observatory (HUGO) is a reusable, modular and adaptable 50 kg transonic flying laboratory designed to bridge the gap between wind-tunnel testing and full-scale flight testing. Developed to accelerate the validation of next-generation aerospace technologies, HUGO provides a modular, low-cost platform for testing high-aspect-ratio (HAR) wings \cite{AFONSO201740, MA2024100983}, Active Flutter Suppression (AFS) \cite{Gilyard1983, Takarics2019}, and Gust Load Alleviation (GLA) systems \cite{Sanghi2022} in real-world atmospheric conditions.
+The High-speed Unmanned General-purpose Observatory (HUGO) is a reusable, modular and adaptable 50 kg transonic flying laboratory designed to bridge the gap between wind-tunnel testing and full-scale flight testing. Developed to decrease the barrier of entry to the testing and validation of next-generation aerospace technologies, HUGO provides a modular, low-cost platform for testing high-aspect-ratio (HAR) wings \cite{AFONSO201740, MA2024100983}, Active Flutter Suppression (AFS) \cite{Gilyard1983, Takarics2019}, and Gust Load Alleviation (GLA) systems \cite{Sanghi2022} in real-world atmospheric conditions.
 
 Currently, researchers and industry professionals face significant financial and technical barriers when testing at Mach 0.75. Traditional transonic wind tunnels suffer from wall-interference and scaling limitations \cite{Stenfelt2015}, often costing upwards of €40,000 per occupancy day \footnote{\label{foot:schrijer-exec}In personal communication with Ferdinand Schrijer on 04.05.2026.}. Conversely, manned flight testing introduces severe safety risks and requires lengthy, expensive certification processes \cite{Spitz2001}. 
 
-Project HUGO disrupts this paradigm by offering a certified, reconfigurable testbed that operates on Sustainable Aviation Fuel (SAF) to minimize altitude emissions \cite{Gaillot2023}. At a targeted commercial rate of €25,000 per flight day, HUGO significantly reduces the programmatic costs of aeroelastic research while delivering high-fidelity, free-flight data.
+Project HUGO disrupts the status quo by offering a certified, reconfigurable testbed that operates on Sustainable Aviation Fuel (SAF) to minimize altitude emissions \cite{Gaillot2023}. At a targeted commercial rate of €25,000 per flight day, HUGO significantly reduces the programmatic costs of aeroelastic research while delivering high-fidelity, free-flight data.
 
-To evaluate the commercial feasibility of HUGO, a market volume analysis was conducted. While the Total Addressable Market (TAM) encompasses the broader global expenditure on aerospace testing and validation, HUGO's initial beachhead strategy specifically targets the domestic Dutch testing ecosystem. Based on the collective testing budgets of major institutions such as the Netherlands Aerospace Centre (NLR), the German-Dutch Wind Tunnels (DNW), and TU Delft, the Serviceable Available Market (SAM) is valued at €71 million \todo{cite mid term report} annually. By providing a direct alternative to the high-speed aeroelastic testing traditionally performed in wind tunnels, HUGO aims to capture roughly 20\% \footref{foot:schrijer-exec} of this regional market, yielding a Serviceable Obtainable Market (SOM) of €14.2 million per year. Furthermore, the drastic reduction in testing costs and lead times is expected to induce latent demand, expanding the overall market boundaries by allowing smaller academic and commercial entities to conduct research that was previously cost-prohibitive.
+To evaluate the commercial feasibility of HUGO, a market volume analysis was conducted. While the Total Addressable Market (TAM) encompasses the broader global expenditure on aerospace testing and validation, HUGO's initial beachhead strategy specifically targets the domestic Dutch testing ecosystem. Based on the collective testing budgets of major institutions such as the Netherlands Aerospace Centre (NLR), the German-Dutch Wind Tunnels (DNW), and TU Delft, the Serviceable Available Market (SAM) is valued at €71 million annually \footref{foot:midterm}. By providing a direct alternative to the high-speed aeroelastic testing traditionally performed in wind tunnels, HUGO aims to capture roughly 20\% \footref{foot:schrijer-exec} of this regional market, yielding a Serviceable Obtainable Market (SOM) of €14.2 million per year. Furthermore, the drastic reduction in testing costs and lead times is expected to induce latent demand, expanding the overall market boundaries by allowing smaller academic and commercial entities to conduct research that was previously cost-prohibitive.
 
 \section{Final Configuration and Modularity}
 
@@ -20,17 +20,75 @@ To fulfill its role as a universal testbed, HUGO is designed around a defined ``
 
 Additionally, HUGO features a canard mounting point, which is covered to prevent an aerodynamic penalty when not being used. This allows HUGO to be configured with a canard on client request, in order to be able to test aircraft configurations which feature a canard. An additional benefit of this feature is that it allows for the testing of highly experimental planform at a smaller scale on these ports, without having to design, manufacture and test a new main planform.
 
+In order to minimize the drag profile of HUGO, the landing gear is a fully retractable system, which stows away during flight to produce a clean aerodynamic profile of the fuselage. 
+
 \section{Engineering Design and Performance Outcomes}
 
 The technical execution of HUGO ensures that the aircraft can perform demanding test profiles while adhering to the strict user and operational requirements:
 
 \begin{itemize}
-    \item \textbf{Structural Integrity:} The primary structure utilizes out-of-autoclave CYCOM 5320-1 carbon fiber epoxy prepreg \cite{CENTEA2015132}. The fuselage features a Nomex honeycomb core \cite{Boukharouba2014}, while the lifting surfaces utilize a Polymethacrylimide (PMI) foam core. Structural analysis confirms the airframe withstands the ultimate load factor of 9g, with a maximum normal bending stress of 696 MPa—well below the material's yield limit. The airframe has also been analyzed to withstand the handling and abuse loads involved with the operations of HUGO. Furthermore, aeroelastic modelling confirms flutter and static divergence occur well above the Mach 0.75 operating speed \cite{wright2008introduction}.
-    \item \textbf{Propulsion and Power:} Thrust is provided by twin fuselage-mounted JetCat P100-RX-BL micro-turbines, fed by a dynamic fuel management system utilizing two 8.4L fuel bladders. This allows us to dynamically shift the CG during flight in orfer to change the stability of the aircraft to run different experiments. Electrical power is supplied by a custom 8S5P Molicel INR21700 battery pack \cite{Tsung-Hsun2026, Ganjeizadeh2014}, delivering 936 W to sustain the entire avionics, sensor, and propulsion network for the maximum 45-minute flight window.
-    \item \textbf{Performance:} Payload-range analysis validates that HUGO can successfully complete its 30-minute nominal mission—including a 5-minute Mach 0.75 test segment at FL270, while holding sufficient fuel reserves for loitering and up to four missed approach attempts \cite{Koutz1952Loitering}.
+    \item \textbf{Structural Integrity \& Materials:} The primary structure utilizes out-of-autoclave (OOA) CYCOM 5320-1 carbon fiber epoxy prepreg \cite{CENTEA2015132}, cured via a continuous cycle to maximize dimensional accuracy. The fuselage features a Nomex honeycomb core \cite{Boukharouba2014}, while the lifting surfaces utilize a Polymethacrylimide (PMI) foam core. Structural analysis confirms the airframe withstands the ultimate load factor of 9g, with a maximum normal bending stress of 696 MPa—well below the material's yield limit. Furthermore, aeroelastic modelling confirms flutter and static divergence occur well above the Mach 0.75 operating speed \cite{wright2008introduction}. This material choice informed the manufacturing plan, as well as the structural analysis done later. The airframe was decided to be built using a composite monocoque architecture. This simplifies construction by aleviating the need for ribs, stringers and other reinforcements, and maximizes the internal volume for the payload, sensors and other sub-systems.
+    \item \textbf{Flight Test Instrumentation:} As a flying laboratory, HUGO's value relies on high-fidelity data acquisition. The standardized payload suite includes dual LIDAR sensors for in-flight wing deflection measurement, 16 strain gauges placed on various points on the wing skin, and a DJI O4 camera system to visually monitor aeroelastic behaviour. Additionally, the wing-to-fuselage structural link is formed by four 6-axis load cells, isolating and measuring aerodynamic forces on the wing. This is in addition to standard avionics sensors such as a 6 axis Inertial measurement unit (IMU), Global Positioning System (GPS) reciever and gyroscope. HUGO also has space to accomodate an additional 5kg of payload in a 5 liter volume, to house test equipment or additional sensors based on the client's needs. The masses and positioning of these components were done in a preliminary 3D model. Doing so allowed us to accurately estimate the CG of the aircraft, as well as wing positioning, and empennage sizing.
+    \item \textbf{Performance:} Using a typical mission profile for HUGO, including a climb phase, cruise phase, test phase, and descend phase, as well as contingencies in case of go arounds, fuel mass fractions were computed. Then, a payload-range analysis was used to validate that HUGO can successfully complete its 30-minute nominal mission—including a 5-minute Mach 0.75 test segment at FL270, while holding sufficient fuel reserves for loitering and up to three missed approach attempts \cite{Koutz1952Loitering}. This analysis allowed us to use a matching diagram to find a feasible engine and wing option. This was driven by constraints and requirements such as runway length, climb rate requirements, and cruise and maximum speed requirements. This yielded our choice for the standard planform, as detailed in \autoref{tab:exec:standard_wing_planform}. The thrust to weight ratio yielded by this analysis drove our choice of engines, namely, twin JetCat P100-RX-BL Jet turbine engines.
+    \item \textbf{Propulsion and Power:} Thrust is provided by twin fuselage-mounted JetCat P100-RX-BL micro-turbines, providing a combined maximum thrust of 200N, fed by a dynamic fuel management system, utilizing two 8.4L fuel bladders. This allows us to dynamically shift the CG during flight in order to change the stability of the aircraft to run different experiments. Electrical power is supplied by a custom 8S5P Molicel INR21700 battery pack \cite{Tsung-Hsun2026, Ganjeizadeh2014}, delivering 936 W to sustain the entire avionics, sensor, and propulsion network for the maximum 45-minute flight window. 
+    \item \textbf{Landing Gear \& Kinematics:} The retractable, podded tricycle landing gear is manufactured from 18Ni(350) steel to withstand high impact loads while minimizing strut diameter. Optimized via a Linear Time-Invariant (LTI) spring-dashpot simulation ($C=781$, $K=48168$), the system restricts maximum vertical displacement to 6.84 cm during a 3 m/s impact (incorporating an EASA-mandated 1.5 safety factor), preventing fuselage ground strikes and oscillatory runway behavior. This system limits landing gear loads transfered to the fuselage to below 4g.
+    
 \end{itemize}
 
-\section{Operations, Certification, and Safety (RAMS)}
+\begin{table}[H]
+    \centering
+    \caption{The geometry of the standard planform}
+    \begin{tabular}{|c||c|c|c|c|c|c|c|c|}\hline
+         \textbf{Parameter}& $AR$ & $b$ & $\lambda$& $t/c$ & $\Lambda_{c/4}$ & airfoil & $\Gamma$ & Empennage  \\\hline
+         \textbf{Value} & 27 & $3.4$ m & 0.3 & $0.12$ & 15$^\circ$ & NASA SC(2)-0012 & $0^\circ$ & T-tail\\\hline
+    \end{tabular}
+    
+    \label{tab:exec:standard_wing_planform}
+\end{table}
+
+
+
+\section{Material Selection and Manufacturing, Assembly, and Integration (MAI)}
+\label{sec:mai_plan}
+
+The material selection and MAI strategy for HUGO are closely related. The chosen manufacturing processes directly dictate the final mechanical properties, add constraints on design decisions and economic feasibility of the product. Given HUGO's intended production scale (an initial fleet of five aircraft), the design heavily prioritizes out-of-autoclave (OOA) processes to minimize tooling infrastructure costs while maintaining the structural integrity required for Mach 0.75 aeroelastic testing.
+
+\subsection{Material Selection and Design Impact}
+Materials were selected to satisfy specific local loading conditions, thermal environments, and manufacturing limitations across the airframe:
+\begin{itemize}
+    \item \textbf{Composite Sandwich Structures:} The primary fuselage and tailcone are constructed using CYCOM 5320-1 carbon fiber epoxy prepreg \cite{CENTEA2015132}. This specific resin system is optimized for Vacuum Bag Only (VBO) / OOA curing, dramatically reducing manufacturing costs and cycle times compared to traditional autoclave prepregs. A structural analysis performed on a portion of the fuselage showed that a composite sandwich structure, comprising of 2 quasi-isotropic lay ups of CFRP, separated by a honeycomb core, performs comparably to a purely carbon lay up several times the thickness. The results of this analysis are presented in \autoref{tab:exec-fuselage_handling_loads}. The honeycomb sandwich structure weighs 82\% less than the solid carbon structure, and was therefore chosen as the preferred construction method \footnote{\href{https://www.dmcrf.com/benefits-of-honeycomb-core-structures-in-aerospace-and-automotive-sectors/}{Benefits of Honeycomb Core Structures in Aerospace and Automotive Sectors} (accessed on 04.06.2026)}. A 48 kg/m$^3$ Aramid (Nomex) honeycomb core is utilized in the fuselage. Aramid was selected over aluminum honeycomb because it inherently prevents galvanic corrosion with the carbon fiber skins, possesses sufficient compliance to conform to the fuselage curvature without buckling, and provides the compressive strength necessary to resist local crushing under vacuum pressure during the curing cycle \footnote{\href{https://www.chalcoaluminum.com/blog/aluminum-honeycomb-core-vs-aramid-honeycomb-core-2604-zmy/}{Aluminum Honeycomb Core vs Aramid Honeycomb Core: How to Choose the Right Core Material} (accessed on 04.06.2026)}. 
+    \item \textbf{Lifting Surfaces:} To support HUGO's modularity requirement, the wings and tail stabilizers utilize a Polymethacrylimide (PMI) foam core rather than honeycomb. PMI is highly cost-effective, easily CNC-machined to accommodate various custom airfoil profiles, and maintains excellent mechanical stability during the curing cycles required by our choice of pre preg.
+    \item \textbf{Metallic Components:} 18Ni(350) Maraging steel is utilized for the landing gear and engine pylons. Its exceptionally high yield strength permits smaller strut diameters, which is critical for minimizing the aerodynamic drag of the external landing gear pods. Furthermore, steel easily withstands the thermal radiation from the adjacent micro-turbines. For secondary connection ports where structural and thermal loads are minimal, standard aluminum alloys are employed to reduce weight and machining time. 
+\end{itemize}
+
+\begin{table}[H]
+    \centering
+    \caption{Fuselage sizing results for transport and handling abuse loads}
+    \begin{tabular}{|c||c|c|c|c|}\hline
+         \textbf{Configuration} & Skin/Solid Thickness & Core Thickness & Total Wall Thickness & Weight per meter \\\hline
+         \textbf{Pure Solid Carbon} & 6.40 mm & - & 6.40 mm & 9.47 kg/m \\\hline
+         \textbf{Sandwich Panel} & 0.40 mm (per face) & 10.00 mm & 10.80 mm & 1.64 kg/m \\\hline
+    \end{tabular}
+    
+    \label{tab:exec-fuselage_handling_loads}
+\end{table}
+
+
+\subsection{Manufacturing and Assembly Strategy}
+To maximize structural efficiency, HUGO's assembly relies on co-curing and adhesive bonding rather than heavy mechanical fasteners:
+\begin{itemize}
+    \item \textbf{Fuselage Monocoque Assembly:} Achieving a smooth, aerodynamic surface finish is critical for the high velocities that HUGO will be operating at. Therefore, the fuselage outer skins are cured first in negative moulds. Once the outer, aerodynamic surface is established, the Nomex core and inner skins are layered with an adhesive film layer in between the honeycomb and carbon fiber sheets. The two fuselage halves are then joined by overlapping the outer skin edges into a continuous lap joint. A final curing cycle bonds the entire assembly into a rigid, seamless monocoque structure. The wings, however, will be produced by direct foam lay up. The PMI foam core will be CNC machined, including the internal channels necessary for the subsystems within the wing. After sanding and filling the surface of the foam, an adhesive layer will be used before laying up the required number of pre preg sheets to achieve the necessary mechanical properties of the wing. The wing will then be vacuum bagged and cured in an oven. Since different experiments performed by HUGO may require new wings to be produced, the minimization of production cost, time and complexity is of high importance. The major advantage of this method for the production of the wings and aerodynamic surfaces is the lack of moulds, drastically reducing the cost of production.
+    \item \textbf{Pylon to Fuselage Integration:} The high, concentrated point loads generated by the micro-turbines must be safely distributed into the composite fuselage. This is achieved by potting metal inserts into holes drilled through the sandwich structure, sealing the exposed honeycomb core with structural epoxy. Crucially, these inserts are manufactured from Titanium. Unlike aluminum, Titanium is electrochemically compatible with carbon fiber, thereby preventing galvanic corrosion and ensuring the long-term reliability of the engine mounts.
+    \item \textbf{Mechanical Subsystems:} The steel landing gear and engine pylons are CNC-machined and heat-treated to achieve their final temper, and treated with a protective surface coating to prevent corrosion. The landing gear integration utilizes a hybrid approach: bolted joints secure the rigid interfaces to the airframe, while precision pin joints are used exclusively where relative kinematic motion is required during retraction and deployment.
+\end{itemize}
+
+\subsection{System Integration}
+The final integration of HUGO is heavily driven by system dependencies and physical accessibility. Because the fuselage is a bonded monocoque, internal component integration follows a strict bottom-up approach. Wiring harnesses, the structural load cells, and the dynamic fuel bladder system are installed prior to the integration of the modular lifting surfaces, ensuring that critical avionics and fuel lines remain accessible for inspection and condition-based maintenance between flight test days. The access bays are also sized and placed in strategic areas to allow for the removal of the internal components to facilitate servicing and repairs.
+
+
+
+
+\section{Operations, Certification, and Safety}
 
 Operations and Logistics are a crucial part in the development of a successful mission. Together they cover all aspects of HUGO's day-to-day usage. For a mission to be successful, HUGO must operate in a controlled airspace, fly over 100km in a straight line, and to perform a test at Mach 0.75 for at leasts 5 minutes. Given its classification as a High-Risk Unmanned Aircraft System under EASA Special Conditions \cite{easa_light_uas_crd_is3}, HUGO's operational and safety framework is designed for maximum reliability. Operations are based at Den Helder Airport (EHKD), capitalizing on its 1.27 km runway, emergency services, and direct access to ATC-controlled airspace over the North Sea \cite{DenHelderAirport2013DHANieuwsbrief}. 
 
@@ -40,10 +98,16 @@ In consultation with, and with guidance from EASA, HUGO was classified under SC-
 
 Safety is ensured through a selective redundancy philosophy and a rigorous condition-based maintenance (CBM) or time-based maintenance (TBM) schedule. Critical systems, including the VECTOR-600 autopilot and power distribution, are monitored continuously \cite{Imani2022}. In the event of communication loss or envelope exceedance, autonomous stabilization and flight termination protocols guarantee safe recovery. The overall system reliability is calculated to ensure the initial fleet of five aircraft can easily sustain 100 operational test days per year \cite{Mencik2016, Lanzafame2024}.
 
-\section{Sustainability Integration}
+\section{Environmental Responsibility}
 
+The entire project was created with the intention of enabling the research and development of novel wing configurations which could lower emissions. The research can also lead to safer and more comfortable aircraft. It was a requirement from the beginning that the HUGO should be powered by SAF. 
+A Life Cycle Assessment (LCA) was made to directly quantify the impact of the entire project.   
 
+For any engineering project it is vital to understand how it directly affects its surroundings. This can be done  by looking at the noise and emissions generated by the  flight of the aircraft. By stipulating a maximum noise-level at 90 db(A) it is possible to have an upper bound for the noise. This number was chosen based on the general guidelines for jet-aircraft in ICAO Annex 16. After performing the analysis the maximum noise was found to be 87.5 dB(A) thereby with this upper bound. Using emission data for the burning of Jet-A fuel it was possible to identify the different compounds which makes up the emission. Then evaluating each of the compounds based on the Global Warming Potential (GWP) of 1 kg of burned fuel to be 10.923 GWP. This emission model would be used in the LCA to estimate the impact of the operation. 
 
+After finalizing the design, operations and the sizing of all systems and subsystems it was possible to run the final LCA. The complete estimate for the impact from cradle to grave for the HUGO project would be: (Still does not have the data) 
+
+  
 
 
 

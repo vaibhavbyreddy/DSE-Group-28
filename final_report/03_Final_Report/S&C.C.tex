@@ -7,7 +7,7 @@
 \todo[inline]{From the \textit{Project Guide}: \\ Stability and control characteristics include e.g. control forces, CoG limits, attitude control torques, momentum storage and unload capacity, disturbance torques, control frequency, etc.\\
 A first version of design driving characteristics is included in the Mid-Term Report, a final, extended version including all relevant characteristics is given in the Final Report.}
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
+\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters and also autoref each section and what its purpose is}
 
 The purpose of the stability and control analysis is to verify that HUGO can remain controllable during both low-speed operations and the high-speed test segment, while accommodating the mass distribution and configuration changes. The analysis therefore focuses on control surface authority, actuator hinge moment requirements, and the static and dynamic stability characteristics over the relevant CG range. 
 
@@ -17,7 +17,8 @@ The purpose of the stability and control analysis is to verify that HUGO can rem
 \section{Horizontal Stabilizer Sizing}
 To satisfy HUG-STB-01, the horizontal stabiliser should cause stability close to marginal for the default value of the CG (when the fuel is distributed equally between the tanks), so that fuel movement either to the front or aft causes the CG excursion required for the stability regime of interest. This can be achieved when sizing a tail to the minimum area required for the combination of stability and controllability. For canard configurations, however, increasing the stabiliser size improves controllability, decreasing stability at the same time, which makes the condition both stability and controllability more challenging to achieve. As such, it is decided to demonstrate compliance with HUG-STB-01 using a t-tail empennage. Consequently, configurations containing a canard are sized for controllability, while configurations not containing one are sized for both stability and controllability. 
 
-\section{Horizontal Stabiliser Sizing using Semi-Empirical Formulae}
+\subsection{Horizontal Stabiliser Sizing using Semi-Empirical Formulae}
+\label{sub:semi-empirical-tail}
 Assuming constant aerodynamic coefficients, the following equations for the surface areas required for stability $(S_h/S)_{\text{min, st}}$ and controllability $(S_h/S)_{\text{min, ct}}$ can be obtained:
 
 \begin{equation}
@@ -31,9 +32,32 @@ The CG locations are taken as the fully fuelled and zero fuel CG locations. Pump
 
 For the standard planform, the fuel tanks happen to be positioned approximately symmetrically with respect to the global CG, resulting in $x_{{cg}_\text{min}}$, $x_{{cg}_\text{max}}$ being equal to 1.414 m and 1.416 m measured from the nose. This translates to a small CG excursion between the fully fuelled and zero fuel states and $S_h/S$ of 0.106.
 
-\subsection{Modelling Aircraft trim in Flow5}
-Recently re-developed and updated software, Flow5, is used to demonstrate HUGO's capability of operation in various flight regimes and outputs several important values for the design, such as control surface actuator moments and eigenmotion characteristics. The tail sizing results for the standard planform using semi-empirical formulae are verified by creating the resultant planform in Flow5 and assessing whether it is capable of trimming the aircraft at the required range of angles of attack and whether it provides longitudianl static stability. \todo{Move mode here, mention the stall speed comparison the trimming}
+\subsection{Modelling Aircraft Trim in Flow5}
+Recently re-developed and updated software, Flow5, is used to demonstrate HUGO's capability of operation in various flight regimes and outputs several important values for the design, such as control surface actuator moments and eigenmotion characteristics. The tail sizing results for the standard planform using semi-empirical formulae are verified by creating the resultant planform in Flow5 and assessing whether it is capable of trimming the aircraft at the required range of angles of attack and whether it provides longitudinal static stability. 
 
+Specifically, the aircraft equipped with the standard planform and the tail obtained in \autoref{sub:semi-empirical-tail}, is trimmed in Flow5 at the stall conditions. The aircraft was stable and trimmable in both the stall conditions predicted using the estimated $C_{L_{max}}$ (40.49 m/s and $\alpha$ of 10.7$^\circ$) and those predicted in Flow5. This condition requires an elevator deflection of $\delta_e = 16 \degree$ and is shown in \autoref{fig:flow5_elevator_stall}. The calculated stall angle of attack in Flow5 is higher than one predicted by the semi-empirical methods included in the project code, therefore it is important to verify trim capability for both considered flight conditions.
+
+
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/cmalpha_stall_10.7deg.png}
+        \caption{$C_m-\alpha$ curve at the trimmed stall condition in Flow5}
+        \label{fig:flow5_cmalpha_stall}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/elevator_stall.png}
+        \caption{Elevator deflection at stall condition in Flow5}
+        \label{fig:flow5_elevator_stall}
+    \end{subfigure}
+
+    \caption{Aircraft pitch characteristics from Flow5 at stall regime, $\alpha = 10.7 \degree$}
+    \label{fig:flow5_stall_tail}
+\end{figure}
 
 \subsection{Effect of Horizontal Stabilizer Aspect Ratio on Total Mass in
 the Standard Planform Configuration}
@@ -56,7 +80,7 @@ Overall, for the examined range of aspect ratios, the MTOM does not vary by more
 
 \section{Control Moments}
 \label{sec:control_forces}
-The forces and moments on the control surfaces were calculated using the Flow5 software on a reference wing and tail planform from \autoref{tab:standard_wing_planform}. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled and meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. The chosen configuration for analysis includes a standard wing and T-tail defined in \autoref{}, without a canard attached. Furthermore, the mass distribution and inertial properties were reconstructed in Flow5 based on the HUGO CAD model and the determined configuration layout.
+The forces and moments on the control surfaces were calculated using the Flow5 software on a reference wing and tail planform from \autoref{tab:standard_wing_planform}. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\label{ft:flow5}\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled and meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. The chosen configuration for analysis includes a standard wing and T-tail defined in \autoref{}, without a canard attached. Furthermore, the mass distribution and inertial properties were reconstructed in Flow5 based on the HUGO CAD model and the determined configuration layout.
 
 \begin{figure}[H]
     \centering
@@ -128,12 +152,12 @@ Here, $V = V_{appr}$, $b = 3.4\ m$ is the wing span, $C_{l_{\delta_{a}}}$ is the
     \label{tab:delta_a_alpha}
 \end{table}
 
-To estimate the aileron moment loads at the target experiment flight speed of $M = 0.75 \approx 230 \ m \cdot s^{-1}$ at FL270 ISA altitude, it has been set that the maximum roll rate, achieved in the approach regime, shall be achieved. The required aileron deflection to reach the required roll rate has been found to be $\delta_a = \pm3.89 \degree$ using \autoref{eq:roll_rate}. Flow5 outputs a moment $H_a = 0.1791 \ N \cdot m$ for a single aileron at this speed regime. This speed lies in compressibility region, therefore accounting for this in the hinge moment is needed. Using the expression in \autoref{eq:hinge_moment} \cite{}, value obtained in Flow5 was then scaled using the Prandtl-Glauert compressibility correction in \autoref{eq:ch_compressibility}, analogous to the method Simpson used \cite{Simpson2016}. \todo{update this image below}
+To estimate the aileron moment loads at the target experiment flight speed of $M = 0.75 \approx 230 \ m \cdot s^{-1}$ at FL270 ISA altitude, it has been set that the maximum roll rate, achieved in the approach regime, shall be achieved. The required aileron deflection to reach the required roll rate has been found to be $\delta_a = \pm3.89 \degree$ using \autoref{eq:roll_rate}. Flow5 outputs a moment $H_a = 0.1791 \ N \cdot m$ for a single aileron at this speed regime. This speed lies in compressibility region, therefore accounting for this in the hinge moment is needed. The value obtained in Flow5 was then scaled using the Prandtl-Glauert compressibility correction in \autoref{eq:ch_compressibility}, analogous to the method Simpson used \cite{Simpson2016}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figures_final/Flow5_ailerons_approach.png}
-    \caption{Ailerons with $\delta_a = \pm 20 \degree$ at $V_{appr}$. The color scale represents the $\gamma$ parameter representing the doublet densities and vortex strengths in Flow5 \cite{}}
+    \caption{Ailerons with $\delta_a = \pm 20 \degree$ at $V_{appr}$. The color scale represents the $\gamma$ parameter representing the doublet densities and vortex strengths in Flow5 \footref{ft:flow5}}
     \label{fig:flow5_ailerons}
 \end{figure}
 
@@ -176,7 +200,7 @@ Using \autoref{eq:roll_rate}, the roll rate can then be calculated and compared 
 \subsection{Elevator}
 \label{subsec:elevator} 
 
-The elevator geometry used in the Flow5 HUGO model is summarized in \autoref{tab:elevator_geometry}. The selected chord fraction was based on the FLEXOP reference aircraft and typical T-tail aircraft values from Sadraey \cite{sadraey2012aircraftdesign}. The elevator was modeled as a control surface spanning the complete horizontal tail, with its deflection convention defined such that negative angles move the elevator up and positive deflections down.
+The elevator geometry used in the Flow5 HUGO model is summarized in \autoref{tab:elevator_geometry}. The selected chord fraction and deflcetion limits were based on the FLEXOP reference aircraft and typical T-tail aircraft values from Sadraey, chapter 12.5.2 \cite{sadraey2012aircraftdesign}. The elevator was modeled as a control surface spanning the complete horizontal tail, with its deflection convention defined such that negative angles move the elevator up and positive deflections down.
 
 \begin{table}[H]
     \centering
@@ -190,7 +214,7 @@ The elevator geometry used in the Flow5 HUGO model is summarized in \autoref{tab
         \hline
         Elevator span ratio, \(b_e/b_h\) & 1 \\
         \hline
-        Maximum elevator deflection & $\pm 20^\circ$ \\
+        Maximum elevator deflection & $\pm 30^\circ$ \\
         \hline
     \end{tabular}
 \end{table}
@@ -215,9 +239,9 @@ The aircraft was trimmed for the flight conditions in Flow5 and the resulting el
         \hline
         Approach trim & Aft & 50 & 0 & 7.5 & -5.55 & 0.032 & N/A\\
         \hline
-        Experiment trim & Front & 230 & 8230 & 0.9 & -1.13 & 0.1827 & TBD\\
+        Experiment trim & Front & 230 & 8230 & 0.9 & -1.13 & 0.1827 & 0.2762\\
         \hline
-        Experiment trim & Aft & 230 & 8230 & 0.9 & -1.15 & 0.1891 & TBD\\
+        Experiment trim & Aft & 230 & 8230 & 0.9 & -1.15 & 0.1891 & 0.2859\\
         \hline
     \end{tabular}
 \end{table}

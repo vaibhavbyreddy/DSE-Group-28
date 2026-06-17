@@ -60,8 +60,8 @@ A function is considered safety-critical when its loss can lead to loss of contr
     \hline
 
     Electrical power distribution &
-    Supply the flight computer, actuators, sensors, communication subsystem, propulsion electronics, and payload. &
-    No single failure of electronic components shall cause mission failure. \\
+    Supply the flight computer, actuators, sensors, communication subsystem, propulsion electrics, and payload. &
+    No single failure of electric components shall cause mission failure. \\
     \hline
 
     Structural load path and modular interfaces &
@@ -124,7 +124,7 @@ The redundancy philosophy of HUGO is selective redundancy. Full hardware duplica
 
     Electrical energy &
     The battery and power distribution system are sized for a 45 min mission duration, covering the required 30 min mission with significant margin. &
-    Electrical energy loss affects flight control, telemetry, sensors, and propulsion electronics. \\
+    Electrical energy loss affects flight control, telemetry, sensors, and propulsion electrics. \\
     \hline
 
     Fuel system &
@@ -144,12 +144,12 @@ The redundancy philosophy of HUGO is selective redundancy. Full hardware duplica
 
 \end{longtable}
 
-This philosophy is consistent with the emergency-handling requirements of \autoref{sec:user_requirements}: isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures, communication loss shall trigger autonomous return to the launch site, and no single-point failure of electronic components shall cause mission failure.
+This philosophy is consistent with the emergency-handling requirements of \autoref{sec:user_requirements}: isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures, communication loss shall trigger autonomous return to the launch site, and no single-point failure of electric components shall cause mission failure.
 
 \section{Expected Reliability and Availability}
 \label{sec:reliability_availability}
 
-The most critical electronic components for HUGO's operation were considered. The formula used for estimating the reliability is given by \autoref{eq:reliability} \footnote{\href{https://www.reliabilityengineersacademy.com/articles/fc13d06a-bc39-44bf-9d23-f48d0d413960}{Equipment Reliability Performance Calculation} (accessed on 14.06.2026)}. It follows the exponential distribution since electronic components do not experience traditional wear-out until long after their intended lifespan.
+The most critical electric components for HUGO's operation were considered. The formula used for estimating the reliability is given by \autoref{eq:reliability} \footnote{\href{https://www.reliabilityengineersacademy.com/articles/fc13d06a-bc39-44bf-9d23-f48d0d413960}{Equipment Reliability Performance Calculation} (accessed on 14.06.2026)}. It follows the exponential distribution since electric components do not experience traditional wear-out until long after their intended lifespan.
 \begin{equation}
     R(t) = e^{-\lambda t}
     \label{eq:reliability}
@@ -163,11 +163,11 @@ The exponential model is retained for all components except the battery, where w
     \label{eq:weibull}
 \end{equation}
 
-The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the electronic components are tabulated in \autoref{tab:component_reliability}. The shape and scale parameters, MTBF, and calculated reliability for the battery are presented in \autoref{tab:battery_reliability}.
+The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the electric components are tabulated in \autoref{tab:component_reliability}. The shape and scale parameters, MTBF, and calculated reliability for the battery are presented in \autoref{tab:battery_reliability}.
 
 \begin{table}[H]
 \centering
-\caption{Electronic component reliability}
+\caption{electric component reliability}
 \label{tab:component_reliability}
 \small
 \setlength{\tabcolsep}{3.5pt}
@@ -233,11 +233,11 @@ Battery pack (8s5p)
 
 Given that fatigue was excluded as a critical design consideration in \autoref{sec:material_options}, and that the structural analyses in \autoref{sec:wing_structural_analysis} and \autoref{sec:fuselage_structural_analysis} indicate sufficient strength to withstand the maximum internal stresses, a reliability value of 0.99 was assigned to the wing, fuselage, and landing gear structures.
 
-Bird strike was initially considered as a potential failure mode due to HUGO’s relatively small size. However, FAA data indicate that approximately 70\% of bird strikes occur between 0 and 500 feet above ground level. Over the past 30 years, only 31 strikes involving commercial aircraft have been recorded at altitudes between 20,000 and 32,000 feet \footnote{\href{https://www.faa.gov/airports/airport_safety/wildlife/faq}{Q: At what altitude do most bird strikes occur?} (accessed on 14.06.2026)}. Given HUGO’s small cross-sectional area compared to a commercial airliner and its cruise altitude of FL270, the probability of a bird strike during cruise is several orders of magnitude lower than the electronic component failure rates previously tabulated. Consequently, the primary exposure to bird strike risk occurs during climb and descent through the low-altitude flight regime, which represents only a small portion of the overall mission time.
+Bird strike was initially considered as a potential failure mode due to HUGO’s relatively small size. However, FAA data indicate that approximately 70\% of bird strikes occur between 0 and 500 feet above ground level. Over the past 30 years, only 31 strikes involving commercial aircraft have been recorded at altitudes between 20,000 and 32,000 feet \footnote{\href{https://www.faa.gov/airports/airport_safety/wildlife/faq}{Q: At what altitude do most bird strikes occur?} (accessed on 14.06.2026)}. Given HUGO’s small cross-sectional area compared to a commercial airliner and its cruise altitude of FL270, the probability of a bird strike during cruise is several orders of magnitude lower than the electric component failure rates previously tabulated. Consequently, the primary exposure to bird strike risk occurs during climb and descent through the low-altitude flight regime, which represents only a small portion of the overall mission time.
 
 All components and parts included in the reliability analysis are critical to the operation of HUGO. Consequently, the failure of any single element would result in the overall system being unable to perform its intended function. The system’s overall reliability is therefore modelled as a series system \cite{Mencik2016} and is estimated to be 0.872. This value corresponds to the entire operational lifetime and does not account for any maintenance strategy. Hence, the relatively low reliability is expected. However, this can be substantially improved through the implementation of a tailored maintenance strategy incorporating both preventive and corrective maintenance activities.
 
-To estimate the expected availability, the mean time to repair (MTTR) is required. An MTTR of $1$ hour is assumed for the battery pack, as it is routinely swapped. For the remaining electronic components, the availability calculation accounts for the time required for preparation, fault isolation, disassembly, replacement, and reassembly. Standard times for the removal, replacement, and interchange of fasteners, connectors, and plug-in modules are on the order of minutes \cite{milhdbk472}. Consequently, a conservative MTTR of $2$ hours is assumed to include additional time for detection and diagnostics, with the assumption that on-site spare parts are available.
+To estimate the expected availability, the mean time to repair (MTTR) is required. An MTTR of $1$ hour is assumed for the battery pack, as it is routinely swapped. For the remaining electric components, the availability calculation accounts for the time required for preparation, fault isolation, disassembly, replacement, and reassembly. Standard times for the removal, replacement, and interchange of fasteners, connectors, and plug-in modules are on the order of minutes \cite{milhdbk472}. Consequently, a conservative MTTR of $2$ hours is assumed to include additional time for detection and diagnostics, with the assumption that on-site spare parts are available.
 
 The inherent availability of a component is then calculated by using \autoref{eq:availability}. It excludes the delays due to maintenance, supply chain, etc \cite{milhdbk470a}.
 
@@ -272,7 +272,7 @@ For the battery pack, a preventive time-based maintenance (TBM) is highly suitab
 
 For the structural components, a condition-based maintenance (CBM) is highly appropriate. Visual inspections and non-destructive testing (NDT) are standard practice in airframe maintenance. Although fatigue has been excluded as an immediate critical failure mechanism and a baseline reliability of $0.99$ has been assumed, condition-based maintenance provides an additional safeguard by enabling early detection of unexpected environmental damage or manufacturing defects before catastrophic failure.
 
-For the electronic components, a corrective maintenance (CM) strategy is generally appropriate. These components follow an exponential failure distribution, indicating random failure behaviour without an explicit wear-out phase over the system lifetime of 900 hours. Given the very high calculated mean time between failures (e.g., $1.46 \cdot 10^7$ hours for the SSD), corrective maintenance is justified. However, for safety-critical elements such as the autopilot and servo motors, this approach is acceptable only under the condition that individual component reliabilities over the 900 lifetime remain high ($\approx$ 0.96), and that the MTTR is low ($\approx$ 2 hours), thereby maintaining an overall system availability of approximately $0.997$.
+For the electric components, a corrective maintenance (CM) strategy is generally appropriate. These components follow an exponential failure distribution, indicating random failure behaviour without an explicit wear-out phase over the system lifetime of 900 hours. Given the very high calculated mean time between failures (e.g., $1.46 \cdot 10^7$ hours for the SSD), corrective maintenance is justified. However, for safety-critical elements such as the autopilot and servo motors, this approach is acceptable only under the condition that individual component reliabilities over the 900 lifetime remain high ($\approx$ 0.96), and that the MTTR is low ($\approx$ 2 hours), thereby maintaining an overall system availability of approximately $0.997$.
 
 In addition to the above maintenance strategies, routine servicing of HUGO is carried out before and after each flight. Pre-flight servicing includes mission plan review, configuration verification, ground station setup, system functionality checks, sensor calibration, fuel loading, and battery and power system checks. Post-flight servicing consists of data download, onboard system diagnostics, visual inspection, and refuelling when additional flights are planned. Furthermore, supplementary inspections are required following the installation or replacement of key components such as wings, canards, payloads, sensors, or empennage configurations to ensure continued airworthiness and system integrity.
 
@@ -363,9 +363,9 @@ The RAMS approach ensures that HUGO can perform high-speed research flights whil
 
 At the subsystem level, safety is reinforced through life-limited operation of critical components. The lithium-ion battery pack represents the primary wear-out failure mechanism and is therefore replaced preventively after 1000 charge-discharge cycles, well before the onset of rapid degradation. This strategy effectively removes the dominant age-related failure mode from operation.
 
-Reliability is maintained through a combination of preventive maintenance and condition-based monitoring. Flight-critical electronic systems, including the autopilot, servos, power distribution system (PDS), and solid-state drive (SSD), exhibit predominantly random failure behaviour and are supported by comprehensive pre-flight and post-flight diagnostics. Airframe reliability is preserved through regular visual inspections and non-destructive testing, ensuring structural integrity throughout the aircraft's service life.
+Reliability is maintained through a combination of preventive maintenance and condition-based monitoring. Flight-critical electric systems, including the autopilot, servos, power distribution system (PDS), and solid-state drive (SSD), exhibit predominantly random failure behaviour and are supported by comprehensive pre-flight and post-flight diagnostics. Airframe reliability is preserved through regular visual inspections and non-destructive testing, ensuring structural integrity throughout the aircraft's service life.
 
-Availability is maximised through rapid fault recovery and modular maintenance practices. Although the unmaintained system reliability decreases to approximately 0.872 over its operational lifetime, high inherent availability is maintained by limiting corrective maintenance actions to a mean time to repair (MTTR) of two hours or less for electronic subsystems. This minimises downtime and sustains operational readiness.
+Availability is maximised through rapid fault recovery and modular maintenance practices. Although the unmaintained system reliability decreases to approximately 0.872 over its operational lifetime, high inherent availability is maintained by limiting corrective maintenance actions to a mean time to repair (MTTR) of two hours or less for electric subsystems. This minimises downtime and sustains operational readiness.
 
 Operational resilience is further enhanced through a five-aircraft fleet architecture. A planned maintenance allowance of 50 working days per aircraft per year accommodates inspections, payload reconfiguration, and preventive maintenance while ensuring mission continuity through fleet-level redundancy. Together, these measures provide a robust balance of safety, reliability, availability, and maintainability throughout the operational life of the system.
 

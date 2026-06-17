@@ -1,7 +1,7 @@
 \chapter{Requirements Specification}
 \label{ch:requirements}
 
-\todo[inline]{merge chapter with project planning and preparation.}
+The engineering design of HUGO has to be constrained by verifiable technical requirements to ensure that the final product is operational and fulfils all of its intended functions. In this chapter, the project objectives identified throughout the design process are revisited, and the process behind developing system and subsystem requirements is outlined. A description of the final project objectives is provided in \autoref{sec:project_objectives}, followed by the identification of critical system functions in \autoref{sec:identification_system_functions}. The findings from both sections are subsequently translated into a list of user, system, and subsystem requirements in \autoref{sec:user_requirements}.
 
 
 
@@ -62,12 +62,16 @@ The compliance objectives ensure adherence to regulations.
 \end{enumerate}
 
 
+\section{Identification of System Functions}
+\label{sec:identification_system_functions}
+An understanding of the system's functions was obtained by constructing a Functional Flow Diagram (see: \autoref{sec:diagram}), from which the Functional Breakdown Structure was derived (see: \autoref{sec:diagram}). The intended performance of the final product was described in three levels, ensuring that all critical functions are identified and can later be turned into requirements.
+
+Together with the general project guidelines \cite{Castro2026}, the identified functions were additionally used as a foundation for a more detailed task distribution definition developed by the Project Management (PM) department, described in more detail in \autoref{sec:pm_task_distribution}.
 
 
-
-\section{Requirements Definition}
+\section{Requirement Definition}
 \label{sec:user_requirements}
-As described by the project objectives, HUGO's mission is to serve as a flying lab for university researchers for whom testing with own full-sized aircraft or wind tunnels is unfeasible, as well as companies seeking to test their aerospace products. Therefore, a set of top-level requirements was defined by the Delft University of Technology (TUD) staff as part of general project guidelines \cite{Castro2026}. Additionally, external experts from the Netherlands Aerospace Centre (NLR) were consulted to establish a cumulative list of user requirements, which can be seen in \autoref{tab:user_requirements}. This list will be revisited in \autoref{sec:compliance_matrix_feasibility_analysis} and assessed using a compliance matrix to ensure that HUGO can fulfil all of its intended purposes.
+As described by the project objectives, HUGO's mission is to serve as a flying lab for university researchers for whom testing with their own full-sized aircraft or wind tunnels is unfeasible, as well as companies seeking to test their aerospace products. Therefore, a set of top-level requirements was defined by the Delft University of Technology (TUD) staff as part of general project guidelines \cite{Castro2026}. Additionally, external experts from the Netherlands Aerospace Centre (NLR) were consulted to establish a cumulative list of user requirements, which can be seen in \autoref{tab:user_requirements}. This list will be revisited in \autoref{sec:compliance_matrix_feasibility_analysis} and assessed using a compliance matrix to ensure that HUGO can fulfil all of its intended purposes.
 
 
 
@@ -103,7 +107,7 @@ HUG-NLR-06 & The UAV shall be reconfigurable in a short time frame, as to allow 
 
 \end{longtable}
 
-The user requirements provide a sense of the aircraft's intended operation and the user's expectations regarding its final performance and design. As such, they cannot always be validated to ensure that the system can perform its functions successfully, i. e. they are not VALID (Verifiable, Achievable, Logical, Integral, Definite). For this reason, system requirements are defined to describe the product's performance in a way that can be validated. From those, subsystem requirements are derived to define the specific performance on a subsystem level. Comprehensive lists of system and subsystem requirements are showcased in \autoref{tab:system_requirements} and \autoref{tab:subsystem_requirements}, respectively.
+The user requirements provide a sense of the aircraft's intended operation and the user's expectations regarding its final performance and design. As such, they cannot always be validated to ensure that the system can perform its functions successfully, i. e., they are not VALID (Verifiable, Achievable, Logical, Integral, Definite). For this reason, the FFD and WBS were consulted to define the system requirements, which describe the product's performance in a way that can be validated. From those, subsystem requirements are derived to define the specific performance on a subsystem level. Comprehensive lists of system and subsystem requirements are showcased in \autoref{tab:system_requirements} and \autoref{tab:subsystem_requirements}, respectively.
 
 \begin{longtable}{|c|p{13.5cm}|}
 \caption{HUGO's system requirements}
@@ -131,32 +135,33 @@ HUG-GEN-01 & The aircraft shall have a maximum take-off mass less than 50 kg.\\\
 HUG-GEN-02 & The end user shall be able to install the wing compliant with the Planform Envelope. \\\hline
 HUG-GEN-03 & The end user shall be able to install at least 5 kg of payload on the provided aircraft, in addition to the wing planform itself. \\\hline
 HUG-GEN-04 & The aircraft shall be able to execute the flight profile without any customer-specific payload. \\\hline
-HUG-GEN-05 & The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \footref{url:baseline_report} %\footref{foot:midterm}%\footnote{\label{rep:midterm_rep}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)}.
+HUG-GEN-05 & The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \footref{foot:baseline} %\footref{foot:midterm}%\footnote{\label{rep:midterm_rep}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)}.
 \\\hline
-HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van \footnote{\href{https://bedrijfswagens.renault.nl/master-bedrijfswagen/master.html?bodyTypeCode=PT1261_gesloten_bestel&CAMPAIGN=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&ORIGIN=paid_search&utm_source=google&utm_source_platform=SA360&utm_medium=cpc&utm_campaign=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&utm_id=23043794109&gclsrc=aw.ds&gad_source=1&gad_campaignid=23043828444&gbraid=0AAAAAC0pnE4OIhTuGrHobEVsuI4Ct-vkz&gclid=CjwKCAjwuanRBhBSEiwAY5y6V0Nv8q7vbgl489RraAw-uvJhci8UrWxul1qhh9Pk0YAceLV7-VfgihoC6zMQAvD_BwE}{Renault Master} (accessed on 11.06.2026)}. \\\hline HUG-GEN-07 & The aircraft shall not be louder than 88 dB(A) during any point of operation. \\\hline
+HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van \footnote{\href{https://bedrijfswagens.renault.nl/master-bedrijfswagen/master.html?bodyTypeCode=PT1261_gesloten_bestel&CAMPAIGN=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&ORIGIN=paid_search&utm_source=google&utm_source_platform=SA360&utm_medium=cpc&utm_campaign=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&utm_id=23043794109&gclsrc=aw.ds&gad_source=1&gad_campaignid=23043828444&gbraid=0AAAAAC0pnE4OIhTuGrHobEVsuI4Ct-vkz&gclid=CjwKCAjwuanRBhBSEiwAY5y6V0Nv8q7vbgl489RraAw-uvJhci8UrWxul1qhh9Pk0YAceLV7-VfgihoC6zMQAvD_BwE}{Renault Master} (accessed on 11.06.2026)}. \\\hline HUG-GEN-07 & The aircraft shall not be louder than 90 dB(A) during any point of operation. \\\hline
 \multicolumn{2}{|c|}{\textbf{Manufacturing, Assembly, and Integration}}\\\hline
 HUG-MAN-01 & The manufacturing cost of a single aircraft with the Standard Wing Planform shall be less than 45000€. \\\hline
 HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufacturable using only Technology Readiness Level 10 \footnote{\href{https://en.wikipedia.org/wiki/Technology_readiness_level}{Technology readiness level} (accessed on 11.06.2026)} manufacturing techniques. \\\hline
 HUG-MAN-03 & Every subsystem inside the aircraft wing and fuselage shall have the possibility of access, allowing for subsystem inspection. \\\hline
-HUG-MAN-04 & Every component of primary structure wing and fuselage shall have the possibility of access, allowing for component inspection. \\\hline
+HUG-MAN-04 & Every component of the primary structure of the wing and fuselage shall have the possibility of access, allowing for component inspection. \\\hline
 
 
 \multicolumn{2}{|c|}{\textbf{Stability}} \\\hline
 HUG-STB-01 & The CG excursion of the aircraft shall allow for both statically and dynamically stable, unstable and neutrally stable flight conditions. \\\hline
-HUG-STB-02 & A CG excursion of TBD \% MAC shall be achievable in flight. \\\hline
+% HUG-STB-02 & A CG excursion of TBD \% MAC shall be achievable in flight. \\\hline
 
 
 \multicolumn{2}{|c|}{\textbf{Controllability}} \\\hline
-HUG-CTL-01 & The aircraft shall have autonomous stabilisation systems capable of stabilizing the aircraft within the TBD range of CG locations. \\\hline
+%HUG-CTL-01 & The aircraft shall have autonomous stabilisation systems capable of stabilising the aircraft within the $±0.5\%$ range of CG locations. \\\hline
 HUG-CTL-02 & The aircraft shall be able to perform turns, climb and descent autonomously. \\\hline
 HUG-CTL-03 & The aircraft shall be controllable remotely up to the distance from the ground station as specified by HUG-COM-002. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Mission Profile}} \\\hline
 HUG-MIP-01 & The aircraft shall have a nominal mission endurance of 30 minutes, for a cruise altitude of FL270 and the cruise speed of Mach 0.4 outside of its 5 minutes experiment segment. \\\hline
-HUG-MIP-02 & The aircraft shall be capable of sustaining Mach 0.75 at an altitude of FL270 for the 5 minutes experiment segment during its nominal mission, at TBD fuel fraction for any planform inside the High-speed Envelope. \\\hline
-HUG-MIP-03 & The aircraft shall perform take-off and landing maneouvres at Den Helder airport (DHR/EHKD) unless redirected to other airports by De Kooy ATC \footref{rep:midterm_rep}. \\\hline
+HUG-MIP-02 & The aircraft shall be capable of sustaining Mach 0.75 at an altitude of FL270 for the 5 minutes experiment segment during its nominal mission, at 50\% fuel fraction for any planform inside the High-speed Envelope. \\\hline
+HUG-MIP-03 & The aircraft shall perform take-off and landing maneouvres at Den Helder airport (DHR/EHKD) unless redirected to other airports by De Kooy ATC \footref{foot:midterm}. \\\hline
 HUG-MIP-03 & The aircraft shall be capable of performing four landing attempts at Den Helder airport, with a go-around altitude of 1500 ft, not counted in its nominal endurance of 30 minutes. \\\hline
 HUG-MIP-04 & The aircraft shall perform all maneouvres with performance compliant with SC Light-UAS 01. \cite{easa_light_uas_crd_is3} \\\hline
+HUG-MIP-05 & The aircraft shall have enough fuel to sustain the nominal flight and 4 go-arounds.\\ \hline
 
 \multicolumn{2}{|c|}{\textbf{Emergency Handling}} \\\hline
 HUG-EME-01 & Isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures (failure conditions that are expected to result in one or more fatalities). \cite{easa_light_uas_crd_is3}\\\hline
@@ -194,9 +199,9 @@ HUG-EME-07 & No single-point failure of electronic components shall cause missio
 \multicolumn{2}{|c|}{\textbf{Electronics}} \\\hline
 HUG-ELE-01 & The electronic subsystem shall allow for continuous contact with the ground station for a distance of no less than 165 km, up to ISA FL270 atmospheric conditions. \\\hline
 HUG-ELE-02 & The electronic subsystem shall fit inside the fuselage. \\\hline
-HUG-ELE-03 & The electronic subsystem shall provide no less than TBD of storage for measurements taken throughout the test segment of the mission. \\\hline 
-HUG-ELE-04 & The electronic subsystem shall provide no less than 60 W of power after losses reserved for the payload at nominal mission conditions. \\\hline
-HUG-ELE-05 & The electronic subsystem shall provide power even in peak conditions to HUGO for the entire flight duration. \\ \hline
+HUG-ELE-03 & The electronic subsystem shall provide storage for all measurements taken during the entire flight, up to the total data rate of 388 Mbit/s.\\\hline%provide no less than 0.8 TB of storage for measurements taken throughout the test segment of the mission. \\\hline 
+HUG-ELE-04 & The electronic subsystem shall provide no less than 60 W of power after losses reserved for the sensor payload at nominal mission conditions. \\\hline
+HUG-ELE-05 & The electronic subsystem shall provide the power required to HUGO for the entire flight duration. \\ \hline
 
 
 
@@ -206,45 +211,47 @@ HUG-LGR-02 & The turn over angle of the aircraft shall not exceed 55 degrees. \\
 HUG-LGR-03 & The scrape angle of the aircraft tail shall be greater than 15 degrees. \\\hline
 HUG-LGR-04 & The tip over angle of the aircraft shall be greater than the scrape angle. \\\hline
 HUG-LGR-05 & The nose landing gear shall retract rearwards. \\\hline
-HUG-LGR-06 & Each component of the aft landing gear must withstand landing with downwards velocity of $2m/s$ multiplied by a safety factor of 1.5. \\\hline
+HUG-LGR-06 & Each component of the aft landing gear shall withstand landing loads with downwards velocity of $2m/s$ multiplied by a safety factor of 1.5. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Propulsion}} \\\hline
 HUG-PRP-01 & The aircraft shall include fuel tanks for housing the fuel volume required for the entire mission, incl. missed approach and loiter time. \\\hline
 HUG-PRP-02 & Moving fuel between the fuel tanks of the aircraft shall be possible both on the ground and in flight. \\\hline
 HUG-PRP-03 & The engines shall be mounted to the fuselage, behind the main wing. \\\hline
-HUG-PRP-04 & The engines shall be attached to the fuselage via bolted joints. \\\hline
+% HUG-PRP-04 & The engines shall be attached to the fuselage via bolted joints. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Structures}} \\\hline
-HUG-STR-01 & The structure shall support limit loads without interference with the safe operation and without detrimental permanent deformation. \cite{\cite{easa_light_uas_crd_is3}} \\\hline
+HUG-STR-01 & The structure shall support limit loads without interference with the safe operation and without detrimental permanent deformation. \cite{easa_light_uas_crd_is3} \\\hline
 HUG-STR-02 & The structure shall support ultimate loads, which are equal to the limit loads multiplied by safety factor of 1.5 (unless otherwise provided), without failures.  \cite{easa_light_uas_crd_is3} \\\hline
 %HUG-STR-03 & The aircraft structure shall not buckle under loads lower than the ultimate loads. \\\hline
-HUG-STR-04 & The natural frequencies of the structure shall remain outside the range of 0.8 to 1.4 of the blade-pass frequency of the engine  \cite{Prakash2016DynamicFoundation, Alhazmi2025CoolingFanVibration}. \\\hline
+% HUG-STR-04 & The natural frequencies of the structure shall remain outside the range of 0.8 to 1.4 of the blade-pass frequency of the engine  \cite{Prakash2016DynamicFoundation, Alhazmi2025CoolingFanVibration}. \\\hline
 HUG-STR-05 & The structure shall provide space and mounting points for auxiliary systems. \\\hline
 HUG-STR-06 & The aircraft shall house a payload bay of at least 5 L internal volume. \\\hline
 HUG-STR-07 & The wing shall not twist more than $10 \deg$ at the wingtip at a load factor of 6.\cite{easa_light_uas_crd_is3}\\\hline
-HUF-STR-08 & The wingtip shall not deflect more than 15 \% of the total span at a load factor of 6.\cite{easa_light_uas_crd_is3} \\\hline
-HUF-STR-09 & The wings shall not buckle at loads up to a factor of 6.\cite{easa_light_uas_crd_is3}\\\hline
+HUF-STR-08 & The wingtip shall not deflect more than 15 \% of the total span at a load factor of 6. \cite{easa_light_uas_crd_is3} \\\hline
+HUF-STR-09 & The wings shall not buckle at loads up to a factor of 6. \cite{easa_light_uas_crd_is3}\\\hline
 HUF-STR-010 & The structure shall sustain ultimate loads up to a load factor of 9. \cite{easa_light_uas_crd_is3}\\\hline
 
 
-
-
 \multicolumn{2}{|c|}{\textbf{Test Planform}}\\\hline
-HUG-TPL-01 & No part of the aircraft equipped with a wing planform from the Planform Envelope shall experience transonic shocks. \\\hline
+%HUG-TPL-01 &For all sets of planforms in the planform envelope, given the critical Mach number is larger than 0.75, it shall be possible to fulfil the nominal mission profile. %No part of the aircraft equipped with a wing planform from the Planform Envelope shall experience transonic shocks. 
+\\\hline
 HUG-TPL-02 & The test planform shall have an effective aspect ratio between 5 and 27. \\\hline
 %HUG-TPL-03 & The aircraft shall house and operate with test planforms with  non-increasing chord function. \\\hline
-HUG-TPL-03 & The test planform shall feature a dihedral function bound between 0 and 20 degrees.\\\hline
+HUG-TPL-03 & The test planform shall feature a dihedral function bound between 0 and 8 degrees.\\\hline
 HUG-TPL-04 & The test planform shall feature a thickness to chord function bound between 0.08 and 0.18. \\\hline
 HUG-TPL-05 & The test planform shall feature a taper ratio function bound between 0.1 and 1. \\\hline
 %HUG-TPL-05 & The test planform shall have a total mass of no more than 7.8 kg. \\\hline
 HUG-TPL-06 & The required horizontal stabiliser area shall be less than 0.4 of the main wing area for all planforms in the Planform Envelope. \\\hline
 
-
+\multicolumn{2}{|c|}{\textbf{Standard Planform}}\\\hline
+HUG-SPL-01 &The standard planform shall not develop transonic shocks before Mach 0.75. %No part of the aircraft equipped with a wing planform from the Planform Envelope shall experience transonic shocks. 
+\\\hline
+HUG-SPL-02 & The standard planform shall not exhibit flutter or divergence up to Mach 0.75 at an altitude of FL270. \\\hline
 
 \end{longtable}
 
-
-
+Once the requirements have been formulated, before beginning the development process of HUGO, it is necessary to investigate the market and the costs associated with the programme.
+%\todo[inline]{Conclusion pending, connect it to the next chapter}
 
 
 

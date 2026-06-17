@@ -1,15 +1,15 @@
 \chapter{Configuration Layout \& System Characteristics}
 \label{ch:configuration_layout}
 
-\todo[inline]{From the \textit{Project Guide}:\\
-The configuration / layout shows the physical appearance of the product or system. It is mainly a set of sketches and drawings illustrating the internal and external layout with a short textual
-explanation. The layout contains also a block diagram identifying the electronic units carried on-board.\\
-A first version is presented in the Mid Term Report, generally for all design options involved in the concept selection, concentrating on those aspects that are essential to provide the trade-off.\\
-The final, more detailed, version of the final design is included in the Final Report.}
+%\todo[inline]{From the \textit{Project Guide}:\\
+%The configuration / layout shows the physical appearance of the product or system. It is mainly a set of sketches and drawings illustrating the internal and external layout with a short textual
+%explanation. The layout contains also a block diagram identifying the electronic units carried on-board.\\
+%A first version is presented in the Mid Term Report, generally for all design options involved in the concept selection, concentrating on those aspects that are essential to provide the trade-off.\\
+%The final, more detailed, version of the final design is included in the Final Report.}
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
+%\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters.}
 
-This chapter outlines the structure of the external and internal layout of HUGO, emphasising the components needed to achieve research missions and their location within the airframe. \autoref{sec:resource_allocation_budgets} presents the resource allocation and budget breakdown, identifying the key budgets that constrain the dimensional requirements of the fuselage and wings and describing the methodology used for their definition and allocation.
+This chapter outlines the structure of the external and internal layout of HUGO, emphasising the components needed to achieve research missions and their location within the airframe. In \autoref{sec:resource_allocation_budgets}, the resource allocation and budget breakdown are presented, identifying the key budgets that constrain the dimensional requirements of the fuselage and wings and describing the methodology used for their definition and allocation.
 Once the available resources are identified and quantified, \autoref{sec:external_configuration} goes into more detail regarding the outside characteristics of the frame, including the placement of the landing gear, outside sensors, instruments and landing gear. Moving towards the internal components, \autoref{sec:internal_configuration} outlines the systems that keep HUGO alive and functioning, such as the electronics, power system and sensors. Once all the details that give life to HUGO have been identified, the design team can move further towards analysing the performance of the flights.
 
 \section{Resource Allocation \& Budgets}
@@ -24,19 +24,16 @@ During the initial design phase \footref{foot:baseline}, the following set of te
 %     *we aim at testing via movement of the fuel from the bladders by the use of a reversable pump that is connected between the 2 bladders
 %     *here we can explain that the test will be further explained in the section with the tests and so on so we dont go to much in detail 
 %     *we mention that the cg can be varied with the aid of the fuel tanks, wings and tail
-The centre of gravity margin must be taken into account to meet the stability performance requirements. Specific location of the CG is driven by HUGO's external configuration, as well as the internal layout (i. e. electronics, propulsion system, payload). HUGO is expected to accommodate a wide variety of wing planforms, tail cones, and payload configurations, as well as operate in both stable and unstable regimes. As such, no dedicated CG range budget is defined. Rather, a CG analysis shall be performed for each configuration case to ensure that desired stability characteristics are achieved.
+The centre of gravity margin must be taken into account to meet the stability performance requirements. Specific location of the CG is driven by HUGO's external configuration, as well as the internal layout (i.e. electronics, propulsion system, payload). HUGO is expected to accommodate a wide variety of wing planforms, tail cones, and payload configurations, as well as operate in both stable and unstable regimes. As such, no dedicated CG range budget is defined. Rather, a CG analysis shall be performed for each configuration case to ensure that desired stability characteristics are achieved.
 
-The determination of the CG for a given configuration is done by means of segmentation. In this approach, the CG of the fuselage is isolated from the rest of the components, and can be used as a first estimate for wing sizing. The final position of the CG can be adjusted during design iterations by distributing the electronics and propulsion system components inside the aircraft. For test cases focused on stability and requiring an in-flight shift in CG (such as TBD TBD \autoref{}), its position can be adjusted by varying the fuel distribution between two bladders. The details of the propulsion system design will be further discussed in \autoref{}.
-
-\todo[inline]{add the citation once the section for experiments is written}
-\todo[inline]{It's possible that ops \& logistics will come before this chapter}
+The determination of the CG for a given configuration is done by means of segmentation. In this approach, the CG of the fuselage is isolated from the rest of the components, and can be used as a first estimate for wing sizing. The final position of the CG can be adjusted during design iterations by distributing the electronics and propulsion system components inside the aircraft. For test cases focused on stability and requiring an in-flight shift in CG, its position can be adjusted by varying the fuel distribution between two bladders. The details of the propulsion system design will be further discussed in \autoref{sec:internal_configuration}.
 
 
 %Aiming at having a client base that brings its own wings to the test site and can configure HUGO to meet their internal arrangements, which means the CG range has a large variation. The tests include experiments where the plane has to perform in unstable variations. As a result, we will not allocate a budget to the CG of the plane, but we will perform a CG analysis and simulation for each HUGO configuration.
 
 \subsection{Communication Link Budget}
 \label{sub:communication_link_budget}
-Based on HUGO's mission profile, specifically the maximum flight speed and maximum distance from the aerodrome, a C2 communication link must be specified as part of the Type Design \cite{SC Light-UAS}. This custom protocol is required along with an efficient transmitter/receiver combination due to the Doppler shift, which becomes significant at the airspeed of 0.75 Mach. the radio waves will experience the Doppler effect. Using the Giancoli's formula for the Doppler shift \cite[p.477]{giancoli2020physics}, is can be estimated that the shifted frequency may attain values as high as four times its initial transmission counterpart (if HUGO performs the high-speed test flight in the direction of the observer), or as low as 57\% (if flying away from the observer).
+Based on HUGO's mission profile, specifically the maximum flight speed and maximum distance from the aerodrome, a C2 communication link must be specified as part of the Type Design \cite{easa_light_uas_crd_is3}. This custom protocol is required along with an efficient transmitter/receiver combination due to the Doppler shift, which becomes significant at the airspeed of 0.75 Mach. the radio waves will experience the Doppler effect. Using the Giancoli's formula for the Doppler shift \cite[p.477]{giancoli2020physics}, is can be estimated that the shifted frequency may attain values as high as four times its initial transmission counterpart (if HUGO performs the high-speed test flight in the direction of the observer), or as low as 57\% (if flying away from the observer).
 
 C2 is a custom-made protocol that allows for bidirectional communication at such speeds and for a smooth video and radio transmission \footnote{\href{https://eudroneport.com/blog/c2-links/}{C2 Communication Link} (accessed on 03.06.2026)}. It shall be designed to fit the considered test cases. For HUGO, the C2 is paired with the electronic system, the design of which will be discussed in \autoref{sec:internal_configuration}. Appropriate radionavigation and landing equipment for the receiving end of C2 communication is available at Den Helder aerodrome \footnote{\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2005-2026_2026_05_14/eAIP/EH-AD\%202\%20EHKD\%201-en-GB.html}{EHKD AD 2.19 Radio navigation and landing aids} (accessed 03.06.2026)}. The specific communication link budget is defined by the electronics system design and will be discussed later.
 \begin{comment}
@@ -152,15 +149,15 @@ This section provides a comprehensive overview of the internal configuration of 
 % 6. Do not forget about the fucking power unit that needs power as well
 % OK?OK?OK?That is all? good now lets get to fucking writing
 
-The electrical system of HUGO is designed to provide continuous power to the sensors, actuators, and propulsion system throughout the mission. It must support a range of testing configurations, enabling different experimental setups to be evaluated during flight. As a central element of the aircraft architecture, the system must be reliable, efficiently packaged, and dimensioned to fit within the available internal volume while minimising interference with the onboard test setup.An initial configuration of the electrical system was configured in the previous design stage\footref{ft:midterm_rep} that was used as a starting point. 
+The electrical system of HUGO is designed to provide continuous power to the sensors, actuators, and propulsion system throughout the mission. It must support a range of testing configurations, enabling different experimental setups to be evaluated during flight. As a central element of the aircraft architecture, the system must be reliable, efficiently packaged, and dimensioned to fit within the available internal volume while minimising interference with the onboard test setup. An initial configuration of the electrical system was configured in the previous design stage \footref{foot:midterm} that was used as a starting point. 
 
-From \autoref{tab:electric_comp} it can be seen that there are a lot of electric components that are mission-critical. For the purpose of this application, autopilot VECTOR-600 was chosen as the subsystem control unit, incorporating many of the basic air sensors needed to conduct the flight. Working along a flight companion(FC), that processes all the information from the sensors as well as from the autopilot, storing the data in a memory unit use it for flight calculations and ultimately transmits it back to the base of operations. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual Inertial Measurement Unit (IMU), redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, Global Navigation Satellite System (GNSS) receiver for gps signal. Storage of the flight data is provided by a 1 TB storage device system that is removable. The signal and power distribution of the electric system is evident in \autoref{fig:electronics_mapping}. 
+From \autoref{tab:electric_comp} it can be seen that there are a lot of electric components that are mission-critical. For the purpose of this application, autopilot VECTOR-600 was chosen as the subsystem control unit, incorporating many of the basic air sensors needed to conduct the flight. Working along a flight companion (FC), that processes all the information from the sensors as well as from the autopilot, storing the data in a memory unit use it for flight calculations and ultimately transmits it back to the base of operations. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual Inertial Measurement Unit (IMU), redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, Global Navigation Satellite System (GNSS) receiver for gps signal. Storage of the flight data is provided by a 1 TB storage device system that is removable. The signal and power distribution of the electric system is evident in \autoref{fig:electronics_mapping}. 
 
 The autopilot communicates directly with the electronic control unit (ECU) of the engine system, providing the required speed commands and operating modes. The ECU also communicates with the companion computer, allowing engine-condition data to be stored for later processing by the experimental team. In this architecture, the flight controller coordinates the onboard communication flow and ensures that control and monitoring signals remain available during the high-speed testing phase.
 
 For the external communication link, the RM 3000 Series communication unit was selected as a suitable component for HUGO, as it can operate in either the very high frequency (VHF) or ultra-high frequency (UHF) bands. VHF and UHF are considered because they are standard frequency ranges for aviation communication systems \footnote{\href{https://www.icao.int/sites/default/files/FSMP/Doc.9718-Vol-I-AdvanceUneditedVersion-2021.pdf}{ICAO Doc 9718: Handbook on Radio Frequency Spectrum Requirements for Civil Aviation} (accessed on 15.06.2026)}. Since HUGO has a maximum operating range of 300 km, VHF operation is preferred because it offers better range performance for a given transmit power and is widely used for aviation communication. Den Helder Airport is rated for commercial aviation operations and is therefore expected to have the infrastructure required for communication in aviation VHF bands.
 
-In \autoref{fig:electronics_mapping} it can be seen that the battery does not directly supply the components, but a power distribution unit (PDU) is responsible for power allocation. For HUGO, the chosen unit operates at minimum 24 V\footnote{\href{https://www.brancaro.com/product/power-distribution-unit/}{Power Distribution Unit} (accessed 02.06.2026)} input, and has multiple ports to supply power at different voltages.
+In \autoref{fig:electronics_mapping} it can be seen that the battery does not directly supply the components, but a power distribution unit (PDU) is responsible for power allocation. For HUGO, the chosen unit operates at minimum 24 V \footnote{\href{https://www.brancaro.com/product/power-distribution-unit/}{Power Distribution Unit} (accessed 02.06.2026)} input, and has multiple ports to supply power at different voltages.
 
 % \autoref{fig:electronics_mapping} shows the interactions between electronics system components in terms of power, signal, and fuel flow.
 
@@ -171,13 +168,13 @@ In \autoref{fig:electronics_mapping} it can be seen that the battery does not di
     \label{fig:electronics_mapping}
 \end{figure}
 
-Once all the components of the electronic system essential for flying and testing have been brought together, their individual power consumption and weight are computed \autoref{tab:electric_comp}. The total power consumed by all the electronic components, including the sensor payload represent the power budget that is used to size the battery. HUGO will only operate for a maximum of 45 minutes in the most extreme scenario, utilising a 846.06 W \autoref{tab:electronic_system} of power. This is a power requirement, and it represents the base value and an additional $10\%$ power increase to account for any error margins or extra usage from the components. After an analysis of possible sensor platforms, it was determined that the power consumed by the payload is estimated at 50 W.
+Once all the components of the electronic system essential for flying and testing have been brought together, their individual power consumption and weight are computed \autoref{tab:electric_comp}. The total power consumed by all the electronic components, including the sensor payload represent the power budget that is used to size the battery. HUGO will only operate for a maximum of 45 minutes in the most extreme scenario, utilising 846.06 W of power (\autoref{tab:electric_comp}). This is a power requirement, and it represents the base value and an additional $10\%$ power increase to account for any error margins or extra usage from the components. After an analysis of possible sensor platforms, it was determined that the power consumed by the payload is estimated at 50 W.
 
 With the total required power estimated at approximately 900 W and a minimum bus voltage of 24 V, the battery pack can be sized. To reduce packaging volume and allow the pack geometry to be adapted to HUGO, a custom battery pack is selected using Molicel INR21700 cells\footnote{\href{https://www.nkon.nl/en/molicel-inr21700-m65a-6500mah-26a.html}{Molicel INR21700} (accessed on 02.06.2026)}.
 
 An 8-cell series configuration provides a nominal voltage of 28.8 V. To meet the required current demand, five cells are placed in parallel, resulting in an 8S5P configuration. At the nominal voltage, the required current for a 900 W load is approximately 31.3 A. This corresponds to about 6.3 A per cell, which is within the operating capability of the selected cells, at 6.5 A. The resulting pack can therefore supply approximately 936 W at nominal voltage, leaving a small power margin of 36W above the estimated requirement, which can be utilised by additional systems brought by customers.
 
-At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power consumptions are provided in \autoref{tab:electric_comp}, and the file that was used to converge all the values is in at\footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/excel-files/Electronic\%20Components\%20\%26\%20Reliability\%20Study.xlsx}{Electronic Components \& Reliability Study} (15.06.2026)}.
+At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power consumptions are provided in \autoref{tab:electric_comp}, and the file that was used to converge all the values is in \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/excel-files/Electronic\%20Components\%20\%26\%20Reliability\%20Study.xlsx}{Electronic Components \& Reliability Study} (15.06.2026)}.
 
 \begin{table}[H]
 \centering
@@ -268,7 +265,7 @@ In the previous design process \footref{foot:midterm}, it was identified that th
 
 
 The turbojet engine needs additional components to become operational. An Engine Control Unit (ECU) is necessary to control combustion. The fuel system consists of the fuel pump, 2 fuel tanks, fuel filter, shut-off valve and fuel distribution hoses \footnote {\href{https://www.jetcat.de/en/products/produkte/jetcat/kategorien/Zubehoer}{JetCat fuel system accessories} (accessed on 18.5.2026)}. An overview of the propulsion system components is presented in \autoref{tab:prop_system} and a simple diagram of the subsystem is shown in \autoref{fig:fuel_system_mapping}. The weight and dimensions of the power distribution system were estimated based on a universal Battery Management System (BMS) \footnote{\href{https://www.orionbms.com/downloads/documents/orionjr2_specifications.pdf}{Lithium Ion Battery Management
-System} (accessed on 18.5.2026)}. Furthermore, 3m of Polytetrafluoroethylene (PTFE) tube for fuel distribution is added and two, fuel bags will be used for fuel storage. The fuel requirement is estimated to be at least 7.03 kg. This value was obtained by computing fuel fractions and creating a model that calculated the flight regimes and the fuel required at each step \autoref{sec:flight_envelope}. At a density of 0.8 kg/L \footnote{\href{https://aviationbenefits.org/media/167233/fact-sheet_13_saf-metrics-and-conversions_4.pdf}{SUSTAINABLE AVIATION FUEL METRICS} (accessed on 15.06.2026)}, the volume required for sustaining HUGO for a mission is 8.75 L. For the purpose of performing CG translation experiments, HUGO will be fitted with two 5L fuel bags that can be moved inside the fuselage to allow for CG shifts depending on the planforms provided by clients.
+System} (accessed on 18.5.2026)}. Furthermore, 3m of Polytetrafluoroethylene (PTFE) tube for fuel distribution is added and two, fuel bags will be used for fuel storage. The fuel requirement is estimated to be at least 6.884 kg. This value was obtained by computing fuel fractions and creating a model that calculated the flight regimes and the fuel required at each step (\autoref{sec:payload-range_diagram}). At a density of 0.8 kg/L \footnote{\href{https://aviationbenefits.org/media/167233/fact-sheet_13_saf-metrics-and-conversions_4.pdf}{SUSTAINABLE AVIATION FUEL METRICS} (accessed on 15.06.2026)}, the volume required for sustaining HUGO for a mission is 8.605 L. For the purpose of performing CG translation experiments, HUGO will be fitted with two 5L fuel bags that can be moved inside the fuselage to allow for CG shifts depending on the planforms provided by clients.
 
 % \begin{figure}[H]
 %     \centering
@@ -287,13 +284,13 @@ System} (accessed on 18.5.2026)}. Furthermore, 3m of Polytetrafluoroethylene (PT
     \label{fig:fuel_system_mapping}
 \end{figure}
 
-While exploring options for different experiments for HUGO, a stability test was proposed, where HUGO would be required to change in flight its CG, essentially shifting in an unstable configuration. To tackle this problem of redistributing weight during flight, it was proposed to design a fuel system that would move fuel from one tank to another during flight for the purpose of experimentation. For this reason, HUGO has 2 fuel removable fuel bladders and 3 fuel pumps, and the entire fuel subsystem is strongly connected to both the propulsion and electronic systems, as observed in \autoref{fig:fuel_system_mapping}. The experiment is described in more detail in \autoref{sub:Changeofthecentreofgravity}.
+While exploring options for different experiments for HUGO, a stability test was proposed, where HUGO would be required to change in flight its CG, essentially shifting in an unstable configuration. To tackle this problem of redistributing weight during flight, it was proposed to design a fuel system that would move fuel from one tank to another during flight for the purpose of experimentation. For this reason, HUGO has 2 removable fuel bladders and 3 fuel pumps, and the entire fuel subsystem is strongly connected to both the propulsion and electronic systems, as observed in \autoref{fig:fuel_system_mapping}. The experiment is described in more detail in \autoref{sub:Changeofthecentreofgravity}.
 
 
 \subsection{Sensor Interaction}
 \label{sub:sensor_interaction}
 To be able to measure and record the results from the experiments, it is necessary to use sensors. Since an aspect of HUGO is the possibility of customisations for a specific customer's needs, the electrical system was designed with a margin to make it possible to bring additional sensors.       
-Using the mission envelope  (\autoref{ch:operations_logistics}), it is possible to identify the following phenomenon, which needs to be measured: 
+Using the mission envelope  (\autoref{sec:mission_envelope}), it is possible to identify the following phenomenon, which needs to be measured: 
 \begin{itemize}
     \item Deflection and twist: This is how much the wing is moved and rotated relative to the original axis. There are several approaches for the measurement of wing deflection. A way to measure the deflection is to record it from a fixed point on the aircraft. 
     \begin{comment}
@@ -305,9 +302,9 @@ Using the mission envelope  (\autoref{ch:operations_logistics}), it is possible 
     
     \item Strain: A strain gauge is used for measuring strain. It uses the changed resistance in a wire when mechanically deformed \footnote{\href{https://www.sciencedirect.com/topics/earth-and-planetary-sciences/strain-gauge}{Strain gauge} (accessed on 02.06.2026)}. A typical configuration is a strain rosetta which consists of three strain gauges oriented 0,60,120 degrees. This makes it possible to measure the strain in all directions in the surface   \footnote{\href{https://intertechnology.com/Vishay/pdfs/TechNotes_TechTips/TN-515.pdf}{Rosetta strain gauge} (accessed on 02.06.2026)}.  
     
-    \item Loads: In this instance, the measurement of the loads acting on and through the wing is of most interest. For an aircraft this would be the resultant force (split into lift and drag) generated by the wing. These load cells are sensors which can measure a load in a specific direction. Six-axis load cells can also measure the moment generated in all three axial directions. These load-cells are preferable to the three axis cells as the load measurements taken by them are not influenced by moments.
+    \item Loads: In this instance, the measurement of the loads acting on and through the wing is of most interest. For an aircraft this would be the resultant force (split into lift and drag) generated by the wing. These load cells are sensors which can measure a load in a specific direction. Six-axis load cells can also measure the moment generated in all three axial directions. These load cells are preferable to the three-axis cells because the load measurements are not influenced by moments.
     %are from those are influenced by the moments. 
-    \item Wind-gusts: LIDAR can be used to detect wind in advance for an aircraft\cite{Schroeder2020}. The sensors send out a laser and then by measuring the Doppler shift in the back-scattered light it is possible to estimate the magnitude and direction of the upcoming wind \cite{YEW2025101127}. 
+    \item Wind gusts: LIDAR can be used to detect wind in advance for an aircraft \cite{Schroeder2020}. The sensors emit a laser and, by measuring the Doppler shift in the backscattered light, estimate the magnitude and direction of the upcoming wind \cite{YEW2025101127}. 
 
     \item Airspeed: The difference between the static and dynamic pressure is used in aviation to calculate the airspeed. This is typically achieved by using a pitot-tube \cite[p.~186]{anderson2016introduction}. The airspeed of HUGO will be used both for the operation and for the subsequent research.   
     \item Height: The height of the aircraft can be found by using measurements of the static pressure. This would be the barometric altitude of the aircraft and similarly, the airspeed would be used for operation and research.
@@ -318,58 +315,70 @@ Using the mission envelope  (\autoref{ch:operations_logistics}), it is possible 
 \subsection{Sensor Configurations}
 \label{sub:Configurations}
 
-A very important aspect of the configuration would be the sensor-placement. This is not only due to a practical concern (for wiring and connections) but will also have a direct impact on the viability and usability of the data collected. 
+%A very important aspect of the configuration is the sensor-placement. This is not only due to a practical concern (for wiring and connections) but will also have a direct impact on the viability and usability of the data collected. It is also necessary to find the specific sensors that would be used. 
 
-It is also important to evaluate the precision and accuracy of each chosen sensor. Precision refers to how much repeated measurements deviate for a specific sensor. The accuracy specifies how much the measured value deviates from the true value. Knowing these makes it possible to access the quality of the measured data from the experiments. 
+Once the sensor types have been identified in \autoref{sub:sensor_interaction}, it is time to find the specific sensors that would be used. Moreover, a very important aspect of the configuration is the sensor-placement. This is not only due to a practical concern (for wiring and connections) but will also have a direct impact on the viability and usability of the data collected.
+
+It is important to evaluate the precision and accuracy of each chosen sensor. Precision refers to how much repeated measurements deviate for a specific sensor. The accuracy specifies how much the measured value deviates from the true value. Knowing these makes it possible to access the quality of the measured data from the experiments \footnote{\href{https://web.chem.ox.ac.uk/teaching/Physics\%20for\%20CHemists/Errors/Precision.html}{Precision and accuracy} (accessed 03.06.2026)}.
+
+The chosen strain gauges are of Series Y:RY4 from HBK \footnote{\href{https://delivery-p153383-e1601992.adobeaemcloud.com/adobe/assets/deliver/urn:aaid:aem:b6cbaaca-d372-4962-bc27-0ea3864fdd80/Y-Series-Data-Sheet-B04709.pdf}{HBK Y-Series strain gauge data sheet} (accessed 03.06.2026)}. An important aspect is the installation and fastening of the sensor to the measured surface. The exact location on the wing should be catalogued to ensure precision in the latter data processing concerning temperature issues and compensation. The strain gauges would be glued on the wing using  C80 (cyanoacrylate adhesive) and the wiring would lead to the same small cutout as for the LIDAR. 
+This is a sensor which produces an analogue signal which must be read by an amplifier. The electrical signal generated by the amplifier is then sent to the flight companion. Strain gauges are placed on the wings at different intervals with higher density towards the wing tip. For the amplifier, the  QuantumX Bridge Amplifier \footnote{\href{https://assets.hbkworld.com/adobe/assets/deliver/urn:aaid:aem:65d123ca-53f3-487f-99c2-9bbc99c34e4b/QuantumX-MX1601B-Data-Sheet-B03882.pdf}{QuantumX} (accessed on 03.06.2026)}  was chosen as it has 16 channels, which in turn enable 16 strain gauges to be mounted of the wing. 
+This enables the placement of eight strain-gauges on each wing, with four placed on top and four placed underneath. 
 
 
-The chosen strain gauges is a Series Y:RY4 from HBK \footnote{\href{https://www.hbkworld.com/en/products/transducers/strain/experimental-testing/y-series/ry}{HBK Strain Gauge} (accessed 03.06.2026)}. An important aspect is the installation an fastening of the sensor to the measured surface. The exact location on the wing should also be catalogued to ensure precision in the latter data-processing. Temperature issues and compensation. The strain gauges would be glued on the wing using  C80 (cyanoacrylate adhesive) and the wiring would be lead to the same small cutout for the LIDAR. 
-a sensor which produces a analogue signal which must be read by an amplifier. The electrical signal is also generated by the amplifier. They are placed onto the wings at different intervals which at higher density towards the wing tip. QuantumX Bridge Amplifier has 16 channels which in turn enable 16 strain gauges to be mounted of the wing. 
-This enables the placement of eight strain-gauges on each wing. The specific location of each sensor can be seen in the diagram (insert image of diagram) 
+The LIDAR chosen is the HESAI FTX 140 \footnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR} (accessed on 02.06.2026)}. It is primarily chosen for its low weight and small size. There are two applications of the LIDAR system onboard the aircraft: weather detection and measurement of wing deflection. Even though it has been shown that LIDAR can be used to detect gusts ahead of an aircraft \cite{Schroeder2020}  there are currently no weather detecting LIDAR system small enough for HUGO, but it remains entirely possible for a potential client to construct a system based on existing components. Therefore it has been assumed that the weather-detecting LIDAR would operate similarly to the one chosen for the deflection. The weather LIDAR would be placed in the front of the aircraft, giving it an unobstructed view. A small cutout of the nose cone would need to be made to enable the lenses of the system to extend. 
+For the wing-deflecting, a LIDAR needs to be one at each side of the aircraft fuselage, pointed towards the tip of the wing. Again, like before, a small cutout must be made to accommodate the sensors. 
 
-
-The LIDAR chosen was the HESAI FTX 140\footnote{\href{https://www.hesaitech.com/product/ftx/}{LIDAR} (accessed on 02.06.2026)}. It was primarily chosen for its low weight and small size. There are two applications of the LIDAR system onboard of the aircraft: the weather detection and the measurement of wing-deflection. Even though it has been shown that LIDAR can be used to detect gust ahead of an aircraft \cite{Schroeder2020}  there are currently no weather detecting LIDAR system small enough for the aircraft, but it remains entirely possible for a researcher to construct a system based on existing components. Therefore it has been assumed that the Weather detecting LIDAR would operate similar to the one chosen for the deflection. The weather LIDAR would be placed in the front of the aircraft giving it an unobstructed view in front of the aircraft. A small cutout of the nose-cone would how to made to enable the lenses of a the system to extrude. 
-For the wing deflecting LIDAR there needs to be one at each side of the aircraft-fuselage pointed upwards the wing. Again like before a small cutout must be made to accommodate the sensors. 
-
-To increase the accuracy and precision certain modifications can be made on the wing. The approach would be fairly similar to the one presented in (insert reference here) where clusters of dots made in a infrared-reflective material. These clusters would be placed on the leading edge and trailing edge and appear at intervals throughout the span of the wing. The high- wing configuration adds certain restrictions. A possible issue with this configurations is the risk of the tip of the wing moving out of sight of the LIDAR. Therefore using the preliminary cad and maximum wing tip deflection is was possible to roughly estimate the point of view of the LIDAR at maximum deflection.  
+To increase the accuracy and precision, certain modifications can be made on the wing. The approach would be fairly similar to the one presented in \cite{LopezHerreros2024}, where clusters of dots made in an infrared-reflective material were placed along the blade. These clusters would be placed on the leading edge and trailing edge and appear at intervals throughout the span of the wing. The high-wing configuration adds certain restrictions. A possible issue with this configuration is the risk of the tip of the wing moving out of sight of the LIDAR. Therefore, by using the preliminary CAD and maximum wing tip deflection, it was possible to roughly estimate the point of view of the LIDAR at maximum deflection.  
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{figures_final/deflection.png}
-    \caption{Caption}
-    \label{fig:placeholder}
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures_final/dots.png}
+        \caption{Schematic of dots for lidar (red) and the placement of strain gauges (blue)}
+        \label{fig:dot}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\linewidth}
+        \centering
+        \includegraphics[width=0.8\linewidth]{figures_final/deflection.png}
+        \caption{The line of sight for LIDAR at maximum deflection}
+        \label{fig:deflec}
+    \end{subfigure}
+    \caption{Top-view and front-view of aircraft}
+    \label{fig:noise}
 \end{figure}
 
-As seen in the figure 
+As seen in the \autoref{fig:deflec}, the entire wing remains in the line of sight of the LIDAR, meaning it would be able to capture the wing deflection at any load. The blue line indicates the view from the LIDAR. 
+The selected camera system was the DJI O4 Air Unit Pro \footnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (accessed on 05.06.2026)}. Its compact form factor was a key consideration, enabling installation within the highly constrained space available in the horizontal tail, while also providing the required resolution and a high frame rate for reliable operation. With a field of view of 155 $\degree$, this would enable an overview of the wings. 
+The maximum resolution is 3840×2880 at 60fps, and the resolution at the maximum frame rate is 3840×2160 at 120fps.  
 
-The camera-system chosen was the DJI O4 Air Unit Pro \footnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (accessed on 05.06.2026)}. Here it was especially the form-factor of the system which would enable installation in the very restricted space of the horizontal tail and the high frame-rate and resolution . With a field of view being 155 \degree this would enable an overview of the wings. 
-The maximum resolution would be 3840×2880 at 60fps and the resolution at the maximum frame rate would be 3840×2160 120fps.  
-
-The chosen load-cell was the six-axis M3564E1 \footnote{\href{https://www.srisensor.com/uploads/M3564E1.pdf}{SR load-cell} (accessed on 9.06.2026)} . This enables the measurement of all loads and torques generated by the wing.     
+The chosen load-cell is the six-axis M3564E1 \footnote{\href{https://www.srisensor.com/uploads/M3564E1.pdf}{SR load-cell} (accessed on 9.06.2026)} . This enables the measurement of both loads and torques generated by the wing.     
 This configuration of the load-cell is different than a traditional sensor as the load-cells will be the connection between the wing and the fuselage.  
-Since it must act as the structural link the overload capacity (the total load the sensor can carry) is a very important characteristic of the sensor. For the specific sensor the overload capacity was 200 percent of the maximum measurable load. For M3564E1 that would be:
+Since it must act as the structural link, the overload capacity (the total load the sensor can carry) is a very important characteristic of the sensor. For the specific sensor, the overload capacity was 200 percent of the maximum measurable load. For M3564E1, that would be:
 \begin{equation}
     L_{max}=\SI{2500}{\newton} \cdot3= \SI{7500}{\newton}
 \end{equation}
 
-It is now possible to make a preliminary conservative load estimation by using the requirement of the total mass of 50 kg and using the maximum load-factor (see insert reference):
+It is now possible to make a preliminary conservative load estimation by using the requirement of the total mass of 50 kg and using the maximum load-factor multiplied by the safety factor (section 5.4 in  \footref{foot:midterm}):
 \begin{equation}
     L_{max}=n_{max}\cdot m_{aircraft}\cdot g=9\cdot\SI{50}{\kg} \cdot \SI{9.81}{\frac{\m}{\s^2}}=  \SI{4414.15}{\newton}
 \end{equation}
-This estimate is conservative as load-alleviating effect of the wing mass is ignored. This means that one load- sensor would be able to carry the load at maximum wing loading. It was still decided to use four load-cells as the combined maximum measurable load would be $\SI{10000}{\newton}$. This was decided because four mounting points between the wing and fuselage was deemed as most stable configuration. This means that even for the highest limit load the sensors would be able to measure the loads, thereby ensuring continuously monitoring at all points of operation.  
+This estimate is conservative as load-alleviating effect of the wing mass is ignored. This means that one load- sensor would be able to carry the load at maximum wing loading. It was still decided to use four load-cells as the combined maximum measurable load would be $\SI{10000}{\newton}$. This was decided because four mounting points between the wing and fuselage was deemed the most stable configuration. This means that even for the highest limit load the sensors would be able to measure the loads, thereby ensuring continuously monitoring at all points of operation.  
 
-The four load-cells would be screwed into an external holder. Since the outer ring uses three M5 bolts the outer holder would have three M5 sized hole to accommodate them. This holder would have a circular cut-out enabling the bolts going through the inner circle clearance. Then these would be first be bolted on the topside then a mounting plate would be put on top and then a second series of bolts would be mounted to keep it in place. The most important part of the entire setup is that it most be the load-cell alone which transfers the loads from the wings to the fuselage and vice-versa. 
+The four load-cells would be screwed into an external holder. Since the outer ring uses three M5 bolts the outer holder would have three M5must sized hole to accommodate them. This holder would have a circular cut-out enabling the bolts going through the inner circle clearance. Then these would be first be bolted on the topside then a mounting plate would be put on top and then a second series of bolts would be mounted to keep it in , as shown in \autoref{fig:sensor_installation}. The most important part of the entire setup is that it most be the load-cell alone which transfers the loads from the wings to the fuselage and vice-versa. 
 
 \begin{figure}[H]
     \centering \includegraphics[width=0.7\linewidth]{figures_final/loadcell.png}
-    \caption{Side-view with and without cut-out of the loadsensor installation}
-    \label{fig:placeholder}
+    \caption{Side-view with and without cut-out of the load-sensor installation}
+    \label{fig:sensor_installation}
 \end{figure}
 
 The configuration was deemed viable after communication with the manufacturer of the load-cell (SRI-X sunrise instruments).The loading cell would be mounted with its holder inside of the fuselage. Then wings would  be mounted on top. A small access panel would have to be made for to screw the nuts on top of the six M5 bolts extruding from the load-cell.  
 
-Load-cells are sensitive to changes in temperature. The relative small size of the chosen load-cells makes them sensitive to changes  with the chosen sensors having a optimal working range between $10^{\circ}\,C $ and $70^{\circ}\,C $. Therefore the temperature of volume around the installed load-cells should be controlled to keep the temperature constant within this range. For the load-cells to work it needs to be connected to an amplifier. M8126 \footnote{\href{https://www.srisensor.com/uploads/M8126-Users-Manual-V1.4-Eng11.pdf}{M8126} (accessed on 03.06.2026)} is an amplifier specifically designed for the load-cells. It will take the analogue input signal and transform it to a digital signal. 
+It is important to note that load-cells are sensitive to changes in temperature. The relatively small size of the chosen load-cells makes them sensitive to changes, with the chosen sensors having an optimal working range between $10^{\circ}\,C $ and $70^{\circ}\,C $. Therefore, the temperature of the volume around the installed load-cells should be controlled to keep the temperature constant within this range. For the load-cells to work, it needs to be connected to an amplifier. M8126 \footnote{\href{https://www.srisensor.com/uploads/M8126-Users-Manual-V1.4-Eng11.pdf}{M8126} (accessed on 03.06.2026)} is an amplifier specifically designed for the load-cells. It will take the analogue input signal and transform it to a digital signal. 
 
 
 A multi-use pitot \footnote{\label{foot:pitot}\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot} (accessed on 03.06.2026)} (Air Data Probe) would be mounted in the front of the aircraft. This sensor measures the static of and dynamic pressure. By connecting it to the Hyperion Micro Air Data Computer this can be translated into the airspeed, height, side-slip and angle of attack.  
@@ -381,6 +390,7 @@ For the different missions the only change in the internal configuration would b
 Final configuration of sensors (Insert large diagram) 
 \end{comment}
 
+The precision of the measurement will also be dependent on the amplifiers used. Therefore, the signal-to-noise ratio has been listed as a measure of the precision of the output signal in \autoref{tab:internal_config_test_measurement_sensors}. Since the LIDAR readily produces a digital signal, the signal precision for the LIDAR was found to be $1 \%$. 
 
 \begin{table}[H]
     \centering
@@ -394,35 +404,60 @@ Final configuration of sensors (Insert large diagram)
         Strain gauge  & 16 & 0.005 & $7\times 0.5 \times 7$ & See Q. X
 Bridge & ±1.5\% & 20000 & See Q. X
 Bridge  \\\hline
-        LIDAR-sensor  & 3 & 0.160 & $55 \times 60 \times 38.7$ & 6 & ±1.7 & 10 & 22.2 \\\hline
-        Camera \tablefootnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (accessed on 05.06.2026)} & 1 & 0.034 & $25.55 \times 20 \times 23.30$ & 15.6 & n.a. & 120 & 130 \\\hline
-        Pitot probe \footref{foot:pitot}%\tablefootnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot} (accessed on 03.06.2026)} 
+        LIDAR-sensor  & 3 & 0.160 & $55 \times 60 \times 38.7$ & 6 & $\sim$±1.7\% & 10 & 22.2 \\\hline
+        Camera & 1 & 0.034 & $25.55 \times 20 \times 23.30$ & 15.6 & n.a. & 120 & 130 \\\hline
+        Pitot probe %\footref{foot:pitot}%\tablefootnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot} (accessed on 03.06.2026)} 
         & 1 & 0.100 & $6.35 \times 100 \times 6.35$ & 0.1 & ±1\% &100 & See M. A. D. Computer \\\hline
     \end{tabular}
 \end{table}
 
-The overall  of the different sensors has been listed in \autoref{tab:internal_config_test_measurement_sensors}. These have all been found to be less than $2\%$.
+
+To achieve the specified sensors accuracy it is necessary for all of the sensors to be calibrated before any test flight. For the load-cell this can be achieved exposing the wing to a known load and then adjusting the sensor so it reads the expected value \footnote{\href{https://www.ittc.info/media/9815/76-02-09.pdf}{Load-cell calibration} (accessed on 17.06.2026)}. This can be a challenge as it measure a forces and moment in three direction A calibration rig would have to been constructed to ensure consistency and speed. The strain gauges would be calibrated using shunt calibration  \footnote{\href{https://web.enib.fr/~bourgeot/IPS/Datasheets/AN078-Strain_Gauge_Measurement-A_Tutorial.pdf}{Strain Gauge calibration} (accessed on 17.06.2026)}. Here, the resistance is changed by connecting an external resistor of known value. The measured electric signal can then be compared to the expected and adjusted accordingly. The Lidar can be checked by precisely knowing the distance between the clusters of spots for the unloaded wing and comparing them to the values output by the LIDAR. The weather detection LIDAR can be calibrated similarly by measuring a known distance in front of the aircraft. Finally, the pitot probe can be checked by blowing air at a known speed.   
+
+The overall accuracy of the different sensors has been listed in \autoref{tab:internal_config_test_measurement_amp}. These have all been found to be less than $2\%$.  
+
 \begin{table}[H]
     \centering
     \caption{Amplifiers for the different sensors}
-    \label{tab:internal_config_test_measurement_sensors}
+    \label{tab:internal_config_test_measurement_amp}
     \begin{tabular}{|p{3cm}|c|p{2cm}|p{2cm}|p{1.5cm}|p{2cm}|p{2cm}|}
         \hline
         \textbf{Amplifier} & \textbf{Nr} & \textbf{Weight [kg]} & \textbf{Dimensions [mm]} & \textbf{Power [W]} & \textbf{Signal to noise ratio} & \textbf{Data rate [Mbit/s]} \\
         \hline\hline
         M8126  & 1 & 0.2 & $100 \times 100 \times 27$ & 4.5 & 10000 & 2.76\\\hline
-        Micro Air Data Computer & 1 & 0.18 & $66 \times 79 \times 41$ & 1.5 & $\sim$ 5000  &1.83 \\\hline
-        QuantumX Bridge \tablefootnote{\href{https://assets.hbkworld.com/adobe/assets/deliver/urn:aaid:aem:65d123ca-53f3-487f-99c2-9bbc99c34e4b/QuantumX-MX1601B-Data-Sheet-B03882.pdf}{QuantumX} (accessed on 03.06.2026)}  & 1 & 0.980 & $52.5 \times 200 \times 122$  & 13 & 2500 & 7.68 \\\hline
+        Micro Air Data Computer \tablefootnote{\href{https://www.althensensors.com/uploads/products/datasheets/micro-air-data-systems-en.pdf
+}{Air computer} (accessed on 03.06.2026)} & 1 & 0.18 & $66 \times 79 \times 41$ & 1.5 & $\sim$ 5000  &1.83 \\\hline
+        QuantumX Bridge  & 1 & 0.980 & $52.5 \times 200 \times 122$  & 13 & 2500 & 7.68 \\\hline
     \end{tabular}
 \end{table}
-The precision of the measurement will also be dependent on the amplifiers using them. Therefore the signal to noise ratio has been listed in as measure of the precision of the output signal.   
 
-To achieve the specified sensors accuracy it is necessary for all of the sensors to be calibrated before any test flight. For the load-cell this can be achieved exposing the wing to a known load and then adjusting the sensor so it reads the expected value \tablefootnote{\href{https://www.ittc.info/media/9815/76-02-09.pdf}{Load-cell calibration} (accessed on 17.06.2026)}. This can be a challenge as it measure a forces and moment in three direction A calibration rig would have to been constructed to ensure consistency and speed. The strain gauges would be calibrated using shunt calibration  \tablefootnote{\href{https://web.enib.fr/~bourgeot/IPS/Datasheets/AN078-Strain_Gauge_Measurement-A_Tutorial.pdf}{Strain_Gauge calibration} (accessed on 17.06.2026)}. Here the resistance is changed by connecting a external resistor of known value. The measured electric signal can then be compared to the expected and adjusted accordingly. The Lidar can be checked by precisely knowing the distance between the clusters of spots for the unloaded wing and comparing them to the values outputted by the LIDAR. The weather detection LIDAR can be calibrated similarly by measuring a known distance in front of the aircraft. Finally the pitot probe can be checked by blowing air with a known speed. Finally for all the sensors the  
+Having this it is possible to find a theoretical combined uncertainty of the measured data \footnote{\href{https://www.isobudgets.com/faq/what-is-combined-uncertainty/}{Combined uncertainty} (accessed on 17.06.2026)}. The approach is squaring all uncertainties then adding them together and taking the square-root:
+\begin{equation}
+    u_{combined}=\sqrt{\sum_{i=1}^{n_{sources}}u_i^2}
+\end{equation}
 
+
+ 
+\begin{table}[H]
+    \centering
+    \caption{Theoretical uncertainty of the data}
+    \label{tab:Theoreticaluncertainty}
+    \begin{tabular}{|p{3cm}|c|}
+        \hline
+        \textbf{Phenomenon} & \textbf{Uncertainty [\%]} \\
+        \hline\hline
+        Displacement  & $\sim1.97 \%$ \\\hline
+        Strain        & $\sim1.00 \%$ \\\hline
+        Loads         & $\sim1.50 \%$ \\\hline
+        Speed and altitude & $\sim1.00 \%$ \\\hline
+    \end{tabular}
+\end{table}
+
+Looking at the final theoretical uncertainties of the data, it becomes apparent that the largest source of noise would be the accuracy of the specific sensors. It is only for the case of the displacement measured using the LIDAR where precision has any discernible impact. 
 
 %Detailed description of the data output of the sensors and their individual positions. 
-Having identified all the sensors and their subsystems, it is now possible to make the final detailed configuration for the sensors. Knowing the power requirements and the magnitude of the data outputs, it is possible to size the memory system and data transfer. Now that all the sensors have been brought together, their power consumption and data stored can be summed, bringing the total power consumption at 51.7 W and a storage capacity at 0.84 TB. Both values are within the limits of the electronic system sized in \autoref{sub:electronics_system_design} 
-Having the entire system, it is now possible to finalize the configuration and identify the areas of HUGO which would be covered by the sensors. 
+Having identified all the sensors and their subsystems, it is now possible to make the final detailed configuration for the sensors. Knowing the power requirements and the magnitude of the data outputs, it is possible to size the memory system and data transfer. Now that all the sensors have been brought together, their power consumption and data stored can be summed, bringing the total power consumption to 51.7 W and a storage rate of 326.2 Mbit/s. The power required is within the limits of the electronic system sized in \autoref{sub:electronics_system_design}, and the storage rate complies with HUG-ELE-03.
+Having the entire system, it is now possible to finalize the configuration and identify the areas of HUGO that would be covered by the sensors. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{figures_final/sensorconfig.png}
@@ -439,9 +474,7 @@ At this stage of the design, all the internal components have been identified an
     \caption{Caption}
     \label{fig:volume_allocation}
 \end{figure}
-\todo[inline]{Add the figure with the internal alocaton of space}
-
-\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
+\todo[inline]{Add the figure with the internal allocation of space}
 
 \section{External Configuration}
 \label{sec:external_configuration}
@@ -455,19 +488,42 @@ To produce as little drag as possible, the fuselage has a streamlined form, with
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures_final/External_Fig/Exterios_Config.png}
+    \includegraphics[width=1.0\linewidth]{figures_final/External_Fig/Exterios_Config.png}
     \caption{External View of HUGO}
     \label{fig:ext_hugo}
 \end{figure}
 
+
 Two hatches are present on top of the fuselage, giving access to the interior configurations of the fuel tank placement and battery. Behind the last access door, the engines are positioned so as not to interfere with the wing planform. 
 
-The general dimensions of HUGO expected to enter production can be seen in \todo{add the figure} 
+The general dimensions of HUGO expected to enter production can be seen in \autoref{fig: general_dimensions}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/External_Fig/SideView.jpg}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/External_Fig/FrontView.jpg}
+    \end{subfigure}
+    \vspace{1em} 
+    \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/External_Fig/TopView.jpg}
+    \end{subfigure}
+    
+    \caption{General dimensions of HUGO}
+    \label{fig: general_dimensions}
+\end{figure}
+
 
 \subsection{Sensor Positioning}
 The main purpose of HUGO is to provide data to scientists, consequently the positioning of the sensors in the fuel cell is very important in this aspect. 
 
-To be able to fligh the aircraft manually in BVOL conditions, a camera is provided located on top of the tail, offering visual footage of both the path and wing behaviour. The camera is positioned in such a way that the wings are permanently in view, even at their maximum deflection. Camera is located as seen in \autoref{} \todo{add camera image}
+To be able to fly the aircraft manually in BVLOS conditions, a camera is provided located on top of the tail, offering visual footage of both the path and wing behaviour. The camera is positioned in such a way that the wings are permanently in view, even at their maximum deflection. Camera is located as seen in \autoref{} \todo{add camera image}
  Under the wings, inside the fuselage body, each side has a Lidarr sensor to monitor wing behaviour during experiments, \autoref{} \todo{add a fig with the sensor holes}
 
  Finally, the wing has mounted underneath it strain gauges to measure the stresses in the airframe, \autoref{} \todo{add also one here}
@@ -508,27 +564,27 @@ Then, the FlexOp aircraft as a reference for the sizing of the simplified fusela
 
 Scrape angle (near) &
 $\theta_{\mathrm{scr,near}} \geq \theta_{\min}$ &
-Requirement from Roskam to prevent tail strikes during take-off and landing rotation. \\
+Requirement from Roskam  \cite{roskamIV} to prevent tail strikes during take-off and landing rotation. \\
 \hline
 
 Scrape angle (far) &
 $\theta_{\mathrm{scr,far}} \geq \theta_{\min}$ &
-Requirement from Roskam\cite[]{roskamIV} to ensure adequate tail clearance at take off and landing rotation. \\
+Requirement from Roskam \cite{roskamIV} to ensure adequate tail clearance at take off and landing rotation. \\
 \hline
 
 Beta angle &
 $\beta > \theta$ &
-Requirement from Roskam to prevent the aircraft from tipping backwards during takeoff and landing rotation. \\
+Requirement from Roskam \cite{roskamIV} to prevent the aircraft from tipping backwards during takeoff and landing rotation. \\
 \hline
 
 Turn-over angle &
 $\psi < 55^\circ$ &
-Ground stability requirement from Roskam to prevent lateral overturning during ground manoeuvres. \\
+Ground stability requirement from Roskam \cite{roskamIV} to prevent lateral overturning during ground manoeuvres. \\
 \hline
 
 Wing-tip clearance &
 $\phi > 8^\circ$ &
-Requirement from Roskam to avoid wing-tip strikes. \\
+Requirement from Roskam \cite{roskamIV} to avoid wing-tip strikes. \\
 \hline
 
 Keel clearance &
@@ -572,45 +628,6 @@ The optimiser could vary the longitudinal position of the nose and main landing 
 
 The optimised landing gear position using FlexOp as a reference is reported in \autoref{tab:optimized_landing_gear}.
 
-\begin{figure}[H]
-    \centering
-    
-    % --- Top Row: Front Gear ---
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures_final/Front_Gear_Mechanism_Deployed.jpeg}
-        \caption{Front gear, deployed, side view}
-        \label{fig:front_gear_mechanism_deployed}
-    \end{subfigure}
-    \hspace{11em} % Adds a bit of vertical space between the rows
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures_final/Front_Gear_Mechanism_Retracted.png}
-        \caption{Front gear, reetracted, side view}
-        \label{fig:front_gear_mechanism_retracted}
-    \end{subfigure}
-    
-    \vspace{1em} % Adds a bit of vertical space between the rows
-    
-    % --- Bottom Row: Rear Gear ---
-    \begin{subfigure}[b]{0.4\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures_final/Landing_Gear_Mechanism_Deployed.png}
-        \caption{Rear gear, deployed, side view}
-        \label{fig:rear_gear_mechanism_deployed}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures_final/Rear_Gear_Mechanism_Retracted.png}
-        \caption{Rear gear, Retracted, side view}
-        \label{fig:rear_gear_mechanism_retracted}
-    \end{subfigure}
-    
-    \caption{Landing gear mechanism views}
-    \label{fig:landing_gear_mechanisms}
-\end{figure}
-
 \begin{table}[H]
     \centering
     \small
@@ -631,11 +648,66 @@ The optimised landing gear position using FlexOp as a reference is reported in \
     \end{tabularx}
 \end{table}
 
-In the detailed design stage, this initial estimate was used to determine if the landing gear could be housed within the main fuselage, or it needed to be extended with pods to meet the main landing gear separation constraint. As the landing gear separation was wider than the fuselage diameter, it was determined HUGO would need pods to house the landing gear as well as a mechanism capable of extending the landing gear further outwards. 
+In the detailed design stage, this initial estimate was used to determine if the landing gear could be housed within the main fuselage or whether it needed to be extended with pods to meet the main landing gear separation constraint. As the landing gear separation was wider than the fuselage diameter, it was determined HUGO would need pods to house the landing gear as well as a mechanism capable of extending the landing gear further outwards. 
 
-Because the landing gear positioning was done for the idealized fuselage, it was important to verify if the requirements are still met in the real fuselage. The position of the landing gear from the preliminary design served as the starting point of the iteration loop in which the landing gear data was extracted from the CAD model, and refined until the constraints were met. The final landing gear positioning is given in \textbf{Picture from Vibhav}. \todo{don't wewant a table} %\autoref{}
+Because the landing gear positioning was done for the idealized fuselage, it was important to verify if the requirements are still met in the real fuselage. The position of the landing gear from the preliminary design served as the starting point of the iteration loop in which the landing gear data was extracted from the CAD model, and refined until the constraints were met. The final landing gear positioning is given in \autoref{fig: location_lg}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Landing Gear/Landing Gear Side.jpg}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Landing Gear/Landing Gear Front.jpg}
+    \end{subfigure}
+    \caption{Landing gear positions}
+    \label{fig: location_lg}
+\end{figure}
+
 
 A preliminary sketch of the landing gear mechanism can be seen in \autoref{fig:landing_gear_mechanisms}, with views of the front and rear gear in the deployed and retracted states.  A telescopic linear actuator is connected to the landing gear to deploy and retract the gear. In order to  resulting in vertical compression. To accommodate the compression, the landing gear will utilise a spring and dashpot in parallel.
+
+\begin{figure}[H]
+    \centering
+    
+    % --- Top Row: Front Gear ---
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures_final/Front_Gear_Mechanism_Deployed.jpeg}
+        \caption{Front gear, deployed, side view}
+        \label{fig:front_gear_mechanism_deployed}
+    \end{subfigure}
+    \hspace{5em} % Adds a bit of vertical space between the rows
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures_final/Front_Gear_Mechanism_Retracted.png}
+        \caption{Front gear, retracted, side view}
+        \label{fig:front_gear_mechanism_retracted}
+    \end{subfigure}
+    
+    \vspace{1em} % Adds a bit of vertical space between the rows
+    
+    % --- Bottom Row: Rear Gear ---
+    \begin{subfigure}[b]{0.4\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{figures_final/Landing_Gear_Mechanism_Deployed.png}
+        \caption{Rear gear, deployed, side view}
+        \label{fig:rear_gear_mechanism_deployed}
+    \end{subfigure}
+    \hspace{1em}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures_final/Rear_Gear_Mechanism_Retracted.png}
+        \caption{Rear gear, retracted, side view}
+        \label{fig:rear_gear_mechanism_retracted}
+    \end{subfigure}
+    
+    \caption{Landing gear mechanism views}
+    \label{fig:landing_gear_mechanisms}
+\end{figure}
 
 During landing, the main landing gear must be able to withstand the impact loads, and the shock absorber deformation must be kept within allowable limits. As the landing gear needs to dissipate a predetermined downwards speed, the lower the impact load, the larger the deflection required. The maximum allowable deflection to avoid fuselage impacting the ground is 7.75 cm, based on the landing gear geometry. For this maximum deflection, g-loads transferred to the structure are obtained. In case there was no feasible design space within the initial guess displacement constraints, the landing gear would have had to be enlarged.
 % During landing, the main landing gear must be able to withstand the impact loads. The EASA guidelines were originally interpereted to require a high risk UAS to withstand a 4g load. Later, it was determined that the requirement was simply for the structure to withstand 1.5 times the load transfered by the landing gear. Due to time constraints, the optimal trade off between loads withstood by the fuselage versus the landing gear could not be explored, but should be looked into in further design. To meet both force and displacement constraints, the landing gear were sized to withstand a 4g load shared equally by both landing gear, damping an impact of HUGO travelling at 36 m/s at a glide slope of 3 degrees. To allow for the absorption of the impact loads, the landing gear were modelled as a spring and dashpot in parallel with constants K and C respectively. C and K can then be tuned such that the maximum vertical displacement of the landing gear does not collide with the keel, and such that a 4g impact is not exceeded. This means not exceeding a compression of 7.75 cm, and a peak force of 0.98 kN. 
@@ -678,17 +750,17 @@ Using the Python control library, the landing gear displacement and force respon
 \label{eq:state_output_equations_2}
 \end{equation}
 
+where \autoref{eq:state_output_equations_2} represents the displacement and force, respectively, L is the lift at landing, m is the mass on the landing gear, and g is the acceleration due to gravity.
+
+Displacement and damping constraints will be applied to the state space model. If the system is over-damped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring and dashpot constants, the landing gear can be tuned to meet all requirements.
+
 \begin{wrapfigure}[16]{r}{0.43\textwidth}
     \centering
+    \vspace{-0.5cm}
     \includegraphics[width=\linewidth]{figures_final/landing_gear_parameter_space.png}
     \caption{Parameter sweep of spring and dashpot constants}
     \label{fig:CK_tuning}
 \end{wrapfigure}
-
-
-where \autoref{eq:state_output_equations_2} represents the displacement and force respectively, L is the lift at landing, m is the mass on the landing gear, and g is the acceleration due to gravity.
-
-Displacement and damping constraints will be applied to the state space model. If the system is over-damped, the spike in initial force through the landing gear would be too large. Similarly, if the damping is too low, HUGO will oscillate on the runway after landing. By varying the spring and dashpot constants, the landing gear can be tuned to meet all requirements.
 
 
 
@@ -701,16 +773,16 @@ Displacement and damping constraints will be applied to the state space model. I
 
 In \autoref{fig:CK_tuning} a 100 by 100 grid of C and K parameters on a logarithmic scale are analysed for a mass of 50 kg, and a downward velocity of 2 m/s. The green area shows the feasible combinations of C and K that do not exceed the displacement or damping constraints. Then, values of C and K were manually tuned to minimise the total displacement. Through trial and error the values of C = 781.115 and K = 48168.2 were chosen.
 
+The landing gear response for a landing speed of 2m/s and 3m/s (2m/s * safety factor from SC-UAS High Risk \cite{easa_light_uas_crd_is3} \cite{easa_high_risk_uas}) is shown in \autoref{fig:lg_response}. For a landing speed of 2 m/s, the peak force was found to be 2.50433 kN (pink), at a displacement of 4.54 cm (blue). Applying a safety factor of 1.5 to the peak force obtained gives 3.756 kN (black) which must be withstood by the structure and a displacement of 6.84cm (yellow). Because the velocity and maximum displacement are linearly proportional in a linear time-invariant system, this is equivalent to having simulated a downward velocity of 3 m/s.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{figures_final/lg_response.png}
+    \includegraphics[width=0.9\linewidth]{figures_final/lg_response.png}
     \caption{Landing gear response with C = 781.115 and K = 48168.2}
     \label{fig:lg_response}
 \end{figure}
 
-The landing gear response for a landing speed of 2m/s and 3m/s (2m/s * safety factor from SC-UAS High Risk \cite{easa_light_uas_crd_is3} \cite{easa_high_risk_uas}) is shown in \autoref{fig:lg_response}. For a landing speed of 2 m/s, the peak force was found to be 2.50433 kN (pink), at a displacement of 4.54 cm (blue). Applying a safety factor of 1.5 to the peak force obtained gives 3.756 kN (black) which must be withstood by the structure and a displacement of 6.84cm (yellow). Because the velocity and maximum displacement are linearly proportional in a linear time-invariant system, this is equivalent to having simulated a downward velocity of 3 m/s.
-
-\subsection{verification of landing gear procedure}
+\subsection{Verification of landing gear procedure}
 
 The landing gear was originally positioned using sciPy minimise. The implementation of the code was checked independently by 3 people as to prevent the accidental inclusion of bugs. In addition, a script that checked constraints given landing gear size parameters was used to check that this also met the previous requirements. The implementation of which, was also checked by 3 people to prevent the inclusion of bugs as well.
 
@@ -721,11 +793,11 @@ The plotting of the parameter sweep was done using Claude. As input, it took the
 
 \subsection{Environmental Control}
 \label{sub:environmental_control}
-Environmental control is the response of HUGO to different external factors such as rain or UV-radiation. An analysis was established were different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
+Environmental control is the response of HUGO to different external factors such as rain or UV-radiation. An analysis was established where different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
 
 As supercooled water hits the fuselage, it instantly turns into ice, increasing the weight \cite{andreev2014icing} and damaging the aerodynamic profile. Since the wings fitted on HUGO are very thin, optimised for high cruise speed, any perturbation of the aerodynamic profile may result in a catastrophic event. 
 
-There are two primary way to combat this phenomenon, either by using a passive system (coating or phase changing materials) or b an active system (heating elements). Since the wings are subjected to regular replacement and modifications, it is more efficient to use a passive system for HUGO. 
+There are two primary ways to combat this phenomenon, either by using a passive system (coating or phase changing materials) or by an active system (heating elements). Since the wings are subjected to regular replacement and modifications, it is more efficient to use a passive system for HUGO. 
 
 A coating that could help HUGO delay the formation of ice on the wings involves coating them with a poly-siloxane elastomer coating that sticks to resin \cite{facco2025passive}. It delays the formation of ice on the wings as well as offering a very low ice adhesion, effectively protecting the wing from ice. Despite its weak mechanical properties, HUGO is not meant to fly for many missions with the same set of wings, as such it does not require withstanding a lot of cycles. 
 
@@ -734,15 +806,19 @@ A coating that could help HUGO delay the formation of ice on the wings involves 
 \subsection{Change of the centre of gravity}
 \label{sub:Changeofthecentreofgravity}
 \todo[inline]{Consider moving this to the experiment section}
-As mentioned in the mission envelope (\autoref{sec:mission_envelope}) new control systems might be implemented and tested. As the controllability of a aircraft is highly dependent of the centre of gravity it was decided to have it as a parameter which can be changed during flight. The is achieved as by pumping the fuel between the two fuel-tanks onboard as described in \autoref{sub:cg_location}. The range of the c.g. can be calculated by knowing the empty weight of the aircraft, fuel-weight and the placement of the fuel-tanks. As stipulated in the Matching diagram (see \autoref{tab: Matching diagram constraints}) the fuel-tanks would be at $50\%$. Then assuming straight and level flight the c.g. location can be calculated by calculate the moments generated by the fuel-mass relative to the empty weight c.g this is the divided by the mass of the complete aircraft \footnote{\href{https://engineeringstatics.org/Chapter_07-center-of-gravity.html}{fisk} (accessed 16.06.2026)}. The code for the calculations can be found at (insert reference to github). 
+As mentioned in the mission envelope (\autoref{sec:mission_envelope}), new control systems might be implemented and tested. As the controllability of a aircraft is highly dependent on the CG, it was decided to have it as a parameter that can be changed during flight. This is achieved by pumping the fuel between the two fuel tanks onboard as described in \autoref{sub:cg_location}. The range of the CG can be calculated by knowing the empty weight of the aircraft, fuel weight, and the placement of the fuel tanks. As stipulated in the Matching diagram (see \autoref{tab: Matching diagram constraints}), the fuel tanks would be at $50\%$. Then, assuming straight and level flight, the CG location can be estimated by calculating the moments generated by the fuel mass relative to the empty weight CG. This is then divided by the mass of the complete aircraft \footnote{\href{https://engineeringstatics.org/Chapter_07-center-of-gravity.html}{fisk} (accessed 16.06.2026)}. The code for the calculations can be found at (insert reference to github). 
+\todp[inline]{reference the code}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures_final/changeofcg.png}
+    \includegraphics[width=0.7\linewidth]{figures_final/changeofcg.png}
     \caption{Diagram of c.g. range by fuel-movement}
     \label{fig:cg-range}
 \end{figure}
 
+
+
+\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
 
 
 

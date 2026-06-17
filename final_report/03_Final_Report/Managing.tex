@@ -2,6 +2,7 @@
 \label{ch:management}
 
 The first stage of HUGO's design process defined the requirements and scope of the project, leading to the development of four distinct configurations. To narrow this solution space to a single, optimal design, a rigorous trade-off analysis was performed. This chapter summarises the characteristics of the four configurations, outlines the trade-off procedure, and further details the final configuration that forms the basis of this report.
+\todo[inline]{autoref the different sections in the into, what is the purpose of each of them}
 
 \section{Trade-Off Summary}
 \label{sec:trade-off_summary}
@@ -151,14 +152,14 @@ There are, therefore, two groups in the HUGO configuration: fixed and modular co
 
 \section{Engineering Design and Analysis}
 \label{sec:engineering_design_and_analysis}
-\todo[inline]{Section initially proofread by Hanna}
 %\todo[inline]{In this Section, we briefly describe the steps required to reach the more detailed design.}
 
 To fulfill its mission as a versatile flight test vehicle, HUGO is expected to house a range of wing planforms, later referred to as the Planform Envelope. This approach shall, for a wide range of missions to be performed, examples of which can be found in \autoref{sec:mission_envelope}. The need to house multiple wing geometries has been a system design-driving characteristic since the midterm design phase. The goals of engineering analysis for the final work phase are to design HUGO's fuselage and its associated subsystems, ensuring they accommodate the specified range of planforms provided by client, as well as develop a standard planform to be used for external system tests that do not require a dedicated wing profile.
 
 Several analyses described in the Midterm Report \footnote{\label{foot:midterm}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)} can be used for this design phase, i. e. the drag estimation, tail sizing, and fuel mass fraction computation. The corresponding matching diagram can also be re-implemented. Based on these findings, a structural analysis of both the wing planform and fuselage can be performed to obtain a complete estimate of aircraft weight. Further design steps include a preliminary sizing of the fuselage, along with a planform aileron sizing.
 
-Considering the wide scope of possible array designs, featuring more than one possible airfoil, the approach to aerodynamic analysis differs from the one of the Midterm Report \footref{rep:midterm_rep}. Instead of defining an airfoil and conducting a lifting line analysis to obtain the properties of the three-dimensional wing directly, an envelope of possible airfoils is defined implicitly by ranges of values of lift slope, maximum lift and moment coefficients. The properties of the three-dimensional wing are deduced from those coefficients using semi-empirical formulae.
+Considering the wide scope of possible array designs, featuring more than one possible airfoil, the approach to aerodynamic analysis differs from that of the Midterm Report \footref{foot:midterm}.
+Instead of defining an airfoil and conducting a lifting line analysis to obtain the properties of the three-dimensional wing directly, an envelope of possible airfoils is defined implicitly by ranges of values of lift slope, maximum lift and moment coefficients. The properties of the three-dimensional wing are deduced from those coefficients using semi-empirical formulae.
 
 An additional challenge posed by the Planform Envelope is that it is a continuous design space spanning several parameters. Evaluating all combinations of those parameters at high resolution is not feasible. As such, a list of parameter combinations considered most constraining is justified in \autoref{sec:Planform envelope boundaries}.
 
@@ -180,9 +181,9 @@ The Planform Envelope requires quantification - both for the user (to serve as s
 
 \autoref{tab:planform_envelope} provides the range of allowed planform parameters. A planform is considered compatible with HUGO if it is described by any combination of the parameters within their ranges. To assess whether HUGO can accommodate those possible planforms, the most constraining values of each parameter are identified, and planforms represented by combinations of those critical values are analysed for compliance with requirements. Based on the number of identified critical value combinations, 96 planforms representing the critical envelope points can be defined. The critical values and parameter ranges were based on the following reasoning:
 \begin{itemize}
-    \item $AR$: the lower bound corresponds to low-$AR$ aerobatic aircraft characteristics \footnote{\label{foot:Aerobatic_AR}\href{https://web.archive.org/web/20060414172013/http://www.sukhoi.org/eng/planes/civil/su-26/characteristic/}{Sukhoi Su-26 Specifications} (accessed on )}, while the upper bound is as considered in previous reports \footnote{\label{foot:baseline}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report} (accessed on )} \footref{foot:midterm}. As increasing the $AR$ improves the aerodynamic efficiency while increasing wing weight, a single value of this parameter cannot be considered constraining. Therefore, four values from across the range are included as critical.
+    \item $AR$: the lower bound corresponds to low-$AR$ aerobatic aircraft characteristics \footnote{\label{foot:Aerobatic_AR}\href{https://web.archive.org/web/20060414172013/http://www.sukhoi.org/eng/planes/civil/su-26/characteristic/}{Sukhoi Su-26 Specifications} (accessed on 06.10.2026)}, while the upper bound is as considered in previous reports \footnote{\label{foot:baseline}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report} (accessed on 11.06.2026)} \footref{foot:midterm}. As increasing the $AR$ improves the aerodynamic efficiency while increasing wing weight, a single value of this parameter cannot be considered constraining. Therefore, four values from across the range are included as critical.
     \item $\lambda$: any taper profile that results in the wing not widening while moving inboard, but preventing it from becoming excessively thin, is considered acceptable. In the considered range, the most constraining case, when both aerodynamics and structural performance are negatively impacted, is when $\lambda$ is 1 \cite[p.401-405, p.438]{raymer1992aircraft, AndersonAerodynamics}.
-    \item $\Lambda_{c/4}$: positive sweeps up to slightly above the Midterm Report value \footref{ft:midterm_rep}. The extremum values of sweep are taken as critical, as for maximum sweep the effective airspeed is reduced, and the aerodynamic centre is most aft, and for the minimum sweep the aerodynamic centre is most fore. The former is challenging for tail sizing for stability and main wing performance, while for the latter, empennage sizing for controllability is compromised. 
+    \item $\Lambda_{c/4}$: positive sweeps up to slightly above the Midterm Report value \footref{foot:midterm}. The extremum values of sweep are taken as critical, as for maximum sweep the effective airspeed is reduced, and the aerodynamic centre is most aft, and for the minimum sweep the aerodynamic centre is most fore. The former is challenging for tail sizing for stability and main wing performance, while for the latter, empennage sizing for controllability is compromised. 
     \item $t/c$: The range encompasses thin and potentially unstable wings and high-thickness profiles similar to those at wing roots of large aircraft \footnote{\label{foot:reference_tc_values}\href{https://m-selig.ae.illinois.edu/ads/aircraft.html}{David Lednicer, The Incomplete Guide to Airfoil Usage} (accessed on )}. As for the critical points, parasitic drag increases with $t/c$ \cite[p.283]{raymer1992aircraft}, but the wing weight decreases significantly \cite[p.401-405]{raymer1992aircraft}. Thus, three values across the parameter range are selected for evaluation.
     \item $C_{l_\text{max}}$: To ensure sufficient low-speed performance, a minimum value of this parameter is established as 1, which is below the $C_{l_\text{max}}$ of most aifoils \footnote{\label{foot:NACA_4415}\href{http://airfoiltools.com/airfoil/details?airfoil=naca4415-il}{Airfoil Tools, NACA 4415} (accessed on 11.06.2026)}\footnote{\label{foot:NACA_24112}\href{http://airfoiltools.com/airfoil/details?airfoil=naca24112-jf}{Airfoil Tools, NACA 24112} (accessed on 11.06.2026)}.
     \item $C_{m_{ac}}$: The extrema values of this parameter are most constraining for sizing the empennage for controllability and, as such, taken as critical points. The minimum $C_{m_{ac}}$ accounts for high camber sections such as NACA 4415 with $C_{m_{ac}}$ of around -0.12 \footref{foot:NACA_4415}, while the upper bound accounts for reflexed airfoils such as NACA 24112  with $C_{m_{ac}}$ of up to 0.03 \footref{foot:NACA_24112}.
@@ -244,12 +245,12 @@ These two analyses require common prior steps such as final material selection a
 
 
 
-\section{Verification and Validation}[H]
+\section{Verification and Validation}
 \label{sec:VnV}
 
 % \todo[inline]{From the \textit{Project Guide}\\ The Validation \& Verification Procedures enter the project in two ways:\\ In the first place all used numerical and/or computer models need to be verified (according to the definitions and procedures covered in the course AE3205 – Simulation, Verification and Validation) before these models can actually be used during both the conceptual and detailed design. The verification procedures and results need to be included in both the Midterm and the Final report.\\ In the second place, the Validation \& Verification Procedures describe how the proof will be obtained that the product or system meets the requirements imposed on it. It distinguishes between test, analysis, simulation, review of design (documentation) and similarity (i.e. a comparable design has been developed and operated successfully) as methods to obtain that proof.}
 
-Each design analysis and sizing step from \autoref{fig:workflow_diagram} has been accompanied with a verification and/or validation procedure (\autoref{tab:analysis_modules}) to ensure that the methods are implemented correctly and are applicable to the design. Approaches such as sanity checks, sensitivity studies quantifying the effect of input parameters on outputs, as well as code verification via unit tests, have been employed. In addition, results have been verified by hand and compared with results from reference models where possible. Aeroelastic analysis, the matching diagram, the noise estimation and fuel mass fraction analysis have been verified against examples present in their respective references. Additionally, cross-verification between the semi-empirical formulae involved and panel method solver Flow5 \todo{footref flow 5} has been conducted.
+Each design analysis and sizing step from \autoref{fig:workflow_diagram} has been accompanied with a verification and/or validation procedure (\autoref{tab:analysis_modules}) to ensure that the methods are implemented correctly and are applicable to the design. Approaches such as sanity checks, sensitivity studies quantifying the effect of input parameters on outputs, as well as code verification via unit tests, have been employed. In addition, results have been verified by hand and compared with results from reference models where possible. Aeroelastic analysis, the matching diagram, the noise estimation and fuel mass fraction analysis have been verified against examples present in their respective references. Additionally, cross-verification between the semi-empirical formulae involved and panel method solver flow5 \footnote{\href{https://flow5.tech/flow5.html}{flow5} (accessed 17.06.2026)} has been conducted.
 
 
 
@@ -258,7 +259,7 @@ Each design analysis and sizing step from \autoref{fig:workflow_diagram} has bee
 \caption{Overview of analysis and sizing modules, including inputs, outputs, and verification and validation methods.}
 \small
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{|p{3.0cm}|p{3.5cm}|p{3.0cm}|p{3.5cm}|}
+\begin{tabular}{|p{3.5cm}|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
 \hline
 \textbf{Name} & \textbf{Inputs} & \textbf{Outputs} & \textbf{Verification and Validation} \\
 \hline
@@ -363,4 +364,3 @@ Code verification, validation with reference values \\
 
 \label{tab:analysis_modules}
 \end{table}
-
