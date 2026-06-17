@@ -22,7 +22,7 @@ HUGO's main objective is to monitor and control aeroservoelastic phenomena in hi
 
 As mentioned previously HUGO shall perform its operations in an airspace adjacent to EHKD. Den Helder is a joint civilian and military airport, and as such permits special operations. It also has a 1.27 km runway with on call emergency services, which are beneficial for a test aircraft with potentially high take-off speeds. In the considered case, a departure from runway 21 and via FOXTROT airway is the desired maneouvre \footnote{\href{https://nl.ivao.aero/downloads/specops_loa/ehkd.pdf}{Den Helder Departure Map} (accessed on 11.05.2026)}. From there, HUGO shall follow the departure regulations until it reaches a distance of approximately 6 km from the airfield over the North Sea. Once it is clear of ground, it shall start climbing to test altitude and route towards the testing area at ATC discretion. The test will take place over the North Sea, and HUGO will follow the preplanned path.
 
-Once the take-off area is free, HUGO can proceed to the test site shown in \autoref{fig:flight_area}\footnote{\label{fn:flight_area}\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2002-2026\_2026\_02\_19/index.html}{AIRAC AMDT 02/2026} (accessed on 12.05.2026)}. The site was chosen to be close to Den Helder airport to comply with the fuel and endurance requirements HUG-MIP-01 and (REQUIREMENT CODES GO HERE). The maximum distance in a straight line in the highlighted area is estimated to span 110 km, which allows for the 5 minute test flight to be successfully performed. 
+Once the take-off area is free, HUGO can proceed to the test site shown in \autoref{fig:flight_area}\footnote{\label{fn:flight_area}\href{https://eaip.lvnl.nl/web/eaip/AIRAC\%20AMDT\%2002-2026\_2026\_02\_19/index.html}{AIRAC AMDT 02/2026} (accessed on 12.05.2026)}. The site was chosen to be close to Den Helder airport to comply with  HUG-MIP-01. The maximum distance in a straight line in the highlighted area is estimated to span 110 km, which allows for the 5 minute test flight to be successfully performed. 
 
 %Due to the complexity
 
@@ -83,7 +83,7 @@ The completion of the post-flight operations checklist marks the end of the flig
 
 \subsection{Maintenance}
 \label{subsec:maintenance}
-To ensure HUGO's safe and optimal operation, regular maintenance shall be performed, along with regular repairs in case irregularities are found within the workday. Based on considerations made in previous design phases \footref{foot:baseline}, one HUGO is expected to undergo maintenance for 20\% of the working days, which comes down to 50 working days within a year when accounting for free days. Continuing airworthiness is the responsibility of the operator or, in case the operator is not able to comply with the regulations and standards imposed, an outside certified provider \footnote{\label{Easa_Maintenance}\href{https://www.easa.europa.eu/en/document-library/easy-access-rules/online-publications/easy-access-rules-continuing-airworthiness?erules-id=ERULES-1963177438-693}{Easy Access Rules for Continuing Airworthiness} (accessed on 11.05.2026)}. All maintenance procedures and legislations for HUGO were obtained from EASA documentation on Continuing Airworthiness \footref{Easa_Maintenance}, which is applicable for both manned and unmanned aircraft.
+To ensure HUGO's safe and optimal operation, regular maintenance shall be performed, along with regular repairs in case irregularities are found within the workday. Based on considerations made in previous design phases \footref{foot:baseline}, one HUGO is expected to undergo maintenance for 20\% of the working days, which comes down to 50 working days within a year when accounting for free days. Continuing airworthiness is the responsibility of the operator or, in case the operator is not able to comply with the regulations and standards imposed, an outside certified provider \cite{EASA_CAirworthiness}. All maintenance procedures and legislations for HUGO were obtained from EASA documentation on Continuing Airworthiness \cite{EASA_CAirworthiness}, which is applicable for both manned and unmanned aircraft.
 
 \subsubsection*{General Overview}
 At this stage of the design, according to the Financial Plan for project HUGO \footnote{\label{url-finanical-plan}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/excel-files/financial-plan.xlsm}{Financial Plan for HUGO}}, the fleet is expected to feature five models in the initial development stage, allowing for the possibility of expansion. Having such a fleet size requires a dedicated location where maintenance can be provided. This problem is ultimately discussed in \autoref{sec:logistics}, where the storage of models is expanded upon.
@@ -92,7 +92,7 @@ The maintenance operations include: planning of operation, assessment of process
 
 
 \begin{longtable}{|p{0.28\textwidth}| p{0.68\textwidth}|}
-\caption{Maintenance operations, according to EASA Regulation (EU) No 1321/2014 \footref{Easa_Maintenance}}
+\caption{Maintenance operations, according to EASA Regulation (EU) No 1321/2014 \cite{EASA_CAirworthiness}}
 \label{maintenance_operation} \\
 
 \hline
@@ -166,7 +166,7 @@ Logistics represent the backbone of each project, operation, and mission, encomp
 \subsection{Ground Crew Required for Operation}
 \label{subsec:ground_crew}
 % A ground crew is required to maintain the readiness of HUGO and to set up the ground stations for monitoring. 
-According to the International Civil Aviation Organization (ICAO)\cite{ICAO2011UAS}, a remote crew comprises licensed crew members whose duties are crucial for the in-flight operations of a remotely-piloted aircraft. This includes the remote pilot in charge of manipulating flight controls, a backup pilot, and visual observers (VO) who assist the operations by visually observing the UAV while it remains within the extended line-of-sight. It is also expected that an ATC controller and personnel responsible for coordinating runway maneouvres will have to be involved. 
+According to the International Civil Aviation Organization (ICAO) \cite{ICAO2011UAS}, a remote crew comprises licensed crew members whose duties are crucial for the in-flight operations of a remotely-piloted aircraft. This includes the remote pilot in charge of manipulating flight controls, a backup pilot, and visual observers (VO) who assist the operations by visually observing the UAV while it remains within the extended line-of-sight. It is also expected that an ATC controller and personnel responsible for coordinating runway maneouvres will have to be involved. 
 
 Since there are no hard requirements regarding the minimum composition of the crew, it is assumed that HUGO will require one pilot, one VO, and additional personnel as deemed appropriate by the airport authorities. The pilot is expected to operate the UAV during take-off, approach, go-around, and landing maneouvres, while the test segments are to be flown by autopilot. Nonetheless, remote control at all flight segments shall be achievable as per HUG-NLR-05.
 

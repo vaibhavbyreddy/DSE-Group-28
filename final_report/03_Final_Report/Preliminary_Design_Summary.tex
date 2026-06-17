@@ -1,28 +1,32 @@
 \chapter{Preliminary Design Summary}
 \label{ch:preliminary_design_summary}
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters and also autoref each section and what its purpose is}
+%\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters and also autoref each section and what its purpose is}
+
+This chapter consolidates the outcomes of the preliminary design phase by bringing together the key results from the configuration definition, structural and system sizing, performance verification, and mission feasibility assessments. It provides an integrated overview of the final HUGO configuration and demonstrates how the individual design disciplines converge into a consistent aircraft definition.
+
+The overall design results are summarised in \autoref{sec:project_done}, where the final mass properties, structural sizing outcomes, propulsion-related constraints, and tail sizing requirements are presented. Then the degree to which the design complies with the initial set of user and system requirements is evaluated in \autoref{sec:compliance_matrix_feasibility_analysis}, where a structured compliance matrix is used to assess feasibility and highlight remaining open points for further development. In addition, a final life cycle assessment is presented in \autoref{sec:finalLCA}, providing an updated environmental impact evaluation based on the fully defined preliminary design. Finally, the project design and development logic is discussed in \autoref{sec:pdd_logic}, outlining the transition from preliminary design into detailed design, manufacturing, and operational phases.
 
 \section{Preliminary Design Overview}
 \label{sec:project_done}
 
-\todo[inline]{is this section needed?}
+%\todo[inline]{is this section needed?}
 
-The main results of the preliminary design are presented in . These results point to a heavier aircraft than those of the Midterm Report \footref{foot:midterm}, but still within the MTOM limits. One can note that the reported available fuel volume is much larger than the fuel mass required for the standard planform. This is because other planforms may offer lower aerodynamic efficiency, and the additional volume allows for fuel movement between the tanks to move the CG in flight, as described in \autoref{sub:cg_location}  
+The main results of the preliminary design are presented in \autoref{tab:final-design-overview}. These results point to a heavier aircraft than those of the Midterm Report \footref{foot:midterm}, but still within the MTOM limits. One can note that the reported available fuel volume is much larger than the fuel mass required for the standard planform. This is because other planforms may offer lower aerodynamic efficiency, and the additional volume allows for fuel movement between the tanks to move the CG in flight, as described in \autoref{sub:cg_location}.  
 
 
 \begin{table}[h]
     \centering
-    \caption{Preliminary designresults for HUGO}
+    \caption{Preliminary design results for HUGO}
     \begin{tabular}{|c|c|c|c|}\hline
         \textbf{Parameter} & \textbf{Unit} & \textbf{Value} & \textbf{Source}  \\\hline
          Fuselage group maximum mass & kg & 40.78 & \autoref{ch:configuration_layout}\\\hline
          MTOM for the standard planform & kg& 46.76 &\autoref{sub:semi-empirical-tail} \\\hline
-         Fuselage total skin panel thickness& mm &10.8 (.4-10-.4) & \autoref{sec:fuselage_structural_analysis} \\\hline
+         Fuselage total skin sandwich panel thickness& mm &10.8 (0.4-10-0.4) & \autoref{sec:fuselage_structural_analysis} \\\hline
          Standard planform skin thickness& mm & 2.5 & \autoref{sec:wing_structural_analysis}\\\hline
          Standard planform $S_h/S$& - & 0.106 & \autoref{sub:semi-empirical-tail} \\\hline
          
-         Fuel required standard planform& kg & 6.884 & \\\hline
+         Fuel required standard planform& kg & 6.884 & \autoref{sec:payload-range_diagram} \\\hline
 
          Total fuel volume & l & 15& \autoref{sub:propulsion_system_design} \\\hline
     \end{tabular}
@@ -84,8 +88,8 @@ Another user requirement which is not met by the standard HUGO configuration is 
 \section{Final LCA}
 \label{sec:finalLCA}
         
-Having the system, subsystem sizing, emission-calculator (see \autoref{sec:emission_analysis}) and detailed flight profile it is possible modify the preliminary LCA to make the final LCA. The LCA consists of 4316 individual processes and with 52553 process links.
-The diagram which can be found at (see Appendix A \autoref{fig:Final_LCA}) is just a small section of it. The full LCA can be found at (\footnote{\href{https://www.dropbox.com/scl/fi/ets1n8ow6bpw06mrl66y8/DSE-28-Final.zip?rlkey=k12clxdx1p1n44j69a3f6jt94&st=0nscvdv0&dl=0}{FinalLCA-download} }). 
+Having the system, subsystem sizing, emission-calculator (\autoref{sec:emission_analysis}) and detailed flight profile it is possible modify the preliminary LCA to make the final LCA. The LCA consists of 4316 individual processes and with 52553 process links.
+The diagram shown in \autoref{fig:Final_LCA} is just a small section of it. The full LCA can be found at \footnote{\href{https://www.dropbox.com/scl/fi/ets1n8ow6bpw06mrl66y8/DSE-28-Final.zip?rlkey=k12clxdx1p1n44j69a3f6jt94&st=0nscvdv0&dl=0}{FinalLCA-download} (accessed on 17.06.2026)}. 
 The model used for evaluating the emissions was (IPCC) 2021
 (ISO 14067) which is a standard method used for evaluating the impact of processes  \footnote{\href{https://simapro.com/insights/product-carbon-footprint-standards-which-standard-to-choose/}{IPCC} (accessed on 12.06.2026)}. Then the LCA can be run and total emission can be calculated. 
 
@@ -99,7 +103,7 @@ It is also possible to list the largest contributes.
     \caption{Listing of 6 direct contributors the overall emissions}
     \label{fig:LCA6}
 \end{figure}
-This shows how the  operation is still the largest contributor to the overall emissions. In this instance it can be seen that how the farming of the rapeseed oil actively decrease the emissions. Using the results from the previous  LCA it was possible to change the supply chain and substantially decrease the overall emissions.   
+This shows how the  operation is still the largest contributor to the overall emissions. In this instance it can be seen that how the farming of the rapeseed oil actively decrease the emissions. Using the results from the previous LCA it was possible to change the supply chain and substantially decrease the overall emissions.   
 Another very interesting result is the grey column which is a summation of all the lesser the contributions. The main advantage of using the in depth analysis and very interconnected model is the ability to automatically take effects into account, which in a less connected model would have been neglected.     
 
 \section{Project Design \& Development Logic}
@@ -120,7 +124,9 @@ It is important to keep an outlook for the future of the project and the subsequ
 The Project Design \& Development Logic diagram can be seen in \autoref{fig:proj_design} in \autoref{app:project_planning_diagrames}.
 
 An important element of access the further development is to get an overview of future expenses. 
-The cost-break down structure identifies each cost element and links it to a larger group. The diagram is tree structure with the total cost in the top and then the cost of elements branching out underneath. A detailed cost break down was already performed in the market analysis to ascertain the profitability of the project \autoref{ch:market_anaysis}. This was used to make the diagram which can be found in \autoref{fig:proj_design}, and the corresponding post-DSE Gantt Chart in \autoref{fig:gantt_chart}.
+The cost-break down structure identifies each cost element and links it to a larger group. The diagram is tree structure with the total cost in the top and then the cost of elements branching out underneath. A detailed cost break down was already performed in the market analysis to ascertain the profitability of the project (\autoref{ch:market_anaysis}). This was used to make the diagram which can be found in \autoref{fig:proj_design}, and the corresponding post-DSE Gantt Chart in \autoref{fig:gantt_chart}.
+
+This chapter has consolidated the final results of the preliminary design phase and confirmed that the HUGO configuration meets the key performance, structural, and operational requirements within the defined constraints. The compliance assessment shows that the majority of user requirements are satisfied, with only a limited number of open points remaining for further refinement. The updated life cycle assessment and development logic further support the feasibility of the design. 
 
 
 

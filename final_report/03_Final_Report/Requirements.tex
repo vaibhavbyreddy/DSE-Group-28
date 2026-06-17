@@ -107,7 +107,7 @@ HUG-NLR-06 & The UAV shall be reconfigurable in a short time frame, as to allow 
 
 \end{longtable}
 
-The user requirements provide a sense of the aircraft's intended operation and the user's expectations regarding its final performance and design. As such, they cannot always be validated to ensure that the system can perform its functions successfully, i. e., they are not VALID (Verifiable, Achievable, Logical, Integral, Definite). For this reason, the FFD and WBS were consulted to define the system requirements, which describe the product's performance in a way that can be validated. From those, subsystem requirements are derived to define the specific performance on a subsystem level. Comprehensive lists of system and subsystem requirements are showcased in \autoref{tab:system_requirements} and \autoref{tab:subsystem_requirements}, respectively.
+The user requirements provide a sense of the aircraft's intended operation and the user's expectations regarding its final performance and design. As such, they cannot always be validated to ensure that the system can perform its functions successfully, i.e., they are not VALID (Verifiable, Achievable, Logical, Integral, Definite). For this reason, the FFD and WBS were consulted to define the system requirements, which describe the product's performance in a way that can be validated. From those, subsystem requirements are derived to define the specific performance on a subsystem level. Comprehensive lists of system and subsystem requirements are showcased in \autoref{tab:system_requirements} and \autoref{tab:subsystem_requirements}, respectively.
 
 \begin{longtable}{|c|p{13.5cm}|}
 \caption{HUGO's system requirements}
@@ -137,7 +137,7 @@ HUG-GEN-03 & The end user shall be able to install at least 5 kg of payload on t
 HUG-GEN-04 & The aircraft shall be able to execute the flight profile without any customer-specific payload. \\\hline
 HUG-GEN-05 & The aircraft shall retain structural integrity after 15 years of usage with four flights per day, 100 days a year \footref{foot:baseline} %\footref{foot:midterm}%\footnote{\label{rep:midterm_rep}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)}.
 \\\hline
-HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van \footnote{\href{https://bedrijfswagens.renault.nl/master-bedrijfswagen/master.html?bodyTypeCode=PT1261_gesloten_bestel&CAMPAIGN=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&ORIGIN=paid_search&utm_source=google&utm_source_platform=SA360&utm_medium=cpc&utm_campaign=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&utm_id=23043794109&gclsrc=aw.ds&gad_source=1&gad_campaignid=23043828444&gbraid=0AAAAAC0pnE4OIhTuGrHobEVsuI4Ct-vkz&gclid=CjwKCAjwuanRBhBSEiwAY5y6V0Nv8q7vbgl489RraAw-uvJhci8UrWxul1qhh9Pk0YAceLV7-VfgihoC6zMQAvD_BwE}{Renault Master} (accessed on 11.06.2026)}. \\\hline HUG-GEN-07 & The aircraft shall not be louder than 90 dB(A) during any point of operation. \\\hline
+HUG-GEN-06 & All equipment necessary to perform the flight test shall fit in a Renault Master E-Tech L3H2 van \footnote{\label{foot:renault}\href{https://bedrijfswagens.renault.nl/master-bedrijfswagen/master.html?bodyTypeCode=PT1261_gesloten_bestel&CAMPAIGN=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&ORIGIN=paid_search&utm_source=google&utm_source_platform=SA360&utm_medium=cpc&utm_campaign=nl-nl-r-l-na-brand-commercial_van-etech-go-pmax-LCV-&utm_id=23043794109&gclsrc=aw.ds&gad_source=1&gad_campaignid=23043828444&gbraid=0AAAAAC0pnE4OIhTuGrHobEVsuI4Ct-vkz&gclid=CjwKCAjwuanRBhBSEiwAY5y6V0Nv8q7vbgl489RraAw-uvJhci8UrWxul1qhh9Pk0YAceLV7-VfgihoC6zMQAvD_BwE}{Renault Master} (accessed on 11.06.2026)}. \\\hline HUG-GEN-07 & The aircraft shall not be louder than 90 dB(A) during any point of operation \cite{ICAO_Annex16}. \\\hline
 \multicolumn{2}{|c|}{\textbf{Manufacturing, Assembly, and Integration}}\\\hline
 HUG-MAN-01 & The manufacturing cost of a single aircraft with the Standard Wing Planform shall be less than 45000€. \\\hline
 HUG-MAN-02 & The aircraft with the Standard Wing Planform shall be fully manufacturable using only Technology Readiness Level 10 \footnote{\href{https://en.wikipedia.org/wiki/Technology_readiness_level}{Technology readiness level} (accessed on 11.06.2026)} manufacturing techniques. \\\hline
@@ -159,24 +159,24 @@ HUG-CTL-03 & The aircraft shall be controllable remotely up to the distance from
 HUG-MIP-01 & The aircraft shall have a nominal mission endurance of 30 minutes, for a cruise altitude of FL270 and the cruise speed of Mach 0.4 outside of its 5 minutes experiment segment. \\\hline
 HUG-MIP-02 & The aircraft shall be capable of sustaining Mach 0.75 at an altitude of FL270 for the 5 minutes experiment segment during its nominal mission, at 50\% fuel fraction for any planform inside the High-speed Envelope. \\\hline
 HUG-MIP-03 & The aircraft shall perform take-off and landing maneouvres at Den Helder airport (DHR/EHKD) unless redirected to other airports by De Kooy ATC \footref{foot:midterm}. \\\hline
-HUG-MIP-03 & The aircraft shall be capable of performing four landing attempts at Den Helder airport, with a go-around altitude of 1500 ft, not counted in its nominal endurance of 30 minutes. \\\hline
-HUG-MIP-04 & The aircraft shall perform all maneouvres with performance compliant with SC Light-UAS 01. \cite{easa_light_uas_crd_is3} \\\hline
-HUG-MIP-05 & The aircraft shall have enough fuel to sustain the nominal flight and 4 go-arounds.\\ \hline
+HUG-MIP-04 & The aircraft shall be capable of performing four landing attempts at Den Helder airport, with a go-around altitude of 1500 ft, not counted in its nominal endurance of 30 minutes. \\\hline
+HUG-MIP-05 & The aircraft shall perform all manoeuvres with performance compliant with SC Light-UAS 01 \cite{easa_light_uas_crd_is3}. \\\hline
+HUG-MIP-06 & The aircraft shall have enough fuel to sustain the nominal flight and 4 go-arounds.\\ \hline
 
 \multicolumn{2}{|c|}{\textbf{Emergency Handling}} \\\hline
-HUG-EME-01 & Isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures (failure conditions that are expected to result in one or more fatalities). \cite{easa_light_uas_crd_is3}\\\hline
-HUG-EME-02 & HUGO shall be protected against the catastrophic effects of lightning (expected to result in one or more fatalities). \cite{easa_light_uas_crd_is3} \\\hline
+HUG-EME-01 & Isolated single-point failures of control surfaces or loss of thrust shall not cause catastrophic failures (failure conditions that are expected to result in one or more fatalities) \cite{easa_light_uas_crd_is3}.\\\hline
+HUG-EME-02 & HUGO shall be protected against the catastrophic effects of lightning (expected to result in one or more fatalities) \cite{easa_light_uas_crd_is3}. \\\hline
 HUG-EME-03 & It shall be possible to terminate the mission in a controlled manner at any point in time, using a "return to home" command. \\\hline
 HUG-EME-04 & In case of communication loss, the aircraft shall autonomously return to the launch site. \\\hline
-HUG-EME-05 & The fire protection system shall minimise the risk of fire initiation and propagation such that ground hazards for people and infrastructure are properly mitigated. \cite{easa_light_uas_crd_is3}. \\\hline
-HUG-EME-06 & No single failure of the UAS or of any external system supporting the operation must lead to its operation outside the ground risk buffer defined by EASA SC Light-UAS regulations.\cite{easa_light_uas_crd_is3} \\\hline
+HUG-EME-05 & The fire protection system shall minimise the risk of fire initiation and propagation such that ground hazards for people and infrastructure are properly mitigated \cite{easa_light_uas_crd_is3}. \\\hline
+HUG-EME-06 & No single failure of the UAS or of any external system supporting the operation must lead to its operation outside the ground risk buffer defined by EASA SC Light-UAS regulations \cite{easa_light_uas_crd_is3}. \\\hline
 HUG-EME-07 & No single-point failure of electronic components shall cause mission failure. \\\hline
 
 
 \end{longtable}
 
 
-
+\newpage
 \begin{longtable}{|c|p{13.5cm}|}
 \caption{HUGO's subsystem requirements}
 \label{tab:subsystem_requirements} \\
@@ -220,16 +220,16 @@ HUG-PRP-03 & The engines shall be mounted to the fuselage, behind the main wing.
 % HUG-PRP-04 & The engines shall be attached to the fuselage via bolted joints. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Structures}} \\\hline
-HUG-STR-01 & The structure shall support limit loads without interference with the safe operation and without detrimental permanent deformation. \cite{easa_light_uas_crd_is3} \\\hline
-HUG-STR-02 & The structure shall support ultimate loads, which are equal to the limit loads multiplied by safety factor of 1.5 (unless otherwise provided), without failures.  \cite{easa_light_uas_crd_is3} \\\hline
+HUG-STR-01 & The structure shall support limit loads without interference with the safe operation and without detrimental permanent deformation \cite{easa_light_uas_crd_is3}. \\\hline
+HUG-STR-02 & The structure shall support ultimate loads, which are equal to the limit loads multiplied by safety factor of 1.5 (unless otherwise provided), without failures \cite{easa_light_uas_crd_is3}. \\\hline
 %HUG-STR-03 & The aircraft structure shall not buckle under loads lower than the ultimate loads. \\\hline
 % HUG-STR-04 & The natural frequencies of the structure shall remain outside the range of 0.8 to 1.4 of the blade-pass frequency of the engine  \cite{Prakash2016DynamicFoundation, Alhazmi2025CoolingFanVibration}. \\\hline
 HUG-STR-05 & The structure shall provide space and mounting points for auxiliary systems. \\\hline
 HUG-STR-06 & The aircraft shall house a payload bay of at least 5 L internal volume. \\\hline
-HUG-STR-07 & The wing shall not twist more than $10 \deg$ at the wingtip at a load factor of 6.\cite{easa_light_uas_crd_is3}\\\hline
-HUF-STR-08 & The wingtip shall not deflect more than 15 \% of the total span at a load factor of 6. \cite{easa_light_uas_crd_is3} \\\hline
-HUF-STR-09 & The wings shall not buckle at loads up to a factor of 6. \cite{easa_light_uas_crd_is3}\\\hline
-HUF-STR-010 & The structure shall sustain ultimate loads up to a load factor of 9. \cite{easa_light_uas_crd_is3}\\\hline
+HUG-STR-07 & The wing shall not twist more than $10 \deg$ at the wingtip at a load factor of 6 \cite{easa_light_uas_crd_is3}.\\\hline
+HUF-STR-08 & The wingtip shall not deflect more than 15 \% of the total span at a load factor of 6 \cite{easa_light_uas_crd_is3}. \\\hline
+HUF-STR-09 & The wings shall not buckle at loads up to a factor of 6 \cite{easa_light_uas_crd_is3}.\\\hline
+HUF-STR-010 & The structure shall sustain ultimate loads up to a load factor of 9 \cite{easa_light_uas_crd_is3}.\\\hline
 
 
 \multicolumn{2}{|c|}{\textbf{Test Planform}}\\\hline

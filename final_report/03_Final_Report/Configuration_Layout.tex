@@ -44,7 +44,7 @@ C2 is a custom-made protocol that allows for bidirectional communication at such
 
 
 \subsection{Mass Budget}
-Based on initial design considerations \footref{foot:baseline}, HUGO's MTOM limit was set at 50kg (HUG-GEN-001). This is a hard limit set by the operation clients to ensure that HUGO is easy to transport and store. Due to the modular design aspect, a component-by-component weight estimation proves unfeasible. For this reason, the mass budget is split between subsystems applicable for a given configuration and monitored constantly between design iterations. Initial estimations performed in the previous design phase  \footref{foot:midterm} envision that a fuel mass of 10 kg will be required for the nominal test scenario, leaving 40 kg for structures and external and internal equipment.
+Based on initial design considerations \footref{foot:baseline}, HUGO's MTOM limit was set at 50kg (HUG-GEN-01). This is a hard limit set by the operation clients to ensure that HUGO is easy to transport and store. Due to the modular design aspect, a component-by-component weight estimation proves unfeasible. For this reason, the mass budget is split between subsystems applicable for a given configuration and monitored constantly between design iterations. Initial estimations performed in the previous design phase  \footref{foot:midterm} envision that a fuel mass of 10 kg will be required for the nominal test scenario, leaving 40 kg for structures and external and internal equipment.
 
 A major contributor to the mass of the aircraft is the internal configuration composed of the electronic and propulsion subsystem, the latter excluding the fuel. The contribution to the mass can be found at the end of \autoref{sec:internal_configuration}, folowing at the end of \autoref{ch:configuration_layout} to have a complete mass distribution for HUGO.
 
@@ -59,7 +59,7 @@ A major contributor to the mass of the aircraft is the internal configuration co
 %---------------------------------------------------------
 There is a set restriction for the outer dimensions of the aircraft set by the requirement that it and all necessary equipment to operate it should fit inside a van. This is something that should be taken into consideration while designing the plane. 
 
-To ensure a more sustainable transport of the aircraft the electric Renault Master E-tech L3H2 variant was chosen as reference van \footnote{\href{https://business.renault.co.uk/master-range/master-panel-van.html}{Renault Master Van}(accessed on 24.04.2026)}. 
+To ensure a more sustainable transport of the aircraft the electric Renault Master E-tech L3H2 variant was chosen as reference van \footnote{\href{https://business.renault.co.uk/master-range/master-panel-van.html}{Renault Master Van} (accessed on 24.04.2026)}. 
 \begin{table}[H]
     \centering
     \caption{Renault Master E-Tech L3H2 Loading Specifications}
@@ -101,7 +101,7 @@ Optimising the packing of the disassembled aircraft might become necessary on la
 The outside dimensions are also set by the internal components that have to be housed within, including the electronic system, propulsion systems, and the sensor payload. Once the components for each system are outlined in \autoref{sec:internal_configuration}, HUGO will have a lower limit as well regarding fuselage dimensions. 
 
 \subsection{Internal Dimensions}
-Along with the systems and sensors found in the fuselage, as stated by HUG-GEN-003, HUGO has to have space for a payload of a minimum of 5 kg at a volume of 5 litres. This space will be provided once the electrical and propulsion systems are integrated and placed inside the fuselage. The dimensions of the fuselage will be adapted to ensure that all components fit.
+Along with the systems and sensors found in the fuselage, as stated by HUG-GEN-03, HUGO has to have space for a payload of a minimum of 5 kg at a volume of 5 litres. This space will be provided once the electrical and propulsion systems are integrated and placed inside the fuselage. The dimensions of the fuselage will be adapted to ensure that all components fit.
 
 Along the internal components, inside the fuselage there will also be placed the fuel supply, and for this project, the fuel subsystem is attached to the propulsion system. Sensors for the experiments are placed along the wing as well as at the interface of the wing to the fuselage to measure bending and moments and forces. 
 
@@ -170,11 +170,11 @@ In \autoref{fig:electronics_mapping} it can be seen that the battery does not di
 
 Once all the components of the electronic system essential for flying and testing have been brought together, their individual power consumption and weight are computed \autoref{tab:electric_comp}. The total power consumed by all the electronic components, including the sensor payload represent the power budget that is used to size the battery. HUGO will only operate for a maximum of 45 minutes in the most extreme scenario, utilising 846.06 W of power (\autoref{tab:electric_comp}). This is a power requirement, and it represents the base value and an additional $10\%$ power increase to account for any error margins or extra usage from the components. After an analysis of possible sensor platforms, it was determined that the power consumed by the payload is estimated at 50 W.
 
-With the total required power estimated at approximately 900 W and a minimum bus voltage of 24 V, the battery pack can be sized. To reduce packaging volume and allow the pack geometry to be adapted to HUGO, a custom battery pack is selected using Molicel INR21700 cells\footnote{\href{https://www.nkon.nl/en/molicel-inr21700-m65a-6500mah-26a.html}{Molicel INR21700} (accessed on 02.06.2026)}.
+With the total required power estimated at approximately 900 W and a minimum bus voltage of 24 V, the battery pack can be sized. To reduce packaging volume and allow the pack geometry to be adapted to HUGO, a custom battery pack is selected using Molicel INR21700 cells \footnote{\href{https://www.nkon.nl/en/molicel-inr21700-m65a-6500mah-26a.html}{Molicel INR21700} (accessed on 02.06.2026)}.
 
-An 8-cell series configuration provides a nominal voltage of 28.8 V. To meet the required current demand, five cells are placed in parallel, resulting in an 8S5P configuration. At the nominal voltage, the required current for a 900 W load is approximately 31.3 A. This corresponds to about 6.3 A per cell, which is within the operating capability of the selected cells, at 6.5 A. The resulting pack can therefore supply approximately 936 W at nominal voltage, leaving a small power margin of 36W above the estimated requirement, which can be utilised by additional systems brought by customers.
+An 8-cell series configuration provides a nominal voltage of 28.8 V. To meet the required current demand, five cells are placed in parallel, resulting in an 8S5P configuration. At the nominal voltage, the required current for a 900 W load is approximately 31.3 A. This corresponds to about 6.3 A per cell, which is within the operating capability of the selected cells, at 6.5 A. The resulting pack can therefore supply approximately 936 Wh at nominal voltage, leaving a small margin of 36 Wh above the estimated requirement, which can be utilised by additional systems brought by customers.
 
-At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power consumptions are provided in \autoref{tab:electric_comp}, and the file that was used to converge all the values is in \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/excel-files/Electronic\%20Components\%20\%26\%20Reliability\%20Study.xlsx}{Electronic Components \& Reliability Study} (15.06.2026)}.
+At this design stage, the initial configuration has been built upon, a list of the complete components, including weight, dimension and power consumptions are provided in \autoref{tab:electric_comp}, and the file that was used to converge all the values is in \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/excel-files/Electronic\%20Components\%20\%26\%20Reliability\%20Study.xlsx}{Electronic Components \& Reliability Study} (accessed on 15.06.2026)}.
 
 \begin{table}[H]
 \centering
@@ -289,7 +289,7 @@ While exploring options for different experiments for HUGO, a stability test was
 
 
 \subsection{Sensor Interaction}
-\label{sub:sensor_interaction}
+\label{sub:sensorinteraction}
 To measure and record the results from the experiments, it is necessary to use sensors. Since HUGO features versatility for a specific customer's needs, the electrical system was designed with a margin to make it possible to bring additional sensors.       
 Using the mission envelope  (\autoref{sec:mission_envelope}), it is possible to identify the following phenomenon, which needs to be measured: 
 \begin{itemize}
@@ -318,7 +318,7 @@ Using the mission envelope  (\autoref{sec:mission_envelope}), it is possible to 
 
 %A very important aspect of the configuration is the sensor-placement. This is not only due to a practical concern (for wiring and connections) but will also have a direct impact on the viability and usability of the data collected. It is also necessary to find the specific sensors that would be used. 
 
-Once the sensor types have been identified in \autoref{sub:sensor_interaction}, it is time to find the specific sensors that would be used. Moreover, a very important aspect of the configuration is the sensor-placement. This is not only due to a practical concern (for wiring and connections) but will also have a direct impact on the viability and usability of the data collected.
+Once the sensor types have been identified in \autoref{sub:sensorinteraction}, it is time to find the specific sensors that would be used. Moreover, a very important aspect of the configuration is the sensor-placement. This is not only due to a practical concern (for wiring and connections) but will also have a direct impact on the viability and usability of the data collected.
 
 It is important to evaluate the precision and accuracy of each chosen sensor. Precision refers to how much repeated measurements deviate for a specific sensor. The accuracy specifies how much the measured value deviates from the true value. Knowing these makes it possible to access the quality of the measured data from the experiments \footnote{\href{https://web.chem.ox.ac.uk/teaching/Physics\%20for\%20CHemists/Errors/Precision.html}{Precision and accuracy} (accessed 03.06.2026)}.
 
@@ -466,15 +466,16 @@ Having the entire system, it is now possible to finalize the configuration and i
     \label{fig:placeholder}
 \end{figure}
 
+\newpage
 \subsection{Internal Component Configuration}
 \label{sub:internal_config}
-At this stage of the design, all the internal components have been identified and listed. In order to satisfy requirement HUG-TUD-09, HUGO has been designed to accommodate a 5 kg payload in the rear section of the fuselage, under the aft hatch. The space has been sized for a volume of 5L to allow potential customers the option to provide their own equipment. HUGOs's electronic system can accommodate a new electronic subsystem that consumes up to 36W for the 45 minute flight duration, and its own electronic system permits additional inputs from outside sources. A detailed schematic of volume allocation can be found in \autoref{fig:volume_allocation}.
+At this stage of the design, all the internal components have been identified and listed. In order to satisfy requirement HUG-TUD-09, HUGO has been designed to accommodate a 5 kg payload in the rear section of the fuselage, under the aft hatch. The space has been sized for a volume of 5L to allow potential customers the option to provide their own equipment. HUGOs's electronic system can accommodate a new electronic subsystem that consumes up to 36W for the 45 minute flight duration, and its own electronic system permits additional inputs from outside sources. A detailed schematic of volume allocation can be found in \autoref{fig: volume_allocation}.
 
 
 \begin{figure}[H]
     \centering   \includegraphics[width=0.95\linewidth]{figures_final/Internal Configuration.jpg}
-    \caption{Internal configuration of component selection}
-    \label{fig:volume_allocation}
+    \caption{Volume allocation based on component selection}
+    \label{fig: volume_allocation}
 \end{figure}
 
 
@@ -526,12 +527,9 @@ The general dimensions of HUGO expected to enter production can be seen in \auto
 \label{sub:sensor_poz}
 The main purpose of HUGO is to provide data to scientists, consequently the positioning of the sensors in the fuel cell is very important in this aspect. 
 
-To be able to fly the aircraft manually in BVLOS conditions, a camera is provided located on top of the tail, offering visual footage of both the path and wing behaviour. The camera is positioned in such a way that the wings are permanently in view, even at their maximum deflection. Camera is located as seen in \autoref{} \todo{add camera image}
- Under the wings, inside the fuselage body, each side has a LIDAR sensor to monitor wing behaviour during experiments, \autoref{} \todo{add a fig with the sensor holes}
+To be able to fly the aircraft manually in BVLOS conditions, a camera is provided located on top of the tail, offering visual footage of both the path and wing behaviour. The camera is positioned in such a way that the wings are permanently in view, even at their maximum deflection. The camera is located as indicated in \autoref{fig: volume_allocation}. Below the wings and inside the fuselage body, a LIDAR sensor is positioned at each side to monitor wing behaviour during experiments, as shown in \autoref{fig:deflec}. Finally, strain gauges are mounted on top of and underneath the wings to measure the stresses endured during test conditions, as seen in \autoref{fig:dot}. 
 
- Finally, the wing has mounted underneath it strain gauges to measure the stresses in the airframe, \autoref{} \todo{add also one here}
-
-The landing gear features a retractable system integrated into sidepods, into a tricycle configuration. Its sizing and structural analysis is expanded upon in \autoref{sub:landing_gear_design}
+The landing gear features a retractable system integrated into sidepods, in a tricycle configuration. Its sizing and structural analysis is expanded upon in \autoref{sub:landing_gear_design}
 
 \subsection{Landing Gear Design}
 \label{sub:landing_gear_design}
@@ -768,6 +766,14 @@ Displacement and damping constraints will be applied to the state space model. I
 
 In \autoref{fig:CK_tuning} a 100 by 100 grid of C and K parameters on a logarithmic scale are analysed for a mass of 50 kg, and a downward velocity of 2 m/s; the highest expected load with the full mass on a single landing gear strut. The green area shows the feasible combinations of C and K that do not exceed the displacement or damping constraints. Then, values of C and K were manually tuned to minimise the total displacement. Through trial and error the values of C = 781.115 and K = 48168.2 were chosen.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/landing_gear_parameter_space.png}
+    \caption{Parameter sweep of spring and dashpot constants}
+    \label{fig:CK_tuning}
+\end{figure}
+
+\begin{comment}
 \begin{wrapfigure}[10]{r}{0.43\textwidth}
     \centering
     \vspace{-0.5cm}
@@ -775,12 +781,13 @@ In \autoref{fig:CK_tuning} a 100 by 100 grid of C and K parameters on a logarith
     \caption{Parameter sweep of spring and dashpot constants}
     \label{fig:CK_tuning}
 \end{wrapfigure}
+\end{comment}
 
 The landing gear response for a landing speed of 2m/s and 3m/s (2m/s * safety factor from SC-UAS High Risk \cite{easa_light_uas_crd_is3} \cite{EASA_SC_Light_UAS_High_Risk_2021}) is shown in \autoref{fig:lg_response}. For a landing speed of 2 m/s, the peak force was found to be 2.50433 kN (pink), at a displacement of 4.54 cm (blue). Applying a safety factor of 1.5 to the peak force obtained gives 3.756 kN (black) which must be withstood by the structure and a displacement of 6.84cm (yellow). Because the velocity and maximum displacement are linearly proportional in a linear time-invariant system, this is equivalent to having simulated a downward velocity of 3 m/s.
 
 \begin{figure}[H]
     \centering
-    \vspace{3cm}\includegraphics[width=0.9\linewidth]{figures_final/lg_response.png}
+    \includegraphics[width=1.0\linewidth]{figures_final/lg_response.png}
     \caption{Landing gear response with C = 781.115 and K = 48168.2}
     \label{fig:lg_response}
 \end{figure}
@@ -794,13 +801,13 @@ The same implementation check was used for the LTI system modelling the landing 
 The plotting of the parameter sweep was done using Claude. As input, it took the displacement and damping constraints, and the landing gear simulator using the control library. To ensure the graphs accurately depicted the computed results, points along the boundary and within the graph were selected and then simulated using the LTI system in \autoref{eq:state_output_equations_2} function. All points selected matched the graph produced by Claude with the exception of the points within the over-damped section. This is because if a combination of C and K values were over-damped, Claude would not continue the analysis to determine if it met the remaining constraints. A manual check was performed on the chosen values of C and K, and indeed those values produced over-damping. As such, the graphs produced were considered verified.
 
 
-\subsection{Environmental Control}
+\subsection{External Environment Control}
 \label{sub:environmental_control}
-Environmental control is the response of HUGO to different external factors such as rain or UV-radiation. An analysis was established where different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
+External environmental control is the response of HUGO to different external factors such as rain or UV-radiation \cite{andreev2014icing}. An analysis was established where different flight conditions have been considered, and it was determined that the critical case for HUGO come from the presence of ice on the wings due to the low temperatures. 
 
 As supercooled water hits the fuselage, it instantly turns into ice, increasing the weight \cite{andreev2014icing} and damaging the aerodynamic profile. Since the wings fitted on HUGO are very thin, optimised for high cruise speed, any perturbation of the aerodynamic profile may result in a catastrophic event. 
 
-There are two primary ways to combat this phenomenon, either by using a passive system (coating or phase changing materials) or by an active system (heating elements). Since the wings are subjected to regular replacement and modifications, it is more efficient to use a passive system for HUGO. 
+There are two primary ways to combat this phenomenon, either by using a passive system (coating or phase-changing materials) or by an active system (heating elements). Since the wings are subjected to regular replacement and modifications, it is more efficient to use a passive system for HUGO. 
 
 A coating that could help HUGO delay the formation of ice on the wings involves coating them with a poly-siloxane elastomer coating that sticks to resin \cite{facco2025passive}. It delays the formation of ice on the wings as well as offering a very low ice adhesion, effectively protecting the wing from ice. Despite its weak mechanical properties, HUGO is not meant to fly for many missions with the same set of wings, as such it does not require withstanding a lot of cycles. 
 
@@ -809,7 +816,7 @@ A coating that could help HUGO delay the formation of ice on the wings involves 
 \subsection{Change of the centre of gravity}
 \label{sub:Changeofthecentreofgravity}
 
-As mentioned in the mission envelope (\autoref{sec:mission_envelope}), new control systems might be implemented and tested. As the controllability of a aircraft is highly dependent on the CG, it was decided to have it as a parameter that can be changed during flight. This is achieved by pumping the fuel between the two fuel tanks onboard as described in \autoref{sub:cg_location}. The range of the CG can be calculated by knowing the empty weight of the aircraft, fuel weight, and the placement of the fuel tanks. As stipulated in the Matching diagram (see \autoref{tab: Matching diagram constraints}), the fuel tanks would be at $50\%$. Then, assuming straight and level flight, the CG location can be estimated by calculating the moments generated by the fuel mass relative to the empty weight CG. This is then divided by the mass of the complete aircraft \footnote{\href{https://engineeringstatics.org/Chapter_07-center-of-gravity.html}{CG} (accessed 16.06.2026)}. The code for the calculations can be found in the project repository
+As mentioned in the mission envelope (\autoref{sec:mission_envelope}), new control systems might be implemented and tested. As the controllability of a aircraft is highly dependent on the CG, it was decided to have it as a parameter that can be changed during flight. This is achieved by pumping the fuel between the two fuel tanks onboard as described in \autoref{sub:cg_location}. The range of the CG can be calculated by knowing the empty weight of the aircraft, fuel weight, and the placement of the fuel tanks. As stipulated in the Matching diagram ( \autoref{tab: Matching diagram constraints}), the fuel tanks would be at $50\%$. Then, assuming straight and level flight, the CG location can be estimated by calculating the moments generated by the fuel mass relative to the empty weight CG. This is then divided by the mass of the complete aircraft \footnote{\href{https://engineeringstatics.org/Chapter_07-center-of-gravity.html}{CG} (accessed 16.06.2026)}. The code for the calculations can be found in the project repository
 \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/tree/0a4e0bae481a25c633ee9a7bbda87498b3a964de/FuelCG}{$Fuel_{CG}$ file} (accessed on 17.06.2026)}. The CG shift achievable is presented in \autoref{fig:cg-range}
 
 
@@ -825,9 +832,9 @@ As mentioned in the mission envelope (\autoref{sec:mission_envelope}), new contr
 
 %\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
 
-Considering the internal and external layout of the aircraft, the fuselage group mass (aircraft mass excluding main wing and vertical and horizontal stabilisers) converged to 40.78 kg. This number includes the payload, the fuselage and internal systems, maximum fuel, the landing gear, and the propulsion system. Thus, it represents the heaviest platform-independent part of HUGO.
-
 In summary, this chapter has defined both the external and internal architectural layout of HUGO, linking system-level requirements to a coherent physical arrangement of subsystems within the airframe. By establishing resource allocation constraints, defining the external configuration, and detailing the internal systems required for operation, a complete baseline configuration of the aircraft has been formed that directly informs subsequent sizing and integration decisions.
+
+Considering the internal and external layout of the aircraft, the fuselage group mass (aircraft mass excluding main wing and vertical and horizontal stabilisers) converged to 40.78 kg. This number includes the payload, the fuselage and internal systems, maximum fuel, the landing gear, and the propulsion system. Thus, it represents the heaviest platform-independent part of HUGO.
 
 With the aircraft layout and subsystem placement now established, the next step is to translate these architectural choices into a physically realisable structure. The following chapter therefore focuses on material selection and manufacturing considerations, ensuring that the identified loads, interfaces, and system requirements can be met through appropriate material choices and production methods.
 
