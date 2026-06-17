@@ -1,10 +1,15 @@
 \chapter{Structural Analysis and Design}
 \label{ch:structural_characteristics}
 
-\todo[inline]{From the \textit{Project Guide}: \\Structural characteristics include e.g. loading diagrams, stresses, bending, flutter, lowest natural frequencies, design loads, etc.\\ A first version of design driving characteristics is included in the Mid-Term Report, a final, extended version including all relevant characteristics is given in the Final Report.}
+%\todo[inline]{From the \textit{Project Guide}: \\Structural characteristics include e.g. loading diagrams, stresses, bending, flutter, lowest natural frequencies, design loads, etc.\\ A first version of design driving characteristics is included in the Mid-Term Report, a final, extended version including all relevant characteristics is given in the Final Report.}
 
-\todo[inline]{write an introduction by also referencing each section and what its purpose is}
+%\todo[inline]{write an introduction by also referencing each section and what its purpose is}
 
+This chapter presents the structural design and analysis of HUGO. The focus is on translating the aerodynamic configuration and mission requirements into a structurally sound airframe capable of withstanding both operational and ultimate loading conditions, while ensuring stability, stiffness, and aeroelastic safety across the full flight envelope.
+
+First, \autoref{sec:aerodynamic_characteristics_estimate} presents the aerodynamic characteristics estimate, including airfoil selection, lift and drag modelling, and the resulting lift distribution used as the basis for structural loading. Then, the wing structural response is analysed in \autoref{sec:wing_structural_analysis}, where discretisation, internal load paths, stresses, deflections, and failure criteria are evaluated under critical loading conditions. Subsequently, \autoref{sec:fuselage_structural_analysis} extends the structural assessment to the fuselage, modelling global bending, shear, torsion, and landing impact loads to determine required skin thickness and assess abuse-load resistance. Finally, \autoref{sec:flutter_analysis} addresses aeroelastic stability through a simplified flutter model, evaluating bending-torsion coupling, natural frequencies, damping behaviour, and the onset of flutter and divergence within the operational envelope.
+
+%\todo[inline]{idk why the sections are capitalised}
 
 \section{Aerodynamic Characteristics Estimate}
 \label{sec:aerodynamic_characteristics_estimate}
@@ -12,11 +17,11 @@ The goals of the aerodynamic characteristics estimate is to obtain the lift and 
 \todo[inline]{Add the fact that we ran all the simulations before creating this section and we reached the conclusio after multimple iterations that the parameters that meet all the requirements are as follows...and state them}
 \subsection{Airfoil Selection}
 \label{sub:airfoil_selection}
-High subsonic speeds experienced by HUGO during the nominal mission necessitate the use of a supercritical airfoil to avoid large drag penalties due to shock waves and boundary layer separations induced by locally supersonic flows \cite{Whitcomb1974}. A preliminary sizing of the wing and tail surfaces performed in previous design phases identified NASA SC(2)-0012 (see: \autoref{fig:airfoil_simplified_model}) as a suitable airfoil choice for HUGO \cite{Harris1990}, based on the performance requirements and preliminary wing design lift coefficient of 0.074 \footref{ft:midterm_rep}.
+High subsonic speeds experienced by HUGO during the nominal mission necessitate the use of a supercritical airfoil to avoid large drag penalties. This is due to shock waves and boundary layer separations induced by locally supersonic flows \cite{Whitcomb1974}. A preliminary sizing of the wing and tail surfaces performed in previous design phases identified NASA SC(2)-0012 (see: \autoref{fig:airfoil_simplified_model}) as a suitable airfoil choice for HUGO \cite{Harris1990}, based on the performance requirements and preliminary wing design lift coefficient of 0.074 \footnote{\label{foot:baseline}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report} (accessed on 11.06.2026)}.
 
-The structural model uses a simplified, elliptical airfoil approximation based on the SC(2)-0012 parameters. The wing cross-section is assumed to be hollow, with the same chord length and maximum thickness to chord ratio as the reference airfoil. The lift resultant is applied at the quarter-chord point, consistent with the typical location of the aerodynamic centre for subsonic airfoils\footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}.
+The structural model uses a simplified, elliptical airfoil approximation based on the SC(2)-0012 parameters. The wing cross-section is assumed to be hollow, with the same chord length and maximum thickness to chord ratio as the reference airfoil. The lift resultant is applied at the quarter-chord point, consistent with the typical location of the aerodynamic centre for subsonic airfoils \footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}.
 
-The elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model also neglects the structural contribution of the foam core. The resulting section properties are therefore treated as a conservative, simplified model that can be used for preliminary structural sizing. 
+The elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model neglects the structural contribution of the foam core. The resulting section properties are therefore treated as a conservative, simplified model that can be used for preliminary structural sizing. 
 
 \begin{figure}[H]
     \centering
@@ -297,7 +302,7 @@ The elliptical approximation increases the estimated second moment of area compa
 
 \subsection{Lift Distribution}
 \label{sub:lift}
-The lift distribution was obtained by using the modified Schrenk lift distribution as described in \cite{EASALSALoadCalculation}. Essentially, the Schrenk lift distribution \cite{Schrenk1940} has been  modified by shifting the lift from the part of the wing which is within the fuselage towards the tip. This yields conservative results since the resulting bending moment is higher. The approach followed a methodology for obtaining load distributions for light aircraft proposed by EASA \cite{EASALSALoadCalculation}, in which the design condition implies the aircraft flying at its manoeuvre stall speed $V_{s_\text{n max}}$ compliant with the flight envelope \footref{ft:midterm_rep}.
+The lift distribution was obtained by using the modified Schrenk lift distribution as described in \cite{EASALSALoadCalculation}. Essentially, the Schrenk lift distribution \cite{Schrenk1940} has been  modified by shifting the lift from the part of the wing which is within the fuselage towards the tip. This yields conservative results since the resulting bending moment is higher. The approach followed a methodology for obtaining load distributions for light aircraft proposed by EASA \cite{EASALSALoadCalculation}, in which the design condition implies the aircraft flying at its manoeuvre stall speed $V_{s_\text{n max}}$ compliant with the flight envelope \footref{foot:baseline}
 
 To achieve the desired load distribution, the planforms have been divided into $n$ individually evaluated sections. Schrenk's method assumes that the aerodynamic loading on the planform is equal to the average of the chord distribution, and an equivalent elliptical lift distribution, as shown in \autoref{eq:schrenk_element_lift} \cite[p. 20]{EASALSALoadCalculation}. Therefore, for each segment, an equivalent chord length $c_i$ has been defined based on the spanwise position $y_i$, and a corresponding lift increment $l_{\text{Schrenk},i}$ has been assigned. Sections incorporated into the fuselage were then excluded from the model by scaling the sections with respect to the average fuselage width at each section $b_0$ and the total wingspan $b$. The remaining lift was rescaled to compensate for the losses. 
 
@@ -347,6 +352,7 @@ The structural model of the wing was developed to simulate the internal loads an
 %The aerodynamic platform is analysed under the most critical conditions: during landing, when the impact force multiplies the weight, during take-off, when the weight is at its maximum and the wing experiences maximum lift loads; and, lastly, in cruise. 
 
 \subsection{Discretisation and Assumptions}
+\label{sec:discretisation_and_assumptions}
 As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain span-wise load and stress distributions. Additionally, the wing is treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed conservative, since they do not account for the additional stiffness provided by any core materials, since the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
 %\todo[inline]{Write about why the assumptions are acceptable}
 
@@ -433,9 +439,7 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
 \end{aligned}
 \end{equation}
 
-
-
-\begin{wrapfigure}[13]{l}{0.43\textwidth}
+\begin{wrapfigure}[14]{r}{0.5\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures_final/Wing_structure/Torque distribution on the wing Cruise.png}
     \caption{Torsion distribution at load factor 9}
@@ -505,7 +509,7 @@ The normal stress distribution shown in \autoref{fig:normal_dist} decreases towa
 
 
 The last analysis considered verifies that the wing does not buckle to a load factor of 6. The ultimate load is not tested because buckling is not considered a structural critical case, the wing being able to buckle at certain loads. It is considered a structural problem when the phenomenon becoms catastrophic. Composite materials are known to be brittle and lose their structural properties once they buckle. To prevent a loss of integrity, the model tests if the wing buckles by comparing the buckling stress with the maximum internal shear stress. Is a force that exceeds the maximum load factor of 6 is reached, the wing will lose part of its properties, but will still be able to return the UAV for maintenance. 
-HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from Dowell\cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in Dowell\cite[p.~458]{niu1999airframe}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:Mat_sel}.
+HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from Dowell\cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in Dowell\cite[p.~458]{niu1999airframe}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties \autoref{sec:Material_Selection}.
 
 \begin{equation}
     \sigma_{cr} = C \frac{\pi^2 E}{12(1-\nu^2)} \left(\frac{t}{b}\right)^2
@@ -978,8 +982,17 @@ In the case of this analysis, the maximum deflection of the ring was set to 1mm 
 
 Given the stark increase in skin thickness and consequently, fuselage weight, it becomes reasonable to analyse the drone monocoque as a composite sandwich, with CFRP on the outer layers and a Nomex honeycomb as the core. For this analysis, the area moment of inertia of the ring becomes overwhelmingly influenced by the parallel axis theorem of the 2 skin panels [introduce equation?]. Performing the previous analysis with the new moment of inertia, whilst restricting the maximum thickness of the CFRP skins to the minimum manufacturing thickness for a quasi-isotropic panel of 0.4 mm, results in a fuselage thickness of [x] mm, with a mass of [x] kg.
 
-\todo[inline]{insert diagram?}
-
+\begin{table}[H]
+    \centering
+    \caption{Fuselage sizing results for transport and handling abuse loads}
+    \begin{tabular}{|c||c|c|c|c|}\hline
+         \textbf{Configuration} & Skin/Solid Thickness & Core Thickness & Total Wall Thickness & Weight per meter \\\hline
+         \textbf{Pure Solid Carbon} & 6.40 mm & - & 6.40 mm & 9.47 kg/m \\\hline
+         \textbf{Sandwich Panel} & 0.40 mm (per face) & 10.00 mm & 10.80 mm & 1.64 kg/m \\\hline
+    \end{tabular}
+    
+    \label{tab:exec-fuselage_handling_loads}
+\end{table}
 
 
 
@@ -1123,9 +1136,9 @@ The flutter model has been verified by comparing results with those obtained by 
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
 \hline \hline
-Wing mass                             & 4.47  & kg \\\textbf{}
+Wing mass                             & 4.78  & kg \\\textbf{}
 Aspect ratio                          & 27.0  & -- \\\textbf{}
-Wing span                             & 3.2   & m \\\textbf{}
+Wing span                             & 3.4   & m \\\textbf{}
 Quarter-chord sweep angle             & 15.0  & $^\circ$ \\\textbf{}
 Taper ratio                           & 0.3   & -- \\
 % Skin thickness                 & 2.5 & mm \\\textbf{}
@@ -1165,4 +1178,8 @@ Taper ratio                           & 0.3   & -- \\
 
 
 
-\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
+%\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
+
+In summary, this chapter has developed a complete structural representation of HUGO by linking aerodynamic loading, internal load transfer, and material response across both wing and fuselage components. Through the above-mentioned modelling approaches, the critical structural responses have been quantified in terms of deflection, stress distribution, and aeroelastic stability, ensuring that the airframe remains within allowable limits under both operational and ultimate loading conditions. In particular, the analyses confirm that the wing and fuselage designs satisfy strength, stiffness, and flutter requirements within the defined flight envelope, while also identifying the governing cases for structural sizing.
+
+With the structural integrity and aeroelastic safety of the aircraft established, the next step is to evaluate how these design choices translate into overall aircraft performance. The following chapter therefore focuses on the performance analysis of HUGO, assessing key mission-level metrics such as flight profile capabilities, range and fuel requirements, matching diagram constraints, and noise and environmental emissions.

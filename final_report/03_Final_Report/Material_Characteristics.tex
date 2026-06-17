@@ -145,6 +145,9 @@ A fatigue analysis of 18Ni(350) steel proved that it is a suitable choice for th
 %and for Ti-6Al-4V, whose S–N data indicate fatigue lives approaching 10$^4$ cycles at the highest stress amplitudes considered \cite{Janecek2015}.
 Therefore, fatigue is not expected to be a limiting design factor for any of the candidate materials under the anticipated operating conditions. As such, \textbf{18Ni(350) Steel} was selected as the material for both landing gear struts and engine pylons, and  \textbf{Al 7075-T76} for the connection ports.
 
+Additionally, a suitable material was required for the metal inserts that facilitate the connection between the engine pylons and the fuselage sandwich structure. Since the inserts are located adjacent to the carbon fiber skins, minimizing the risk of galvanic corrosion was a key selection criterion. For this reason, \textbf{Ti-6Al-4V} was selected owing to its good electrochemical compatibility with carbon fiber, as discussed further in \autoref{sub:pylon_to_fuselage}.
+
+
 %Beyond structural performance, material selection must also account for environmental impact over the component's lifecycle. In terms of recyclability, a primary obstacle of aluminium is separating it from other metals within the alloy \footnote{\href{https://www.recyclingtoday.com/news/tomra-aluminum-sorting-recycling-technology-van-de-winkel/}{Commentary: Recycling plays critical role in future aluminium production} (accessed on 02.06.2026)}. In the case of titanium, its high melting point and reactive nature create more processing challenges than aluminium \footnote{\href{https://ironandmetals.com/blog/titanium-vs-aluminum-recycling-what-you-need-to-know/}{Titanium vs Aluminum Recycling: What You Need to Know} (accessed on 02.06.2026)}. When considering also the embodied carbon per kilogram of material as listed in \autoref{tab:material_properties_metals}, the titanium alloy performs the worst, whereas the steel has the lowest overall environmental impact.
 
 
@@ -299,7 +302,6 @@ For the wings, \textbf{Rohacell 71 IG-F (PMI foam)} is selected. As demonstrated
 
 For the fuselage sandwich structure, the \textbf{4.8mm Cell 48kg Nomex} aramid honeycomb is selected. While aluminum offers superior mechanical properties, the aramid core eliminates the risk of galvanic corrosion and provides the necessary out of plane flexibility to conform to the compound aerodynamic curvatures of the fuselage without buckling. The 48kg variant provides sufficient compressive strength (2.40 MPa) to resist localized crushing during the high-pressure autoclave cure.
 
-
 \begin{comment}
 \section{Composite Material Layout}
 \todo[inline]{Explain the fiber orientation, why it was chosen, include figures, etc.}
@@ -341,6 +343,7 @@ Adding fibers in many directions improves strength, but increases material use a
          Landing gear struts & 18Ni(350) Steel \\\hline
          Engine pylons & 18Ni(350) Steel \\\hline
          Connection ports & AL 7075-T76 \\\hline
+         Metal inserts & Ti-6Al-4V \\\hline
          
     \end{tabular}
     \label{tab:final_material_selection}
@@ -512,7 +515,12 @@ Once the adhesive has cured, the bolts are installed through the metal sleeves r
 \subsection{Landing gear assembly}
 \label{sub:lg_assembly}
 
-The landing gear assembly shall employ mechanical fastening rather than bonded joints. Bolted and lockbolted connections are used for rigid structural interfaces, providing reliable load transfer and ease of inspection and maintenance. In contrast, pin joints are implemented at locations requiring controlled relative motion, such as torque links and actuator attachment points, enabling necessary articulation during operation. Welding is excluded from the design due to its potential to alter the microstructure of high-strength steel alloys, which can result in reduced mechanical performance and compromised fatigue resistance.
+The landing gear assembly shall employ mechanical fastening rather than bonded joints. Bolted and lockbolted connections are used for rigid structural interfaces, ensuring reliable load transfer, particularly under critical landing loads, including both vertical and transverse load components. These connections also facilitate ease of inspection and maintenance.
+
+In contrast, pin joints are implemented at locations requiring controlled relative motion, such as torque links and actuator attachment points, allowing the necessary articulation during operation. The dynamic response of the landing gear, including the effects of the spring and dash-pot system in attenuating landing impacts, further supports the use of mechanically fastened and articulated joints to accommodate transient load paths without compromising structural integrity.
+
+Welding is excluded from the design due to its potential to alter the microstructure of high-strength steel alloys, which can result in reduced mechanical performance and compromised fatigue resistance.
+
 
 \section{Integration}
 \label{sec:integration}

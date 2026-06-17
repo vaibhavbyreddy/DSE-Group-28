@@ -2,40 +2,47 @@
 \label{ch:scc}
 
 
+%\todo[inline]{From the \textit{Project Guide}: \\ Stability and control characteristics include e.g. control forces, CG limits, attitude control torques, momentum storage and unload capacity, disturbance torques, control frequency, etc.\\
+%A first version of design driving characteristics is included in the Mid-Term Report, a final, extended version including all relevant characteristics is given in the Final Report.}
+
+%\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters and also autoref each section and what its purpose is}
+
+%The purpose of the stability and control analysis is to verify that HUGO can remain controllable during both low-speed operations and the high-speed test segment, while accommodating the mass distribution and configuration changes. The analysis therefore focuses on control surface authority, actuator hinge moment requirements, and the static and dynamic stability characteristics over the relevant CG range. 
 
 
-\todo[inline]{From the \textit{Project Guide}: \\ Stability and control characteristics include e.g. control forces, CoG limits, attitude control torques, momentum storage and unload capacity, disturbance torques, control frequency, etc.\\
-A first version of design driving characteristics is included in the Mid-Term Report, a final, extended version including all relevant characteristics is given in the Final Report.}
+This chapter builds upon the aerodynamic and performance analyses presented in the previous chapters by evaluating whether HUGO remains controllable and dynamically stable across its intended flight envelope. While the performance analysis establishes the aircraft’s ability to meet mission requirements in terms of speed, range, and operating conditions, this chapter verifies that those conditions can be safely and consistently maintained through adequate stability margins and control authority.
 
-\todo[inline]{Chapter introduction pending. Remember to connect it to the previous chapters and also autoref each section and what its purpose is}
-
-The purpose of the stability and control analysis is to verify that HUGO can remain controllable during both low-speed operations and the high-speed test segment, while accommodating the mass distribution and configuration changes. The analysis therefore focuses on control surface authority, actuator hinge moment requirements, and the static and dynamic stability characteristics over the relevant CG range. 
-
-
-
+Furst, the horizontal stabiliser sizing is established and verified using semi-empirical methods and simulation results in \autoref{sec:hor_stabilizer_sizing}. Second, the resulting control authority and actuator loads are assessed through detailed control surface analysis in \autoref{sec:control_forces}. Finally, the dynamic behaviour of the aircraft is evaluated using eigenmotion analysis in \autoref{sec:dynamic_stab}, ensuring acceptable stability characteristics throughout the flight envelope.
 
 \section{Horizontal Stabilizer Sizing}
+\label{sec:hor_stabilizer_sizing}
+
 To satisfy HUG-STB-01, the horizontal stabiliser should cause stability close to marginal for the default value of the CG (when the fuel is distributed equally between the tanks), so that fuel movement either to the front or aft causes the CG excursion required for the stability regime of interest. This can be achieved when sizing a tail to the minimum area required for the combination of stability and controllability. For canard configurations, however, increasing the stabiliser size improves controllability, decreasing stability at the same time, which makes the condition both stability and controllability more challenging to achieve. As such, it is decided to demonstrate compliance with HUG-STB-01 using a t-tail empennage. Consequently, configurations containing a canard are sized for controllability, while configurations not containing one are sized for both stability and controllability. 
 
 \subsection{Horizontal Stabiliser Sizing using Semi-Empirical Formulae}
 \label{sub:semi-empirical-tail}
-Assuming constant aerodynamic coefficients, the following equations for the surface areas required for stability $(S_h/S)_{\text{min, st}}$ and controllability $(S_h/S)_{\text{min, ct}}$ can be obtained:
+Assuming constant aerodynamic coefficients, \autoref{eq:sh/s1} and \autoref{eq:sh/s2} can be derived for the surface areas required for stability $(S_h/S)_{\text{min, st}}$ and controllability $(S_h/S)_{\text{min, ct}}$, respectively.
 
 \begin{equation}
-    \left(\frac{S_h}{S}\right)_{\text{min, st}} = \frac{\bar{x}_{{cg}_\text{max}}-\bar{x}_{ac} + 0.05}{\frac{C_{L\alpha_h}}{C_{L\alpha_{A-h}}} \left( 1 - \frac{d\varepsilon}{d\alpha} \right) \frac{l_h}{\bar{c}} \left( \frac{V_h}{V} \right)^2};\ \ \ \ \left(\frac{S_h}{S}\right)_{\text{min, ct}} = \left|\frac{\bar{x}_{{cg}_\text{min}} + \frac{C_{m_{ac}}}{C_{L_{A-h}}} - \bar{x}_{ac}}{\frac{C_{L_h}}{C_{L_{A-h}}} \frac{l_h}{\bar{c}} \left( \frac{V_h}{V} \right)^2}\right|
+\label{eq:sh/s1}
+    \left(\frac{S_h}{S}\right)_{\text{min, st}} = \frac{\bar{x}_{{cg}_\text{max}}-\bar{x}_{ac} + 0.05}{\frac{C_{L\alpha_h}}{C_{L\alpha_{A-h}}} \left( 1 - \frac{d\varepsilon}{d\alpha} \right) \frac{l_h}{\bar{c}} \left( \frac{V_h}{V} \right)^2} 
+\end{equation}
+\begin{equation}
+\label{eq:sh/s2}
+    \left(\frac{S_h}{S}\right)_{\text{min, ct}} = \left|\frac{\bar{x}_{{cg}_\text{min}} + \frac{C_{m_{ac}}}{C_{L_{A-h}}} - \bar{x}_{ac}}{\frac{C_{L_h}}{C_{L_{A-h}}} \frac{l_h}{\bar{c}} \left( \frac{V_h}{V} \right)^2}\right|
 \end{equation}
 
-Where 0.05 is a common value of stability margin during aircraft preliminary design \cite{stat-stab-margin}, $\bar{x}_{{cg}_\text{min}}$, $\bar{x}_{{cg}_\text{max}}$ and $\bar{x}_{ac}$ are the entire aircraft fore and aft CG position and the aerodynamic centre of the aircraft-less-horizontal-stabiliser (approximated by main wing aerodynamic centre) as a fraction of the MAC, $l_h/\bar c$ is the distance between horizontal stabiliser and main wing aerodynamic centres, $V_h/V$ is the ratio of airspeeds at the horizontal stabiliser to those at the main wing (equal to one for both canard and t-tail; due to their low interference with the main wing, effectively clean airflow is seen by those stabiliser configurations).
+Here, 0.05 is a common value of stability margin selected during aircraft preliminary design \cite{stat-stab-margin}, and $\bar{x}_{{cg}_\text{min}}$, $\bar{x}_{{cg}_\text{max}}$ are the most fore and aft CG positions of the entire aircraft, respectively. $\bar{x}_{ac}$ is the position of the aerodynamic centre of the aircraft-less-horizontal-stabiliser (approximated by main wing aerodynamic centre) as a fraction of the MAC, $l_h/\bar c$ is the distance between horizontal stabiliser and main wing aerodynamic centres, $V_h/V$ is the ratio of airspeeds at the horizontal stabiliser to those at the main wing (equal to one for both canard and t-tail; due to their low interference with the main wing, effectively clean airflow is seen by those stabiliser configurations).
 $C_{L_{\alpha_h}}$ and $C_{L_{h}}$ are the lift slope and maximum lift coefficient of the stabiliser, while $C_{L_{\alpha_{A-h}}}$ and $C_{L_{A-h}}$ are those of aircraft-less-horizontal-stabiliser, approximated by those of the main wing. 
 
-The CG locations are taken as the fully fuelled and zero fuel CG locations. Pumping fuel would allow the operators to exceed that CG range and hence, enter an unstable flight regime. The lift slopes are computed using DATCOM \footnote{\href{https://www.fzt.haw-hamburg.de/pers/Scholz/HOOU/AircraftDesign_7_WingDesign.pdf}{Scholz} (accessed on 16.06.2026)}, while $C_{L_h}$ is calculated from stabiliser aspect ratio $A_h$ as $0.35\sqrt[3]{A_h}$ \todo{cite Torenbeek once you get physical book}. 
+It shall be noted that $x_{cg_\text{min}}$ and  $x_{cg_\text{max}}$ also correspond to the CG locations of the UAV with tanks fully fuelled and with zero fuel, respectively. Pumping fuel between the fuel bladders  allows the operators to exceed that CG range and hence, enter an unstable flight regime. The lift slopes are computed using DATCOM \footnote{\href{https://www.fzt.haw-hamburg.de/pers/Scholz/HOOU/AircraftDesign_7_WingDesign.pdf}{Scholz} (accessed on 16.06.2026)}. 
 
-For the standard planform, the fuel tanks happen to be positioned approximately symmetrically with respect to the global CG, resulting in $x_{{cg}_\text{min}}$, $x_{{cg}_\text{max}}$ being equal to 1.414 m and 1.416 m measured from the nose. This translates to a small CG excursion between the fully fuelled and zero fuel states and $S_h/S$ of 0.106.
+For the standard planform, the fuel tanks are positioned approximately symmetrically with respect to the global CG, resulting in $x_{{cg}_\text{min}}$, $x_{{cg}_\text{max}}$ being equal to 1.414 m and 1.416 m measured from the nose. The resultant CG excursion between the fully fuelled and zero fuel results in a tail surface ratio $S_h/S$ of 0.106 and a total aircraft mass of 46.76 kg.
 
-\subsection{Modelling Aircraft Trim in Flow5}
-Recently re-developed and updated software, Flow5, is used to demonstrate HUGO's capability of operation in various flight regimes and outputs several important values for the design, such as control surface actuator moments and eigenmotion characteristics. The tail sizing results for the standard planform using semi-empirical formulae are verified by creating the resultant planform in Flow5 and assessing whether it is capable of trimming the aircraft at the required range of angles of attack and whether it provides longitudinal static stability. 
+\subsection{Modelling Aircraft Trim in flow5}
+Recently re-developed and updated software, flow5 \footref{foot:flow5}, is used to demonstrate HUGO's capability of operation in various flight regimes and outputs several important values for the design, such as control surface actuator moments and eigenmotion characteristics. The tail sizing results for the standard planform using semi-empirical formulae are verified by creating the resultant planform in flow5 and assessing whether it is capable of trimming the aircraft at the required range of angles of attack and whether it provides longitudinal static stability. 
 
-Specifically, the aircraft equipped with the standard planform and the tail obtained in \autoref{sub:semi-empirical-tail}, is trimmed in Flow5 at the stall conditions. The aircraft was stable and trimmable in both the stall conditions predicted using the estimated $C_{L_{max}}$ (40.49 m/s and $\alpha$ of 10.7$^\circ$) and those predicted in Flow5. This condition requires an elevator deflection of $\delta_e = 16 \degree$ and is shown in \autoref{fig:flow5_elevator_stall}. The calculated stall angle of attack in Flow5 is higher than one predicted by the semi-empirical methods included in the project code, therefore it is important to verify trim capability for both considered flight conditions.
+Specifically, the aircraft equipped with the standard planform and the tail obtained in \autoref{sub:semi-empirical-tail}, is trimmed in flow5 at stall conditions. The aircraft was stable and trimmable in both the stall conditions predicted using the estimated $C_{L_{max}}$ (40.49 m/s and $\alpha$ of 10.7$^\circ$) and those predicted in flow5. This condition requires an elevator deflection of $\delta_e = 16 \degree$ and is shown in \autoref{fig:flow5_elevator_stall}. The calculated stall angle of attack in flow5 is higher than one predicted by the semi-empirical methods included in the project code, therefore it is important to verify trim capability for both considered flight conditions.
 
 
 \begin{figure}[H]
@@ -44,24 +51,27 @@ Specifically, the aircraft equipped with the standard planform and the tail obta
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/cmalpha_stall_10.7deg.png}
-        \caption{$C_m-\alpha$ curve at the trimmed stall condition in Flow5}
+        \caption{$C_m-\alpha$ curve at the trimmed stall condition in flow5}
         \label{fig:flow5_cmalpha_stall}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/elevator_stall.png}
-        \caption{Elevator deflection at stall condition in Flow5}
+        \caption{Elevator deflection at stall condition in flow5}
         \label{fig:flow5_elevator_stall}
     \end{subfigure}
 
-    \caption{Aircraft pitch characteristics from Flow5 at stall regime, $\alpha = 10.7 \degree$}
+    \caption{Aircraft pitch characteristics from flow5 at stall regime, $\alpha = 10.7 \degree$}
     \label{fig:flow5_stall_tail}
 \end{figure}
 
 \subsection{Effect of Horizontal Stabilizer Aspect Ratio on Total Mass in
 the Standard Planform Configuration}
 
+The choice of horizontal stabiliser is left to the client as a configuration choice. However, the aspect ratio of the horizontal stabiliser will impact the total mass in the standard planform configuration independent of the client's choice between a conventional tail or canard. \autoref{fig:sensitivity-h-stab} shows the effect of changing the aspect ratio of both a conventional tail (blue) and canard (orange) on the total aircraft mass in the standard planform configuration. 
+
+\label{sec:H_stab_vnv}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\linewidth]{figures_final/sensitivity-study/empennage aspect ratio.png}
@@ -70,7 +80,6 @@ the standard planform configuration}
     \label{fig:sensitivity-h-stab}
 \end{figure}
 
-The choice of horizontal stabiliser is left to the client as a configuration choice. However, the aspect ratio of the horizontal stabiliser will impact the total mass in the standard planform configuration independent of the client's choice between a conventional tail or canard. \autoref{fig:sensitivity-h-stab} shows the effect of changing the aspect ratio of both a conventional tail (blue) and canard (orange) on the total aircraft mass in the standard planform configuration. 
 
 The trend for both options of horizontal stabiliser is to show a diminishing decrease of MTOM with increasing aspect ratio. The only deviation is at an aspect ratio of approximately 9 for the conventional tail, resulting in a sharp upwards spike. This is attributed to discrete thickness steps used in the planform structural sizing. From an aspect ratio of 9 onwards, the tail needs to be at the next thickness step.
 
@@ -80,28 +89,33 @@ Overall, for the examined range of aspect ratios, the MTOM does not vary by more
 
 \section{Control Moments}
 \label{sec:control_forces}
-The forces and moments on the control surfaces were calculated using the Flow5 software on a reference wing and tail planform from \autoref{tab:standard_wing_planform}. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\label{ft:flow5}\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{Flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled and meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. The chosen configuration for analysis includes a standard wing and T-tail defined in \autoref{}, without a canard attached. Furthermore, the mass distribution and inertial properties were reconstructed in Flow5 based on the HUGO CAD model and the determined configuration layout.
+The forces and moments on the control surfaces were calculated using the flow5 software on a reference wing and tail planform from \autoref{tab:standard_wing_planform}. This software uses a potential flow solver, viscosity and wake models for preliminary estimation of aircraft characteristics. These include lift distribution, drag estimation, static stability and dynamic stability analysis. \footnote{\label{ft:flow5}\href{https://flow5.tech/docs/flow5_doc/flow5_doc.html}{flow5 methods overview}(Accessed on 08.06.2026)} The aircraft was modeled and meshed in this software using the fuselage CAD model and a built-in wing generation tool, which was used for the main wing, tail and canard surfaces. The chosen configuration for analysis includes a standard wing and T-tail defined in \autoref{sec:external_configuration}, without a canard attached. Furthermore, the mass distribution and inertial properties were reconstructed in flow5 based on the HUGO CAD model and the determined configuration layout. The model mesh used in the flow5 analysis for HUGO is shown in \autoref{fig:flow5_overview}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{figures_final/HUGO_flow5.png}
-    \caption{HUGO aircraft model mesh for analysis in Flow5}
+    \caption{HUGO aircraft model mesh for analysis in flow5}
     \label{fig:flow5_overview}
 \end{figure}
 
-The size of the control surfaces was estimated based on the reference aircraft and literature. The output from Flow5 gives a range of moment values for the actuators needed for the control surface deflections.
+The size of the control surfaces was estimated based on the reference aircraft and literature. The output from flow5 gives a range of moment values for the actuators needed for the control surface deflections.
+
+
 \subsection{Control surface breakdown}
-The NASA DAST drone featured inboard ailerons with 23 \% of the chord length, 0.254 m in span (around 9\% of the half-wing span). This size is smaller than other reference aircraft, which is caused by the range of velocities the aircraft operated in. The horizontal empennage of the DAST drone did not feature elevator flaps. Instead, the entire empennage tilted for pitch motion. \cite{Gilyard1983} The FLEXOP and X-56 aircraft featured multiple control surfaces along the wing span, which could be used based on the flight velocity and desired control characteristics. The exact size of the control surfaces in these aircraft is not available, manual measurements from projected views show that the chord fraction of the ailerons was close to 25 \%. Furthermore, the FLEXOP aircraft uses a V-tail empennage configuration with 2 elevators on each side. The exact size of the elevators has not been reported, however, manual measurements suggest the chord fraction lies between 30-40\% of the horizontal tail chord length. \cite{Takarics2019} \cite{Schaefer2023}
+
+The NASA DAST drone featured inboard ailerons with 23 \% of the chord length, 0.254 m in span (around 9\% of the half-wing span). This size is smaller than other reference aircraft, which is caused by the range of velocities the aircraft operated in. The horizontal empennage of the DAST drone did not feature elevator flaps. Instead, the entire empennage tilted for pitch motion. \cite{Gilyard1983} The FLEXOP and X-56 aircraft featured multiple control surfaces along the wing span, which could be used based on the flight velocity and desired control characteristics. The exact size of the control surfaces in these aircraft is not available, manual measurements from projected views show that the chord fraction of the ailerons was close to 25 \%. Furthermore, the FLEXOP aircraft uses a V-tail empennage configuration with 2 elevators on each side. The exact size of the elevators has not been reported, however, manual measurements suggest the chord fraction lies between 30-40\% of the horizontal tail chord length \cite{Takarics2019} \cite{Schaefer2023}. The configuration parameters used for the creation of a flow5 model of HUGO are listed in \autoref{tab:flow5_model}.
+
+
 \begin{table}[H]
     \centering
-    \caption{HUGO Configuration used in Flow5 analysis}
+    \caption{HUGO configuration used in flow5 analysis}
     \label{tab:flow5_model}
     \begin{tabular}{|c|c|c|}
         \hline
         \textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
         \hline\hline
         Wing span & $b$ & \(3.4~\mathrm{m}\) \\\hline
-        Wing reference area & $S$ & \(0.439~\mathrm{m^2}\) \\\hline
+        Wing reference area & $S$ & \(0.428~\mathrm{m^2}\) \\\hline
         Mean aerodynamic chord & $\bar{c}$ & \(0.123~\mathrm{m}\) \\\hline
         Wing airfoil & $-$ & NASA SC(2)-0012 \\\hline
         Horizontal tail area & $S_h$ & \(0.045~\mathrm{m^2}\) \\\hline
@@ -116,12 +130,12 @@ The control analysis was evaluated at approach and experiment conditions. These 
     \centering
     \caption{Flight cases used for control analysis}
     \label{tab:flow5_flight_cases}
-    \begin{tabular}{|p{0.4\linewidth}| p{0.2\linewidth} p{0.2\linewidth}|}
+    \begin{tabular}{|c|c|c|}
         \hline
-        \textbf{Case} & \textbf{Speed} & \textbf{Altitude} \\
+        \textbf{Case} & \textbf{Speed} & \textbf{ISA Altitude} \\
         \hline\hline
-        Approach & \(V_{appr}=50~\mathrm{m\,s^{-1}}\) & Sea level ISA\\\hline
-        Experiment conditions & \(M=0.75\) & FL270 ISA\\
+        Approach & \(V_{appr}=50~\mathrm{m\,s^{-1}}\) & Sea-level\\\hline
+        Experiment conditions & \(M=0.75\) & FL270 \\
         \hline
     \end{tabular}
 \end{table}
@@ -132,12 +146,13 @@ Based on the collected information, the roll characteristics were initially test
     p = -2 \frac{V}{b} \frac{C_{l_{\delta_{a}}}}{C_{l_{p}}}\delta_a
     \label{eq:roll_rate}
 \end{equation}
-Here, $V = V_{appr}$, $b = 3.4\ m$ is the wing span, $C_{l_{\delta_{a}}}$ is the control derivative representing the change of $C_l$ with aileron deflection $\delta_a$ and $C_{l_{p}} = -0.4746$ is the stability derivative of the change of $C_l$ with the roll rate $p$ found using Flow5. The only unknown parameter is the change of the roll moment coefficient with aileron deflection $C_{l_{\delta_{a}}}$. This parameter was calculated at the approach speed $V_{appr} = 50 \ m \cdot s^{-1}$ from the change of $C_l$ between two aileron deflections $\delta_a = 0 \degree$ and $\delta_a = \pm0.1 \degree$. This resulted in $C_{l_{\delta_{a}}} = -0.127 \ rad^{-1}$. The roll rate $p$ at different aileron deflections $\delta_{a}$ are shown in \autoref{tab:delta_a_alpha}.
+Here, $V = V_{appr}$ is the approach velocity, $b = 3.4\ m$ is the wing span, $C_{l_{\delta_{a}}}$ is the control derivative representing the change of $C_l$ with aileron deflection $\delta_a$ and $C_{l_{p}} = -0.4746$ is the stability derivative of the change of $C_l$ with the roll rate $p$ found using flow5. The only unknown parameter is the change of the roll moment coefficient with aileron deflection $C_{l_{\delta_{a}}}$. This parameter was calculated at the approach speed $V_{appr} = 50 \ m \cdot s^{-1}$ from the change of $C_l$ between two aileron deflections $\delta_a = 0 \degree$ and $\delta_a = \pm0.1 \degree$. This resulted in $C_{l_{\delta_{a}}} = -0.127 \ rad^{-1}$. The roll rate $p$ at different aileron deflections $\delta_{a}$ are shown in \autoref{tab:delta_a_alpha}.
 \begin{table}[H]
     \centering
+    \caption{Aileron deflection $\delta_{a}$ vs roll rate $p$}
     \begin{tabular}{|c|c|}
          \hline
-         \textbf{Aileron deflection $\delta_a$ in \degree }&\textbf{Roll rate $p$ in $deg \cdot s^{-1}$} \\
+          $\delta_a$ [deg] & $p$ [deg$\cdot s^{-1}$] \\
          \hline\hline
          5 &  38.9 \\
          \hline
@@ -148,16 +163,15 @@ Here, $V = V_{appr}$, $b = 3.4\ m$ is the wing span, $C_{l_{\delta_{a}}}$ is the
          20 & 155.5 \\
          \hline
     \end{tabular}
-    \caption{$\delta_{a}$ vs $\alpha$}
     \label{tab:delta_a_alpha}
 \end{table}
 
-To estimate the aileron moment loads at the target experiment flight speed of $M = 0.75 \approx 230 \ m \cdot s^{-1}$ at FL270 ISA altitude, it has been set that the maximum roll rate, achieved in the approach regime, shall be achieved. The required aileron deflection to reach the required roll rate has been found to be $\delta_a = \pm3.89 \degree$ using \autoref{eq:roll_rate}. Flow5 outputs a moment $H_a = 0.1791 \ N \cdot m$ for a single aileron at this speed regime. This speed lies in compressibility region, therefore accounting for this in the hinge moment is needed. The value obtained in Flow5 was then scaled using the Prandtl-Glauert compressibility correction in \autoref{eq:ch_compressibility}, analogous to the method Simpson used \cite{Simpson2016}.
+To estimate the aileron moment loads at the target experiment flight speed of approximately $230 \ m \cdot s^{-1}$ at FL270 ISA altitude, it has been set that the maximum roll rate defined in the approach regime shall be achieved. The required aileron deflection to reach the required roll rate has been found to be $\delta_a = \pm3.89 \degree$ using \autoref{eq:roll_rate}. flow5 outputs a moment $H_a = 0.1791 \ N \cdot m$ for a single aileron at this speed regime. This speed lies in compressibility region, therefore accounting for this in the hinge moment is needed. The value obtained in flow5 was then scaled using the Prandtl-Glauert compressibility correction in \autoref{eq:ch_compressibility}, according to the method proposed by Simpson \cite{Simpson2016}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{figures_final/Flow5_ailerons_approach.png}
-    \caption{Ailerons with $\delta_a = \pm 20 \degree$ at $V_{appr}$. The color scale represents the $\gamma$ parameter representing the doublet densities and vortex strengths in Flow5 \footref{ft:flow5}}
+    \includegraphics[width=\linewidth]{figures_final/flow5_ailerons_approach.png}
+    \caption{Ailerons with $\delta_a = \pm 20 \degree$ at $V_{appr}$. The color scale represents the $\gamma$ parameter representing the doublet densities and vortex strengths in flow5 \footref{ft:flow5}}
     \label{fig:flow5_ailerons}
 \end{figure}
 
@@ -169,7 +183,8 @@ The aileron hinge moment at the experiment flight condition $H_{a_{c}}$ is impor
 
 
 \subsection{Aileron analysis verification}
-To ensure the results obtained for the ailerons sized with Flow5, Sadraey's aileron sizing methodology was used \cite[p.657-661]{Sadraey}. To do so, the roll moment coefficients due to aileron deflection and roll rate had to be approximated. This was done using \autoref{eq:roll_aileron} and \autoref{eq:roll_roll}.
+\label{sec:aileron_vnv}
+To ensure the results obtained for the ailerons sized with flow5, Sadraey's aileron sizing methodology was used \cite[p.657-661]{sadraey2012aircraftdesign}. To do so, the roll moment coefficients due to aileron deflection and roll rate had to be approximated. This was done using \autoref{eq:roll_aileron} and \autoref{eq:roll_roll}.
 \begin{equation}\label{eq:roll_aileron}
     C_{l_{\delta_{a}}} = 
     \frac{2 C_{l_{\alpha}} \tau}{S_{\text{ref}}\, b} \int_{b_1}^{b_2} c(y)\, y\, dy
@@ -180,13 +195,13 @@ To ensure the results obtained for the ailerons sized with Flow5, Sadraey's aile
 \end{equation}
 where $C_{l_{\alpha}}$ is the airfoil lift curve slope, $\tau$ is the aileron effectiveness, $c(y)$ is the chord along the wing span, $y$ is the position along the wing span, $b_1$ and $b_2$ are the start and end positions of the ailerons, $C_{d_{0}}$ is the zero lift drag, and $S_{\text{ref}}$ is the wetted area of the wing.
 
-The aileron effectiveness curve takes the wing to aileron chord ratio as an input. Unfortunately Sadraey only provides this graph with no accompanying function. To keep the aileron sizing function parametric, points on the curve were selected and \texttt{scipy.interpolate} was used to fit a logarithmic curve as shown in \autoref{eq:tau_fit},
+The aileron effectiveness curve takes the wing to aileron chord ratio as an input. Unfortunately, Sadraey only provides a graphical interpretation of the curve without an accompanying function. To keep the aileron sizing function parametric, points on the curve were selected and \texttt{scipy.interpolate} was used to fit a logarithmic curve described by \autoref{eq:tau_fit}.
 \begin{equation}\label{eq:tau_fit}
-    \tau = a \ln(bx + 1) + c
+    \tau(x) = a \ln(bx + 1) + c
 \end{equation}
-where $a = 0.43944$, $b = 7.35977$, and $c = 2.452 \times 10^{-4}$.
+Here, $a = 0.43944$, $b = 7.35977$, and $c = 2.452 \cdot 10^{-4}$.
 
-Using \autoref{eq:roll_rate}, the roll rate can then be calculated and compared to the value obtained in Flow5. It was observed that given the same geometric parameters as Flow5, the final roll rate was off by 24\%. Comparing the individual $C_{l_{p}}$ and $C_{l_{\delta_{a}}}$ to those from Flow5, an error of 61\% and 21\% were found respectively. Though Sadraey does not report the accuracy of his methods, the discrepancy can likely be attributed to the fact Flow5 uses a three-dimensional panel method whereas Sadraey uses a simplified analytical integration of lift distribution spanwise. The Sadrey methods are thus better understood as an order of accuracy test, which qualitatively agree with the results obtained in Flow5 despite the rather large difference in $C_{l_p}$%obtained roll rate.
+Using \autoref{eq:roll_rate}, the roll rate can then be calculated and compared to the value obtained in flow5. It was observed that given the same geometric parameters as flow5, the final roll rate was off by 24\%. Comparing the individual $C_{l_{p}}$ and $C_{l_{\delta_{a}}}$ to those from flow5, an error of 61\% and 21\% were found respectively. Though Sadraey does not report the accuracy of his methods, the discrepancy can likely be attributed to the fact flow5 uses a three-dimensional panel method, whereas Sadraey uses a simplified analytical integration of lift distribution spanwise. The Sadrey methods are thus better understood as an order of accuracy test, which qualitatively agree with the results obtained in flow5 despite the rather large difference in $C_{l_p}$.%obtained roll rate.
 
 
 
@@ -200,13 +215,13 @@ Using \autoref{eq:roll_rate}, the roll rate can then be calculated and compared 
 \subsection{Elevator}
 \label{subsec:elevator} 
 
-The elevator geometry used in the Flow5 HUGO model is summarized in \autoref{tab:elevator_geometry}. The selected chord fraction and deflcetion limits were based on the FLEXOP reference aircraft and typical T-tail aircraft values from Sadraey, chapter 12.5.2 \cite{sadraey2012aircraftdesign}. The elevator was modeled as a control surface spanning the complete horizontal tail, with its deflection convention defined such that negative angles move the elevator up and positive deflections down.
+The elevator geometry used in the flow5 HUGO model is summarized in \autoref{tab:elevator_geometry}. The selected chord fraction and deflection limits were based on the FLEXOP reference aircraft and typical T-tail aircraft values from Sadraey \cite[ch. 12.5.2]{sadraey2012aircraftdesign}. The elevator was modelled as a control surface spanning the complete horizontal tail, with its deflection convention defined such that negative angles move the elevator up and positive deflections down.
 
 \begin{table}[H]
     \centering
-    \caption{Reference elevator geometry used in the Flow5 longitudinal control analysis.}
+    \caption{Reference elevator geometry used in the flow5 longitudinal control analysis.}
     \label{tab:elevator_geometry}
-    \begin{tabular}{|p{0.35\linewidth}| p{0.45\linewidth}|}
+    \begin{tabular}{|c|c|}
         \hline
         \textbf{Parameter} & \textbf{Value} \\
         \hline\hline
@@ -224,11 +239,11 @@ For each flight case, the required elevator deflection was determined by imposin
     C_m(\alpha,\delta_e,x_{cg}) = 0
     \label{eq:longitudinal_trim_condition}
 \end{equation}
-The aircraft was trimmed for the flight conditions in Flow5 and the resulting elevator hinge moments were recorded. The resulting trim deflections and hinge moments are listed in \autoref{tab:elevator_trim_results}. The most critical case for elevator sizing is expected to occur at the forward CG limit, where the elevator must generate the largest trim moment. The high-speed case is expected to exert the highest actuator hinge moment because of the larger dynamic pressure.
+The aircraft was trimmed for the flight conditions in flow5 and the resulting elevator hinge moments were recorded. The resulting trim deflections and hinge moments are listed in \autoref{tab:elevator_trim_results}. The most critical case for elevator sizing is expected to occur at the forward CG limit, where the elevator must generate the largest trim moment. The high-speed case is expected to exert the highest actuator hinge moment because of the larger dynamic pressure.
 
 \begin{table}[H]
     \centering
-    \caption{Elevator trim and hinge-moment results from the Flow5 longitudinal control analysis.}
+    \caption{Elevator trim and hinge-moment results from the flow5 longitudinal control analysis.}
     \label{tab:elevator_trim_results}
     \begin{tabular}{|p{0.19\linewidth} |c|c|c|c|c|c|c|}
         \hline
@@ -255,7 +270,10 @@ For the experiment setup condition, the elevator hinge moment was corrected usin
 \end{equation}
 
 \section{Dynamic characteristics of the aircraft}
-Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the aircraft within its flight envelope. Both longitudinal and lateral eigenmotions were investigated for both the canard and non-canard configuration using the Flow5 software. The aircraft properties were transferred from the CAD model and included identical geometric, mass and inertial properties. \autoref{fig:flow5_overview} shows the aircraft properties used in this simulation. \autoref{fig:longitudinal_dynamic_modes} shows the modal responses in the longitudinal stability direction with the horizontal velocity disturbance $u$, vertical velocity disturbance $w$, pitch angle $\theta$ and pitch rate $q$. \autoref{fig:lateral_directional_dynamic_modes} shows characteristic modes for the lateral stability direction with lateral velocity disturbance $v$, roll rate $p$, yaw rate $r$ and bank angle $\varphi$. The modal response plots were not interpreted as physical aircraft attitude or rate amplitudes. In a linear modal analysis, each mode is represented by an eigenvector, whose magnitude is arbitrary. Multiplying the eigenvector by any scalar gives the same mode behavior. Flow5 does not allow for scaling the eigenvector magnitudes, therefore the unscaled eigenmode responses are shown as plotted by the software. \footnote{\href{https://flow5.tech/docs/flow5_doc/Tutorials/Stability.html}{Flow5 Stability Analysis}(Accessed 16.06.2026)}
+\label{sec:dynamic_stab}
+Eigenmotions of HUGO were studied in order to assess the dynamic behaviour of the aircraft within its flight envelope. Both longitudinal and lateral eigenmotions were investigated for the canard and non-canard configuration using the flow5 software. The aircraft properties were transferred from the CAD model and included identical geometric, mass and inertial properties. \autoref{fig:flow5_overview} shows the aircraft properties used in this simulation. \autoref{fig:longitudinal_dynamic_modes_cruise} and \autoref{fig:longitudinal_dynamic_modes_approach} show the modal responses in the longitudinal stability direction with the horizontal velocity disturbance $u$, vertical velocity disturbance $w$, pitch angle $\theta$ and pitch rate $q$. \autoref{fig:lateral_directional_dynamic_modes_cruise} and \autoref{fig:lateral_directional_dynamic_modes_approach} show characteristic modes for the lateral stability direction with lateral velocity disturbance $v$, roll rate $p$, yaw rate $r$ and bank angle $\varphi$. 
+
+The modal response plots were not interpreted as physical aircraft attitude or rate amplitudes. In a linear modal analysis, each mode is represented by an eigenvector, whose magnitude is arbitrary. Multiplying the eigenvector by any scalar gives the same mode behaviour. flow5 does not allow for scaling the eigenvector magnitudes, therefore the unscaled eigenmode responses are shown as plotted by the software. \footnote{\href{https://flow5.tech/docs/flow5_doc/Tutorials/Stability.html}{flow5 Stability Analysis}(Accessed 16.06.2026)}
 
 \begin{figure}[H]
     \centering
@@ -264,18 +282,18 @@ Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/short_period_cruise.png}
         \caption{Short-period mode, 5-second interval}
-        \label{fig:short_period_response}
+        \label{fig:short_period_response_cruise}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/phugoid_cruise.png}
         \caption{Phugoid mode, 10-minute interval}
-        \label{fig:phugoid_response}
+        \label{fig:phugoid_response_cruise}
     \end{subfigure}
 
     \caption{Longitudinal dynamic stability modes of HUGO during cruise}
-    \label{fig:longitudinal_dynamic_modes}
+    \label{fig:longitudinal_dynamic_modes_cruise}
 \end{figure}
 
 \begin{figure}[H]
@@ -285,25 +303,25 @@ Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/roll_damping_cruise.png}
         \caption{Roll damping mode, 1-second interval}
-        \label{fig:roll_damping_response}
+        \label{fig:roll_damping_response_cruise}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/dutch_roll_cruise.png}
         \caption{Dutch-roll mode, 15-second interval}
-        \label{fig:dutch_roll_response}
+        \label{fig:dutch_roll_response_cruise}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/spiral_cruise.png}
         \caption{Spiral mode, 4-minute interval}
-        \label{fig:spiral_response}
+        \label{fig:spiral_response_cruise}
     \end{subfigure}
 
     \caption{Lateral-directional dynamic stability modes of HUGO during cruise}
-    \label{fig:lateral_directional_dynamic_modes}
+    \label{fig:lateral_directional_dynamic_modes_cruise}
 \end{figure}
 \begin{figure}[H]
     \centering
@@ -312,18 +330,18 @@ Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/short_period_approach.png}
         \caption{Short-period mode, 5-second interval}
-        \label{fig:short_period_response}
+        \label{fig:short_period_response_approach}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/phugoid_approach.png}
         \caption{Phugoid mode, 10-minute interval}
-        \label{fig:phugoid_response}
+        \label{fig:phugoid_response_approach}
     \end{subfigure}
 
     \caption{Longitudinal dynamic stability modes of HUGO during approach}
-    \label{fig:longitudinal_dynamic_modes}
+    \label{fig:longitudinal_dynamic_modes_approach}
 \end{figure}
 
 \begin{figure}[H]
@@ -333,14 +351,14 @@ Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/roll_damping_approach.png}
         \caption{Roll damping mode, 1-second interval}
-        \label{fig:roll_damping_response}
+        \label{fig:roll_damping_response_approach}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\linewidth}
         \centering
         \includegraphics[width=\linewidth]{figures_final/eigenmotions/dutch_roll_approach.png}
         \caption{Dutch-roll mode, 15-second interval}
-        \label{fig:dutch_roll_response}
+        \label{fig:dutch_roll_response_approach}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.32\linewidth}
@@ -351,9 +369,9 @@ Eigenmotions of HUGO were studied in order to assess the dynamic behavior of the
     \end{subfigure}
 
     \caption{Lateral-directional dynamic stability modes of HUGO during approach}
-    \label{fig:lateral_directional_dynamic_modes}
+    \label{fig:lateral_directional_dynamic_modes_approach}
 \end{figure}
-Furthermore, HUGO's physical responses to perturbation velocities $u$, $v$ and $w$ of magnitude $1 \ m\cdot s^{-1}$ were studied, since no gust requirements have been specified. These disturbances represent gusts in the x, y, and z directions (defined in \autoref{fig:flow5_overview}), respectively. In the cruise condition, HUGO seems to have an almost marginally stable phugoid motion, which is then reflected also in the disturbance response plots. Nevertheless, the mode is still stable and can easily be damped by the used of an automatic control system discussed in previous chapters. The disturbance plots demonstrate that the aircraft behaves dynamically stable when disturbed from a steady flight. The responses are reported in two time intervals in \autoref{fig:u_dist}, \autoref{fig:v_dist} and \autoref{fig:w_dist}.
+Furthermore, HUGO's physical responses to perturbation velocities $u$, $v$ and $w$ of magnitude $1 \ m\cdot s^{-1}$ were studied, since no gust requirements have been specified. These disturbances represent gusts in the x, y, and z directions (defined in \autoref{fig:flow5_overview}), respectively. In the cruise condition, HUGO seems to have an almost marginally stable phugoid motion, which is then reflected also in the disturbance response plots. Nevertheless, the mode is still stable and can easily be damped by the used of an automatic control system discussed in previous chapters. The disturbance plots demonstrate that the aircraft behaves dynamically stable when disturbed from a steady flight. The responses are reported in the two flight regimes in \autoref{fig:cruise_disturbances} and \autoref{fig:approach_disturbances}.
 
 \begin{figure}[H]
     \centering
@@ -394,19 +412,15 @@ Furthermore, HUGO's physical responses to perturbation velocities $u$, $v$ and $
     \end{subfigure}
 
     \caption{Unit velocity disturbances during approach}
-    \label{fig:approach_disturbances}s
+    \label{fig:approach_disturbances}
 \end{figure}
 
-\todo[inline]{Stability \& Controllability, scissor plot etc.}
+%\todo[inline]{Stability \& Controllability, scissor plot etc.}
 
+%\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
 
+This chapter has shown that the HUGO configuration derived in the preliminary design phase is both stable and controllable across the intended flight envelope. The aircraft maintains adequate static stability margins while providing sufficient control authority for trim and manoeuvring in all analysed flight conditions.
 
+The dynamic analysis confirms that all dominant modes remain stable, with no critical instabilities observed. Although the phugoid mode in cruise is relatively weakly damped, it remains within acceptable limits for the intended operation.
 
-
-
-
-
-
-
-
-\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
+Overall, the results validate the stability and control assumptions made in the preliminary design summary and confirm that the selected configuration is feasible from both a handling and controllability perspective.

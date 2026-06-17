@@ -1,32 +1,20 @@
 \chapter{Conclusion}
+\label{ch:conclusion}
+
 Nowadays, flight testing is becoming crucial in studying aeroelastic phenomena, due to limitations of wind tunnels. However, existing flying laboratories for aeroelastic research are often limited in versatility and financially infeasible for many universities and research laboratories. Therefore, the purpose of this report was to present the design of the High-speed Unmanned General-purpose Observatory (HUGO), a reusable test platform for high-speed aeroelastic research that allows for testing multiple wing planforms and aircraft configurations.
 
-The market analysis identified research centres such as NLR in the Netherlands and DLR in Germany, and universities such as TU Delft as key customers. The cost of using HUGO was estimates to €25,000 per flight day excluding setup costs. Consequently, it was estimated that this aircraft would take 20\% of the total market. Due to the needs of the target customers, Den Helder, North Sea, controlled airspace), technical risks analysis and mitigation, Type Certificate (classification under SC-Light-UAS High risk, but flight envelope already compliant with CS-23 aerobatic - more constraining), Design Organisation Approval for not having EASA to certify each and every planform/configuration and classifying major changes as research procedures,
+The starting point of this design process was the aircraft configuration selected in the previous phase of the project. Namely, a high-wing aircraft featuring static ports for wing and canard attachment, a removable T-tail cone, buried retractable landing gear, and fuselage-mounted engines. The mission envelope was subsequently defined in more detail by identifying all the tests that have to be performed using the testbed, such as active flutter suppression, gust load alleviation, aileron reversal and truss-braced wing. In this process, the relevance and technical feasibility were considered. Subsequently, the envelope of viable wing configurations for satisfying the mission envelope was defined. This involved the specification of acceptable ranges of several planform parameters and aerodynamic parameters. Among these, a standard planform for reference was selected, featuring the NASA SC(2)-0012 supercritical airfoil.
 
-\textcolor{red}{Writing in progress...}
-The starting point was the aircraft configuration selected in the previous phase of the project. Namely, a high wing aircraft featuring static ports for wing and canard attachment, removable T-tail cone, buried retractable landing gear and fuselage-mounted engines.
+The internal and external layouts were then designed in more detail to ensure that all the planforms from the envelope result in required performance. Enabling both statically stable and statically unstable flight configurations to be achieved through fuel shifting by the fuel system. LIDAR sensors, strain gauges, and cameras were selected for in-flight deflection measurements, and 6-axis load cells connecting the wing and fuselage were selected for load measurement. 
+
+Moreover, wings and fuselage were structurally sized to ensure sufficient load-bearing capacity. The wing was sized to ensure that no buckling occurs within the flight envelope, and that deformations remain within acceptable limits. For the standard planform, this also included ensuring no divergence or flutter occur within the flight envelope. The minimum wing skin thickness for the standard planform was found to be 2.5mm. Similarly, the fuselage sizing considered the maximum pull-up manoeuvre, 2-point landing condition, and maximum allowable local deformation. This resulted in minimum thickness of 0.4mm for the skins of the fuselage sandwich panels.
+
+The manufacturing processes for the various components were selected based on requirements for mechanical performance, environmental resistance, and suitability for low-volume aerospace-grade production. The primary structure will be manufactured from out-of-autoclave CYCOM 5320-1 carbon fiber prepreg. The fuselage and tailcone will incorporate honeycomb-core sandwich structures, whereas the wings and tail stabilizers will utilise a foam core. The outer skins of the sandwich structures will be joined using bonded lap joints, while the connection between the two halves will be further reinforced by bonding the honeycomb-core edges with an additional layer of adhesive film. The pylon-to-fuselage interface will be achieved through cylindrical titanium inserts bonded to the honeycomb core, providing a robust load-transfer mechanism. Finally, because high-performance steel was selected for the landing gear, mechanical fastening was chosen as the preferred method for its assembly and integration.
+
+Upon studying certification procedures and communicating with EASA, SC-Light-UAS High risk was identified as the category of this aircraft. Since some previous design decisions had already considered the flight envelope being compliant with that of the more restrictive CS-23 aerobatic aircraft, it was decided to proceed with this flight envelope. Due to the modular components of this aircraft, it was decided that applying for the Design Organisation Approval is the best path forward in terms of certification in order to facilitate the approval of HUGO featuring a range of wing planforms.
+
+Lastly, the market analysis identified research centres such as NLR in the Netherlands and DLR in Germany, and universities such as TU Delft as key customers. The cost of using HUGO was estimated to be €25,000 per flight day excluding setup costs. Consequently, it was estimated that this aircraft would take 20\% of the total market. Due to the proximity to the North Sea, availability of controlled airspace, as well as the needs of the target customers, the Den Helder airport was chosen as the target airport. 
 
 
-
-
-The envelope of wing configurations (\textcolor{red}{to be defined here!}) defined by span, sweep angle, taper. The structure, internal and external layout are all design to accommodate all of those planforms.
-Also the standard planform defined (free of flutter, NASA SC(2)-0012 supercritical airfoil)
-
-uses SAF, reaches Mach 0.75 for 5 minutes at FL270, collects measurement data, stable and unstable configurations
-
- sustainability(contribution to future load alleviation systems, effectively to reduction of emissions, SAF) Tests: AFS, GLA, aileron reversal (external control system), folding wingtips (external wing), truss-braced wing ...
-
-Technical design
-external/internal layout. 
-Manufacturing: metals, composites, core material chosen based on mechanical performance, environmental resistance, low-volume aerospace-grade manufacturability.
-The primary structure utilizes out-of-autoclave (OOA) CYCOM
-5320-1 carbon fiber epoxy prepreg, fuselage honeycomb structure. Fuselage assembly: lap joints between inner and outer skins, adhesive film for the core, pylon-to-fusleage connection characterised by mechanical fastening of cylindrical metal (titanium) inserts, landig gear assembly through mechanical fastening Structure sized for ultimate load factor of 9g
-
-Structural analysis and design: wing stresses, buckling and deflections based on lift distribution, fuselage under pull-up manoeuvre and 2-point landing condition, abuse loads, aeroelastic analysis encompassing divergence and flutter. Wing thickness of 2.5mm as the minimum, fuselage sheet thickness of ...mm.
-\textcolor{red}{1-2 sentences about noise and environmental impact}
-Last but not least, emennage and canard have been sized for neutral static stability to enable testing of stable, neutrally stable and unstable flight configurations. Regarding the dynamic stability, the aircraft equipped with the standard planform exhibited acceptable stability characteristics.
-
-Standard payload: dual LIDAR sensors for in-flight deflection measurements, strain gauges, cameras. WIng-fuselage connection through four 6-axis load cells, space for additional sensors etc., two JetCat P100-RX-BL micro-turbine engines
-dynamically shifting the CG through fuel management system, high-performance steel for the landing gear,
-
-Finally, ...
+% sustainability, noise and environmental impact (contribution to future load alleviation systems, effectively to reduction of emissions, uses SAF)
+%Recommendations

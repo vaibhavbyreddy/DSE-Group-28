@@ -163,7 +163,7 @@ The exponential model is retained for all components except the battery, where w
     \label{eq:weibull}
 \end{equation}
 
-The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the electric components are tabulated in \autoref{tab:component_reliability}. The shape and scale parameters, MTBF, and calculated reliability for the battery are presented in \autoref{tab:battery_reliability}.
+The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the autopilot, the servo motors, the power distribution system (PDS), and the serial advanced technology attachment solid-state drive (SATA SSD) are tabulated in \autoref{tab:component_reliability}. The shape and scale parameters, MTBF, and calculated reliability for the battery are presented in \autoref{tab:battery_reliability}.
 
 \begin{table}[H]
 \centering
@@ -171,7 +171,7 @@ The failure rates, mean times between failure (MTBF), or the readily available r
 \label{tab:component_reliability}
 \small
 \setlength{\tabcolsep}{3.5pt}
-\begin{tabular}{|p{3.8cm}|p{1.6cm}|p{1.8cm}|p{1.7cm}|p{1.8cm}|p{2.2cm}|p{1.3cm}|}
+\begin{tabular}{|p{3.6cm}|p{1.6cm}|p{1.8cm}|p{1.7cm}|p{1.8cm}|p{2.2cm}|p{1.3cm}|}
 \hline
 \textbf{Component} &
 \textbf{$\lambda$ [1/hr]} &
@@ -189,7 +189,7 @@ Servo motors (actuators)
 & $5 \cdot 10^{-5}$ & 9 & 20000 & 900 & 0.9560
 & \tablefootnote{\href{https://www.a-m-c.com/servomotor-lifespan/}{Servo lifespan article} (accessed 12.06.2026)} \\
 \hline
-Power distribution system
+PDS
 & $8.8 \cdot 10^{-8}$ & 1 & $1.14 \cdot 10^{7}$ & 900 & 0.9999
 & \cite{Imani2022} \\
 \hline
@@ -231,11 +231,15 @@ Battery pack (8s5p)
 
 %It can be observed that the reliability of both the battery cell and the battery pack appears unacceptably low. However, this result arises from the assumption that a single battery is used over the entire system lifetime, which is not realistic. Given a mean time between failures of 125 hours, approximately 900/312.5 $\approx$ 3 battery replacements are required over the system’s lifetime. This will be accounted for in the maintenance strategy.
 
-Given that fatigue was excluded as a critical design consideration in \autoref{sec:material_options}, and that the structural analyses in \autoref{sec:wing_structural_analysis} and \autoref{sec:fuselage_structural_analysis} indicate sufficient strength to withstand the maximum internal stresses, a reliability value of 0.99 was assigned to the wing, fuselage, and landing gear structures.
+
+As discussed in \autoref{sec:composites}, the low number of load cycles expected over the aircraft's lifetime (1,200 over 15 years) renders fatigue negligible for composite structures based on S-N curve analysis. Combined with the static structural margins demonstrated in \autoref{sec:wing_structural_analysis} and \autoref{sec:fuselage_structural_analysis}, the wings, fuselage, and landing gear are not considered reliability-limiting components over the aircraft's service life. Structural integrity over the service life is further supported by a condition-based maintenance strategy using non-destructive testing, as discussed in \autoref{sec:maintainability}.
+
+%Given that fatigue was excluded as a critical design consideration in \autoref{sec:composites}, and that the structural analyses in \autoref{sec:wing_structural_analysis} and \autoref{sec:fuselage_structural_analysis} indicate sufficient strength to withstand the maximum internal stresses, the wings, fuselage, and landing gear were not deemed to have a detrimental effect on the overall reliability over the lifetime of the aircraft.
+%a reliability value of 0.99 was assigned to the wing, fuselage, and landing gear structures.
 
 Bird strike was initially considered as a potential failure mode due to HUGO’s relatively small size. However, FAA data indicate that approximately 70\% of bird strikes occur between 0 and 500 feet above ground level. Over the past 30 years, only 31 strikes involving commercial aircraft have been recorded at altitudes between 20,000 and 32,000 feet \footnote{\href{https://www.faa.gov/airports/airport_safety/wildlife/faq}{Q: At what altitude do most bird strikes occur?} (accessed on 14.06.2026)}. Given HUGO’s small cross-sectional area compared to a commercial airliner and its cruise altitude of FL270, the probability of a bird strike during cruise is several orders of magnitude lower than the electric component failure rates previously tabulated. Consequently, the primary exposure to bird strike risk occurs during climb and descent through the low-altitude flight regime, which represents only a small portion of the overall mission time.
 
-All components and parts included in the reliability analysis are critical to the operation of HUGO. Consequently, the failure of any single element would result in the overall system being unable to perform its intended function. The system’s overall reliability is therefore modelled as a series system \cite{Mencik2016} and is estimated to be 0.872. This value corresponds to the entire operational lifetime and does not account for any maintenance strategy. Hence, the relatively low reliability is expected. However, this can be substantially improved through the implementation of a tailored maintenance strategy incorporating both preventive and corrective maintenance activities.
+All components and parts included in the reliability analysis are critical to the operation of HUGO. Consequently, the failure of any single element would result in the overall system being unable to perform its intended function. The system’s overall reliability is therefore modelled as a series system \cite{Mencik2016} and is estimated to be 0.908. This value corresponds to the entire operational lifetime and does not account for any maintenance strategy. Hence, the relatively low reliability is expected. However, this can be substantially improved through the implementation of a tailored maintenance strategy incorporating both preventive and corrective maintenance activities.
 
 To estimate the expected availability, the mean time to repair (MTTR) is required. An MTTR of $1$ hour is assumed for the battery pack, as it is routinely swapped. For the remaining electric components, the availability calculation accounts for the time required for preparation, fault isolation, disassembly, replacement, and reassembly. Standard times for the removal, replacement, and interchange of fasteners, connectors, and plug-in modules are on the order of minutes \cite{milhdbk472}. Consequently, a conservative MTTR of $2$ hours is assumed to include additional time for detection and diagnostics, with the assumption that on-site spare parts are available.
 
@@ -270,7 +274,7 @@ flights for the 5 aircraft, which will be used as the reference life for fatigue
 
 For the battery pack, a preventive time-based maintenance (TBM) is highly suitable. The Weibull shape parameter of $\beta$ = 9 indicates a clear wear-out behaviour. As such, the battery operates in a pronounced ageing phase, making scheduled replacement or swapping before the onset of rapid degradation - at the defined limit of 2500 hours or 1000 cycles - an effective and appropriate maintenance strategy.
 
-For the structural components, a condition-based maintenance (CBM) is highly appropriate. Visual inspections and non-destructive testing (NDT) are standard practice in airframe maintenance. Although fatigue has been excluded as an immediate critical failure mechanism and a baseline reliability of $0.99$ has been assumed, condition-based maintenance provides an additional safeguard by enabling early detection of unexpected environmental damage or manufacturing defects before catastrophic failure.
+For the structural components, a condition-based maintenance (CBM) is highly appropriate. Visual inspections and non-destructive testing (NDT) are standard practice in airframe maintenance \footnote{\href{https://www.vareximaging.com/blogs/which-ndt-is-used-in-aircraft/}{Which NDT is used in aircraft?} (accessed on 17.06.2026)}. Although fatigue has been excluded as an immediate critical failure mechanism, condition-based maintenance provides an additional safeguard by enabling early detection of unexpected environmental damage or manufacturing defects before catastrophic failure.
 
 For the electric components, a corrective maintenance (CM) strategy is generally appropriate. These components follow an exponential failure distribution, indicating random failure behaviour without an explicit wear-out phase over the system lifetime of 900 hours. Given the very high calculated mean time between failures (e.g., $1.46 \cdot 10^7$ hours for the SSD), corrective maintenance is justified. However, for safety-critical elements such as the autopilot and servo motors, this approach is acceptable only under the condition that individual component reliabilities over the 900 lifetime remain high ($\approx$ 0.96), and that the MTTR is low ($\approx$ 2 hours), thereby maintaining an overall system availability of approximately $0.997$.
 
@@ -280,7 +284,7 @@ Based on the established maintenance strategies, a maintenance diagram was devel
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.0\linewidth]{figures_final/Maintenance.jpg}
+    \includegraphics[width=1.0\linewidth]{figures_final/Maintenance (1).jpg}
     \caption{HUGO subsystem-level integrated maintenance logic diagram}
     \label{fig:maintenance_diagram}
 \end{figure}
@@ -358,14 +362,15 @@ HUGO is a maintainable system. Maintainability is supported by the modular archi
 \end{comment}
 
 \section{Safety Summary}
+\label{sec:safety}
 
 The RAMS approach ensures that HUGO can perform high-speed research flights while limiting the consequences of failures. Safety is primarily achieved through operation in controlled airspace, continuous ground monitoring, autonomous recovery logic, flight-envelope monitoring, pre-flight and post-flight procedures, and maintenance under a continuing-airworthiness framework. %Reliability is improved through selective redundancy and short service cycles, while availability is maintained by the initial five-aircraft fleet and a planned maintenance allowance of 50 working days per aircraft per year.
 
 At the subsystem level, safety is reinforced through life-limited operation of critical components. The lithium-ion battery pack represents the primary wear-out failure mechanism and is therefore replaced preventively after 1000 charge-discharge cycles, well before the onset of rapid degradation. This strategy effectively removes the dominant age-related failure mode from operation.
 
-Reliability is maintained through a combination of preventive maintenance and condition-based monitoring. Flight-critical electric systems, including the autopilot, servos, power distribution system (PDS), and solid-state drive (SSD), exhibit predominantly random failure behaviour and are supported by comprehensive pre-flight and post-flight diagnostics. Airframe reliability is preserved through regular visual inspections and non-destructive testing, ensuring structural integrity throughout the aircraft's service life.
+Reliability is maintained through a combination of preventive maintenance and condition-based monitoring. Flight-critical electric systems, including the autopilot, servo motors, PDS, and SATA SSD, exhibit predominantly random failure behaviour and are supported by comprehensive pre-flight and post-flight diagnostics. Airframe reliability is preserved through regular visual inspections and non-destructive testing, ensuring structural integrity throughout the aircraft's service life.
 
-Availability is maximised through rapid fault recovery and modular maintenance practices. Although the unmaintained system reliability decreases to approximately 0.872 over its operational lifetime, high inherent availability is maintained by limiting corrective maintenance actions to a mean time to repair (MTTR) of two hours or less for electric subsystems. This minimises downtime and sustains operational readiness.
+Availability is maximised through rapid fault recovery and modular maintenance practices. Although the unmaintained system reliability decreases to approximately 0.908 over its operational lifetime, high inherent availability is maintained by limiting corrective maintenance actions to a MTTR of two hours or less for electric subsystems. This minimises downtime and sustains operational readiness.
 
 Operational resilience is further enhanced through a five-aircraft fleet architecture. A planned maintenance allowance of 50 working days per aircraft per year accommodates inspections, payload reconfiguration, and preventive maintenance while ensuring mission continuity through fleet-level redundancy. Together, these measures provide a robust balance of safety, reliability, availability, and maintainability throughout the operational life of the system.
 

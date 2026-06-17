@@ -8,10 +8,10 @@ The engineering design of HUGO has to be constrained by verifiable technical req
 \section{Project Objectives}
 \label{sec:project_objectives}
 
-The project objectives are formulated according to the SMART method: they are specific, measurable, achievable, relevant, and time-bound. They serve as a roadmap for planning and execution, defining the tangible deliverables and outcomes required within a project’s timeline, budget, and scope. While these project objectives provide the high-level project ambitions, they are quantitatively defined and validated through the system and subsystem requirements outlined in \autoref{sec:user_requirements}.
+The project objectives are formulated according to the SMART method: they are specific, measurable, achievable, relevant, and time-bound \footnote{\href{https://www.ucop.edu/local-human-resources/_files/performance-appraisal/How+to+write+SMART+Goals+v2.pdf}{SMART Goals: a How to Guide} (accessed 17.06.2026)}. They serve as a roadmap for planning and execution of a project, defining the tangible deliverables and outcomes required within its timeline, budget, and scope. The objectives defined in this section provide high-level project ambitions, which are quantitatively defined and validated through the system and subsystem requirements outlined in \autoref{sec:user_requirements}. The five main categories of objectives identified for HUGO are: financial, quality, performance, business, and compliance.
 
 \subsection{Financial Objectives}
-The financial objectives focus on the economics of the project and the viability of this venture.
+The financial objectives focus on the economic viability of the project.
 
 \begin{enumerate}
 
@@ -23,7 +23,7 @@ The financial objectives focus on the economics of the project and the viability
 \end{enumerate}
 
 \subsection{Quality Objectives}
-The quality objectives set the standard to which the design will be developed.
+The quality objectives set the standard which must be met by the final product to ensure that it is safe and operational.
 
 \begin{enumerate}
     \item Longevity: The aircraft must have a minimum operational lifetime of 15 years.
@@ -33,28 +33,28 @@ The quality objectives set the standard to which the design will be developed.
 
 
 \subsection{Performance Objectives}
-The performance objectives focus on the capability to deliver results of the design.
+The performance objectives focus on the capability of the final product to fulfil the functions requested by the users, which are described in more detail in \autoref{sec:user_requirements}.
 
 \begin{enumerate}
     \item Transonic testing: The aircraft must be able to sustain flight speeds between Mach 0.4 and Mach 0.75 for a minimum test time of 5 minutes.
     \item Endurance and range: The aircraft must be able to fly for a minimum of 30 minutes, with at least a 5-minute period of high-speed testing, whilst maintaining continuous telemetry over 165 km of range.
-    \item Mass and payload capacity: The aircraft must not have a Maximum Take-Off Mass (MTOM) larger than 50 kg, and must accommodate at least 5 kg and 5 L of payload.
+    \item Mass and payload capacity: The aircraft must not have a MTOM larger than 50 kg, and must accommodate at least 5 kg and 5 L of payload.
     \item Stability: The aircraft must be able to accommodate statically and dynamically stable, unstable, and neutrally stable flight conditions.
 \end{enumerate}
 
 \subsection{Business Objectives}
-The business objectives indicate the standard to which the organisation will perform its tasks.
+The business objectives indicate the standard that shall be adhered to by HUGO's operator.
 
 \begin{enumerate}
     \item Modular Platform: The aircraft should be a highly versatile platform capable of performing different tests with different configurations during the same day. 
     \item Logistics: The aircraft should fit within a standard, commercially available van. All additional maintenance components and ground station equipment must also fit within this van.
     \item Sustainability: The aircraft must fly with sustainable aviation fuel (SAF).
-    \item Netherlands-centric: The Netherlands shall serve as the primary target market, with the aircraft taking off from Den Helder Airport.
+    \item Netherlands-centric: The Netherlands shall serve as the primary market for the aircraft.
 \end{enumerate}
 
 
 \subsection{Compliance Objectives}
-The compliance objectives ensure adherence to regulations.
+The compliance objectives ensure adherence to EASA regulations.
 
 \begin{enumerate}
     \item EASA certification: The aircraft must be fully certifiable under EASA's SC Light-UAS framework.
@@ -64,7 +64,7 @@ The compliance objectives ensure adherence to regulations.
 
 \section{Identification of System Functions}
 \label{sec:identification_system_functions}
-An understanding of the system's functions was obtained by constructing a Functional Flow Diagram (see: \autoref{sec:diagram}), from which the Functional Breakdown Structure was derived (see: \autoref{sec:diagram}). The intended performance of the final product was described in three levels, ensuring that all critical functions are identified and can later be turned into requirements.
+An understanding of the system's functions was obtained by constructing a Functional Flow Diagram, from which the Functional Breakdown Structure was derived. The intended performance of the final product was described in three levels, ensuring that all critical functions are identified and can later be turned into requirements. The FFD and FBS can be found in \autoref{app:project_planning_diagrames}.
 
 Together with the general project guidelines \cite{Castro2026}, the identified functions were additionally used as a foundation for a more detailed task distribution definition developed by the Project Management (PM) department, described in more detail in \autoref{sec:pm_task_distribution}.
 
@@ -234,7 +234,6 @@ HUF-STR-010 & The structure shall sustain ultimate loads up to a load factor of 
 
 \multicolumn{2}{|c|}{\textbf{Test Planform}}\\\hline
 %HUG-TPL-01 &For all sets of planforms in the planform envelope, given the critical Mach number is larger than 0.75, it shall be possible to fulfil the nominal mission profile. %No part of the aircraft equipped with a wing planform from the Planform Envelope shall experience transonic shocks. 
-\\\hline
 HUG-TPL-02 & The test planform shall have an effective aspect ratio between 5 and 27. \\\hline
 %HUG-TPL-03 & The aircraft shall house and operate with test planforms with  non-increasing chord function. \\\hline
 HUG-TPL-03 & The test planform shall feature a dihedral function bound between 0 and 8 degrees.\\\hline
@@ -250,7 +249,7 @@ HUG-SPL-02 & The standard planform shall not exhibit flutter or divergence up to
 
 \end{longtable}
 
-Once the requirements have been formulated, before beginning the development process of HUGO, it is necessary to investigate the market and the costs associated with the programme.
+
 %\todo[inline]{Conclusion pending, connect it to the next chapter}
 
 

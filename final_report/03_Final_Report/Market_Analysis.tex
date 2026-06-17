@@ -1,16 +1,14 @@
 \chapter{Market Analysis}
 \label{ch:market_anaysis}
-
-\todo[inline]{This chapter was initially proofread by Hanna}
-
-This profitability and market study serves as an important decision gate for the project. The objective is not merely to generate a commercial business plan, but to establish the project's economic safety factor. By quantifying development (CAPEX), operational costs (OPEX), and realistic revenue constraints, we can objectively evaluate engineering trade-offs. For instance, if the financial model demonstrates resilience to high development costs, it justifies integrating complex, high-value features (such as heavy modular payload interfaces or premium micro-turbines) without compromising the project's viability.
-\todo[inline]{autoref the different sections in the introduction, what is the purpose of each of them}
-
+This profitability and market study serves as an important decision gate for the project. The objective is not merely to generate a commercial business plan, but to establish the project's economic safety factor. By quantifying development (CAPEX), operational costs (OPEX), and realistic revenue constraints, we can objectively evaluate engineering trade-offs. For instance, if the financial model demonstrates resilience to high development costs, it justifies integrating complex, high-value features (such as heavy modular payload interfaces or premium micro-turbines) without compromising the project's viability. \autoref{sec:market_value_prop} discusses the current state of the market, its key players, and the size of the market that HUGO can capture. \autoref{sec:financial_baseline} details the anticipated costs and revenues which HUGO can generate, both in the pre-revenue development phase, as well as the operational phase. \autoref{sec:profitability} analyses the revenue generation capabilities of HUGO, weighed against the costs of operating HUGO, as well as the debt accrued during the development phase. \autoref{sec:sensitivity} details the results of the sensitivity analysis performed on the various costs and revenue factors of HUGO. This identified the most and least constraining factors in the profitability and financial viability of HUGO. Finally, this analysis is compiled into a list of strengths, weaknesses, opportunities and threats (SWOT) in \autoref{sec:swot_analysis}
 
 \section{Market Analysis \& Value Proposition}
 \label{sec:market_value_prop}
 
+In order to understand the opportunities HUGO has in the market, the current state of the market must be established. \autoref{subsec:market_segmentation} details the possible client base of HUGO. The current options for performing experiments in the domain that HUGO aims to capture are detailed in \autoref{subsec:Value_Proposition}. The total size of the market is detailed in \autoref{subsec:TAMSAMSOM}.
+
 \subsection{Market Segmentation}
+\label{subsec:market_segmentation}
 
 The target market is divided into three key segments seeking high-fidelity aeroelastic and flight dynamics data:
 
@@ -21,6 +19,7 @@ The target market is divided into three key segments seeking high-fidelity aeroe
 \end{itemize}
 
 \subsection{The Value Proposition (Cost Comparison)}
+\label{subsec:Value_Proposition}
 
 Currently, researchers testing at Mach 0.75 face two incumbent methods:
 
@@ -33,13 +32,14 @@ Currently, researchers testing at Mach 0.75 face two incumbent methods:
 Project HUGO disrupts this by offering a certified, modular testbed. At \textbf{\texteuro{}25,000 per flight day + setup costs}, HUGO undercuts the total programmatic cost of the alternatives, while providing real, clean atmospheric data.
 
 \subsection{Market Volume (TAM/SAM/SOM)}
+\label{subsec:TAMSAMSOM}
 
-Based on the budgets of major Dutch aerospace testing facilities (NLR, DNW, TU Delft), the Serviceable Addressable Market (SAM) was estimated at \texteuro{}71M in the baseline report. Assuming the testing regime of HUGO is roughly 20\% of the total market \footref{foot:schrijer}, the Serviceable Obtainable Market (SOM) is \textbf{\texteuro{}14.2M annually}. Although 20\% could be seen as ambitious, the fact that HUGO offers the ability for researchers to test their novel control systems and wing designs for much lower cost and lead time will likely create induced demand and a market expansion.
+Based on the budgets of major Dutch aerospace testing facilities (NLR, DNW, TU Delft), the Serviceable Addressable Market (SAM) was estimated at \texteuro{}71M in the baseline report \footnote{\label{foot:financialplan}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/excel-files/financial-plan.xlsm}{Financial Plan Excel Sheet} (accessed on 17/06/2026)}. Assuming the testing regime of HUGO is roughly 20\% of the total market \footref{foot:schrijer}, the Serviceable Obtainable Market (SOM) is \textbf{\texteuro{}14.2M annually}. Although 20\% could be seen as ambitious, the fact that HUGO offers the ability for researchers to test their novel control systems and wing designs for much lower cost and lead time will likely create induced demand and a market expansion.
 
 \section{Financial Baseline \& Cost Breakdown}
 \label{sec:financial_baseline}
 
-The financial viability of this project relies on a clear understanding of the baseline Capital Expenditures (CAPEX) required to launch the service, as well as the Operational Expenditures (OPEX) and unit economics required to sustain it. The figures presented in \autoref{tab:opex_capex} are derived from a comprehensive bottom-up cost model. The mathematical breakdown of each category is detailed below.
+The financial viability of the project relies on a clear understanding of the baseline Capital Expenditures (CAPEX) required to launch the service, as well as the Operational Expenditures (OPEX) and unit economics required to sustain it. The figures presented in \autoref{tab:opex_capex} are derived from a comprehensive bottom-up cost model as detailed in the baseline \footref{foot:financialplan}. The mathematical breakdown of each category is detailed below.
 
 \begin{table}[H]
     \centering
@@ -118,9 +118,9 @@ To service the \texteuro{}14.2M SOM, Project HUGO assumes a fleet of 5 UAVs. Acc
 %     \label{fig:cumulative_profit}
 % \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
     \centering
-    \includegraphics[width=0.75\linewidth]{figures_final/Cumulative_Profit.png}
+    \includegraphics[width=0.75\linewidth]{figures_final/Updated_Cumulative_Profit.png}
     \caption{Cumulative operational profit by year}
     \label{fig:cumulative_profit}
 \end{figure}
@@ -205,7 +205,6 @@ The four categories are defined as follows:
 
 Based on the profitability analysis, sensitivities, and market dynamics established in this chapter, the SWOT profile for Project HUGO is outlined below:
 
-\vspace{0.5em}
 \noindent\textbf{Strengths}
 \begin{itemize}
     \item \textbf{Unit Economics:} An 82\% gross margin per flight day allows for rapid debt amortisation and an aggressive pricing model (\texteuro{}25,000/day) that significantly undercuts wind tunnel costs.
@@ -213,14 +212,12 @@ Based on the profitability analysis, sensitivities, and market dynamics establis
     \item \textbf{Data Fidelity:} Unlike transonic wind tunnels (e.g., DNW-HST), the platform provides real atmospheric data free from wall-interference and aerodynamic scaling issues.
 \end{itemize}
 
-\vspace{0.5em}
 \noindent\textbf{Weaknesses}
 \begin{itemize}
     \item \textbf{Upfront Capital Requirement:} The project requires \texteuro{}3.45M in upfront CAPEX, necessitating heavy venture debt that severely burdens operational cash flow in the first 5 years.
     \item \textbf{Operational Bottlenecks:} The financial model relies on a small initial fleet of 5 UAVs, meaning that unexpected maintenance downtime directly limits revenue generation.
 \end{itemize}
 
-\vspace{0.5em}
 \noindent\textbf{Opportunities}
 \begin{itemize}
     \item \textbf{Market Expansion (Induced Demand):} Lowering the cost and lead-time barrier for transonic testing could attract smaller actors or encourage more frequent testing iterations, expanding the conservatively estimated \texteuro{}14.2M Serviceable Obtainable Market (SOM).
@@ -228,7 +225,6 @@ Based on the profitability analysis, sensitivities, and market dynamics establis
     \item \textbf{Alternative Financing:} Securing non-dilutive grants or equity funding could replace the assumed 10\% interest venture debt, accelerating the timeline to operational break even.
 \end{itemize}
 
-\vspace{0.5em}
 \noindent\textbf{Threats}
 \begin{itemize}
     \item \textbf{High Sensitivity to Utilisation and Pricing:} The viability limits for total fleet flights ($-$22.00\% safety margin) and price per flight day ($-$17.76\% safety margin) are tight. Any external factor reducing scheduled flight days poses a severe risk.
@@ -236,16 +232,12 @@ Based on the profitability analysis, sensitivities, and market dynamics establis
     \item \textbf{Certification:} Acquiring the required EASA Specific Category flight permits and DOA certification introduces external timeline risks that could delay the start of commercial operations and extend the pre revenue costs and debt.
 \end{itemize}
 
-
-
 %\section{Conclusion}
 %\label{sec:market_conclusion}
 
-The primary objective of this market and profitability analysis was to establish an economic safety factor for HUGO's technical development. By quantifying the operational limits and market constraints, the analysis demonstrates that the project is financially viable and highly resilient to increases in development and operational costs. 
+The primary objective of this market and profitability analysis was to establish an economic safety factor for HUGO’s technical development. By quantifying operational limits and market constraints, the analysis demonstrates that the project is financially viable and resilient to increases in both development and operational costs. This provides the freedom to select higher-performance, more reliable materials, avionics, and subsystem components, without being constrained by strict cost minimisation. In particular, the substantial margins identified in the R\&D budget (+45.99\%) and variable operational costs (+98.69\%) confirm that aggressive cost-cutting measures are not required. Instead, the design can prioritise platform safety, data quality, versatility, and operational reliability.
 
-For the design decisions detailed in this report, this financial resilience allows for the choice of more expensive, higher performing materials, as well as prioritizing higher quality avionics and equipment, to prioritize safety and reliability over cost. The substantial margins of safety identified in the R\&D budget (+45.99\%) and variable operations (+98.69\%) dictate that strict cost cutting measures are unnecessary. Instead, the engineering design can prioritise data fidelity, payload modularity, platform safety and reliability.
-
-\todo[inline]{Connect the conclusion to the next chapter}
+Building on this economic flexibility, the next chapter extends the assessment beyond financial viability to consider the broader environmental implications of the design choices. In particular, it examines how material selection, operational profiles, and system architecture influence the overall sustainability of HUGO, and how these factors can be balanced with the established performance and safety objectives.
 
 % --------------------------------------------------------------------
 % Appendix figures -- sensitivity sweep plots
