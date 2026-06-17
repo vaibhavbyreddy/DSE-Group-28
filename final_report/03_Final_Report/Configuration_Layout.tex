@@ -329,6 +329,12 @@ To increase the accuracy and precision certain modifications can be made on the 
 
 
 Diagram of the point of view. Image of the reference dots used. 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures_final/deflection.png}
+    \caption{Caption}
+    \label{fig:placeholder}
+\end{figure}
 
 -Camera. The camera-system chosen was the DJI O4 Air Unit Pro \footnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (accessed on 05.06.2026)}. Here it was especially the form-factor of the system which would enable installation in the very restricted space of the horizontal tail and the high frame-rate and resolution . With a field of view being 155 \degree this would enable an overview of the wings. 
 The maximum resolution would be 3840×2880 at 60fps and the resolution at the maximum frame rate would be 3840×2160 120fps.  
@@ -387,14 +393,14 @@ Final configuration of sensors (Insert large diagram)
         Strain gauge  & 16 & 0.005 & $7\times 0.5 \times 7$ & See Q. X
 Bridge & ±1.5\% & 20000 & See Q. X
 Bridge  \\\hline
-        LIDAR-sensor  & 3 & 0.160 & $55 \times 60 \times 38.7$ & 6 & ±1.5-3\% & 10 & 22.2 \\\hline
+        LIDAR-sensor  & 3 & 0.160 & $55 \times 60 \times 38.7$ & 6 & ±1.7 & 10 & 22.2 \\\hline
         Camera \tablefootnote{\href{https://www.dji.com/nl/o4-air-unit/specs}{DJI O4 Air Unit Pro} (accessed on 05.06.2026)} & 1 & 0.034 & $25.55 \times 20 \times 23.30$ & 15.6 & n.a. & 120 & 130 \\\hline
         Pitot probe \footref{foot:pitot}%\tablefootnote{\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot} (accessed on 03.06.2026)} 
         & 1 & 0.100 & $6.35 \times 100 \times 6.35$ & 0.1 & ±1\% &100 & See M. A. D. Computer \\\hline
     \end{tabular}
 \end{table}
 
-The overall  of the different sensors has been listed in \autoref{tab:internal_config_test_measurement_sensors}. These have all been found to be less than $2\%$ with the exception of the LIDAR. The accuracy of $1.5\%-3\%$ was a conservative estimate based on information from the manufacture and from \cite{LopezHerreros2024}. 
+The overall  of the different sensors has been listed in \autoref{tab:internal_config_test_measurement_sensors}. These have all been found to be less than $2\%$.
 \begin{table}[H]
     \centering
     \caption{Amplifiers for the different sensors}
@@ -410,7 +416,7 @@ The overall  of the different sensors has been listed in \autoref{tab:internal_c
 \end{table}
 The precision of the measurement will also be dependent on the amplifiers using them. Therefore the signal to noise ratio has been listed in as measure of the precision of the output signal.   
 
-Calibration of sensors.
+Calibration of sensors. Mention load sensors and strain gauges 
 
 
 %Detailed description of the data output of the sensors and their individual positions. 

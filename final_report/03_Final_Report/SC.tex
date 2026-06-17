@@ -965,16 +965,14 @@ These constraints resulted in \autoref{fig:fuselage_thicknesses}, showing the mi
     \label{fig:fuselage_thicknesses}
 \end{figure}
 
-\todo[inline]{Include work done on abuse loads and sizing of the sandwich panel}
+Given the very low thickness set by manufacturing constraints, it became critical to analyse how the skin of the fuselage monocoque would withstand handling loads. These loads are commonly known as abuse loads. In the case of HUGO, it was assumed that the most constraining load would be that of an operator lifting and carrying the aircraft, applying a force equal to half of the weight of the aircraft at the position of each of the operator's hands. The cross-sectional deflection of the simplified cylindrical fuselage is then estimated using \autoref{eq: roark_ring_deflection} \cite{roark1966formulas}.
 
+\begin{equation}
+    \Delta D_V = -0.1488 \frac{WR^3}{EI}
+    \label{eq: roark_ring_deflection}
+\end{equation}
 
-
-
-
-
-
-
-
+In the case of this analysis, the maximum deflection of the ring was set to 1mm [to be sensitivity analysed]. The area moment of inertia of the circular ring is given by the length of the fuselage segment where the operator places their hand, the thickness of the skin, and the diameter of the fuselage. For this analysis, 125 mm was selected as the most constraining length of fuselage segment where the operator might place their hand, as it can be found in between the forward access hatch and the main wing port, and would be conducive to the highest skin thickness 
 
 
 

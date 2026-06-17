@@ -7,16 +7,15 @@
 
 \section{Project Objectives}
 \label{sec:project_objectives}
-\todo[inline]{Currently copied from midterm for tuning}
 
-The project objectives are formulated according to the SMART method: they are specific, measurable, actionable, relevant, and time-bound. They serve as a roadmap for planning and execution, defining the tangible deliverables and outcomes required within a project’s timeline, budget, and scope.
+The project objectives are formulated according to the SMART method: they are specific, measurable, achievable, relevant, and time-bound. They serve as a roadmap for planning and execution, defining the tangible deliverables and outcomes required within a project’s timeline, budget, and scope. While these project objectives provide the high-level project ambitions, they are quantitatively defined and validated through the system and subsystem requirements outlined in \autoref{sec:user_requirements}.
 
 \subsection{Financial Objectives}
 The financial objectives focus on the economics of the project and the viability of this venture.
 
 \begin{enumerate}
 
-    \item Affordability: The total manufacturing cost per unit shall not exceed \texteuro{45000} \footref{url:baseline_report}.
+    \item Affordability: The total manufacturing cost per unit shall not exceed \texteuro{45000} \footref{foot:baseline}.
     
     \item Market capture: Companies should be able to test new components and achieve certification faster and for a lower cost compared to current testing methods.
     
@@ -28,49 +27,38 @@ The quality objectives set the standard to which the design will be developed.
 
 \begin{enumerate}
     \item Longevity: The aircraft must have a minimum operational lifetime of 15 years.
-    \item Serviceability and Inspection: Every subsystem
+    \item Serviceability and Inspection: Every subsystem and component of the aircraft must be easily accessible for inspection and maintenance.
+    \item Reliability: Single-point electronic or mechanical failures must not result in mission failure, catastrophic loss, or ground hazards.
 \end{enumerate}
 
-High-Tempo Longevity: Guarantee a 15-year operational lifecycle under a rigorous stress tempo of 4 flights per day, 100 days per year.
-
-Total Inspectability: Ensure 100\% accessible primary structures and internal subsystems to allow rapid field maintenance, inspection, and reconfiguration.
-
-Fault Tolerance: Design for high reliability, ensuring no single-point electronic or mechanical failure (e.g., control surface loss) results in mission failure, catastrophic loss, or ground hazards.
-
-
-\begin{enumerate}
-    %\item Data shall be downloaded and stored efficiently after each test flight.
-    %\item A HUGO configuration shall undergo a thorough inspection of all internal and external systems and the external structure before and after each test flight.
-    \item A HUGO configuration shall undergo 50 days of maintenance per year \footref{url:baseline_report}.
-    % \item The maximum relative difference for verification analysis shall be less than 1\%.
-    \item The configuration trade-off shall evaluate the candidate architectures against weighted criteria, with a consistency ratio below 0.1 for the Analytic
-    Hierarchy Process (AHP) weighting (\autoref{sec:trade-off_weight_factors}).
-\end{enumerate}
 
 \subsection{Performance Objectives}
-The performance objectives focus on the results and effectiveness of the project.
+The performance objectives focus on the capability to deliver results of the design.
 
 \begin{enumerate}
-    \item The initial HUGO fleet shall comprise of five aircraft to ensure continuous operational availability across 100 operational days per year with 4 flight tests per day \footref{url:baseline_report}.
-    \item The selected configuration shall withstand manoeuvre load factors ranging from −3 to +6 (\autoref{sec:flight_envelope}).
-    \item The aircraft shall enable continuous flight and collection of flight test data at 0.75 Mach for at least 5 minutes \footref{url:baseline_report}.
-    \item The selected configuration shall carry sufficient fuel for the nominal mission of 30 minutes and four landing attempts \footref{url:baseline_report}.
+    \item Transonic testing: The aircraft must be able to sustain flight speeds between Mach 0.4 and Mach 0.75 for a minimum test time of 5 minutes.
+    \item Endurance and range: The aircraft must be able to fly for a minimum of 30 minutes, with at least a 5-minute period of high-speed testing, whilst maintaining continuous telemetry over 165 km of range.
+    \item Mass and payload capacity: The aircraft must not have a Maximum Take-Off Mass (MTOM) larger than 50 kg, and must accommodate at least 5 kg and 5 L of payload.
+    \item Stability: The aircraft must be able to accommodate statically and dynamically stable, unstable, and neutrally stable flight conditions.
 \end{enumerate}
 
 \subsection{Business Objectives}
-The business requirements align with the strategic goals of market entry and client acquisition.
+The business objectives indicate the standard to which the organisation will perform its tasks.
+
 \begin{enumerate}
-    \item The Netherlands shall serve as the primary market for initial operations, with Den Helder Airport as the designated base of operations \footref{url:baseline_report}.
-    \item HUGO shall be capable of serving customers from at least four market segments: universities and academic laboratories, research centres, aerospace companies, and defence organisations \footref{url:baseline_report}.
-    %\item The design shall support rapid reconfiguration between client-test campaigns to minimise aircraft-on-ground time between contracts.
+    \item Modular Platform: The aircraft should be a highly versatile platform capable of performing different tests with different configurations during the same day. 
+    \item Logistics: The aircraft should fit within a standard, commercially available van. All additional maintenance components and ground station equipment must also fit within this van.
+    \item Sustainability: The aircraft must fly with sustainable aviation fuel (SAF).
+    \item Netherlands-centric: The Netherlands shall serve as the primary target market, with the aircraft taking off from Den Helder Airport.
 \end{enumerate}
 
+
 \subsection{Compliance Objectives}
-The compliance objectives ensure adherence to regulations and standards.
+The compliance objectives ensure adherence to regulations.
 
 \begin{enumerate}
-    \item Each HUGO configuration shall comply with the environmental performance requirements set out in Annex~III of Regulation (EU) 2018/1139 of the European Parliament and of the Council (\autoref{sec:environmental_protection}).
-    \item Each HUGO configuration shall comply with the the CS 23 Aerobatic Airplanes requirements and Special Condition for Light Unmanned Aircraft Systems - High Risk (\autoref{sec:CS-23 and SC-UAS}).
+    \item EASA certification: The aircraft must be fully certifiable under EASA's SC Light-UAS framework.
+    \item Autonomy: The aircraft should meet beyond visual line of sight (BVLOS) requirements, autonomously preventing catastrophic mission failure in case of communication loss.
 \end{enumerate}
 
 
