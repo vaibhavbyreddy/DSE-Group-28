@@ -491,7 +491,7 @@ q &= -\frac{V_y I_{yy}}{I_{xx}}\int_{0}^{s} t y  \mathrm{d}s' + q_{s0}
 
 After both the shear components are computed, they are summed, and the results can be seen in \autoref{fig:shear_dist}, reaching a maximum of  42.788 MPa. The material has a yield stress of 896 MPa (\autoref{tab:prepreg_properties}), a much larger value than the maximum shear stress present in the wing material; as such, this loading case will not cause a shear failure.
 
-When the wing bends, the top section is in compression while the bottom section in tension, the internal moments from the forces induce a normal stress in the material. To compute its distribution, \autoref{eq:normal_stress} was used from Megson\cite[p.~496]{megson2016aircraft}, whitch represents a simplified version of equation 16.17.
+When the wing bends, the top section is in compression while the bottom section in tension, the internal moments from the forces induce a normal stress in the material. To compute its distribution, \autoref{eq:normal_stress} was used from Megson\cite[p.~496]{megson2016aircraft}, which represents a simplified version of equation 16.17.
 
 \begin{equation}
     \sigma = \frac{M \cdot y_{max}}{I_x}
@@ -861,21 +861,21 @@ where $l_{lg}$ is the length of the landing gear strut. Then, the acceleration o
             node[left] {$I_G\,\alpha$};
 
         % Dashed reference lines (kinetic)
-        \draw[dashed, gray] (2.2,  \yoff+0.15) -- (2.2,  \yoff-2.2);
-        \draw[dashed, gray] (5.7,  \yoff+0.15) -- (5.7,  \yoff-2.2);
-        \draw[dashed, gray] (6.5,  \yoff-0.15) -- (6.5,  \yoff-2.2);
-        \draw[dashed, gray] (7.8,  \yoff+0.15) -- (7.8,  \yoff-2.2);
-        \draw[dashed, gray] (10.8, \yoff+0.15) -- (10.8, \yoff-2.2);
+        \draw[dashed, gray] (2.2,  \yoff+0.15) -- (2.2,  \yoff-1.2);
+        \draw[dashed, gray] (5.7,  \yoff+0.15) -- (5.7,  \yoff-1.2);
+        \draw[dashed, gray] (6.5,  \yoff-0.15) -- (6.5,  \yoff-1.2);
+        \draw[dashed, gray] (7.8,  \yoff+0.15) -- (7.8,  \yoff-1.2);
+        \draw[dashed, gray] (10.8, \yoff+0.15) -- (10.8, \yoff-1.2);
 
         % x axis (kinetic)
-        \draw[->] (0,\yoff-2.2) -- (12.8,\yoff-2.2) node[right] {$x$};
+        \draw[->] (0,\yoff-1.2) -- (12.8,\yoff-1.2) node[right] {$x$};
 
         % x-axis labels (kinetic)
-        \node[below] at (2.2,  \yoff-2.2) {$x_c$};
-        \node[below] at (5.7,  \yoff-2.2) {$x_w$};
-        \node[below] at (6.5,  \yoff-2.2) {$x_{cg}$};
-        \node[below] at (7.8,  \yoff-2.2) {$x_{lg}$};
-        \node[below] at (10.8, \yoff-2.2) {$x_t$};
+        \node[below] at (2.2,  \yoff-1.2) {$x_c$};
+        \node[below] at (5.7,  \yoff-1.2) {$x_w$};
+        \node[below] at (6.5,  \yoff-1.2) {$x_{cg}$};
+        \node[below] at (7.8,  \yoff-1.2) {$x_{lg}$};
+        \node[below] at (10.8, \yoff-1.2) {$x_t$};
 
     \end{tikzpicture}
     \caption{Free-body diagram (top) and kinetic diagram (bottom) of the fuselage during landing impact.}
@@ -906,14 +906,16 @@ The resulting internal loading diagrams for the two above cases are shown in \au
 \begin{figure}[H]
     \centering
 
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.92\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/internal_loads_flight.png}
         \caption{Pull-up manoeuvre of $9g$}
         \label{fig:fuselage_internal_flight}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
+
+     \vspace{1cm}
+     
+    \begin{subfigure}[b]{0.92\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/internal_loads_landing.png}
         \caption{Landing impact at deceleration of $8g$}
@@ -954,14 +956,14 @@ These constraints resulted in \autoref{fig:fuselage_thicknesses}, showing the mi
 \begin{figure}[H]
     \centering
 
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/thickness_flight.png}
         \caption{Pull-up manoeuvre of $9g$}
         \label{fig:fuselage_flight_thickness}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.75\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures_final/Fuselage SAD/thickness_landing.png}
         \caption{Landing impact at deceleration of $8g$}
