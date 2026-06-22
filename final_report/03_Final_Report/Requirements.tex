@@ -110,7 +110,7 @@ HUG-NLR-06 & The UAV shall be reconfigurable in a short time frame, as to allow 
 The user requirements provide a sense of the aircraft's intended operation and the user's expectations regarding its final performance and design. As such, they cannot always be validated to ensure that the system can perform its functions successfully, i.e., they are not VALID (Verifiable, Achievable, Logical, Integral, Definite). For this reason, the FFD and WBS were consulted to define the system requirements, which describe the product's performance in a way that can be validated. From those, subsystem requirements are derived to define the specific performance on a subsystem level. Comprehensive lists of system and subsystem requirements are showcased in \autoref{tab:system_requirements} and \autoref{tab:subsystem_requirements}, respectively.
 
 \begin{longtable}{|c|p{13.5cm}|}
-\caption{HUGO's system requirements}
+\caption{HUGO's system requirements. Requirements that led to design changes in the final work package are marked in blue.}
 \label{tab:system_requirements} \\
 \hline
 \textbf{ID} & \makecell{\textbf{Requirement}} \\
@@ -131,7 +131,7 @@ The user requirements provide a sense of the aircraft's intended operation and t
 
 
 \multicolumn{2}{|c|}{\textbf{General System}} \\\hline
-HUG-GEN-01 & The aircraft shall have a maximum take-off mass less than 50 kg.\\\hline
+\textcolor{blue}{HUG-GEN-01} & The aircraft shall have a maximum take-off mass less than 50 kg.\\\hline
 HUG-GEN-02 & The end user shall be able to install the wing compliant with the Planform Envelope. \\\hline
 HUG-GEN-03 & The end user shall be able to install at least 5 kg of payload on the provided aircraft, in addition to the wing planform itself. \\\hline
 HUG-GEN-04 & The aircraft shall be able to execute the flight profile without any customer-specific payload. \\\hline
@@ -158,7 +158,7 @@ HUG-CTL-03 & The aircraft shall be controllable remotely up to the distance from
 \multicolumn{2}{|c|}{\textbf{Mission Profile}} \\\hline
 HUG-MIP-01 & The aircraft shall have a nominal mission endurance of 30 minutes, for a cruise altitude of FL270 and the cruise speed of Mach 0.4 outside of its 5 minutes experiment segment. \\\hline
 HUG-MIP-02 & The aircraft shall be capable of sustaining Mach 0.75 at an altitude of FL270 for the 5 minutes experiment segment during its nominal mission, at 50\% fuel fraction for any planform inside the High-speed Envelope. \\\hline
-HUG-MIP-03 & The aircraft shall perform take-off and landing maneouvres at Den Helder airport (DHR/EHKD) unless redirected to other airports by De Kooy ATC \footref{foot:midterm}. \\\hline
+\textcolor{blue}{HUG-MIP-03} & The aircraft shall perform take-off and landing maneouvres at Den Helder airport (DHR/EHKD) unless redirected to other airports by De Kooy ATC \footref{foot:midterm}. \\\hline
 HUG-MIP-04 & The aircraft shall be capable of performing four landing attempts at Den Helder airport, with a go-around altitude of 1500 ft, not counted in its nominal endurance of 30 minutes. \\\hline
 HUG-MIP-05 & The aircraft shall perform all manoeuvres with performance compliant with SC Light-UAS 01 \cite{easa_light_uas_crd_is3}. \\\hline
 HUG-MIP-06 & The aircraft shall have enough fuel to sustain the nominal flight and 4 go-arounds.\\ \hline
@@ -178,7 +178,7 @@ HUG-EME-07 & No single-point failure of electronic components shall cause missio
 
 \newpage
 \begin{longtable}{|c|p{13.5cm}|}
-\caption{HUGO's subsystem requirements}
+\caption{HUGO's subsystem requirements. Requirements that led to design changes in the final work package are marked in blue.}
 \label{tab:subsystem_requirements} \\
 \hline
 \textbf{ID} & \makecell{\textbf{Requirement}} \\
@@ -208,10 +208,10 @@ HUG-ELE-05 & The electronic subsystem shall provide the power required to HUGO f
 \multicolumn{2}{|c|}{\textbf{Landing Gear}} \\\hline
 HUG-LGR-01 & The landing gear wingtip clearance shall be greater than or equal to 7 degrees. \\\hline
 HUG-LGR-02 & The turn over angle of the aircraft shall not exceed 55 degrees. \\\hline
-HUG-LGR-03 & The scrape angle of the aircraft tail shall be greater than 15 degrees. \\\hline
+\textcolor{blue}{HUG-LGR-03 }& The scrape angle of the aircraft tail shall be greater than 15 degrees. \\\hline
 HUG-LGR-04 & The tip over angle of the aircraft shall be greater than the scrape angle. \\\hline
 HUG-LGR-05 & The nose landing gear shall retract rearwards. \\\hline
-HUG-LGR-06 & Each component of the aft landing gear shall withstand landing loads with downwards velocity of $2m/s$ multiplied by a safety factor of 1.5. \\\hline
+\textcolor{blue}{HUG-LGR-06} & Each component of the aft landing gear shall withstand landing loads with downwards velocity of $2m/s$ multiplied by a safety factor of 1.5. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Propulsion}} \\\hline
 HUG-PRP-01 & The aircraft shall include fuel tanks for housing the fuel volume required for the entire mission, incl. missed approach and loiter time. \\\hline
@@ -240,12 +240,13 @@ HUG-TPL-03 & The test planform shall feature a dihedral function bound between 0
 HUG-TPL-04 & The test planform shall feature a thickness to chord function bound between 0.08 and 0.18. \\\hline
 HUG-TPL-05 & The test planform shall feature a taper ratio function bound between 0.1 and 1. \\\hline
 %HUG-TPL-05 & The test planform shall have a total mass of no more than 7.8 kg. \\\hline
-HUG-TPL-06 & The required horizontal stabiliser area shall be less than 0.4 of the main wing area for all planforms in the Planform Envelope. \\\hline
+\textcolor{blue}{HUG-TPL-06} & The required horizontal stabiliser area shall be less than 0.4 of the main wing area for all planforms in the Planform Envelope. \\\hline
+\textcolor{blue}{HUG-TPL-07} & The test planform shall have sweep between 0 and 20$^\circ$. \\\hline
 
 \multicolumn{2}{|c|}{\textbf{Standard Planform}}\\\hline
 HUG-SPL-01 &The standard planform shall not develop transonic shocks before Mach 0.75. %No part of the aircraft equipped with a wing planform from the Planform Envelope shall experience transonic shocks. 
 \\\hline
-HUG-SPL-02 & The standard planform shall not exhibit flutter or divergence up to Mach 0.75 at an altitude of FL270. \\\hline
+\textcolor{blue}{HUG-SPL-02} & The standard planform shall not exhibit flutter or divergence up to Mach 0.75 at an altitude of FL270. \\\hline
 
 \end{longtable}
 

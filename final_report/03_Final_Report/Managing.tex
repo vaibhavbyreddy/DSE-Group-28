@@ -8,12 +8,12 @@ The first stage of HUGO's design process defined the requirements and scope of t
 
 This chapter establishes the transition from the initial conceptual design space of HUGO to a single, fully defined configuration that serves as the basis for all subsequent analyses and design activities. As HUGO is developed as a high-speed flying test laboratory for aeroelastic and aeroservoelastic research, the configuration selection and definition of its operating envelope are critical to ensuring that the aircraft can safely and reliably support a wide range of experimental wing planforms while maintaining structural integrity and flight performance.
 
-The structure of this chapter is as follows. The trade-off process used to reduce the initial set of four configurations to a single selected design is presented in \autoref{sec:trade-off_summary}. The resulting baseline aircraft concept is then detailed in \autoref{sec:final_concept_design}, where the fixed and modular subsystems of HUGO are introduced. The subsequent engineering approach is outlined in \autoref{sec:engineering_design_and_analysis}, with particular focus on the methods required to accommodate a broad planform envelope and ensure aeroelastic stability. The definition of this operating space is further detailed in \autoref{sec:Planform envelope boundaries}, which specifies the allowable parameter ranges and critical design points. The standard configuration used for dedicated analyses is then introduced in \autoref{sec:standard_planform}. Finally, the preliminary design workflow and the verification and validation strategy supporting all design modules are presented in \autoref{sec:design_workflow} and \autoref{sec:VnV}.
+The structure of this chapter is as follows. The trade-off process used to reduce the initial set of four configurations to a single selected design is presented in \autoref{sec:trade-off_summary}. The resulting baseline aircraft concept is then detailed in \autoref{sec:final_concept_design}, where the fixed and modular subsystems of HUGO are introduced. The subsequent engineering approach is outlined in \autoref{sec:engineering_design_and_analysis}, with particular focus on the methods required to accommodate a broad planform envelope and ensure aeroelastic stability. The definition of this operating space is further detailed in \autoref{sec:Planform envelope boundaries}, which specifies the allowable parameter ranges and critical design points. The standard configuration used for dedicated analyses is introduced in \autoref{tab:standard_wing_planform}. Finally, the preliminary design workflow and the verification and validation strategy supporting all design modules are presented in \autoref{sec:design_workflow} and \autoref{sec:VnV}.
 
 \section{Trade-Off Summary}
 \label{sec:trade-off_summary}
 
-Given the strict requirements and ambitions of the project, the design of HUGO rapidly converged towards a lightweight, fixed-wing drone with varying degrees of modularity. Thus, four different configurations, depicted in \autoref{fig:hugo-configurations}, were developed to allow researchers to perform different sets of experiments, in different manners. 
+Given the strict requirements and ambitions of the project, the design of HUGO rapidly converged towards a lightweight, fixed-wing drone with varying degrees of modularity. Thus, four different configurations, depicted in \autoref{fig:hugo-configurations}, were developed to allow researchers to perform different sets of experiments, in different manners \footnote{\label{foot:midterm}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)}. 
 
 HUG-CFG-301 (\autoref{fig:hug-cfg-301}) is a low-wing concept with static wing mounts and the ability to install a canard. HUG-CFG-302 (\autoref{fig:hug-cfg-302}) is instead a high-wing drone, with static wing mounts and no canard mounting port. HUG-CFG-303 (\autoref{fig:hug-cfg-303}) maintains the high-wing and static wing mounts, and further adds the ability to mount a canard. Lastly, HUG-CFG-304 (\autoref{fig:hug-cfg-304}) has a high-wing configuration with variable mounting locations for the main wing, as well as a static canard port.
 
@@ -52,7 +52,7 @@ HUG-CFG-301 (\autoref{fig:hug-cfg-301}) is a low-wing concept with static wing m
 \end{figure}
 
 
-The first step in the trade-off analysis process was the determination of trade-off criteria, namely: cost, versatility, reliability, and sustainability. The weight assigned to each criterion was determined using the analytic hierarchy process approach. The process compares each of the trade-off criteria pairwise, on a scale from 1 to 9. The normalised priority vector is then calculated, giving the relative weight amongst compared parameters. The selected criteria and their calculated weights can be seen in \autoref{tab:trade_off_matrix}. 
+The first step in the trade-off analysis process was the determination of trade-off criteria, namely: cost, versatility, reliability, and sustainability. The weight assigned to each criterion was determined using the analytic hierarchy process approach. The process compares each of the trade-off criteria pairwise, on a scale from 1 to 9. The normalised priority vector is then calculated, giving the relative weight amongst compared parameters \footref{foot:midterm}. The selected criteria and their calculated weights can be seen in \autoref{tab:trade_off_matrix}. 
 
 
 \begin{table}[H]
@@ -165,14 +165,29 @@ There are, therefore, two groups in the HUGO configuration: fixed and modular co
 To fulfill its mission as a versatile flight test vehicle, HUGO is expected to house a range of wing planforms, later referred to as the Planform Envelope. This approach shall allow
 for a wide range of missions to be performed, examples of which can be found in \autoref{sec:mission_envelope}. The need to house multiple wing geometries has been a system design-driving characteristic since the midterm design phase. The goals of engineering analysis for the final work phase are to design HUGO's fuselage and its associated subsystems, ensuring they accommodate the specified range of planforms provided by the client, as well as develop a standard planform to be used for external system tests that do not require a dedicated wing profile.
 
-Several analyses described in the Midterm Report \footnote{\label{foot:midterm}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/28_HUGO_Midterm_Report_final.pdf}{HUGO Midterm Report} (accessed on 11.06.2026)} can be used for this design phase, i.e. the drag estimation, tail sizing, and fuel mass fraction computation. The corresponding matching diagram can also be re-implemented. Based on these findings, a structural analysis of both the wing planform and fuselage can be performed to obtain a complete estimate of aircraft weight. Further design steps include a preliminary sizing of the fuselage, along with a planform aileron sizing.
+Several analyses described in the Midterm \footref{foot:midterm} can be used for this design phase, i.e. the drag estimation, tail sizing, and fuel mass fraction computation. The corresponding matching diagram can also be re-implemented. Based on these findings, a structural analysis of both the wing planform and fuselage can be performed to obtain a complete estimate of aircraft weight. Further design steps include a preliminary sizing of the fuselage, along with a planform aileron sizing.
 
 Considering the wide scope of possible array designs, featuring more than one possible airfoil, the approach to aerodynamic analysis differs from that of the Midterm Report \footref{foot:midterm}.
 Instead of defining an airfoil and conducting a lifting line analysis to obtain the properties of the three-dimensional wing directly, an envelope of possible airfoils is defined implicitly by ranges of values of lift slope, maximum lift and moment coefficients. The properties of the three-dimensional wing are deduced from those coefficients using semi-empirical formulae.
 
 Given that the Planform Envelope is a continuous design space across multiple parameters, high-resolution evaluation of all combinations is computationally unfeasible. As such, a list of parameter combinations considered most constraining is justified in \autoref{sec:Planform envelope boundaries}.
 
-To allow for general-purpose testing of control systems, the standard planform of HUGO needs to be free of aeroelastic instability. To ensure that, an aeroelastic analysis of the planform is conducted  \autoref{sec:flutter_analysis}. The standard planform also serves as the benchmark for evaluating the performance of the aircraft in \autoref{ch:performance_analysis}. The particular methods employed in the design of HUGO need to be verified, and the effect of all assumptions therein is to be quantified via sensitivity studies. \autoref{sec:VnV} contains an outline of how each method is verified, with further detail given further in the report, together with particular method descriptions.
+To test  aeoservoelastic control systems without requiring the researcher to provide a planform, the standard HUGO planform is defined in \autoref{tab:standard_wing_planform}. The best conditions for such experiments would be if the wing is marginally aeroelastically stable at the maximum speed, allowing both for the aeroelastic effects to be observed and to terminate them quickly in case of emergency. This is analysed further in\autoref{sec:flutter_analysis}. The standard planform also serves as the benchmark for evaluating the performance of the aircraft in \autoref{ch:performance_analysis}.
+
+\begin{table}[H]
+    \centering
+    \caption{The geometry of the standard planform}
+    \begin{tabular}{|c||c|c|c|c|c|c|c|c|}\hline
+         \textbf{Parameter}& $AR$ & $b$ & $\lambda$& $t/c$ & $\Lambda_{c/4}$ & airfoil & $\Gamma$ & Empennage  \\\hline
+         \textbf{Value} & 27 & $3.4$ m & 0.3 & $0.12$ & 15$^\circ$ & NASA SC(2)-0012 & $0^\circ$ & T-tail\\\hline
+    \end{tabular}
+    
+    \label{tab:standard_wing_planform}
+\end{table}
+
+The particular methods employed in the design of HUGO need to be verified, and the effect of all assumptions therein is to be quantified via sensitivity studies. \autoref{sec:VnV} contains an outline of how each method is verified, with further detail given further in the report, together with particular method descriptions.
+
+
 
 % 0) The goals for the engineering analysis are to assess whether HUGO can house its specified planforms and to develop the standard planform to be used for control system tests.
 
@@ -186,13 +201,15 @@ To allow for general-purpose testing of control systems, the standard planform o
 \section{Boundaries of the Planform Envelope}
 \label{sec:Planform envelope boundaries}
 
-The Planform Envelope requires quantification - both for the user (to serve as specifications for wing design), and for further development. It is expected that a potential client interested in planform research shall express interest in testing a wing of a particular geometry, not size, so long as the difference in Reynolds and Froude numbers can be accounted for. As such, the design specifications provided by the client are: the aspect ratio, taper, dihedral, sweep and thickness-to-chord profiles, which need not be constant along the wing. Additionally, the client is expected to specify wing cross sections along the span, provided the airfoil coefficients of those cross sections fit within the specified range. The wing area and structural thicknesses are deduced from the provided specifications.
+The Planform Envelope requires quantification - both for the user (to serve as specifications for wing design), and for further development. It is expected that a potential client interested in planform research shall express interest in testing a wing of a particular geometry, not size, so long as the difference in Reynolds and Froude numbers can be accounted for. The former represents the degree of turbulence, while the latter represents the relative importance of fluid and gravitational forces, and they cannot be reproduced due to the size of the aircraft being significantly smaller than that of full-scale transport aircraft. 
+
+As such, the design specifications provided by the client are: the aspect ratio, taper, dihedral, sweep and thickness-to-chord profiles, which need not be constant along the wing. Additionally, the client is expected to specify wing cross sections along the span, provided the airfoil coefficients of those cross sections fit within the specified range. The wing area and structural thicknesses are deduced from the provided specifications.
 
 \autoref{tab:planform_envelope} provides the range of allowed planform parameters. A planform is considered compatible with HUGO if it is described by any combination of the parameters within their ranges. To assess whether HUGO can accommodate those possible planforms, the most constraining values of each parameter are identified, and planforms represented by combinations of those critical values are analysed for compliance with requirements. Based on the number of identified critical value combinations, 96 planforms representing the critical envelope points can be defined. The critical values and parameter ranges were based on the following reasoning:
 \begin{itemize}
     \item $AR$: The lower bound corresponds to low-$AR$ aerobatic aircraft characteristics \footnote{\label{foot:Aerobatic_AR}\href{https://web.archive.org/web/20060414172013/http://www.sukhoi.org/eng/planes/civil/su-26/characteristic/}{Sukhoi Su-26 Specifications} (accessed on 06.10.2026)}, while the upper bound is as considered in previous reports \footnote{\label{foot:baseline}\href{https://github.com/Teo-Cokonaj/DSE-28/blob/main/docs/Projects/DSE_Group_28_Baseline_Report.pdf}{Baseline Report} (accessed on 11.06.2026)} \footref{foot:midterm}. As increasing the $AR$ improves the aerodynamic efficiency while increasing wing weight, a single value of this parameter cannot be considered constraining. Therefore, four values from across the range are included as critical.
     \item $\lambda$: Any taper profile that results in the wing not widening while moving inboard, but preventing it from becoming excessively thin, is considered acceptable. In the considered range, the most constraining case, when both aerodynamics and structural performance are negatively impacted, is when $\lambda$ is 1 \cite[p.401-405, p.438]{raymer1992aircraft, AndersonAerodynamics}.
-    \item $\Lambda_{c/4}$: Positive sweeps up to slightly above the Midterm Report value \footref{foot:midterm}. The extremum values of sweep are taken as critical, as for maximum sweep the effective airspeed is reduced, and the aerodynamic centre is most aft, and for the minimum sweep the aerodynamic centre is most fore. The former is challenging for tail sizing for stability and main wing performance, while for the latter, empennage sizing for controllability is compromised. 
+    \item $\Lambda_{c/4}$: Existing aircraft represent a wider range of sweep angles, but it had to be restricted for HUGO for convergent horizontal stabiliser sizing (further described in \autoref{sec:hor_stabilizer_sizing}). The extremum values of sweep are taken as critical, as for maximum sweep the effective airspeed is reduced, and the aerodynamic centre is most aft, and for the minimum sweep the aerodynamic centre is most fore. The former is challenging for tail sizing for stability and main wing performance, while for the latter, empennage sizing for controllability is compromised. 
     \item $t/c$: The range encompasses thin and potentially unstable wings and high-thickness profiles similar to those at wing roots of large aircraft \footnote{\label{foot:reference_tc_values}\href{https://m-selig.ae.illinois.edu/ads/aircraft.html}{David Lednicer, The Incomplete Guide to Airfoil Usage} (accessed on 11.06.2026)}. As for the critical points, parasitic drag increases with $t/c$ \cite[p.283]{raymer1992aircraft}, but the wing weight decreases significantly \cite[p.401-405]{raymer1992aircraft}. Thus, three values across the parameter range are selected for evaluation.
     \item $C_{l_\text{max}}$: To ensure sufficient low-speed performance, a minimum value of this parameter is established as 1, which is below the $C_{l_\text{max}}$ of most aifoils \footnote{\label{foot:NACA_4415}\href{http://airfoiltools.com/airfoil/details?airfoil=naca4415-il}{Airfoil Tools, NACA 4415} (accessed on 11.06.2026)}\footnote{\label{foot:NACA_24112}\href{http://airfoiltools.com/airfoil/details?airfoil=naca24112-jf}{Airfoil Tools, NACA 24112} (accessed on 11.06.2026)}.
     \item $C_{m_{ac}}$: The extrema values of this parameter are most constraining for sizing the empennage for controllability and, as such, taken as critical points. The minimum $C_{m_{ac}}$ accounts for high camber sections such as NACA 4415 with $C_{m_{ac}}$ of around -0.12 \footref{foot:NACA_4415}, while the upper bound accounts for reflexed airfoils such as NACA 24112  with $C_{m_{ac}}$ of up to 0.03 \footref{foot:NACA_24112}.
@@ -224,21 +241,12 @@ The Planform Envelope requires quantification - both for the user (to serve as s
 
 Not every combination of wing cross section and sweep is expected to reach Mach 0.75. However, provided that shocks do not develop up to that speed, a planform whose cross section coefficients are within the stated range is supposed to be able to reach Mach 0.75. Also, there is a possibility that a planform whose parameters are outside of the stated ranges is compatible with HUGO.
 
-\section{The Standard Planform}
-\label{sec:standard_planform}
+% \section{The Standard Planform}
+% \label{sec:standard_planform}
 
-As explained previously, a standard planform shall be defined for HUGO for the purposes of tests which do not require a wing provided by the client. \autoref{tab:standard_wing_planform} lists the parameters chosen for the standard UAV configuration. The planform is based on the midterm design phase analysis results \footref{foot:midterm}. It has been adapted for a slightly larger aircraft mass and aeroelastic stability (\autoref{sec:flutter_analysis}), which required adjusting the span and the taper ratio, respectively.
+% As explained previously, a standard planform shall be defined for HUGO for the purposes of tests which do not require a wing provided by the client. \autoref{tab:standard_wing_planform} lists the parameters chosen for the standard UAV configuration. The planform is based on the midterm design phase analysis results \footref{foot:midterm}. It has been adapted for a slightly larger aircraft mass and aeroelastic stability (\autoref{sec:flutter_analysis}), which required adjusting the span and the taper ratio, respectively.
 
-\begin{table}[H]
-    \centering
-    \caption{The geometry of the standard planform}
-    \begin{tabular}{|c||c|c|c|c|c|c|c|c|}\hline
-         \textbf{Parameter}& $AR$ & $b$ & $\lambda$& $t/c$ & $\Lambda_{c/4}$ & airfoil & $\Gamma$ & Empennage  \\\hline
-         \textbf{Value} & 27 & $3.4$ m & 0.3 & $0.12$ & 15$^\circ$ & NASA SC(2)-0012 & $0^\circ$ & T-tail\\\hline
-    \end{tabular}
-    
-    \label{tab:standard_wing_planform}
-\end{table}
+
 
 \section{Preliminary Design Workflow}
 \label{sec:design_workflow}
@@ -250,7 +258,7 @@ The standard planform analysis performs more in-depth checks, such as flutter an
 These two analyses require common prior steps such as final material selection and in-depth fuselage group design involving selection of internal components and structural sizing of the fuselage and the landing gear. In order to understand the design analysis and sizing process, the N2 chart of all analyses is presented in  \autoref{fig:n2_diagram}.
 
 An approach of making design decisions, conducting the analyses, and adjusting the decisions based on requirement satisfaction has been implemented. The "Requirement Checks" present in the N2 chart comprise requirements common for the critical planforms from the Planform Envelope and for the standard planform. These include staying below the MTOM threshold and in the feasible wing loading - thrust weight design space, as well as having sufficient fuel for the mission and a non-oversized empennage. The geometric contraints of the landing gear are also assessed. The standard planform is additionally constrained by aeoelastic constraints.
-The violations of the requirements are resolved, preferably, by changing the fuselage layout or standard planform redesign. If not possible, the planform envelope is adjusted.
+The violations of the requirements are resolved, preferably, by changing the fuselage layout or standard planform redesign. If not possible to satisfy the requirements otherwise, the planform envelope is adjusted.
 
 \begin{figure}[H]
     \centering

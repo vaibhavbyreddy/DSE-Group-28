@@ -17,11 +17,13 @@ The goals of the aerodynamic characteristics estimate is to obtain the lift and 
 % \todo[inline]{Add the fact that we ran all the simulations before creating this section and we reached the conclusio after multimple iterations that the parameters that meet all the requirements are as follows...and state them}
 \subsection{Airfoil Selection}
 \label{sub:airfoil_selection}
-High subsonic speeds experienced by HUGO during the nominal mission necessitate the use of a supercritical airfoil to avoid large drag penalties. This is due to shock waves and boundary layer separations induced by locally supersonic flows \cite{Whitcomb1974}. A preliminary sizing of the wing and tail surfaces performed in previous design phases identified NASA SC(2)-0012 (see: \autoref{fig:airfoil_simplified_model}) as a suitable airfoil choice for HUGO \cite{Harris1990}, based on the performance requirements and preliminary wing design lift coefficient of 0.074 \footref{foot:baseline}.
+High subsonic speeds experienced by HUGO during the nominal mission the use of a supercritical airfoil to avoid large drag penalties. This is due to shock waves and boundary layer separations induced by local supersonic flow \cite{Whitcomb1974}. A preliminary sizing of the wing and tail surfaces performed in previous design phases identified NASA SC(2)-0012 (see: \autoref{fig:airfoil_simplified_model}) as a suitable airfoil choice for HUGO \cite{Harris1990}, based on the performance requirements and preliminary wing design lift coefficient of 0.074 \footref{foot:baseline}.
 
-The structural model uses a simplified, elliptical airfoil approximation based on the SC(2)-0012 parameters. The wing cross-section is assumed to be hollow, with the same chord length and maximum thickness to chord ratio as the reference airfoil. The lift resultant is applied at the quarter-chord point, consistent with the typical location of the aerodynamic centre for subsonic airfoils \footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}.
+The structural model uses a simplified, elliptical airfoil approximation based on the SC(2)-0012 parameters. The wing cross-section is assumed to be hollow, with the same chord length and maximum thickness to chord ratio as the reference airfoil. The centre of the ellipse is taken to be the elastic axis point of origin of our airfoil. For the major axis, the chord is taken as reference, while for the minor axis the maximum thickness. The lift resultant is applied at the quarter-chord point, consistent with this specific airfoil.\footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}. 
 
-The elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model neglects the structural contribution of the foam core. The resulting section properties are therefore treated as a conservative, simplified model that can be used for preliminary structural sizing. 
+The elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model neglects the structural contribution of the foam core. The effect on the sectional properties is not fully known at this moment, and further examination needs to be performed to quantify the change. The absence of the foam interior in the structural analysis provides a moderate conservative approach, but the overall effect on the structure is not known at this current state. It is expected to be non-conservative due to the increased moment of inertia.
+
+%The elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model neglects the structural contribution of the foam core. The resulting section properties are therefore treated as a conservative, simplified model that can be used for preliminary structural sizing. 
 
 \begin{figure}[H]
     \centering
@@ -353,7 +355,7 @@ The structural model of the wing was developed to simulate the internal loads an
 
 \subsection{Discretisation and Assumptions}
 \label{sec:discretisation_and_assumptions}
-As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain span-wise load and stress distributions. Additionally, the wing is treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed conservative, since they do not account for the additional stiffness provided by any core materials, since the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
+As mentioned previously in \autoref{sec:aerodynamic_characteristics_estimate}, the wing airfoil was modelled as an ellipse \textcolor{red}{Justification here!}, and the structure has been divided into panels which can be evaluated independently and superimposed to obtain span-wise load and stress distributions. Additionally, the wing is treated as a beam clamped at the root, and all deformations and deflections are calculated based on Euler–Bernoulli beam theory as a first-order approximation. It is assumed that the structure is a thin-walled carbon composite profile. These assumptions were deemed conservative, since they do not account for the additional stiffness provided by any core materials, since the wing incorporates a foam interior that is able to resist deformation and absorb part forces.
 %\todo[inline]{Write about why the assumptions are acceptable}
 
 
@@ -429,7 +431,7 @@ The wing weight to wing structural weight ratio was also an assumption made to c
 
 
 \subsection{Internal Load Distrbution}
-For the chosen airfoil, the torque is given by the combination of the lift produced by the wing and the aerodynamic moment of the airfoil itself. The torque is computed by multiplying the quarter chord length by the lift of the section, and then summing the contributions one by one until the root chord is reached \autoref{eq:t_sec_cumulative}, where $i$ is the previous segment.
+For the chosen airfoil, the torque is given by the combination of the lift produced by the wing and the aerodynamic moment of the airfoil itself. The torque is computed by multiplying the distance between the local centre of pressure and the shear centre of the beam-like wing by the lift of the section, and then summing the contributions one by one until the root chord is reached. The shear centre is taken as the centre of the local ellipse, and the centre of pressure is at the quarter-chord point \cite{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)}. It has to be mentioned that as an airfoil is exposed to higher Mach speed regimes, the centre of pressure tends to move rearward with respect to the quarter-chord, especially as shock waves start developing \cite{AndersonAerodynamics}. Nevertheless, this effect is not significant for the NASA SC(2)-0012 airfoil at the Mach range of interest \cite{mineck1987high}. Therefore, the torque calculation is shown in \autoref{eq:t_sec_cumulative}.
 \begin{equation}
 \label{eq:t_sec_cumulative}
 \begin{aligned}
@@ -445,7 +447,14 @@ For the chosen airfoil, the torque is given by the combination of the lift produ
     \caption{Torsion distribution at load factor 9}
     \label{fig:torsion_dist}
 \end{wrapfigure}
-At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)}. As an airfoil is exposed to larger Mach speed regimes, the magnitude and position of $x_{cm}$ will shift due to compresibility effects, but for the purpose of this report, $x_{cm}$ is assumed to remain constant for both flight regimes at $x_{ac}$ location along the chord. As such, for the cruise and test conditions, the torque graphs will look the same. The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_dist}.
+
+
+ 
+ % As such, for the cruise and test conditions, the torque graphs will look the same. 
+ 
+ The most critical case for the torque of the wing comes from the first case specified at the beginning of the chapter at a load factor of 6, with the distribution presented in \autoref{fig:torsion_dist}.
+
+% At $1 \deg $ angle of attack, the airfoil has a moment coefficient that tends towards 0\footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)}.
 
 Torque will influence the twist of the wing tip, but to determine the deflection of the wing it is first required to calculate the internal forces and moments acting on the wing. The wing is exposed to forces originating from the lift and weight, acting tangential to the chord, with the exception of the bending moments introduced by bending that will be treated in the following. The internal moment and shear forces acting on the cross-section of the wing are presented in \autoref{fig:internal_shear_and_moments}. It can be observed that the moment is opposite in sign with respect to the internal shear force due to the sign convention and direction of forced action on the wing.
 \begin{figure}[H]
@@ -455,9 +464,12 @@ Torque will influence the twist of the wing tip, but to determine the deflection
     \label{fig:internal_shear_and_moments}
 \end{figure}
 
-Once the torque, internal moments and shears are computed and tested, it is time to verify the compatibility of the structure with the criteria specified in \autoref{ch:requirements}, namely HUG-STR-08 and HUF-STR-09 that refer to the wing tip deflection and deflection. The equation used to determine the twist follows from Megson\cite[p.~578]{megson2016aircraft}(Eq. 18.4) and requires the integration of the slope at each point to obtain the rotation. This equation assumes that the wing is a closed-sectioned beam, assumption that is valid in HUGOs' wings case since there are no ribs present for the moment to dictate their necessity. This equation also neglects the presence of normal shear stresses. Their presence reduces the twist in a real scenario due to their action of opposing the torque.
+The following analysis does not consider the contribution of the foam, but only of the skin. Even though the skin is made of a composite material, the lay-up used makes it quasi-isotropic, as mentioned in \autoref{subsec:composite_material_selection}.
+Once the torque, internal moments and shear forces are computed and tested, the compatibility of the structure with the requirements (\autoref{ch:requirements}) can be checked, namely with HUG-STR-08 and HUF-STR-09 that refer to deformation. 
 
-Determining the wing tip deflection required, to first compute the internal moment distribution, followed by the implementation of the equation extracted from Hibbeler\cite[p.~599]{Hibbeler2018}(Eq. 12-5), where is assumed that the deflection is linear and minimal and does not take into account the bending of the beam. As stated by R.C. Hibbeler "the slope of the elastic curve, which is determined from $\frac{dv}{dx}$, will be very small, and its square will be negligible compared with unity." \cite{Hibbeler2018}. By modelling the simulation using this assumption, the values are correct only for small deflections; larger cases require solving more complex equations, left for future development of HUGO.
+The equation used to determine the twist follows from Megson \cite[p.~578]{megson2016aircraft}(Eq. 18.4) and requires the integration of the slope at each point to obtain the rotation. This equation assumes that the wing is a closed-sectioned beam, which is indeed the case for the wings of HUGO. The equation also neglects the presence of shear stresses. Their presence reduces the twist in a real scenario due to their action of opposing the torque, so the analysis is conservative.
+
+\textcolor{red}{Rewrite this paragraph} Determining the wing tip deflection required, to first compute the internal moment distribution, followed by the implementation of the equation extracted from Hibbeler\cite[p.~599]{Hibbeler2018}(Eq. 12-5), where is assumed that the deflection is linear and minimal and does not take into account the bending of the beam. As stated by R.C. Hibbeler "the slope of the elastic curve, which is determined from $\frac{dv}{dx}$, will be very small, and its square will be negligible compared with unity." \cite{Hibbeler2018}. By modelling the simulation using this assumption, the values are correct only for small deflections; larger cases require solving more complex equations, left for future development of HUGO.
 
 Simulating the test case as specified by the requirements at a load factor of 6, this time, with the wing planform chosen for delivery, yields the results seen in \autoref{fig:rot_def}
 
@@ -468,7 +480,7 @@ Simulating the test case as specified by the requirements at a load factor of 6,
     \label{fig:rot_def}
 \end{figure}
 
-During the extreme case, the wing twists $ 6.08 \deg$ and deflects 0.354 m ($11.1\% $ of the span). These values show that the wing is within limits, and that it could sustain even larger loads wile remaining in limits.
+During the extreme case, the wing twists $ 6.08 \deg$ and deflects 0.354 m ($11.1\% $ of the span). These values show that the wing is within limits, and that it could sustain even larger loads while remaining in limits.
 
 Once the wing has been shown to meet the design requirements, the model must also verify that it remains structurally safe during operation at the ultimate load factor. The applied loads generate internal stresses within the wing, which are evaluated for the ultimate loading case to confirm that the material stays within its allowable limits. The stresses considered in this analysis are torsional shear stress, transverse shear stress due to internal forces, and normal stress due to bending.
 
@@ -505,11 +517,11 @@ When the wing bends, the top section is in compression while the bottom section 
     \label{fig:normal_dist}
 \end{wrapfigure}
 
-The normal stress distribution shown in \autoref{fig:normal_dist} decreases towards the wing root, where the wing is integrated into the fuselage. This behaviour occurs because the bending moment becomes approximately constant once the load-bearing wing section enters the fuselage. At the same time, the cross-sectional area increases towards the root, which increases the second moment of area and therefore reduces the bending stress. The maximum normal stress is 696.121 MPa and occurs at the first connection point between the wing and the fuselage. This value remains below the yield stress of the material.
+The normal stress distribution shown in \autoref{fig:normal_dist} decreases towards the wing root, where the wing is integrated into the fuselage. This behaviour occurs because the bending moment becomes approximately constant once the load-bearing wing section enters the fuselage. At the same time, the cross-sectional area increases towards the root, which increases the second moment of area and therefore reduces the bending stress. The maximum normal stress is 696.121 MPa and occurs at the first connection point between the wing and the fuselage. Looking at \autoref{tab:prepreg_properties}, the selected material, CYCOM 5320-1, has a maximum compression strength of 750 MPa, and a tension strength of 896 MPa, both values being above the maximum normal stress present due to bending on the upper and lower surfaces of the wing.
 
 
 The last analysis considered verifies that the wing does not buckle to a load factor of 6. The ultimate load is not tested because buckling is not considered a structural critical case, the wing being able to buckle at certain loads. It is considered a structural problem when the phenomenon becoms catastrophic. Composite materials are known to be brittle and lose their structural properties once they buckle. To prevent a loss of integrity, the model tests if the wing buckles by comparing the buckling stress with the maximum internal shear stress. Is a force that exceeds the maximum load factor of 6 is reached, the wing will lose part of its properties, but will still be able to return the UAV for maintenance. 
-HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from Dowell\cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in Dowell\cite[p.~458]{niu1999airframe}, for b being the length of the half-span of the wing and a the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties in \autoref{ch:material_characteristics}.
+HUGO has a ribless design, its wings relying on the thickness of the skin for the structural rigidity, as such it can be treated as a thin plate, and \autoref{eq:buckling} extracted from Dowell\cite[p.~458]{niu1999airframe} is used to calculate the buckling stress. Constant $C$ is a function of the boundary conditions and the aspect ratio of the plate. For additional prevention, the wing is considered to be simply supported on all sides, and, looking at the table 11.3.1 in Dowell\cite[p.~458]{niu1999airframe}, for $a$ being the length of the half-span of the wing and $b$ the chord length at the root (location with the height stress), C is 4. The remaining of the variables are taken from the material properties in \autoref{ch:material_characteristics}.
 
 \begin{equation}
     \sigma_{cr} = C \frac{\pi^2 E}{12(1-\nu^2)} \left(\frac{t}{b}\right)^2
@@ -992,10 +1004,10 @@ In the case of this analysis, the maximum deflection of the ring was set to 1mm.
 
 Given the stark increase in skin thickness and consequently, fuselage weight, it becomes reasonable to analyse the drone monocoque as a composite sandwich, with CFRP on the outer layers and a Nomex honeycomb as the core, as described in \autoref{sec:composites}. For the composite sandwich configuration, the area moment of inertia is dominated by the CFRP skins. Assuming the Nomex core has negligible bending stiffness compared to the carbon faces, the equivalent moment of inertia is calculated using the parallel axis theorem. The local moment of inertia of the thin skins is omitted, yielding \autoref{eq:inertia_solid}.
 \begin{equation}
-    I_{\text{sandwich}} \approx 2 \left( L t_skin \left(\frac{t_core}{2}\right)^2 \right) = \frac{L t_skin t_core^2}{2}
+    I_{\text{sandwich}} \approx 2 \left( L t_{skin} \left(d\right)^2 \right) = 2 L t_{skin} d^2
     \label{eq:inertia_sandwich}
 \end{equation}
-where $t_skin$ is the thickness of a single CFRP skin, $t_core$ is the thickness of the Nomex core, and $t_total = t_core + t_skin$ is the distance between the midplanes of the two skins.
+where $t_{skin}$ is the thickness of a single CFRP skin, $t_{core}$ is the thickness of the Nomex core, and $d$ is the distance from the mid plane of the CFRP skin to the neutral axis, i.e. $d = \frac{t_{core} + t_{skin}}{2}$ is the distance between the midplanes of the two skins.
 
 
 \begin{figure}[H]
@@ -1218,7 +1230,9 @@ Furthermore, the aerodynamic matrices have been derived by applying strip theory
 
 
 
-The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \autoref{tab:flutter_parameters} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. Both of these are above the required maximum speed at the testing altitude. The skin thickness of $2.5mm$ (as shown in \autoref{tab:flutter_parameters}) is also the minimum skin thickness for no flutter within the flight envelope, so the flutter analysis is driving the wing design in this case.
+The flutter model has been verified by comparing results with those obtained by \citeauthor{wright2008introduction} \cite{wright2008introduction}. As shown in \autoref{fig:flutter_verification_damped}, the flutter speed occurs at $88\frac{m}{s}$, which is indeed the flutter speed obtained in \cite{wright2008introduction}. The frequency and damping trends also match. Furthermore, the results for the wing as described in \autoref{tab:flutter_parameters} are shown in \autoref{fig:flutter_results_damped}, from which it can be seen that static divergence occurs at $230\frac{m}{s}$ and flutter at $240\frac{m}{s}$. 
+
+Additionally, \autoref{fig:critical_speeds_SL} and \autoref{fig:critical_speeds_flight} show the flutter and divergence speeds as a function of wing skin thickness at both the sea-level altitude and the maximum altitude. Following upon the earlier stated reasoning about aeroelastic testing, the requirement for the critical (flutter/divergence) speed is that the aircraft has to be neutrally aeroelastically stable at the maximum speed. In practice, this resulted in imposing the wing skin thickness being close to the minimum thickness at which flutter/divergence occurs at the testing altitude, and making sure that no aeroelastic instability occurs at Mach 0.4 at the sea-level altitude (since this altitude is the most critical for Mach 0.4 due to highest density).
 
 \begin{table}[H]
 \centering
@@ -1260,17 +1274,26 @@ Taper ratio                           & 0.3   & -- \\
     \label{fig:flutter_comparison}
 \end{figure}
 
-% Finally, the flutter speed at $8230.0m$ altitude as a function of wing skin thickness is shown in \autoref{fig:flutter_thicknesses}. The plot makes sense, since flutter speed is approximately proportional to the the natural frequency \cite{dowell1977flutter}, and natural frequency has a square-root dependence on structural stiffness. The results from \autoref{fig:flutter_thicknesses} have direct implications on wing design, since flutter speed at this altitude has to be larger than $229.31 \frac{m}{s}$ according to the requirements. Therefore, the minimum wing skin thickness is $2.5mm$.
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[width=0.7\linewidth]{figures_final/Flutter/thickness_flutter.png}
-%     \caption{Flutter speed as a function of wing skin thickness}
-%     \label{fig:flutter_thicknesses}
-% \end{figure}
+\begin{figure}[H]
+    \centering
 
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Flutter/critical_SL.png}
+        \caption{Sea-level altitude with 0.4Mach as minimum critical speed}
+        \label{fig:critical_speeds_SL}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{figures_final/Flutter/critical_max_altitude.png}
+        \caption{FL270 with 0.75Mach as minimum critical speed}
+        \label{fig:critical_speeds_flight}
+    \end{subfigure}
 
-
-%\todo[inline]{Chapter conclusion pending. Remember to connect it to the chapters that come after.}
+    \caption{Flutter and divergence speeds with minimum required critical speed at specific altitudes}
+    \label{fig:critical speeds}
+\end{figure}
 
 In summary, this chapter has developed a complete structural representation of HUGO by linking aerodynamic loading, internal load transfer, and material response across both wing and fuselage components. Through the above-mentioned modelling approaches, the critical structural responses have been quantified in terms of deflection, stress distribution, and aeroelastic stability, ensuring that the airframe remains within allowable limits under both operational and ultimate loading conditions. In particular, the analyses confirm that the wing and fuselage designs satisfy strength, stiffness, and flutter requirements within the defined flight envelope, while also identifying the governing cases for structural sizing.
 
