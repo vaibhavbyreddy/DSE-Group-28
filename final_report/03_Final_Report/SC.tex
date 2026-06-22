@@ -992,10 +992,10 @@ In the case of this analysis, the maximum deflection of the ring was set to 1mm.
 
 Given the stark increase in skin thickness and consequently, fuselage weight, it becomes reasonable to analyse the drone monocoque as a composite sandwich, with CFRP on the outer layers and a Nomex honeycomb as the core, as described in \autoref{sec:composites}. For the composite sandwich configuration, the area moment of inertia is dominated by the CFRP skins. Assuming the Nomex core has negligible bending stiffness compared to the carbon faces, the equivalent moment of inertia is calculated using the parallel axis theorem. The local moment of inertia of the thin skins is omitted, yielding \autoref{eq:inertia_solid}.
 \begin{equation}
-    I_{\text{sandwich}} \approx 2 \left( L t_s \left(\frac{d}{2}\right)^2 \right) = \frac{L t_s d^2}{2}
+    I_{\text{sandwich}} \approx 2 \left( L t_skin \left(\frac{t_core}{2}\right)^2 \right) = \frac{L t_skin t_core^2}{2}
     \label{eq:inertia_sandwich}
 \end{equation}
-where $t_s$ is the thickness of a single CFRP skin, $t_c$ is the thickness of the Nomex core, and $d = t_c + t_s$ is the distance between the midplanes of the two skins.
+where $t_skin$ is the thickness of a single CFRP skin, $t_core$ is the thickness of the Nomex core, and $t_total = t_core + t_skin$ is the distance between the midplanes of the two skins.
 
 
 \begin{figure}[H]
