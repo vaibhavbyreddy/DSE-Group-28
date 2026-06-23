@@ -57,7 +57,7 @@ To obtain the fuel mass fraction, the lift-to-drag ratio $L/D$, the total propul
 
 \begin{equation}
 \label{eq:fuel_fraction}
-    \left(\frac{m_\text{fuel}}{m_\text{initial}}\right)_i = 1-\exp\frac{-R_ig_0}{\eta_i (L/D)_i e_f}
+    \left(\frac{m_\text{fuel}}{m_\text{initial}}\right)_i = 1-\exp\left(\frac{-R_ig_0}{\eta_i (L/D)_i e_f}\right)
 \end{equation}
 
 The maximum lift-to-drag ratio is estimated by assuming a maximum endurance condition, taking the derivative of $C_L/C_D$, and setting it equal to zero. The total propulsion efficiency can be obtained from literature, as can the fuel energy density.
@@ -97,7 +97,7 @@ Finally, the take-off field length constraint is included in the analysis. As wi
     HUG-CON-05 & Climb gradient AEO & 0.04 & up & 0 ft& 0\% \\
     \hline
    % HUG-CON-06 & Take-off field length & 1275 m & down & 0 ft & 0\% \\
-    \hline
+   % \hline
     \end{tabular}
 \end{table}
 
@@ -125,7 +125,7 @@ The operation of the aircraft will inevitably lead to the generation of noise. T
     \label{fig:noise_levels}
 \end{figure}
 
-The noise levels were obtained for the engine operating at idle, cruise, and max power. First, the data was extracted from the graphs using a plot-digitizer \footnote{\href{https://web.eecs.utk.edu/~dcostine/personal/PowerDeviceLib/DigiTest/index.html}{plot-digitizer}(Accessed on 08.06.2026)}:
+The noise levels were obtained for the engine operating at idle, cruise, and max power. First, the data was extracted from the graphs using a plot-digitizer \footnote{\href{https://web.eecs.utk.edu/~dcostine/personal/PowerDeviceLib/DigiTest/index.html}{plot-digitizer} (accessed on 08.06.2026)}:
 This data was then fitted with a high-degree polynomial to get a mathematical model. The model would use frequency as an input and output the sound pressure level (in decibels). The data and the regression models can be found at the Github \footnote{\href{https://github.com/Teo-Cokonaj/DSE-28/blob/0a4e0bae481a25c633ee9a7bbda87498b3a964de/Noise/JetDataPolyReg.bak.mw
 l}{poly-reg model} (accessed on 08.06.2026)}.         
 
@@ -152,11 +152,11 @@ Where $f_{max}= \frac{0.1\,V}{\delta}$ and R is the distance to the observer.
  
 Having all the different sources, it is possible to add them together.  
 \begin{equation}
-    SPL_{total}=10 \log_{10} \sum^{i=N_{sources}}_{i=1}10^{\frac{SPL_i}{10}}
-\end{equation} law
+    SPL_\text{total}=10 \log_{10} \sum^{i=N_\text{sources}}_{i=1}10^{\frac{SPL_i}{10}}
+\end{equation}
 To accurately calculate the noise perceived by a bystander, distance must also be taken into account when calculating the noise. The aircraft is modelled as a point source, with the sound uniformly propagating. This means that the sound pressure level will change based on the inverse square level \footnote{\href{https://personalpages.manchester.ac.uk/staff/richard.baker/BasicAcoustics/4_inverse_square_law.html}{Inverse square law} (accessed on 08.06.2026)}:
 \begin{equation}
-    SPL_{r2}=SPL_{r_1}+20\log_{10}(\frac{r_1}{r_2})
+    SPL_{r_2}=SPL_{r_1}+20\log_{10}\left(\frac{r_1}{r_2}\right)
 \end{equation}
 
 The human ear does not perceive sound at different frequencies equally. To be able to predict how loud the aircraft would sound to a human observer, A-weighting was used. This acts as a filter and filters out sounds at very low frequencies. This is done to emulate the human ear \footnote{\href{https://en.wikipedia.
@@ -248,18 +248,18 @@ As can be seen in \autoref{fig:noiseflight}, the highest noise level will be at 
 The validation of the noise data was done with a comparison to experimental data. Since the size of the aircraft and its power-train is closer to that of RC-aircraft, the comparison is made using measured noise data from turbine-powered RC-aircraft. The data obtained were used to construct a range of noise measured at a distance of 100 ft.  
 This data was then reproduced using the model in a single-engine configuration and at the same distance. 
 
-Looking at \autoref{tab:foam_props} means the calculated data is within the noise range of the measured RC-aircraft \footnote{\href{https://www.modelaviation.com/basicsofnoise}{Model-aircraft}(Accessed on 15.06.2026) }. Since the exact configuration of the measured RC-aircraft remains unknown, the values were used to create a range to act as a sanity check for the modelled values.  
+Looking at \autoref{tab:foam_props} means the calculated data is within the noise range of the measured RC-aircraft \footnote{\href{https://www.modelaviation.com/basicsofnoise}{Model-aircraft} (accessed on 15.06.2026) }. Since the exact configuration of the measured RC-aircraft remains unknown, the values were used to create a range to act as a sanity check for the modelled values.  
 
 
 \begin{table}[H]
     \centering
     \caption{Comparison of noise-data single turbine aircraft}
     \label{tab:foam_props}
-    \begin{tabular}{|p{3cm}|p{3cm}|p{3 cm}|}
+    \begin{tabular}{|c|c|c|}
         \hline
         \textbf{Engine settings} &
-        \textbf{$L_{Experiment}$ \textbf{[dB]}}  &
-         \textbf{$L_{Model}$ \textbf{[dB]}}\\
+        \textbf{$L_\text{Experiment}$ \textbf{[dB]}}  &
+         \textbf{$L_\text{Model}$ \textbf{[dB]}}\\
         \hline\hline
         Standard
         & 68-71 & 65.1-72.8  \\
@@ -285,13 +285,13 @@ HUGO is powered by two Jet-cat 100 turbines. As mentioned in the requirements, i
 \hline\hline
 CO$_2$              & $3.16$                & $1$      & $3.160$                   \\ \hline
 H$_2$O              & $1.23$                & $0.22$   & $0.271$                   \\ \hline
-NMVOCs              & $3.80\times10^{-4}$   & $14.0$   & $5.32\times10^{-3}$       \\ \hline
-SO$_4^{2-}$         & $6.54\times10^{-7}$   & $-832$   & $-5.44\times10^{-4}$      \\ \hline
-CO                  & $3.00\times10^{-3}$   & $9$      & $2.70\times10^{-2}$       \\ \hline
-Soot                & $3.00\times10^{-5}$   & $4288$   & $0.129$                   \\ \hline
+NMVOCs              & $3.80\cdot10^{-4}$   & $14.0$   & $5.32\cdot10^{-3}$       \\ \hline
+SO$_4^{2-}$         & $6.54\cdot10^{-7}$   & $-832$   & $-5.44\cdot10^{-4}$      \\ \hline
+CO                  & $3.00\cdot10^{-3}$   & $9$      & $2.70\cdot10^{-2}$       \\ \hline
+Soot                & $3.00\cdot10^{-5}$   & $4288$   & $0.129$                   \\ \hline
 Contrails \& Cirrus & $3.16$                & $2.32$   & $7.331$                   \\ \hline  \hline
 
-\textbf{Total}      &                       &          & $\mathbf{10.923}$         \\
+\textbf{Total}      & $-$                     & $-$         & $\mathbf{10.923}$         \\
   \hline
 \end{tabular}
 \end{table}

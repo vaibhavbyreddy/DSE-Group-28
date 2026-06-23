@@ -5,7 +5,7 @@
 
 %\todo[inline]{write an introduction by also referencing each section and what its purpose is}
 
-This chapter presents the structural design and analysis of HUGO. The focus is on translating the aerodynamic configuration and mission requirements into a structurally sound airframe capable of withstanding both operational and ultimate loading conditions, while ensuring stability, stiffness, and aeroelastic safety across the full flight envelope.
+This chapter presents the structural design and analysis of HUGO. The focus is on translating the aerodynamic configuration and mission requirements into a structurally sound airframe capable of withstanding both operational and ultimate loading conditions, while ensuring stability, stiffness, and aeroelastic stability across the full flight envelope.
 
 First, \autoref{sec:aerodynamic_characteristics_estimate} presents the aerodynamic characteristics estimate, including airfoil selection, lift and drag modelling, and the resulting lift distribution used as the basis for structural loading. Then, the wing structural response is analysed in \autoref{sec:wing_structural_analysis}, where discretisation, internal load paths, stresses, deflections, and failure criteria are evaluated under critical loading conditions. Subsequently, \autoref{sec:fuselage_structural_analysis} extends the structural assessment to the fuselage, modelling global bending, shear, torsion, and landing impact loads to determine required skin thickness and assess abuse-load resistance. Finally, \autoref{sec:flutter_analysis} addresses aeroelastic stability through a simplified flutter model, evaluating bending-torsion coupling, natural frequencies, damping behaviour, and the onset of flutter and divergence within the operational envelope.
 
@@ -21,7 +21,7 @@ High subsonic speeds experienced by HUGO during the nominal mission necessitate 
 
 The structural model uses a simplified, elliptical airfoil approximation based on the SC(2)-0012 parameters. The wing cross-section is assumed to be hollow, with the same chord length and maximum thickness to chord ratio as the reference airfoil. The centre of the ellipse is taken to be the elastic axis point of origin of our airfoil. For the major axis, the chord is taken as reference, while for the minor axis the maximum thickness. The lift resultant is applied at the quarter-chord point, consistent with this specific airfoil.\footnote{\href{http://airfoiltools.com/airfoil/details?airfoil=sc20012-il}{NASA SC(2)-0012 airfoil data} (accessed on 10.06.2026).}. 
 
-For the particular airfoil used, the elliptical approximation decreases the estimated second moment of area compared with a direct airfoil-skin representation. Furthermore, the model neglects the structural contribution of the foam core. Thus, the effect of the assumption is overall conservative. The effect of the assumption will vary dependent on the particular %The effect on the sectional properties is not fully known at this moment, and further examination needs to be performed to quantify the change. The absence of the foam interior in the structural analysis provides a moderate conservative approach, but the overall effect on the structure is not known at this current state. It is expected to be non-conservative due to the increased moment of inertia.
+For the particular airfoil used, the elliptical approximation decreases the estimated second moment of area compared with a direct airfoil-skin representation (from $7.38\cdot10^{-8}\ \mathrm{m}^4$ to $6.32\cdot10^{-8}\ \mathrm{m}^4$ at the wing root of the standard planform). Furthermore, the model neglects the structural contribution of the foam core. Thus, the effect of the assumption is overall conservative. The effect of the assumption will vary dependent on the particular airfoil used in other planforms than the standard one, so the cross-sections assumptions cannot be unconditionally labelled as conservative across the entire Planform Envelope. %The effect on the sectional properties is not fully known at this moment, and further examination needs to be performed to quantify the change. The absence of the foam interior in the structural analysis provides a moderate conservative approach, but the overall effect on the structure is not known at this current state. It is expected to be non-conservative due to the increased moment of inertia.
 
 %The elliptical approximation increases the estimated second moment of area compared with a direct airfoil-skin representation. However, the model neglects the structural contribution of the foam core. The resulting section properties are therefore treated as a conservative, simplified model that can be used for preliminary structural sizing. 
 
@@ -430,14 +430,14 @@ W = P \cdot t_\text{skin} \cdot l_\text{section} \cdot g_0 \label{eq:section_wei
 The wing weight to wing structural weight ratio was also an assumption made to calculate the total mass in the standard planform configuration. As shown in \autoref{fig:sensitivity_wing}, the wing weight to wing structural weight ratio is linearly related to the total mass in the standard planform configuration. This is expected behaviour as the ratio is applied linearly, and the overall effect for the examined parameter ranges by approximately 3kg, which is deemed sufficiently small.
 
 
-\subsection{Internal Load Distrbution}
-For the chosen airfoil, the torque is given by the combination of the lift produced by the wing and the aerodynamic moment of the airfoil itself. The torque is computed by multiplying the distance between the local centre of pressure and the shear centre of the beam-like wing by the lift of the section, and then summing the contributions one by one until the root chord is reached. The shear centre is taken as the centre of the local ellipse, and the centre of pressure is at the quarter-chord point \footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)}. It has to be mentioned that as an airfoil is exposed to higher Mach speed regimes, the centre of pressure tends to move rearward with respect to the quarter-chord, especially as shock waves start developing \cite{AndersonAerodynamics}.
-\begin{wrapfigure}[11]{r}{0.5\textwidth}
+\subsection{Internal Load Distribution}
+For the chosen airfoil, the torque is given by the combination of the lift produced by the wing and the aerodynamic moment of the airfoil itself. The torque is computed by multiplying the distance between the local centre of pressure and the shear centre of the beam-like wing by the lift of the section, and then summingthe contributions one by one until
+\begin{wrapfigure}[12]{r}{0.5\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures_final/Wing_structure/Torque distribution on the wing Cruise.png}
     \caption{Torsion distribution at load factor 9}
     \label{fig:torsion_dist}
-\end{wrapfigure}
+\end{wrapfigure} the root chord is reached. The shear centre is taken as the centre of the local ellipse, and the centre of pressure is at the quarter-chord point \footnote{\label{ft:NASA_0012}\href{http://airfoiltools.com/polar/details?polar=xf-sc20012-il-500000-n5}{NASA-0012} (accessed on 10.06.2026)}. It has to be mentioned that as an airfoil is exposed to higher Mach speed regimes, the centre of pressure tends to move rearward with respect to the quarter-chord, especially as shock waves start developing\cite{AndersonAerodynamics}.
 
 Nevertheless, this effect is not significant for the NASA SC(2)-0012 airfoil at the Mach range of interest \cite{mineck1987high}. Therefore, the torque calculation is shown in \autoref{eq:t_sec_cumulative}.
 
@@ -573,11 +573,11 @@ The free-body and kinetic diagrams of the fuselage in flight, assuming detached 
 \begin{equation}
      \tikz[baseline=-0.6ex]{\draw[->] (0,-0.25) -- (0,0.25);}
     \quad
-    \Sigma F: L_c+L_w+L_t-\Sigma_{i=0}^n m_i g = \Sigma_{i=0}^n m_i a_{i}
+    \Sigma F: L_c+L_w+L_t-\Sigma_{i=0}^n m_i g_0 = \Sigma_{i=0}^n m_i a_{i}
 \end{equation}
 
 \begin{equation}
-    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_{x=0}: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma_{i=0}^n x_i m_i g  = \Sigma_{i=0}^n x_i m_i a_i
+    \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_{x=0}: \quad -M_c - M_w + x_c L_c + x_w L_w + x_t L_t -\Sigma_{i=0}^n x_i m_i g_0  = \Sigma_{i=0}^n x_i m_i a_i
 \end{equation}
 
 where $a_i=a_{cg}=(n-1)g$.
@@ -653,7 +653,7 @@ where $a_i=a_{cg}=(n-1)g$.
     node[midway,right] {$L_t$};
 
 % Weight label
-\node[red!70,right] at (12.0,-0.8) {$m_i g$};
+\node[red!70,right] at (12.0,-0.8) {$m_i g_0$};
 
 % CG label
 \node[below] at (6.5,-1.2) {$x_{cg}$};
@@ -736,13 +736,13 @@ In the second case, the aircraft is assumed to both accelerate vertically upward
 
 \begin{equation}
      \tikz[baseline=-0.6ex]{\draw[->] (0,-0.25) -- (0,0.25);}
-    \quad \Sigma F: L_c+L_w+L_t+F_{lg}-\Sigma m_i g=\Sigma m_i a_{cg}
+    \quad \Sigma F: L_c+L_w+L_t+F_{lg}-\Sigma m_i g_0=\Sigma m_i a_{cg}
 \end{equation}
 
 \begin{multline}
     \tikz[baseline=-0.6ex]{\draw[->] (0,0) arc (-40:220:0.18)} \, \Sigma M_{cg}: \quad
     F_{lg}(x_{lg}-x_{cg}) + F_{brake}\,l_{lg} + L_t(x_t-x_{cg}) - L_w(x_{cg}-x_w) - M_w \\
-    - L_c(x_{cg}-x_c) - M_c + \Sigma_i\,(x_i-x_{cg})\,m_i g = I_G\,\alpha
+    - L_c(x_{cg}-x_c) - M_c + \Sigma_i\,(x_i-x_{cg})\,m_i g_0 = I_G\,\alpha
 \end{multline}
 
 where $l_{lg}$ is the length of the landing gear strut. Then, the acceleration of a particular node is given by 
@@ -839,7 +839,7 @@ where $l_{lg}$ is the length of the landing gear strut. Then, the acceleration o
         
 
         % Weight label
-        \node[red!70, right] at (12.0, -0.8) {$m_i g$};
+        \node[red!70, right] at (12.0, -0.8) {$m_i g_0$};
 
         % x axis (FBD)
         \draw[->] (0,-2.2) -- (12.8,-2.2) node[right] {$x$};
@@ -969,7 +969,7 @@ The calculated stresses were subsequently used to determine the minimum thicknes
 \end{equation}
 
 \begin{equation}
-    \gamma = 1-0.901(1-e^{-\frac{1}{16}\sqrt{\frac{R}{t}}})
+    \gamma = 1-0.901\left(1-e^{-\frac{1}{16}\sqrt{\frac{R}{t}}}\right)
     \label{eq:knockdown_buckling}
 \end{equation}
 
@@ -1014,7 +1014,7 @@ In the case of this analysis, the maximum deflection of the ring was set to 1mm.
 
 Given the stark increase in skin thickness and consequently, fuselage weight, it becomes reasonable to analyse the drone monocoque as a composite sandwich, with CFRP on the outer layers and a Nomex honeycomb as the core, as described in \autoref{sec:composites}. For the composite sandwich configuration, the area moment of inertia is dominated by the CFRP skins. Assuming the Nomex core has negligible bending stiffness compared to the carbon faces, the equivalent moment of inertia is calculated using the parallel axis theorem. The local moment of inertia of the thin skins is omitted, yielding \autoref{eq:inertia_solid}.
 \begin{equation}
-    I_{\text{sandwich}} \approx 2 \left( L t_{skin} \left(d\right)^2 \right) = 2 L t_{skin} d^2
+    I_{\text{sandwich}} \approx 2 \left( L t_\text{skin} \left(d\right)^2 \right) = 2 L t_\text{skin} d^2
     \label{eq:inertia_sandwich}
 \end{equation}
 where $t_{skin}$ is the thickness of a single CFRP skin, $t_{core}$ is the thickness of the Nomex core, and $d$ is the distance from the mid plane of the CFRP skin to the neutral axis, i.e. $d = \frac{t_{core} + t_{skin}}{2}$ is the distance between the midplanes of the two skins.
@@ -1252,10 +1252,22 @@ Additionally, \autoref{fig:critical_speeds_SL} and \autoref{fig:critical_speeds_
 \hline
 \textbf{Parameter} & \textbf{Value} & \textbf{Unit} \\
 \hline \hline
-Wing mass                             & 4.78  & kg \\\textbf{}
-Aspect ratio                          & 27.0  & -- \\\textbf{}
-Wing span                             & 3.4   & m \\\textbf{}
-Quarter-chord sweep angle             & 15.0  & $^\circ$ \\\textbf{}
+Wing mass                             & 4.78  & kg \\
+\hline
+
+\textbf{}
+Aspect ratio                          & 27.0  & -- \\
+\hline
+
+\textbf{}
+Wing span                             & 3.4   & m \\
+\hline
+
+\textbf{}
+Quarter-chord sweep angle             & 15.0  &  deg \\
+\hline
+
+\textbf{}
 Taper ratio                           & 0.3   & -- \\
 % Skin thickness                 & 2.5 & mm \\\textbf{}
 \hline

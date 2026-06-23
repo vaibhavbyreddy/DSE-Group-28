@@ -15,7 +15,7 @@ Through this architecture, HUGO can support a wide range of missions, including 
 %Project HUGO disrupts the status quo by offering a certified, reconfigurable testbed that operates on Sustainable Aviation Fuel (SAF) to minimize altitude emissions \cite{Gaillot2023}. 
 
 
-\section{Profitability and Value Proposition}
+\section*{Profitability and Value Proposition}
 \label{sec:exec-objective_and_value_poposition}
 
 To evaluate the commercial feasibility of HUGO, a market volume analysis was conducted. While the Total Addressable Market (TAM) encompasses the broader global expenditure on aerospace testing and validation, HUGO's initial beachhead strategy specifically targets the domestic Dutch testing ecosystem. Based on the collective testing budgets of major institutions such as the Netherlands Aerospace Centre (NLR), the German-Dutch Wind Tunnels (DNW), and TU Delft, the Serviceable Available Market (SAM) is valued at €71 million annually \footref{foot:midterm}. By providing a direct alternative to the high-speed aeroelastic testing traditionally performed in wind tunnels, HUGO aims to capture roughly 20\% \footref{foot:schrijer-exec} of this regional market, yielding a Serviceable Obtainable Market (SOM) of €14.2 million per year. Furthermore, the drastic reduction in testing costs and lead times is expected to induce latent demand, expanding the overall market boundaries by allowing smaller academic and commercial entities to conduct research that was previously cost-prohibitive.
@@ -25,7 +25,7 @@ A financial analysis was performed to establish an economic factor of safety for
 The net annual operating profit of HUGO is thus €1.65M. Considering a venture debt model for the initial CAPEX acquisition, at a 10\% interest rate, project HUGO is able to afford the loan payments in order to pay off the debt in 5 years. A sensitivity study was performed on the different financial factors and costs to arrive at a margin of safety for each factor. The fixed and variable operational costs, as well as the research and development costs were found to have the highest margin of safety, and therefore are not the driving factors of the feasibility of this project. The number of flights per year and price per flight day had a margin of safety of 22\% and 18\% respectively. Therefore it is crucial for the success of HUGO to be able to reliably achieve the required number of flight days, requiring a highly reliable airframe. It is also critical to have a highly versatile testing platform which will be able to capture the largest possible market. Additionally, capturing high quality data reliably will allow HUGO to be priced at a premium, maximizing revenue.
 
 
-\section{Final Configuration and Modularity}
+\section*{Final Configuration and Modularity}
 \label{sec:exec-final_configuration}
 
 Following a rigorous Analytic Hierarchy Process (AHP) trade-off, HUG-CFG-303 was selected as the optimal configuration. This high-wing configuration features static wing mounting points, a T-tail, and a modular canard port, providing maximum experimental versatility without the structural penalties associated with more complex airframes with multiple wing mounting points. 
@@ -36,7 +36,7 @@ Additionally, HUGO features a canard mounting point, which is covered when not b
 
 In order to minimize the drag profile of HUGO, the landing gear is a fully retractable system, which stows away during flight to produce a clean aerodynamic profile of the fuselage.
 
-\section{Engineering Design and Performance Outcomes}
+\section*{Engineering Design and Performance Outcomes}
 \label{sec:exec-eperformance_outcomes}
 
 The technical execution of HUGO ensures that the aircraft can perform demanding test profiles while adhering to the strict user and operational requirements:
@@ -46,7 +46,7 @@ The technical execution of HUGO ensures that the aircraft can perform demanding 
     \item \textbf{Flight Test Instrumentation:} As a flying laboratory, HUGO's value relies on high-fidelity data acquisition. The standardized payload suite includes dual LIDAR sensors, aimed at the wings, for in-flight wing deflection measurement, 16 strain gauges placed on various points on the wing skin, and a DJI O4 camera system to visually monitor aeroelastic behaviour. Additionally, the wing-to-fuselage structural link is formed by four Sunrise Instruments M3564 EI 6-axis load cells \footnote{\href{https://www.srisensor.com/uploads/M8126-Users-Manual-V1.4-Eng11.pdf}{M8126} (accessed on 03.06.2026)}, which isolate and measure aerodynamic forces on the wing. This is in addition to standard avionics sensors such as a 6 axis Inertial measurement unit (IMU), Global Positioning System (GPS) sensor and gyroscope. HUGO also has space to accomodate an additional 5kg of payload in a 5 liter volume, to house test equipment or additional sensors based on the client's needs. The positioning of these components was done in a preliminary 3D model, along with their masses. Doing so allowed us to accurately estimate the CG of the aircraft, as well as wing positioning, and empennage sizing for stability.
     \item \textbf{Performance:} Using a typical mission profile for HUGO, including a climb phase, cruise phase, test phase, and descend phase, as well as contingencies in case of go arounds, fuel mass fractions were computed. Then, a payload-range analysis was used to validate that HUGO can successfully complete its 30-minute nominal mission—including a 5-minute Mach 0.75 test segment at FL270, while holding sufficient fuel reserves for loitering and up to three missed approach attempts \cite{Koutz1952Loitering}. This analysis allowed us to use a matching diagram to find a feasible engine and wing option. This was driven by constraints and requirements such as runway length, climb rate requirements, and cruise and maximum speed requirements. This yielded our choice for the standard planform, as detailed in \autoref{tab:exec:standard_wing_planform}. The thrust to weight ratio yielded by this analysis drove our choice of engines, namely, twin JetCat P100-RX-BL Jet turbine engines.
     \item \textbf{Propulsion and Power:} Thrust is provided by twin fuselage-mounted JetCat P100-RX-BL micro-turbines, providing a combined maximum thrust of 200N, fed by a dynamic fuel management system, utilizing two 7.5L fuel bladders. This allows us to dynamically shift the CG during flight in order to change the stability of the aircraft to run different experiments. Electrical power is supplied by a custom 8S5P Molicel INR21700 battery pack \cite{Tsung-Hsun2026, Ganjeizadeh2014}, delivering 936 W to sustain the entire avionics, sensor, and propulsion systems for the maximum 45-minute flight window. 
-    \item \textbf{Landing Gear \& Kinematics:} The retractable, podded tricycle landing gear is manufactured from 18Ni(350) steel to withstand high impact loads while minimizing strut diameter. Optimized via a Linear Time-Invariant (LTI) spring-dashpot simulation ($C=781$, $K=48168$), the system restricts maximum vertical displacement to 6.84 cm during a 3 m/s impact (incorporating an EASA-mandated 1.5 safety factor), preventing fuselage ground strikes and oscillatory runway behavior. This system limits landing gear loads transferred to the fuselage to below 8g.
+    \item \textbf{Landing Gear \& Kinematics:} The retractable, podded tricycle landing gear is manufactured from 18Ni(350) steel to withstand high impact loads while minimizing strut diameter. Optimized via a Linear Time-Invariant (LTI) spring-dashpot simulation ($C=781\ \mathrm{kgm}^{-1}\mathrm s^{-1}$, $K=48168\ \mathrm{Nm}^{-1}$), the system restricts maximum vertical displacement to 6.84 cm during a 3 m/s impact (incorporating an EASA-mandated 1.5 safety factor), preventing fuselage ground strikes and oscillatory runway behavior. This system limits landing gear loads transferred to the fuselage to below 8g.
     
 \end{itemize}
 
@@ -63,12 +63,12 @@ The technical execution of HUGO ensures that the aircraft can perform demanding 
 
 
 
-\section{Material Selection and Manufacturing, Assembly, and Integration (MAI)}
+\section*{Material Selection and Manufacturing, Assembly, and Integration (MAI)}
 \label{sec:mai_plan}
 
 The material selection and MAI strategy for HUGO are closely related. The chosen materials and manufacturing processes directly dictate the final mechanical properties, add constraints on design decisions and impact the economic feasibility of the product. Given HUGO's intended production scale (an initial fleet of five aircraft), the design heavily prioritizes out-of-autoclave (OOA) processes to minimize tooling infrastructure costs while maintaining the structural integrity required for Mach 0.75 aeroelastic testing.
 
-\subsection{Material Selection and Design Impact}
+\subsection*{Material Selection and Design Impact}
 \label{subsec:exec-material_selection}
 Materials were selected to satisfy specific local loading conditions, thermal environments, and manufacturing limitations across the airframe:
 \begin{itemize}
@@ -90,7 +90,7 @@ Materials were selected to satisfy specific local loading conditions, thermal en
 \end{table}
 
 
-\subsection{Manufacturing and Assembly Strategy}
+\subsection*{Manufacturing and Assembly Strategy}
 \label{subsec:exec-MAI}
 To maximize structural efficiency, HUGO's assembly relies on co-curing and adhesive bonding rather than heavy mechanical fasteners:
 \begin{itemize}
@@ -99,12 +99,12 @@ To maximize structural efficiency, HUGO's assembly relies on co-curing and adhes
     \item \textbf{Mechanical Subsystems:} The steel landing gear and engine pylons are CNC-machined and heat-treated to achieve their final temper, and treated with a protective surface coating to prevent corrosion. The landing gear integration utilizes a hybrid approach: bolted joints secure the rigid interfaces to the airframe, while precision pin joints are used exclusively where relative kinematic motion is required during retraction and deployment.
 \end{itemize}
 
-\subsection{System Integration}
+\subsection*{System Integration}
 \label{subsec:exec-system_integration}
 The final integration of HUGO is heavily driven by system dependencies and physical accessibility. Because the fuselage is a bonded monocoque, internal component integration follows a strict bottom-up approach. Wiring harnesses, the structural load cells, and the dynamic fuel bladder system are installed prior to the integration of the modular lifting surfaces, ensuring that critical avionics and fuel lines remain accessible for inspection and condition-based maintenance between flight test days. The access bays are also sized and placed in strategic areas to allow for the removal of the internal components to facilitate servicing and repairs.
 
 
-\section{Certification, and Safety}
+\section*{Certification, and Safety}
 \label{sec:exec-certification_and_safet}
 
 In consultation with, and with guidance from EASA, HUGO was classified under SC-Light-UAS High risk. Successful certification of an Unmanned Aerial Vehicle (UAV) with such a high degree of modularity would require constant and expensive recertification, making this project infeasible. However, through the simultaneous application for a type certificate and a Design Organisation Approval (DOA), HUGO will be allowed to undergo major changes without requiring full recertification. Though more versatile, it is a process that will require an initial investment of \euro{10,170} for the certification, and then a yearly fee of \euro{11,050} for the maintenance of the Type Certificate. For compliance, a team of engineers will therefore have to apply for the DOA, and be responsible for approving any major changes proposed by a client.
@@ -115,7 +115,7 @@ Safety is ensured through a selective redundancy philosophy and a rigorous condi
 
 
 
-\section{Operations and Mission Envelope}
+\section*{Operations and Mission Envelope}
 \label{sec:exec-operations_and_mission}
 
 Operations and Logistics are a crucial part in the development of a successful mission. Together they cover all aspects of HUGO's day-to-day usage. For a mission to be successful, HUGO must operate in a controlled airspace, fly over 100km in a straight line, and to perform a test at Mach 0.75 for at leasts 5 minutes. Given its classification as a High-Risk Unmanned Aircraft System under EASA Special Conditions \cite{easa_light_uas_crd_is3}, HUGO's operational and safety framework is designed for maximum reliability. Operations are based at Den Helder Airport (EHKD), capitalizing on its 1.27 km runway, emergency services, and direct access to ATC-controlled airspace over the North Sea \cite{DenHelderAirport2013DHANieuwsbrief}.
@@ -142,7 +142,7 @@ During the Mach 0.75 test segment over the North Sea, the GCS displays a live vi
 
 
 
-\section{Environmental Responsibility}
+\section*{Environmental Responsibility}
 \label{sec:exec-environmental-responsibility}
 
 The entire project was created with the intention of enabling the research and development of novel wing configurations which could lower emissions. The research can also lead to safer and more comfortable aircraft. It was a requirement from the beginning that the HUGO should be powered by SAF to minimize the overall impact. A Life Cycle Assessment (LCA) was made to directly quantify the impact of the entire project.   
@@ -153,7 +153,7 @@ After finalizing the design, operations and the sizing of all systems and subsys
 
 
 
-\section{Conclusion}
+\section*{Conclusion}
 \label{sec:exec-conclusion}
 
 HUGO represents a systemic shift in high-speed aeroelastic research. By providing a highly modular, DOA-certified platform capable of collecting highly relevant research data at Mach 0.75, it directly eliminates the financial and technical bottlenecks of traditional wind tunnel testing. Operating out of Den Helder on Sustainable Aviation Fuel at a disruptive commercial rate of €25,000 per flight day, HUGO represents a commercially viable product which facilitates the future of aviation. Through its efficient composite architecture and adaptable mission envelope, the platform successfully fulfils its core purpose: democratising access to transonic flight testing and accelerating the development of the next generation of highly efficient, low carbon impact aircraft. A visualization of the complete HUGO system, including the aircraft, ground station, and transport van \footref{foot:renault}, is shown in \autoref{fig:exec-hugo_visualization}.
@@ -162,7 +162,7 @@ HUGO represents a systemic shift in high-speed aeroelastic research. By providin
     \centering
     \includegraphics[width=\linewidth]{figures_final/HUGO_final_exec_overview.png}
     \caption[HUGO aircraft and proposed van vehicle visualization]{%
-        HUGO aircraft and proposed van vehicle visualization, rendered using Blender software\protect\footnotemark
+        HUGO aircraft and proposed van vehicle visualization (to scale), rendered using Blender software\protect\footnotemark
     }
     \label{fig:exec-hugo_visualization}
 \end{figure}

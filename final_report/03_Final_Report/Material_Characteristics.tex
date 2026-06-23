@@ -156,26 +156,23 @@ R_c + R_b \le 1.0
 \end{comment}
 
 %where $R_c = \sigma_c / \sigma_{c,all}$ and $R_b = \sigma_b / \sigma_{b,all}$ represent the applied-to-allowable stress ratios for the compression and bending components, respectively.
-The landing strut outer diameter $d_\text{outer}$, wall thickness $t$, and corresponding minimum mass $m$ values obtained from the analysis for Al 7075-T76 and Steel 18Ni(350) are summarized in \autoref{tab:strut_sizing}. It can be seen that although the steel struts result in a slightly higher mass than the other considered materials, their outer diameter is 51\% lower than aluminium and 27\% lower than titanium while providing a similar structural performance.
+Due to manufacturing constraints, handling and abuse loads, the minimum thickness was set to a minimum of $1 mm$. The landing strut outer diameter $d_\text{outer}$, wall thickness $t$, and corresponding minimum mass $m$ values obtained from the analysis for Al 7075-T76 and Steel 18Ni(350) are summarized in \autoref{tab:strut_sizing}. It can be seen that although the steel struts result in a slightly higher mass than the other considered materials, their outer diameter is 53\% lower than aluminium and 29\% lower than titanium while providing a similar structural performance.
 
 %The results demonstrate that Aluminum 7075-T76 and Titanium yield the lightest strut designs capable of withstanding the prescribed loads, whereas the Steel 18Ni(350) design is slightly heavier. However, the steel design results in the strut with the lowest diameter.
 
-\todo[inline]{Section 11.1, the report leaves the very thin-walled values in Table 11.2 without discussing manufacturability and practical usage of this. The knock-down factors used for shell buckling were not reported, neither the equation.}
 
 \begin{table}[H]
     \centering
-    \caption{Optimal landing gear strut diameter and wall thickness for candidate materials} %($t_{min}=1$ mm)}
+    \caption{Optimal landing gear strut diameter and wall thickness for candidate materials ($t_{min}=1$ mm)}
     \label{tab:strut_sizing}
     \begin{tabular}{|c|c|c|c|}
         \hline
-        \textbf{Material} & \textbf{$d_\text{outer}$[mm]} & \textbf{$t$ [mm]} & \textbf{$m$ [g]} \\\hline\hline
-        Al 7075-T76 & 38.54 & 0.31 & 15.08 \\\hline
-        Steel 18Ni(350) & 18.74 & 0.25 & 17.64 \\\hline
-        Titanium & 25.61 & 0.29 & 15.22 \\\hline
+        \textbf{Material} & \textbf{$d_\text{outer}$ [mm]} & \textbf{$t$ [mm]} & \textbf{$m$ [g]} \\\hline\hline
+        Al 7075-T76 & 26.01 & 1.00 & 21.21 \\\hline
+        Steel 18Ni(350) & 12.27 & 1.00 & 28.69 \\\hline
+        Titanium Ti-6Al-4V & 17.12 & 1.00 & 22.28 \\\hline
     \end{tabular}
 \end{table}
-
-The optimized wall thicknesses presented in \autoref{tab:strut_sizing} range from 0.25 to 0.31 mm, which, while structurally sufficient under the load assumptions applied, are impractical from a manufacturing standpoint. To address this, a minimum wall thickness constraint of $t_{min}$ = 1 mm should be imposed \todo{not sure about the 1mm, asked Vaibhav}, and the strut sizing should be re-run with this constraint active. This will increase the strut mass but yield a design that is realistic for production.
 
 In the case of the engine pylons, high temperatures related to the engine operation prove to be a key material selection factor. Notably, the degradation of material properties is governed by the homologous temperature, i.e. they scale with the ratio of the operating temperature ($T$) to the melting temperature ($T_m$) of the material. While the elastic modulus decreases linearly with this ratio, the rate of creep increases exponentially at elevated temperatures \cite[p.224]{ashby2019materials}. In HUGO's case, it can be expected that the outer nacelle temperatures during operation exceed $200^\circ\text{C}$ \footnote{In communication with JetCat}. Because structural aluminum alloys are generally restricted to a maximum service temperature of $150^\circ\text{C}$ before permanent strength loss occurs \cite[p.242]{ashby2019materials}, it can be seen that Al 7075-T76 is not a feasible choice for the considered structure. An evaluation of the recyclability of the steel and titanium alloys showed a preference for the former.
 
@@ -211,7 +208,7 @@ An analysis of aerospace industry trends and comparable missions conducted in th
     \centering
     \caption{Mechanical properties of the prepreg candidates at room temperature, dry \footref{fn:hexply} \footref{fn:cycom} \footref{fn:mtm} \cite[p. 29]{Marlett2011Hexcel8552AS4PW}}
     \label{tab:prepreg_properties}
-    \begin{tabular}{|p{2.8cm}|p{1.6cm}|p{1.2cm}|p{1.9cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.4cm}|p{1.4cm}|}
+    \begin{tabular}{|p{2.7cm}|p{1.6cm}|p{1.05cm}|p{1.9cm}|p{1.05cm}|p{1.05cm}|p{1.05cm}|p{1.3cm}|p{1.25cm}|}
         \hline
         \textbf{Prepreg} & \textbf{$\sigma_{TS_0}/\sigma_{CS_0}$ [MPa]} & \textbf{$E_0$ [GPa]} &
         \textbf{$\sigma_{TS_{90}}/\sigma_{CS_{90}}$ [MPa]} & \textbf{$E_{90}$ [GPa]} &
@@ -220,7 +217,7 @@ An analysis of aerospace industry trends and comparable missions conducted in th
         \textbf{$\nu_{12}$ [-]} &
         \textbf{$\rho$ [g/cm$^3$]} \\\hline\hline
 
-        HexPly 8552 & 828/883 & 68 & 793/705 \tablefootnote{\href{https://www.wichita.edu/industry_and_defense/NIAR/Documents/NMS-128-slash-4-Rev-A-Hexcel-8552-AS4-3K-8HS-3.16.2022.pdf}{Hexcel 8552S AS4 Plain Weave Fabric Detail Spec} (accessed on 23.06.2026)} & 66 & 37.4 \tablefootnote{\href{https://www.wichita.edu/industry_and_defense/NIAR/Research/hexcel-8552/AS4-PW-2.pdf}{https://www.wichita.edu/industry_and_defense/NIAR/Research/hexcel-8552/AS4-PW-2.pdf} (23.06.2026)} & 4.97 & 0.046 & 1.56 \\\hline
+        HexPly 8552 & 828/883 & 68 & 793/705 \tablefootnote{\href{https://www.wichita.edu/industry_and_defense/NIAR/Documents/NMS-128-slash-4-Rev-A-Hexcel-8552-AS4-3K-8HS-3.16.2022.pdf}{Hexcel 8552S AS4 Plain Weave Fabric Detail Spec} (accessed on 23.06.2026)} & 66 & 37.4 \tablefootnote{\href{https://www.wichita.edu/industry_and_defense/NIAR/Research/hexcel-8552/AS4-PW-2.pdf}{Hexcel 8552 AS4 PW Fabric Prepreg Material Property Data Report} (accessed on 23.06.2026)} & 4.97 & 0.046 & 1.56 \\\hline
 
         CYCOM 5320-1 & 905/750 & 69 & 896/762 & 68.26 & 57 & 5.58 & 0.048 & 1.57 \\\hline
 
@@ -570,6 +567,12 @@ Welding is excluded from the design due to its potential to alter the microstruc
 \subsection{Wing fuselage connection}
 \label{sub:lWingfuselageconnection} As mentioned in \autoref{sub:SensorConfigurations} four load-cells would act as the structural link between the fuselage and the wing. The load-cell would be mounted to the fuselage using three M5 screws. Then using six M5 bolts the wing is bolted on top of the load cells. This connection can be seen as a clamped connection. 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures_final/wingfuselageconnect.png}
+    \caption{Diagram of the wing fuselage connection}
+    \label{fig:placeholder}
+\end{figure}
 \section{Integration}
 \label{sec:integration}
 

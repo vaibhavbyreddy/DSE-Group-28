@@ -154,7 +154,7 @@ The most critical electric components for HUGO's operation were considered. The 
     R(t) = e^{-\lambda t}
     \label{eq:reliability}
 \end{equation}
-Where $\lambda$ is the failure rate and $t$ is the elapsed time.
+Where $\lambda$ is the failure rate and $t$ is the elapsed time, assumed to be the total component lifetime.
 
 The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the autopilot, the servo motors, the power distribution unit (PDU), and the serial advanced technology attachment solid-state drive (SATA SSD) are tabulated in \autoref{tab:component_reliability}. %The shape and scale parameters, MTBF, and calculated reliability for the battery are presented in \autoref{tab:battery_reliability}.
 
@@ -293,7 +293,7 @@ Bird strike was initially considered as a potential failure mode due to HUGO’s
 All components and parts included in the reliability analysis are critical to the operation of HUGO. Consequently, the failure of any single element would result in the overall system being unable to perform its intended function. The system’s overall reliability is therefore modelled as a series system \cite{Mencik2016} and is estimated to be:
 
 \begin{equation}
-    R_{tot}(900) = R_{autopilot} \cdot R_{servo} \cdot R_{PDU} \cdot R_{SSD} \cdot R_{battery}
+    R_{tot}(t=900h) = R_{autopilot} \cdot R_{servo} \cdot R_{PDU} \cdot R_{SSD} \cdot R_{battery}
 \end{equation}
 
 %\todo[inline]{Continuation of the sensitivity analysis of the battery life}
@@ -459,7 +459,7 @@ At the subsystem level, safety is reinforced through life-limited operation of c
 
 Reliability is maintained through a combination of preventive maintenance and condition-based monitoring. Flight-critical electric systems, including the autopilot, servo motors, PDU, and SATA SSD, exhibit predominantly random failure behaviour and are supported by comprehensive pre-flight and post-flight diagnostics. Airframe reliability is preserved through regular visual inspections and non-destructive testing, ensuring structural integrity throughout the aircraft's service life.
 
-Availability is maximised through rapid fault recovery and modular maintenance practices. Although the unmaintained system reliability decreases to approximately 0.908 over its operational lifetime, high inherent availability is maintained by limiting corrective maintenance actions to a MTTR of two hours or less for electric subsystems. This minimises downtime and sustains operational readiness.
+Availability is maximised through rapid fault recovery and modular maintenance practices. Although the unmaintained system reliability decreases to approximately 0.911 over its operational lifetime, high inherent availability is maintained by limiting corrective maintenance actions to a MTTR of two hours or less for electric subsystems. This minimises downtime and sustains operational readiness.
 
 Operational resilience is further enhanced through a five-aircraft fleet architecture. A planned maintenance allowance of 50 working days per aircraft per year accommodates inspections, payload reconfiguration, and preventive maintenance while ensuring mission continuity through fleet-level redundancy. Together, these measures provide a robust balance of safety, reliability, availability, and maintainability throughout the operational life of the system.
 
