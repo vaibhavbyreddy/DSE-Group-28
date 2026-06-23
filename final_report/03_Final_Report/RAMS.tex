@@ -79,7 +79,7 @@ A function is considered safety-critical when its loss can lead to loss of contr
 \section{Redundancy Philosophy}
 \label{sec:redundancy}
 
-The redundancy philosophy of HUGO is selective redundancy. Full hardware duplication is avoided where it would conflict with the 50 kg MTOM limit, but redundancy is applied to functions whose failure would either compromise safety or threaten the mission.
+The redundancy philosophy of HUGO is selective redundancy. Full hardware duplication is avoided where it would conflict with the 50 kg MTOM limit, but redundancy is applied to functions whose failure would either compromise safety or threaten the mission. This approach is further detailed in \autoref{tab:redundancy_philosophy}
 
 \begin{longtable}{|p{0.25\linewidth}|p{0.33\linewidth}|p{0.32\linewidth}|}
     \caption{Redundancy philosophy applied to HUGO}
@@ -156,7 +156,7 @@ The most critical electric components for HUGO's operation were considered. The 
 \end{equation}
 Where $\lambda$ is the failure rate and $t$ is the elapsed time.
 
-The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the autopilot, the servo motors, the power distribution system (PDS), and the serial advanced technology attachment solid-state drive (SATA SSD) are tabulated in \autoref{tab:component_reliability}. The shape and scale parameters, MTBF, and calculated reliability for the battery are presented in \autoref{tab:battery_reliability}.
+The failure rates, mean times between failure (MTBF), or the readily available reliabilities of the autopilot, the servo motors, the power distribution unit (PDU), and the serial advanced technology attachment solid-state drive (SATA SSD) are tabulated in \autoref{tab:component_reliability}. %The shape and scale parameters, MTBF, and calculated reliability for the battery are presented in \autoref{tab:battery_reliability}.
 
 \begin{table}[H]
 \centering
@@ -182,7 +182,7 @@ Servo motors (actuators)
 & $5 \cdot 10^{-5}$ & 9 & 20000 & 900 & 0.9560
 & \tablefootnote{\href{https://www.a-m-c.com/servomotor-lifespan/}{Servo lifespan article} (accessed 12.06.2026)} \\
 \hline
-PDS
+PDU
 & $8.8 \cdot 10^{-8}$ & 1 & $1.14 \cdot 10^{7}$ & 900 & 0.9999
 & \cite{Imani2022} \\
 \hline
@@ -226,11 +226,11 @@ Battery pack (8s5p)
 
 %It can be observed that the reliability of both the battery cell and the battery pack appears unacceptably low. However, this result arises from the assumption that a single battery is used over the entire system lifetime, which is not realistic. Given a mean time between failures of 125 hours, approximately 900/312.5 $\approx$ 3 battery replacements are required over the system’s lifetime. This will be accounted for in the maintenance strategy.
 
-\todo[inline]{Below I tried to justify why each servo was considered as a failure critical component and why their reliabillity was not estimated as a parallel system. Pls somebody check it out and see if it is sufficient.}
+%\todo[inline]{Below I tried to justify why each servo was considered as a failure critical component and why their reliabillity was not estimated as a parallel system. Pls somebody check it out and see if it is sufficient.}
 
-Each servo motor is treated as a failure-critical component: the failure of any single servo grounds the aircraft. The 9 servo motors therefore do not form a redundant parallel subsystem; instead, they collectively represent a single failure mode. Under this assumption, the reliability of the servo subsystem is characterised by the exponential distribution with the same $\lambda$ as a single motor, evaluated over the 900-hour lifetime, yielding a reliability of 0.9560. 
+Each servo motor is treated as a failure-critical component: the failure of any single servo grounds the aircraft. The 9 servo motors therefore do not form a redundant parallel subsystem. Instead, they collectively represent a single failure mode. Under this assumption, the reliability of the servo subsystem is characterised by the exponential distribution with the same $\lambda$ as a single motor, evaluated over the 900-hour lifetime, yielding a reliability of 0.9560. 
 
-Note that if each servo motor were treated as an independent series element, the combined servo reliability would be $0.9560^9 \approx 0.67$. However, this is not appropriate here: the failure modes of individual servos are not independent system-level failure modes, since a single servo failure is sufficient to ground the aircraft regardless of which servo fails. The subsystem is therefore characterised by a single $\lambda$ representing the dominant (first) failure event.
+Note that if each servo motor were treated as an independent series element, the combined servo reliability would be $0.9560^9 \approx 0.67$. However, this is not appropriate here: the failure modes of individual servos are not independent system-level failure modes, since a single servo failure is sufficient to ground the aircraft regardless of which servo fails. %The subsystem is therefore characterised by a single $\lambda$ representing the dominant (first) failure event.
 
 The exponential model is retained for all components except the battery, where wear-out is the dominant failure mechanism. Lithium-ion cells are well-characterised by a Weibull distribution (\autoref{eq:weibull}) with a shape parameter $\beta$ ranging from 5.75-12.7 \cite{Ganjeizadeh2014} \cite{Tsung-Hsun2026}, indicating the wear-out phase. Therefore, a $\beta$ = 9 is selected for our model. The scale parameter $\eta$ was estimated to be 2110, based on a back-calculation using the battery cell data sheet specification that each cell can endure 1000 charge-discharge cycles, or equivalently about 2500 hours of reliable operation (1000 cycles of 0.75 hours of discharge during flight and 1.75 hours of charging per cycle). This value was selected as the limiting case, since beyond it the battery is expected to experience significant performance degradation.
 
@@ -239,9 +239,9 @@ The exponential model is retained for all components except the battery, where w
     \label{eq:weibull}
 \end{equation}
 
-\todo[inline]{The sensitivity analysis of the battery life begins here}
+%\todo[inline]{The sensitivity analysis of the battery life begins here}
 
-Although the value of 1000 cycles as the limiting case was taken from the manufacturer's specifications \tablefootnote{\label{foot:battery}\href{https://www.molicel.com/inr-21700-m65a/}{INR-21700-M65A battery} (accessed on 12.06.2026)}, other factors, such as high discharge rates, could lead to earlier degradation below the required battery performance. For that reason, a sensitivity analysis will be performed using additional cycle life assumptions. A value of 800 cycles represents moderate additional stress from the high-discharge profile. Li-ion cells operating under high C-rate discharge are well documented to degrade faster, with capacity retention rates directly proportional to the discharge rate \cite{Liu2024}. The assumption of 80\% of the nominal cycle life is a standard conservative engineering practice and is also consistent with the threshold many manufacturers use to define end-of-life \footnote{\href{https://www.idtechex.com/en/research-article/the-crucial-role-of-managing-end-of-life-li-ion-battery-sustainability/30302}{Lithium-ion batteries degradation} (accessed on 22.06.2026)}. A value of 500 cycles represents severe degradation resulting from the combined effects of high-discharge profile of the avionics and thermal stress due to micro-turbine proximity, and is therefore considered a worst-case bounding scenario.
+Although the value of 1000 cycles as the limiting case was taken from the manufacturer's specifications \tablefootnote{\label{foot:battery}\href{https://www.molicel.com/inr-21700-m65a/}{INR-21700-M65A battery} (accessed on 12.06.2026)}, other factors, such as high discharge rates, could lead to earlier degradation below the required battery performance. For that reason, a sensitivity analysis will be performed using additional life cycle assumptions. A value of 800 cycles represents moderate additional stress from the high-discharge profile. Li-ion cells operating under high C-rate discharge are well documented to degrade faster, with capacity retention rates directly proportional to the discharge rate \cite{Liu2024}. The assumption of 80\% of the nominal life cycle is a standard conservative engineering practice and is also consistent with the threshold many manufacturers use to define end-of-life \footnote{\href{https://www.idtechex.com/en/research-article/the-crucial-role-of-managing-end-of-life-li-ion-battery-sustainability/30302}{Lithium-ion batteries degradation} (accessed on 22.06.2026)}. A value of 500 cycles represents severe degradation resulting from the combined effects of high-discharge profile of the avionics and thermal stress due to micro-turbine proximity, and is therefore considered a worst-case bounding scenario.
 
 The back-calculation of $\eta$ remains unchanged, as does the selected value of $\beta$, since $\beta$ characterizes the shape of the wear-out distribution and is primarily determined by the cell chemistry rather than operational stress. The reliability is subsequently calculated using \autoref{eq:weibull}. It is assumed that degradation occurs uniformly across all cells, independent of pack configuration, because each cell experiences the same number of charge-discharge cycles throughout operation. Consequently, the reliability of the 8s5p battery pack is taken to be equal to that of an individual cell. Furthermore, the reliability benefit provided by the five parallel cells within each series group is conservatively neglected. In practice, this redundancy would be expected to slightly improve the overall pack reliability. The resulting reliability values are presented in \autoref{tab:battery_lifetime_scenarios}.
 
@@ -293,23 +293,28 @@ Bird strike was initially considered as a potential failure mode due to HUGO’s
 All components and parts included in the reliability analysis are critical to the operation of HUGO. Consequently, the failure of any single element would result in the overall system being unable to perform its intended function. The system’s overall reliability is therefore modelled as a series system \cite{Mencik2016} and is estimated to be:
 
 \begin{equation}
-    R_{tot}(900) = R_{autopilot} \cdot R_{servo} \cdot R_{PDS} \cdot R_{SSD} \cdot R_{battery}
+    R_{tot}(900) = R_{autopilot} \cdot R_{servo} \cdot R_{PDU} \cdot R_{SSD} \cdot R_{battery}
 \end{equation}
 
-\todo[inline]{Continuation of the sensitivity analysis of the battery life}
+%\todo[inline]{Continuation of the sensitivity analysis of the battery life}
 
 The resulting reliability values for the baseline, moderate stress, and severe stress scenarios are \textbf{0.911}, \textbf{0.908}, and \textbf{0.717}, respectively. The moderate stress case (800 cycles) therefore has only a limited impact on overall system reliability. In contrast, the severe stress case (500 cycles) represents a critical sensitivity in the system reliability estimate, with a pronounced reduction in reliability. From a design perspective, this indicates that maintaining the battery within the moderate-stress regime is critical. Consequently, measures such as improved thermal management of the battery compartment (to reduce exposure to micro-turbine heat) and active monitoring of discharge C-rate are justified, as they directly mitigate the risk of entering the severe degradation regime.
 
-It is also worth mentioning that these values correspond to the entire operational lifetime and do not account for any maintenance strategy. Hence, the relatively low reliability is expected. However, this can be substantially improved through the implementation of a tailored maintenance strategy incorporating both preventive and corrective maintenance activities.
+It is also worth mentioning that these values correspond to the entire operational lifetime and do not account for any maintenance strategy. Hence, the relatively low reliability is expected. However, this can be substantially improved through the implementation of a tailored maintenance strategy incorporating both preventive and corrective maintenance activities. For example, even under the worst-case scenario, where the MTBF remains below the required 900-hour service life, reliability requirements can be satisfied by implementing a scheduled battery replacement at the midpoint of the operational lifetime.
 
-To estimate the expected availability, the mean time to repair (MTTR) is required. An MTTR of $1$ hour is assumed for the battery pack, as it is routinely swapped. For the remaining electric components, the availability calculation accounts for the time required for preparation, fault isolation, disassembly, replacement, and reassembly. Standard times for the removal, replacement, and interchange of fasteners, connectors, and plug-in modules are on the order of minutes \cite{milhdbk472}. Consequently, a conservative MTTR of $2$ hours is assumed to include additional time for detection and diagnostics, with the assumption that on-site spare parts are available. The inherent availability of a component is then calculated by using \autoref{eq:availability}. It excludes the delays due to maintenance, supply chain, etc \cite{milhdbk470a}. The overall system availability is then modelled as a series system, as each component is considered critical to the operation of HUGO.
+To estimate the expected availability, the mean time to repair (MTTR) is required. An MTTR of $1$ hour is assumed for the battery pack, as it is routinely swapped. For the remaining electric components, the availability calculation accounts for the time required for preparation, fault isolation, disassembly, replacement, and reassembly. Standard times for the removal, replacement, and interchange of fasteners, connectors, and plug-in modules are on the order of minutes \cite{milhdbk472}. Consequently, a conservative MTTR of $2$ hours is assumed to include additional time for detection and diagnostics, with the assumption that on-site spare parts are available. The inherent availability of a component is then calculated by using \autoref{eq:availability}. It excludes the delays due to maintenance, supply chain, etc \cite{milhdbk470a}. The overall system availability is then modelled as a series system (\autoref{eq:series_availability}), since each component is considered critical to HUGO's operation.
 
 \begin{equation}
     A_i = \frac{MTBF}{MTBF + MTTR}
     \label{eq:availability}
 \end{equation}
 
-\todo[inline]{Sensitivity analysis of the MTTR starts here}
+\begin{equation}
+    A_{tot} = A_{autopilot} \cdot A_{servo} \cdot A_{PDU} \cdot A_{SSD} \cdot A_{battery}
+    \label{eq:series_availability}
+\end{equation}
+
+%\todo[inline]{Sensitivity analysis of the MTTR starts here}
 
 To capture the impact of potential operational disruptions, a sensitivity analysis is conducted on the mean time to repair (MTTR), considering values of 4, 8, and 24 hours. This accounts for reduced operational viability due to delays arising from diagnostics or supply chain constraints. The resulting availabilities for the baseline battery pack scenario are shown in \autoref{tab:MTTR_scenarios}.
 
@@ -317,22 +322,17 @@ To capture the impact of potential operational disruptions, a sensitivity analys
     \centering
     \caption{MTTR sensitivity scenarios}
     \label{tab:MTTR_scenarios}
-    \begin{tabular}{|p{2.2cm}|p{4.4cm}|p{3.0cm}|p{3.0cm}|p{2.0cm}|p{2.4cm}|}
+    \begin{tabular}{|p{2.5cm}|p{3.5cm}|}
         \hline
-        \textbf{MTTR [h]} &
-        \textbf{Availability (Baseline) [-]}  \\
+        \textbf{MTTR [h]} & \textbf{$A_{tot}$ (Baseline) [-]} \\
         \hline\hline
-        2
-        & 0.999 \\
+        2  & 0.999 \\
         \hline
-        4
-        & 0.998  \\
+        4  & 0.998 \\
         \hline
-        8
-        & 0.996 \\
+        8  & 0.996 \\
         \hline
-        24
-        & 0.988 \\
+        24 & 0.988 \\
         \hline
     \end{tabular}
 \end{table}
@@ -457,7 +457,7 @@ The RAMS approach ensures that HUGO can perform high-speed research flights whil
 
 At the subsystem level, safety is reinforced through life-limited operation of critical components. The lithium-ion battery pack represents the primary wear-out failure mechanism and is therefore replaced preventively after 1000 charge-discharge cycles, well before the onset of rapid degradation. This strategy effectively removes the dominant age-related failure mode from operation.
 
-Reliability is maintained through a combination of preventive maintenance and condition-based monitoring. Flight-critical electric systems, including the autopilot, servo motors, PDS, and SATA SSD, exhibit predominantly random failure behaviour and are supported by comprehensive pre-flight and post-flight diagnostics. Airframe reliability is preserved through regular visual inspections and non-destructive testing, ensuring structural integrity throughout the aircraft's service life.
+Reliability is maintained through a combination of preventive maintenance and condition-based monitoring. Flight-critical electric systems, including the autopilot, servo motors, PDU, and SATA SSD, exhibit predominantly random failure behaviour and are supported by comprehensive pre-flight and post-flight diagnostics. Airframe reliability is preserved through regular visual inspections and non-destructive testing, ensuring structural integrity throughout the aircraft's service life.
 
 Availability is maximised through rapid fault recovery and modular maintenance practices. Although the unmaintained system reliability decreases to approximately 0.908 over its operational lifetime, high inherent availability is maintained by limiting corrective maintenance actions to a MTTR of two hours or less for electric subsystems. This minimises downtime and sustains operational readiness.
 

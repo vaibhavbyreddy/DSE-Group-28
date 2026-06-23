@@ -44,7 +44,7 @@ C2 is a custom-made protocol that allows for bidirectional communication at such
 
 
 \subsection{Mass Budget}
-Based on initial design considerations \footref{foot:baseline}, HUGO's MTOM limit was set at 50kg (HUG-GEN-01). This is a hard limit set by the operation clients to ensure that HUGO is easy to transport and store. Due to the modular design aspect, a component-by-component weight estimation proves unfeasible. For this reason, the mass budget is split between subsystems applicable for a given configuration and monitored constantly between design iterations. Initial estimations performed in the previous design phase  \footref{foot:midterm} envision that a fuel mass of 10 kg will be required for the nominal test scenario, leaving 40 kg for structures and external and internal equipment.
+Based on initial design considerations \footref{foot:baseline}, HUGO's MTOM limit was set at 50kg (HUG-GEN-01). This is not a hard requirement, but rather a limiting factor placed prevent excessive weight gain during the fuselage design phase, as well as to ensure that HUGO is easy to transport and store. Due to the modular design aspect, a component-by-component weight estimation proves unfeasible. For this reason, the mass budget is split between subsystems applicable for a given configuration and monitored constantly between design iterations. Initial estimations performed in the previous design phase  \footref{foot:midterm} envision that a fuel mass of 10 kg will be required for the nominal test scenario, leaving 40 kg for structures and external and internal equipment.
 
 A major contributor to the mass of the aircraft is the internal configuration composed of the electronic and propulsion subsystem, the latter excluding the fuel. The contribution to the mass can be found at the end of \autoref{sec:internal_configuration}, following at the end of \autoref{ch:configuration_layout} to have a complete mass distribution for HUGO.
 
@@ -62,39 +62,39 @@ There is a set restriction for the outer dimensions of the aircraft set by the r
 To ensure a more sustainable transport of the aircraft the electric Renault Master E-tech L3H2 variant was chosen as reference van \footnote{\href{https://business.renault.co.uk/master-range/master-panel-van.html}{Renault Master Van} (accessed on 24.04.2026)}, which houses a total loading volume of 13 m$^3$.
 \begin{table}[H]
     \centering
-    \caption{Renault Master E-Tech L3H2 Loading Specifications}
-    \begin{tabular}{|l|c|}
+    \caption{Renault Master E-Tech L3H2 Loading Specifications \tablefootnote{\href{https://vissingabedrijfswagens.nl/renault-master/}{Vissinga Bedrijfswagens} (accessed on 24.04.2026)}}
+    \begin{tabular}{|c|c|}
         \hline
         \textbf{Specification} & \textbf{Value [mm]} \\
         \hline\hline
-        \multicolumn{2}{|l|}{\textbf{Loading Area — Panel Van L3H2}} \\
+        \multicolumn{2}{|c|}{\textbf{Loading Area — Panel Van L3H2}} \\
         \hline
         Usable length & 3733 \\
         \hline
-        Usable length at 1.1 m & 368 \\
+        %Usable length at 1.1 m & 3680 \\
         \hline
         Usable width & 1765  \\
         \hline
         Usable height & 1894 \\
         \hline
-        \multicolumn{2}{|l|}{\textbf{Sliding Side Door(s)}} \\
+        \multicolumn{2}{|c|}{\textbf{Sliding Side Door(s)}} \\
         \hline
         Width of sliding side door(s) & 1270 \\
         \hline
         Height of sliding side door(s) & 1780 \\
         \hline
-        \multicolumn{2}{|l|}{\textbf{Rear Door}} \\
+        \multicolumn{2}{|c|}{\textbf{Rear Door}} \\
         \hline
         Width (169 mm from floor) & 1580 \\
         \hline
         Entrance height & 1820 \\
         \hline
-        Cargo threshold (min/max) & 543/557 \\
+        Loading sill (min/max) & 543/557 \\
         \hline
     \end{tabular}
     \label{tab:renault_master_specs}
 \end{table}
-Optimising the packing of the disassembled aircraft might become necessary on later stages in the design process. The general dimensions of the van impose an upper limit to the dimensions of the plane, on the length of the fuselage and wings.
+Optimising the packing of the disassembled aircraft might become necessary on later stages in the design process. The general dimensions of the van impose an upper limit to the dimensions of the plane, specifically on the length of the fuselage and wings.
 
 The outside dimensions are also set by the internal components that have to be housed within, including the electronic system, propulsion systems, and the sensor payload. Once the components for each system are outlined in \autoref{sec:internal_configuration}, HUGO will have a lower limit as well regarding fuselage dimensions. 
 
@@ -149,7 +149,7 @@ This section provides a comprehensive overview of the internal configuration of 
 
 The electrical system of HUGO is designed to provide continuous power to the sensors, actuators, and propulsion system throughout the mission. It must support a range of testing configurations, enabling different experimental setups to be evaluated during flight. As a central element of the aircraft architecture, the system must be reliable, efficiently packaged, and dimensioned to fit within the available internal volume while minimising interference with the onboard test setup. An initial configuration of the electrical system was configured in the previous design stage \footref{foot:midterm} that was used as a starting point. 
 
-From \autoref{tab:electric_comp} it can be seen that there are a lot of electric components that are mission-critical. For the purpose of this application, autopilot VECTOR-600 was chosen as the subsystem control unit, incorporating many of the basic air sensors needed to conduct the flight. Working along a flight companion (FC), that processes all the information from the sensors as well as from the autopilot, storing the data in a memory unit use it for flight calculations and ultimately transmits it back to the base of operations. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual Inertial Measurement Unit (IMU), redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, Global Navigation Satellite System (GNSS) receiver for gps signal. Storage of the flight data is provided by a 1 TB storage device system that is removable. The signal and power distribution of the electric system is evident in \autoref{fig:electronics_mapping}. 
+From \autoref{tab:electric_comp} it can be seen that there are a lot of electric components that are mission-critical. For the purpose of this application, autopilot VECTOR-600 was chosen as the subsystem control unit, incorporating many of the basic air sensors needed to conduct the flight. Working along a flight companion (FC), that processes all the information from the sensors as well as from the autopilot, storing the data in a memory unit use it for flight calculations and ultimately transmits it back to the base of operations. Additionally, this autopilot has been qualified by the industry, being tested against vibrations and crash loads. It incorporates: Dual Inertial Measurement Unit (IMU), redundant inertial sensing for altitude, magnetometer, gyroscope, inertial magnetometer, altimeter, airspeed sensor, Global Navigation Satellite System (GNSS) receiver for GPS signal. Initial estimations of the required flight data storage point towards the use of a 1 TB removable device system. In case this storage is not deemed sufficient for data collection, a replacement can be acquired from the same producer that has the same dimensions, but can store up to 5 TB of data. The signal and power distribution of the electric system is evident in \autoref{fig:electronics_mapping}. 
 
 The autopilot communicates directly with the electronic control unit (ECU) of the engine system, providing the required speed commands and operating modes. The ECU also communicates with the companion computer, allowing engine-condition data to be stored for later processing by the experimental team. In this architecture, the flight controller coordinates the onboard communication flow and ensures that control and monitoring signals remain available during the high-speed testing phase.
 
@@ -168,7 +168,7 @@ In \autoref{fig:electronics_mapping} it can be seen that the battery does not di
 
 Once all the components of the electronic system essential for flying and testing have been brought together, their individual power consumption and weight are computed \autoref{tab:electric_comp}. The total power consumed by all the electronic components, including the sensor payload represent the power budget that is used to size the battery. HUGO will only operate for a maximum of 45 minutes in the most extreme scenario, utilising 431.61 Wh of energy (\autoref{tab:electric_comp}). This is a power requirement, and it represents the base value and an additional $10\%$ power increase to account for any error margins or extra usage from the components. After an analysis of possible sensor platforms, it was determined that the power consumed by the payload is estimated at 50 Wh, bringing the total energy required to approximately 480 Wh.
 
-Since HUGO is intended as a flexible test platform, the electrical system was sized with an additional (\SI{400}{Wh}) energy allowance for client-provided payloads. These payloads may range from low-power data acquisition systems used to monitor wing behaviour to more demanding onboard computers running real-time algorithms for flutter prediction or control validation. The added capacity ensures that experimental equipment can be integrated without requiring a redesign of the main power system for each mission. This margin also reduces the risk that payload operation interferes with essential aircraft systems, preserving mission reliability while maintaining HUGO’s role as a modular testing platform.
+Since HUGO is intended as a flexible test platform, the electrical system was sized with an additional $(\SI{400}{Wh})$ energy allowance for client-provided payloads. These payloads may range from low-power data acquisition systems used to monitor wing behaviour to more demanding onboard computers running real-time algorithms for flutter prediction or control validation. The added capacity ensures that experimental equipment can be integrated without requiring a redesign of the main power system for each mission. This margin also reduces the risk that payload operation interferes with essential aircraft systems, preserving mission reliability while maintaining HUGO’s role as a modular testing platform.
 
 
 With the total required energy estimated at approximately 900 Wh and a minimum bus voltage of 24 V, the battery pack can be sized. To reduce packaging volume and allow the pack geometry to be adapted to HUGO, a custom battery pack is selected using Molicel INR21700 cells \footnote{\href{https://www.nkon.nl/en/molicel-inr21700-m65a-6500mah-26a.html}{Molicel INR21700} (accessed on 02.06.2026)}.
@@ -248,7 +248,7 @@ In the previous design process \footref{foot:midterm}, it was identified that th
     \caption{Propulsion system components and approximate weight and volumes}
     \begin{tabular}{|c|c|c|}
         \hline
-        \textbf{Component} & \textbf{Weight [g]} & \textbf{Dimensions [mm]}  \\
+        \textbf{Component} & \textbf{Weigh per Compo [g]} & \textbf{Dimensions [mm]}  \\
         \hline\hline
         Engine: JetCat P100-RX-BL (X2) & 1080 & 97 (diameter) x 241 (length)\\
         \hline
@@ -256,7 +256,7 @@ In the previous design process \footref{foot:midterm}, it was identified that th
         \hline
         Fuel tanks & 680 & N/A (fuel bag, 7.5L capacity)\\
         \hline
-        Fuel pump (Bus-system BL) (X2)& 110 & 31.5 (diameter) x 77 (length)\\
+        Fuel pump (Bus-system BL) (X3)& 110 & 31.5 (diameter) x 77 (length)\\
         \hline
         Fuel filter (Standard Inline) (X2)& 15 & 20 (diameter) x 45 (length) \\
         \hline
@@ -306,22 +306,22 @@ Using the mission envelope  (\autoref{sec:mission_envelope}), it is possible to 
     
     \item Loads: In this instance, the measurement of the loads acting on and through the wing is of most interest. For an aircraft this would be the resultant force (split into lift and drag) generated by the wing. These load cells are sensors which can measure a load in a specific direction. Six-axis load cells can also measure the moment generated in all three axial directions. These load cells are preferable to the three-axis cells because the load measurements are not influenced by moments.
     %are from those are influenced by the moments. 
-    \item Wind gusts: Light Detection and Ranging (LIDAR) can be used to detect wind in advance for an aircraft \cite{Schroeder2020}. The sensors emit a laser and, by measuring the Doppler shift in the backscattered light, estimate the magnitude and direction of the upcoming wind \cite{YEW2025101127}. 
+    \item Wind gusts: Light Detection and Ranging (LIDAR) can be used to detect incoming wind changes ahead of the aircraft \cite{Schroeder2020}. The sensors emit a laser and, by measuring the Doppler shift in the backscattered light, estimate the magnitude and direction of the upcoming wind \cite{YEW2025101127}. 
 
     \item Airspeed: The difference between the static and dynamic pressure is used in aviation to calculate the airspeed. This is typically achieved by using a pitot-tube \cite[p.~186]{anderson2016introduction}. The airspeed of HUGO will be used both for the operation and for the subsequent research.   
     \item Height: The height of the aircraft can be found by using measurements of the static pressure. This would be the barometric altitude of the aircraft and similarly, the airspeed would be used for operation and research.
     
 \end{itemize}
+It is important to evaluate the precision and accuracy of each chosen sensor. Precision refers to how much repeated measurements deviate for a specific sensor. The accuracy specifies how much the measured value deviates from the true value. Knowing these makes it possible to access the quality of the measured data from the experiments \footnote{\href{https://web.chem.ox.ac.uk/teaching/Physics\%20for\%20CHemists/Errors/Precision.html}{Precision and accuracy} (accessed 03.06.2026)}.
 
 
 \subsection{Sensor Configurations}
-\label{sub:Configurations}
+\label{sub:SensorConfigurations}
 
 %A very important aspect of the configuration is the sensor-placement. This is not only due to a practical concern (for wiring and connections) but will also have a direct impact on the viability and usability of the data collected. It is also necessary to find the specific sensors that would be used. 
 
 Once the sensor types have been identified in \autoref{sub:sensorinteraction}, it is time to find the specific sensors that would be used. Moreover, a very important aspect of the configuration is the sensor-placement. This is not only due to a practical concern (for wiring and connections) but will also have a direct impact on the viability and usability of the data collected.
 
-It is important to evaluate the precision and accuracy of each chosen sensor. Precision refers to how much repeated measurements deviate for a specific sensor. The accuracy specifies how much the measured value deviates from the true value. Knowing these makes it possible to access the quality of the measured data from the experiments \footnote{\href{https://web.chem.ox.ac.uk/teaching/Physics\%20for\%20CHemists/Errors/Precision.html}{Precision and accuracy} (accessed 03.06.2026)}.
 
 The chosen strain gauges are of Series Y:RY4 from HBK \footnote{\label{foot:HBK}\href{https://delivery-p153383-e1601992.adobeaemcloud.com/adobe/assets/deliver/urn:aaid:aem:b6cbaaca-d372-4962-bc27-0ea3864fdd80/Y-Series-Data-Sheet-B04709.pdf}{HBK Y-Series strain gauge data sheet} (accessed 03.06.2026)}. An important aspect is the installation and fastening of the sensor to the measured surface. The exact location on the wing should be catalogued to ensure precision in the latter data processing concerning temperature issues and compensation. The strain gauges would be glued on the wing using  C80 (cyanoacrylate adhesive) and the wiring would lead to the same small cutout as for the LIDAR. 
 This is a sensor which produces an analogue signal which must be read by an amplifier. The electrical signal generated by the amplifier is then sent to the flight companion. Strain gauges are placed on the wings at different intervals with higher density towards the wing tip. For the amplifier, the  QuantumX Bridge Amplifier \footnote{\label{foot:QuantumX}\href{https://assets.hbkworld.com/adobe/assets/deliver/urn:aaid:aem:65d123ca-53f3-487f-99c2-9bbc99c34e4b/QuantumX-MX1601B-Data-Sheet-B03882.pdf}{QuantumX} (accessed on 03.06.2026)}  was chosen as it has 16 channels, which in turn enable 16 strain gauges to be mounted of the wing. 
@@ -359,16 +359,20 @@ The maximum resolution is 3840×2880 at 60fps, and the resolution at the maximum
 
 The chosen load-cell is the six-axis M3564E1 \footnote{\label{foot:SRload-cell}\href{https://www.srisensor.com/uploads/M3564E1.pdf}{SRload-cell} (accessed on 09.06.2026)} . This enables the measurement of both loads and torques generated by the wing.     
 This configuration of the load-cell is different than a traditional sensor as the load-cells will be the connection between the wing and the fuselage.  
-Since it must act as the structural link, the overload capacity (the total load the sensor can carry) is a very important characteristic of the sensor. For the specific sensor, the overload capacity was 200 percent of the maximum measurable load. For M3564E1, that would be:
-\begin{equation}
-    L_{max}=\SI{2500}{\newton} \cdot2= \SI{5000}{\newton}
-\end{equation}
+Since it must act as the structural link, the overload capacity (the total load the sensor can carry) is a very important characteristic of the sensor. For the specific sensor, the overload capacity was 200 percent of the maximum measurable load. For M3564E1, that would be 5000 N.
 
-It is now possible to make a preliminary conservative load estimation by using the requirement of the total mass of 50 kg and using the maximum load-factor multiplied by the load-factor stipulated by HUF-STR-010 \footref{foot:midterm}):
-\begin{equation}
-    L_{max}=n_{max}\cdot m_{aircraft}\cdot g=9\cdot\SI{50}{\kg} \cdot \SI{9.81}{\frac{\m}{\s^2}}=  \SI{4414.5}{\newton}
-\end{equation}
-This estimate is conservative as load-alleviating effect of the wing mass is ignored. This means that one load- sensor would be able to carry the load at maximum wing loading. Since the load-cells would act as anchoring point (clamped connection) it was decided to use four load-cells. This would give a combined maximum measurable load would be $\SI{10000}{\newton}$ and a overload capacity of $\SI{20000}{\newton}$ . This was decided because four mounting points between the wing and fuselage was deemed the most stable configuration. This means that even for the highest limit load the sensors would be able to measure the loads, thereby ensuring continuously monitoring at all points of operation.  
+\begin{equation*}
+    L_\text{max}=2500 \text{N} \cdot2= 5000 \text{N}
+\end{equation*}
+
+It is now possible to make a preliminary conservative load estimation by using the requirement of the total mass of 50 kg and using the maximum load-factor multiplied by the load-factor stipulated by HUG-STR-010 \footref{foot:midterm}:
+
+\begin{equation*}
+    L_\text{max}=n_\text{max}\cdot m_\text{aircraft}\cdot g_0=9\cdot{50}{\text{kg}} \cdot {9.81}{\text{m}\cdot \text{s}^{-2}=  4414.5\text{N}}
+\end{equation*}
+
+
+This estimate is conservative as load-alleviating effect of the wing mass is ignored and the total aircraft mass is used. This means that one load- sensor would be able to carry the load at maximum wing loading. Since the load-cells would act as anchoring point (clamped connection) it was decided to use four load-cells. This would give a combined maximum measurable load would be $\SI{10000}{\newton}$ and a overload capacity of $\SI{20000}{\newton}$ . This was decided because four mounting points between the wing and fuselage was deemed the most stable configuration. This means that even for the highest limit load the sensors would be able to measure the loads, thereby ensuring continuously monitoring at all points of operation.  
 
 The four load-cells would be screwed into an external holder. Since the outer ring uses three M5 bolts the outer holder would have three M5must sized hole to accommodate them. This holder would have a circular cut-out enabling the bolts going through the inner circle clearance. Then these would be first be bolted on the topside then a mounting plate would be put on top and then a second series of bolts would be mounted to keep it in , as shown in \autoref{fig:sensor_installation}. The most important part of the entire setup is that it most be the load-cell alone which transfers the loads from the wings to the fuselage and vice-versa. 
 
@@ -378,13 +382,13 @@ The four load-cells would be screwed into an external holder. Since the outer ri
     \label{fig:sensor_installation}
 \end{figure}
 
-The configuration was deemed viable after communication with the manufacturer of the load-cell (SRI-X sunrise instruments).The loading cell would be mounted with its holder inside of the fuselage. Then wings would  be mounted on top. A small access panel would have to be made for to screw the nuts on top of the six M5 bolts extruding from the load-cell.  
+The configuration was deemed viable after communication with the manufacturer of the load-cell \footnote{Personal communication with Sunrise instruments} .The loading cell would be mounted with its holder inside of the fuselage. Then wings would  be mounted on top. A small access panel would have to be made for to screw the nuts on top of the six M5 bolts extruding from the load-cell.  
 
 It is important to note that load-cells are sensitive to changes in temperature. The relatively small size of the chosen load-cells makes them sensitive to changes, with the chosen sensors having an optimal working range between $10^{\circ}\,C $ and $70^{\circ}\,C $. Therefore, the temperature of the volume around the installed load-cells should be controlled to keep the temperature constant within this range. For the load-cells to work, it needs to be connected to an amplifier. M8126 \footnote{\label{foot:M8126}\href{https://www.srisensor.com/uploads/M8126-Users-Manual-V1.4-Eng11.pdf}{M8126} (accessed on 03.06.2026)} is an amplifier specifically designed for the load-cells. It will take the analogue input signal and transform it to a digital signal. 
 
 
-A multi-use pitot \footnote{\label{foot:pitot}\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot} (accessed on 03.06.2026)} (Air Data Probe) would be mounted in the front of the aircraft. This sensor measures the static of and dynamic pressure. By connecting it to the Hyperion Micro Air Data Computer \tablefootnote{\label{foot:MAD}\href{https://www.althensensors.com/uploads/products/datasheets/micro-air-data-systems-en.pdf
-}{Air computer} (accessed on 03.06.2026)} this can be translated into the airspeed, height, side-slip and angle of attack.  
+A multi-use pitot \footnote{\label{foot:pitot}\href{https://www.althensensors.com/measurement-systems/pressure-and-temperature-measurement-system/aeroprobe/air-data-probes/}{Pitot} (accessed on 03.06.2026)} (Air Data Probe) would be mounted in the front of the aircraft, under the nose cone. This sensor measures the static of and dynamic pressure. By connecting it to the Hyperion Micro Air Data Computer \tablefootnote{\label{foot:MAD}\href{https://www.althensensors.com/uploads/products/datasheets/micro-air-data-systems-en.pdf
+}{Air computer} (accessed on 03.06.2026)} this can be translated into the airspeed, height, side-slip and angle of attack.
 
 \begin{comment}
 For the different missions the only change in the internal configuration would be the sensor-setup.  
@@ -393,7 +397,7 @@ For the different missions the only change in the internal configuration would b
 Final configuration of sensors (Insert large diagram) 
 \end{comment}
 
-The precision of the measurement will also be dependent on the amplifiers used. Therefore, the signal-to-noise ratio has been listed as a measure of the precision of the output signal in \autoref{tab:internal_config_test_measurement_sensors}. Since the LIDAR readily produces a digital signal, the signal precision for the LIDAR was found to be $1 \%$. 
+The precision of the measurement will also be dependent on the amplifiers used. Therefore, the signal-to-noise ratio has been listed as a measure of the precision of the output signal in \autoref{tab:internal_config_test_measurement_sensors}. Since the LIDAR readily produces a digital signal, the signal precision for the LIDAR was found to be $1 \%$\footref{foot:LIDAR}. 
 
 \begin{table}[H]
     \centering
@@ -415,9 +419,7 @@ Bridge \footref{foot:QuantumX} \\\hline
 \end{table}
 
 
-To achieve the specified sensors accuracy it is necessary for all of the sensors to be calibrated before any test flight. For the load-cell this can be achieved exposing the wing to a known load and then adjusting the sensor so it reads the expected value \footnote{\href{https://www.ittc.info/media/9815/76-02-09.pdf}{Load-cell calibration} (accessed on 17.06.2026)}. This can be a challenge as it measure a forces and moment in three direction A calibration rig would have to been constructed to ensure consistency and speed. The strain gauges would be calibrated using shunt calibration  \footnote{\href{https://web.enib.fr/~bourgeot/IPS/Datasheets/AN078-Strain_Gauge_Measurement-A_Tutorial.pdf}{Strain Gauge calibration} (accessed on 17.06.2026)}. Here, the resistance is changed by connecting an external resistor of known value. The measured electric signal can then be compared to the expected and adjusted accordingly. The Lidar can be checked by precisely knowing the distance between the clusters of spots for the unloaded wing and comparing them to the values output by the LIDAR. The weather detection LIDAR can be calibrated similarly by measuring a known distance in front of the aircraft. Finally, the pitot probe can be checked by blowing air at a known speed.   
-
-The overall accuracy of the different sensors has been listed in \autoref{tab:internal_config_test_measurement_amp}. These have all been found to be less than $2\%$.  
+The overall accuracy of the different sensors has been listed in \autoref{tab:internal_config_test_measurement_amp}. These have all been found to be less than $2\%$. Then it is possible to list specifications for the sensor-amplifiers.
 
 \begin{table}[H]
     \centering
@@ -435,25 +437,24 @@ The overall accuracy of the different sensors has been listed in \autoref{tab:in
 Having identified all the sensors and their subsystems, it is now possible to make the final detailed configuration for the sensors. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\linewidth]{figures_final/sensorconfig.png}
+    \includegraphics[width=1\linewidth]{figures_final/sensorconfig.png}
     \caption{Overview of the sensor and their connections}
     \label{fig:sensorarc}
 \end{figure}
-
-Then it is possible to find the theoretical combined uncertainty of the measured data \footnote{\href{https://www.isobudgets.com/faq/what-is-combined-uncertainty/}{Combined uncertainty} (accessed on 17.06.2026)}. The method is to square all uncertainties and then add them together and taking the square-root:
+Knowing how all the sensors are connected it is now possible to find the theoretical combined uncertainty of the measured data \footnote{\href{https://www.isobudgets.com/faq/what-is-combined-uncertainty/}{Combined uncertainty} (accessed on 17.06.2026)}. The method is to square all uncertainties, adding them together and taking the square-root:
 \begin{equation}
-    u_{combined}=\sqrt{\sum_{i=1}^{n_{sources}}u_i^2}
+    u_\text{combined}=\sqrt{\sum_{i=1}^{n_\text{sources}}u_i^2}
 \end{equation}
 The different connections can be seen in the \autoref{fig:sensorarc}. The load-sensor, the strain-gage and the pitot-tube are all connected to an amplifier, which is connected to onboard computer. 
 The uncertainty of the obtained data for each measured phenomenon can then be written as: 
 \begin{equation}
-    u_{combined}=\sqrt{u_{Accuracy}^2+u_{Precision}^2}
+    u_\text{combined}=\sqrt{u_\text{Accuracy}^2+u_\text{Precision}^2}
 \end{equation}
-Then calculating this for all the sensors and their connections it is possible to write: 
+Then calculating this for all the sensors and their connections it is possible to make a table with the theoretical uncertainties of the measured phenomenon. 
  
 \begin{table}[H]
     \centering
-    \caption{Theoretical uncertainty of the data}
+    \caption{Theoretical uncertainty of the data using the data from \autoref{tab:internal_config_test_measurement_sensors} and \autoref{tab:internal_config_test_measurement_amp}}
     \label{tab:Theoreticaluncertainty}
     \begin{tabular}{|p{3cm}|c|}
         \hline
@@ -466,7 +467,9 @@ Then calculating this for all the sensors and their connections it is possible t
     \end{tabular}
 \end{table}
 
-Looking at the final theoretical uncertainties in \autoref{tab:Theoreticaluncertainty}, it becomes apparent that the largest source of noise would be the accuracy of the specific sensors. It is only for the case of the displacement measured using the LIDAR where precision has any discernible impact. 
+Looking at the final theoretical uncertainties in \autoref{tab:Theoreticaluncertainty}, it becomes apparent that the largest source of noise would be the accuracy of the specific sensors. It is only for the case of the displacement measured using the LIDAR where precision has any discernible impact.
+
+To achieve the specified sensors accuracy it is necessary for all of the sensors to be calibrated before any test flight. For the load-cell this can be achieved exposing the wing to a known load and then adjusting the sensor so it reads the expected value \footnote{\href{https://www.ittc.info/media/9815/76-02-09.pdf}{Load-cell calibration} (accessed on 17.06.2026)}. This can be a challenge as it measures forces and moments in three directions. A calibration rig would have to be constructed to ensure consistency and speed. The strain gauges would be calibrated using shunt calibration  \footnote{\href{https://web.enib.fr/~bourgeot/IPS/Datasheets/AN078-Strain_Gauge_Measurement-A_Tutorial.pdf}{Strain Gauge calibration} (accessed on 17.06.2026)}. Here, the resistance is changed by connecting an external resistor of known value. The measured electric signal can then be compared to the expected and adjusted accordingly. The LIDAR can be checked by precisely knowing the distance between the clusters of spots for the unloaded wing and comparing them to the values output by the LIDAR. The weather detection LIDAR can be calibrated similarly by measuring a known distance in front of the aircraft. Finally, the pitot probe can be checked by blowing air at a known speed. 
 
 %Detailed description of the data output of the sensors and their individual positions. 
 Knowing the power requirements and the magnitude of the data outputs, it is possible to size the memory system and data transfer. Now that all the sensors have been brought together, their power consumption and data stored can be summed, bringing the total power consumption to 51.7 Wh and a storage rate of 326.2 Mbit/s. The power required is within the limits of the electronic system sized in \autoref{sub:electronics_system_design}, and the storage rate complies with HUG-ELE-03.
@@ -640,19 +643,19 @@ The optimised landing gear position using FlexOp as a reference is reported in \
     \small
     \caption{Optimized landing gear position as measured from the nose \footref{foot:midterm}}
     \label{tab:optimized_landing_gear}
-    \begin{tabularx}{0.48\textwidth}{|@{}X c@{}|}
+    \begin{tabular}{|c|c|}
         \hline
-        \textbf{Parameter} & \textbf{Dimension}  \\
+        \textbf{Parameter} & \textbf{Dimension [m]}  \\
         \hline \hline
-        Nose gear x pos & 0.272 \\
+        Nose gear $x$ pos & 0.272 \\
         \hline
-        Fuselage gear x pos & 2.570 \\
+        Fuselage gear $x$ pos & 2.570 \\
         \hline
-        Fuselage gear y pos & 0.231 \\
+        Fuselage gear $y$ pos & 0.231 \\
         \hline
         Height & 0.167 \\
         \hline
-    \end{tabularx}
+    \end{tabular}
 \end{table}
 
 In the detailed design stage, this initial estimate was used to determine if the landing gear could be housed within the main fuselage or whether it needed to be extended with pods to meet the main landing gear separation constraint. As the landing gear separation was wider than the fuselage diameter, it was determined HUGO would need pods to house the landing gear as well as a mechanism capable of extending the landing gear further outwards. 
@@ -675,7 +678,7 @@ Because the landing gear positioning was done for the idealized fuselage, it was
 \end{figure}
 
 
-A consent sketch of the landing gear mechanism can be seen in \autoref{fig:landing_gear_mechanisms}, with views of the front and rear gear in the deployed and retracted states. A telescopic linear actuator is used to deploy and retract the landing gear.
+A conceptual sketch of the landing gear mechanism can be seen in \autoref{fig:landing_gear_mechanisms}, with views of the front and rear gear in the deployed and retracted states. A telescopic linear actuator is used to deploy and retract the landing gear.
 
 \begin{figure}[H]
     \centering
@@ -770,24 +773,24 @@ Displacement and damping constraints will be applied to the state space model. I
 %     \label{fig:CK_tuning}
 % \end{figure}
 
-In \autoref{fig:CK_tuning} a 100 by 100 grid of C and K parameters on a logarithmic scale are analysed for a mass of 50 kg, and a downward velocity of 2 m/s; the highest expected load with the full mass on a single landing gear strut. The green area shows the feasible combinations of C and K that do not exceed the displacement or damping constraints. Then, values of C and K were manually tuned to minimise the total displacement. Through trial and error the values of C = 781.115 and K = 48168.2 were chosen.
+In \autoref{fig:CK_tuning} a 100 by 100 grid of C and K parameters on a logarithmic scale are analysed for a mass of 50 kg, and a downward velocity of 2 m/s; the highest expected load with the full mass on a single landing gear strut. The green area shows the feasible combinations of C and K that do not exceed the displacement or damping constraints. Then, values of C and K were manually tuned to minimise the total displacement. Through trial and error, the values of C = 781.115 and K = 48168.2 were chosen.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures_final/landing_gear_parameter_space.png}
+    \includegraphics[width=0.5\linewidth]{figures_final/Landing Gear/landing_gear_parameter_space.png}
     \caption{Parameter sweep of spring and dashpot constants}
     \label{fig:CK_tuning}
 \end{figure}
 
-\begin{comment}
-\begin{wrapfigure}[10]{r}{0.43\textwidth}
-    \centering
-    \vspace{-0.5cm}
-    \includegraphics[width=\linewidth]{figures_final/landing_gear_parameter_space.png}
-    \caption{Parameter sweep of spring and dashpot constants}
-    \label{fig:CK_tuning}
-\end{wrapfigure}
-\end{comment}
+
+% \begin{wrapfigure}[10]{r}{0.43\textwidth}
+%     \centering
+%     \vspace{-0.5cm}
+%     \includegraphics[width=\linewidth]{figures_final/Landing Gear/landing_gear_parameter_space.png}
+%     \caption{Parameter sweep of spring and dashpot constants}
+%     \label{fig:CK_tuning}
+% \end{wrapfigure}
+
 
 The landing gear response for a landing speed of 2m/s and 3m/s (2m/s * safety factor from SC-UAS High Risk \cite{easa_light_uas_crd_is3} \cite{EASA_SC_Light_UAS_High_Risk_2021}) is shown in \autoref{fig:lg_response}. For a landing speed of 2 m/s, the peak force was found to be 2.504 kN (pink), at a displacement of 4.54 cm (blue). Applying a safety factor of 1.5 to the peak force obtained gives 3.756 kN (black) which must be withstood by the structure and a displacement of 6.84cm (yellow). Because the velocity and maximum displacement are linearly proportional in a linear time-invariant system, this is equivalent to having simulated a downward velocity of 3 m/s.
 

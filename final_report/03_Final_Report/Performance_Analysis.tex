@@ -62,7 +62,7 @@ To obtain the fuel mass fraction, the lift-to-drag ratio $L/D$, the total propul
 
 The maximum lift-to-drag ratio is estimated by assuming a maximum endurance condition, taking the derivative of $C_L/C_D$, and setting it equal to zero. The total propulsion efficiency can be obtained from literature, as can the fuel energy density.
 
-With all required parameters known for each flight segment, the fuel fraction can be estimated by summing the fuel fractions of the individual segments. Consequently, the total fuel required for the standard planform is 6.884kg. To verify the implementation of the method, the fuel mass fraction of a test aircraft with an equivalent range to HUGO - using a single glide ratio and a fixed engine efficiency value - has been computed both using the method described above and the original equations from Vos \cite{Vos}.
+With all required parameters known for each flight segment, the fuel fraction can be estimated by summing the fuel fractions of the individual segments. Consequently, the total fuel required for the standard planform is 6.88 kg. To verify the implementation of the method, the fuel mass fraction of a test aircraft with an equivalent range to HUGO - using a single glide ratio and a fixed engine efficiency value - has been computed both using the method described above and the original equations from Vos \cite{Vos}.
 
 \section{Matching Diagram for Wing and Engine Sizing}
 \label{sec:climb_performance}
@@ -75,13 +75,11 @@ Next is the cruise speed constraint, as well as the requirement to provide suffi
 
 Additionally, climb performance is considered, with required rate-of-climb and climb gradients specified in CS-23 taken as the governing constraints. However, since no specific rate-of-climb requirement is defined for HUGO, this constraint is omitted. For the climb gradient requirements specified in the certification documents, the aircraft is often assumed to be in either take-off or landing configuration, with landing gear either extended or retracted. In configurations with deployed flaps and landing gear, the drag coefficient increases and the Oswald factor $e$ is affected. However, due to the replaceable wing requirement, HUGO cannot be designed assuming high-lift devices, meaning all constraints are evaluated for a clean wing configuration. As a result, only the landing gear position is considered. Since HUGO is equipped with retractable landing gear, the climb gradient constraints are evaluated in the gear-up configuration. The CS-23 specifies a climb gradient requirement for all engines operative (AEO) and one engine inoperative (OEI).
 
-Finally, the take-off field length constraint is included in the analysis. As with the climb performance evaluation, the effect of flaps is not considered, but the landing gear is deployed. Both the take-off and landing field length requirements are constrained by the available runway length at Den Helder Airport \footnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Den Helder - Information for pilots} (accessed on 22.05.2026)}. 
-
-All of the above-mentioned constraints are summarized in \autoref{tab: Matching diagram constraints}.
+Finally, the take-off field length constraint is included in the analysis. As with the climb performance evaluation, the effect of flaps is not considered, but the landing gear is deployed. Both the take-off and landing field length requirements are constrained by the available runway length at Den Helder Airport. A comprehensive summary of all the constraints is provided in \autoref{tab: Matching diagram constraints}.
 
 \begin{table}[h]
 \centering
-\caption{Matching diagram constraints. Climb gradients are expressed as ratios}
+\caption{Matching diagram constraints. Climb gradients are expressed as ratios \tablefootnote{\href{https://denhelderairport.nl/eng/information-for-pilots/}{Den Helder - Information for pilots} (accessed on 22.05.2026)}}
 \label{tab: Matching diagram constraints}
 \begin{tabular}
 {|c|c|c|c|c|c|}
@@ -98,7 +96,7 @@ All of the above-mentioned constraints are summarized in \autoref{tab: Matching 
     \hline
     HUG-CON-05 & Climb gradient AEO & 0.04 & up & 0 ft& 0\% \\
     \hline
-    HUG-CON-06 & Take-off field length & 1275 m & down & 0 ft & 0\% \\
+   % HUG-CON-06 & Take-off field length & 1275 m & down & 0 ft & 0\% \\
     \hline
     \end{tabular}
 \end{table}

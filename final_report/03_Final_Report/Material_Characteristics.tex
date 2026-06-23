@@ -64,9 +64,9 @@ The landing gear struts must be capable of resisting the high impact loads gener
  A high elastic modulus contributes to structural stiffness, while high yield and ultimate tensile strengths ensure that the material can sustain large stresses without permanent deformation or failure. 
 
 
-To evaluate the holistic influence of material selection on component design, a structural analysis of the landing gear strut was performed. The strut is subjected to landing loads comprising an axial load, derived from the aircraft's (HUGO) weight and landing load factor, and a transverse load resulting from braking deceleration. Based on the design landing load factor of 8 that the fuselage is designed for, as decided in \autoref{sub:landing_gear_design}, the design axial load was calculated as 1656 N per gear. Additionally, assuming a peak braking deceleration of 2g with a safety factor of 2, the design transverse load was determined to be 981 N. 
+To evaluate the overall impact of material selection on component design, a structural analysis of the landing gear strut was conducted. The strut is subjected to landing loads comprising an axial load, derived from the aircraft's (HUGO) weight and landing load factor, and a transverse load resulting from braking deceleration. Based on the design landing load factor of 8 that the fuselage is designed for, as decided in \autoref{sub:landing_gear_design}, the design axial load was calculated as 1656 N per gear. Additionally, assuming a peak braking deceleration of 2g with a safety factor of 2, the design transverse load was determined to be 981 N. 
 
-The structural integrity of the strut was assessed against yield failure - combining bending and axial compression - as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the methodology proposed by Megson \cite[p. 256]{megson2016aircraft} for a cantilever configuration.
+The structural integrity of the strut was assessed against yield failure, combining bending and axial compression, as well as Euler buckling. The maximum combined stress $\sigma_{max}$ and the critical buckling load $P_{cr}$ were analyzed using the methodology proposed by Megson \cite[p. 256]{megson2016aircraft} for a cantilever configuration.
 %where $K$ is the length factor determined by the boundary conditions ($K = 2.0$ for the cantilever configuration):
 
 \begin{comment}
@@ -86,9 +86,25 @@ Additionally, local shell buckling (skin crippling) under combined axial and ben
     \frac{(\sigma_c)_\text{total}}{(\sigma_c)_\text{allowable}} + \frac{(\sigma_b)_\text{total}}{(\sigma_b)_\text{allowable}} \le 1.0
 \end{equation}
 
-\begin{comment}
-The allowable local buckling stresses for pure axial compression ($\sigma_{c,all}$) and pure bending ($\sigma_{b,all}$) are given by:
+%\begin{comment}
+The allowable local buckling stresses for pure axial compression ($\sigma_{c,all}$) and pure bending ($\sigma_{b,all}$) are given by \autoref{eq:sigma_c} and \autoref{eq:sigma_b}.
 
+\noindent
+\begin{minipage}{0.48\textwidth}
+\begin{equation}
+\sigma_{c,all} = \frac{\gamma_c E}{\sqrt{3(1-\mu^2)}} \frac{t}{r}
+\label{eq:sigma_c}
+\end{equation}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{equation}
+\sigma_{b,all} = \frac{\gamma_b E}{\sqrt{3(1-\mu^2)}} \frac{t}{r}
+\label{eq:sigma_b}
+\end{equation}
+\end{minipage}
+
+\begin{comment}
 \begin{equation}
 \sigma_{c,all} = \frac{\gamma_c E}{\sqrt{3(1-\mu^2)}} \frac{t}{r}
 \end{equation}
@@ -96,9 +112,26 @@ The allowable local buckling stresses for pure axial compression ($\sigma_{c,all
 \begin{equation}
 \sigma_{b,all} = \frac{\gamma_b E}{\sqrt{3(1-\mu^2)}} \frac{t}{r}
 \end{equation}
+\end{comment}
 
-where $\mu$ is the Poisson's ratio, $r$ is the cylinder radius, and $\gamma_c$ and $\gamma_b$ are empirical knockdown factors accounting for manufacturing imperfections:
+Where the empirical knockdown factors  $\gamma_c$ and $\gamma_b$ account for manufacturing imperfections and are determined by \autoref{eq:gamma_c} and \autoref{eq:gamma_b}.
 
+\noindent
+\begin{minipage}{0.48\textwidth}
+\begin{equation}
+\gamma_c = 1 - 0.901(1 - e^{-\phi})
+\label{eq:gamma_c}
+\end{equation}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\begin{equation}
+\gamma_b = 1 - 0.731(1 - e^{-\phi})
+\label{eq:gamma_b}
+\end{equation}
+\end{minipage}
+
+\begin{comment}
 \begin{equation}
 \gamma_c = 1 - 0.901(1 - e^{-\phi})
 \end{equation}
@@ -106,13 +139,15 @@ where $\mu$ is the Poisson's ratio, $r$ is the cylinder radius, and $\gamma_c$ a
 \begin{equation}
 \gamma_b = 1 - 0.731(1 - e^{-\phi})
 \end{equation}
+\end{comment}
 
-The geometric parameter $\phi$ is defined as:
+The geometric parameter $\phi$ is computed using \autoref{eq:phi}.
 
 \begin{equation}
 \phi = \frac{1}{16}\sqrt{\frac{r}{t}}
+\label{eq:phi}
 \end{equation}
-\end{comment}
+%\end{comment}
 \begin{comment}
 \begin{equation}
 \label{eq:linear_interaction_envelope}
@@ -124,6 +159,8 @@ R_c + R_b \le 1.0
 The landing strut outer diameter $d_\text{outer}$, wall thickness $t$, and corresponding minimum mass $m$ values obtained from the analysis for Al 7075-T76 and Steel 18Ni(350) are summarized in \autoref{tab:strut_sizing}. It can be seen that although the steel struts result in a slightly higher mass than the other considered materials, their outer diameter is 51\% lower than aluminium and 27\% lower than titanium while providing a similar structural performance.
 
 %The results demonstrate that Aluminum 7075-T76 and Titanium yield the lightest strut designs capable of withstanding the prescribed loads, whereas the Steel 18Ni(350) design is slightly heavier. However, the steel design results in the strut with the lowest diameter.
+
+\todo[inline]{Section 11.1, the report leaves the very thin-walled values in Table 11.2 without discussing manufacturability and practical usage of this. The knock-down factors used for shell buckling were not reported, neither the equation.}
 
 \begin{table}[H]
     \centering
@@ -138,7 +175,9 @@ The landing strut outer diameter $d_\text{outer}$, wall thickness $t$, and corre
     \end{tabular}
 \end{table}
 
-In the case of the engine pylons, high temperatures related to the engine operation prove to be a key material selection factor. Notably, the degradation of material properties is governed by the homologous temperature, i.e. they scale with the ratio of the operating temperature ($T$) to the melting temperature ($T_m$) of the material. While the elastic modulus decreases linearly with this ratio, the rate of creep increases exponentially at elevated temperatures \cite[p.224]{ashby2019materials}. In HUGO's case, it can be expected that the outer nacelle temperatures during operation exceed $200^\circ\text{C}$ \footnote{In communication with JetCat}. Because structural aluminum alloys are generally restricted to a maximum service temperature of $150^\circ\text{C}$ before permanent strength loss occurs \cite[p.242]{ashby2019materials}, and based on the $T_m$ values listed in \autoref{tab:material_properties_metals}, it can be seen that Al 7075-T76 is not a feasible choice for the considered structure. An evaluation of recyclability of the steel and titanium alloys showed preference for the former.
+The optimized wall thicknesses presented in \autoref{tab:strut_sizing} range from 0.25 to 0.31 mm, which, while structurally sufficient under the load assumptions applied, are impractical from a manufacturing standpoint. To address this, a minimum wall thickness constraint of $t_{min}$ = 1 mm should be imposed \todo{not sure about the 1mm, asked Vaibhav}, and the strut sizing should be re-run with this constraint active. This will increase the strut mass but yield a design that is realistic for production.
+
+In the case of the engine pylons, high temperatures related to the engine operation prove to be a key material selection factor. Notably, the degradation of material properties is governed by the homologous temperature, i.e. they scale with the ratio of the operating temperature ($T$) to the melting temperature ($T_m$) of the material. While the elastic modulus decreases linearly with this ratio, the rate of creep increases exponentially at elevated temperatures \cite[p.224]{ashby2019materials}. In HUGO's case, it can be expected that the outer nacelle temperatures during operation exceed $200^\circ\text{C}$ \footnote{In communication with JetCat}. Because structural aluminum alloys are generally restricted to a maximum service temperature of $150^\circ\text{C}$ before permanent strength loss occurs \cite[p.242]{ashby2019materials}, it can be seen that Al 7075-T76 is not a feasible choice for the considered structure. An evaluation of the recyclability of the steel and titanium alloys showed a preference for the former.
 
 A fatigue analysis of 18Ni(350) steel proved that it is a suitable choice for the envisioned cyclic loading, particularly in case of the landing gear structure. As explained in \autoref{ch:operation_and_logistics}, each HUGO unit is expected to perform only four test flights per day for 20 days per year over a 15-year operational lifetime, resulting in approximately 1,200 flight cycles. Inspection of the S–N curve for 18Ni (350) maraging steel \cite{Rack1974FatigueMaraging} shows that the highest stress levels investigated correspond to a fatigue life of approximately 10$^4$ cycles. As HUGO is expected to experience only 1,200 operational cycles over its service life, fatigue failure is not expected to occur before end-of-life. A similar assessment can be made for Al 7075-T76, for which the highest tested stress levels correspond to fatigue lives exceeding 10$^5$ cycles \cite{Zalnezhad2012}, 
 %and for Ti-6Al-4V, whose S–N data indicate fatigue lives approaching 10$^4$ cycles at the highest stress amplitudes considered \cite{Janecek2015}.
@@ -172,17 +211,23 @@ An analysis of aerospace industry trends and comparable missions conducted in th
     \centering
     \caption{Mechanical properties of the prepreg candidates at room temperature, dry \footref{fn:hexply} \footref{fn:cycom} \footref{fn:mtm} \cite[p. 29]{Marlett2011Hexcel8552AS4PW}}
     \label{tab:prepreg_properties}
-    \begin{tabular}{|p{2.8cm}|p{1.6cm}|p{1.2cm}|p{1.9cm}|p{1.2cm}|p{1.2cm}|p{1.4cm}|p{1.4cm}|}
+    \begin{tabular}{|p{2.8cm}|p{1.6cm}|p{1.2cm}|p{1.9cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{1.4cm}|p{1.4cm}|}
         \hline
-        \textbf{Prepreg} & \textbf{$\sigma_{TS_0}/\sigma_{CS_0}$ [MPa]} & \textbf{$E_0$ [GPa]} & \textbf{$\sigma_{TS_{90}}/\sigma_{CS_{90}}$ [MPa]} & \textbf{$E_{90}$ [GPa]} &
-        \textbf{$G_{12}$ [GPa]} & \textbf{$\nu_{12}$ [-]} & \textbf{$\rho$ [g/cm$^3$]} \\\hline\hline
-        HexPly 8552 & 828/883 & 68 & 793/- & 66 & 4.97 & 0.046 & 1.56 \\\hline
-        CYCOM 5320-1 & 905/750 & 69 & 896/762 & 68.26 & 5.58 & 0.048 & 1.57 \\\hline
-        MTM45-1 & 904/644 & 63.50 & 858/594 & 60.9 & 3.70 & $\approx0.046$ & 1.51 \\
+        \textbf{Prepreg} & \textbf{$\sigma_{TS_0}/\sigma_{CS_0}$ [MPa]} & \textbf{$E_0$ [GPa]} &
+        \textbf{$\sigma_{TS_{90}}/\sigma_{CS_{90}}$ [MPa]} & \textbf{$E_{90}$ [GPa]} &
+        \textbf{$\tau_{12}$ [MPa]} &
+        \textbf{$G_{12}$ [GPa]} &
+        \textbf{$\nu_{12}$ [-]} &
+        \textbf{$\rho$ [g/cm$^3$]} \\\hline\hline
+
+        HexPly 8552 & 828/883 & 68 & 793/705 \tablefootnote{\href{https://www.wichita.edu/industry_and_defense/NIAR/Documents/NMS-128-slash-4-Rev-A-Hexcel-8552-AS4-3K-8HS-3.16.2022.pdf}{Hexcel 8552S AS4 Plain Weave Fabric Detail Spec} (accessed on 23.06.2026)} & 66 & 37.4 \tablefootnote{\href{https://www.wichita.edu/industry_and_defense/NIAR/Research/hexcel-8552/AS4-PW-2.pdf}{https://www.wichita.edu/industry_and_defense/NIAR/Research/hexcel-8552/AS4-PW-2.pdf} (23.06.2026)} & 4.97 & 0.046 & 1.56 \\\hline
+
+        CYCOM 5320-1 & 905/750 & 69 & 896/762 & 68.26 & 57 & 5.58 & 0.048 & 1.57 \\\hline
+
+        MTM45-1 & 904/644 & 63.50 & 858/594 & 60.9 & 68.6 & 3.70 & $\approx0.046$ & 1.51 \\
         \hline
     \end{tabular}
 \end{table}
-
 
 
 %In particular, the HexPly 8552 woven carbon prepreg was considered due to its established use in primary aerospace structures and its excellent mechanical properties \footnote{\label{fn:hexply}\href{https://www.hexcel.com/wp-content/uploads/2025/12/HexPly_8552_eu_DataSheet1.pdf}{HexPly 8552} (accessed on 02.06.2026)}. CYCOM 5320-1 was also selected as a candidate material because of its application in UAV and drone structures \footnote{\href{https://www.syensqo.com/en/product/cycom-5320-1}{CYCOM 5320-1 Applications} (accessed on 05.06.2026)}, as well as its design for out-of-autoclave (OOA) and vacuum-bag-only (VBO) manufacturing processes. Additionally, its processing characteristics are optimized for honeycomb sandwich parts \footnote{\label{fn:cycom}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cycom5320_8hs.pdf}{CYCOM 5320-1} (accessed on 05.06.2026)}. The third option, the MTM45-1 prepreg system, was included due to its flexibility in supporting both autoclave and OOA/VBO processing, as well as offering potential weight savings through its lower density \footnote{\label{fn:mtm}\href{https://cstjmateriauxcomposites.wordpress.com/wp-content/uploads/2017/11/cytec_mtm45-1_resine_epoxyde.pdf}{MTM45-1} (accessed on 05.06.2026)}.
@@ -440,18 +485,18 @@ Following inspection, the honeycomb core is placed onto the outer skin with a la
     \begin{subfigure}{0.48\linewidth}
         \centering
         \includegraphics[width=1.2\linewidth]{figures_final/moulds.jpg}
-        \caption{Moulds}
+        \caption{Mould halves used for assembly and co-bond curing of the sandwich fuselage structure}
         \label{fig:moulds}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\linewidth}
         \centering
         \includegraphics[width=0.7\linewidth]{figures_final/joint.jpg}
-        \caption{Joints}
+        \caption{Schematic of the bonded interfaces between the honeycomb core and composite skins}
         \label{fig:joints}
     \end{subfigure}
     
-    \caption{Moulds and joints}
+    \caption{Assembly tooling and bond interfaces for the co-bonded sandwich fuselage structure}
     \label{fig:moulds_joint}
 \end{figure}
 
@@ -521,6 +566,9 @@ In contrast, pin joints are implemented at locations requiring controlled relati
 
 Welding is excluded from the design due to its potential to alter the microstructure of high-strength steel alloys, which can result in reduced mechanical performance and compromised fatigue resistance.
 
+
+\subsection{Wing fuselage connection}
+\label{sub:lWingfuselageconnection} As mentioned in \autoref{sub:SensorConfigurations} four load-cells would act as the structural link between the fuselage and the wing. The load-cell would be mounted to the fuselage using three M5 screws. Then using six M5 bolts the wing is bolted on top of the load cells. This connection can be seen as a clamped connection. 
 
 \section{Integration}
 \label{sec:integration}
